@@ -6,14 +6,13 @@
 Welcome to Caleb Sargeant's documentation!
 ==========================================
 
+A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   :titlesonly:
-   :glob:
-   :hidden:
 
-   docker
+   containerization
 
 
 
