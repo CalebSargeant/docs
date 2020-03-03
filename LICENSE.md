@@ -1,5 +1,4 @@
-The MIT License
----------------
+#License
 
 Copyright (c) 2020 Caleb Sargeant
 
