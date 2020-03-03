@@ -6,9 +6,22 @@
 Welcome to Caleb Sargeant's Notes's documentation!
 ==================================================
 
+
+Test header
+===========
+
+Test text::
+    print 'hello'
+    >> hello
+
+Test
+^^^^
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   license
 
 
 
