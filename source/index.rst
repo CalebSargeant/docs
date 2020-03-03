@@ -9,7 +9,6 @@ Welcome to Caleb Sargeant's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   :numbered:
    :titlesonly:
    :glob:
    :hidden:
