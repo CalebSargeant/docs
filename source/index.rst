@@ -9,12 +9,18 @@ Welcome to Caleb Sargeant's documentation!
 A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+  :maxdepth: 1
+  :caption: Cisco
+  :name: cisco
 
-   containerization
+  cisco/index
 
+.. toctree::
+  :maxdepth: 1
+  :caption: Linux
+  :name: linux
 
+  linux/index
 
 Indices and tables
 ==================
