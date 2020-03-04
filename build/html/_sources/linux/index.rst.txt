@@ -3,8 +3,7 @@ Linux
 #####
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
+  :glob:
 
-  ansible
-  containerization
-  storage
+  *
