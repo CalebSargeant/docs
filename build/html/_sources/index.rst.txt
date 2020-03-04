@@ -10,15 +10,13 @@ A place for all of my technical how-to guides, documentation, study notes, rando
 
 .. toctree::
   :maxdepth: 1
-  :caption: Cisco
-  :name: cisco
+  :caption: Networking
 
   cisco/index
 
 .. toctree::
   :maxdepth: 1
-  :caption: Linux
-  :name: linux
+  :caption: Computing
 
   linux/index
 
