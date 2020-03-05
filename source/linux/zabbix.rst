@@ -50,6 +50,12 @@ Create the *Media Type* in Zabbix.
 
 Create an *Action* and an *Operation* in *Operations*, *Recovery operations*, and *Update operations*.
 
+Nice *Default subjects* to use:
+
+* ``[{HOST.HOST}] Problem: {EVENT.NAME}``
+* ``[{HOST.HOST}] Resolved: {EVENT.NAME}``
+* ``[{HOST.HOST}] Updated problem: {EVENT.NAME} - {USER.FULLNAME}``
+
 .. image:: _images/zabbix-slack-6.png
     :width: 663px
     :align: center

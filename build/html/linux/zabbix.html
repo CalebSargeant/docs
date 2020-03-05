@@ -192,6 +192,12 @@
 <p>Create the <em>Media Type</em> in Zabbix.</p>
 <a class="reference internal image-reference" href="../_images/zabbix-slack-1.png"><img alt="../_images/zabbix-slack-1.png" class="align-center" src="../_images/zabbix-slack-1.png" style="width: 663px; height: 424px;" /></a>
 <p>Create an <em>Action</em> and an <em>Operation</em> in <em>Operations</em>, <em>Recovery operations</em>, and <em>Update operations</em>.</p>
+<p>Nice <em>Default subjects</em> to use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[{HOST.HOST}]</span> <span class="pre">Problem:</span> <span class="pre">{EVENT.NAME}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[{HOST.HOST}]</span> <span class="pre">Resolved:</span> <span class="pre">{EVENT.NAME}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[{HOST.HOST}]</span> <span class="pre">Updated</span> <span class="pre">problem:</span> <span class="pre">{EVENT.NAME}</span> <span class="pre">-</span> <span class="pre">{USER.FULLNAME}</span></code></p></li>
+</ul>
 <a class="reference internal image-reference" href="../_images/zabbix-slack-6.png"><img alt="../_images/zabbix-slack-6.png" class="align-center" src="../_images/zabbix-slack-6.png" style="width: 663px; height: 424px;" /></a>
 <a class="reference internal image-reference" href="../_images/zabbix-slack-7.png"><img alt="../_images/zabbix-slack-7.png" class="align-center" src="../_images/zabbix-slack-7.png" style="width: 663px; height: 424px;" /></a>
 <p>Add the <em>Media</em> to the Administrator.</p>
