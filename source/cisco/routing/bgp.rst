@@ -269,6 +269,7 @@ BGP Neighbour Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Two ways to get networks in BGP:
+
   * ``network`` command
   * Redistribution
 

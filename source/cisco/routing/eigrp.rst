@@ -81,7 +81,7 @@ Basic Configuration
 
 **BB Router**
 
-.. code-block::
+.. code-block:: none
 
   BB#conf t
   BB(config)#int s1/0
@@ -115,7 +115,7 @@ Basic Configuration
 
 **R2 Router**
 
-.. code-block::
+.. code-block:: none
 
   R2#conf t
   R2(config)#int s1/0
@@ -137,7 +137,7 @@ Basic Configuration
 
 **R3 Router**
 
-.. code-block::
+.. code-block:: none
 
   R3#conf t
   R3(config)#int s1/0
@@ -219,7 +219,7 @@ Query Swarm Resolutions
 Configuring Stubs
 ^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#router eigrp1
   R1(config-router)#eigrp stub
