@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Microsoft &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>LACP &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Robocopy" href="robocopy.html" />
-    <link rel="prev" title="Virtualenv" href="../linux/virtualenv.html" /> 
+    <link rel="next" title="Storage" href="storage.html" />
+    <link rel="prev" title="Containerization" href="containerization.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,16 +84,21 @@
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Microsoft</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containerization.html">Containerization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LACP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
 
             
@@ -139,13 +144,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Microsoft</li>
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>LACP</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/microsoft/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/lacp.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,20 +165,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="microsoft">
-<h1>Microsoft<a class="headerlink" href="#microsoft" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/terminal-services.html">Terminal Services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="server-2008-r2/terminal-services.html#add-a-ts-to-ts-license-server">Add a TS to TS License Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server-2008-r2/terminal-services.html#add-ts-to-tsbroker-farm">Add TS to TSBroker Farm</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="lacp">
+<h1>LACP<a class="headerlink" href="#lacp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ubuntu">
+<h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get upgrade -y
+sudo service networking stop
+sudo nano /etc/network/interfaces
+
+<span class="c1">#/etc/network/interfaces</span>
+auto lo
+iface lo inet loopback
+
+iface eno1 inet manual
+bond-master bond0
+
+iface eno2 inet manual
+bond-master bond0
+
+auto bond0
+iface bond0 inet manual
+bond-mode <span class="m">4</span>
+bond-miimon <span class="m">100</span>
+bond-lacp rate <span class="m">1</span>
+bond-slaves none
+
+auto br0
+iface br0 inet static
+address <span class="m">10</span>.0.0.253
+gateway <span class="m">10</span>.0.0.1
+netmask <span class="m">255</span>.255.255.0
+bridge-ports bond0
+bridge-stp off
+bridge-fd <span class="m">0</span>
+bridge-maxwait <span class="m">0</span>
+<span class="c1">#</span>
+
+sudo service networking start
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -183,10 +215,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="robocopy.html" class="btn btn-neutral float-right" title="Robocopy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="storage.html" class="btn btn-neutral float-right" title="Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../linux/virtualenv.html" class="btn btn-neutral float-left" title="Virtualenv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="containerization.html" class="btn btn-neutral float-left" title="Containerization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

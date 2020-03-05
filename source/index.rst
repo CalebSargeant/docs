@@ -13,6 +13,7 @@ A place for all of my technical how-to guides, documentation, study notes, rando
   :caption: Networking
 
   cisco/index
+  ubiquiti/index
 
 .. toctree::
   :maxdepth: 1

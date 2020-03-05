@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Microsoft &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Desktop &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Robocopy" href="robocopy.html" />
-    <link rel="prev" title="Virtualenv" href="../linux/virtualenv.html" /> 
+    <link rel="prev" title="Microsoft" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +89,11 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Microsoft</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Desktop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remove-printer-driver-completely">Remove Printer Driver Completely</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a></li>
 </ul>
@@ -139,13 +143,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Microsoft</li>
+          <li><a href="index.html">Microsoft</a> &raquo;</li>
+        
+      <li>Desktop</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/microsoft/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/microsoft/desktop.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,19 +164,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="microsoft">
-<h1>Microsoft<a class="headerlink" href="#microsoft" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/terminal-services.html">Terminal Services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="server-2008-r2/terminal-services.html#add-a-ts-to-ts-license-server">Add a TS to TS License Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="server-2008-r2/terminal-services.html#add-ts-to-tsbroker-farm">Add TS to TSBroker Farm</a></li>
-</ul>
-</li>
-</ul>
-</li>
+  <div class="section" id="desktop">
+<h1>Desktop<a class="headerlink" href="#desktop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="remove-printer-driver-completely">
+<h2>Remove Printer Driver Completely<a class="headerlink" href="#remove-printer-driver-completely" title="Permalink to this headline">¶</a></h2>
+<p>Run CMD as admin
+<code class="docutils literal notranslate"><span class="pre">printui</span> <span class="pre">/s</span> <span class="pre">/t2</span></code></p>
+<p>If the above doesn’t work:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">services.msc</span></code></p></li>
+<li><p>Stop Print Spooler Service</p></li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">C:\Windows\System32\spool\Printers</span></code></p></li>
+<li><p>Delete everything in the folder</p></li>
+<li><p>Start Print Spooler Service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printui</span> <span class="pre">/s</span> <span class="pre">/t2</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -186,7 +193,7 @@
         <a href="robocopy.html" class="btn btn-neutral float-right" title="Robocopy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../linux/virtualenv.html" class="btn btn-neutral float-left" title="Virtualenv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Microsoft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
