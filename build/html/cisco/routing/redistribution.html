@@ -85,6 +85,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Routing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bgp.html">BGP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="eigrp.html">EIGRP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ospf.html">OSPF</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Redistribution</a><ul>
@@ -103,7 +104,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../windows/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../microsoft/index.html">Microsoft</a></li>
 </ul>
 
             
@@ -206,87 +207,87 @@
 <p><a class="reference download internal" download="" href="../../_downloads/4aaf4fb88e137434813bbc6273185981/redistribution-basic-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/redistribution-basic-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/redistribution-basic-configuration.png"><img alt="../../_images/redistribution-basic-configuration.png" class="align-center" src="../../_images/redistribution-basic-configuration.png" style="width: 744px; height: 206px;" /></a>
 <p><strong>Router R1</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.0.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.0.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo1</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.1.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo2</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.2.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo3</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.3.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo4</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.4.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo5</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.5.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo6</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.6.1 255.255.255.0</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#router eigrp 100
+R1(config-router)#network 10.0.0.0
+R1(config-router)#no auto
+R1(config-router)#int s1/0
+R1(config-if)#ip add 10.1.12.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#int lo0
+R1(config-if)#ip add 10.1.0.1 255.255.255.0
+R1(config-if)#int lo1
+R1(config-if)#ip add 10.1.1.1 255.255.255.0
+R1(config-if)#int lo2
+R1(config-if)#ip add 10.1.2.1 255.255.255.0
+R1(config-if)#int lo3
+R1(config-if)#ip add 10.1.3.1 255.255.255.0
+R1(config-if)#int lo4
+R1(config-if)#ip add 10.1.4.1 255.255.255.0
+R1(config-if)#int lo5
+R1(config-if)#ip add 10.1.5.1 255.255.255.0
+R1(config-if)#int lo6
+R1(config-if)#ip add 10.1.6.1 255.255.255.0
 </pre></div>
 </div>
 <p><strong>Router R2</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.12.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.23.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.23.0 0.0.0.255 area 0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute eigrp 100 subnets</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute ospf 1 metric 100 100 100 100 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.1.1.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.1.3.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.1.5.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#distribute-list 1 out</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#ip prefix-list CALEB permit</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#ip prefix-list CALEB permit 10.0.0.0/8 le 24</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map FILTER_OSPF_TO_EIGRP</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match ip address prefix-list CALEB</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute ospf 1 metric 100 100 100 100 100 route-map FILTER_OSPF_TO_EIGRP</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#router eigrp 100
+R2(config-router)#no auto
+R2(config-router)#net 10.1.12.0 0.0.0.255
+R2(config-router)#int s1/0
+R2(config-if)#ip add 10.1.12.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/1
+R2(config-if)#ip add 10.1.23.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#net 10.1.23.0 0.0.0.255 area 0
+R2(config)#router ospf 1
+R2(config-router)#redistribute eigrp 100 subnets
+R2(config-router)#router eigrp 100
+R2(config-router)#redistribute ospf 1 metric 100 100 100 100 100
+R2(config-router)#access-list 1 permit 10.1.1.0 0.0.0.255
+R2(config)#access-list 1 permit 10.1.3.0 0.0.0.255
+R2(config)#access-list 1 permit 10.1.5.0 0.0.0.255
+R2(config)#router ospf 1
+R2(config-router)#distribute-list 1 out
+R2(config)#ip prefix-list CALEB permit
+R2(config)#ip prefix-list CALEB permit 10.0.0.0/8 le 24
+R2(config)#route-map FILTER_OSPF_TO_EIGRP
+R2(config-route-map)#match ip address prefix-list CALEB
+R2(config-route-map)#router eigrp 100
+R2(config-router)#redistribute ospf 1 metric 100 100 100 100 100 route-map FILTER_OSPF_TO_EIGRP
 </pre></div>
 </div>
 <p><strong>Router R3</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.0.0.0 0.255.255.255 area 0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.23.3 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.7.1 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.8.1 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo2</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.9.1 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo3</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.10.1 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo4</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.11.1 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo5</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.1 255.255.255.252</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo6</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.1 255.255.255.252</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo7</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.9 255.255.255.252</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#router ospf 1
+R3(config-router)#net 10.0.0.0 0.255.255.255 area 0
+R3(config-router)#int s1/0
+R3(config-if)#ip add 10.1.23.3 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#int lo0
+R3(config-if)#ip add 10.1.7.1 255.255.255.0
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo1
+R3(config-if)#ip add 10.1.8.1 255.255.255.0
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo2
+R3(config-if)#ip add 10.1.9.1 255.255.255.0
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo3
+R3(config-if)#ip add 10.1.10.1 255.255.255.0
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo4
+R3(config-if)#ip add 10.1.11.1 255.255.255.0
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo5
+R3(config-if)#ip add 10.1.12.1 255.255.255.252
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo6
+R3(config-if)#ip add 10.1.12.1 255.255.255.252
+R3(config-if)#ip ospf network point-to-point
+R3(config-if)#int lo7
+R3(config-if)#ip add 10.1.12.9 255.255.255.252
+R3(config-if)#ip ospf network point-to-point
 </pre></div>
 </div>
 </div>
@@ -295,136 +296,136 @@
 <p><a class="reference download internal" download="" href="../../_downloads/a04155f94efe63a9b70ec132a19cd37f/redistribution-advanced-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/redistribution-advanced-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/redistribution-advanced-configuration.png"><img alt="../../_images/redistribution-advanced-configuration.png" class="align-center" src="../../_images/redistribution-advanced-configuration.png" style="width: 562px; height: 447px;" /></a>
 <p><strong>Router R1</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.0.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/1</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.13.1 255.255.255.0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.0.0.0 0.255.255.255 area 0</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#end</span>
-<span class="n">R1</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int lo0
+R1(config-if)#ip add 10.1.0.1 255.255.255.0
+R1(config-if)#int s1/0
+R1(config-if)#ip add 10.1.12.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#int s1/1
+R1(config-if)#ip add 10.1.13.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#router ospf 1
+R1(config-router)#net 10.0.0.0 0.255.255.255 area 0
+R1(config-router)#end
+R1#wr
 </pre></div>
 </div>
 <p><strong>Router R2</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.24.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.23.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/2</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.12.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.12.0 0.0.0.255 area 0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.24.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.23.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.4.0.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.4.1.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 2 permit 10.4.2.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 2 permit 10.4.3.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 3 permit 10.4.4.0 0.0.0.255</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match ip add 1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set metric 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set tag 10</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF permit 20</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># match ip address 2</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 200</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 20</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF deny 30</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match ip address 3</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 300</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 30</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF permit 40</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 300</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 30</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute eigrp 100 subnets route-map EIGRP-TO-OSPF</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map OSPF-TO-EIGRP</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set metric 400 20 255 1 1500</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set tag 40</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute ospf 1 route-map OSPF-TO-EIGRP</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF deny 5</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match tag 40</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map OSPF-TO-EIGRP deny 5</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match tag 10 20 30</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#distance eigrp 90 105</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#end</span>
-<span class="n">R2</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int s1/0
+R2(config-if)#ip add 10.1.24.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/1
+R2(config-if)#ip add 10.1.23.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/2
+R2(config-if)#ip add 10.1.12.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#net 10.1.12.0 0.0.0.255 area 0
+R2(config-router)#router eigrp 100
+R2(config-router)#net 10.1.24.0 0.0.0.255
+R2(config-router)#no auto
+R2(config-router)#net 10.1.23.0 0.0.0.255
+R2(config)#access-list 1 permit 10.4.0.0 0.0.0.255
+R2(config)#access-list 1 permit 10.4.1.0 0.0.0.255
+R2(config)#access-list 2 permit 10.4.2.0 0.0.0.255
+R2(config)#access-list 2 permit 10.4.3.0 0.0.0.255
+R2(config)#access-list 3 permit 10.4.4.0 0.0.0.255
+R2(config)#route-map EIGRP-TO-OSPF
+R2(config-route-map)#match ip add 1
+R2(config-route-map)#set metric 100
+R2(config-route-map)#set tag 10
+R2(config)#route-map EIGRP-TO-OSPF permit 20
+R2(config-route-map)# match ip address 2
+R2(config-route-map)# set metric 200
+R2(config-route-map)# set tag 20
+R2(config-route-map)#route-map EIGRP-TO-OSPF deny 30
+R2(config-route-map)#match ip address 3
+R2(config-route-map)# set metric 300
+R2(config-route-map)# set tag 30
+R2(config-route-map)#route-map EIGRP-TO-OSPF permit 40
+R2(config-route-map)# set metric 300
+R2(config-route-map)# set tag 30
+R2(config-router)#redistribute eigrp 100 subnets route-map EIGRP-TO-OSPF
+R2(config)#route-map OSPF-TO-EIGRP
+R2(config-route-map)#set metric 400 20 255 1 1500
+R2(config-route-map)#set tag 40
+R2(config)#router eigrp 100
+R2(config-router)#redistribute ospf 1 route-map OSPF-TO-EIGRP
+R2(config)#route-map EIGRP-TO-OSPF deny 5
+R2(config-route-map)#match tag 40
+R2(config)#route-map OSPF-TO-EIGRP deny 5
+R2(config-route-map)#match tag 10 20 30
+R2(config)#router eigrp 100
+R2(config-router)#distance eigrp 90 105
+R2(config-router)#end
+R2#wr
 </pre></div>
 </div>
 <p><strong>Router R3</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.13.3 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.23.3 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.13.0 0.0.0.255 area 0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.1.23.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF permit 10</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># match ip address 1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 100</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 10</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF permit 20</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># match ip address 2</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 200</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 20</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF deny 30</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># match ip address 3</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 300</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 30</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF permit 40</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set metric 300</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1"># set tag 30</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#router ospf 1</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute eigrp 100 subnets route-map EIGRP-TO-OSPF</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.4.0.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 1 permit 10.4.1.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 2 permit 10.4.2.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 2 permit 10.4.3.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#access-list 3 permit 10.4.4.0 0.0.0.255</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map OSPF-TO-EIGRP permit 10</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set metric 400 20 255 1 1500</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#set tag 40</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#redistribute ospf 1 route-map OSPF-TO-EIGRP</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#exit</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map EIGRP-TO-OSPF deny 5</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match tag 40</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#exit</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#route-map OSPF-TO-EIGRP deny 5</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#match tag 10 20 30</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">route</span><span class="o">-</span><span class="nb">map</span><span class="p">)</span><span class="c1">#do wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#int s1/0
+R3(config-if)#ip add 10.1.13.3 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#int s1/1
+R3(config-if)#ip add 10.1.23.3 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#router ospf 1
+R3(config-router)#net 10.1.13.0 0.0.0.255 area 0
+R3(config-router)#router eigrp 100
+R3(config-router)#net 10.1.23.0 0.0.0.255
+R3(config-router)#no auto
+R3(config)#route-map EIGRP-TO-OSPF permit 10
+R3(config-route-map)# match ip address 1
+R3(config-route-map)# set metric 100
+R3(config-route-map)# set tag 10
+R3(config-route-map)#route-map EIGRP-TO-OSPF permit 20
+R3(config-route-map)# match ip address 2
+R3(config-route-map)# set metric 200
+R3(config-route-map)# set tag 20
+R3(config-route-map)#route-map EIGRP-TO-OSPF deny 30
+R3(config-route-map)# match ip address 3
+R3(config-route-map)# set metric 300
+R3(config-route-map)# set tag 30
+R3(config-route-map)#route-map EIGRP-TO-OSPF permit 40
+R3(config-route-map)# set metric 300
+R3(config-route-map)# set tag 30
+R3(config-route-map)#router ospf 1
+R3(config-router)#redistribute eigrp 100 subnets route-map EIGRP-TO-OSPF
+R3(config-router)#access-list 1 permit 10.4.0.0 0.0.0.255
+R3(config)#access-list 1 permit 10.4.1.0 0.0.0.255
+R3(config)#access-list 2 permit 10.4.2.0 0.0.0.255
+R3(config)#access-list 2 permit 10.4.3.0 0.0.0.255
+R3(config)#access-list 3 permit 10.4.4.0 0.0.0.255
+R3(config)#route-map OSPF-TO-EIGRP permit 10
+R3(config-route-map)#set metric 400 20 255 1 1500
+R3(config-route-map)#set tag 40
+R3(config-route-map)#router eigrp 100
+R3(config-router)#redistribute ospf 1 route-map OSPF-TO-EIGRP
+R3(config-router)#exit
+R3(config)#route-map EIGRP-TO-OSPF deny 5
+R3(config-route-map)#match tag 40
+R3(config-route-map)#exit
+R3(config)#route-map OSPF-TO-EIGRP deny 5
+R3(config-route-map)#match tag 10 20 30
+R3(config-route-map)#do wr
 </pre></div>
 </div>
 <p><strong>Router R4</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.4.0.1 255.255.255.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo1</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.4.1.1 255.255.255.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo2</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.4.2.1 255.255.255.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo3</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.4.3.1 255.255.255.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.24.4 255.255.255.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router eigrp 100</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#net 10.0.0.0</span>
-<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R4</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int lo0
+R4(config-if)#ip add 10.4.0.1 255.255.255.0
+R4(config-if)#int lo1
+R4(config-if)#ip add 10.4.1.1 255.255.255.0
+R4(config-if)#int lo2
+R4(config-if)#ip add 10.4.2.1 255.255.255.0
+R4(config-if)#int lo3
+R4(config-if)#ip add 10.4.3.1 255.255.255.0
+R4(config-if)#int s1/0
+R4(config-if)#ip add 10.1.24.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#router eigrp 100
+R4(config-router)#net 10.0.0.0
+R4(config-router)#no auto
+R4#wr
 </pre></div>
 </div>
 </div>

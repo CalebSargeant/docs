@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="OSPF" href="ospf.html" />
-    <link rel="prev" title="Routing" href="index.html" /> 
+    <link rel="prev" title="BGP" href="bgp.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,6 +85,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Routing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bgp.html">BGP</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">EIGRP</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#concepts-and-planning">Concepts and Planning</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#basic-configuration">Basic Configuration</a></li>
@@ -93,6 +94,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redistribution.html">Redistribution</a></li>
 </ul>
 </li>
 </ul>
@@ -101,7 +103,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../windows/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../microsoft/index.html">Microsoft</a></li>
 </ul>
 
             
@@ -249,71 +251,71 @@
 <p><a class="reference download internal" download="" href="../../_downloads/f7354789115c4b97a8d5e6a0715ec678/eigrp-basic-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/eigrp-basic-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../_images/eigrp-basic-configuration.png"><img alt="EIGRP Basic Configuration" class="align-center" src="../../_images/eigrp-basic-configuration.png" style="width: 611px; height: 328px;" /></a>
 <p><strong>BB Router</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BB</span><span class="c1">#conf t</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.24.1 255.255.255.252</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#band 256</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int s1/1</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.34.1 255.255.255.252</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#band 128</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo1</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 172.30.0.1 255.255.255.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo2</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 172.30.1.1 255.255.255.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int lo3</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 172.30.2.1 255.255.255.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp 90</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface default</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface s1/0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface s1/1</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#variance 2</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.2.1 0.0.0.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.24.1 0.0.0.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.34.1 0.0.0.0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 172.30.0.0 0.0.3.255</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 192.168.1.0 0.0.0.255</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto-summary</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#ip route 192.168.1.0 255.255.255.0 null0</span>
-<span class="n">BB</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#ip default-network 192.168.1.0</span>
-<span class="n">BB</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BB#conf t
+BB(config)#int s1/0
+BB(config-if)#ip add 10.1.24.1 255.255.255.252
+BB(config-if)#band 256
+BB(config-if)#no shut
+BB(config-if)#int s1/1
+BB(config-if)#ip add 10.1.34.1 255.255.255.252
+BB(config-if)#band 128
+BB(config-if)#no shut
+BB(config-if)#int lo1
+BB(config-if)#ip add 172.30.0.1 255.255.255.0
+BB(config-if)#int lo2
+BB(config-if)#ip add 172.30.1.1 255.255.255.0
+BB(config-if)#int lo3
+BB(config-if)#ip add 172.30.2.1 255.255.255.0
+BB(config)#router eigrp 90
+BB(config-router)#passive-interface default
+BB(config-router)#no passive-interface s1/0
+BB(config-router)#no passive-interface s1/1
+BB(config-router)#variance 2
+BB(config-router)#network 10.1.2.1 0.0.0.0
+BB(config-router)#network 10.1.24.1 0.0.0.0
+BB(config-router)#network 10.1.34.1 0.0.0.0
+BB(config-router)#network 172.30.0.0 0.0.3.255
+BB(config-router)#network 192.168.1.0 0.0.0.255
+BB(config-router)#no auto-summary
+BB(config)#ip route 192.168.1.0 255.255.255.0 null0
+BB(config)#ip default-network 192.168.1.0
+BB#wr
 </pre></div>
 </div>
 <p><strong>R2 Router</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="c1">#conf t</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.24.2 255.255.255.252</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#band 256</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int f0/0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.2.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int f0/1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.25.2 255.255.255.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router eigrp 90</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface f0/1</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.2.2 0.0.0.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.24.2 0.0.0.0</span>
-<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto-summary</span>
-<span class="n">R2</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2#conf t
+R2(config)#int s1/0
+R2(config-if)#ip add 10.1.24.2 255.255.255.252
+R2(config-if)#band 256
+R2(config-if)#no shut
+R2(config-if)#int f0/0
+R2(config-if)#ip add 10.1.2.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int f0/1
+R2(config-if)#ip add 10.1.25.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router eigrp 90
+R2(config-router)#passive-interface f0/1
+R2(config-router)#network 10.1.2.2 0.0.0.0
+R2(config-router)#network 10.1.24.2 0.0.0.0
+R2(config-router)#no auto-summary
+R2#wr
 </pre></div>
 </div>
 <p><strong>R3 Router</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="c1">#conf t</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int s1/0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.34.2 255.255.255.252</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#band 128</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int f0/0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 10.1.2.3 255.255.255.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#router eigrp 90</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.2.3 0.0.0.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.1.34.2 0.0.0.0</span>
-<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no auto</span>
-<span class="n">R3</span><span class="c1">#wr</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3#conf t
+R3(config)#int s1/0
+R3(config-if)#ip add 10.1.34.2 255.255.255.252
+R3(config-if)#band 128
+R3(config-if)#no shut
+R3(config-if)#int f0/0
+R3(config-if)#ip add 10.1.2.3 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#router eigrp 90
+R3(config-router)#network 10.1.2.3 0.0.0.0
+R3(config-router)#network 10.1.34.2 0.0.0.0
+R3(config-router)#no auto
+R3#wr
 </pre></div>
 </div>
 </div>
@@ -379,10 +381,10 @@
 </div>
 <div class="section" id="configuring-stubs">
 <h3>Configuring Stubs<a class="headerlink" href="#configuring-stubs" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#router eigrp1</span>
-<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#eigrp stub</span>
-     <span class="n">connected</span> <span class="ow">and</span> <span class="n">summary</span> <span class="n">by</span> <span class="n">default</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">recommended</span> <span class="p">(</span><span class="n">used</span> <span class="mi">99</span><span class="o">%</span> <span class="n">of</span> <span class="n">time</span><span class="p">)</span>
-     <span class="n">eigrp</span> <span class="n">stub</span> <span class="n">receive</span><span class="o">-</span><span class="n">only</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">ultimate</span> <span class="n">stub</span> <span class="p">(</span><span class="n">similar</span> <span class="n">to</span> <span class="n">passive</span><span class="o">-</span><span class="n">interface</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#router eigrp1
+R1(config-router)#eigrp stub
+     connected and summary by default, which is recommended (used 99% of time)
+     eigrp stub receive-only is the ultimate stub (similar to passive-interface)
 </pre></div>
 </div>
 </div>
@@ -400,7 +402,7 @@
         <a href="ospf.html" class="btn btn-neutral float-right" title="OSPF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bgp.html" class="btn btn-neutral float-left" title="BGP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

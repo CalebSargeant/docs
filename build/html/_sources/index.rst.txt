@@ -19,7 +19,7 @@ A place for all of my technical how-to guides, documentation, study notes, rando
   :caption: Computing
 
   linux/index
-  windows/index
+  microsoft/index
 
 Indices and tables
 ==================

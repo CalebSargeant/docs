@@ -164,7 +164,7 @@ Basic OSPF Configuration
 
 **Router 1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int g0/0
   R1(config-if)#ip add 172.30.0.1 255.255.255.0
@@ -183,7 +183,7 @@ Basic OSPF Configuration
 
 **Router 2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int g0/0
   R2(config-if)#ip add 172.30.0.2 255.255.255.0
@@ -203,7 +203,7 @@ Basic OSPF Configuration
 
 **Router 3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int g0/0
   R3(config-if)#ip add 172.30.0.3 255.255.255.0
@@ -223,7 +223,7 @@ Basic OSPF Configuration
 
 **Router 4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int s1/0
   R4(config-if)#ip add 172.30.20.4 255.255.255.0
@@ -247,7 +247,7 @@ Basic OSPF Configuration
 
 **Router 5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int s1/0
   R5(config-if)#ip add 172.30.10.5 255.255.255.0
@@ -336,7 +336,7 @@ OSPF Advanced Configuration
 
 **Router 1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config-router)#int lo0
   R1(config-if)#ip add 1.1.1.1 255.255.255.0
@@ -359,7 +359,7 @@ OSPF Advanced Configuration
 
 **Router 2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int lo1
   R2(config-if)#ip add 2.2.2.2 255.255.255.0
@@ -385,7 +385,7 @@ OSPF Advanced Configuration
 
 **Router 3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config-if)#int lo0
   R3(config-if)#ip add 3.3.3.3 255.255.255.0
@@ -414,7 +414,7 @@ OSPF Advanced Configuration
 
 **Router 4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int s1/0
   R4(config-if)#encap frame-relay
@@ -440,7 +440,7 @@ OSPF Advanced Configuration
 
 **Router 5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int s1/0
   R5(config-if)#encap frame-relay
@@ -459,7 +459,7 @@ OSPF Advanced Configuration
 
 **Router 6**
 
-.. code-block::
+.. code-block:: none
 
   Router 6
   R6(config)#int s1/0
@@ -479,7 +479,7 @@ OSPF Advanced Configuration
 
 **Frame Relay Switch 1**
 
-.. code-block::
+.. code-block:: none
 
   FRS1(config)#frame-relay switch
   FRS1(config)#int s1/0
@@ -502,7 +502,7 @@ OSPF Advanced Configuration
 
 **Frame Relay Switch 2**
 
-.. code-block::
+.. code-block:: none
 
   FRS2(config)#int s1/0
   FRS2(config)#frame-relay switch
@@ -520,7 +520,7 @@ OSPF Advanced Configuration
 
 **Frame Relay Switch 3**
 
-.. code-block::
+.. code-block:: none
 
   FRS3(config)#frame-relay switch
   FRS3(config)#int s1/0
@@ -568,7 +568,7 @@ Virtual Links
 
 **Router 1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int s1/0
   R1(config-if)#ip add 10.2.0.2 255.255.255.0
@@ -580,7 +580,7 @@ Virtual Links
 
 **Router 2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#router ospf 1
   R2(config-router)#router-id 2.2.2.2
@@ -597,7 +597,7 @@ Virtual Links
 
 **Router 3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int s1/0
   R3(config-if)#ip add 10.0.0.2 255.255.255.0
@@ -616,7 +616,7 @@ Virtual Links
 
 **Router 4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int s1/0
   R4(config-if)#ip add 10.0.0.1 255.255.255.0
@@ -642,7 +642,7 @@ Stub and Totally Stubby Areas
 
 **Router 1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int s1/0
   R1(config-if)#ip add 10.10.2.2 255.255.255.0
@@ -656,7 +656,7 @@ Stub and Totally Stubby Areas
 
 **Router 2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int s1/1
   R2(config-if)#ip add 10.10.2.1 255.255.255.0
@@ -672,7 +672,7 @@ Stub and Totally Stubby Areas
 
 **Router 4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int s1/0
   R4(config-if)#ip add 10.10.0.4 255.255.255.0
@@ -689,7 +689,7 @@ Stub and Totally Stubby Areas
 
 **Router 5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int s1/0
   R5(config-if)#ip add 10.10.1.2 255.255.255.0
@@ -713,7 +713,7 @@ Another Example...
 
 **Router 1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int g0/0
   R1(config-if)#ip add 10.100.1.1 255.255.255.0
@@ -734,7 +734,7 @@ Another Example...
 
 **Router 2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int g0/0
   R2(config-if)#ip add 10.100.1.2 255.255.255.0
@@ -759,7 +759,7 @@ Another Example...
 
 **Router 3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int s1/0
   R3(config-if)#ip add 10.23.1.0 255.255.255.0
@@ -784,7 +784,7 @@ Another Example...
 
 **Router 4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int g0/0
   R4(config-if)#ip add 10.100.1.4 255.255.255.0
@@ -808,7 +808,7 @@ Another Example...
 
 **Router 5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int s1/0
   R5(config-if)#ip add 10.45.1.5 255.255.255.0
@@ -822,7 +822,7 @@ Another Example...
 
 **Router 6**
 
-.. code-block::
+.. code-block:: none
 
   R6(config)#int g0/0
   R6(config-if)#ip add 10.100.1.6 255.255.255.0
@@ -844,7 +844,7 @@ Another Example...
 
 **Router 7**
 
-.. code-block::
+.. code-block:: none
 
   R7(config)#int s1/0
   R7(config-if)#ip add 10.67.1.7 255.255.255.0
@@ -864,7 +864,7 @@ Another Example...
 
 **Router 8**
 
-.. code-block::
+.. code-block:: none
 
   R8(config)#int s1/0
   R8(config-if)#ip add 10.78.1.8 255.255.255.0

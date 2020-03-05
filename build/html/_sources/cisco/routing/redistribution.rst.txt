@@ -38,7 +38,7 @@ Basic Redistribution Configuration
 
 **Router R1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#router eigrp 100
   R1(config-router)#network 10.0.0.0
@@ -63,7 +63,7 @@ Basic Redistribution Configuration
 
 **Router R2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#router eigrp 100
   R2(config-router)#no auto
@@ -94,7 +94,7 @@ Basic Redistribution Configuration
 
 **Router R3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#router ospf 1
   R3(config-router)#net 10.0.0.0 0.255.255.255 area 0
@@ -138,7 +138,7 @@ Advanced Redistribution Configuration
 
 **Router R1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int lo0
   R1(config-if)#ip add 10.1.0.1 255.255.255.0
@@ -155,7 +155,7 @@ Advanced Redistribution Configuration
 
 **Router R2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int s1/0
   R2(config-if)#ip add 10.1.24.2 255.255.255.0
@@ -209,7 +209,7 @@ Advanced Redistribution Configuration
 
 **Router R3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int s1/0
   R3(config-if)#ip add 10.1.13.3 255.255.255.0
@@ -259,7 +259,7 @@ Advanced Redistribution Configuration
 
 **Router R4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int lo0
   R4(config-if)#ip add 10.4.0.1 255.255.255.0
