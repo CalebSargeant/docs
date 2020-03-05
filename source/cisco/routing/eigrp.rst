@@ -79,8 +79,7 @@ Basic Configuration
     :height: 328px
     :alt: EIGRP Basic Configuration
 
-BB Router
-^^^^^^^^^
+**BB Router**
 
 .. code-block::
 
@@ -114,8 +113,7 @@ BB Router
   BB(config)#ip default-network 192.168.1.0
   BB#wr
 
-R2 Router
-^^^^^^^^^
+**R2 Router**
 
 .. code-block::
 
@@ -137,8 +135,7 @@ R2 Router
   R2(config-router)#no auto-summary
   R2#wr
 
-R3 Router
-^^^^^^^^^
+**R3 Router**
 
 .. code-block::
 
@@ -206,18 +203,21 @@ Configuration Example
 Best Practices and Design
 -------------------------
 
-**Debugging EIGRP packets**
+Debugging EIGRP packets
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Show communication of EIGRP packets:
 
 ``debug eigrp packets``
 
-**Query Swarm Resolutions**
+Query Swarm Resolutions
+^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Summary routes
 #. Stub configuration
 
-**Configuring Stubs**
+Configuring Stubs
+^^^^^^^^^^^^^^^^^
 
 .. code-block::
 
