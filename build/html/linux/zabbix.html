@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Linux &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Zabbix &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ansible" href="ansible.html" />
-    <link rel="prev" title="UniFi" href="../ubiquiti/unifi.html" /> 
+    <link rel="next" title="Microsoft" href="../microsoft/index.html" />
+    <link rel="prev" title="Virtualenv" href="virtualenv.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,13 +88,20 @@
 </ul>
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
 <li class="toctree-l2"><a class="reference internal" href="containerization.html">Containerization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lacp.html">LACP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="zabbix.html">Zabbix</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Zabbix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#slack-alerting">Slack Alerting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-slack">Configuring Slack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-zabbix">Configuring Zabbix</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
@@ -143,13 +150,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Linux</li>
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>Zabbix</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/zabbix.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,46 +171,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linux">
-<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ansible.html">Ansible</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ansible.html#module-examples">Module Examples</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ansible.html#lineinfile">lineinfile</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ansible.html#shell">shell</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="containerization.html">Containerization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="containerization.html#docker">Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="containerization.html#docker-swarm">Docker Swarm</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="containerization.html#kubernetes">Kubernetes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="lacp.html">LACP</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lacp.html#ubuntu">Ubuntu</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="storage.html#drbd">DRBD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage.html#zfs">ZFS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage.html#glusterfs">GlusterFS</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zabbix.html">Zabbix</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="zabbix.html#slack-alerting">Slack Alerting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="zabbix.html#configuring-slack">Configuring Slack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="zabbix.html#configuring-zabbix">Configuring Zabbix</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="zabbix">
+<h1>Zabbix<a class="headerlink" href="#zabbix" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="slack-alerting">
+<h2>Slack Alerting<a class="headerlink" href="#slack-alerting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-slack">
+<h3>Configuring Slack<a class="headerlink" href="#configuring-slack" title="Permalink to this headline">¶</a></h3>
+<p>Go to <a class="reference external" href="https://api.slack.com/apps">https://api.slack.com/apps</a>. Create a new app called “Zabbix”.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-2.png"><img alt="../_images/zabbix-slack-2.png" class="align-center" src="../_images/zabbix-slack-2.png" style="width: 663px; height: 424px;" /></a>
+<p>Create an <em>Incoming Webhook</em>.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-3.png"><img alt="../_images/zabbix-slack-3.png" class="align-center" src="../_images/zabbix-slack-3.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-4.png"><img alt="../_images/zabbix-slack-4.png" class="align-center" src="../_images/zabbix-slack-4.png" style="width: 663px; height: 424px;" /></a>
+<p>Copy the curl request to <code class="docutils literal notranslate"><span class="pre">/usr/lib/zabbix/alertscripts/slackalerts.sh</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-5.png"><img alt="../_images/zabbix-slack-5.png" class="align-center" src="../_images/zabbix-slack-5.png" style="width: 663px; height: 424px;" /></a>
+<p>Change <code class="docutils literal notranslate"><span class="pre">'{&quot;text&quot;:&quot;Hello,</span> <span class="pre">World!&quot;}'</span></code> to <code class="docutils literal notranslate"><span class="pre">'{&quot;text&quot;:&quot;'&quot;$1&quot;'&quot;}'</span></code>.</p>
+<p>Test your configuration on Zabbix with <code class="docutils literal notranslate"><span class="pre">/usr/lib/zabbix/alertscripts/slackalerts.sh</span> <span class="pre">test</span></code>.</p>
+</div>
+<div class="section" id="configuring-zabbix">
+<h3>Configuring Zabbix<a class="headerlink" href="#configuring-zabbix" title="Permalink to this headline">¶</a></h3>
+<p>Create the <em>Media Type</em> in Zabbix.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-1.png"><img alt="../_images/zabbix-slack-1.png" class="align-center" src="../_images/zabbix-slack-1.png" style="width: 663px; height: 424px;" /></a>
+<p>Create an <em>Action</em> and an <em>Operation</em> in <em>Operations</em>, <em>Recovery operations</em>, and <em>Update operations</em>.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-6.png"><img alt="../_images/zabbix-slack-6.png" class="align-center" src="../_images/zabbix-slack-6.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-7.png"><img alt="../_images/zabbix-slack-7.png" class="align-center" src="../_images/zabbix-slack-7.png" style="width: 663px; height: 424px;" /></a>
+<p>Add the <em>Media</em> to the Administrator.</p>
+<a class="reference internal image-reference" href="../_images/zabbix-slack-8.png"><img alt="../_images/zabbix-slack-8.png" class="align-center" src="../_images/zabbix-slack-8.png" style="width: 663px; height: 424px;" /></a>
+</div>
 </div>
 </div>
 
@@ -213,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ansible.html" class="btn btn-neutral float-right" title="Ansible" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../microsoft/index.html" class="btn btn-neutral float-right" title="Microsoft" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../ubiquiti/unifi.html" class="btn btn-neutral float-left" title="UniFi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="virtualenv.html" class="btn btn-neutral float-left" title="Virtualenv" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
