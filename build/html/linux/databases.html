@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Desktop &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Databases &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Robocopy" href="robocopy.html" />
-    <link rel="prev" title="Microsoft" href="index.html" /> 
+    <link rel="next" title="General" href="general.html" />
+    <link rel="prev" title="Containerization" href="containerization.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,21 +83,33 @@
             
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Desktop</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#remove-printer-driver-completely">Remove Printer Driver Completely</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containerization.html">Containerization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Databases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lacp.html">LACP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zabbix.html">Zabbix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
 </ul>
 
             
@@ -143,15 +155,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Microsoft</a> &raquo;</li>
+          <li><a href="index.html">Linux</a> &raquo;</li>
         
-      <li>Desktop</li>
+      <li>Databases</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/microsoft/desktop.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/databases.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,21 +176,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="desktop">
-<h1>Desktop<a class="headerlink" href="#desktop" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="remove-printer-driver-completely">
-<h2>Remove Printer Driver Completely<a class="headerlink" href="#remove-printer-driver-completely" title="Permalink to this headline">¶</a></h2>
-<p>Run CMD as admin
-<code class="docutils literal notranslate"><span class="pre">printui</span> <span class="pre">/s</span> <span class="pre">/t2</span></code></p>
-<p>If the above doesn’t work:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">services.msc</span></code></p></li>
-<li><p>Stop Print Spooler Service</p></li>
-<li><p>Go to <code class="docutils literal notranslate"><span class="pre">C:\Windows\System32\spool\Printers</span></code></p></li>
-<li><p>Delete everything in the folder</p></li>
-<li><p>Start Print Spooler Service</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">printui</span> <span class="pre">/s</span> <span class="pre">/t2</span></code></p></li>
-</ul>
+  <div class="section" id="databases">
+<h1>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mysql">
+<h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="backup">
+<h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup directly to a remote host (zabbix is the DB name)</span>
+<span class="c1"># That pipes the mysqldump command through gzip, then to through and SSH connection. SSH on the remote side runs the ‘cat’ command to read the stdin, then redirects that to the actual file where I want it saved.</span>
+mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</span> ssh caleb.sargeant@i5-r-sftp.uk02.kexpress.net <span class="s2">&quot;cat &gt; zabbix.sql.gz&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="size-of-db">
+<h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;zabbix&quot;</span>,
+        ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
+FROM information_schema.tables
+GROUP BY table_schema<span class="p">;</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -190,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="robocopy.html" class="btn btn-neutral float-right" title="Robocopy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Microsoft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="containerization.html" class="btn btn-neutral float-left" title="Containerization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

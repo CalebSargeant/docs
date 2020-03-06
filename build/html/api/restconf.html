@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>RESTCONF &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Robocopy" href="robocopy.html" />
-    <link rel="prev" title="Microsoft" href="index.html" /> 
+    <link rel="next" title="YANG" href="yang.html" />
+    <link rel="prev" title="Postman" href="postman.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,14 +82,22 @@
             
             
               <p class="caption"><span class="caption-text">Networking</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="netconf.html">NETCONF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postman.html">Postman</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RESTCONF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yang.html">YANG</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
 </ul>
 
             
@@ -135,15 +143,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Microsoft</a> &raquo;</li>
+          <li><a href="index.html">API</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>RESTCONF</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/microsoft/exchange.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/restconf.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -156,7 +164,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="restconf">
+<h1>RESTCONF<a class="headerlink" href="#restconf" title="Permalink to this headline">¶</a></h1>
+<p>RESTCONF is a RESTAPI protocol for the network and is a standard protocol from the IETF (natural evolution of SNMP &amp; MIBs is where you get NETCONF &amp; YANG from)</p>
+<p>RESTCONF is newer than NETCONF and most devices will support NETCONF. Both models have their use cases, we must know both.</p>
+<p>GRPC is a google protocol where you are able to control &amp; configure everything GCP. GRPC is used in model-driven telemetry / streaming telemetry. Instead of polling device, setup a connection stream to device.</p>
+</div>
+
 
            </div>
            
@@ -165,10 +179,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="robocopy.html" class="btn btn-neutral float-right" title="Robocopy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="yang.html" class="btn btn-neutral float-right" title="YANG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Microsoft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="postman.html" class="btn btn-neutral float-left" title="Postman" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

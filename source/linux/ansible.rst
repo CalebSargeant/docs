@@ -1,6 +1,9 @@
 Ansible
 =======
 
+Ping localhost:
+``ansible localhost -m ping``
+
 Module Examples
 ---------------
 

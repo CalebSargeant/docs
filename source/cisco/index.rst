@@ -3,6 +3,8 @@ Cisco
 #####
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 4
+  :glob:
 
+  *
   routing/index

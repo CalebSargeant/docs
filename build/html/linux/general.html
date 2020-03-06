@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LACP" href="lacp.html" />
+    <link rel="prev" title="Databases" href="databases.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containerization.html">Containerization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#change-hostname">Change Hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#netplan">Netplan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iostat">iostat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#netcat">Netcat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sudo-without-password">Sudo without Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mount">Mount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tar-to-cifs">Tar to CIFS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pdf-to-csv">PDF to CSV</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lacp.html">LACP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zabbix.html">Zabbix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>General</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/linux/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<p>General, random and useful Linux-related config and things.</p>
+<div class="section" id="change-hostname">
+<h2>Change Hostname<a class="headerlink" href="#change-hostname" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo hostnamectl set-hostname &lt;newhostname&gt;
+sudo nano /etc/hosts
+</pre></div>
+</div>
+</div>
+<div class="section" id="netplan">
+<h2>Netplan<a class="headerlink" href="#netplan" title="Permalink to this headline">¶</a></h2>
+<p>Static vs dynamic IP Address configuration.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/netplan</span></code></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># DYNAMIC (defaults)</span>
+<span class="nt">network</span><span class="p">:</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="nt">ethernets</span><span class="p">:</span>
+        <span class="nt">eth0</span><span class="p">:</span>
+            <span class="nt">dhcp4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">match</span><span class="p">:</span>
+                <span class="nt">macaddress</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xx:xx:xx:xx:xx:xx</span>
+            <span class="nt">set-name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">eth0</span>
+
+<span class="c1"># STATIC</span>
+<span class="nt">network</span><span class="p">:</span>
+    <span class="nt">ethernets</span><span class="p">:</span>
+        <span class="nt">eth0</span><span class="p">:</span>
+            <span class="nt">addresses</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">10.0.2.3/24</span>
+            <span class="nt">gateway4</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span>
+            <span class="nt">nameservers</span><span class="p">:</span>
+                <span class="nt">addresses</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span>
+                <span class="nt">search</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example.com</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iostat">
+<h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install sysstat
+iostat -d <span class="m">2</span> /dev/sda
+</pre></div>
+</div>
+</div>
+<div class="section" id="netcat">
+<h2>Netcat<a class="headerlink" href="#netcat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check RADIUS UDP 1812 Port Status</span>
+nc -vnzu <span class="m">10</span>.11.12.13 <span class="m">1812</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create screen called caleb</span>
+screen -S caleb
+
+<span class="c1"># Go into screen called caleb</span>
+screen -r -d caleb
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-ssh-keys">
+<h2>Generating SSH Keys<a class="headerlink" href="#generating-ssh-keys" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a public key on the client</span>
+ssh-keygen -t rsa -b <span class="m">4096</span>
+
+<span class="c1">### Output</span>
+<span class="c1">#Generating public/private rsa key pair.</span>
+<span class="c1">#Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa):</span>
+<span class="c1">#Enter passphrase (empty for no passphrase):</span>
+<span class="c1">#Enter same passphrase again:</span>
+<span class="c1">#Your identification has been saved in /home/ubuntu/.ssh/id_rsa.</span>
+<span class="c1">#Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub.</span>
+<span class="c1">#The key fingerprint is:</span>
+<span class="c1">#SHA256:tWYkCIAAXO+K/uiFyF3mHVtj84LlirWsvPuS2gfD5Ig ubuntu@CALEBDESKTOP</span>
+
+<span class="c1"># Copy public key to server (you will be required to authenticate)</span>
+ssh-copy-id ubuntu@10.0.2.12
+
+<span class="c1">### Output</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/ubuntu/.ssh/id_rsa.pub&quot;</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed if you are prompted now it is to install the new keys</span>
+<span class="c1"># ubuntu@10.0.2.12&#39;s password:</span>
+
+<span class="c1"># Number of key(s) added: 1</span>
+
+<span class="c1"># Now try logging into the machine, with:   &quot;ssh &#39;ubuntu@10.0.2.12&#39;&quot;</span>
+<span class="c1"># and check to make sure that only the key(s) you wanted were added.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sudo-without-password">
+<h2>Sudo without Password<a class="headerlink" href="#sudo-without-password" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># DO NOT MAKE A MISTAKE</span>
+visudo
+    %sudo   <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
+</pre></div>
+</div>
+</div>
+<div class="section" id="mount">
+<h2>Mount<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install cifs-utils</span>
+apt-get install cifs-utils
+
+<span class="c1"># /etc/fstab</span>
+//server/data /mnt/data cifs <span class="nv">credentials</span><span class="o">=</span>/root/.smbcredentials,vers<span class="o">=</span><span class="m">1</span>.0,iocharset<span class="o">=</span>utf8,sec<span class="o">=</span>ntlm <span class="m">0</span> <span class="m">0</span>
+
+mount -a
+</pre></div>
+</div>
+</div>
+<div class="section" id="tar-to-cifs">
+<h2>Tar to CIFS<a class="headerlink" href="#tar-to-cifs" title="Permalink to this headline">¶</a></h2>
+<p>A good source for <code class="docutils literal notranslate"><span class="pre">tar</span></code> commands <a class="reference external" href="https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/">https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup the MySQL database</span>
+mysqldump zabbix &gt; backup.sql
+
+<span class="c1"># Install cifs-utils</span>
+apt-get install cifs-utils
+
+<span class="c1"># Create mountpoint dir</span>
+mkdir /mnt/data
+
+<span class="c1"># Mount the share</span>
+mount -t cifs //10.10.10.10/share /mnt/data -o <span class="nv">user</span><span class="o">=</span>administrator
+
+<span class="c1"># Archive Zabbix config &amp; DB</span>
+tar cfzv backup.tar.gz /etc/zabbix/ backup.sql
+
+<span class="c1"># Copy to share</span>
+cp backup.tar.gz /mnt/data/
+</pre></div>
+</div>
+</div>
+<div class="section" id="pdf-to-csv">
+<h2>PDF to CSV<a class="headerlink" href="#pdf-to-csv" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tabulapdf/tabula-java/releases">https://github.com/tabulapdf/tabula-java/releases</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TABULARNAME</span><span class="o">=</span>tabula-1.0.3-jar-with-dependencies.jar
+<span class="nv">YEAR</span><span class="o">=</span><span class="m">2019</span>
+<span class="nv">MONTH</span><span class="o">=</span><span class="m">08</span>
+java -jar ./<span class="nv">$TABULARNAME</span> -b ./<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span> -t -p all
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lacp.html" class="btn btn-neutral float-right" title="LACP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="databases.html" class="btn btn-neutral float-left" title="Databases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
