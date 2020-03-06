@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bash &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Containerization" href="containerization.html" />
+    <link rel="prev" title="Ansible" href="ansible.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#associative-arrays">Associative Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getopt">Getopt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sed">sed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk">awk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date">date</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="containerization.html">Containerization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lacp.html">LACP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zabbix.html">Zabbix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>Bash</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/linux/bash.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bash">
+<h1>Bash<a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="associative-arrays">
+<h2>Associative Arrays<a class="headerlink" href="#associative-arrays" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://clubmate.fi/associative-arrays-in-bash/">https://clubmate.fi/associative-arrays-in-bash/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span> -A <span class="nv">names</span><span class="o">=(</span>
+<span class="o">[</span>caleb<span class="o">]=</span>sargeant
+<span class="o">[</span>network<span class="o">]=</span>guru
+<span class="o">)</span>
+
+<span class="k">for</span> i in <span class="s2">&quot;</span><span class="si">${</span><span class="p">!names[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">do</span>
+  <span class="nv">first_name</span><span class="o">=</span><span class="nv">$i</span>
+  <span class="nv">last_name</span><span class="o">=</span><span class="si">${</span><span class="nv">names</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$first_name</span><span class="s2"> : </span><span class="nv">$last_name</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getopt">
+<h2>Getopt<a class="headerlink" href="#getopt" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute getopt for arguments to be passed to script, identified by &quot;$@&quot;</span>
+<span class="nv">PARSED_OPTIONS</span><span class="o">=</span><span class="k">$(</span>getopt -n <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span> -o hfi: --long <span class="s2">&quot;help,file,input:&quot;</span> -- <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="c1"># Bad arguments or something wrong with getopt</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="c1"># getopt juju</span>
+<span class="nb">eval</span> <span class="nb">set</span> -- <span class="s2">&quot;</span><span class="nv">$PARSED_OPTIONS</span><span class="s2">&quot;</span>
+
+<span class="c1"># go through each option and use shift to analyse 1 argument at a time, discarding $1, making $2 $1, etc.</span>
+<span class="k">while</span> true<span class="p">;</span>
+<span class="k">do</span>
+  <span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> in
+    -h<span class="p">|</span>--help<span class="o">)</span>
+      <span class="nb">echo</span> <span class="s2">&quot;usage </span><span class="nv">$0</span><span class="s2"> -h -f -i or </span><span class="nv">$0</span><span class="s2"> --help --file --input&quot;</span>
+      shift<span class="p">;;</span>
+
+    -f<span class="p">|</span>--file<span class="o">)</span>
+      <span class="nb">echo</span> <span class="s2">&quot;file&quot;</span>
+      shift<span class="p">;;</span>
+
+    -i<span class="p">|</span>--input<span class="o">)</span>
+    <span class="nb">echo</span> <span class="s2">&quot;input&quot;</span>
+
+      <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Arguement: </span><span class="nv">$2</span><span class="s2">&quot;</span>
+      <span class="k">fi</span>
+      <span class="nb">shift</span> <span class="m">2</span><span class="p">;;</span>
+
+    --<span class="o">)</span>
+    <span class="nb">shift</span>
+    break<span class="p">;;</span>
+  <span class="k">esac</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sed">
+<h2>sed<a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removes all comments including those with tabs and spaces</span>
+sed -e <span class="s1">&#39;/^[ \t\n]*#/d&#39;</span>
+
+<span class="c1"># Replacing Text (in this case remove &quot;)</span>
+sed <span class="s1">&#39;s/&quot;//g&#39;</span>
+
+<span class="c1"># Delete first line</span>
+sed -i -e 1d
+</pre></div>
+</div>
+</div>
+<div class="section" id="awk">
+<h2>awk<a class="headerlink" href="#awk" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the first column using &quot;,&quot; as separator</span>
+awk -F <span class="s2">&quot;,&quot;</span> <span class="s1">&#39;{print $1}&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date">
+<h2>date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yyyymmdd</span>
+date +%Y%m%d
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="containerization.html" class="btn btn-neutral float-right" title="Containerization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ansible.html" class="btn btn-neutral float-left" title="Ansible" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

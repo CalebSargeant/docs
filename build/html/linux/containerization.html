@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Storage" href="storage.html" />
-    <link rel="prev" title="Ansible" href="ansible.html" /> 
+    <link rel="next" title="Databases" href="databases.html" />
+    <link rel="prev" title="Bash" href="bash.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,12 +83,15 @@
             
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ansible.html">Ansible</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Containerization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#docker-swarm">Docker Swarm</a></li>
@@ -97,11 +100,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lacp.html">LACP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zabbix.html">Zabbix</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
 </ul>
 
             
@@ -172,6 +180,11 @@
 <h1>Containerization<a class="headerlink" href="#containerization" title="Permalink to this headline">¶</a></h1>
 <p>A container is more closely related to an executable than it is to a virtual machine, because everything needed to run the application code and everything else the application needs is packaged together.</p>
 <p>Although containerization strips everything down to the bare-minimum needed for an application to run and is called the next evolution in virtual machines, it’s more than that. Each container is actually called a process and runs as an executable. A container is, therefore, not a virtual machine.</p>
+<p>Docker alternatives:</p>
+<ul class="simple">
+<li><p>lxc containers</p></li>
+<li><p>rkt rocket containers (Core OS)</p></li>
+</ul>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <p>A docker image is like a template. A docker container is a running instance of the template. Each micro-service, or application, is placed in their own container.</p>
@@ -291,10 +304,10 @@ kubectl -n nodename annotate pod podname example.com/endpoint-group<span class="
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="storage.html" class="btn btn-neutral float-right" title="Storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="databases.html" class="btn btn-neutral float-right" title="Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ansible.html" class="btn btn-neutral float-left" title="Ansible" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bash.html" class="btn btn-neutral float-left" title="Bash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

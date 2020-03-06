@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NETCONF &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Postman" href="postman.html" />
+    <link rel="prev" title="API" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">NETCONF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postman.html">Postman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restconf.html">RESTCONF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yang.html">YANG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti/index.html">Ubiquiti</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../host-setup.html">Host Setup</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>NETCONF</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netconf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netconf">
+<h1>NETCONF<a class="headerlink" href="#netconf" title="Permalink to this headline">¶</a></h1>
+<p>NETCONF/YANG are kind of like SNMPv4 (but not really) - it’s nextgen style of reading device. MIBs are too crazy to read.</p>
+<p>NETCONF runs over SSH and is XML under the hood. RESTCONF is over HTTP(s) via RESTAPI and headers and things. Both use YANG models. When a device supports both it comes down to personal preference. RESTCONF is used if you prefer RESTAPI. RESTCONF is simpler to use. NETCONF is the fist and oldest protocol. Dont waste time on draft RESTCONF. Very advanced things can only be done on NETCONF. RESTCONF is the future, but we must learn both. NETCONF runs on TCP-830</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-oHostKeyAlgorithms=+ssh-dss</span> <span class="pre">root&#64;ios-xe-mgmt.cisco.com</span> <span class="pre">-p</span> <span class="pre">10000</span> <span class="pre">-s</span> <span class="pre">netconf</span></code></p>
+<p>netconf will say hello and give you its capabilities
+paste in your capability text
+netconf session will be established after completing hello handshake
+you can now ask or configure the device things over NETCONF XML</p>
+<p>Using interactive python to interact with device with NETCONF (<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">ncclient</span></code>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span>
+<span class="kn">from</span> <span class="nn">ncclient</span> <span class="kn">import</span> <span class="n">manager</span>
+<span class="kn">from</span> <span class="nn">demo</span> <span class="kn">import</span> <span class="n">iosxeao</span>
+<span class="n">iosxeao</span>
+  <span class="p">{</span><span class="s1">&#39;address&#39;</span><span class="p">:</span> <span class="s1">&#39;ios-xe-mgmt.cisco.com&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;netconf_port&#39;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+   <span class="s1">&#39;restconf_port&#39;</span><span class="p">:</span> <span class="mi">9443</span><span class="p">,</span>
+   <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;D_Vay!_10&amp;&#39;</span><span class="p">}</span>
+<span class="n">iosxe_manager</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+  <span class="n">host</span> <span class="o">=</span> <span class="n">iosxeao</span><span class="p">[</span><span class="s2">&quot;address&quot;</span><span class="p">],</span>
+  <span class="n">port</span> <span class="o">=</span> <span class="n">iosxeao</span><span class="p">[</span><span class="s2">&quot;netconf_port&quot;</span><span class="p">],</span>
+  <span class="n">username</span> <span class="o">=</span> <span class="n">iosxe</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="n">iosxe</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+  <span class="n">hostkey_verify</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># find type of management</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">iosxe_manager</span><span class="p">)</span>
+<span class="n">ncclient</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">Manager</span>
+
+<span class="c1"># are we connected</span>
+<span class="n">iosxe_manager</span><span class="o">.</span><span class="n">connected</span>
+<span class="kc">True</span>
+
+<span class="c1"># show manager capabilities</span>
+<span class="n">ioxe_manager</span><span class="o">.</span><span class="n">server_capabilities</span>
+<span class="o">&lt;</span><span class="n">dict_keyiterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b7139f8</span>
+
+<span class="c1"># run for loop for all capabilities</span>
+<span class="k">for</span> <span class="n">capability</span> <span class="ow">in</span> <span class="n">iosxe_manager</span><span class="o">.</span><span class="n">server_capabilities</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">capability</span><span class="p">)</span>
+
+<span class="c1"># you can &quot;get&quot; in netconf to retrieve device details, or you can use &quot;get config&quot; to retrieve configuration details of the device. A filter can be created to retrieve specific details of config, for example, get the config of int g0/3 using python string:</span>
+<span class="n">filter_GigabitEthernet3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;filter&gt;</span>
+<span class="s2">  &lt;interfaces xmlns=&quot;urn:ietf:params:xml:ns:yang:ietf-interfaces&quot;&gt;</span>
+<span class="s2">    &lt;interface&gt;</span>
+<span class="s2">      &lt;name&gt;GigabitEthernet3&lt;/name&gt;</span>
+<span class="s2">    &lt;/interface&gt;</span>
+<span class="s2">  &lt;/interfaces&gt;</span>
+<span class="s2">&lt;/filter&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Send get config with NETCONF from running-config</span>
+<span class="n">iosxe_GigabitEthernet3</span> <span class="o">=</span> <span class="n">iosxe_manager</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s2">&quot;running&quot;</span><span class="p">,</span> <span class="n">filter_GigabitEthernet3</span><span class="p">)</span>
+
+<span class="c1"># run python type and get a GetReply from NETCONF</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">iosxe_GigabitEthernet3</span><span class="p">)</span>
+
+<span class="c1"># run status code to see if NETCONF query successful</span>
+<span class="n">iosxe_GigabitEthernet3</span><span class="o">.</span><span class="n">ok</span>
+<span class="kc">True</span>
+
+<span class="c1"># Import XML python library</span>
+<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
+
+<span class="c1"># Take and process returned XML</span>
+<span class="n">iosxe_config_xml</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">iosxe_GigabitEthernet3</span><span class="o">.</span><span class="n">xml</span><span class="p">)</span>
+
+<span class="c1"># Print out the XML output</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iosxe_config_xml</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span><span class="p">))</span>
+<span class="c1"># the requested device config will print out in XML format</span>
+
+<span class="c1"># Grab the xml and create a dictionary object in python</span>
+<span class="kn">import</span> <span class="nn">xmltodict</span>
+<span class="n">iosxe_gig3_dict</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">iosxe_GigabitEthernet3</span><span class="o">.</span><span class="n">xml</span><span class="p">)</span>
+
+<span class="c1"># Find the information in an order</span>
+<span class="n">iosxe_gig3_dict</span><span class="p">[</span><span class="s2">&quot;rpc-reply&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+
+<span class="c1"># Create that output as an object</span>
+<span class="n">intf</span> <span class="o">=</span> <span class="n">iosxe_gig3_dict</span><span class="p">[</span><span class="s2">&quot;rpc-reply&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+
+<span class="c1"># show the keys of the rpc-reply</span>
+<span class="n">intf</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">object_keys</span><span class="p">([</span><span class="s1">&#39;interfaces&#39;</span><span class="p">])</span>
+
+<span class="c1"># show the interfaces and dive into interface key and get the name</span>
+<span class="n">intf</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">][</span><span class="s2">&quot;interface&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;@xmlns:nc&#39;</span><span class="p">,</span> <span class="s1">&#39;urn:ietf:params:xml:ns:netconf:base:1.0&#39;</span><span class="p">),</span>
+             <span class="p">(</span><span class="s1">&#39;#text&#39;</span><span class="p">,</span> <span class="s1">&#39;GigabitEthernet3&#39;</span><span class="p">)])</span>
+
+<span class="c1"># Get the enabled status of interface gig0/3</span>
+<span class="n">intf</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">][</span><span class="s2">&quot;interface&quot;</span><span class="p">][</span><span class="s2">&quot;enabled&quot;</span><span class="p">]</span>
+<span class="s1">&#39;true&#39;</span>
+
+<span class="c1"># Create loopback interface / send config to device</span>
+<span class="n">create_loopback</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;config&gt;</span>
+<span class="s2">  &lt;interfaces xmlns=&quot;urn:ietf:params:xml:ns:yang:ietf-interfaces&quot;&gt;</span>
+<span class="s2">    &lt;interface&gt;</span>
+<span class="s2">      &lt;name&gt;Loopback1024&lt;/name&gt;</span>
+<span class="s2">      &lt;description&gt;Caleb&#39;s Loopback&lt;/description&gt;</span>
+<span class="s2">      &lt;type xmlns:ianaift=&quot;urn:ietf:params:xml:ns:yang:iana-if-type&quot;&gt;</span>
+<span class="s2">        ianaift:softwareLoopback</span>
+<span class="s2">      &lt;/type&gt;</span>
+<span class="s2">      &lt;enabled&gt;true&lt;/enabled&gt;</span>
+<span class="s2">      &lt;ipv4 xmlns=&quot;urn:ietf:params:xml:ns:yang:ietf-ip&quot;&gt;</span>
+<span class="s2">        &lt;address&gt;</span>
+<span class="s2">          &lt;ip&gt;172.31.231.231&lt;/ip&gt;</span>
+<span class="s2">          &lt;netmask&gt;255.255.255.0&lt;/netmask&gt;</span>
+<span class="s2">        &lt;/address&gt;</span>
+<span class="s2">      &lt;/ipv4&gt;</span>
+<span class="s2">    &lt;/interface&gt;</span>
+<span class="s2">  &lt;/interfaces&gt;</span>
+<span class="s2">&lt;/config&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># send the config to the device through edit_config</span>
+<span class="n">iosxe_create_loopback</span> <span class="o">=</span> <span class="n">iosxe_manager</span><span class="o">.</span><span class="n">edit_config</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span><span class="p">,</span> <span class="n">config</span> <span class="o">=</span> <span class="n">create_loopback</span><span class="p">)</span>
+
+<span class="c1"># check status of sent config</span>
+<span class="n">iosxe_create_loopback</span><span class="o">.</span><span class="n">ok</span>
+<span class="s1">&#39;true&#39;</span>
+
+<span class="c1"># Create a filter for loopback</span>
+<span class="n">filter_loopback</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;filter&gt;</span>
+<span class="s2">  &lt;interfaces xmlns=&quot;urn:ietf:params:xml:ns:yang:ietf-interfaces&quot;&gt;</span>
+<span class="s2">    &lt;interface&gt;</span>
+<span class="s2">      &lt;name&gt;Loopback1024&lt;/name&gt;</span>
+<span class="s2">    &lt;/interface&gt;</span>
+<span class="s2">  &lt;/interfaces&gt;</span>
+<span class="s2">&lt;/filter&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># show running config using filter</span>
+<span class="n">iosxe_loopback</span> <span class="o">=</span> <span class="n">iosxe_manager</span><span class="o">.</span><span class="n">get_config</span><span class="p">(</span><span class="s2">&quot;running&quot;</span><span class="p">,</span> <span class="n">filter_loopback</span><span class="p">)</span>
+<span class="n">iosxe_config_xml</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">iosxe_loopback</span><span class="o">.</span><span class="n">xml</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iosxe_config_xml</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span><span class="p">))</span>
+<span class="c1"># the config will print</span>
+
+<span class="c1"># To remove config - note the interface operation is now delete, not the default create/merge</span>
+<span class="n">delete_loopback</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;config&gt;</span>
+<span class="s2">  &lt;interfaces xmlns=&quot;urn:ietf:params:xml:ns:yang:ietf-interfaces&quot;&gt;</span>
+<span class="s2">    &lt;interface operation=&quot;delete&quot;&gt;</span>
+<span class="s2">      &lt;name&gt;Loopback1024&lt;/name&gt;</span>
+<span class="s2">    &lt;/interface&gt;</span>
+<span class="s2">  &lt;/interfaces&gt;</span>
+<span class="s2">&lt;/config&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Create another edit_config</span>
+<span class="n">iosxe_delete_loopback</span> <span class="o">=</span> <span class="n">iosxe_manager</span><span class="o">.</span><span class="n">edit_config</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span><span class="p">,</span> <span class="n">config</span> <span class="o">=</span> <span class="n">delete_loopback</span><span class="p">)</span>
+
+<span class="c1"># Check if ran sucessfully</span>
+<span class="n">iosxe_delete_loopback</span><span class="o">.</span><span class="n">ok</span>
+<span class="s1">&#39;true&#39;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="postman.html" class="btn btn-neutral float-right" title="Postman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

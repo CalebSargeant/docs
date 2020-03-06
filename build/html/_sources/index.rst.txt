@@ -12,6 +12,7 @@ A place for all of my technical how-to guides, documentation, study notes, rando
   :maxdepth: 1
   :caption: Networking
 
+  api/index
   cisco/index
   ubiquiti/index
 
@@ -21,6 +22,7 @@ A place for all of my technical how-to guides, documentation, study notes, rando
 
   linux/index
   microsoft/index
+  host-setup.rst
 
 Indices and tables
 ==================
