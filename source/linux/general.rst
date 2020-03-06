@@ -89,7 +89,7 @@ Generating SSH Keys
   #Your identification has been saved in /home/ubuntu/.ssh/id_rsa.
   #Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub.
   #The key fingerprint is:
-  #SHA256:
+  #SHA256:random
 
   # Copy public key to server (you will be required to authenticate)
   ssh-copy-id ubuntu@10.0.2.12
