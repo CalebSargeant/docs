@@ -4,6 +4,28 @@ ASA
 
 Adaptive Security Appliance
 
+Health
+------
+
+.. code-block:: none
+
+  # Uptime
+  sh ver | grep up
+
+  # Memory
+  sh mem | grep Used
+
+  # CPU
+  sh cpu
+
+  # Failover
+  sh failover state
+
+Capture File Download
+---------------------
+Go to https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap
+(Delete ``/context`` if a single context)
+
 Failover
 --------
 

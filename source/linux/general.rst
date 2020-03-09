@@ -164,3 +164,76 @@ https://github.com/tabulapdf/tabula-java/releases
   YEAR=2019
   MONTH=08
   java -jar ./$TABULARNAME -b ./$YEAR/$MONTH -t -p all
+
+Ubuntu 16 - Change IP & Hostname
+--------------------------------
+
+**Static IP**
+
+.. code-block:: bash
+
+  cd /etc/sysconfig/network-scripts/
+  vi ifcfg-eth0
+    DEVICE=eth0
+    BOOTPROTO=none
+    ONBOOT=yes
+    NETMASK=xxx.xxx.xxx.xxx
+    IPADDR=xxx.xxx.xxx.xxx
+    TYPE=Ethernet
+  vi /etc/sysconfig/network
+    NETWORKING=yes
+    NETWORKING_IPV6=no
+    HOSTNAME=hostname.domainname.co.za
+    GATEWAY=xxx.xxx.xxx.xxx
+
+  /etc/init.d/network restart
+
+**Dynamic IP**
+
+``dhclient ethx`` or:
+
+.. code-block:: bash
+
+  cd /etc/sysconfig/network-scripts/
+  vi ifcfg-eth0
+    DEVICE=eth0
+    BOOTPROTO=dhcp
+    ONBOOT=yes
+    TYPE=Ethernet
+
+  vi /etc/sysconfig/network
+    NETWORKING=yes
+    NETWORKING_IPV6=no
+    HOSTNAME=hostname.domainname.co.za
+    GATEWAY=xxx.xxx.xxx.xxx
+
+  /etc/init.d/network restart
+
+**Hostname Change**
+
+.. code-block:: bash
+
+    hostname --fqd
+    vi /etc/sysconfig/network
+      HOSTNAME=<new_hostname>
+    vi /etc/hosts
+      <ipaddr_of_server> <new_hostname.domain> <hostname>
+    reboot
+
+File System Check Loop
+----------------------
+
+You start up CentOS and it wants to do a File System check. You do the check, reboot and it happens again.
+Try the following:
+
+#. Put a CentOS disk into the DVD-Rom
+#. Start Rescue Mode
+#. Type the following commands:
+
+.. code-block:: bash
+
+  chroot /mnt/sysimage
+  badblocks -sv /dev/sdax -o <file_name_here>
+  e2fsck -t ext3 -l <file_name_here> /dev/sdax
+  vi /etc/fstab
+    comment out /dev/sdax before booting the server again

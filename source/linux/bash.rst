@@ -2,6 +2,13 @@
 Bash
 ####
 
+.. code-block:: bash
+
+  nano filename.sh
+    #!/bin/bash
+    myscriptcontent
+  chmod u+x filename.sh
+
 Associative Arrays
 ------------------
 
@@ -92,3 +99,50 @@ date
 
   # yyyymmdd
   date +%Y%m%d
+
+Prompt for Input
+----------------
+
+Using ``read``
+
+* Simple & common
+
+.. code-block:: bash
+
+  while true; do
+    read -p "Do you wish to install this program?" yn
+      case $yn in
+        [Yy]* ) make install; break;;
+        [Nn]* ) exit;;
+      * ) echo "Please answer yes or no.";;
+    esac
+  done
+
+Using ``select``
+
+* No need to sanitize input
+* Prompts you with choice you want
+* Automatically loops (no need for ``while true`` loop to retry)
+
+.. code-block:: bash
+
+  echo "Do you wish to install this program?"
+  select yn in "Yes" "No"; do
+    case $yn in
+      Yes ) make install; break;;
+      No ) exit;;
+    esac
+  done
+
+Output Formatting
+-----------------
+
+Source for more formatting options: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+.. code-block:: bash
+
+  echo -e "\e[1mbold\e[0m"
+  echo -e "\e[3mitalic\e[0m"
+  echo -e "\e[4munderline\e[0m"
+  echo -e "\e[9mstrikethrough\e[0m"
+  echo -e "\e[31mHello World\e[0m"
