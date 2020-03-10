@@ -1,0 +1,40 @@
+#######
+Juniper
+#######
+
+SSG-350M Site-to-Site VPN
+-------------------------
+
+Phase 1
+^^^^^^^
+
+.. image 1
+.. image 2
+.. image 3
+
+Phase 2
+^^^^^^^
+
+**Transform Set**
+
+.. image 4
+
+**Confirming P1**
+
+.. image 5
+
+**P2 Setup**
+
+.. image 6
+
+Finalization
+^^^^^^^^^^^^
+
+**Create Tunnel Interface**
+
+.. image 7
+
+**Crypto Map**
+
+.. image 8
+.. image 9

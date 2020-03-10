@@ -4,6 +4,22 @@ General
 
 General, random and useful Linux-related config and things.
 
+A good site to browse random commands and things: https://www.commandlinefu.com/
+
+Dig
+---
+
+A & CNAME: ``dig @dnsserver.example.com +short domain.com``
+NS: ``dig @dnsserver.example.com +short NS domain.com``
+MX: ``dig @dnsserver.example.com +short MX domain.com``
+PTR: ``dig @dnsserver.example.com +short -x 10.11.12.13``
+
+Public IP
+^^^^^^^^^
+
+Use ``208.67.222.222`` instead of resolver1 if no DNS.
+``dig +short myip.opendns.com @resolver1.opendns.com``
+
 Change Hostname
 ---------------
 
@@ -128,10 +144,46 @@ Mount
 
   mount -a
 
-Tar to CIFS
+Compression
 -----------
 
+Zip
+^^^
+
+.. code-block:: bash
+
+  yum -y install zip unzip
+  zip -9 -r <zip file> <folder name>
+  unzip file.zip
+
+Bunzip
+^^^^^^
+
+.. code-block:: bash
+
+  bunzip2 myfile.bz2
+  tar xjvf myfile.tar.bz2
+
+Tar
+^^^
+
 A good source for ``tar`` commands https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/.
+
+**.tar:**
+
+.. code-block:: bash
+
+  tar -cvf myarchive.tar mydirectory/
+  tar -xvf mystuff.tar
+
+**.tar.gz**
+
+.. code-block:: bash
+
+  tar -czvf myarchive.tgz mydirectory/
+  tar -xzvf mystuff.tgz
+
+**Tar to CIFS:**
 
 .. code-block:: bash
 
@@ -237,3 +289,47 @@ Try the following:
   e2fsck -t ext3 -l <file_name_here> /dev/sdax
   vi /etc/fstab
     comment out /dev/sdax before booting the server again
+
+Formatting USB Flash Drive
+--------------------------
+
+* vFAT (FAT32): ``mkfs.vfat``
+* NTFS: ``mkfs.ntfs``
+* EXT4: ``mkfs.ext4``
+
+.. code-block:: bash
+
+  # Format
+  mkfs.ext4 -L CALEB /dev/sdx
+
+  # Show information about the USB flash
+  parted /dev/sdx print
+
+  # Mound the flash
+  mount -t ext4 /dev/sdx1 /mnt/CALEB
+
+Repairing Grub
+--------------
+
+You boot up Linux machine (CentOS) and only "grub _" displays on the screen. You can try:
+
+#. Boot from Linux live CD/USB
+#. Start in Rescue Mode
+#. Run commands
+
+.. code-block:: bash
+
+  chroot /mnt/sysimage
+  sbin/grub-install
+  mount
+  reboot
+
+Installing GUI on CentOS
+------------------------
+
+``yum groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"``
+
+List Samba Users
+----------------
+
+pbdedit -L

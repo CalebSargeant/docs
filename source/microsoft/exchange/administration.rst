@@ -59,3 +59,12 @@ Delete a Mailbox
 .. code-block:: powershell
 
   Remove-Mailbox -Identity "name surname" -Permanent $true
+
+Mailbox Access Permission
+-------------------------
+
+Removes Caleb's access to Bob's mailbox:
+
+.. code-block:: powershell
+
+  remove-mailboxpermission -identity bob -user caleb -accessrights fullaccess

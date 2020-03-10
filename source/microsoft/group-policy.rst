@@ -30,3 +30,9 @@ Disable UAC
 -----------
 
 .. image 1
+
+Lock Computers When Idle
+------------------------
+
+.. image 1
+.. image 2
