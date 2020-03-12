@@ -333,3 +333,80 @@ List Samba Users
 ----------------
 
 pbdedit -L
+
+Open Webpage on Mac
+-------------------
+
+``open -a "Google Chrome" index.html``
+
+Running FSCK Manually
+---------------------
+
+You get a message: (or something similar)
+/dev/mapper/vg_fedora1530-lv-home: UNEXPECTED INCONSISTENCY: RUN fsck MANUALLY (i.e., without -a or -p options)
+Try the following:
+1. Type the following commands:
+umount /dev/sda*
+fsck /dev/sda1 -f -y -a
+(see http://www.computerhope.com/unix/fsck.htm for syntax of fsck)
+
+Xen
+---
+
+Manually Starting
+^^^^^^^^^^^^^^^^^
+
+xm list
+cd /etc/xen/
+ls
+xm create <vm-name>
+ping <vm-name>
+xm list
+
+Install Xen
+^^^^^^^^^^^
+
+yum install xen virt-manager kernel-xen
+chkconfig xend on
+reboot
+
+Mount CD for Image of OS
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+mkdir /media/cdrom
+mount -t <name_of_iso> -o ro /dev/cdrom /media/cdrom
+
+Install VM
+^^^^^^^^^^
+virt-install --prompt (yes centos 512 /home/vm/centos /media/cdrom)
+
+Launch VM to Create Virtual OS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+startx
+virt-manager
+
+NOTE to exit startx press ctrl,alt,bkspce
+
+Skel Terminal Colours
+---------------------
+
+Mv .bashrc .bashrc.bak
+Cp /etc/skel/.bashrc .bashrc
+Nano .bashrc
+# uncomment this:
+force_color_prompt=yes
+# add this to the bottom of the file
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+. .bashrc
+
+Rename a File to a Filename with Date
+-------------------------------------
+cp <name_of_file> <new_name_of_file>.`date -I`
+
+Checking CPU Architecture
+-------------------------
+uname -i
+
+Checking Uptime
+---------------
+uptime

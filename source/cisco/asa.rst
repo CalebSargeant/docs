@@ -83,6 +83,11 @@ Failover
 Site to Site VPN
 ----------------
 
+# Show tunnel uptime
+show vpn-sessiondb detail l2l filter ipaddress PEERADDRESS | i Conn|Dur
+# Re-establish tunnel (be careful!)
+Clear ipsec sa peer PEERADDRESS
+
 Tunnel Establishing in ASDM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -95,6 +95,8 @@ awk
 date
 ----
 
+https://www.tutorialkart.com/bash-shell-scripting/bash-date-format-options-examples/
+
 .. code-block:: bash
 
   # yyyymmdd
@@ -146,3 +148,198 @@ Source for more formatting options: http://misc.flogisoft.com/bash/tip_colors_an
   echo -e "\e[4munderline\e[0m"
   echo -e "\e[9mstrikethrough\e[0m"
   echo -e "\e[31mHello World\e[0m"
+
+While True Loop
+---------------
+
+https://unix.stackexchange.com/questions/193352/is-using-while-true-to-keep-a-script-alive-a-good-idea
+
+.. code-block:: bash
+
+  while true
+  do
+    echo my commands
+    sleep 1
+  done
+
+For Loops
+---------
+
+Loop through directory names
+https://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash
+
+.. code-block:: bash
+
+  for d in */ ; do
+    echo "$d"
+  done
+
+Loop through file names
+https://stackoverflow.com/questions/10523415/execute-command-on-all-files-in-a-directory
+
+.. code-block:: bash
+
+  for file in /dir/* ; do
+      cmd [option] "$file" >> results.out
+  done
+
+Arithmetic
+----------
+
+Bash is limited to integer math
+
+Sum
+^^^
+
+**Adding all numbers from output**
+
+https://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
+
+.. code-block:: bash
+
+  awk '{sum+=$0} END{print sum}'
+
+Divide
+^^^^^^
+
+https://stackoverflow.com/questions/1088098/how-do-i-divide-in-the-linux-console
+
+.. code-block:: bash
+
+  x=10
+  y=5
+
+  # Don't enclose variables in quotes this time
+  $ echo $(( $x / $y ))
+  2
+
+Scientific Notation & Rounding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/8356698/how-to-remove-decimal-from-a-variable
+https://unix.stackexchange.com/questions/104332/remove-scientific-notation-bash-script
+
+.. code-block:: bash
+
+  # Round & remove scientific notation (0f is the number of decimals)
+  $ echo 2.123456 | awk '{ print sprintf("%.0f", $1); }'
+  2
+
+  # Round down
+  $ printf %.0f 1.89
+  2
+
+Incrementing
+^^^^^^^^^^^^
+
+.. code-block:: bash
+  $ echo $((n=n+1))
+  1
+  $ echo $((n=n+1))
+  2
+
+wc
+---
+
+Number of Lines
+^^^^^^^^^^^^^^^
+
+``wc -l myfile.txt``
+
+Number of Words
+^^^^^^^^^^^^^^^
+
+``wc -w myfile.txt``
+
+Number of Characters
+^^^^^^^^^^^^^^^^^^^^
+
+``wc -m myfile.txt``
+
+Count Number of Lines of Output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://unix.stackexchange.com/questions/72819/count-number-of-lines-of-output-from-previous-program
+
+```command | tee >(wc -l)```
+
+jq
+---
+
+https://stackoverflow.com/questions/52732473/how-to-pass-bash-variable-as-a-key-to-jq
+Querying using a bash variable: ``jq ".$bash_var"``
+
+ls
+---
+
+https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash
+https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls
+List Directories: ``ls -d */``
+
+tr
+---
+
+Remove whitespace
+https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+
+``| tr -d '[:space:]')``
+
+pwd
+---
+
+https://stackoverflow.com/questions/1371261/get-current-directory-name-without-full-path-in-a-bash-script
+
+.. code-block:: bash
+
+  # Get current working directory as variable in bash
+  $ result=${PWD##*/}
+  $ echo $result
+  caleb.sargeant
+
+  # Using basename
+  $ pwd
+  /Users/caleb.sargeant
+  $ basename $(pwd)
+  caleb.sargeant
+
+https://stackoverflow.com/questions/8426058/getting-the-parent-of-a-directory-in-bash
+
+.. code-block:: bash
+  dir=/home/caleb.sargeant/Desktop/Test
+  parentdir="$(dirname "$dir")"
+
+cat
+---
+
+Be careful with quotation with ``cat``: https://stackoverflow.com/questions/12636170/bash-script-error-with-cat-and-if
+
+tr
+---
+
+.. code-block:: bash
+
+  $ echo __ | tr _ -
+  --
+
+if
+---
+
+Check if a file type exists in directory
+https://stackoverflow.com/questions/3856747/check-whether-a-certain-file-type-extension-exists-in-directory
+
+.. code-block:: bash
+
+  count=$(ls -1 *.json 2>/dev/null | wc -l)
+  if [ $count != 0 ]; then
+    echo true
+  fi
+
+Remove First Line
+-----------------
+
+https://superuser.com/questions/284258/remove-first-line-in-bash
+
+Search for Text in Files
+------------------------
+
+``grep -rnw '/etc/' -e 'NULL'``
