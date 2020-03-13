@@ -82,4 +82,4 @@ Configuration
 
   [user]
     name = Caleb Sargeant
-    email = calebsargeant@gmail.com
+    email = 4991715+CalebSargeant@users.noreply.github.com
