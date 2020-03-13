@@ -66,3 +66,20 @@ Windows Subsystem for Linux
   # Running a playbook
   cd /mnt/d/repos/personal/ansible
   ansible-playbook -i ./hosts.yml playbookname.yml
+
+Git
+---
+
+Configuration
+^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  nano ~/repos/reponame/.git/config
+
+  [core]
+    sshCommand = ssh -i /Users/caleb.sargeant/.ssh/github
+
+  [user]
+    name = Caleb Sargeant
+    email = calebsargeant@gmail.com
