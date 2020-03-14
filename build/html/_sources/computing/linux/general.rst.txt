@@ -84,7 +84,7 @@ Tar
 
 A good source for ``tar`` commands https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/.
 
-**.tar:**
+**.tar**
 
 .. code-block:: bash
 
@@ -131,61 +131,6 @@ https://github.com/tabulapdf/tabula-java/releases
   YEAR=2019
   MONTH=08
   java -jar ./$TABULARNAME -b ./$YEAR/$MONTH -t -p all
-
-Ubuntu 16 - Change IP & Hostname
---------------------------------
-
-**Static IP**
-
-.. code-block:: bash
-
-  cd /etc/sysconfig/network-scripts/
-  vi ifcfg-eth0
-    DEVICE=eth0
-    BOOTPROTO=none
-    ONBOOT=yes
-    NETMASK=xxx.xxx.xxx.xxx
-    IPADDR=xxx.xxx.xxx.xxx
-    TYPE=Ethernet
-  vi /etc/sysconfig/network
-    NETWORKING=yes
-    NETWORKING_IPV6=no
-    HOSTNAME=hostname.domainname.co.za
-    GATEWAY=xxx.xxx.xxx.xxx
-
-  /etc/init.d/network restart
-
-**Dynamic IP**
-
-``dhclient ethx`` or:
-
-.. code-block:: bash
-
-  cd /etc/sysconfig/network-scripts/
-  vi ifcfg-eth0
-    DEVICE=eth0
-    BOOTPROTO=dhcp
-    ONBOOT=yes
-    TYPE=Ethernet
-
-  vi /etc/sysconfig/network
-    NETWORKING=yes
-    NETWORKING_IPV6=no
-    HOSTNAME=hostname.domainname.co.za
-    GATEWAY=xxx.xxx.xxx.xxx
-
-  /etc/init.d/network restart
-
-**Hostname Change**
-
-.. code-block:: bash
-
-    hostname --fqd
-    vi /etc/sysconfig/network
-      HOSTNAME=<new_hostname>
-    vi /etc/hosts
-      <ipaddr_of_server> <new_hostname.domain> <hostname>
-    reboot
 
 Installing GUI on CentOS
 ------------------------
@@ -277,22 +222,24 @@ uptime
 TigerVNC
 --------
 
-yum install vnc vnc-server tigervnc-server xterm
-yum groupinstall Desktop
+.. code-block:: bash
 
-useradd <UserNameHere>
-passwd <UserNameHere>
+  yum install vnc vnc-server tigervnc-server xterm
+  yum groupinstall Desktop
 
-vi /etc/sysconfig/vncservers
-  VNCSERVERS="1:<user1> 2:<user2> 3:<user3>"
-  VNCSERVERARGS[1]="-geometry 640x480"
-  VNCSERVERARGS[2]="-geometry 640x480"
-  VNCSERVERARGS[3]="-geometry 800x600"
+  useradd <UserNameHere>
+  passwd <UserNameHere>
 
-# Remember to delete the nonsense after: <resolution>"
+  vi /etc/sysconfig/vncservers
+    VNCSERVERS="1:<user1> 2:<user2> 3:<user3>"
+    VNCSERVERARGS[1]="-geometry 640x480"
+    VNCSERVERARGS[2]="-geometry 640x480"
+    VNCSERVERARGS[3]="-geometry 800x600"
 
-su - <username>
-vncpasswd
-service vncserver start
+  # Remember to delete the nonsense after: <resolution>"
 
-# To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.
+  su - <username>
+  vncpasswd
+  service vncserver start
+
+  # To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.

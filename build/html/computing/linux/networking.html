@@ -110,6 +110,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#change-hostname">Change Hostname</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#netplan">Netplan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-16-change-ip-hostname">Ubuntu 16 - Change IP &amp; Hostname</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -311,6 +312,54 @@ sudo nano /etc/hosts
                 <span class="nt">search</span><span class="p">:</span>
                 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">example.com</span>
     <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ubuntu-16-change-ip-hostname">
+<h2>Ubuntu 16 - Change IP &amp; Hostname<a class="headerlink" href="#ubuntu-16-change-ip-hostname" title="Permalink to this headline">¶</a></h2>
+<p><strong>Static IP</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
+vi ifcfg-eth0
+  <span class="nv">DEVICE</span><span class="o">=</span>eth0
+  <span class="nv">BOOTPROTO</span><span class="o">=</span>none
+  <span class="nv">ONBOOT</span><span class="o">=</span>yes
+  <span class="nv">NETMASK</span><span class="o">=</span>xxx.xxx.xxx.xxx
+  <span class="nv">IPADDR</span><span class="o">=</span>xxx.xxx.xxx.xxx
+  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
+vi /etc/sysconfig/network
+  <span class="nv">NETWORKING</span><span class="o">=</span>yes
+  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+
+/etc/init.d/network restart
+</pre></div>
+</div>
+<p><strong>Dynamic IP</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">dhclient</span> <span class="pre">ethx</span></code> or:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
+vi ifcfg-eth0
+  <span class="nv">DEVICE</span><span class="o">=</span>eth0
+  <span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
+  <span class="nv">ONBOOT</span><span class="o">=</span>yes
+  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
+
+vi /etc/sysconfig/network
+  <span class="nv">NETWORKING</span><span class="o">=</span>yes
+  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+
+/etc/init.d/network restart
+</pre></div>
+</div>
+<p><strong>Hostname Change</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname --fqd
+vi /etc/sysconfig/network
+  <span class="nv">HOSTNAME</span><span class="o">=</span>&lt;new_hostname&gt;
+vi /etc/hosts
+  &lt;ipaddr_of_server&gt; &lt;new_hostname.domain&gt; &lt;hostname&gt;
+reboot
 </pre></div>
 </div>
 </div>

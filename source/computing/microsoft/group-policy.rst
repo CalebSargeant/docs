@@ -7,14 +7,16 @@ BGInfo
 1. Download BgInfo from here.
 2. Do the following in Group Policy Management:
 
-.. image1
+.. image:: _images/group-policy-bginfo-1.png
 
 3. Edit the BGInfo settings to suit your needs.
 4. Save your settings in the same place as bginfo.exe.
 
-.. image2
-.. image3
-.. image4
+.. image:: _images/group-policy-bginfo-2.png
+
+.. image:: _images/group-policy-bginfo-3.png
+
+.. image:: _images/group-policy-bginfo-4.png
 
 5. Add ``C:\bginfo\name.bgi /SILENT /TIMER:0 /NOCLIENTPROMPT`` to the argument field in the shortcut property in Group Policy Management.
 
@@ -23,18 +25,19 @@ Disable Sound
 
 Under *Computer Configuration*, under *Policies*, under *Administrative Templates*, do the following:
 
-.. image1
+.. image:: _images/group-policy-disable-sound.png
 
 Disable UAC
 -----------
 
-.. image 1
+.. image:: _images/group-policy-disable-uac.png
 
 Lock Computers When Idle
 ------------------------
 
-.. image 1
-.. image 2
+.. image:: _images/group-policy-lock-computers-when-idle-1.png
+
+.. image:: _images/group-policy-lock-computers-when-idle-2.png
 
 Internet Explorer Settings
 --------------------------

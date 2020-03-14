@@ -267,19 +267,23 @@ jq
 ---
 
 https://stackoverflow.com/questions/52732473/how-to-pass-bash-variable-as-a-key-to-jq
+
 Querying using a bash variable: ``jq ".$bash_var"``
 
 ls
 ---
 
 https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash
+
 https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls
+
 List Directories: ``ls -d */``
 
 tr
 ---
 
 Remove whitespace
+
 https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 
 ``| tr -d '[:space:]')``

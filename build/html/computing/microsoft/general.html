@@ -106,6 +106,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#powershell">PowerShell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rename-domain-controller">Rename Domain Controller</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lacp">LACP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-side">Windows’ Side</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cisco-s-side">Cisco’s Side</a></li>
 </ul>
 </li>
@@ -226,19 +227,24 @@ Will allow only remotely signed powershell scripts to run.</p>
 </div>
 <div class="section" id="rename-domain-controller">
 <h2>Rename Domain Controller<a class="headerlink" href="#rename-domain-controller" title="Permalink to this headline">¶</a></h2>
-<p>netdom computername &lt;CurrentComputerName&gt; /add:&lt;NewComputerName&gt;
-netdom computername &lt;CurrentComputerName&gt; /makeprimary:&lt;NewComputerName&gt;
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>netdom computername <span class="p">&lt;</span>CurrentComputerName<span class="p">&gt;</span> /add:<span class="p">&lt;</span>NewComputerName&gt;
+netdom computername <span class="p">&lt;</span>CurrentComputerName<span class="p">&gt;</span> /makeprimary:<span class="p">&lt;</span>NewComputerName&gt;
 REBOOT
-netdom computername &lt;NewComputerName&gt; /remove:&lt;OldComputerName&gt;</p>
+netdom computername <span class="p">&lt;</span>NewComputerName<span class="p">&gt;</span> /remove:<span class="p">&lt;</span>OldComputerName&gt;
+</pre></div>
+</div>
 </div>
 <div class="section" id="lacp">
 <h2>LACP<a class="headerlink" href="#lacp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="windows-side">
+<h3>Windows’ Side<a class="headerlink" href="#windows-side" title="Permalink to this headline">¶</a></h3>
 <p><em>Server Manager</em> &gt; click on Link next to NIC teaming option or run <code class="docutils literal notranslate"><span class="pre">lbfoadmin.exe</span></code></p>
 <img alt="../../_images/windows-server-lacp-1.png" src="../../_images/windows-server-lacp-1.png" />
 <p>Select the adapters, add to team</p>
 <img alt="../../_images/windows-server-lacp-2.png" src="../../_images/windows-server-lacp-2.png" />
 <p>For teaming mode choose LACP, load balancing method use address hash</p>
 <img alt="../../_images/windows-server-lacp-3.png" src="../../_images/windows-server-lacp-3.png" />
+</div>
 <div class="section" id="cisco-s-side">
 <h3>Cisco’s Side<a class="headerlink" href="#cisco-s-side" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int r g0/1 - 2

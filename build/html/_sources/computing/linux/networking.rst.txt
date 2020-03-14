@@ -136,3 +136,58 @@ Static vs dynamic IP Address configuration.
                   search:
                   - example.com
       version: 2
+
+Ubuntu 16 - Change IP & Hostname
+--------------------------------
+
+**Static IP**
+
+.. code-block:: bash
+
+  cd /etc/sysconfig/network-scripts/
+  vi ifcfg-eth0
+    DEVICE=eth0
+    BOOTPROTO=none
+    ONBOOT=yes
+    NETMASK=xxx.xxx.xxx.xxx
+    IPADDR=xxx.xxx.xxx.xxx
+    TYPE=Ethernet
+  vi /etc/sysconfig/network
+    NETWORKING=yes
+    NETWORKING_IPV6=no
+    HOSTNAME=hostname.domainname.co.za
+    GATEWAY=xxx.xxx.xxx.xxx
+
+  /etc/init.d/network restart
+
+**Dynamic IP**
+
+``dhclient ethx`` or:
+
+.. code-block:: bash
+
+  cd /etc/sysconfig/network-scripts/
+  vi ifcfg-eth0
+    DEVICE=eth0
+    BOOTPROTO=dhcp
+    ONBOOT=yes
+    TYPE=Ethernet
+
+  vi /etc/sysconfig/network
+    NETWORKING=yes
+    NETWORKING_IPV6=no
+    HOSTNAME=hostname.domainname.co.za
+    GATEWAY=xxx.xxx.xxx.xxx
+
+  /etc/init.d/network restart
+
+**Hostname Change**
+
+.. code-block:: bash
+
+    hostname --fqd
+    vi /etc/sysconfig/network
+      HOSTNAME=<new_hostname>
+    vi /etc/hosts
+      <ipaddr_of_server> <new_hostname.domain> <hostname>
+    reboot

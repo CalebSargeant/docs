@@ -6,11 +6,19 @@ This is all sourced from http://www.fixingmycomputer.com and placed in this docu
 Boot
 ----
 
+.. image:: _images/hardware-troubleshooting-boot-flowchart.gif
+
 Hard Drive
 ----------
+
+.. image:: _images/hardware-troubleshooting-hd-repair-chart.gif
 
 Motherboard
 -----------
 
+.. image:: _images/hardware-troubleshooting-motherboard-chart.gif
+
 Graphics Card
 -------------
+
+.. image:: _images/hardware-troubleshooting-video-flowchart.gif

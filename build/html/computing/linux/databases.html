@@ -98,9 +98,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Databases</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restore">Restore</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-ssh-to-import-database">Using SSH to Import Database</a></li>
 </ul>
 </li>
 </ul>
@@ -197,6 +197,11 @@ mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</
 </pre></div>
 </div>
 </div>
+<div class="section" id="restore">
+<h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">¶</a></h3>
+<p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-p</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">database_name</span> <span class="pre">&lt;</span> <span class="pre">file.sql</span></code></p>
+</div>
 <div class="section" id="size-of-db">
 <h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;zabbix&quot;</span>,
@@ -219,16 +224,6 @@ mysql&gt; quit
 /etc/init.d/mysqld start
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-ssh-to-import-database">
-<h3>Using SSH to Import Database<a class="headerlink" href="#using-ssh-to-import-database" title="Permalink to this headline">¶</a></h3>
-<p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.
-4. Upload the SQL file to the server.
-5. If the database does not exist please create one with an user. Note the username and password.
-6. Log into the server through SSH
-7. Navigate to the directory where your .sql file is.
-9. Type this this command:
-mysql -p -u username database_name &lt; file.sql</p>
 </div>
 </div>
 </div>

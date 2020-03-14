@@ -40,13 +40,18 @@ Will allow only remotely signed powershell scripts to run.
 Rename Domain Controller
 ------------------------
 
-netdom computername <CurrentComputerName> /add:<NewComputerName>
-netdom computername <CurrentComputerName> /makeprimary:<NewComputerName>
-REBOOT
-netdom computername <NewComputerName> /remove:<OldComputerName>
+.. code-block:: batch
+
+  netdom computername <CurrentComputerName> /add:<NewComputerName>
+  netdom computername <CurrentComputerName> /makeprimary:<NewComputerName>
+  REBOOT
+  netdom computername <NewComputerName> /remove:<OldComputerName>
 
 LACP
 ----
+
+Windows' Side
+^^^^^^^^^^^^^
 
 *Server Manager* > click on Link next to NIC teaming option or run ``lbfoadmin.exe``
 

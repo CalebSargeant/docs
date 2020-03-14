@@ -107,7 +107,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#pdf-to-csv">PDF to CSV</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ubuntu-16-change-ip-hostname">Ubuntu 16 - Change IP &amp; Hostname</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-gui-on-centos">Installing GUI on CentOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#list-samba-users">List Samba Users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#open-webpage-on-mac">Open Webpage on Mac</a></li>
@@ -279,7 +278,7 @@ tar xjvf myfile.tar.bz2
 <div class="section" id="tar">
 <h3>Tar<a class="headerlink" href="#tar" title="Permalink to this headline">¶</a></h3>
 <p>A good source for <code class="docutils literal notranslate"><span class="pre">tar</span></code> commands <a class="reference external" href="https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/">https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/</a>.</p>
-<p><strong>.tar:</strong></p>
+<p><strong>.tar</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -cvf myarchive.tar mydirectory/
 tar -xvf mystuff.tar
 </pre></div>
@@ -318,54 +317,6 @@ cp backup.tar.gz /mnt/data/
 <span class="nv">YEAR</span><span class="o">=</span><span class="m">2019</span>
 <span class="nv">MONTH</span><span class="o">=</span><span class="m">08</span>
 java -jar ./<span class="nv">$TABULARNAME</span> -b ./<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span> -t -p all
-</pre></div>
-</div>
-</div>
-<div class="section" id="ubuntu-16-change-ip-hostname">
-<h2>Ubuntu 16 - Change IP &amp; Hostname<a class="headerlink" href="#ubuntu-16-change-ip-hostname" title="Permalink to this headline">¶</a></h2>
-<p><strong>Static IP</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
-vi ifcfg-eth0
-  <span class="nv">DEVICE</span><span class="o">=</span>eth0
-  <span class="nv">BOOTPROTO</span><span class="o">=</span>none
-  <span class="nv">ONBOOT</span><span class="o">=</span>yes
-  <span class="nv">NETMASK</span><span class="o">=</span>xxx.xxx.xxx.xxx
-  <span class="nv">IPADDR</span><span class="o">=</span>xxx.xxx.xxx.xxx
-  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
-vi /etc/sysconfig/network
-  <span class="nv">NETWORKING</span><span class="o">=</span>yes
-  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
-  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
-  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
-
-/etc/init.d/network restart
-</pre></div>
-</div>
-<p><strong>Dynamic IP</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">dhclient</span> <span class="pre">ethx</span></code> or:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
-vi ifcfg-eth0
-  <span class="nv">DEVICE</span><span class="o">=</span>eth0
-  <span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
-  <span class="nv">ONBOOT</span><span class="o">=</span>yes
-  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
-
-vi /etc/sysconfig/network
-  <span class="nv">NETWORKING</span><span class="o">=</span>yes
-  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
-  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
-  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
-
-/etc/init.d/network restart
-</pre></div>
-</div>
-<p><strong>Hostname Change</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname --fqd
-vi /etc/sysconfig/network
-  <span class="nv">HOSTNAME</span><span class="o">=</span>&lt;new_hostname&gt;
-vi /etc/hosts
-  &lt;ipaddr_of_server&gt; &lt;new_hostname.domain&gt; &lt;hostname&gt;
-reboot
 </pre></div>
 </div>
 </div>
@@ -449,22 +400,27 @@ force_color_prompt=yes
 </div>
 <div class="section" id="tigervnc">
 <h2>TigerVNC<a class="headerlink" href="#tigervnc" title="Permalink to this headline">¶</a></h2>
-<p>yum install vnc vnc-server tigervnc-server xterm
-yum groupinstall Desktop</p>
-<p>useradd &lt;UserNameHere&gt;
-passwd &lt;UserNameHere&gt;</p>
-<dl class="simple">
-<dt>vi /etc/sysconfig/vncservers</dt><dd><p>VNCSERVERS=”1:&lt;user1&gt; 2:&lt;user2&gt; 3:&lt;user3&gt;”
-VNCSERVERARGS[1]=”-geometry 640x480”
-VNCSERVERARGS[2]=”-geometry 640x480”
-VNCSERVERARGS[3]=”-geometry 800x600”</p>
-</dd>
-</dl>
-<p># Remember to delete the nonsense after: &lt;resolution&gt;”</p>
-<p>su - &lt;username&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install vnc vnc-server tigervnc-server xterm
+yum groupinstall Desktop
+
+useradd &lt;UserNameHere&gt;
+passwd &lt;UserNameHere&gt;
+
+vi /etc/sysconfig/vncservers
+  <span class="nv">VNCSERVERS</span><span class="o">=</span><span class="s2">&quot;1:&lt;user1&gt; 2:&lt;user2&gt; 3:&lt;user3&gt;&quot;</span>
+  VNCSERVERARGS<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="s2">&quot;-geometry 640x480&quot;</span>
+  VNCSERVERARGS<span class="o">[</span><span class="m">2</span><span class="o">]=</span><span class="s2">&quot;-geometry 640x480&quot;</span>
+  VNCSERVERARGS<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span class="s2">&quot;-geometry 800x600&quot;</span>
+
+<span class="c1"># Remember to delete the nonsense after: &lt;resolution&gt;&quot;</span>
+
+su - &lt;username&gt;
 vncpasswd
-service vncserver start</p>
-<p># To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.</p>
+service vncserver start
+
+<span class="c1"># To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.</span>
+</pre></div>
+</div>
 </div>
 </div>
 
