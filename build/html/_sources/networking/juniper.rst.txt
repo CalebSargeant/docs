@@ -7,33 +7,36 @@ SSG-350M Site-to-Site VPN
 Phase 1
 ^^^^^^^
 
-.. image 1
-.. image 2
-.. image 3
+.. image:: _images/juniper-site-to-site-vpn-1.png
+
+.. image:: _images/juniper-site-to-site-vpn-2.png
+
+.. image:: _images/juniper-site-to-site-vpn-3.png
 
 Phase 2
 ^^^^^^^
 
 **Transform Set**
 
-.. image 4
+.. image:: _images/juniper-site-to-site-vpn-4.png
 
 **Confirming P1**
 
-.. image 5
+.. image:: _images/juniper-site-to-site-vpn-5.png
 
 **P2 Setup**
 
-.. image 6
+.. image:: _images/juniper-site-to-site-vpn-6.png
 
 Finalization
 ^^^^^^^^^^^^
 
 **Create Tunnel Interface**
 
-.. image 7
+.. image:: _images/juniper-site-to-site-vpn-7.png
 
 **Crypto Map**
 
-.. image 8
-.. image 9
+.. image:: _images/juniper-site-to-site-vpn-8.png
+
+.. image:: _images/juniper-site-to-site-vpn-9.png

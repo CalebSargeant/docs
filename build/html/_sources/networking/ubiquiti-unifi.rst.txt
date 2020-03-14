@@ -5,7 +5,7 @@ Controller
 ----------
 
 Windows Credential Recovery
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Open Ubiquiti UniFi Controller.
 2. Download mongoDB. https://www.mongodb.com/download-center
