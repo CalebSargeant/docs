@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BGP &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="EIGRP" href="eigrp.html" />
+    <link rel="prev" title="Routing" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Routing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BGP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bgp-tuning-attributes">BGP Tuning Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bgp-concepts-and-configuration">BGP Concepts and Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html">EIGRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redistribution.html">Redistribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Routing</a> &raquo;</li>
+        
+      <li>BGP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/cisco/routing/bgp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bgp">
+<h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bgp-tuning-attributes">
+<h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-are-bgp-attributes">
+<h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The BGP metric is not simple</p></li>
+<li><p>Attributes are ways that you can ‘tag’ incoming or outgoing BGP routes</p></li>
+<li><p>Some attributes are WELL-KNOWN (everyone supports), while others are OPTIONAL</p></li>
+<li><p>Some attributes are MANDITORY (must be in the update), while others are DISCRETIONARY</p></li>
+<li><p>Some attributes are TRANSITIVE (travel from router to router), while others are NON-TRANSITIVE</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-the-bgp-attribute-lineup">
+<h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Well-Known Attributes</p>
+<ul>
+<li><p>Autonomous system path (as-path - mandatory)</p></li>
+<li><p>Next hop address (mandatory)</p></li>
+<li><p>Origin (mandatory)</p></li>
+<li><p>Local preferance (discretionary)</p></li>
+<li><p>Atomic aggregate (discretionary)</p></li>
+</ul>
+</li>
+<li><p>Optional Attributes</p>
+<ul>
+<li><p>Aggregator</p></li>
+</ul>
+</li>
+<li><p>Multi-exit discriminator (med/metric)</p></li>
+</ul>
+</div>
+<div class="section" id="how-bgp-finds-the-best-path">
+<h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Ignore routes with an inaccessible next hop address</p></li>
+<li><p>Prefer the path with the highest WEIGHT (CISCO proprietary)</p></li>
+<li><p>Prefer the path with the highest LOCAL_PREF</p></li>
+<li><p>Prefer the path that was locally originated via a network command</p></li>
+<li><p>Prefer the path with the shortest AS_PATH</p></li>
+<li><p>Prefer the path with the lowest origin type</p></li>
+<li><p>Prefer the path with the lowest multi-exit discriminator (MED)</p></li>
+<li><p>Prefer eBGP over iBGP paths</p></li>
+<li><p>Prefer the path with the lowest IGP metric to the BGP next hop</p></li>
+<li><p>Determine if multiple paths require installation in the routing table for BGP multipath</p></li>
+<li><p>When both paths are external, prefer the path that was received first (the oldest one.)</p></li>
+<li><p>Prefer the route that comes from the BGP router with the lowest router ID</p></li>
+<li><p>If the originator or router ID is the same for multiple paths, prefer the path with the minimum clister list length</p></li>
+<li><p>Prefer the path that comes from the lowest neighbour address.</p></li>
+</ol>
+</div>
+<div class="section" id="tuning-bgp-attributes">
+<h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Weight (<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">x.x.x.x</span> <span class="pre">weight</span> <span class="pre">500</span></code>)</p></li>
+<li><p>AS-Path</p></li>
+<li><p>Next-Hop Address (<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">x.x.x.x</span> <span class="pre">next-hop-self</span></code>)</p></li>
+<li><p>Origin</p></li>
+<li><p>Local Preference (<code class="docutils literal notranslate"><span class="pre">bgp</span> <span class="pre">default</span> <span class="pre">local-preference</span> <span class="pre">700</span></code>)</p></li>
+<li><p>Metric (<code class="docutils literal notranslate"><span class="pre">default-metric</span> <span class="pre">200</span></code>)</p></li>
+</ul>
+</div>
+<div class="section" id="configuring-bgp-and-tuning">
+<h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/e2c2cb8e61fd5fbbba293cc448d75478/bgp-configuration-and-tuning.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration-and-tuning.zip</span></code></a></p>
+<p><strong>Router R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1#conf t
+R1(config)#int s1/0
+R1(config-if)#ip add 10.1.12.1 255.255.255.252
+R1(config-if)#no shut
+R1(config-if)#int s1/1
+R1(config-if)#ip add 10.1.13.1 255.255.255.252
+R1(config-if)#no shut
+R1(config-router)#int lo0
+R1(config-if)#ip add 1.1.1.1 255.255.255.255
+R1(config-if)#router bgp 5500
+R1(config-router)#no sync
+R1(config-router)#neigh 2.2.2.2 remote-as 5500
+R1(config-router)#neigh 2.2.2.2 update-source lo0
+R1(config-router)#neigh 3.3.3.3 remote-as 5500
+R1(config-router)#neigh 3.3.3.3 update-source lo0
+R1(config-router)#neigh 10.1.12.2 remote-as 5500
+R1(config-router)#neigh 10.1.13.2 remote-as 5500
+</pre></div>
+</div>
+<p><strong>Router R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2#conf t
+R2(config)#int s1/0
+R2(config-if)#ip add 10.1.12.2 255.255.255.252
+R2(config-if)#no shut
+R2(config-if)#int s1/1
+R2(config-if)#ip add 10.1.14.1 255.255.255.252
+R2(config-if)#no shut
+R2(config-if)#int s1/2
+R2(config-if)#ip add 10.1.24.1 255.255.255.252
+R2(config-if)#no shut
+R2(config-if)#int l0
+R2(config-if)#ip add 2.2.2.2 255.255.255.255
+R2(config-if)#router bgp 5500
+R2(config-router)#no sync
+R2(config-router)#neigh 10.1.12.1 remote-as 5500
+R2(config-router)#neigh 10.1.12.1 next-hop-self
+R2(config-router)#neigh 10.1.14.2 remote-as 5500
+R2(config-router)#neigh 10.1.24.2 remote-as 777
+</pre></div>
+</div>
+<p><strong>Router R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3#conf t
+R3(config)#int s1/0
+R3(config-if)#ip add 10.1.13.2 255.255.255.252
+R3(config-if)#no shut
+R3(config-if)#int s1/1
+R3(config-if)#ip add 10.1.14.2 255.255.255.252
+R3(config-if)#no shut
+R3(config-if)#int s1/2
+R3(config-if)#ip add 10.1.36.1 255.255.255.252
+R3(config-if)#no shut
+R3(config-if)#int l0
+R3(config-if)#ip add 3.3.3.3 255.255.255.255
+R3(config-if)#router bgp 5500
+R3(config-router)#no sync
+R3(config-router)#neigh 10.1.13.1 remote-as 5500
+R3(config-router)#neigh 10.1.14.1 remote-as 5500
+R3(config-router)#neigh 10.1.36.2 remote-as 777
+R3(config)#ip access-list standard R3ROUTES
+R3(config-std-nacl)#permit 150.1.50.0 0.0.0.255
+R3(config-std-nacl)#permit 150.2.50.0 0.0.0.255
+R3(config-std-nacl)#exit
+R3(config)#ip access-list standard R2ROUTES
+R3(config-std-nacl)#permit 200.0.0.0 0.255.255.255
+R3(config-std-nacl)#exit
+R3(config)#route-map LOCAL_PREF permit 10
+R3(config-route-map)#match ip address R3ROUTES
+R3(config-route-map)#set local
+R3(config-route-map)#set local-preference 1000
+R3(config-route-map)#exit
+R3(config)#route-map LOCAL_PREF permit 20
+R3(config-route-map)#match ip address R2ROUTES
+R3(config-route-map)#set local-prefe
+R3(config-route-map)#set local-preference 10
+R3(config-route-map)#exit
+R3(config)#route-map LOCAL_PREF permit 30
+R3(config-route-map)#router bgp 5500
+R3(config-router)#ne
+R3(config-router)#nei
+R3(config-router)#neighbor 10.1.36.2 route-map LOCAL_PREF in
+</pre></div>
+</div>
+<p><strong>Router R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4#conf t
+R4(config)#int s1/0
+R4(config-if)#ip add 10.1.24.2 255.255.255.252
+R4(config-if)#no shut
+R4(config-if)#int s1/1
+R4(config-if)#ip add 10.1.48.1 255.255.255.252
+R4(config-if)#no shut
+R4(config-if)#router bgp 777
+R4(config-router)#neigh 10.1.24.1 remote-as 5500
+R4(config-router)#neigh 10.1.48.2 remote-as 911
+</pre></div>
+</div>
+<p><strong>Router R5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5#conf t
+R5(config)#int s1/0
+R5(config-if)#ip add 10.1.48.2 255.255.255.252
+R5(config-if)#no shut
+R5(config-if)#int s1/1
+R5(config-if)#ip add 10.1.1.1 255.255.255.252
+R5(config-if)#no shut
+R5(config-if)#router bgp 911
+R5(config-router)#neigh 10.1.48.1 remote-as 777
+R5(config-router)#neigh 10.1.1.2 remote-as 711
+R5(config)#int l1
+R5(config-if)#ip add 150.1.50.1 255.255.255.0
+R5(config-if)#int l2
+R5(config-if)#ip add 150.2.50.1 255.255.255.0
+R5(config-if)#router bgp 911
+R5(config-router)#network 150.1.50.0 mask 255.255.255.0
+R5(config-router)#network 150.2.50.0 mask 255.255.255.0
+</pre></div>
+</div>
+<p><strong>Router R6</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R6#conf t
+R6(config)#int s1/0
+R6(config-if)#ip add 10.1.36.2 255.255.255.252
+R6(config-if)#no shut
+R6(config-if)#int s1/1
+R6(config-if)#ip add 10.1.74.1 255.255.255.252
+R6(config-if)#no shut
+R6(config-if)#router bgp 777
+R6(config-router)#neigh 10.1.36.1 remote-as 5500
+R6(config-router)#neigh 10.1.74.2 remote-as 711
+</pre></div>
+</div>
+<p><strong>Router R7</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R7#conf t
+R7(config)#int s1/0
+R7(config-if)#ip add 10.1.74.2 255.255.255.252
+R7(config-if)#no shut
+R7(config-if)#int s1/1
+R7(config-if)#ip add 10.1.1.2 255.255.255.252
+R7(config-if)#no shut
+R7(config-if)#router bgp 711
+R7(config-router)#neigh 10.1.74.1 remote-as 777
+R7(config-router)#neigh 10.1.1.1 remote-as 911
+R7(config)#int l1
+R7(config-if)#ip add 200.50.2.1 255.255.255.0
+R7(config-if)#int l2
+R7(config-if)#ip add 200.60.2.1 255.255.255.0
+R7(config-if)#router bgp 711
+R7(config-router)#network 200.50.2.0 mask 255.255.255.0
+R7(config-router)#network 200.60.2.0 mask 255.255.255.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bgp-concepts-and-configuration">
+<h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bgp-routing-algorithms">
+<h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>BGP is technically a distance vector, but most call it a “Path Vector” protocol.</p></li>
+<li><p>Without tuning, BGP behaves just like RIP!</p></li>
+</ul>
+</div>
+<div class="section" id="bgp-packets-and-tables">
+<h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Packets</p>
+<ul>
+<li><p><strong>Open:</strong> starts the session</p></li>
+<li><p><strong>Keepalive:</strong> duh..</p></li>
+<li><p><strong>Update:</strong> network reachability exchanges</p></li>
+<li><p><strong>Notification:</strong> something bad has happened; close session</p></li>
+</ul>
+</li>
+<li><p>Tables</p>
+<ul>
+<li><p><strong>Neighbour table:</strong> the connected BGP friends</p></li>
+<li><p><strong>BGP table:</strong> a list of ALL BGP routes (can be big!)</p></li>
+<li><p><strong>Routing table:</strong> a list of the BEST routes</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="understanding-ibgp-vs-ebgp">
+<h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../../_images/bgp-understanding-ibgp-vs-ebgp.png"><img alt="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" class="align-center" src="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" style="width: 663px; height: 424px;" /></a>
+</div>
+<div class="section" id="bgp-neighbour-configuration">
+<h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Two ways to get networks in BGP:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">network</span></code> command</p></li>
+<li><p>Redistribution</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="bgp-synchronisation">
+<h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this headline">¶</a></h3>
+<p>Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.</p>
+</div>
+<div class="section" id="bgp-next-hop-processing">
+<h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>For EBGP peers: change next hop address on advertised routes</p></li>
+<li><p>For IBGP peers: do not change next hop address on advertised routes</p></li>
+</ul>
+</div>
+<div class="section" id="bgp-configuration">
+<h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/296be02849132d38a2692f584c4de6a1/bgp-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/bgp-configuration.png"><img alt="../../../_images/bgp-configuration.png" class="align-center" src="../../../_images/bgp-configuration.png" style="width: 553px; height: 337px;" /></a>
+<p><strong>Router R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1#conf t
+R1(config)#int s1/0
+R1(config-if)#ip add 10.1.12.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#int s1/1
+R1(config-if)#ip add 10.1.13.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#int lo0
+R1(config-if)#ip add 1.1.1.1 255.255.255.255
+R1(config-if)#router bgp 5500
+R1(config-router)#neigh 4.4.4.4 remote-as 5500
+R1(config-router)#neigh 4.4.4.4 update-source loopback 0
+R1(config-router)#no sync
+R1(config-router)#router ospf 1
+R1(config-router)#no auto
+R1(config-router)#net 10.1.13.0 0.0.0.255 area 0
+R1(config-router)#net 10.1.12.0 0.0.0.255 area 0
+R1(config-router)#net 1.1.1.1 0.0.0.0 area 0
+</pre></div>
+</div>
+<p><strong>Router R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int s1/0
+R2(config-if)#ip add 10.1.12.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/1
+R2(config-if)#ip add 10.1.24.1 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#no auto
+R2(config-router)#router-id 2.2.2.2
+R2(config-router)#net 10.1.12.0 0.0.0.255 area 0
+R2(config-router)#net 10.1.24.0 0.0.0.255 area 0
+</pre></div>
+</div>
+<p><strong>Router R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3#conf t
+R3(config)#int s1/0
+R3(config-if)#ip add 10.1.13.2 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#int s1/1
+R3(config-if)#ip add 10.1.34.1 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#router ospf 1
+R3(config-router)#no auto
+R3(config-router)#router-id 3.3.3.3
+R3(config-router)#net 10.1.13.0 0.0.0.255 area 0
+R3(config-router)#net 10.1.34.0 0.0.0.255 area 0
+</pre></div>
+</div>
+<p><strong>Router R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4#conf t
+R4(config)#int s1/0
+R4(config-if)#ip add 10.1.24.2 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#int s1/1
+R4(config-if)#int s1/1
+R4(config-if)#ip add 10.1.34.2 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#int s1/2
+R4(config-if)#ip add
+R4(config-if)#ip add 10.1.4
+R4(config-if)#ip add 10.1.45.1 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#int lo0
+R4(config-if)#int lo0
+R4(config-if)#ip add 4.4.4.4 255.255.255.255
+R4(config-if)#router ospf 1
+R4(config-router)#no auto
+R4(config-router)#net 4.4.4.4 0.0.0.0 area 0
+R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
+R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
+R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
+R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
+R4(config-router)#router bgp 5500
+R4(config-router)#neigh 10.1.45.2 remote-as 6500
+R4(config-router)#neigh 1.1.1.1 remote-as 5500
+R4(config-router)#neigh 1.1.1.1 update-source lo0
+R4(config-router)#ip route 5.5.5.5 255.255.255.255 10.1.45.2
+R4(config)#router bgp 5500
+R4(config-router)#neigh 5.5.5.5 remote-as 6500
+R4(config-router)#neigh 5.5.5.5 update-source lo0
+R4(config-router)#neigh 5.5.5.5 ebgp 2
+R4(config-router)#neigh 1.1.1.1 next-hop-self
+R4(config-router)#no sync
+R4(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router R5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5#conf t
+R5(config)#int s1/0
+R5(config-if)#ip add 10.1.45.2 255.255.255.0
+R5(config-if)#no shut
+R5(config-if)#int lo0
+R5(config-if)#ip add 5.5.5.5 255.255.255.255
+R5(config-if)#router bgp 6500
+R5(config-router)#no auto
+R5(config-router)#no sync
+R5(config-router)#neigh 10.1.45.1 remote-as 5500
+R5(config-router)#ip route 4.4.4.4 255.255.255.255 10.1.45.1
+R5(config)#access-list 50 permit 200.1.1.0
+R5(config)#access-list 50 permit 200.1.2.0
+R5(config)#access-list 50 permit 200.1.3.0
+R5(config)#access-list 50 permit 200.1.4.0
+R5(config)#access-list 50 permit 200.1.5.0
+R5(config)#access-list 50 permit 200.1.6.0
+R5(config)#route-map FILTER
+R5(config-route-map)#match ip add 50
+R5(config-route-map)#router bgp 6500
+R5(config-router)#redist con route-map FILTER
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eigrp.html" class="btn btn-neutral float-right" title="EIGRP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

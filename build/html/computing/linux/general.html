@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Monitoring" href="monitoring.html" />
+    <link rel="prev" title="Databases" href="databases.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sudo-without-password">Sudo without Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compression">Compression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zip">Zip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bunzip">Bunzip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tar">Tar</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pdf-to-csv">PDF to CSV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-16-change-ip-hostname">Ubuntu 16 - Change IP &amp; Hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-gui-on-centos">Installing GUI on CentOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-samba-users">List Samba Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-webpage-on-mac">Open Webpage on Mac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-fsck-manually">Running FSCK Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xen">Xen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manually-starting">Manually Starting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-xen">Install Xen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mount-cd-for-image-of-os">Mount CD for Image of OS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-vm">Install VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#launch-vm-to-create-virtual-os">Launch VM to Create Virtual OS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#skel-terminal-colours">Skel Terminal Colours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rename-a-file-to-a-filename-with-date">Rename a File to a Filename with Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-cpu-architecture">Checking CPU Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-uptime">Checking Uptime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tigervnc">TigerVNC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>General</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/linux/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<p>General, random and useful Linux-related config and things.</p>
+<p>A good site to browse random commands and things: <a class="reference external" href="https://www.commandlinefu.com/">https://www.commandlinefu.com/</a></p>
+<div class="section" id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create screen called caleb</span>
+screen -S caleb
+
+<span class="c1"># Go into screen called caleb</span>
+screen -r -d caleb
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-ssh-keys">
+<h2>Generating SSH Keys<a class="headerlink" href="#generating-ssh-keys" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a public key on the client</span>
+ssh-keygen -t rsa -b <span class="m">4096</span>
+
+<span class="c1">### Output</span>
+<span class="c1">#Generating public/private rsa key pair.</span>
+<span class="c1">#Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa):</span>
+<span class="c1">#Enter passphrase (empty for no passphrase):</span>
+<span class="c1">#Enter same passphrase again:</span>
+<span class="c1">#Your identification has been saved in /home/ubuntu/.ssh/id_rsa.</span>
+<span class="c1">#Your public key has been saved in /home/ubuntu/.ssh/id_rsa.pub.</span>
+<span class="c1">#The key fingerprint is:</span>
+<span class="c1">#SHA256:random</span>
+
+<span class="c1"># Copy public key to server (you will be required to authenticate)</span>
+ssh-copy-id ubuntu@10.0.2.12
+
+<span class="c1">### Output</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/ubuntu/.ssh/id_rsa.pub&quot;</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed</span>
+<span class="c1"># /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed if you are prompted now it is to install the new keys</span>
+<span class="c1"># ubuntu@10.0.2.12&#39;s password:</span>
+
+<span class="c1"># Number of key(s) added: 1</span>
+
+<span class="c1"># Now try logging into the machine, with:   &quot;ssh &#39;ubuntu@10.0.2.12&#39;&quot;</span>
+<span class="c1"># and check to make sure that only the key(s) you wanted were added.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sudo-without-password">
+<h2>Sudo without Password<a class="headerlink" href="#sudo-without-password" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># DO NOT MAKE A MISTAKE</span>
+visudo
+    %sudo   <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
+</pre></div>
+</div>
+</div>
+<div class="section" id="compression">
+<h2>Compression<a class="headerlink" href="#compression" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zip">
+<h3>Zip<a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum -y install zip unzip
+zip -9 -r &lt;zip file&gt; &lt;folder name&gt;
+unzip file.zip
+</pre></div>
+</div>
+</div>
+<div class="section" id="bunzip">
+<h3>Bunzip<a class="headerlink" href="#bunzip" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bunzip2 myfile.bz2
+tar xjvf myfile.tar.bz2
+</pre></div>
+</div>
+</div>
+<div class="section" id="tar">
+<h3>Tar<a class="headerlink" href="#tar" title="Permalink to this headline">¶</a></h3>
+<p>A good source for <code class="docutils literal notranslate"><span class="pre">tar</span></code> commands <a class="reference external" href="https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/">https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/</a>.</p>
+<p><strong>.tar:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -cvf myarchive.tar mydirectory/
+tar -xvf mystuff.tar
+</pre></div>
+</div>
+<p><strong>.tar.gz</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar -czvf myarchive.tgz mydirectory/
+tar -xzvf mystuff.tgz
+</pre></div>
+</div>
+<p><strong>Tar to CIFS:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup the MySQL database</span>
+mysqldump zabbix &gt; backup.sql
+
+<span class="c1"># Install cifs-utils</span>
+apt-get install cifs-utils
+
+<span class="c1"># Create mountpoint dir</span>
+mkdir /mnt/data
+
+<span class="c1"># Mount the share</span>
+mount -t cifs //10.10.10.10/share /mnt/data -o <span class="nv">user</span><span class="o">=</span>administrator
+
+<span class="c1"># Archive Zabbix config &amp; DB</span>
+tar cfzv backup.tar.gz /etc/zabbix/ backup.sql
+
+<span class="c1"># Copy to share</span>
+cp backup.tar.gz /mnt/data/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pdf-to-csv">
+<h2>PDF to CSV<a class="headerlink" href="#pdf-to-csv" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/tabulapdf/tabula-java/releases">https://github.com/tabulapdf/tabula-java/releases</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TABULARNAME</span><span class="o">=</span>tabula-1.0.3-jar-with-dependencies.jar
+<span class="nv">YEAR</span><span class="o">=</span><span class="m">2019</span>
+<span class="nv">MONTH</span><span class="o">=</span><span class="m">08</span>
+java -jar ./<span class="nv">$TABULARNAME</span> -b ./<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span> -t -p all
+</pre></div>
+</div>
+</div>
+<div class="section" id="ubuntu-16-change-ip-hostname">
+<h2>Ubuntu 16 - Change IP &amp; Hostname<a class="headerlink" href="#ubuntu-16-change-ip-hostname" title="Permalink to this headline">¶</a></h2>
+<p><strong>Static IP</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
+vi ifcfg-eth0
+  <span class="nv">DEVICE</span><span class="o">=</span>eth0
+  <span class="nv">BOOTPROTO</span><span class="o">=</span>none
+  <span class="nv">ONBOOT</span><span class="o">=</span>yes
+  <span class="nv">NETMASK</span><span class="o">=</span>xxx.xxx.xxx.xxx
+  <span class="nv">IPADDR</span><span class="o">=</span>xxx.xxx.xxx.xxx
+  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
+vi /etc/sysconfig/network
+  <span class="nv">NETWORKING</span><span class="o">=</span>yes
+  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+
+/etc/init.d/network restart
+</pre></div>
+</div>
+<p><strong>Dynamic IP</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">dhclient</span> <span class="pre">ethx</span></code> or:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
+vi ifcfg-eth0
+  <span class="nv">DEVICE</span><span class="o">=</span>eth0
+  <span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
+  <span class="nv">ONBOOT</span><span class="o">=</span>yes
+  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
+
+vi /etc/sysconfig/network
+  <span class="nv">NETWORKING</span><span class="o">=</span>yes
+  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+
+/etc/init.d/network restart
+</pre></div>
+</div>
+<p><strong>Hostname Change</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname --fqd
+vi /etc/sysconfig/network
+  <span class="nv">HOSTNAME</span><span class="o">=</span>&lt;new_hostname&gt;
+vi /etc/hosts
+  &lt;ipaddr_of_server&gt; &lt;new_hostname.domain&gt; &lt;hostname&gt;
+reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-gui-on-centos">
+<h2>Installing GUI on CentOS<a class="headerlink" href="#installing-gui-on-centos" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">groupinstall</span> <span class="pre">&quot;Desktop&quot;</span> <span class="pre">&quot;Desktop</span> <span class="pre">Platform&quot;</span> <span class="pre">&quot;X</span> <span class="pre">Window</span> <span class="pre">System&quot;</span> <span class="pre">&quot;Fonts&quot;</span></code></p>
+</div>
+<div class="section" id="list-samba-users">
+<h2>List Samba Users<a class="headerlink" href="#list-samba-users" title="Permalink to this headline">¶</a></h2>
+<p>pbdedit -L</p>
+</div>
+<div class="section" id="open-webpage-on-mac">
+<h2>Open Webpage on Mac<a class="headerlink" href="#open-webpage-on-mac" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">-a</span> <span class="pre">&quot;Google</span> <span class="pre">Chrome&quot;</span> <span class="pre">index.html</span></code></p>
+</div>
+<div class="section" id="running-fsck-manually">
+<h2>Running FSCK Manually<a class="headerlink" href="#running-fsck-manually" title="Permalink to this headline">¶</a></h2>
+<p>You get a message: (or something similar)
+/dev/mapper/vg_fedora1530-lv-home: UNEXPECTED INCONSISTENCY: RUN fsck MANUALLY (i.e., without -a or -p options)
+Try the following:
+1. Type the following commands:
+umount /dev/sda*
+fsck /dev/sda1 -f -y -a
+(see <a class="reference external" href="http://www.computerhope.com/unix/fsck.htm">http://www.computerhope.com/unix/fsck.htm</a> for syntax of fsck)</p>
+</div>
+<div class="section" id="xen">
+<h2>Xen<a class="headerlink" href="#xen" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manually-starting">
+<h3>Manually Starting<a class="headerlink" href="#manually-starting" title="Permalink to this headline">¶</a></h3>
+<p>xm list
+cd /etc/xen/
+ls
+xm create &lt;vm-name&gt;
+ping &lt;vm-name&gt;
+xm list</p>
+</div>
+<div class="section" id="install-xen">
+<h3>Install Xen<a class="headerlink" href="#install-xen" title="Permalink to this headline">¶</a></h3>
+<p>yum install xen virt-manager kernel-xen
+chkconfig xend on
+reboot</p>
+</div>
+<div class="section" id="mount-cd-for-image-of-os">
+<h3>Mount CD for Image of OS<a class="headerlink" href="#mount-cd-for-image-of-os" title="Permalink to this headline">¶</a></h3>
+<p>mkdir /media/cdrom
+mount -t &lt;name_of_iso&gt; -o ro /dev/cdrom /media/cdrom</p>
+</div>
+<div class="section" id="install-vm">
+<h3>Install VM<a class="headerlink" href="#install-vm" title="Permalink to this headline">¶</a></h3>
+<p>virt-install –prompt (yes centos 512 /home/vm/centos /media/cdrom)</p>
+</div>
+<div class="section" id="launch-vm-to-create-virtual-os">
+<h3>Launch VM to Create Virtual OS<a class="headerlink" href="#launch-vm-to-create-virtual-os" title="Permalink to this headline">¶</a></h3>
+<p>startx
+virt-manager</p>
+<p>NOTE to exit startx press ctrl,alt,bkspce</p>
+</div>
+</div>
+<div class="section" id="skel-terminal-colours">
+<h2>Skel Terminal Colours<a class="headerlink" href="#skel-terminal-colours" title="Permalink to this headline">¶</a></h2>
+<p>Mv .bashrc .bashrc.bak
+Cp /etc/skel/.bashrc .bashrc
+Nano .bashrc
+# uncomment this:
+force_color_prompt=yes
+# add this to the bottom of the file
+[[ -s “$HOME/.rvm/scripts/rvm” ]] &amp;&amp; source “$HOME/.rvm/scripts/rvm”
+. .bashrc</p>
+</div>
+<div class="section" id="rename-a-file-to-a-filename-with-date">
+<h2>Rename a File to a Filename with Date<a class="headerlink" href="#rename-a-file-to-a-filename-with-date" title="Permalink to this headline">¶</a></h2>
+<p>cp &lt;name_of_file&gt; &lt;new_name_of_file&gt;.`date -I`</p>
+</div>
+<div class="section" id="checking-cpu-architecture">
+<h2>Checking CPU Architecture<a class="headerlink" href="#checking-cpu-architecture" title="Permalink to this headline">¶</a></h2>
+<p>uname -i</p>
+</div>
+<div class="section" id="checking-uptime">
+<h2>Checking Uptime<a class="headerlink" href="#checking-uptime" title="Permalink to this headline">¶</a></h2>
+<p>uptime</p>
+</div>
+<div class="section" id="tigervnc">
+<h2>TigerVNC<a class="headerlink" href="#tigervnc" title="Permalink to this headline">¶</a></h2>
+<p>yum install vnc vnc-server tigervnc-server xterm
+yum groupinstall Desktop</p>
+<p>useradd &lt;UserNameHere&gt;
+passwd &lt;UserNameHere&gt;</p>
+<dl class="simple">
+<dt>vi /etc/sysconfig/vncservers</dt><dd><p>VNCSERVERS=”1:&lt;user1&gt; 2:&lt;user2&gt; 3:&lt;user3&gt;”
+VNCSERVERARGS[1]=”-geometry 640x480”
+VNCSERVERARGS[2]=”-geometry 640x480”
+VNCSERVERARGS[3]=”-geometry 800x600”</p>
+</dd>
+</dl>
+<p># Remember to delete the nonsense after: &lt;resolution&gt;”</p>
+<p>su - &lt;username&gt;
+vncpasswd
+service vncserver start</p>
+<p># To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="monitoring.html" class="btn btn-neutral float-right" title="Monitoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="databases.html" class="btn btn-neutral float-left" title="Databases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

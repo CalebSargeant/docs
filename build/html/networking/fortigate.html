@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FortiGate &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HP Procurve" href="hp.html" />
+    <link rel="prev" title="Switching" href="cisco/switching/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cisco/index.html">Cisco</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FortiGate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#site-to-site-vpn">Site to Site VPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#management-vdom">Management VDOM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>FortiGate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/networking/fortigate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fortigate">
+<h1>FortiGate<a class="headerlink" href="#fortigate" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="site-to-site-vpn">
+<h2>Site to Site VPN<a class="headerlink" href="#site-to-site-vpn" title="Permalink to this headline">¶</a></h2>
+<p>In the below example, we are creating a VPN tunnel from 192.168.122.0/24 to 10.137.0.0/26 and 10.137.5.0/26.</p>
+<img alt="../_images/fortigate-site-to-site-vpn-1.png" src="../_images/fortigate-site-to-site-vpn-1.png" />
+<ol class="arabic simple">
+<li><p>Create the tunnel.</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-2.png" src="../_images/fortigate-site-to-site-vpn-2.png" />
+<ol class="arabic simple" start="2">
+<li><p>Check if there are current objects for the destination range(s) (10.137.0.0 &amp; 10.137.5.0). There are ranges already, because this guide was created after the work was done. See the search bar at the top-right.</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-3.png" src="../_images/fortigate-site-to-site-vpn-3.png" />
+<ol class="arabic simple" start="3">
+<li><p>Create the objects for the destination range(s).</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-4.png" src="../_images/fortigate-site-to-site-vpn-4.png" />
+<ol class="arabic simple" start="4">
+<li><p>Find the interface(s) that the source range(s) are connected to. The servers that are needing to communicate to the destination (10.137.0.0 &amp; 10.137.5.0) is 192.168.122.144, 192.168.122.145 &amp; 192.168.122.146.</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-5.png" src="../_images/fortigate-site-to-site-vpn-5.png" />
+<ol class="arabic simple" start="5">
+<li><p>Find out what is currently allowed to the destination interface (TRUWORTHS-INDMZ) from the source IP addresses provided (192.168.122.144, 192.168.122.145 &amp; 192.168.122.146). We know to search for “REDACTED” from the previous step.</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-6.png" src="../_images/fortigate-site-to-site-vpn-6.png" />
+<ol class="arabic simple" start="6">
+<li><p>Create the policy.</p></li>
+</ol>
+<img alt="../_images/fortigate-site-to-site-vpn-7.png" src="../_images/fortigate-site-to-site-vpn-7.png" />
+</div>
+<div class="section" id="management-vdom">
+<h2>Management VDOM<a class="headerlink" href="#management-vdom" title="Permalink to this headline">¶</a></h2>
+<p>You need the management VDOM (<code class="docutils literal notranslate"><span class="pre">management-vdom</span> <span class="pre">root</span></code> is default) and internet to keep the following alive:</p>
+<ul class="simple">
+<li><p>AV/IPS updates</p></li>
+<li><p>DNS queries</p></li>
+<li><p>NTP time-sync</p></li>
+<li><p>Webfilter rating look-ups</p></li>
+<li><p>forticloud logging</p></li>
+<li><p>SNMP, Email, alerting</p></li>
+</ul>
+<p>In a multi-vdom environment, you can change the default vdom:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config global
+config system global
+  set management-vdom &lt;vdom_name&gt;
+end
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hp.html" class="btn btn-neutral float-right" title="HP Procurve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cisco/switching/index.html" class="btn btn-neutral float-left" title="Switching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

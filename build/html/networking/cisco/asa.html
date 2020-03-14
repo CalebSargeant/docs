@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ASA &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DNA" href="dna.html" />
+    <link rel="prev" title="ACI" href="aci.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aci.html">ACI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ASA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#health">Health</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capture-file-download">Capture File Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failover">Failover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#site-to-site-vpn">Site to Site VPN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tunnel-establishing-in-asdm">Tunnel Establishing in ASDM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switching/index.html">Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Cisco</a> &raquo;</li>
+        
+      <li>ASA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/networking/cisco/asa.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asa">
+<h1>ASA<a class="headerlink" href="#asa" title="Permalink to this headline">¶</a></h1>
+<p>Adaptive Security Appliance</p>
+<div class="section" id="health">
+<h2>Health<a class="headerlink" href="#health" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Uptime
+sh ver | grep up
+
+# Memory
+sh mem | grep Used
+
+# CPU
+sh cpu
+
+# Failover
+sh failover state
+</pre></div>
+</div>
+</div>
+<div class="section" id="capture-file-download">
+<h2>Capture File Download<a class="headerlink" href="#capture-file-download" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap">https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap</a>
+(Delete <code class="docutils literal notranslate"><span class="pre">/context</span></code> if a single context)</p>
+</div>
+<div class="section" id="failover">
+<h2>Failover<a class="headerlink" href="#failover" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>### ASA1
+# Setup failover interface
+en
+conf t
+hostname ASA1
+failover lan unit pri
+int g0/6
+no shut
+
+# Assign failover IP Address
+failover lan int FAILOVER g0/6
+failover int ip FAILOVER 10.255.255.1 255.255.255.252 standby 10.255.255.2
+failover key MySecretKey
+failover link FAILOVER
+
+# Configure Outside IP Address on ASA1
+int g0/4
+ip add 100.100.100.1 255.255.255.248 standby 100.100.100.2
+nameif outside1
+no shut
+
+# Configure Inside IP Address on ASA1
+int g0/0
+ip add 10.0.0.1 255.255.255.0 standby 10.0.0.2
+nameif inside1
+security-level 100
+no shut
+
+# Enable failover
+failover
+
+### ASA2
+# Setup failover interface
+en
+conf t
+hostname ASA2
+failover lan unit secondary
+int g0/6
+no shut
+failover lan int FAILOVER g0/6
+
+# Assign failover IP Address
+failover int ip FAILOVER 10.255.255.1 255.255.255.252 standby 10.255.255.2
+failover key MySecretKey
+failover link FAILOVER
+
+# Enable failover
+failover
+</pre></div>
+</div>
+</div>
+<div class="section" id="site-to-site-vpn">
+<h2>Site to Site VPN<a class="headerlink" href="#site-to-site-vpn" title="Permalink to this headline">¶</a></h2>
+<p># Show tunnel uptime
+show vpn-sessiondb detail l2l filter ipaddress PEERADDRESS | i Conn|Dur
+# Re-establish tunnel (be careful!)
+Clear ipsec sa peer PEERADDRESS</p>
+<div class="section" id="tunnel-establishing-in-asdm">
+<h3>Tunnel Establishing in ASDM<a class="headerlink" href="#tunnel-establishing-in-asdm" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../_images/asa-tunnel-establish.png"><img alt="../../_images/asa-tunnel-establish.png" class="align-center" src="../../_images/asa-tunnel-establish.png" style="width: 1848.0px; height: 495.0px;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dna.html" class="btn btn-neutral float-right" title="DNA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aci.html" class="btn btn-neutral float-left" title="ACI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

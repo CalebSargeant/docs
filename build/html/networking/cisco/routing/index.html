@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Routing &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="BGP" href="bgp.html" />
+    <link rel="prev" title="DNA" href="../dna.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html">EIGRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html">OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redistribution.html">Redistribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+      <li>Routing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/cisco/routing/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="routing">
+<h1>Routing<a class="headerlink" href="#routing" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bgp.html">BGP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html#bgp-tuning-attributes">BGP Tuning Attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#what-are-bgp-attributes">What are BGP Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#understanding-the-bgp-attribute-lineup">Understanding the BGP Attribute Lineup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#how-bgp-finds-the-best-path">How BGP Finds the Best Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#tuning-bgp-attributes">Tuning BGP Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#configuring-bgp-and-tuning">Configuring BGP and Tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bgp.html#bgp-concepts-and-configuration">BGP Concepts and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-routing-algorithms">BGP Routing Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-packets-and-tables">BGP Packets and Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#understanding-ibgp-vs-ebgp">Understanding IBGP vs EBGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-neighbour-configuration">BGP Neighbour Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-synchronisation">BGP Synchronisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-next-hop-processing">BGP Next-Hop Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp.html#bgp-configuration">BGP Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eigrp.html">EIGRP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eigrp.html#concepts-and-planning">Concepts and Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#why-you-would-choose-to-use-eigrp">Why You Would Choose to Use EIGRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#eigrp-tables-and-terminology">EIGRP Tables and Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#eigrp-neighbour-relationships">EIGRP Neighbour Relationships</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#eigrp-metric-calculation">EIGRP Metric Calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eigrp.html#basic-configuration">Basic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigrp.html#advanced-configuration">Advanced Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#frame-relay-pvc-design">Frame Relay PVC Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#how-eigrp-handles-nbma-non-broadcast-multi-access">How EIGRP Handles NBMA (Non Broadcast Multi-Access)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#configuration-example">Configuration Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eigrp.html#best-practices-and-design">Best Practices and Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#debugging-eigrp-packets">Debugging EIGRP packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#query-swarm-resolutions">Query Swarm Resolutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html#configuring-stubs">Configuring Stubs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ospf.html">OSPF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html#concepts-and-planning">Concepts and Planning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#link-state-routing-protocols">Link State Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-area-design-and-terms">OSPF Area Design and Terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#understanding-ospf-neighbour-relationships">Understanding OSPF Neighbour Relationships</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-s-cost">OSPF’s Cost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#understanding-dr-and-bdr">Understanding DR and BDR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#dr-and-bdr-election">DR and BDR Election</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-packet-types">OSPF Packet Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html#basic-configuration">Basic Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#difference-between-e1-and-e2">Difference between E1 and E2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#basic-ospf-configuration">Basic OSPF Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html#advanced-configuration">Advanced Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-network-types">OSPF Network Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#non-broadcast-mode">Non-Broadcast Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#point-to-multipoint-mode">Point-to-Multipoint Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#point-to-point-mode">Point-to-Point Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-advanced-configuration">OSPF Advanced Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ospf.html#ospf-area-types-and-options">OSPF Area Types and Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#ospf-areas-and-router-types">OSPF Areas and Router Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#virtual-links">Virtual Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#stub-and-totally-stubby-areas">Stub and Totally Stubby Areas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ospf.html#another-example">Another Example…</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="redistribution.html">Redistribution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="redistribution.html#why-one-would-use-multiple-protocols">Why One Would Use Multiple Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redistribution.html#resolving-redistribution-issue">Resolving Redistribution Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redistribution.html#redistribution-metrics">Redistribution Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redistribution.html#basic-redistribution-configuration">Basic Redistribution Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redistribution.html#advanced-redistribution-configuration">Advanced Redistribution Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bgp.html" class="btn btn-neutral float-right" title="BGP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../dna.html" class="btn btn-neutral float-left" title="DNA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

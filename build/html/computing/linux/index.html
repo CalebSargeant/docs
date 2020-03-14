@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linux &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bash" href="bash.html" />
+    <link rel="prev" title="Kubernetes" href="../containerisation/kubernetes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Linux</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/linux/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bash.html">Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#associative-arrays">Associative Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#getopt">Getopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#sed">sed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#awk">awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#date">date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#prompt-for-input">Prompt for Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#output-formatting">Output Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#while-true-loop">While True Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#for-loops">For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#arithmetic">Arithmetic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#sum">Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#divide">Divide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#scientific-notation-rounding">Scientific Notation &amp; Rounding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#incrementing">Incrementing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#wc">wc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-lines">Number of Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-words">Number of Words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-characters">Number of Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bash.html#count-number-of-lines-of-output">Count Number of Lines of Output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#jq">jq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#ls">ls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#tr">tr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#pwd">pwd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#cat">cat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#id1">tr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#if">if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#remove-first-line">Remove First Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bash.html#search-for-text-in-files">Search for Text in Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#mysql">MySQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#backup">Backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#size-of-db">Size of DB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#resetting-root-password">Resetting Root Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#using-ssh-to-import-database">Using SSH to Import Database</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html#screen">Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#generating-ssh-keys">Generating SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#sudo-without-password">Sudo without Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#compression">Compression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#zip">Zip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#bunzip">Bunzip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#tar">Tar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#pdf-to-csv">PDF to CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#ubuntu-16-change-ip-hostname">Ubuntu 16 - Change IP &amp; Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#installing-gui-on-centos">Installing GUI on CentOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#list-samba-users">List Samba Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#open-webpage-on-mac">Open Webpage on Mac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#running-fsck-manually">Running FSCK Manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#xen">Xen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#manually-starting">Manually Starting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#install-xen">Install Xen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#mount-cd-for-image-of-os">Mount CD for Image of OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#install-vm">Install VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html#launch-vm-to-create-virtual-os">Launch VM to Create Virtual OS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#skel-terminal-colours">Skel Terminal Colours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#rename-a-file-to-a-filename-with-date">Rename a File to a Filename with Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#checking-cpu-architecture">Checking CPU Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#checking-uptime">Checking Uptime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#tigervnc">TigerVNC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#zabbix">Zabbix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html#slack-alerting">Slack Alerting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#iptables">IPTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#creating-deleting-rules">Creating &amp; Deleting Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#list-delete-rules">List &amp; Delete Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#lacp">LACP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#netcat">Netcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#dig">Dig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="networking.html#public-ip">Public IP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#change-hostname">Change Hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#netplan">Netplan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#file-system-check-loop">File System Check Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#formatting-usb-flash-drive">Formatting USB Flash Drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#repairing-grub">Repairing Grub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#mount">Mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#mount-usb-flash-disk">Mount USB Flash Disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#iostat">iostat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#drbd">DRBD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#zfs">ZFS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#glusterfs">GlusterFS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#badblocks">Badblocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#linux-harddrive">Linux Harddrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="storage.html#windows-harddrive">Windows Harddrive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bash.html" class="btn btn-neutral float-right" title="Bash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../containerisation/kubernetes.html" class="btn btn-neutral float-left" title="Kubernetes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

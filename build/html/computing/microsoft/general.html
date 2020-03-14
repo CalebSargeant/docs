@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Group Policy" href="group-policy.html" />
+    <link rel="prev" title="Microsoft" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-firefox-from-cli">Download Firefox from CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operations-masters">Operations Masters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#forest">Forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#domain">Domain</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#powershell">PowerShell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rename-domain-controller">Rename Domain Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lacp">LACP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-s-side">Cisco’s Side</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sendkeys.html">Sendkeys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sentinal.html">Sentinal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exchange/index.html">Exchange</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Microsoft</a> &raquo;</li>
+        
+      <li>General</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/microsoft/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<p>Check which DC authenticated with: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">%logonserver%</span></code></p>
+<div class="section" id="download-firefox-from-cli">
+<h2>Download Firefox from CLI<a class="headerlink" href="#download-firefox-from-cli" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># In PowerShell:</span>
+<span class="nb">wget </span><span class="n">-O</span> <span class="n">FirefoxSetup</span><span class="p">.</span><span class="n">exe</span> <span class="s2">&quot;https://download.mozilla.org/?product=firefox-latest&amp;os=win64&amp;lang=en-US&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operations-masters">
+<h2>Operations Masters<a class="headerlink" href="#operations-masters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forest">
+<h3>Forest<a class="headerlink" href="#forest" title="Permalink to this headline">¶</a></h3>
+<p>Domain Naming
+Schema</p>
+</div>
+<div class="section" id="domain">
+<h3>Domain<a class="headerlink" href="#domain" title="Permalink to this headline">¶</a></h3>
+<p>Relative Identifier (RID)
+Infrastructure
+PDC Emulater</p>
+</div>
+</div>
+<div class="section" id="powershell">
+<h2>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline">¶</a></h2>
+<p>Set-ExecutionPolicy Unrestricted
+Will allow unsigned powershell scripts to run.
+Set-ExecutionPolicy Restricted
+Will not allow unsigned powershell scripts to run.
+Set-ExecutionPolicy RemoteSigned
+Will allow only remotely signed powershell scripts to run.</p>
+</div>
+<div class="section" id="rename-domain-controller">
+<h2>Rename Domain Controller<a class="headerlink" href="#rename-domain-controller" title="Permalink to this headline">¶</a></h2>
+<p>netdom computername &lt;CurrentComputerName&gt; /add:&lt;NewComputerName&gt;
+netdom computername &lt;CurrentComputerName&gt; /makeprimary:&lt;NewComputerName&gt;
+REBOOT
+netdom computername &lt;NewComputerName&gt; /remove:&lt;OldComputerName&gt;</p>
+</div>
+<div class="section" id="lacp">
+<h2>LACP<a class="headerlink" href="#lacp" title="Permalink to this headline">¶</a></h2>
+<p><em>Server Manager</em> &gt; click on Link next to NIC teaming option or run <code class="docutils literal notranslate"><span class="pre">lbfoadmin.exe</span></code></p>
+<img alt="../../_images/windows-server-lacp-1.png" src="../../_images/windows-server-lacp-1.png" />
+<p>Select the adapters, add to team</p>
+<img alt="../../_images/windows-server-lacp-2.png" src="../../_images/windows-server-lacp-2.png" />
+<p>For teaming mode choose LACP, load balancing method use address hash</p>
+<img alt="../../_images/windows-server-lacp-3.png" src="../../_images/windows-server-lacp-3.png" />
+<div class="section" id="cisco-s-side">
+<h3>Cisco’s Side<a class="headerlink" href="#cisco-s-side" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int r g0/1 - 2
+channel-group 1 mode active
+channel-protocol lacp
+
+int port-chan1
+switchport mode trunk
+switchport trunk native vlan &lt;server_VLAN&gt;
+switchport trunk allowed vlan &lt;all_vlans_to_allow&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="group-policy.html" class="btn btn-neutral float-right" title="Group Policy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Microsoft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

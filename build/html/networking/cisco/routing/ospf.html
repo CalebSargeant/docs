@@ -1,0 +1,1091 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OSPF &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Redistribution" href="redistribution.html" />
+    <link rel="prev" title="EIGRP" href="eigrp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Routing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bgp.html">BGP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eigrp.html">EIGRP</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OSPF</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#concepts-and-planning">Concepts and Planning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-configuration">Basic Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-configuration">Advanced Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ospf-area-types-and-options">OSPF Area Types and Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="redistribution.html">Redistribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Routing</a> &raquo;</li>
+        
+      <li>OSPF</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/cisco/routing/ospf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ospf">
+<h1>OSPF<a class="headerlink" href="#ospf" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="concepts-and-planning">
+<h2>Concepts and Planning<a class="headerlink" href="#concepts-and-planning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="link-state-routing-protocols">
+<h3>Link State Routing Protocols<a class="headerlink" href="#link-state-routing-protocols" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Two types</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>IS-IS</p></li>
+<li><p>OSPF</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Maintain three tables</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Neighbour table</p></li>
+<li><p>Topology table</p></li>
+<li><p>Routing table</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use Dijkstra’s Shortest Path First (SPF) algorithm</p></li>
+<li><p>Send triggered updates to announce network changes</p></li>
+<li><p>Send periodic updates (LS refresh) on long intervals</p></li>
+</ul>
+</div>
+<div class="section" id="ospf-area-design-and-terms">
+<h3>OSPF Area Design and Terms<a class="headerlink" href="#ospf-area-design-and-terms" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../../_images/ospf-concepts-and-planning.png"><img alt="../../../_images/ospf-concepts-and-planning.png" class="align-center" src="../../../_images/ospf-concepts-and-planning.png" style="width: 940px; height: 641px;" /></a>
+<ul class="simple">
+<li><p>All areas must connect to area 0</p></li>
+<li><p>All routers in an area have the same topology table</p></li>
+<li><p>Goal: localize updates within an area</p></li>
+<li><p>Requires a hierarchal design</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-ospf-neighbour-relationships">
+<h3>Understanding OSPF Neighbour Relationships<a class="headerlink" href="#understanding-ospf-neighbour-relationships" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Determine your own Router ID</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The Router ID is simply the router’s name in the OSPF process</p></li>
+<li><p>Highest active interface IP address when OSPF starts (loopbacks beat physical interfaces)</p></li>
+<li><p>Dangerous to have a dynamic Router ID</p></li>
+<li><p>Can be hard-coded using the “router-id” command</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Add interfaces to the link state database (dictated by the network command)</p></li>
+<li><p>Send a hello message on chosen interface(s)</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>Down state</strong></p></li>
+<li><p>Sent once every 10 seconds on broadcast/p2p networks</p></li>
+<li><p>Sent once every 30 seconds on NMBA networks</p></li>
+<li><p>Contains all sorts of information (* = neighbours must be same to form neighbor relationship)</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Router ID</p></li>
+<li><p>Hello and Dead Timers*</p></li>
+<li><p>Network Mask*</p></li>
+<li><p>Area ID*</p></li>
+<li><p>Neighbours</p></li>
+<li><p>Router Priority</p></li>
+<li><p>DR/BDR IP address</p></li>
+<li><p>Authentication Password*</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Receive Hello</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>Init State</strong></p></li>
+<li><p>Check hello/dead interval</p></li>
+<li><p>Check netmasks</p></li>
+<li><p>Check area ID</p></li>
+<li><p>Check authentication passwords</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Send Reply Hello</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>2-way State</strong></p></li>
+<li><p>Am I listed as a neighbour in your hello packet</p></li>
+<li><p>(if yes, reset dead timer)</p></li>
+<li><p>(if no, add as a new neighbour)</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Master-Slave Relationship Determined</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>Exstart State</strong></p></li>
+<li><p>Determined by “priority”, router-id breaks the tie</p></li>
+<li><p>Master Sends Database Description (DBD) packet</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>DBD = cliff notes of link-state database</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Slave sends its DBD packets</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>DBDs are acknowledged and reviewed</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>Loading state</strong></p></li>
+<li><p>Slave requests details (link-state requests - LSR)</p></li>
+<li><p>Master sends updates (link-state updates - LSU)</p></li>
+<li><p>Master requests details (LSR)</p></li>
+<li><p>Slave sends updates (LSU)</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Neighbours are synchronized</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>Full-state</strong></p></li>
+<li><p>Now it’s time to run the Dijkstra SPF algorithm to figure out what to do with all this data</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="ospf-s-cost">
+<h3>OSPF’s Cost<a class="headerlink" href="#ospf-s-cost" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[Cost = \frac{100}{BandwidthInMbps}\]</div>
+<ul class="simple">
+<li><p>56K = 1785</p></li>
+<li><p>64K = 1562</p></li>
+<li><p>T1 (1.544M) = 65</p></li>
+<li><p>E1 (2.048M) = 48</p></li>
+<li><p>Ethernet = 10</p></li>
+<li><p>Fast Ethernet = 1</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-dr-and-bdr">
+<h3>Understanding DR and BDR<a class="headerlink" href="#understanding-dr-and-bdr" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Designated Router = DR</p></li>
+<li><p>Backup DR = BDR</p></li>
+<li><p>DROTHER = client router</p></li>
+<li><p>Router send updates to DR on 224.0.0.6, DR sends updates to all its neighbours on 224.0.0.5.</p></li>
+<li><p>1 DR and BDR for every shared segment</p></li>
+<li><p>No DR and BDR on point-to-point links (no point)</p></li>
+</ul>
+</div>
+<div class="section" id="dr-and-bdr-election">
+<h3>DR and BDR Election<a class="headerlink" href="#dr-and-bdr-election" title="Permalink to this headline">¶</a></h3>
+<p>Elected via Router Priority (which is all 1 by default). The tie is broken by Router-ID. DR is only really important in NMBA networks, otherwise random DR and BDR is okay. All routers connected to DR will be in Full state. Other routers are in 2-way state (which is okay).</p>
+</div>
+<div class="section" id="ospf-packet-types">
+<h3>OSPF Packet Types<a class="headerlink" href="#ospf-packet-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Hello</p></li>
+<li><p>Database Description (DBD)</p></li>
+<li><p>Link-State Request (LSR)
+* sent to master</p></li>
+<li><dl class="simple">
+<dt>Link-State Advertisement (LSA)</dt><dd><ul>
+<li><p>updates about individual routes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Link-State Update (LSU)</dt><dd><ul>
+<li><p>sent to slave</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Link-State Acknowledgment (LSACK)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="basic-configuration">
+<h2>Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="difference-between-e1-and-e2">
+<h3>Difference between E1 and E2<a class="headerlink" href="#difference-between-e1-and-e2" title="Permalink to this headline">¶</a></h3>
+<p>E1 = increment their metric (used if their is more than one way out the network - out of ASBR)
+E2 = do not increment their metric</p>
+</div>
+<div class="section" id="basic-ospf-configuration">
+<h3>Basic OSPF Configuration<a class="headerlink" href="#basic-ospf-configuration" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/9a2da2483fd81527c9a90909bd274d30/ospf-basic-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-basic-configuration.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/ospf-basic-configuration.png"><img alt="../../../_images/ospf-basic-configuration.png" class="align-center" src="../../../_images/ospf-basic-configuration.png" style="width: 738px; height: 332px;" /></a>
+<p><strong>Router 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int g0/0
+R1(config-if)#ip add 172.30.0.1 255.255.255.0
+R1(config-if)#no shut
+R1(config)#ip route 172.16.0.0 255.255.255.0 null0
+R1(config)#ip route 172.16.1.0 255.255.255.0 null0
+R1(config)#ip route 172.16.2.0 255.255.255.0 null0
+R1(config)#ip route 172.16.3.0 255.255.255.0 null0
+R1(config)#router ospf 1
+R1(config-router)#net 172.30.0.1 0.0.0.0 area 0
+R1(config-router)#router-id 1.1.1.1
+R1(config-router)#redistribute static subnets metric 200 metric-type 2
+R1(config-router)#summary-address 172.16.0.0 255.255.252.0
+R1(config-router)#auto-cost reference-bandwidth 1000
+R1(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int g0/0
+R2(config-if)#ip add 172.30.0.2 255.255.255.0
+R2(config-if)#ip ospf priority 0
+R2(config-if)#no shut
+R2(config-if)#int s1/0
+R2(config-if)#ip add 172.30.10.2 255.255.255.0
+R2(config-if)#band 500
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#network 172.30.0.2 0.0.0.0 area 0
+R2(config-router)#router-id 2.2.2.2
+R2(config-router)#network 172.30.10.2 0.0.0.0 area 10
+R2(config-router)#area 10 range 10.10.0.0 255.255.252.0
+R2(config-router)#auto-cost reference-bandwidth 1000
+R2(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#int g0/0
+R3(config-if)#ip add 172.30.0.3 255.255.255.0
+R3(config-if)#ip ospf priority 0
+R3(config-if)#no shut
+R3(config-if)#int s1/0
+R3(config-if)#ip add 172.30.20.3 255.255.255.0
+R3(config-if)#band 500
+R3(config-if)#no shut
+R3(config)#router ospf 1
+R3(config-router)#router-id 3.3.3.3
+R3(config-router)#net 172.30.0.3 0.0.0.0 area 0
+R3(config-router)#net 172.30.20.3 0.0.0.0 area 20
+R3(config-router)#area 20 range 10.20.0.0 255.255.252.0
+R3(config-router)#auto-cost reference-bandwidth 1000
+R3(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int s1/0
+R4(config-if)#ip add 172.30.20.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#band 500
+R4(config-if)#int lo1
+R4(config-if)#ip add 10.20.0.1 255.255.255.0
+R4(config-if)#int lo2
+R4(config-if)#ip add 10.20.1.1 255.255.255.0
+R4(config-if)#int lo3
+R4(config-if)#ip add 10.20.1.1 255.255.255.0
+R4(config-if)#ip add 10.20.2.1 255.255.255.0
+R4(config-if)#int lo4
+R4(config-if)#ip add 10.20.3.1 255.255.255.0
+R4(config)#router ospf 1
+R4(config-router)#router-id 4.4.4.4
+R4(config-router)#network 10.0.0.0 0.255.255.255 area 20
+R4(config-router)#network 172.30.20.4 0.0.0.0 area 20
+R4(config-router)#auto-cost reference-bandwidth 1000
+R4(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5(config)#int s1/0
+R5(config-if)#ip add 172.30.10.5 255.255.255.0
+R5(config-if)#band 500
+R5(config-if)#no shut
+R5(config-if)#int lo1
+R5(config-if)#ip add 10.10.0.1 255.255.255.0
+R5(config-if)#ip ospf network point-to-point
+R5(config-if)#int lo2
+R5(config-if)#ip add 10.10.1.1 255.255.255.0
+R5(config-if)#int lo3
+R5(config-if)#ip add 10.10.2.1 255.255.255.0
+R5(config-if)#int lo4
+R5(config-if)#ip add 10.10.3.1 255.255.255.0
+R5(config)#router ospf 1
+R5(config-router)#router-id 5.5.5.5
+R5(config-router)#network 10.10.0.0 0.0.255.255 area 10
+R5(config-router)#network 172.30.10.5 0.0.0.0 area 10
+R5(config-router)#auto-cost reference-bandwidth 1000
+R5#wr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-configuration">
+<h2>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ospf-network-types">
+<h3>OSPF Network Types<a class="headerlink" href="#ospf-network-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Broadcast, multi-access networks</p>
+<ul>
+<li><p>Example: Ethernet, token ring</p></li>
+<li><p>Single operation mode</p></li>
+<li><p>DR/BDR election, 10 sec. hellos, DUAL multicast add.</p></li>
+</ul>
+</li>
+<li><p>Point-to-Point networks</p>
+<ul>
+<li><p>Example: T/ Cas, ISDN BRI/PRI</p></li>
+<li><p>Single operation mode</p></li>
+<li><p>No DR/BDR, 10 sec. hellos, single multicast add.</p></li>
+</ul>
+</li>
+<li><p>Non-Broadcast Multi-access (NBMA) networks</p>
+<ul>
+<li><p>Ex: Frame-relay, ATM</p></li>
+<li><p>Five modes of operation</p>
+<ul>
+<li><p>Non-broadcast (NBMA) - RFC standard</p></li>
+<li><p>Point-to-Point - RFC standard</p></li>
+<li><p>Point-to-Point - CISCO proprietary</p></li>
+<li><p>Broadcast - CISCO proprietary</p></li>
+<li><p>Point-to-Multipoint, non-broadcast - CISCO proprietary</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="non-broadcast-mode">
+<h3>Non-Broadcast Mode<a class="headerlink" href="#non-broadcast-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Default mode for x.25, FR, ATM</p></li>
+<li><p>Neighbours statically configured</p></li>
+<li><p>Must be one subnet</p></li>
+<li><p>Acts like a LAN environment</p></li>
+<li><p>DR/BDR elected (must have full connectivity!)</p></li>
+</ul>
+</div>
+<div class="section" id="point-to-multipoint-mode">
+<h3>Point-to-Multipoint Mode<a class="headerlink" href="#point-to-multipoint-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Fixes issues with NMBA</p></li>
+<li><p>Requires single subnet</p></li>
+<li><p>No DR/BDR elected</p></li>
+<li><p>Neighbours automatically form (must be able to send pseudo-broadcasts sent over 224.0.0.5)</p></li>
+</ul>
+</div>
+<div class="section" id="point-to-point-mode">
+<h3>Point-to-Point Mode<a class="headerlink" href="#point-to-point-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Uses separate sup-interfaces</p></li>
+<li><p>Requires different subnets</p></li>
+<li><p>No DR/BDR elected</p></li>
+<li><p>Neighbours automatically form</p></li>
+</ul>
+</div>
+<div class="section" id="ospf-advanced-configuration">
+<h3>OSPF Advanced Configuration<a class="headerlink" href="#ospf-advanced-configuration" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/e58505fc5a06c26a2b31ae50e0819fb9/ospf-advanced-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-advanced-configuration.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/ospf-advanced-configuration.png"><img alt="../../../_images/ospf-advanced-configuration.png" class="align-center" src="../../../_images/ospf-advanced-configuration.png" style="width: 776px; height: 526px;" /></a>
+<p><strong>Router 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config-router)#int lo0
+R1(config-if)#ip add 1.1.1.1 255.255.255.0
+R1(config-if)#ip ospf network point-to-point
+R1(config)#int s1/0
+R1(config-if)#encap frame-relay
+R1(config-if)#no shut
+R1(config-if)#int s1/0.1
+R1(config-if)#int s1/0.1 multi
+R1(config-subif)#ip add 10.12.3.1 255.255.255.0
+R1(config-subif)#frame-relay map ip 10.12.3.2 102
+R1(config-subif)#frame-relay map ip 10.12.3.3 103
+R1(config)#router ospf 1
+R1(config-router)#network 10.12.3.0 0.0.0.255 area 0
+R1(config-router)#network 1.1.1.1 0.0.0.0 area 0
+R1(config-router)#neighbor 10.12.3.2 pri 0
+R1(config-router)#neighbor 10.12.3.3 pri 0
+R1(config-router)#router-id 1.1.1.1
+R1(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int lo1
+R2(config-if)#ip add 2.2.2.2 255.255.255.0
+R2(config)#int s1/0
+R2(config-if)#encap frame-relay
+R2(config-if)#no shut
+R2(config)#int s1/0.1 multi
+R2(config-subif)#ip add 10.12.3.2 255.255.255.0
+R2(config-subif)#frame-relay interface-dlci 201
+R2(config-subif)#ip ospf priority 0
+R2(config)#int s1/1
+R2(config-if)#encap frame-relay
+R2(config-if)#no shut
+R2(config)#int s1/1.1 point-to-point
+R2(config-subif)#ip add 10.24.0.2 255.255.255.0
+R2(config-subif)#frame-relay interface-dlci 204
+R2(config)#router ospf 1
+R2(config-router)#network 10.12.3.0 0.0.0.255 area 0
+R2(config-router)#network 10.24.0.2 0.0.0.0 area 24
+R2(config-router)#network 2.2.2.2 0.0.0.0 area 0
+R2(config-router)#router-id 2.2.2.2
+R2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router 3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config-if)#int lo0
+R3(config-if)#ip add 3.3.3.3 255.255.255.0
+R3(config)#int s1/0
+R3(config-if)#encap frame-relay
+R3(config-if)#no shut
+R3(config)#int s1/0.1 multi
+R3(config-subif)#ip add 10.12.3.3 255.255.255.0
+R3(config-subif)#frame-relay interface-dlci 301
+R3(config-subif)#ip ospf pri 0
+R3(config-subif)#router ospf 1
+R3(config-router)#router-id 3.3.3.3
+R3(config-router)#network 10.12.3.0 0.0.0.255 area 0
+R3(config-router)#network 10.35.6.3 0.0.0.0 area 356
+R3(config-router)#network 3.3.3.3 0.0.0.0 area 0
+R3(config)#int s1/1
+R3(config-if)#encap frame-relay
+R3(config-if)#no shut
+R3(config)#int s1/1.1 multi
+R3(config-subif)#ip add 10.35.6.3 255.255.255.0
+R3(config-subif)#frame-relay map ip 10.35.6.5 305
+R3(config-subif)#frame-relay map ip 10.35.6.6 306
+R3(config-subif)#ip ospf hello-interval 30
+R3(config)#int s1/1
+R3(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router 4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int s1/0
+R4(config-if)#encap frame-relay
+R4(config-if)#no shut
+R4(config-if)#int s1/0
+R4(config)#int s1/0.1 point-to-point
+R4(config-subif)#ip add 10.24.0.4 255.255.255.0
+R4(config-subif)#frame-relay interface-dlci 402
+R4(config-fr-dlci)#int lo1
+R4(config)#int lo0
+R4(config-if)#ip add 4.4.4.4 255.255.255.0
+R4(config)#router ospf 1
+R4(config-router)#router-id 4.4.4.4
+R4(config-router)#network 10.24.0.0 0.0.0.255 area 24
+R4(config-router)#network 4.4.4.4 0.0.0.0 area 24
+R4(config-router)#int lo0
+R4(config)#int s1/0
+R4(config-if)#encap frame-relay
+R4(config-if)#no shut
+R4(config)#int s1/0.1 point-to-point
+R4(config-subif)#ip add 10.24.0.4 255.255.255.0
+R4(config-subif)#frame-relay interface-dlci 402
+</pre></div>
+</div>
+<p><strong>Router 5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5(config)#int s1/0
+R5(config-if)#encap frame-relay
+R5(config-if)#no shut
+R5(config)#int s1/0.1 multipoint
+R5(config-subif)#ip ospf hello-interval 10
+R5(config-subif)#ip add 10.35.6.5 255.255.255.0
+R5(config-subif)#frame-relay interface-dlci 503
+R5(config-subif)#router ospf 1
+R5(config-router)#router-id 5.5.5.5
+R5(config-router)#net 5.5.5.5 0.0.0.0 area 356
+R5(config-router)#net 10.35.6.0 0.0.0.255 area 356
+R5(config)#int lo0
+R5(config-if)#ip add 5.5.5.5 255.255.255.0
+R5(config)#do wr
+</pre></div>
+</div>
+<p><strong>Router 6</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Router 6
+R6(config)#int s1/0
+R6(config-if)#encap frame-relay
+R6(config-if)#no shut
+R6(config-if)#int s1/0.1 multi
+R6(config-subif)#ip ospf hello-interval 10
+R6(config-subif)#frame-relay interface-dlci 603
+R6(config-fr-dlci)#ip add 10.35.6.6 255.255.255.0
+R6(config)#int lo0
+R6(config-if)#ip add 6.6.6.6 255.255.255.0
+R6(config)#router ospf 1
+R6(config-router)#router-id 6.6.6.6
+R6(config-router)#net 10.35.6.6 0.0.0.0 area 356
+R6(config-router)#net 6.6.6.6 0.0.0.0 area 356
+R6(config)#do wr
+</pre></div>
+</div>
+<p><strong>Frame Relay Switch 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FRS1(config)#frame-relay switch
+FRS1(config)#int s1/0
+FRS1(config-if)#encap frame-relay
+FRS1(config-if)#frame-relay intf-type dce
+FRS1(config-if)#frame-relay route 102 int s1/1 201
+FRS1(config-if)#frame-relay route 103 int s1/2 301
+FRS1(config-if)#no shut
+FRS1(config-if)#int s1/1
+FRS1(config-if)#encap frame-relay
+FRS1(config-if)#frame-relay intf-type dce
+FRS1(config-if)#frame-relay route 201 int s1/0 102
+FRS1(config-if)#no shut
+FRS1(config-if)#int s1/2
+FRS1(config-if)#encap frame-relay
+FRS1(config-if)#frame-relay intf-type dce
+FRS1(config-if)#frame-relay route 301 int s1/0 103
+FRS1(config-if)#no shut
+FRS1(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Frame Relay Switch 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FRS2(config)#int s1/0
+FRS2(config)#frame-relay switch
+FRS2(config)#int s1/0
+FRS2(config-if)#encap frame-relay
+FRS2(config-if)#frame-relay intf-type dce
+FRS2(config-if)#frame-relay route 204 int s1/1 402
+FRS2(config-if)#no shut
+FRS2(config-if)#int s1/1
+FRS2(config-if)#encap frame-relay
+FRS2(config-if)#frame-relay route 402 int s1/0 204
+FRS2(config-if)#frame-relay intf-type dce
+FRS2(config-if)#no shut
+FRS2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Frame Relay Switch 3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FRS3(config)#frame-relay switch
+FRS3(config)#int s1/0
+FRS3(config-if)#encap frame-rela
+FRS3(config-if)#frame-relay intf-type dce
+FRS3(config-if)#frame-relay route 305 int s1/1 503
+FRS3(config-if)#frame-relay route 306 int s1/2 603
+FRS3(config-if)#no shut
+FRS3(config-if)#int s1/2
+FRS3(config-if)#encap frame-relay
+FRS3(config-if)#frame-relay route 603 int s1/0 306
+FRS3(config-if)#frame-relay intf-type dce
+FRS3(config-if)#no shut
+FRS3(config)#int s1/1
+FRS3(config-if)#encap frame
+FRS3(config-if)#encap frame-relay
+FRS3(config-if)#frame-relay intf-type dce
+FRS3(config-if)#frame-relay route 503 int s1/0 305
+FRS3(config-if)#no shut
+FRS3(config-if)#do wr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ospf-area-types-and-options">
+<h2>OSPF Area Types and Options<a class="headerlink" href="#ospf-area-types-and-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ospf-areas-and-router-types">
+<h3>OSPF Areas and Router Types<a class="headerlink" href="#ospf-areas-and-router-types" title="Permalink to this headline">¶</a></h3>
+<p>Link state advertisements (LSAS) are the building blocks of OSPF; many types exist</p>
+<ul class="simple">
+<li><p>LSA type 1: router LSA</p></li>
+<li><p>LSA type 2: network LSA (DR generated)</p></li>
+<li><p>LSA type 3: summary LSA (ABR summary route)</p></li>
+<li><p>LSA type 4: summary LSA (ASBR location)</p></li>
+<li><p>LSA type 5: external LSA (ASBR summary route)</p></li>
+</ul>
+</div>
+<div class="section" id="virtual-links">
+<h3>Virtual Links<a class="headerlink" href="#virtual-links" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/240b7d57edcd01bd7fed43815275a592/ospf-virtual-links.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-virtual-links.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/ospf-virtual-links.png"><img alt="../../../_images/ospf-virtual-links.png" class="align-center" src="../../../_images/ospf-virtual-links.png" style="width: 758px; height: 232px;" /></a>
+<p><strong>Router 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int s1/0
+R1(config-if)#ip add 10.2.0.2 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#router ospf 1
+R1(config-router)#net 10.2.0.0 0.0.0.255 area 2
+R1(config-router)#router-id 1.1.1.1
+R1(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#router ospf 1
+R2(config-router)#router-id 2.2.2.2
+R2(config)#int s1/0
+R2(config-if)#ip add 10.1.0.2 255.255.255.0
+R2(config-if)#router ospf 1
+R2(config-router)#net 10.1.0.0 0.0.0.255 area 1
+R2(config-router)#area 1 virtual-link 3.3.3.3
+R2(config-router)#int s1/0
+R2(config-if)#no shut
+R2(config-if)#int s1/1
+R2(config-if)#ip add 10.2.0.1 255.255.255.0
+R2(config-if)#no shut
+</pre></div>
+</div>
+<p><strong>Router 3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#int s1/0
+R3(config-if)#ip add 10.0.0.2 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#int s1/1
+R3(config-if)#ip add 10.1.0.1 255.255.255.0
+R3(config-if)#no shut
+R3(config-if)#router ospf 1
+R3(config-router)#router-id 3.3.3.3
+R3(config-router)#network 10.0.0.0 0.0.0.255
+R3(config-router)#network 10.0.0.0 0.0.0.255 area 0
+R3(config-router)#network 10.1.0.0 0.0.0.255 area 1
+R3(config-router)#int s1/1
+R3(config)#router ospf 1
+R3(config-router)#area 1 virtual-link 2.2.2.2
+</pre></div>
+</div>
+<p><strong>Router 4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int s1/0
+R4(config-if)#ip add 10.0.0.1 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#router ospf 1
+R4(config-router)#router-id 4.4.4.4
+R4(config-router)#network 10.0.0.0 0.0.0.255 area 0
+R4(config-if)#do wr
+</pre></div>
+</div>
+</div>
+<div class="section" id="stub-and-totally-stubby-areas">
+<h3>Stub and Totally Stubby Areas<a class="headerlink" href="#stub-and-totally-stubby-areas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Stubby Area: blocks type 5 LSA from entering</p></li>
+<li><p>Totally stubby Area: blocks type 3, 4, and 5 LSAs from entering (CISCO proprietary)</p></li>
+<li><p>Not-So Stubby Area (NSSA): passes external routes through via type 7  LSAs; these convert back to type 5 once they reach the backbone</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../../_downloads/c3e06c4e33aae3137cfd6028a7fa1a81/ospf-stub-and-totally-stubby-areas.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-stub-and-totally-stubby-areas.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/ospf-stub-and-totally-stubby-areas.png"><img alt="../../../_images/ospf-stub-and-totally-stubby-areas.png" class="align-center" src="../../../_images/ospf-stub-and-totally-stubby-areas.png" style="width: 766px; height: 365px;" /></a>
+<p><strong>Router 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int s1/0
+R1(config-if)#ip add 10.10.2.2 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#router ospf 1
+R1(config-router)#router-id 1.1.1.1
+R1(config-router)#net 10.10.2.0 0.0.0.255
+R1(config-router)#net 10.10.2.0 0.0.0.255 area 2
+R1(config-router)#area 2 stub
+R1#wr
+</pre></div>
+</div>
+<p><strong>Router 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int s1/1
+R2(config-if)#ip add 10.10.2.1 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/0
+R2(config-if)#ip add 10.10.0.3 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#router-id 2.2.2.2
+R2(config-router)#net 10.10.2.0 0.0.0.255 area 2
+R2(config-router)#net 10.10.0.0 0.0.0.255 area 0
+R2(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int s1/0
+R4(config-if)#ip add 10.10.0.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#int s1/1
+R4(config-if)#ip ad 10.10.1.1 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#router ospf 1
+R4(config-router)#router-id 4.4.4.4
+R4(config-router)#net 10.10.0.0 0.0.0.255 area 0
+R4(config-router)#net 10.10.1.0 0.0.0.255 area 1
+R4(config-router)#area 1 stub no-summary
+R4(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>Router 5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5(config)#int s1/0
+R5(config-if)#ip add 10.10.1.2 255.255.255.0
+R5(config-if)#no shut
+R5(config-if)#router ospf 1
+R5(config-router)#router-id 5.5.5.5
+R5(config-router)#net 10.10.1.0 0.0.0.255 area 1
+R5(config-router)#area 1 stub
+R5(config-router)#area 1 nssa
+R5#wr
+</pre></div>
+</div>
+</div>
+<div class="section" id="another-example">
+<h3>Another Example…<a class="headerlink" href="#another-example" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference download internal" download="" href="../../../_downloads/5556b31914586f92d0ad823cf7421078/ospf-stub-lab.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-stub-lab.zip</span></code></a></p>
+<a class="reference internal image-reference" href="../../../_images/ospf-stub-lab.png"><img alt="../../../_images/ospf-stub-lab.png" class="align-center" src="../../../_images/ospf-stub-lab.png" style="width: 974px; height: 602px;" /></a>
+<p><strong>Router 1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int g0/0
+R1(config-if)#ip add 10.100.1.1 255.255.255.0
+R1(config-if)#no shut
+R1(config-if)#router ospf 1
+R1(config-router)#net 10.100.1.0 0.0.0.255 area 0
+R1(config-router)#router-id 1.1.1.1
+R1(config)#ip route 172.31.0.0 255.255.255.0 null0
+R1(config)#ip route 172.31.1.0 255.255.255.0 null0
+R1(config)#ip route 172.31.2.0 255.255.255.0 null0
+R1(config)#ip route 172.31.3.0 255.255.255.0 null0
+R1(config-router)#redistribute static subnets metric-type 1 metric 50
+R1(config-router)#passive-interface default
+R1(config-router)#no passive-interface g0/0
+R1(config-router)#int g0/0
+R1(config-if)#ip ospf authentication message-digest
+R1(config-if)#ip ospf message-digest-key 1 md5 cisco
+</pre></div>
+</div>
+<p><strong>Router 2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int g0/0
+R2(config-if)#ip add 10.100.1.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#int s1/0
+R2(config-if)#ip add 10.23.1.0 255.255.255.0
+Bad mask /24 for address 10.23.1.0
+R2(config-if)#ip add 10.23.1.2 255.255.255.0
+R2(config-if)#no shut
+R2(config-if)#router ospf 1
+R2(config-router)#router-id 2.2.2.2
+R2(config-router)#net 10.100.1.0 0.0.0.255 area 0
+R2(config-router)#net 10.23.1.0 0.0.0.255 area 23
+R2(config-router)#passive-interface default
+R2(config-router)#no passive-interface g0/0
+R2(config-router)#no passive-interface s1/0
+R2(config-router)#area 23 stub no-summary
+R2(config-router)#int g0/0
+R2(config-if)#ip ospf authentication message-digest
+R2(config-if)#ip ospf message-digest-key 1 md5 cisco
+R2(config-if)#ip ospf authentication-key cisco
+</pre></div>
+</div>
+<p><strong>Router 3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#int s1/0
+R3(config-if)#ip add 10.23.1.0 255.255.255.0
+Bad mask /24 for address 10.23.1.0
+R3(config-if)#no shut
+R3(config-if)#int lo0
+R3(config-if)#ip add 172.30.0.1 255.255.255.0
+R3(config-if)#int lo1
+R3(config-if)#ip add 172.30.1.1 255.255.255.0
+R3(config-if)#int lo2
+R3(config-if)#ip add 172.30.1.1 255.255.255.0
+R3(config-if)#ip add 172.30.2.1 255.255.255.0
+R3(config-if)#int lo3
+R3(config-if)#ip add 172.30.3.1 255.255.255.0
+R3(config-if)#router ospf 1
+R3(config-router)#net 172.30.0.0 0.0.3.255 area 23
+R3(config-router)#passive-interface default
+R3(config-router)#no passive-interface s1/0
+R3(config-router)#area 23 stub
+R3(config-router)#int s1/0
+R3(config-if)#ip ospf authentication-key cisco
+</pre></div>
+</div>
+<p><strong>Router 4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int g0/0
+R4(config-if)#ip add 10.100.1.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#int s1/0
+R4(config-if)#ip add 10.45.1.4 255.255.255.0
+R4(config-if)#no shut
+R4(config-if)#router ospf 1
+R4(config-router)#router-id 4.4.4.4
+R4(config-router)#net 10.100.1.0 0.0.0.255 area 0
+R4(config-router)#net 10.45.1.0 0.0.0.255 area 45
+R4(config-router)#net 10.45.1.0 0.0.0.255 area 45
+R4(config-router)#passive-interface default
+R4(config-router)#no passive-interface g0/0
+R4(config-router)#no passive-interface s1/0
+R4(config-router)#int g0/0
+R4(config-if)#ip ospf authentication message-digest
+R4(config-if)#ip ospf message-digest-key 1 md5 cisco
+R4(config-if)#router ospf 1
+R4(config-router)#area 45 stub
+</pre></div>
+</div>
+<p><strong>Router 5</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R5(config)#int s1/0
+R5(config-if)#ip add 10.45.1.5 255.255.255.0
+R5(config-if)#no shut
+R5(config-if)#router ospf 1
+R5(config-router)#router-id 5.5.5.5
+R5(config-router)#net 10.45.1.0 0.0.0.255 area 45
+R5(config-router)#passive-interface default
+R5(config-router)#no passive-interface s1/0
+R5(config-router)#area 45 stub
+</pre></div>
+</div>
+<p><strong>Router 6</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R6(config)#int g0/0
+R6(config-if)#ip add 10.100.1.6 255.255.255.0
+R6(config-if)#no shut
+R6(config-if)#int s1/0
+R6(config-if)#ip add 10.67.1.6 255.255.255.0
+R6(config-if)#no shut
+R6(config-if)#router ospf 1
+R6(config-router)#router-id 6.6.6.6
+R6(config-router)#net 10.100.1.0 0.0.0.255 area 0
+R6(config-router)#net 10.67.1.0 0.0.0.255 area 67
+R6(config-router)#passive-interface default
+R6(config-router)#no passive-interface g0/0
+R6(config-router)#no passive-interface s1/0
+R6(config-router)#area 67 virtual-link 7.7.7.7
+R6(config-router)#int g0/0
+R6(config-if)#ip ospf authentication message-digest
+R6(config-if)#ip ospf message-digest-key 1 md5 cisco
+</pre></div>
+</div>
+<p><strong>Router 7</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R7(config)#int s1/0
+R7(config-if)#ip add 10.67.1.7 255.255.255.0
+R7(config-if)#no shut
+R7(config-if)#router ospf 1
+R7(config-router)#router-id 7.7.7.7
+R7(config-router)#net 10.67.1.0 0.0.0.255 area 67
+R7(config-router)#int s1/1
+R7(config-if)#ip add 10.78.1.7 255.255.255.0
+R7(config-if)#no shut
+R7(config-if)#router ospf 1
+R7(config-router)#net 10.78.1.0 0.0.0.255 area 78
+R7(config-router)#passive-interface default
+R7(config-router)#no passive-interface s1/0
+R7(config-router)#no passive-interface s1/1
+R7(config-router)#area 67 virtual-link 6.6.6.6
+</pre></div>
+</div>
+<p><strong>Router 8</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R8(config)#int s1/0
+R8(config-if)#ip add 10.78.1.8 255.255.255.0
+R8(config-if)#no shut
+R8(config-if)#router ospf 1
+R8(config-router)#router-id 8.8.8.8
+R8(config-router)#net 10.78.1.0 0.0.0.255 area 78
+R8(config-router)#passive-interface default
+R8(config-router)#no passive-interface s1/0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="redistribution.html" class="btn btn-neutral float-right" title="Redistribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="eigrp.html" class="btn btn-neutral float-left" title="EIGRP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

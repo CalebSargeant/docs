@@ -9,20 +9,32 @@ Welcome to Caleb Sargeant's documentation!
 A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Networking
 
-  api/index
-  cisco/index
-  ubiquiti/index
+  networking/cisco/index
+  networking/fortigate
+  networking/hp
+  networking/juniper
+  networking/ubiquiti-unifi
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Computing
 
-  linux/index
-  microsoft/index
-  host-setup.rst
+  computing/ansible/index
+  computing/containerisation/index
+  computing/linux/index
+  computing/python/index
+  computing/microsoft/index
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Other
+
+  other/api/index
+  other/general/index
+  other/iperf
 
 Indices and tables
 ==================
