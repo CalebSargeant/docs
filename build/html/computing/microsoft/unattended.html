@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unattended Installations &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Server 2008 R2" href="server-2008-r2/index.html" />
+    <link rel="prev" title="Sentinal" href="sentinal.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sendkeys.html">Sendkeys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sentinal.html">Sentinal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Unattended Installations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows-7-10">Windows 7 - 10</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-7-32-bit">Windows 7 32-bit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-xp">Windows XP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="server-2008-r2/index.html">Server 2008 R2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exchange/index.html">Exchange</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Microsoft</a> &raquo;</li>
+        
+      <li>Unattended Installations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/microsoft/unattended.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="unattended-installations">
+<h1>Unattended Installations<a class="headerlink" href="#unattended-installations" title="Permalink to this headline">¶</a></h1>
+<p>Brief Instructions on how to create a Windows unattended disk that allow you to:</p>
+<ul class="simple">
+<li><p>Put in the disk</p></li>
+<li><p>Boot from disk</p></li>
+<li><p>Make some coffee</p></li>
+<li><p>Come back and OS is installed</p></li>
+</ul>
+<p><strong>Important:</strong></p>
+<p>If you make an Unattended disk for 32-bit, and your physical PC where you are installing WAIK on is 64-bit then you
+cannot make a disk for 32-bit. You can however use something like Oracle VM Virtualbox and install Windows 32-bit
+virtually.</p>
+<div class="section" id="windows-7-10">
+<h2>Windows 7 - 10<a class="headerlink" href="#windows-7-10" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=5753">WAIK:</a> (Remember to use the WAIK relevant to your OS version)</p></li>
+<li><p>Copy Windows onto the local harddrive</p></li>
+<li><p>Open <em>Windows System Image Manager</em></p></li>
+<li><p><em>File</em> &gt; <em>Select Windows Image</em> &gt; Browse to location of copied OS</p></li>
+<li><p>Select the desired Image</p></li>
+<li><p>Generate the catalog</p></li>
+<li><p><em>File</em> &gt; <em>New Answer File</em></p></li>
+<li><p>Click the plus by Components</p></li>
+<li><p>Follow the below</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#windows-7-32-bit">Windows 7 32-bit</a></p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>Save the autounattend.xml file to the root of the copied OS</p></li>
+<li><p>Use ImgBurn to Write a Bootable ISO</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Click Advanced &gt; Bootable Disk &gt; Make Image Bootable</p></li>
+<li><p>Boot Image: bootetfsboot.com</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="windows-7-32-bit">
+<h3>Windows 7 32-bit<a class="headerlink" href="#windows-7-32-bit" title="Permalink to this headline">¶</a></h3>
+<img alt="../../_images/windows7x86-unattended-01.png" src="../../_images/windows7x86-unattended-01.png" />
+<img alt="../../_images/windows7x86-unattended-02.png" src="../../_images/windows7x86-unattended-02.png" />
+<img alt="../../_images/windows7x86-unattended-03.png" src="../../_images/windows7x86-unattended-03.png" />
+<img alt="../../_images/windows7x86-unattended-04.png" src="../../_images/windows7x86-unattended-04.png" />
+<img alt="../../_images/windows7x86-unattended-05.png" src="../../_images/windows7x86-unattended-05.png" />
+<img alt="../../_images/windows7x86-unattended-06.png" src="../../_images/windows7x86-unattended-06.png" />
+<img alt="../../_images/windows7x86-unattended-07.png" src="../../_images/windows7x86-unattended-07.png" />
+<img alt="../../_images/windows7x86-unattended-08.png" src="../../_images/windows7x86-unattended-08.png" />
+<img alt="../../_images/windows7x86-unattended-09.png" src="../../_images/windows7x86-unattended-09.png" />
+<img alt="../../_images/windows7x86-unattended-10.png" src="../../_images/windows7x86-unattended-10.png" />
+<img alt="../../_images/windows7x86-unattended-11.png" src="../../_images/windows7x86-unattended-11.png" />
+<img alt="../../_images/windows7x86-unattended-12.png" src="../../_images/windows7x86-unattended-12.png" />
+<img alt="../../_images/windows7x86-unattended-13.png" src="../../_images/windows7x86-unattended-13.png" />
+<img alt="../../_images/windows7x86-unattended-14.png" src="../../_images/windows7x86-unattended-14.png" />
+<img alt="../../_images/windows7x86-unattended-15.png" src="../../_images/windows7x86-unattended-15.png" />
+<img alt="../../_images/windows7x86-unattended-16.png" src="../../_images/windows7x86-unattended-16.png" />
+<img alt="../../_images/windows7x86-unattended-17.png" src="../../_images/windows7x86-unattended-17.png" />
+<img alt="../../_images/windows7x86-unattended-18.png" src="../../_images/windows7x86-unattended-18.png" />
+<img alt="../../_images/windows7x86-unattended-19.png" src="../../_images/windows7x86-unattended-19.png" />
+<img alt="../../_images/windows7x86-unattended-20.png" src="../../_images/windows7x86-unattended-20.png" />
+<img alt="../../_images/windows7x86-unattended-21.png" src="../../_images/windows7x86-unattended-21.png" />
+<img alt="../../_images/windows7x86-unattended-22.png" src="../../_images/windows7x86-unattended-22.png" />
+<img alt="../../_images/windows7x86-unattended-23.png" src="../../_images/windows7x86-unattended-23.png" />
+<img alt="../../_images/windows7x86-unattended-24.png" src="../../_images/windows7x86-unattended-24.png" />
+<img alt="../../_images/windows7x86-unattended-25.png" src="../../_images/windows7x86-unattended-25.png" />
+<img alt="../../_images/windows7x86-unattended-26.png" src="../../_images/windows7x86-unattended-26.png" />
+<img alt="../../_images/windows7x86-unattended-27.png" src="../../_images/windows7x86-unattended-27.png" />
+<img alt="../../_images/windows7x86-unattended-28.png" src="../../_images/windows7x86-unattended-28.png" />
+<img alt="../../_images/windows7x86-unattended-29.png" src="../../_images/windows7x86-unattended-29.png" />
+<img alt="../../_images/windows7x86-unattended-30.png" src="../../_images/windows7x86-unattended-30.png" />
+</div>
+</div>
+<div class="section" id="windows-xp">
+<h2>Windows XP<a class="headerlink" href="#windows-xp" title="Permalink to this headline">¶</a></h2>
+<p>Instructions:</p>
+<ol class="arabic simple">
+<li><p>Download and install nLite</p></li>
+<li><p>Copy contents of Windows XP Disk to Harddrive</p></li>
+<li><p>Open nLite</p></li>
+<li><p>Locate the copied Windows XP files</p></li>
+<li><p>Integrate updates and drivers if you want</p></li>
+<li><p>At Unattended section</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Fully automated</p></li>
+<li><p>Enabled</p></li>
+<li><p>XXXXX-XXXXX-XXXXX-XXXXX-XXXXX (please change when activating Windows)</p></li>
+<li><p>Automatic</p></li>
+<li><p>Turn off Firewall</p></li>
+<li><p>Skip OOBE</p></li>
+<li><p>Turn off Hibernate</p></li>
+<li><p>System Restore Service Enabled</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li><p>At Users section</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Add an account</p></li>
+<li><p>Username: admin</p></li>
+<li><p>Password: 1234567</p></li>
+<li><p>Local Group: Administrators</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li><p>At Owner and Network ID</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Computer Name: windowsxp</p></li>
+<li><p>Workgroup: WORKGROUP</p></li>
+<li><p>Full Name: Admin</p></li>
+<li><p>Organization: Organization</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>At Regional section</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Language: English (South Africa)</p></li>
+<li><p>Localization: English (United States)</p></li>
+<li><p>Keyboard: US</p></li>
+<li><p>Location: South Africa</p></li>
+<li><p>Time Zone: (GMT +02{00) Harare, Pretoria</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>At Automatic Updates</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Download and notify of installation</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li><p>Tweek the disk if you want</p></li>
+<li><p>Start the Process and close nLite</p></li>
+<li><p>Edit [copied xp location]I386winnt.sif</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>under [Unattended] put: “Repartition = “Yes””</p></li>
+<li><p>under [Data] put: “AutoPartition = 1”</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="14">
+<li><p>Open nLite again and go straight to Bootable ISO</p></li>
+<li><p>Make a Bootable ISO with nLite</p></li>
+<li><p>Use ImgBurn to write ISO to disk.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="server-2008-r2/index.html" class="btn btn-neutral float-right" title="Server 2008 R2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sentinal.html" class="btn btn-neutral float-left" title="Sentinal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
