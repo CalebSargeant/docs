@@ -27,13 +27,207 @@ Windows 7 - 10
 8. Click the plus by Components
 9. Follow the below
 
+  * `Server 2012`_
+  * `Server 2008 R2`_
+  * `Windows 7 64-bit`_
   * `Windows 7 32-bit`_
 
-10. Save the autounattend.xml file to the root of the copied OS
+10. Save the *autounattend.xml* file to the root of the copied OS
 11. Use ImgBurn to Write a Bootable ISO
 
-  1. Click Advanced > Bootable Disk > Make Image Bootable
-  2. Boot Image: \boot\etfsboot.com
+  1. Click *Advanced* > *Bootable Disk* > *Make Image Bootable*
+  2. Boot Image: ``\boot\etfsboot.com``
+
+Server 2012
+^^^^^^^^^^^
+
+.. image:: _images/unattended-server2012-1.png
+
+.. image:: _images/unattended-server2012-2.png
+
+.. image:: _images/unattended-server2012-3.png
+
+.. image:: _images/unattended-server2012-4.png
+
+.. image:: _images/unattended-server2012-5.png
+
+.. image:: _images/unattended-server2012-6.png
+
+.. image:: _images/unattended-server2012-7.png
+
+.. image:: _images/unattended-server2012-8.png
+
+.. image:: _images/unattended-server2012-9.png
+
+.. image:: _images/unattended-server2012-10.png
+
+.. image:: _images/unattended-server2012-11.png
+
+.. image:: _images/unattended-server2012-12.png
+
+.. image:: _images/unattended-server2012-13.png
+
+.. image:: _images/unattended-server2012-14.png
+
+.. image:: _images/unattended-server2012-15.png
+
+.. image:: _images/unattended-server2012-16.png
+
+.. image:: _images/unattended-server2012-17.png
+
+.. image:: _images/unattended-server2012-18.png
+
+.. image:: _images/unattended-server2012-19.png
+
+.. image:: _images/unattended-server2012-20.png
+
+.. image:: _images/unattended-server2012-21.png
+
+.. image:: _images/unattended-server2012-22.png
+
+.. image:: _images/unattended-server2012-23.png
+
+.. image:: _images/unattended-server2012-24.png
+
+.. image:: _images/unattended-server2012-25.png
+
+.. image:: _images/unattended-server2012-26.png
+
+.. image:: _images/unattended-server2012-27.png
+
+.. image:: _images/unattended-server2012-28.png
+
+.. image:: _images/unattended-server2012-29.png
+
+.. image:: _images/unattended-server2012-30.png
+
+Server 2008 R2
+^^^^^^^^^^^^^^
+
+.. image:: _images/unattended-server2008r2-1.png
+
+.. image:: _images/unattended-server2008r2-2.png
+
+.. image:: _images/unattended-server2008r2-3.png
+
+.. image:: _images/unattended-server2008r2-4.png
+
+.. image:: _images/unattended-server2008r2-5.png
+
+.. image:: _images/unattended-server2008r2-6.png
+
+.. image:: _images/unattended-server2008r2-7.png
+
+.. image:: _images/unattended-server2008r2-8.png
+
+.. image:: _images/unattended-server2008r2-9.png
+
+.. image:: _images/unattended-server2008r2-10.png
+
+.. image:: _images/unattended-server2008r2-11.png
+
+.. image:: _images/unattended-server2008r2-12.png
+
+.. image:: _images/unattended-server2008r2-13.png
+
+.. image:: _images/unattended-server2008r2-14.png
+
+.. image:: _images/unattended-server2008r2-15.png
+
+.. image:: _images/unattended-server2008r2-16.png
+
+.. image:: _images/unattended-server2008r2-17.png
+
+.. image:: _images/unattended-server2008r2-18.png
+
+.. image:: _images/unattended-server2008r2-19.png
+
+.. image:: _images/unattended-server2008r2-20.png
+
+.. image:: _images/unattended-server2008r2-21.png
+
+.. image:: _images/unattended-server2008r2-22.png
+
+.. image:: _images/unattended-server2008r2-23.png
+
+.. image:: _images/unattended-server2008r2-24.png
+
+.. image:: _images/unattended-server2008r2-25.png
+
+.. image:: _images/unattended-server2008r2-26.png
+
+.. image:: _images/unattended-server2008r2-27.png
+
+.. image:: _images/unattended-server2008r2-28.png
+
+Windows 7 64-bit
+^^^^^^^^^^^^^^^^
+
+.. image:: _images/windows7x64-unattended-0.png
+
+.. image:: _images/windows7x64-unattended-1.png
+
+.. image:: _images/windows7x64-unattended-2.png
+
+.. image:: _images/windows7x64-unattended-3.png
+
+.. image:: _images/windows7x64-unattended-4.png
+
+.. image:: _images/windows7x64-unattended-5.png
+
+.. image:: _images/windows7x64-unattended-6.png
+
+.. image:: _images/windows7x64-unattended-7.png
+
+.. image:: _images/windows7x64-unattended-8.png
+
+.. image:: _images/windows7x64-unattended-9.png
+
+.. image:: _images/windows7x64-unattended-10.png
+
+.. image:: _images/windows7x64-unattended-11.png
+
+.. image:: _images/windows7x64-unattended-12.png
+
+.. image:: _images/windows7x64-unattended-13.png
+
+.. image:: _images/windows7x64-unattended-14.png
+
+.. image:: _images/windows7x64-unattended-15.png
+
+.. image:: _images/windows7x64-unattended-16.png
+
+.. image:: _images/windows7x64-unattended-17.png
+
+.. image:: _images/windows7x64-unattended-18.png
+
+.. image:: _images/windows7x64-unattended-19.png
+
+.. image:: _images/windows7x64-unattended-20.png
+
+.. image:: _images/windows7x64-unattended-21.png
+
+.. image:: _images/windows7x64-unattended-22.png
+
+.. image:: _images/windows7x64-unattended-23.png
+
+.. image:: _images/windows7x64-unattended-24.png
+
+.. image:: _images/windows7x64-unattended-25.png
+
+.. image:: _images/windows7x64-unattended-26.png
+
+.. image:: _images/windows7x64-unattended-27.png
+
+.. image:: _images/windows7x64-unattended-28.png
+
+.. image:: _images/windows7x64-unattended-29.png
+
+.. image:: _images/windows7x64-unattended-30.png
+
+.. image:: _images/windows7x64-unattended-31.png
+
+.. image:: _images/windows7x64-unattended-32.png
 
 Windows 7 32-bit
 ^^^^^^^^^^^^^^^^
