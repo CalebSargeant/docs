@@ -55,15 +55,15 @@ Windows' Side
 
 *Server Manager* > click on Link next to NIC teaming option or run ``lbfoadmin.exe``
 
-.. image:: _images/windows-server-lacp-1.png
+.. image:: _images/lacp-windows-server-1.png
 
 Select the adapters, add to team
 
-.. image:: _images/windows-server-lacp-2.png
+.. image:: _images/lacp-windows-server-2.png
 
 For teaming mode choose LACP, load balancing method use address hash
 
-.. image:: _images/windows-server-lacp-3.png
+.. image:: _images/lacp-windows-server-3.png
 
 Cisco's Side
 ^^^^^^^^^^^^
