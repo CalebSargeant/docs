@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exchange &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Compliance Management &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Administration" href="administration.html" />
-    <link rel="prev" title="Terminal Services" href="../server-2008-r2/terminal-services.html" /> 
+    <link rel="next" title="Dynamic Access Control" href="dynamic-access-control.html" />
+    <link rel="prev" title="Administration" href="administration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,9 +103,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../sentinal.html">Sentinal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unattended.html">Unattended Installations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../server-2008-r2/index.html">Server 2008 R2</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Exchange</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Exchange</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="administration.html">Administration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="compliance-management.html">Compliance Management</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Compliance Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#regulatory-compliance">Regulatory Compliance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compliance-features">Compliance Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scenario">Scenario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#howto">Howto</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic-access-control.html">Dynamic Access Control</a></li>
 </ul>
 </li>
@@ -164,13 +170,15 @@
         
           <li><a href="../index.html">Microsoft</a> &raquo;</li>
         
-      <li>Exchange</li>
+          <li><a href="index.html">Exchange</a> &raquo;</li>
+        
+      <li>Compliance Management</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/computing/microsoft/exchange/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/computing/microsoft/exchange/compliance-management.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,32 +191,78 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="exchange">
-<h1>Exchange<a class="headerlink" href="#exchange" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="compliance-management">
+<h1>Compliance Management<a class="headerlink" href="#compliance-management" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="regulatory-compliance">
+<h2>Regulatory Compliance<a class="headerlink" href="#regulatory-compliance" title="Permalink to this headline">¶</a></h2>
+<p>Is very important in most exchange environments. Ensuring your organisation is in sync with legal requirements with
+regard to eDiscovery and other key aspects to compliance is a must for Exchange administrators.</p>
+<p>eDiscovery searches ones mailbox for specific strings.</p>
+</div>
+<div class="section" id="compliance-features">
+<h2>Compliance Features<a class="headerlink" href="#compliance-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In-Place eDiscovery &amp; Hold</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#add-email-address-to-user">Add Email Address to User</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#calendar-permissions">Calendar Permissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#create-a-service-account">Create a Service Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#delete-a-mailbox">Delete a Mailbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#mailbox-access-permission">Mailbox Access Permission</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#send-as-permission">Send As Permission</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#out-of-office">Out of Office</a></li>
+<li><p>Allows a search of mailboxes through the organisation, preview of search results and then copy of results to a Discovery mailbox</p></li>
+<li><p>In-Place Hold forces a hold on data discovered during in-place eDiscovery</p></li>
+<li><p>Note: Legal Hold or Litigation Hold places entire mailbox on hold</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="compliance-management.html">Compliance Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#regulatory-compliance">Regulatory Compliance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#compliance-features">Compliance Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#scenario">Scenario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#howto">Howto</a></li>
+<li><p>Auditing</p>
+<ul>
+<li><p>Keeps an audit log of all actions taken on all mailboxes - Auditing is done based on access by owners, delegates and administrators</p></li>
+<li><p>You can run various reports (exp. administrator role group report)</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic-access-control.html">Dynamic Access Control</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dynamic-access-control.html#on-the-domain-controller">On the Domain Controller:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dynamic-access-control.html#configuring-user-and-device-claims">Configuring User and Device Claims</a></li>
+<li><p>Transport Rules</p>
+<ul>
+<li><p>Allows you to create conditions, actions and exceptions over mail tthat is flowing through your organistation</p></li>
 </ul>
 </li>
+<li><p>Data Loss Prevention (DLP)</p>
+<ul>
+<li><p>A form of transport rule that prevents users (or alerts users) from sending sensitive information like creditc card numbers - Based on regulatory standards (PII and PCI-DSS)</p></li>
+</ul>
+</li>
+<li><p>Messaging Records Management (MRM)</p>
+<ul>
+<li><p>Revolves around email lifecycle policies - Retention policies are used to classify messages</p></li>
+</ul>
+</li>
+<li><p>Journaling</p>
+<ul>
+<li><p>Provides the ability to retain copies of all incoming and outgoing mail through Standard journaling</p></li>
+<li><p>Provides more granular journaluing throiguh pPremium Journaling</p></li>
+<li><p>Require Enterprise Client-access Liscense for mailboxes</p></li>
+</ul>
+</li>
+<li><p>Information Rights Management (IRM)</p>
+<ul>
+<li><p>Works in harmony with ADRMS to protect messages and attachements</p></li>
+</ul>
+</li>
+<li><p>In-Place Archive</p>
+<ul>
+<li><p>Eliminates the proliferation of .pst files</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="scenario">
+<h2>Scenario<a class="headerlink" href="#scenario" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enable default retention policy and in-place archive over Justin Beiber</p></li>
+<li><p>Establish a standard journaling rule for all email going in and outh of the organisation</p></li>
+<li><p>Place John Doe mailbox on Litigation Hold</p></li>
+</ul>
+</div>
+<div class="section" id="howto">
+<h2>Howto<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>compliance management &gt; in-place e discovery and hold</p></li>
+<li><p>compliance management &gt; retention policies (then recipients &gt; mailbox features &gt; Litigation hold)</p></li>
+<li><p>compliance management &gt; Journal rule (start-managedfolderassistant -identity “caleb sargeant”)</p></li>
 </ul>
 </div>
 </div>
@@ -221,10 +275,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="administration.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dynamic-access-control.html" class="btn btn-neutral float-right" title="Dynamic Access Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../server-2008-r2/terminal-services.html" class="btn btn-neutral float-left" title="Terminal Services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="administration.html" class="btn btn-neutral float-left" title="Administration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

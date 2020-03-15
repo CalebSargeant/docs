@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Exchange &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Dynamic Access Control &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Administration" href="administration.html" />
-    <link rel="prev" title="Terminal Services" href="../server-2008-r2/terminal-services.html" /> 
+    <link rel="next" title="API" href="../../../other/api/index.html" />
+    <link rel="prev" title="Compliance Management" href="compliance-management.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,10 +103,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../sentinal.html">Sentinal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unattended.html">Unattended Installations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../server-2008-r2/index.html">Server 2008 R2</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Exchange</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Exchange</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="administration.html">Administration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="compliance-management.html">Compliance Management</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dynamic-access-control.html">Dynamic Access Control</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dynamic Access Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-domain-controller">On the Domain Controller:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-user-and-device-claims">Configuring User and Device Claims</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -164,13 +168,15 @@
         
           <li><a href="../index.html">Microsoft</a> &raquo;</li>
         
-      <li>Exchange</li>
+          <li><a href="index.html">Exchange</a> &raquo;</li>
+        
+      <li>Dynamic Access Control</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/computing/microsoft/exchange/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/computing/microsoft/exchange/dynamic-access-control.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -183,33 +189,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="exchange">
-<h1>Exchange<a class="headerlink" href="#exchange" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="administration.html">Administration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#add-email-address-to-user">Add Email Address to User</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#calendar-permissions">Calendar Permissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#create-a-service-account">Create a Service Account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#delete-a-mailbox">Delete a Mailbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#mailbox-access-permission">Mailbox Access Permission</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#send-as-permission">Send As Permission</a></li>
-<li class="toctree-l2"><a class="reference internal" href="administration.html#out-of-office">Out of Office</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="compliance-management.html">Compliance Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#regulatory-compliance">Regulatory Compliance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#compliance-features">Compliance Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#scenario">Scenario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compliance-management.html#howto">Howto</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic-access-control.html">Dynamic Access Control</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dynamic-access-control.html#on-the-domain-controller">On the Domain Controller:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dynamic-access-control.html#configuring-user-and-device-claims">Configuring User and Device Claims</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="dynamic-access-control">
+<h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Permalink to this headline">¶</a></h1>
+<p>Prepare the Dynamic Access Control Deployment Based on the Security and Business Requirements
+Prepare ADDS to support Dynamic Access Control</p>
+<div class="section" id="on-the-domain-controller">
+<h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Open AD Users and Computers</p></li>
+<li><p>Make an OU named &lt;OU_name_here&gt;</p></li>
+<li><p>Add Clients to OU</p></li>
+<li><p>Open GPME &gt; expand forest &gt; expand domains, expand &lt;domain_name&gt;</p></li>
+<li><p>Click Group Policy Objects container</p></li>
+<li><p>Remove the Block Inheritance setting applied to OUs</p></li>
+<li><p>Edit the Default Domain Controllers Policy GPO</p></li>
+<li><p>In GPME &gt; Computer Configuration &gt; Policies &gt; Administrative Templates &gt; System &gt; KDC</p></li>
+<li><p>Enable the KDC support for claims, compound authentication and Kerberos armoring policy setting.</p></li>
+<li><p>Select Supported in Options section</p></li>
+<li><p>run a gpupdate /force in cmd</p></li>
+<li><p>In ADDS create a security group named &lt;name_WKS&gt; in the Users container</p></li>
+<li><p>Move the target client Computer Objects into the &lt;OU_name_here&gt;container</p></li>
+<li><p>Make the client Computer Objects a member of &lt;name_WKS&gt;</p></li>
+</ol>
+</div>
+<div class="section" id="configuring-user-and-device-claims">
+<h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-claim-types">
+<h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Permalink to this headline">¶</a></h3>
+<p>On the Domain Controller:</p>
+<ol class="arabic simple">
+<li><p>Go to AD Administrative Center &gt; Dynamic Access Control</p></li>
+<li><p>Open Claim Types and make sure no claims are present.</p></li>
+<li><p>Resource Properties &gt; Properties, and review</p></li>
+<li><p>New Claim Type &gt; description &gt; untick user, tick computer</p></li>
+</ol>
+</div>
+<div class="section" id="configuring-resource-properties-and-file-classifications">
+<h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>In Resource Property enable Confidentiality, Department</p></li>
+<li><p>Go to Suggested Values of Department &gt; click add &gt; Value/Display name: &lt;OU_name_here&gt;</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -221,10 +242,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="administration.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../other/api/index.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../server-2008-r2/terminal-services.html" class="btn btn-neutral float-left" title="Terminal Services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="compliance-management.html" class="btn btn-neutral float-left" title="Compliance Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

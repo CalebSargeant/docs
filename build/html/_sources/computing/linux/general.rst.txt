@@ -372,3 +372,85 @@ Open up a web browser and type in http://xxx.xxx.xxx. Follow the wizard. REMEMBE
 CONFIGURATION TEXT TO /var/www/html/configuration.php.
 ``rm -rf /var/www/html/installation/``
 You can access the server by going to a browser and typing http://xxx.xxx.xxx/administrator.
+
+Git Server
+----------
+
+On the Server
+^^^^^^^^^^^^^
+
+**Installing Git**
+
+.. code-block:: bash
+
+  yum install git-core
+
+**Configuring the git group**
+
+.. code-block:: bash
+
+  groupadd git
+
+For a new user:
+
+.. code-block:: bash
+
+  useradd -G git <username>
+  passwd <username>
+  id <username>
+
+For an existing user:
+
+.. code-block:: bash
+
+  usermod -a -G git <username>
+  id <username>
+
+**Configuring the Git Server Repository**
+
+.. code-block:: bash
+
+  mkdir /path/to/gits
+  cd /path/to/gits
+  mkdir project.git
+  cd project.git
+  git init --bare --shared=group
+  sudo chmod -R g+ws *
+  sudo chgrp -R git *
+
+**Configuring the Git Hook for Web code**
+
+.. code-block:: bash
+
+  mkdir /var/www/html/project
+  cd /path/to/gits/project.git
+  vi /hooks/post-recieve
+  #!/bin/sh
+  GIT_WORK_TREEE=/var/www/html/project git checkout -f
+  chmod +x hooks/post-receive
+  chown -R git:git *
+
+On the Client's Machine
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Download and install: https://git-scm.com/download/win
+
+.. code-block:: bash
+
+  mkdir /path/to/gits
+  cd /path/to/gits
+  mkdir project.git
+  cd project.git
+  git init
+  git remote add web ssh://<HostnameOrIP>/full/path/to/project.git
+  git add README
+  git commit -m "Initial Import"
+  git push web +master:refs/heads/master
+
+Then open Firefox, go to <HostnameOrIP>/project
+Then in future: git push web
+
+Please note that you wont see any files on the server, because it is a bare repository and therefore the files are
+protected. You can create a Git Hook to expose the bare repository's files in a different directory (useful for
+web code).
+Use git clone ssh://<hostname>/path/to/gits to clone an existing server repository.

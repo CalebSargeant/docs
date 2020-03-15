@@ -129,6 +129,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#git-server">Git Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-server">On the Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-client-s-machine">On the Client’s Machine</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
@@ -538,6 +543,72 @@ mysql -u root -p
 CONFIGURATION TEXT TO /var/www/html/configuration.php.
 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/var/www/html/installation/</span></code>
 You can access the server by going to a browser and typing <a class="reference external" href="http://xxx.xxx.xxx/administrator">http://xxx.xxx.xxx/administrator</a>.</p>
+</div>
+</div>
+<div class="section" id="git-server">
+<h2>Git Server<a class="headerlink" href="#git-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-the-server">
+<h3>On the Server<a class="headerlink" href="#on-the-server" title="Permalink to this headline">¶</a></h3>
+<p><strong>Installing Git</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install git-core
+</pre></div>
+</div>
+<p><strong>Configuring the git group</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>groupadd git
+</pre></div>
+</div>
+<p>For a new user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>useradd -G git &lt;username&gt;
+passwd &lt;username&gt;
+id &lt;username&gt;
+</pre></div>
+</div>
+<p>For an existing user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usermod -a -G git &lt;username&gt;
+id &lt;username&gt;
+</pre></div>
+</div>
+<p><strong>Configuring the Git Server Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /path/to/gits
+<span class="nb">cd</span> /path/to/gits
+mkdir project.git
+<span class="nb">cd</span> project.git
+git init --bare --shared<span class="o">=</span>group
+sudo chmod -R g+ws *
+sudo chgrp -R git *
+</pre></div>
+</div>
+<p><strong>Configuring the Git Hook for Web code</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /var/www/html/project
+<span class="nb">cd</span> /path/to/gits/project.git
+vi /hooks/post-recieve
+<span class="c1">#!/bin/sh</span>
+<span class="nv">GIT_WORK_TREEE</span><span class="o">=</span>/var/www/html/project git checkout -f
+chmod +x hooks/post-receive
+chown -R git:git *
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-the-client-s-machine">
+<h3>On the Client’s Machine<a class="headerlink" href="#on-the-client-s-machine" title="Permalink to this headline">¶</a></h3>
+<p>Download and install: <a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /path/to/gits
+<span class="nb">cd</span> /path/to/gits
+mkdir project.git
+<span class="nb">cd</span> project.git
+git init
+git remote add web ssh://&lt;HostnameOrIP&gt;/full/path/to/project.git
+git add README
+git commit -m <span class="s2">&quot;Initial Import&quot;</span>
+git push web +master:refs/heads/master
+</pre></div>
+</div>
+<p>Then open Firefox, go to &lt;HostnameOrIP&gt;/project
+Then in future: git push web</p>
+<p>Please note that you wont see any files on the server, because it is a bare repository and therefore the files are
+protected. You can create a Git Hook to expose the bare repository’s files in a different directory (useful for
+web code).
+Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&gt;/path/to/gits to clone an existing server repository.</p>
 </div>
 </div>
 </div>
