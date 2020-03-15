@@ -1,0 +1,246 @@
+VLANs
+=====
+
+Configuration and Verification
+------------------------------
+
+.. 2. VLANs - Configuration and Verification
+
+VLAN Foundations
+^^^^^^^^^^^^^^^^
+
+* Logically groups users
+* Segments broadcast domains
+* Subnet correlation
+* Access control
+* Quality of service
+
+Local VLANs
+^^^^^^^^^^^
+
+* Local VLANs do not extend beyond the distribution layer
+* Local VLAN traffic routed to other destinations
+* Should be created around physical boundries
+
+Configuring VLANs
+^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+
+  conf t
+  vlan 200
+  name MARKETTING
+  int r f0/0-10
+  switchport mode access
+  switchport access vlan 100
+
+Deleting VLAN Database
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+
+  wr e
+  del flash:vlan.dat
+
+In-Depth Trunking
+-----------------
+
+.. 3. VLANs - In-Depth Trunking
+
+Trunking
+^^^^^^^^
+
+* Trunking (aka tagging) passes multi-vlan information between switches
+* Places VLAN information into each frame
+* Layer 2 feature
+
+The Two Tagging Flavours
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Inter-Switch Link (ISL)
+
+  * CISCO proprietary
+  * Encapsulates the entire frame
+  * Being phased out
+
+* 802.1Q
+
+  * Open standard/industry standard
+  * Inserts tag into frame rather than encapsulation
+
+Digging Deeper Into the Trunk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* ISL
+
+  * 26 byte header (Junk, VLAN, Junk)
+  * Ethernet Frame
+  * 4 byte CRC
+
+* 802.1Q
+
+  * Destination MAC
+  * Source MAC
+  * 4 byte tag (3 bit PRI, VLAN)
+  * Ethernet Frame
+  * FCS
+
+Negotiating Trunking
+^^^^^^^^^^^^^^^^^^^^
+
+* Switches can auto-negotiate trunk connections using Dynamic Trunking Protocol (DTP)
+* Can be confusing...
+* Five different modes:
+
+  * Access
+  * Trunk
+  * Dynamic Auto
+  * Dynamic desirable
+  * Non-negotiate
+
+VLAN Trunking Protocol
+----------------------
+
+.. 4. VLANs - VLAN Trunking Protocol
+
+VTP Modes
+^^^^^^^^^
+
+* Server (default)
+
+  * Power to change vlan information
+  * Sends and receives vtp updates
+  * Saves vlan configuration
+
+* Client
+
+  * Cannot change vlan information
+  * Sends and receives vtp updates
+  * Does not save vlan configuration
+
+* Transparent
+
+  * Power to change vlan information
+  * Forwards (passes through) vtp updates - vtp v2
+  * Does not listen to vtp advertisements
+  * Saves vlan configuration
+
+VTP Pruning
+^^^^^^^^^^^
+
+* Keeps unnecessary broadcast traffic from crossing trunk links
+* Only works on vtp servers
+
+Configuring VTP
+^^^^^^^^^^^^^^^
+
+1. Verify current VTP status
+2. Configure VTP domain/password
+3. Configure VTP mode
+4. Set VTP version number
+5. Verify
+
+Common VLAN problems
+^^^^^^^^^^^^^^^^^^^^
+
+* Native VLAN mismatch
+* Trunk negotiation issues
+
+  * Auto-to-auto does not become trunk
+  * If possible, avoid DTP (trunk nonegotiate)
+
+* VTP updates not applying
+
+  * Verify vtp domain/password
+  * Verify vtp version
+  * Verify trunk links
+  * Delete flash:lvlan.dat and reboot
+
+STP - Foundation per-VLAN Spanning Tree Concepts
+------------------------------------------------
+
+.. 5 - STP - Foundation per-VLAN Spanning Tree Concepts
+
+* Switches forward broadcast packets out all ports by design
+* Redundant connections are necessary in business networks
+* The place of spanning tree: drop trees on redundant links (until they are needed)
+
+The Facts About Spanning Tree
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Original STP (802.1D) was created to prevent loops
+* Switches send "probes" into the network called Bridge Protocol Data Units (BPDUs) to discover loops
+* The BPDU probes also help elect the core switch of the network, called the Root Bridge
+* The simplistic view of STP: all switches find the best way to reach the root bridge than block all redundant links
+
+Understanding BPDUs and Elections
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* BPDUs are sent once every two seconds
+
+  * Priority and Mac address in the packet
+
+* Priority is some value between 0 and 61440 (default is 32768); increments of 4096 - lower is better
+* Three port types
+
+  * Root Port: used to reach the root bridge
+  * Designated Port: forwarding port, one per link
+  * Blocking / Non-designated port: where the tree fell
+
+How STP Finds the Best Path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Elect the root
+2. Switches find lowest cost path to port
+3. Use lower bridge ID on equal paths
+4. Use lower port to break a tie
+
+.. csv-table::
+   :header: "Link Bandwidth", "STP Cost"
+   :widths: 20, 20, 10
+
+   "4Mbps", 250
+   "10Mbps", 100
+   "16Mbps", 62
+   "45Mbps", 39
+   "100Mbps", 19
+   "155Mbps", 14
+   "622Mbps", 6
+   "1Gbps", 4
+   "10Gbps", 2
+
+Initial Enhancements: Per VLAN Spanning Tree
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* One root bridge elected for each VLAN
+* Helps load-balance more effectively.
+
+The Spanning-Tree Command
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+
+  Switch(config)#spanning-tree vlan x root primary
+  Switch(config)#spanning-tree vlan x root secondary
+  Switch(config)#spanning-tree vlan x priority <number>
+
+Problems with Spanning-Tree
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Listening
+
+  * 15 seconds of listening for BPDUs
+  * Switch sends / receives BPDUs
+
+* Learning
+
+  * 15 seconds of learning MAC addresses
+  * Populates CAM table
+
+* Forwarding
+
+  * Port is forwarding traffic (happy)
+
+* Blocking
+
+  * BONUS - switch will wait up to 20 seconds (max-age) before moving a blocked port into a listening phase.
