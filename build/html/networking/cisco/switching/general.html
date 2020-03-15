@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Switching &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="General" href="general.html" />
-    <link rel="prev" title="Redistribution" href="../routing/redistribution.html" /> 
+    <link rel="next" title="VLANs" href="vlans.html" />
+    <link rel="prev" title="Switching" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,8 +89,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Switching</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#core-concepts-and-design">Core Concepts and Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#health">Health</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#factory-default-settings">Factory Default Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ios-upgrade">IOS Upgrade</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
 </ul>
 </li>
@@ -161,13 +167,15 @@
         
           <li><a href="../index.html">Cisco</a> &raquo;</li>
         
-      <li>Switching</li>
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>General</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/networking/cisco/switching/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/networking/cisco/switching/general.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,58 +188,110 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="switching">
-<h1>Switching<a class="headerlink" href="#switching" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="core-concepts-and-design">
+<h2>Core Concepts and Design<a class="headerlink" href="#core-concepts-and-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plug-and-play-switches">
+<h3>Plug and play switches<a class="headerlink" href="#plug-and-play-switches" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Chance for failure</p></li>
+<li><p>Broadcast traffic</p></li>
+<li><p>Multicast issues</p></li>
+<li><p>Security issues</p></li>
+<li><p>MAC flooding</p></li>
+</ul>
+</div>
+<div class="section" id="enterprise-composite-network-model">
+<h3>Enterprise Composite Network Model<a class="headerlink" href="#enterprise-composite-network-model" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Access</p></li>
+<li><p>Distribution</p></li>
+<li><p>Core</p></li>
+</ul>
+</div>
+<div class="section" id="vlans">
+<h3>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simpler Management</p></li>
+<li><p>Troubleshooting ease</p></li>
+<li><p>Better performance</p></li>
+<li><p>Mental sanity</p></li>
+<li><p>Summarization points</p></li>
+</ul>
+</div>
+<div class="section" id="designing-the-network">
+<h3>Designing the Network<a class="headerlink" href="#designing-the-network" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Restrict VLANs to switch blocks</p></li>
+<li><p>Implement management VLAN</p></li>
+<li><p>Separate voice traffic</p></li>
+<li><p>Implement multicast support</p></li>
+</ul>
+</div>
+<div class="section" id="the-two-flavours-of-cisco-switches">
+<h3>The Two Flavours of CISCO Switches<a class="headerlink" href="#the-two-flavours-of-cisco-switches" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>CISCO catalyst OS (CatOS)</p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="general.html#core-concepts-and-design">Core Concepts and Design</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general.html#plug-and-play-switches">Plug and play switches</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#enterprise-composite-network-model">Enterprise Composite Network Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#vlans">VLANs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#designing-the-network">Designing the Network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#the-two-flavours-of-cisco-switches">The Two Flavours of CISCO Switches</a></li>
+<li><p>Uses set-based syntax</p></li>
+<li><p>Typically combined with IOS for layer 3 functions</p></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#health">Health</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#factory-default-settings">Factory Default Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#ios-upgrade">IOS Upgrade</a></li>
+<li><p>CISCO ‘native’ IOS</p>
+<ul>
+<li><p>Similar to router configuration</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vlans.html">VLANs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="vlans.html#configuration-and-verification">Configuration and Verification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#vlan-foundations">VLAN Foundations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#local-vlans">Local VLANs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#configuring-vlans">Configuring VLANs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#deleting-vlan-database">Deleting VLAN Database</a></li>
+<li><p>Typically, all larger switch models (such as cat 4500, 6500, etc…) run CatOS</p></li>
+<li><p>CISCO has a migration path for all mainline switches to the native IOS</p></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vlans.html#in-depth-trunking">In-Depth Trunking</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#trunking">Trunking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#the-two-tagging-flavours">The Two Tagging Flavours</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#digging-deeper-into-the-trunk">Digging Deeper Into the Trunk</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#negotiating-trunking">Negotiating Trunking</a></li>
+</div>
+</div>
+<div class="section" id="health">
+<h2>Health<a class="headerlink" href="#health" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CPU: <code class="docutils literal notranslate"><span class="pre">Sh</span> <span class="pre">proc</span> <span class="pre">cpu</span> <span class="pre">sorted</span> <span class="pre">|</span> <span class="pre">ex</span> <span class="pre">0.00</span></code></p></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vlans.html#vlan-trunking-protocol">VLAN Trunking Protocol</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#vtp-modes">VTP Modes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#vtp-pruning">VTP Pruning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#configuring-vtp">Configuring VTP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#common-vlan-problems">Common VLAN problems</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="vlans.html#stp-foundation-per-vlan-spanning-tree-concepts">STP - Foundation per-VLAN Spanning Tree Concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#the-facts-about-spanning-tree">The Facts About Spanning Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#understanding-bpdus-and-elections">Understanding BPDUs and Elections</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#how-stp-finds-the-best-path">How STP Finds the Best Path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#initial-enhancements-per-vlan-spanning-tree">Initial Enhancements: Per VLAN Spanning Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#the-spanning-tree-command">The Spanning-Tree Command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#problems-with-spanning-tree">Problems with Spanning-Tree</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="section" id="factory-default-settings">
+<h2>Factory Default Settings<a class="headerlink" href="#factory-default-settings" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Hold down the mode button</p></li>
+<li><p>Plug in console cable</p></li>
+<li><p>Commands:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch: flash_init
+switch: dir flash:
+switch: del flash:config.text
+del flash:vlan.dat
+boot
+</pre></div>
+</div>
+</div>
+<div class="section" id="ios-upgrade">
+<h2>IOS Upgrade<a class="headerlink" href="#ios-upgrade" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Setup a TFTP server</p></li>
+<li><p>Commands:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Backup config
+copy run start
+
+# Backup config to server
+copy startup-config tftp:
+
+# Copy the .bin file downloaded to flash
+copy tftp flash:
+
+# Verify the .bin file
+verify flash:xxxx.bin
+
+# Specify to boot off of the new .bin file
+boot system flash:xxxxxxx.bin
+reload
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -243,10 +303,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="vlans.html" class="btn btn-neutral float-right" title="VLANs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../routing/redistribution.html" class="btn btn-neutral float-left" title="Redistribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Switching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

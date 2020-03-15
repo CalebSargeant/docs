@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VLANs &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FortiGate" href="../../fortigate.html" />
+    <link rel="prev" title="General" href="general.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VLANs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-and-verification">Configuration and Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-depth-trunking">In-Depth Trunking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vlan-trunking-protocol">VLAN Trunking Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stp-foundation-per-vlan-spanning-tree-concepts">STP - Foundation per-VLAN Spanning Tree Concepts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>VLANs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/cisco/switching/vlans.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vlans">
+<h1>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuration-and-verification">
+<h2>Configuration and Verification<a class="headerlink" href="#configuration-and-verification" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vlan-foundations">
+<h3>VLAN Foundations<a class="headerlink" href="#vlan-foundations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Logically groups users</p></li>
+<li><p>Segments broadcast domains</p></li>
+<li><p>Subnet correlation</p></li>
+<li><p>Access control</p></li>
+<li><p>Quality of service</p></li>
+</ul>
+</div>
+<div class="section" id="local-vlans">
+<h3>Local VLANs<a class="headerlink" href="#local-vlans" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Local VLANs do not extend beyond the distribution layer</p></li>
+<li><p>Local VLAN traffic routed to other destinations</p></li>
+<li><p>Should be created around physical boundries</p></li>
+</ul>
+</div>
+<div class="section" id="configuring-vlans">
+<h3>Configuring VLANs<a class="headerlink" href="#configuring-vlans" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conf t
+vlan 200
+name MARKETTING
+int r f0/0-10
+switchport mode access
+switchport access vlan 100
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-vlan-database">
+<h3>Deleting VLAN Database<a class="headerlink" href="#deleting-vlan-database" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wr e
+del flash:vlan.dat
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="in-depth-trunking">
+<h2>In-Depth Trunking<a class="headerlink" href="#in-depth-trunking" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trunking">
+<h3>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Trunking (aka tagging) passes multi-vlan information between switches</p></li>
+<li><p>Places VLAN information into each frame</p></li>
+<li><p>Layer 2 feature</p></li>
+</ul>
+</div>
+<div class="section" id="the-two-tagging-flavours">
+<h3>The Two Tagging Flavours<a class="headerlink" href="#the-two-tagging-flavours" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Inter-Switch Link (ISL)</p>
+<ul>
+<li><p>CISCO proprietary</p></li>
+<li><p>Encapsulates the entire frame</p></li>
+<li><p>Being phased out</p></li>
+</ul>
+</li>
+<li><p>802.1Q</p>
+<ul>
+<li><p>Open standard/industry standard</p></li>
+<li><p>Inserts tag into frame rather than encapsulation</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="digging-deeper-into-the-trunk">
+<h3>Digging Deeper Into the Trunk<a class="headerlink" href="#digging-deeper-into-the-trunk" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ISL</p>
+<ul>
+<li><p>26 byte header (Junk, VLAN, Junk)</p></li>
+<li><p>Ethernet Frame</p></li>
+<li><p>4 byte CRC</p></li>
+</ul>
+</li>
+<li><p>802.1Q</p>
+<ul>
+<li><p>Destination MAC</p></li>
+<li><p>Source MAC</p></li>
+<li><p>4 byte tag (3 bit PRI, VLAN)</p></li>
+<li><p>Ethernet Frame</p></li>
+<li><p>FCS</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="negotiating-trunking">
+<h3>Negotiating Trunking<a class="headerlink" href="#negotiating-trunking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Switches can auto-negotiate trunk connections using Dynamic Trunking Protocol (DTP)</p></li>
+<li><p>Can be confusing…</p></li>
+<li><p>Five different modes:</p>
+<ul>
+<li><p>Access</p></li>
+<li><p>Trunk</p></li>
+<li><p>Dynamic Auto</p></li>
+<li><p>Dynamic desirable</p></li>
+<li><p>Non-negotiate</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="vlan-trunking-protocol">
+<h2>VLAN Trunking Protocol<a class="headerlink" href="#vlan-trunking-protocol" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vtp-modes">
+<h3>VTP Modes<a class="headerlink" href="#vtp-modes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Server (default)</p>
+<ul>
+<li><p>Power to change vlan information</p></li>
+<li><p>Sends and receives vtp updates</p></li>
+<li><p>Saves vlan configuration</p></li>
+</ul>
+</li>
+<li><p>Client</p>
+<ul>
+<li><p>Cannot change vlan information</p></li>
+<li><p>Sends and receives vtp updates</p></li>
+<li><p>Does not save vlan configuration</p></li>
+</ul>
+</li>
+<li><p>Transparent</p>
+<ul>
+<li><p>Power to change vlan information</p></li>
+<li><p>Forwards (passes through) vtp updates - vtp v2</p></li>
+<li><p>Does not listen to vtp advertisements</p></li>
+<li><p>Saves vlan configuration</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="vtp-pruning">
+<h3>VTP Pruning<a class="headerlink" href="#vtp-pruning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Keeps unnecessary broadcast traffic from crossing trunk links</p></li>
+<li><p>Only works on vtp servers</p></li>
+</ul>
+</div>
+<div class="section" id="configuring-vtp">
+<h3>Configuring VTP<a class="headerlink" href="#configuring-vtp" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Verify current VTP status</p></li>
+<li><p>Configure VTP domain/password</p></li>
+<li><p>Configure VTP mode</p></li>
+<li><p>Set VTP version number</p></li>
+<li><p>Verify</p></li>
+</ol>
+</div>
+<div class="section" id="common-vlan-problems">
+<h3>Common VLAN problems<a class="headerlink" href="#common-vlan-problems" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Native VLAN mismatch</p></li>
+<li><p>Trunk negotiation issues</p>
+<ul>
+<li><p>Auto-to-auto does not become trunk</p></li>
+<li><p>If possible, avoid DTP (trunk nonegotiate)</p></li>
+</ul>
+</li>
+<li><p>VTP updates not applying</p>
+<ul>
+<li><p>Verify vtp domain/password</p></li>
+<li><p>Verify vtp version</p></li>
+<li><p>Verify trunk links</p></li>
+<li><p>Delete flash:lvlan.dat and reboot</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="stp-foundation-per-vlan-spanning-tree-concepts">
+<h2>STP - Foundation per-VLAN Spanning Tree Concepts<a class="headerlink" href="#stp-foundation-per-vlan-spanning-tree-concepts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Switches forward broadcast packets out all ports by design</p></li>
+<li><p>Redundant connections are necessary in business networks</p></li>
+<li><p>The place of spanning tree: drop trees on redundant links (until they are needed)</p></li>
+</ul>
+<div class="section" id="the-facts-about-spanning-tree">
+<h3>The Facts About Spanning Tree<a class="headerlink" href="#the-facts-about-spanning-tree" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Original STP (802.1D) was created to prevent loops</p></li>
+<li><p>Switches send “probes” into the network called Bridge Protocol Data Units (BPDUs) to discover loops</p></li>
+<li><p>The BPDU probes also help elect the core switch of the network, called the Root Bridge</p></li>
+<li><p>The simplistic view of STP: all switches find the best way to reach the root bridge than block all redundant links</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-bpdus-and-elections">
+<h3>Understanding BPDUs and Elections<a class="headerlink" href="#understanding-bpdus-and-elections" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>BPDUs are sent once every two seconds</p>
+<ul>
+<li><p>Priority and Mac address in the packet</p></li>
+</ul>
+</li>
+<li><p>Priority is some value between 0 and 61440 (default is 32768); increments of 4096 - lower is better</p></li>
+<li><p>Three port types</p>
+<ul>
+<li><p>Root Port: used to reach the root bridge</p></li>
+<li><p>Designated Port: forwarding port, one per link</p></li>
+<li><p>Blocking / Non-designated port: where the tree fell</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="how-stp-finds-the-best-path">
+<h3>How STP Finds the Best Path<a class="headerlink" href="#how-stp-finds-the-best-path" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Elect the root</p></li>
+<li><p>Switches find lowest cost path to port</p></li>
+<li><p>Use lower bridge ID on equal paths</p></li>
+<li><p>Use lower port to break a tie</p></li>
+</ol>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Link Bandwidth</p></th>
+<th class="head"><p>STP Cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4Mbps</p></td>
+<td><p>250</p></td>
+</tr>
+<tr class="row-odd"><td><p>10Mbps</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>16Mbps</p></td>
+<td><p>62</p></td>
+</tr>
+<tr class="row-odd"><td><p>45Mbps</p></td>
+<td><p>39</p></td>
+</tr>
+<tr class="row-even"><td><p>100Mbps</p></td>
+<td><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>155Mbps</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-even"><td><p>622Mbps</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>1Gbps</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>10Gbps</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="initial-enhancements-per-vlan-spanning-tree">
+<h3>Initial Enhancements: Per VLAN Spanning Tree<a class="headerlink" href="#initial-enhancements-per-vlan-spanning-tree" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One root bridge elected for each VLAN</p></li>
+<li><p>Helps load-balance more effectively.</p></li>
+</ul>
+</div>
+<div class="section" id="the-spanning-tree-command">
+<h3>The Spanning-Tree Command<a class="headerlink" href="#the-spanning-tree-command" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)#spanning-tree vlan x root primary
+Switch(config)#spanning-tree vlan x root secondary
+Switch(config)#spanning-tree vlan x priority &lt;number&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="problems-with-spanning-tree">
+<h3>Problems with Spanning-Tree<a class="headerlink" href="#problems-with-spanning-tree" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Listening</p>
+<ul>
+<li><p>15 seconds of listening for BPDUs</p></li>
+<li><p>Switch sends / receives BPDUs</p></li>
+</ul>
+</li>
+<li><p>Learning</p>
+<ul>
+<li><p>15 seconds of learning MAC addresses</p></li>
+<li><p>Populates CAM table</p></li>
+</ul>
+</li>
+<li><p>Forwarding</p>
+<ul>
+<li><p>Port is forwarding traffic (happy)</p></li>
+</ul>
+</li>
+<li><p>Blocking</p>
+<ul>
+<li><p>BONUS - switch will wait up to 20 seconds (max-age) before moving a blocked port into a listening phase.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../fortigate.html" class="btn btn-neutral float-right" title="FortiGate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
