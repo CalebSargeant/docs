@@ -243,3 +243,132 @@ TigerVNC
   service vncserver start
 
   # To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.
+
+Old School LAMP
+---------------
+
+Features
+^^^^^^^^
+
+* Apache (hosts the website)
+* MySQL (Database server)
+* PHP (hypertext processor)
+* Joomla (creates the website. Dependant on PHP and MYSQL)
+
+Installation
+^^^^^^^^^^^^
+
+**My SQL Server 5.0 (server & client)**
+
+.. code-block:: bash
+
+  yum install mysql mysql-server
+  chkconfig --levels 235 mysqld on
+  /etc/init.d/mysqld start
+  mysql_secure_installation
+
+**Apache 2**
+
+(http://xxx.xxx.xxx)
+(Apache's default document root is /var/www/html on CentOS, and the configuration file is /etc/httpd/conf/httpd.conf.
+Additional configurations are stored in the /etc/httpd/conf.d/ directory)
+
+.. code-block:: bash
+
+  yum install httpd
+  chkconfig --levels 235 httpd on
+  /etc/init.d/httpd start
+
+**PHP5**
+
+.. code-block:: bash
+
+  yum install php
+  /etc/init.d/httpd restart
+  vi /var/www/html/info.php
+
+**MySQL Support for PHP5**
+
+(http://xxx.xxx.xxx.xxx/info.php)
+
+.. code-block:: bash
+
+  yum search php
+  yum install php-mysql php-gd php-imap php-ldap php-mbstring php-odbc php-pear php-xml phpxmlrpc
+  yum install php-pecl-apc
+  /etc/init.d/httpd restart
+
+**phpMyAdmin**
+
+(http://xxx.xxx.xxx.xxx/phpmyadmin/)
+
+.. code-block:: bash
+
+  rpm --import http://dag.wieers.com/rpm/packages/RPM-GPG-KEY.dag.txt
+
+  # 64-bit:
+  yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+
+  # 32-bit
+  yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
+
+  yum install phpmyadmin
+  vi /etc/httpd/conf.d/phpmyadmin.conf
+    #
+    # Web application to manage MySQL
+    #
+    #<Directory "/usr/share/phpmyadmin">
+    # Order Deny,Allow
+    # Deny from all
+    # Allow from 127.0.0.1
+    #</Directory>
+    Alias /phpmyadmin /usr/share/phpmyadmin
+    Alias /phpMyAdmin /usr/share/phpmyadmin
+
+  vi /usr/share/phpmyadmin/config.inc.php
+    [...]
+    /* Authentication type */
+    $cfg['Servers'][$i]['auth_type'] = 'http';
+    [...]
+
+  /etc/init.d/httpd restart
+
+**Joomla!**
+
+If you are installing LAMP without Joomla then skip all the commands that have anything to do with
+Joomla.
+
+.. code-block:: bash
+
+  cd /tmp
+  yum install wget
+  wget joomlacode.org/gf/download/frsrelease/17715/77262/Joomla_2.5.8-Stable-Full_Package.zip
+  mkdir /tmp/joomla
+  unzip Joomla_2.5.8-Stable-Full_Package.zip /tmp/joomla/
+  mv /tmp/joomla/* /var/www/html/
+  service mysqld start; chkconfig mysqld on
+  /usr/bin/mysql_secure_installation
+  yum --enablerepo=epel install phpmyadmin
+
+  vi /etc/httpd/conf.d/phpMyAdmin.conf
+    Allow from 127.0.0.1 xxx.xxx.xxx.xxx/24
+
+  iptables -I INPUT -p tcp --dport http -j ACCEPT ; service iptables save ; service iptables restart
+
+  vi /etc/php.ini
+    output_buffering=Off
+
+  touch /var/www/html/configuration.php
+  chmod 666 /var/www/html/configuration.php
+  service httpd start; chkconfig httpd on
+
+  mysql -u root -p
+    create database <db_name_here>
+    create user 'root'@'localhost' identified by '<password_here>';
+    grant all privileges on <db_name_here>.* to root@localhost;
+    show grants for 'root'@'localhost';
+
+Open up a web browser and type in http://xxx.xxx.xxx. Follow the wizard. REMEMBER TO COPY
+CONFIGURATION TEXT TO /var/www/html/configuration.php.
+``rm -rf /var/www/html/installation/``
+You can access the server by going to a browser and typing http://xxx.xxx.xxx/administrator.
