@@ -163,134 +163,134 @@ Server 2008 R2
 Windows 7 64-bit
 ^^^^^^^^^^^^^^^^
 
-.. image:: _images/windows7x64-unattended-0.png
+.. image:: _images/unattended-windows7x64-1.png
 
-.. image:: _images/windows7x64-unattended-1.png
+.. image:: _images/unattended-windows7x64-2.png
 
-.. image:: _images/windows7x64-unattended-2.png
+.. image:: _images/unattended-windows7x64-3.png
 
-.. image:: _images/windows7x64-unattended-3.png
+.. image:: _images/unattended-windows7x64-4.png
 
-.. image:: _images/windows7x64-unattended-4.png
+.. image:: _images/unattended-windows7x64-5.png
 
-.. image:: _images/windows7x64-unattended-5.png
+.. image:: _images/unattended-windows7x64-6.png
 
-.. image:: _images/windows7x64-unattended-6.png
+.. image:: _images/unattended-windows7x64-7.png
 
-.. image:: _images/windows7x64-unattended-7.png
+.. image:: _images/unattended-windows7x64-8.png
 
-.. image:: _images/windows7x64-unattended-8.png
+.. image:: _images/unattended-windows7x64-9.png
 
-.. image:: _images/windows7x64-unattended-9.png
+.. image:: _images/unattended-windows7x64-10.png
 
-.. image:: _images/windows7x64-unattended-10.png
+.. image:: _images/unattended-windows7x64-11.png
 
-.. image:: _images/windows7x64-unattended-11.png
+.. image:: _images/unattended-windows7x64-12.png
 
-.. image:: _images/windows7x64-unattended-12.png
+.. image:: _images/unattended-windows7x64-13.png
 
-.. image:: _images/windows7x64-unattended-13.png
+.. image:: _images/unattended-windows7x64-14.png
 
-.. image:: _images/windows7x64-unattended-14.png
+.. image:: _images/unattended-windows7x64-15.png
 
-.. image:: _images/windows7x64-unattended-15.png
+.. image:: _images/unattended-windows7x64-16.png
 
-.. image:: _images/windows7x64-unattended-16.png
+.. image:: _images/unattended-windows7x64-17.png
 
-.. image:: _images/windows7x64-unattended-17.png
+.. image:: _images/unattended-windows7x64-18.png
 
-.. image:: _images/windows7x64-unattended-18.png
+.. image:: _images/unattended-windows7x64-19.png
 
-.. image:: _images/windows7x64-unattended-19.png
+.. image:: _images/unattended-windows7x64-20.png
 
-.. image:: _images/windows7x64-unattended-20.png
+.. image:: _images/unattended-windows7x64-21.png
 
-.. image:: _images/windows7x64-unattended-21.png
+.. image:: _images/unattended-windows7x64-22.png
 
-.. image:: _images/windows7x64-unattended-22.png
+.. image:: _images/unattended-windows7x64-23.png
 
-.. image:: _images/windows7x64-unattended-23.png
+.. image:: _images/unattended-windows7x64-24.png
 
-.. image:: _images/windows7x64-unattended-24.png
+.. image:: _images/unattended-windows7x64-25.png
 
-.. image:: _images/windows7x64-unattended-25.png
+.. image:: _images/unattended-windows7x64-26.png
 
-.. image:: _images/windows7x64-unattended-26.png
+.. image:: _images/unattended-windows7x64-27.png
 
-.. image:: _images/windows7x64-unattended-27.png
+.. image:: _images/unattended-windows7x64-28.png
 
-.. image:: _images/windows7x64-unattended-28.png
+.. image:: _images/unattended-windows7x64-29.png
 
-.. image:: _images/windows7x64-unattended-29.png
+.. image:: _images/unattended-windows7x64-30.png
 
-.. image:: _images/windows7x64-unattended-30.png
+.. image:: _images/unattended-windows7x64-31.png
 
-.. image:: _images/windows7x64-unattended-31.png
+.. image:: _images/unattended-windows7x64-32.png
 
-.. image:: _images/windows7x64-unattended-32.png
+.. image:: _images/unattended-windows7x64-33.png
 
 Windows 7 32-bit
 ^^^^^^^^^^^^^^^^
 
-.. image:: _images/windows7x86-unattended-01.png
+.. image:: _images/unattended-windows7x86-1.png
 
-.. image:: _images/windows7x86-unattended-02.png
+.. image:: _images/unattended-windows7x86-2.png
 
-.. image:: _images/windows7x86-unattended-03.png
+.. image:: _images/unattended-windows7x86-3.png
 
-.. image:: _images/windows7x86-unattended-04.png
+.. image:: _images/unattended-windows7x86-4.png
 
-.. image:: _images/windows7x86-unattended-05.png
+.. image:: _images/unattended-windows7x86-5.png
 
-.. image:: _images/windows7x86-unattended-06.png
+.. image:: _images/unattended-windows7x86-6.png
 
-.. image:: _images/windows7x86-unattended-07.png
+.. image:: _images/unattended-windows7x86-7.png
 
-.. image:: _images/windows7x86-unattended-08.png
+.. image:: _images/unattended-windows7x86-8.png
 
-.. image:: _images/windows7x86-unattended-09.png
+.. image:: _images/unattended-windows7x86-9.png
 
-.. image:: _images/windows7x86-unattended-10.png
+.. image:: _images/unattended-windows7x86-10.png
 
-.. image:: _images/windows7x86-unattended-11.png
+.. image:: _images/unattended-windows7x86-11.png
 
-.. image:: _images/windows7x86-unattended-12.png
+.. image:: _images/unattended-windows7x86-12.png
 
-.. image:: _images/windows7x86-unattended-13.png
+.. image:: _images/unattended-windows7x86-13.png
 
-.. image:: _images/windows7x86-unattended-14.png
+.. image:: _images/unattended-windows7x86-14.png
 
-.. image:: _images/windows7x86-unattended-15.png
+.. image:: _images/unattended-windows7x86-15.png
 
-.. image:: _images/windows7x86-unattended-16.png
+.. image:: _images/unattended-windows7x86-16.png
 
-.. image:: _images/windows7x86-unattended-17.png
+.. image:: _images/unattended-windows7x86-17.png
 
-.. image:: _images/windows7x86-unattended-18.png
+.. image:: _images/unattended-windows7x86-18.png
 
-.. image:: _images/windows7x86-unattended-19.png
+.. image:: _images/unattended-windows7x86-19.png
 
-.. image:: _images/windows7x86-unattended-20.png
+.. image:: _images/unattended-windows7x86-20.png
 
-.. image:: _images/windows7x86-unattended-21.png
+.. image:: _images/unattended-windows7x86-21.png
 
-.. image:: _images/windows7x86-unattended-22.png
+.. image:: _images/unattended-windows7x86-22.png
 
-.. image:: _images/windows7x86-unattended-23.png
+.. image:: _images/unattended-windows7x86-23.png
 
-.. image:: _images/windows7x86-unattended-24.png
+.. image:: _images/unattended-windows7x86-24.png
 
-.. image:: _images/windows7x86-unattended-25.png
+.. image:: _images/unattended-windows7x86-25.png
 
-.. image:: _images/windows7x86-unattended-26.png
+.. image:: _images/unattended-windows7x86-26.png
 
-.. image:: _images/windows7x86-unattended-27.png
+.. image:: _images/unattended-windows7x86-27.png
 
-.. image:: _images/windows7x86-unattended-28.png
+.. image:: _images/unattended-windows7x86-28.png
 
-.. image:: _images/windows7x86-unattended-29.png
+.. image:: _images/unattended-windows7x86-29.png
 
-.. image:: _images/windows7x86-unattended-30.png
+.. image:: _images/unattended-windows7x86-30.png
 
 Windows XP
 ----------
