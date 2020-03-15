@@ -110,6 +110,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#cisco-s-side">Cisco’s Side</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#standard-installation">Standard Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#raid">RAID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#partitioning">Partitioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shadow-copies">Shadow Copies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backups">Backups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updates">Updates</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
@@ -258,6 +266,42 @@ switchport trunk native vlan &lt;server_VLAN&gt;
 switchport trunk allowed vlan &lt;all_vlans_to_allow&gt;
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="standard-installation">
+<h2>Standard Installation<a class="headerlink" href="#standard-installation" title="Permalink to this headline">¶</a></h2>
+<p>Ensure that the following has been configured on your physical server:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#raid">RAID</a></p></li>
+<li><p><a class="reference internal" href="#partitioning">Partitioning</a></p></li>
+<li><p><a class="reference internal" href="#shadow-copies">Shadow Copies</a></p></li>
+<li><p><a class="reference internal" href="#backups">Backups</a></p></li>
+<li><p><a class="reference internal" href="#updates">Updates</a></p></li>
+</ol>
+<div class="section" id="raid">
+<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this headline">¶</a></h3>
+<p>Hardware Raid - BIOS
+Software Raid - diskmgmt.msc</p>
+</div>
+<div class="section" id="partitioning">
+<h3>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">diskmgmt.msc</span></code> &gt; right click on C: &gt; Shrink Volume…</p>
+</div>
+<div class="section" id="shadow-copies">
+<h3>Shadow Copies<a class="headerlink" href="#shadow-copies" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sysdm.cpl</span></code> &gt; System Protection &gt; click on drive</p>
+</div>
+<div class="section" id="backups">
+<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ntbackup</span></code> after setting up Windows Backup</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that iSCSI network cannot restore (backups). Use an external drive for fast, scheduled backups.</p>
+</div>
+</div>
+<div class="section" id="updates">
+<h3>Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">wuapp.exe</span></code> &gt; install updates</p>
 </div>
 </div>
 </div>

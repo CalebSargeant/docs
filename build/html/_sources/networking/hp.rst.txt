@@ -15,6 +15,64 @@ Start the TFTP Server.
 
 Run the command ``copy running-config tftp 10.10.0.81 SWITCH-NAME``
 
+Upgrading
+---------
+
+1. Go to `HP Support Lookup: <https://h10145.www1.hpe.com/support/SupportLookUp.aspx>`_
+2. Find the Model Number of the switch by looking at the front-left side of the switch.
+
+.. image:: _images/hp-procurve-upgrade-1.png
+
+3. Type the model number into the search field on the website, click the checkbox and click Display Selected.
+
+.. image:: _images/hp-procurve-upgrade-2.png
+
+4. Click on Software downloads.
+
+.. image:: _images/hp-procurve-upgrade-3.png
+
+5. Download the latest Current Release.
+
+.. image:: _images/hp-procurve-upgrade-4.png
+
+6. Copy the ``.swi`` file to your TFTP server.
+7. Make sure that the TFTP server is running.
+8. Remote into the switch.
+9. Check the date stamp and version of the flash file currently on the switch by using ``sh ver``.
+
+.. image:: _images/hp-procurve-upgrade-5.png
+
+10. Run the command: ``copy usb flash FILE_NAME primary`` or ``copy tftp 10.10.0.81 FILE_NAME primary``, depending on the source available/method available.
+11. Verify that the switch was successfully flashed by checking the version, by using ``show ver`` (shows what version of flash is currently loaded on the switch) and ``show flash`` (shows what the currently booted image is, as well as the Primary and Secondary boot images).
+
+.. image:: _images/hp-procurve-upgrade-5.png
+
+12. Reboot the switch, by pulling out the power cable, if the switches booted flash version is not the same as the Primary flash version.
+
+**A summary of the above:**
+
+.. code-block:: none
+
+  show run
+  show version
+  show flash
+  wr mem
+  copy run tftp 10.10.0.81 NAME
+  copy tftp flash 10.10.0.81 name.swi primary
+
+  ## it will then say:
+  #The Primary OS Image will be deleted, continue [y/n]?
+
+  show flash
+  reload
+
+  ## it will then say:
+  # System will be rebooted from primary image. Do you want to continue [y/n]?
+  # Do you want to save the current configuration [y/n]?
+
+  show version
+  show flash
+
 STP Configuration
 -----------------
 

@@ -124,6 +124,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#checking-cpu-architecture">Checking CPU Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-uptime">Checking Uptime</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tigervnc">TigerVNC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#old-school-lamp">Old School LAMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
@@ -420,6 +425,119 @@ service vncserver start
 
 <span class="c1"># To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="old-school-lamp">
+<h2>Old School LAMP<a class="headerlink" href="#old-school-lamp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Apache (hosts the website)</p></li>
+<li><p>MySQL (Database server)</p></li>
+<li><p>PHP (hypertext processor)</p></li>
+<li><p>Joomla (creates the website. Dependant on PHP and MYSQL)</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p><strong>My SQL Server 5.0 (server &amp; client)</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install mysql mysql-server
+chkconfig --levels <span class="m">235</span> mysqld on
+/etc/init.d/mysqld start
+mysql_secure_installation
+</pre></div>
+</div>
+<p><strong>Apache 2</strong></p>
+<p>(<a class="reference external" href="http://xxx.xxx.xxx">http://xxx.xxx.xxx</a>)
+(Apache’s default document root is /var/www/html on CentOS, and the configuration file is /etc/httpd/conf/httpd.conf.
+Additional configurations are stored in the /etc/httpd/conf.d/ directory)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install httpd
+chkconfig --levels <span class="m">235</span> httpd on
+/etc/init.d/httpd start
+</pre></div>
+</div>
+<p><strong>PHP5</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install php
+/etc/init.d/httpd restart
+vi /var/www/html/info.php
+</pre></div>
+</div>
+<p><strong>MySQL Support for PHP5</strong></p>
+<p>(<a class="reference external" href="http://xxx.xxx.xxx.xxx/info.php">http://xxx.xxx.xxx.xxx/info.php</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum search php
+yum install php-mysql php-gd php-imap php-ldap php-mbstring php-odbc php-pear php-xml phpxmlrpc
+yum install php-pecl-apc
+/etc/init.d/httpd restart
+</pre></div>
+</div>
+<p><strong>phpMyAdmin</strong></p>
+<p>(<a class="reference external" href="http://xxx.xxx.xxx.xxx/phpmyadmin/">http://xxx.xxx.xxx.xxx/phpmyadmin/</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rpm --import http://dag.wieers.com/rpm/packages/RPM-GPG-KEY.dag.txt
+
+<span class="c1"># 64-bit:</span>
+yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm
+
+<span class="c1"># 32-bit</span>
+yum install http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
+
+yum install phpmyadmin
+vi /etc/httpd/conf.d/phpmyadmin.conf
+  <span class="c1">#</span>
+  <span class="c1"># Web application to manage MySQL</span>
+  <span class="c1">#</span>
+  <span class="c1">#&lt;Directory &quot;/usr/share/phpmyadmin&quot;&gt;</span>
+  <span class="c1"># Order Deny,Allow</span>
+  <span class="c1"># Deny from all</span>
+  <span class="c1"># Allow from 127.0.0.1</span>
+  <span class="c1">#&lt;/Directory&gt;</span>
+  Alias /phpmyadmin /usr/share/phpmyadmin
+  Alias /phpMyAdmin /usr/share/phpmyadmin
+
+vi /usr/share/phpmyadmin/config.inc.php
+  <span class="o">[</span>...<span class="o">]</span>
+  /* Authentication <span class="nb">type</span> */
+  <span class="nv">$cfg</span><span class="o">[</span><span class="s1">&#39;Servers&#39;</span><span class="o">][</span><span class="nv">$i</span><span class="o">][</span><span class="s1">&#39;auth_type&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;http&#39;</span><span class="p">;</span>
+  <span class="o">[</span>...<span class="o">]</span>
+
+/etc/init.d/httpd restart
+</pre></div>
+</div>
+<p><strong>Joomla!</strong></p>
+<p>If you are installing LAMP without Joomla then skip all the commands that have anything to do with
+Joomla.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
+yum install wget
+wget joomlacode.org/gf/download/frsrelease/17715/77262/Joomla_2.5.8-Stable-Full_Package.zip
+mkdir /tmp/joomla
+unzip Joomla_2.5.8-Stable-Full_Package.zip /tmp/joomla/
+mv /tmp/joomla/* /var/www/html/
+service mysqld start<span class="p">;</span> chkconfig mysqld on
+/usr/bin/mysql_secure_installation
+yum --enablerepo<span class="o">=</span>epel install phpmyadmin
+
+vi /etc/httpd/conf.d/phpMyAdmin.conf
+  Allow from <span class="m">127</span>.0.0.1 xxx.xxx.xxx.xxx/24
+
+iptables -I INPUT -p tcp --dport http -j ACCEPT <span class="p">;</span> service iptables save <span class="p">;</span> service iptables restart
+
+vi /etc/php.ini
+  <span class="nv">output_buffering</span><span class="o">=</span>Off
+
+touch /var/www/html/configuration.php
+chmod <span class="m">666</span> /var/www/html/configuration.php
+service httpd start<span class="p">;</span> chkconfig httpd on
+
+mysql -u root -p
+  create database &lt;db_name_here&gt;
+  create user <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;&lt;password_here&gt;&#39;</span><span class="p">;</span>
+  grant all privileges on &lt;db_name_here&gt;.* to root@localhost<span class="p">;</span>
+  show grants <span class="k">for</span> <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Open up a web browser and type in <a class="reference external" href="http://xxx.xxx.xxx">http://xxx.xxx.xxx</a>. Follow the wizard. REMEMBER TO COPY
+CONFIGURATION TEXT TO /var/www/html/configuration.php.
+<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/var/www/html/installation/</span></code>
+You can access the server by going to a browser and typing <a class="reference external" href="http://xxx.xxx.xxx/administrator">http://xxx.xxx.xxx/administrator</a>.</p>
 </div>
 </div>
 </div>

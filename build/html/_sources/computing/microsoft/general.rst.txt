@@ -78,3 +78,44 @@ Cisco's Side
   switchport mode trunk
   switchport trunk native vlan <server_VLAN>
   switchport trunk allowed vlan <all_vlans_to_allow>
+
+Standard Installation
+---------------------
+
+Ensure that the following has been configured on your physical server:
+
+#. `RAID`_
+#. `Partitioning`_
+#. `Shadow Copies`_
+#. `Backups`_
+#. `Updates`_
+
+RAID
+^^^^
+
+Hardware Raid - BIOS
+Software Raid - diskmgmt.msc
+
+Partitioning
+^^^^^^^^^^^^
+
+``diskmgmt.msc`` > right click on C: > Shrink Volume...
+
+Shadow Copies
+^^^^^^^^^^^^^
+
+``sysdm.cpl`` > System Protection > click on drive
+
+Backups
+^^^^^^^
+
+``ntbackup`` after setting up Windows Backup
+
+.. note::
+
+	Note that iSCSI network cannot restore (backups). Use an external drive for fast, scheduled backups.
+
+Updates
+^^^^^^^
+
+``wuapp.exe`` > install updates
