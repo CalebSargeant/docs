@@ -15,6 +15,31 @@ Start the TFTP Server.
 
 Run the command ``copy running-config tftp 10.10.0.81 SWITCH-NAME``
 
+Upgrading
+---------
+
+.. code-block:: none
+
+  show run
+  show version
+  show flash
+  wr mem
+  copy run tftp 10.10.0.81 NAME
+  copy tftp flash 10.10.0.81 name.swi primary
+
+  ## it will then say:
+  #The Primary OS Image will be deleted, continue [y/n]?
+
+  show flash
+  reload
+
+  ## it will then say:
+  # System will be rebooted from primary image. Do you want to continue [y/n]?
+  # Do you want to save the current configuration [y/n]?
+
+  show version
+  show flash
+
 STP Configuration
 -----------------
 
