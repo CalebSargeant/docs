@@ -24,7 +24,7 @@ In the below example, we are creating a VPN tunnel from 192.168.122.0/24 to 10.1
 
 .. image:: _images/fortigate-site-to-site-vpn-5.png
 
-5. Find out what is currently allowed to the destination interface (TRUWORTHS-INDMZ) from the source IP addresses provided (192.168.122.144, 192.168.122.145 & 192.168.122.146). We know to search for "REDACTED" from the previous step.
+5. Find out what is currently allowed to the destination interface (DMZ) from the source IP addresses provided (192.168.122.144, 192.168.122.145 & 192.168.122.146). We know to search for "REDACTED" from the previous step.
 
 .. image:: _images/fortigate-site-to-site-vpn-6.png
 

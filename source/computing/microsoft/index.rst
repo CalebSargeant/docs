@@ -6,5 +6,5 @@ Microsoft
   :glob:
 
   *
-  server-2008-r2/index
+  server/index
   exchange/index
