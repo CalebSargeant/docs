@@ -8,3 +8,5 @@ Microsoft
   *
   server/index
   exchange/index
+  sharepoint/index
+  sql-server/index

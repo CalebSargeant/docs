@@ -101,6 +101,14 @@ https://www.tutorialkart.com/bash-shell-scripting/bash-date-format-options-examp
   # yyyymmdd
   date +%Y%m%d
 
+cut
+---
+
+.. code-block:: bash
+
+  # Remove the filename extension (eg. ".exe")
+  name=$(echo "$filename" | cut -f 1 -d '.')
+
 Prompt for Input
 ----------------
 
@@ -278,6 +286,10 @@ https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-i
 https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls
 
 List Directories: ``ls -d */``
+
+https://stackoverflow.com/questions/7992689/how-to-loop-all-files-in-sorted-order-in-bash
+
+Loop through sorted output: ``ls *.png | sort -V``
 
 tr
 ---
