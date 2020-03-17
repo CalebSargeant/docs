@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="SQL Server" href="../sql-server/index.html" />
+    <link rel="prev" title="SharePoint" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../group-policy.html">Group Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robocopy.html">Robocopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sendkeys.html">Sendkeys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sentinal.html">Sentinal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unattended.html">Unattended Installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server/index.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchange/index.html">Exchange</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">SharePoint</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1">Example 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2">Example 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3">Example 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-4">Example 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sql-server/index.html">SQL Server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Microsoft</a> &raquo;</li>
+        
+          <li><a href="index.html">SharePoint</a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/computing/microsoft/sharepoint/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>A glob of installation and configuration images.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/157.png" src="../../../_images/157.png" />
+<img alt="../../../_images/213.png" src="../../../_images/213.png" />
+<img alt="../../../_images/313.png" src="../../../_images/313.png" />
+<img alt="../../../_images/412.png" src="../../../_images/412.png" />
+<img alt="../../../_images/510.png" src="../../../_images/510.png" />
+<img alt="../../../_images/610.png" src="../../../_images/610.png" />
+<img alt="../../../_images/710.png" src="../../../_images/710.png" />
+<img alt="../../../_images/810.png" src="../../../_images/810.png" />
+<img alt="../../../_images/910.png" src="../../../_images/910.png" />
+<img alt="../../../_images/1010.png" src="../../../_images/1010.png" />
+<img alt="../../../_images/1110.png" src="../../../_images/1110.png" />
+<img alt="../../../_images/12.1.png" src="../../../_images/12.1.png" />
+<img alt="../../../_images/12.2.png" src="../../../_images/12.2.png" />
+<img alt="../../../_images/12.3.png" src="../../../_images/12.3.png" />
+<img alt="../../../_images/12.4.png" src="../../../_images/12.4.png" />
+<img alt="../../../_images/12.5.png" src="../../../_images/12.5.png" />
+<img alt="../../../_images/12.6.png" src="../../../_images/12.6.png" />
+<img alt="../../../_images/12.7.png" src="../../../_images/12.7.png" />
+<img alt="../../../_images/12.8.png" src="../../../_images/12.8.png" />
+<img alt="../../../_images/12.9.png" src="../../../_images/12.9.png" />
+<img alt="../../../_images/12.10.png" src="../../../_images/12.10.png" />
+<img alt="../../../_images/12.11.png" src="../../../_images/12.11.png" />
+<img alt="../../../_images/12.12.png" src="../../../_images/12.12.png" />
+<img alt="../../../_images/12.13.png" src="../../../_images/12.13.png" />
+<img alt="../../../_images/12.14.png" src="../../../_images/12.14.png" />
+<img alt="../../../_images/12.15.png" src="../../../_images/12.15.png" />
+<img alt="../../../_images/12.16.png" src="../../../_images/12.16.png" />
+<img alt="../../../_images/12.17.png" src="../../../_images/12.17.png" />
+<img alt="../../../_images/12.18.png" src="../../../_images/12.18.png" />
+<img alt="../../../_images/12.19.png" src="../../../_images/12.19.png" />
+<img alt="../../../_images/12.20.png" src="../../../_images/12.20.png" />
+<img alt="../../../_images/12.21.png" src="../../../_images/12.21.png" />
+<img alt="../../../_images/12.22.png" src="../../../_images/12.22.png" />
+<img alt="../../../_images/12.23.png" src="../../../_images/12.23.png" />
+<img alt="../../../_images/12.24.png" src="../../../_images/12.24.png" />
+<img alt="../../../_images/12.25.png" src="../../../_images/12.25.png" />
+<img alt="../../../_images/12.26.png" src="../../../_images/12.26.png" />
+<img alt="../../../_images/12.27.png" src="../../../_images/12.27.png" />
+<img alt="../../../_images/12.28.png" src="../../../_images/12.28.png" />
+<img alt="../../../_images/13.1.png" src="../../../_images/13.1.png" />
+<img alt="../../../_images/13.2.png" src="../../../_images/13.2.png" />
+<img alt="../../../_images/13.3.png" src="../../../_images/13.3.png" />
+<img alt="../../../_images/13.4.1.png" src="../../../_images/13.4.1.png" />
+<img alt="../../../_images/13.4.2.png" src="../../../_images/13.4.2.png" />
+<img alt="../../../_images/13.5.png" src="../../../_images/13.5.png" />
+<img alt="../../../_images/13.6.png" src="../../../_images/13.6.png" />
+<img alt="../../../_images/13.7.png" src="../../../_images/13.7.png" />
+<img alt="../../../_images/13.8.png" src="../../../_images/13.8.png" />
+<img alt="../../../_images/13.9.png" src="../../../_images/13.9.png" />
+<img alt="../../../_images/13.10.png" src="../../../_images/13.10.png" />
+<img alt="../../../_images/13.11.png" src="../../../_images/13.11.png" />
+<img alt="../../../_images/13.12.png" src="../../../_images/13.12.png" />
+<img alt="../../../_images/13.13.png" src="../../../_images/13.13.png" />
+<img alt="../../../_images/13.14.png" src="../../../_images/13.14.png" />
+<img alt="../../../_images/13.15.png" src="../../../_images/13.15.png" />
+<img alt="../../../_images/13.16.png" src="../../../_images/13.16.png" />
+<img alt="../../../_images/13.17.png" src="../../../_images/13.17.png" />
+<img alt="../../../_images/13.18.png" src="../../../_images/13.18.png" />
+<img alt="../../../_images/13.19.png" src="../../../_images/13.19.png" />
+<img alt="../../../_images/13.20.png" src="../../../_images/13.20.png" />
+<img alt="../../../_images/13.21.png" src="../../../_images/13.21.png" />
+<img alt="../../../_images/13.22.png" src="../../../_images/13.22.png" />
+<img alt="../../../_images/13.23.png" src="../../../_images/13.23.png" />
+<img alt="../../../_images/13.24.png" src="../../../_images/13.24.png" />
+<img alt="../../../_images/13.25.png" src="../../../_images/13.25.png" />
+<img alt="../../../_images/13.26.png" src="../../../_images/13.26.png" />
+<img alt="../../../_images/13.27.png" src="../../../_images/13.27.png" />
+<img alt="../../../_images/13.28.png" src="../../../_images/13.28.png" />
+<img alt="../../../_images/13.29.png" src="../../../_images/13.29.png" />
+<img alt="../../../_images/14.1.png" src="../../../_images/14.1.png" />
+<img alt="../../../_images/14.2.png" src="../../../_images/14.2.png" />
+<img alt="../../../_images/14.3.png" src="../../../_images/14.3.png" />
+<img alt="../../../_images/14.4.png" src="../../../_images/14.4.png" />
+<img alt="../../../_images/14.5.png" src="../../../_images/14.5.png" />
+<img alt="../../../_images/14.6.png" src="../../../_images/14.6.png" />
+<img alt="../../../_images/14.7.png" src="../../../_images/14.7.png" />
+<img alt="../../../_images/14.8.png" src="../../../_images/14.8.png" />
+<img alt="../../../_images/14.9.png" src="../../../_images/14.9.png" />
+<img alt="../../../_images/14.10.png" src="../../../_images/14.10.png" />
+<img alt="../../../_images/14.11.png" src="../../../_images/14.11.png" />
+<img alt="../../../_images/14.12.png" src="../../../_images/14.12.png" />
+<img alt="../../../_images/14.13.png" src="../../../_images/14.13.png" />
+<img alt="../../../_images/14.14.png" src="../../../_images/14.14.png" />
+<img alt="../../../_images/14.15.png" src="../../../_images/14.15.png" />
+<img alt="../../../_images/14.16.png" src="../../../_images/14.16.png" />
+<img alt="../../../_images/14.17.png" src="../../../_images/14.17.png" />
+<img alt="../../../_images/14.18.png" src="../../../_images/14.18.png" />
+<img alt="../../../_images/14.19.png" src="../../../_images/14.19.png" />
+<img alt="../../../_images/14.20.png" src="../../../_images/14.20.png" />
+<img alt="../../../_images/14.21.png" src="../../../_images/14.21.png" />
+<img alt="../../../_images/14.22.png" src="../../../_images/14.22.png" />
+<img alt="../../../_images/14.23.png" src="../../../_images/14.23.png" />
+<img alt="../../../_images/14.24.png" src="../../../_images/14.24.png" />
+<img alt="../../../_images/14.25.png" src="../../../_images/14.25.png" />
+<img alt="../../../_images/14.26.png" src="../../../_images/14.26.png" />
+<img alt="../../../_images/14.27.png" src="../../../_images/14.27.png" />
+<img alt="../../../_images/14.28.png" src="../../../_images/14.28.png" />
+<img alt="../../../_images/14.29.png" src="../../../_images/14.29.png" />
+<img alt="../../../_images/14.30.png" src="../../../_images/14.30.png" />
+<img alt="../../../_images/14.31.png" src="../../../_images/14.31.png" />
+<img alt="../../../_images/14.32.png" src="../../../_images/14.32.png" />
+<img alt="../../../_images/14.33.png" src="../../../_images/14.33.png" />
+<img alt="../../../_images/14.34.png" src="../../../_images/14.34.png" />
+<img alt="../../../_images/14.35.png" src="../../../_images/14.35.png" />
+<img alt="../../../_images/14.36.png" src="../../../_images/14.36.png" />
+<img alt="../../../_images/14.37.png" src="../../../_images/14.37.png" />
+<img alt="../../../_images/14.38.png" src="../../../_images/14.38.png" />
+<img alt="../../../_images/14.39.png" src="../../../_images/14.39.png" />
+<img alt="../../../_images/14.40.png" src="../../../_images/14.40.png" />
+<img alt="../../../_images/14.41.png" src="../../../_images/14.41.png" />
+<img alt="../../../_images/14.42.png" src="../../../_images/14.42.png" />
+<img alt="../../../_images/14.43.png" src="../../../_images/14.43.png" />
+<img alt="../../../_images/14.44.png" src="../../../_images/14.44.png" />
+<img alt="../../../_images/14.45.png" src="../../../_images/14.45.png" />
+<img alt="../../../_images/14.46.png" src="../../../_images/14.46.png" />
+<img alt="../../../_images/14.47.png" src="../../../_images/14.47.png" />
+<img alt="../../../_images/14.48.png" src="../../../_images/14.48.png" />
+<img alt="../../../_images/14.49.png" src="../../../_images/14.49.png" />
+<img alt="../../../_images/15.1.png" src="../../../_images/15.1.png" />
+<img alt="../../../_images/15.2.png" src="../../../_images/15.2.png" />
+<img alt="../../../_images/15.3.png" src="../../../_images/15.3.png" />
+<img alt="../../../_images/15.4.png" src="../../../_images/15.4.png" />
+<img alt="../../../_images/15.5.png" src="../../../_images/15.5.png" />
+<img alt="../../../_images/15.6.png" src="../../../_images/15.6.png" />
+<img alt="../../../_images/163.png" src="../../../_images/163.png" />
+<img alt="../../../_images/173.png" src="../../../_images/173.png" />
+<img alt="../../../_images/183.png" src="../../../_images/183.png" />
+<img alt="../../../_images/193.png" src="../../../_images/193.png" />
+<img alt="../../../_images/203.png" src="../../../_images/203.png" />
+<img alt="../../../_images/214.png" src="../../../_images/214.png" />
+<img alt="../../../_images/223.png" src="../../../_images/223.png" />
+<img alt="../../../_images/233.png" src="../../../_images/233.png" />
+<img alt="../../../_images/243.png" src="../../../_images/243.png" />
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/158.png" src="../../../_images/158.png" />
+<img alt="../../../_images/215.png" src="../../../_images/215.png" />
+<img alt="../../../_images/314.png" src="../../../_images/314.png" />
+<img alt="../../../_images/413.png" src="../../../_images/413.png" />
+<img alt="../../../_images/512.png" src="../../../_images/512.png" />
+<img alt="../../../_images/612.png" src="../../../_images/612.png" />
+<img alt="../../../_images/712.png" src="../../../_images/712.png" />
+<img alt="../../../_images/912.png" src="../../../_images/912.png" />
+<img alt="../../../_images/1012.png" src="../../../_images/1012.png" />
+<img alt="../../../_images/1112.png" src="../../../_images/1112.png" />
+<img alt="../../../_images/1210.png" src="../../../_images/1210.png" />
+<img alt="../../../_images/1310.png" src="../../../_images/1310.png" />
+<img alt="../../../_images/1410.png" src="../../../_images/1410.png" />
+<img alt="../../../_images/159.png" src="../../../_images/159.png" />
+<img alt="../../../_images/164.png" src="../../../_images/164.png" />
+<img alt="../../../_images/174.png" src="../../../_images/174.png" />
+<img alt="../../../_images/184.png" src="../../../_images/184.png" />
+<img alt="../../../_images/194.png" src="../../../_images/194.png" />
+<img alt="../../../_images/204.png" src="../../../_images/204.png" />
+<img alt="../../../_images/216.png" src="../../../_images/216.png" />
+<img alt="../../../_images/224.png" src="../../../_images/224.png" />
+<img alt="../../../_images/234.png" src="../../../_images/234.png" />
+<img alt="../../../_images/244.png" src="../../../_images/244.png" />
+<img alt="../../../_images/253.png" src="../../../_images/253.png" />
+<img alt="../../../_images/263.png" src="../../../_images/263.png" />
+<img alt="../../../_images/273.png" src="../../../_images/273.png" />
+<img alt="../../../_images/283.png" src="../../../_images/283.png" />
+<img alt="../../../_images/293.png" src="../../../_images/293.png" />
+<img alt="../../../_images/303.png" src="../../../_images/303.png" />
+<img alt="../../../_images/315.png" src="../../../_images/315.png" />
+<img alt="../../../_images/323.png" src="../../../_images/323.png" />
+<img alt="../../../_images/333.png" src="../../../_images/333.png" />
+<img alt="../../../_images/342.png" src="../../../_images/342.png" />
+<img alt="../../../_images/352.png" src="../../../_images/352.png" />
+<img alt="../../../_images/362.png" src="../../../_images/362.png" />
+<img alt="../../../_images/372.png" src="../../../_images/372.png" />
+<img alt="../../../_images/382.png" src="../../../_images/382.png" />
+<img alt="../../../_images/392.png" src="../../../_images/392.png" />
+<img alt="../../../_images/402.png" src="../../../_images/402.png" />
+<img alt="../../../_images/414.png" src="../../../_images/414.png" />
+<img alt="../../../_images/422.png" src="../../../_images/422.png" />
+<img alt="../../../_images/432.png" src="../../../_images/432.png" />
+<img alt="../../../_images/442.png" src="../../../_images/442.png" />
+<img alt="../../../_images/452.png" src="../../../_images/452.png" />
+<img alt="../../../_images/462.png" src="../../../_images/462.png" />
+<img alt="../../../_images/472.png" src="../../../_images/472.png" />
+<img alt="../../../_images/482.png" src="../../../_images/482.png" />
+<img alt="../../../_images/492.png" src="../../../_images/492.png" />
+<img alt="../../../_images/502.png" src="../../../_images/502.png" />
+<img alt="../../../_images/513.png" src="../../../_images/513.png" />
+<img alt="../../../_images/521.png" src="../../../_images/521.png" />
+<img alt="../../../_images/531.png" src="../../../_images/531.png" />
+<img alt="../../../_images/541.png" src="../../../_images/541.png" />
+<img alt="../../../_images/551.png" src="../../../_images/551.png" />
+<img alt="../../../_images/561.png" src="../../../_images/561.png" />
+<img alt="../../../_images/571.png" src="../../../_images/571.png" />
+<img alt="../../../_images/581.png" src="../../../_images/581.png" />
+<img alt="../../../_images/591.png" src="../../../_images/591.png" />
+<img alt="../../../_images/601.png" src="../../../_images/601.png" />
+<img alt="../../../_images/613.png" src="../../../_images/613.png" />
+<img alt="../../../_images/621.png" src="../../../_images/621.png" />
+<img alt="../../../_images/631.png" src="../../../_images/631.png" />
+<img alt="../../../_images/641.png" src="../../../_images/641.png" />
+<img alt="../../../_images/651.png" src="../../../_images/651.png" />
+<img alt="../../../_images/661.png" src="../../../_images/661.png" />
+<img alt="../../../_images/671.png" src="../../../_images/671.png" />
+<img alt="../../../_images/681.png" src="../../../_images/681.png" />
+<img alt="../../../_images/691.png" src="../../../_images/691.png" />
+<img alt="../../../_images/701.png" src="../../../_images/701.png" />
+<img alt="../../../_images/713.png" src="../../../_images/713.png" />
+<img alt="../../../_images/721.png" src="../../../_images/721.png" />
+<img alt="../../../_images/731.png" src="../../../_images/731.png" />
+<img alt="../../../_images/741.png" src="../../../_images/741.png" />
+<img alt="../../../_images/751.png" src="../../../_images/751.png" />
+<img alt="../../../_images/761.png" src="../../../_images/761.png" />
+<img alt="../../../_images/771.png" src="../../../_images/771.png" />
+<img alt="../../../_images/781.png" src="../../../_images/781.png" />
+<img alt="../../../_images/791.png" src="../../../_images/791.png" />
+<img alt="../../../_images/801.png" src="../../../_images/801.png" />
+<img alt="../../../_images/812.png" src="../../../_images/812.png" />
+<img alt="../../../_images/822.png" src="../../../_images/822.png" />
+<img alt="../../../_images/831.png" src="../../../_images/831.png" />
+<img alt="../../../_images/841.png" src="../../../_images/841.png" />
+<img alt="../../../_images/851.png" src="../../../_images/851.png" />
+<img alt="../../../_images/861.png" src="../../../_images/861.png" />
+<img alt="../../../_images/871.png" src="../../../_images/871.png" />
+<img alt="../../../_images/881.png" src="../../../_images/881.png" />
+<img alt="../../../_images/891.png" src="../../../_images/891.png" />
+</div>
+<div class="section" id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/160.png" src="../../../_images/160.png" />
+<img alt="../../../_images/217.png" src="../../../_images/217.png" />
+<img alt="../../../_images/316.png" src="../../../_images/316.png" />
+<img alt="../../../_images/415.png" src="../../../_images/415.png" />
+<img alt="../../../_images/514.png" src="../../../_images/514.png" />
+<img alt="../../../_images/614.png" src="../../../_images/614.png" />
+<img alt="../../../_images/714.png" src="../../../_images/714.png" />
+<img alt="../../../_images/813.png" src="../../../_images/813.png" />
+<img alt="../../../_images/913.png" src="../../../_images/913.png" />
+<img alt="../../../_images/1013.png" src="../../../_images/1013.png" />
+<img alt="../../../_images/1113.png" src="../../../_images/1113.png" />
+<img alt="../../../_images/1212.png" src="../../../_images/1212.png" />
+<img alt="../../../_images/1312.png" src="../../../_images/1312.png" />
+<img alt="../../../_images/1412.png" src="../../../_images/1412.png" />
+<img alt="../../../_images/1510.png" src="../../../_images/1510.png" />
+<img alt="../../../_images/165.png" src="../../../_images/165.png" />
+<img alt="../../../_images/175.png" src="../../../_images/175.png" />
+<img alt="../../../_images/185.png" src="../../../_images/185.png" />
+<img alt="../../../_images/195.png" src="../../../_images/195.png" />
+<img alt="../../../_images/205.png" src="../../../_images/205.png" />
+<img alt="../../../_images/218.png" src="../../../_images/218.png" />
+<img alt="../../../_images/225.png" src="../../../_images/225.png" />
+<img alt="../../../_images/235.png" src="../../../_images/235.png" />
+<img alt="../../../_images/245.png" src="../../../_images/245.png" />
+<img alt="../../../_images/254.png" src="../../../_images/254.png" />
+<img alt="../../../_images/264.png" src="../../../_images/264.png" />
+<img alt="../../../_images/274.png" src="../../../_images/274.png" />
+<img alt="../../../_images/284.png" src="../../../_images/284.png" />
+<img alt="../../../_images/294.png" src="../../../_images/294.png" />
+<img alt="../../../_images/304.png" src="../../../_images/304.png" />
+<img alt="../../../_images/317.png" src="../../../_images/317.png" />
+<img alt="../../../_images/324.png" src="../../../_images/324.png" />
+<img alt="../../../_images/334.png" src="../../../_images/334.png" />
+<img alt="../../../_images/343.png" src="../../../_images/343.png" />
+<img alt="../../../_images/353.png" src="../../../_images/353.png" />
+<img alt="../../../_images/363.png" src="../../../_images/363.png" />
+<img alt="../../../_images/373.png" src="../../../_images/373.png" />
+<img alt="../../../_images/383.png" src="../../../_images/383.png" />
+<img alt="../../../_images/393.png" src="../../../_images/393.png" />
+<img alt="../../../_images/403.png" src="../../../_images/403.png" />
+<img alt="../../../_images/416.png" src="../../../_images/416.png" />
+<img alt="../../../_images/423.png" src="../../../_images/423.png" />
+<img alt="../../../_images/433.png" src="../../../_images/433.png" />
+<img alt="../../../_images/443.png" src="../../../_images/443.png" />
+<img alt="../../../_images/453.png" src="../../../_images/453.png" />
+<img alt="../../../_images/463.png" src="../../../_images/463.png" />
+<img alt="../../../_images/473.png" src="../../../_images/473.png" />
+<img alt="../../../_images/483.png" src="../../../_images/483.png" />
+<img alt="../../../_images/493.png" src="../../../_images/493.png" />
+<img alt="../../../_images/503.png" src="../../../_images/503.png" />
+<img alt="../../../_images/515.png" src="../../../_images/515.png" />
+<img alt="../../../_images/522.png" src="../../../_images/522.png" />
+<img alt="../../../_images/532.png" src="../../../_images/532.png" />
+<img alt="../../../_images/542.png" src="../../../_images/542.png" />
+<img alt="../../../_images/552.png" src="../../../_images/552.png" />
+<img alt="../../../_images/562.png" src="../../../_images/562.png" />
+<img alt="../../../_images/572.png" src="../../../_images/572.png" />
+<img alt="../../../_images/582.png" src="../../../_images/582.png" />
+<img alt="../../../_images/592.png" src="../../../_images/592.png" />
+<img alt="../../../_images/602.png" src="../../../_images/602.png" />
+<img alt="../../../_images/615.png" src="../../../_images/615.png" />
+<img alt="../../../_images/622.png" src="../../../_images/622.png" />
+<img alt="../../../_images/632.png" src="../../../_images/632.png" />
+<img alt="../../../_images/642.png" src="../../../_images/642.png" />
+<img alt="../../../_images/652.png" src="../../../_images/652.png" />
+<img alt="../../../_images/662.png" src="../../../_images/662.png" />
+<img alt="../../../_images/672.png" src="../../../_images/672.png" />
+<img alt="../../../_images/682.png" src="../../../_images/682.png" />
+<img alt="../../../_images/692.png" src="../../../_images/692.png" />
+<img alt="../../../_images/702.png" src="../../../_images/702.png" />
+<img alt="../../../_images/715.png" src="../../../_images/715.png" />
+<img alt="../../../_images/722.png" src="../../../_images/722.png" />
+<img alt="../../../_images/732.png" src="../../../_images/732.png" />
+<img alt="../../../_images/742.png" src="../../../_images/742.png" />
+<img alt="../../../_images/752.png" src="../../../_images/752.png" />
+<img alt="../../../_images/762.png" src="../../../_images/762.png" />
+<img alt="../../../_images/772.png" src="../../../_images/772.png" />
+<img alt="../../../_images/782.png" src="../../../_images/782.png" />
+<img alt="../../../_images/792.png" src="../../../_images/792.png" />
+<img alt="../../../_images/802.png" src="../../../_images/802.png" />
+<img alt="../../../_images/814.png" src="../../../_images/814.png" />
+<img alt="../../../_images/823.png" src="../../../_images/823.png" />
+<img alt="../../../_images/832.png" src="../../../_images/832.png" />
+<img alt="../../../_images/842.png" src="../../../_images/842.png" />
+</div>
+<div class="section" id="example-4">
+<h2>Example 4<a class="headerlink" href="#example-4" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/166.png" src="../../../_images/166.png" />
+<img alt="../../../_images/219.png" src="../../../_images/219.png" />
+<img alt="../../../_images/318.png" src="../../../_images/318.png" />
+<img alt="../../../_images/417.png" src="../../../_images/417.png" />
+<img alt="../../../_images/516.png" src="../../../_images/516.png" />
+<img alt="../../../_images/616.png" src="../../../_images/616.png" />
+<img alt="../../../_images/716.png" src="../../../_images/716.png" />
+<img alt="../../../_images/815.png" src="../../../_images/815.png" />
+<img alt="../../../_images/914.png" src="../../../_images/914.png" />
+<img alt="../../../_images/1014.png" src="../../../_images/1014.png" />
+<img alt="../../../_images/1114.png" src="../../../_images/1114.png" />
+<img alt="../../../_images/1213.png" src="../../../_images/1213.png" />
+<img alt="../../../_images/1313.png" src="../../../_images/1313.png" />
+<img alt="../../../_images/1413.png" src="../../../_images/1413.png" />
+<img alt="../../../_images/1512.png" src="../../../_images/1512.png" />
+<img alt="../../../_images/167.png" src="../../../_images/167.png" />
+<img alt="../../../_images/176.png" src="../../../_images/176.png" />
+<img alt="../../../_images/186.png" src="../../../_images/186.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sql-server/index.html" class="btn btn-neutral float-right" title="SQL Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="SharePoint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

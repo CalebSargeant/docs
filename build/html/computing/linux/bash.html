@@ -100,6 +100,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#sed">sed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#awk">awk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#date">date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cut">cut</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prompt-for-input">Prompt for Input</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#output-formatting">Output Formatting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#while-true-loop">While True Loop</a></li>
@@ -304,6 +305,13 @@ date +%Y%m%d
 </pre></div>
 </div>
 </div>
+<div class="section" id="cut">
+<h2>cut<a class="headerlink" href="#cut" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove the filename extension (eg. &quot;.exe&quot;)</span>
+<span class="nv">name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> cut -f <span class="m">1</span> -d <span class="s1">&#39;.&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="prompt-for-input">
 <h2>Prompt for Input<a class="headerlink" href="#prompt-for-input" title="Permalink to this headline">¶</a></h2>
 <p>Using <code class="docutils literal notranslate"><span class="pre">read</span></code></p>
@@ -452,6 +460,8 @@ $ <span class="nb">echo</span> <span class="k">$((</span><span class="nv">n</spa
 <p><a class="reference external" href="https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash">https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls">https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls</a></p>
 <p>List Directories: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-d</span> <span class="pre">*/</span></code></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/7992689/how-to-loop-all-files-in-sorted-order-in-bash">https://stackoverflow.com/questions/7992689/how-to-loop-all-files-in-sorted-order-in-bash</a></p>
+<p>Loop through sorted output: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.png</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-V</span></code></p>
 </div>
 <div class="section" id="tr">
 <h2>tr<a class="headerlink" href="#tr" title="Permalink to this headline">¶</a></h2>

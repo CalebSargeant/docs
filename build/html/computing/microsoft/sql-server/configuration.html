@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="API" href="../../../other/api/index.html" />
+    <link rel="prev" title="SQL Server" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../group-policy.html">Group Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robocopy.html">Robocopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sendkeys.html">Sendkeys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sentinal.html">Sentinal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unattended.html">Unattended Installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../server/index.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exchange/index.html">Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sharepoint/index.html">SharePoint</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">SQL Server</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1">Example 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Microsoft</a> &raquo;</li>
+        
+          <li><a href="index.html">SQL Server</a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/computing/microsoft/sql-server/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>A glob of installation and configuration images.</p>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/168.png" src="../../../_images/168.png" />
+<img alt="../../../_images/220.png" src="../../../_images/220.png" />
+<img alt="../../../_images/319.png" src="../../../_images/319.png" />
+<img alt="../../../_images/418.png" src="../../../_images/418.png" />
+<img alt="../../../_images/517.png" src="../../../_images/517.png" />
+<img alt="../../../_images/617.png" src="../../../_images/617.png" />
+<img alt="../../../_images/717.png" src="../../../_images/717.png" />
+<img alt="../../../_images/816.png" src="../../../_images/816.png" />
+<img alt="../../../_images/915.png" src="../../../_images/915.png" />
+<img alt="../../../_images/1015.png" src="../../../_images/1015.png" />
+<img alt="../../../_images/1115.png" src="../../../_images/1115.png" />
+<img alt="../../../_images/1214.png" src="../../../_images/1214.png" />
+<img alt="../../../_images/1314.png" src="../../../_images/1314.png" />
+<img alt="../../../_images/1414.png" src="../../../_images/1414.png" />
+<img alt="../../../_images/1513.png" src="../../../_images/1513.png" />
+<img alt="../../../_images/169.png" src="../../../_images/169.png" />
+<img alt="../../../_images/17.0.png" src="../../../_images/17.0.png" />
+<img alt="../../../_images/17.1.png" src="../../../_images/17.1.png" />
+<img alt="../../../_images/17.2.png" src="../../../_images/17.2.png" />
+<img alt="../../../_images/187.png" src="../../../_images/187.png" />
+<img alt="../../../_images/196.png" src="../../../_images/196.png" />
+<img alt="../../../_images/206.png" src="../../../_images/206.png" />
+<img alt="../../../_images/2110.png" src="../../../_images/2110.png" />
+<img alt="../../../_images/226.png" src="../../../_images/226.png" />
+<img alt="../../../_images/236.png" src="../../../_images/236.png" />
+<img alt="../../../_images/246.png" src="../../../_images/246.png" />
+<img alt="../../../_images/255.png" src="../../../_images/255.png" />
+<img alt="../../../_images/265.png" src="../../../_images/265.png" />
+<img alt="../../../_images/275.png" src="../../../_images/275.png" />
+<img alt="../../../_images/285.png" src="../../../_images/285.png" />
+<img alt="../../../_images/295.png" src="../../../_images/295.png" />
+<img alt="../../../_images/305.png" src="../../../_images/305.png" />
+<img alt="../../../_images/3110.png" src="../../../_images/3110.png" />
+<img alt="../../../_images/325.png" src="../../../_images/325.png" />
+<img alt="../../../_images/335.png" src="../../../_images/335.png" />
+<img alt="../../../_images/344.png" src="../../../_images/344.png" />
+<img alt="../../../_images/354.png" src="../../../_images/354.png" />
+<img alt="../../../_images/364.png" src="../../../_images/364.png" />
+<img alt="../../../_images/374.png" src="../../../_images/374.png" />
+<img alt="../../../_images/384.png" src="../../../_images/384.png" />
+<img alt="../../../_images/394.png" src="../../../_images/394.png" />
+<img alt="../../../_images/404.png" src="../../../_images/404.png" />
+<img alt="../../../_images/419.png" src="../../../_images/419.png" />
+<img alt="../../../_images/424.png" src="../../../_images/424.png" />
+<img alt="../../../_images/434.png" src="../../../_images/434.png" />
+<img alt="../../../_images/444.png" src="../../../_images/444.png" />
+<img alt="../../../_images/454.png" src="../../../_images/454.png" />
+<img alt="../../../_images/464.png" src="../../../_images/464.png" />
+<img alt="../../../_images/474.png" src="../../../_images/474.png" />
+<img alt="../../../_images/484.png" src="../../../_images/484.png" />
+<img alt="../../../_images/494.png" src="../../../_images/494.png" />
+<img alt="../../../_images/504.png" src="../../../_images/504.png" />
+<img alt="../../../_images/518.png" src="../../../_images/518.png" />
+<img alt="../../../_images/523.png" src="../../../_images/523.png" />
+<img alt="../../../_images/533.png" src="../../../_images/533.png" />
+<img alt="../../../_images/543.png" src="../../../_images/543.png" />
+<img alt="../../../_images/553.png" src="../../../_images/553.png" />
+<img alt="../../../_images/563.png" src="../../../_images/563.png" />
+<img alt="../../../_images/573.png" src="../../../_images/573.png" />
+<img alt="../../../_images/583.png" src="../../../_images/583.png" />
+<img alt="../../../_images/593.png" src="../../../_images/593.png" />
+<img alt="../../../_images/603.png" src="../../../_images/603.png" />
+<img alt="../../../_images/618.png" src="../../../_images/618.png" />
+</div>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/17.11.png" src="../../../_images/17.11.png" />
+<img alt="../../../_images/17.21.png" src="../../../_images/17.21.png" />
+<img alt="../../../_images/188.png" src="../../../_images/188.png" />
+<img alt="../../../_images/197.png" src="../../../_images/197.png" />
+<img alt="../../../_images/207.png" src="../../../_images/207.png" />
+<img alt="../../../_images/2111.png" src="../../../_images/2111.png" />
+<img alt="../../../_images/227.png" src="../../../_images/227.png" />
+<img alt="../../../_images/237.png" src="../../../_images/237.png" />
+<img alt="../../../_images/247.png" src="../../../_images/247.png" />
+<img alt="../../../_images/256.png" src="../../../_images/256.png" />
+<img alt="../../../_images/266.png" src="../../../_images/266.png" />
+<img alt="../../../_images/276.png" src="../../../_images/276.png" />
+<img alt="../../../_images/286.png" src="../../../_images/286.png" />
+<img alt="../../../_images/296.png" src="../../../_images/296.png" />
+<img alt="../../../_images/306.png" src="../../../_images/306.png" />
+<img alt="../../../_images/3111.png" src="../../../_images/3111.png" />
+<img alt="../../../_images/326.png" src="../../../_images/326.png" />
+<img alt="../../../_images/336.png" src="../../../_images/336.png" />
+<img alt="../../../_images/345.png" src="../../../_images/345.png" />
+<img alt="../../../_images/355.png" src="../../../_images/355.png" />
+<img alt="../../../_images/365.png" src="../../../_images/365.png" />
+<img alt="../../../_images/375.png" src="../../../_images/375.png" />
+<img alt="../../../_images/385.png" src="../../../_images/385.png" />
+<img alt="../../../_images/395.png" src="../../../_images/395.png" />
+<img alt="../../../_images/405.png" src="../../../_images/405.png" />
+<img alt="../../../_images/4110.png" src="../../../_images/4110.png" />
+<img alt="../../../_images/425.png" src="../../../_images/425.png" />
+<img alt="../../../_images/435.png" src="../../../_images/435.png" />
+<img alt="../../../_images/445.png" src="../../../_images/445.png" />
+<img alt="../../../_images/455.png" src="../../../_images/455.png" />
+<img alt="../../../_images/465.png" src="../../../_images/465.png" />
+<img alt="../../../_images/475.png" src="../../../_images/475.png" />
+<img alt="../../../_images/485.png" src="../../../_images/485.png" />
+<img alt="../../../_images/495.png" src="../../../_images/495.png" />
+<img alt="../../../_images/505.png" src="../../../_images/505.png" />
+<img alt="../../../_images/519.png" src="../../../_images/519.png" />
+<img alt="../../../_images/524.png" src="../../../_images/524.png" />
+<img alt="../../../_images/534.png" src="../../../_images/534.png" />
+<img alt="../../../_images/544.png" src="../../../_images/544.png" />
+<img alt="../../../_images/554.png" src="../../../_images/554.png" />
+<img alt="../../../_images/564.png" src="../../../_images/564.png" />
+<img alt="../../../_images/574.png" src="../../../_images/574.png" />
+<img alt="../../../_images/584.png" src="../../../_images/584.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../other/api/index.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="SQL Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
