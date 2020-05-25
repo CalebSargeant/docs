@@ -101,7 +101,10 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="netconf.html">NETCONF</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Postman</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Postman</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#device-login">Device Login</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="restconf.html">RESTCONF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="yang.html">YANG</a></li>
 </ul>
@@ -176,7 +179,23 @@
             
   <div class="section" id="postman">
 <h1>Postman<a class="headerlink" href="#postman" title="Permalink to this headline">¶</a></h1>
-<p>Postman allows you to send RESTAPI calls to any endpoint and can save them as bookmarks (postman calls them collections)</p>
+<p>Postman allows you to send RESTAPI calls to any endpoint and can save them as bookmarks (postman calls them collections).</p>
+<div class="section" id="device-login">
+<h2>Device Login<a class="headerlink" href="#device-login" title="Permalink to this headline">¶</a></h2>
+<p>An example device login POST request:
+URL: <a class="reference external" href="https:/">https:/</a>/{{host}}/api/aaaLogin.json</p>
+<p>Body:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;aaaUser&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{username}}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pwd&quot;</span><span class="p">:</span> <span class="s2">&quot;{{password}}&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
