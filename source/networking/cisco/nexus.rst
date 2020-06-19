@@ -109,6 +109,9 @@ In Postman, running a PUT **https://{{host}}/api/node/mo/sys/bd/bd-[vlan-3001].j
 Bash
 ----
 
+Bash on Nexus is the actual linux system that hosts NX-OS, whereas guestshell is a native, isolated container that cannot affect the host. You can also run docker containers (alpine, etc.) on Nexus to be able to run edge-processing applications and systems.
+A good use case of running a docker container on the edge switch is to have it do a health check when config is changed and roll back the config if certain health check fails. This is useful for when your management system cannot access the switch due to said change.
+
 .. code-block:: bash
 
   sbx-n9kv# run bash
@@ -119,3 +122,9 @@ Bash
 
   # show ip addresses
   bash-4.3$ ip addr show dev Vlan101
+
+  # go into root
+  bash-4.3$ sudo su -
+
+  # run a docker container
+  root@sbx-n9kv#docker run alpine
