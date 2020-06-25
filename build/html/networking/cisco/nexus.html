@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="NSO" href="nso.html" />
-    <link rel="prev" title="DNA" href="dna.html" /> 
+    <link rel="prev" title="Genie" href="genie.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,11 +83,17 @@
             
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../security/index.html">Security</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devnetday/index.html">DevNet Day</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aci.html">ACI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="asa.html">ASA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie.html">Genie</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Nexus</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#api">API</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#json-rpc">JSON-RPC</a></li>
@@ -99,8 +105,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nso.html">NSO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing/index.html">Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virl.html">VIRL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../fortigate.html">FortiGate</a></li>
@@ -291,6 +296,8 @@ feature interface-vlan
 </div>
 <div class="section" id="bash">
 <h2>Bash<a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h2>
+<p>Bash on Nexus is the actual linux system that hosts NX-OS, whereas guestshell is a native, isolated container that cannot affect the host. You can also run docker containers (alpine, etc.) on Nexus to be able to run edge-processing applications and systems.
+A good use case of running a docker container on the edge switch is to have it do a health check when config is changed and roll back the config if certain health check fails. This is useful for when your management system cannot access the switch due to said change.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbx-n9kv# run bash
 bash-4.3$
 
@@ -299,6 +306,12 @@ bash-4.3$ ip link
 
 <span class="c1"># show ip addresses</span>
 bash-4.3$ ip addr show dev Vlan101
+
+<span class="c1"># go into root</span>
+bash-4.3$ sudo su -
+
+<span class="c1"># run a docker container</span>
+root@sbx-n9kv#docker run alpine
 </pre></div>
 </div>
 </div>
@@ -315,7 +328,7 @@ bash-4.3$ ip addr show dev Vlan101
         <a href="nso.html" class="btn btn-neutral float-right" title="NSO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dna.html" class="btn btn-neutral float-left" title="DNA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="genie.html" class="btn btn-neutral float-left" title="Genie" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

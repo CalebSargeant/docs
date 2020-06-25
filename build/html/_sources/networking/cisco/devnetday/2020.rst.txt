@@ -1,0 +1,582 @@
+Year 2020
+=========
+
+`DevNet Day 2020 <https://developer.cisco.com/events/devnetday20/>`_
+
+Opening Keynote
+---------------
+
+See it. Learn it. Code it. Join Susie Wee as she kicks off our first ever DevNet Day virtual event!
+
+* Susie Wee (SVP and GMCisco DevNet and CX Ecosystem Success)
+* Mandy Whaley (Sr. DirectorCisco DevNet and Certifications)
+* Todd Nightingale (SVP and GMCisco Enterprise Networking and Cloud)
+* Oliver Tuszik (SVPCisco Global Partner Organization)
+
+https://youtu.be/0FuYcJHOuuM?t=1764
+
+What's New with Cisco DevNet
+----------------------------
+
+* Mandy WhaleySr. Director Cisco DevNet & Certifications
+* Eric ThielSr. Manager Cisco DevNet Technical Advocacy
+
+https://youtu.be/0FuYcJHOuuM?t=4992
+
+DevNet Innovation Hour
+----------------------
+
+* Robb Boyd
+* Silvia Spiva
+* Mandy Whaley
+* Shweta Palande
+* Eric Thiel
+
+https://youtu.be/0FuYcJHOuuM?t=14415
+
+Start Now
+---------
+
+Coding 1001
+^^^^^^^^^^^
+
+Matthew DeNapoli, Developer Advocate
+
+https://youtu.be/3XZrbY5Hfzc
+
+:download:`Download presentation <_docs/2020/DevNetDay2020-Coding1001.pdf>`
+
+Coding 1002
+^^^^^^^^^^^
+
+Matthew DeNapoli, Developer Advocate
+
+https://youtu.be/UCLDi-_aM7Q
+
+:download:`Download presentation <_docs/2020/DevNetDay_Coding1002.pdf>`
+
+Intro to Git
+^^^^^^^^^^^^
+
+Kareem Iskander, Developer Advocate
+
+https://youtu.be/iXqHCrYaEf0
+
+:download:`Download presentation <_docs/2020/DevNetDay_IntroGit.pdf>`
+
+Cloud & Compute
+---------------
+
+Programming with Cisco Intersight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+John McDonough, Developer Advocate
+
+https://youtu.be/CoBjnF5bFLU
+
+:download:`Download presentation <_docs/2020/DevNetDay2020-CC-Intersight-Postman.pdf>`
+
+Provision Software-Defined Storage Infrastructure at Cloud Scale with Terraform Provider for Cisco Intersight
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Paniraj Koppa, Technical Marketing, Engineer, UCS Solutions
+
+https://youtu.be/hxOpkdbCCEY
+
+:download:`Download presentation <_docs/2020/DevNetDay2020-CC-L-Intersight-Terraform.pdf>`
+
+Start Now Cisco UCS and Cisco Intersight Programmability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+John McDonough, Developer Advocate
+
+https://youtu.be/Z3OHNZ-gh3U
+
+:download:`Download presentation <_docs/2020/DevNetDay_CC_UCS-Intersight.pdf>`
+
+Cisco Intersight Orchestration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+David Soper, Technical Marketing Engineer
+
+https://youtu.be/M8Sto8ZsA0k
+
+:download:`Download presentation <_docs/2020/DevNetDay2020-CC-S-Intersight-Orchestration.pdf>`
+
+Introduction to Kubernetes
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Matt Johnson, Developer Advocate
+
+https://youtu.be/Ow8-hIEMdYs
+
+Congrats on Your Overnight Cloud Migration – Now, Can You Support It?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Marco Coulter, Technical Evangelist
+
+https://youtu.be/6yQDYRSRYD8
+
+:download:`Download presentation <_docs/2020/DevNetDay_CC_Overnight cloud migration.pdf>`
+
+Collaboration
+-------------
+
+Webex Meetings REST APIs
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+JP Shipherd, Product Manager
+
+https://youtu.be/oggeNTVGkIY
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Collab_MeetingsAPIs.pdf>`
+
+Webex Devices APIs
+^^^^^^^^^^^^^^^^^^
+
+Richard Bayes, Product Manager
+
+https://youtu.be/z2lrWV_KJ2o
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Collab_WebexDeviceAPIs.pdf>`
+
+Webex Calling Call Control API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Koushik Ramamurthy, Product Manager
+
+https://youtu.be/_rZIvdsowII
+
+:download:`Download presentation <_docs/2020/DevNetDay_Collab_WebexCalling.pdf>`
+
+Cisco Collaboration – Vision and API Possibilities for Developers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Jono LukSenior Director
+
+https://youtu.be/f1wRaCKf4Vo
+
+:download:`Download presentation <_docs/2020/DevNet_Day_Collab_StartNow.pdf>`
+
+Collab Developer Goodies
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+David Staudt, Developer Advocate
+
+https://youtu.be/syUXVxu93eI
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Collab_Collab goodies.pdf>`
+
+Elevating ‘face-to-face’ into Cisco Collaboration Cloud
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Adam Weeks, Technical Lead
+
+https://youtu.be/1TbwZ9TGV0M
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Collab_Embedding Webex Features.pdf>`
+
+Building a Webex Bot Quickly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Phil Bellanti, Webex Developer Advocate
+
+https://youtu.be/6gVjkKpRsF8
+
+:download:`Download presentation <_docs/2020/DevNetDay_Collab_Webex Bot Building Quickly.pdf>`
+
+Data Center Networking (ACI & NX-OS)
+------------------------------------
+
+Container-based Applications | In Nexus 9000 Switches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tim Miller, DC Technical Solutions Architect, GVE
+
+https://youtu.be/swE9nfEKzW4
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DataCenter_Container-based Applications on Nexus 9000.pdf>`
+
+Want a self-driving Data Center Network? Try Cisco ACI & NAE with ServiceNow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Asha Hedge, Senior Product Manager
+
+https://youtu.be/fUWgSi83HH8
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DataCenter_NAE-SNOW.pdf>`
+
+Composable Infrastructure with ACI and Terraform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Nicolas Vermande, Product Manager
+
+https://youtu.be/5OJN4sOAQ2g
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DC_ACI_Terraform.pdf>`
+
+ACI Programmability | Information & Inspiration to Get Started
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quinn Snyder, Developer Advocate and Evangelist
+
+https://youtu.be/0q481lhDVeU
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DataCenter_Intro to ACI.pdf>`
+
+Open NX-OS Programmability | I Have APIs Now?! What Do I Do With Them?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quinn SnyderDeveloper Advocate and Evangelist
+
+https://youtu.be/A-cgbQvP0kE
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DataCenter_Intro to Nexus Programmability.pdf>`
+
+All Things Ansible for ACI
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lionel Hercot, Technical Marketing Engineer
+
+https://youtu.be/XQtqwZfiBMg
+
+:download:`Download presentation <_docs/2020/DevNetDay2020-DataCenter_All-Things-Ansible-ACI.pdf>`
+
+Deconstructing DCN CI/CD Pipelines
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lionel HercotTechnical Marketing Engineer
+
+https://youtu.be/_-Fe9_0nE6s
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_DataCenter_CI_CD_Pipeline_Explained.pdf>`
+
+Enterprise Networking (DNAC, SD-WAN, IOS XE)
+--------------------------------------------
+
+IOS XE Zero Touch Provisioning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Jeremy Cohoe, Technical Marketing Engineer
+
+https://youtu.be/WvSiE7EspK0
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Ent_ZTP.pdf>`
+
+Fun with SD-WAN APIs
+^^^^^^^^^^^^^^^^^^^^
+
+Sai Suchandan, Technical Marketing Engineer
+
+https://youtu.be/BWA8LDKdPP8
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Ent_Fun with SDWAN APIs.pdf>`
+
+Get Webhook’d
+^^^^^^^^^^^^^
+
+Gabi Zapodeanu, Technical Marketing Engineer
+
+https://youtu.be/qAuh00YmnYU
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Ent_GetWebhookd.pdf>`
+
+Getting Started with SD-WAN and Programmability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Stuart Clark, Developer Advocate
+
+https://youtu.be/6o0m0mnlkI8
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Ent_StartNow-SDWAN.pdf>`
+
+Introduction to Cisco DNA Center
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Kareem Iskander, Developer Advocate
+
+https://youtu.be/OWy5YzWGP0M
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_Ent_IntroDNAC-Digital.pdf>`
+
+Python-Viptela SDK
+^^^^^^^^^^^^^^^^^^
+
+Steven Carter, Principal Architect
+
+https://youtu.be/y4zQ5EWLc8s
+
+:download:`Download presentation <_docs/2020/DevNetDay_Ent_PythonViptela.pdf>`
+
+Understanding Device Onboarding with PnP API in Cisco DNA Center
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Adam Radford, Distinguished Architect
+
+https://youtu.be/mF6xv6eiNTA
+
+:download:`Download presentation <_docs/2020/DevNetDay_Ent_pnp.pdf>`
+
+IoT
+---
+
+IR1101 Remote Maintenance
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Johan Arens, Systems Architect
+
+https://youtu.be/a-F8brgye60
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_IoT_Remote Maintenance.pdf>`
+
+Smart Parking LoRaWAN
+^^^^^^^^^^^^^^^^^^^^^
+
+Florian Pachinger, Developer Advocate
+
+https://youtu.be/Z2hLExRNc9g
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_IoT_LoRaWAN.pdf>`
+
+IoT Beer 101
+^^^^^^^^^^^^
+
+Kareem Iskander, Developer Advocate
+
+https://youtu.be/nzDpO4vsZMs
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_IoT_Beer101-Digital.pdf>`
+
+Intro to DevNet IoT
+^^^^^^^^^^^^^^^^^^^
+
+Jock Reed, Developer Advocate
+
+https://youtu.be/UIu0c2DhOLI
+
+Intro to Edge Computing/IOx App Hosting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Shweta Palande, Developer Advocate
+
+https://youtu.be/iz9L9hf1xrM
+
+:download:`Download presentation <_docs/2020/DevNetDay_IoT_Intro_to_edge_compute.pdf>`
+
+IOx Application Hosting Advanced
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Emmanuel Tychon, Technical Marketing Engineer
+
+https://youtu.be/JhjuBNZBXdc
+
+Data Goverance using Cisco Edge Intelligence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Naveen Manicka, Technical Marketing Engineer
+
+https://youtu.be/6RHnToM9ebc
+
+:download:`Download presentation <_docs/2020/DevNetDay_IoT_EdgeIntelligence.pdf>`
+
+Meraki
+------
+
+Platform Simulation in the Real World
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Matthew DeNapoli, Developer Advocate
+
+https://youtu.be/nf8PskDwrns
+
+:download:`Download presentation <_docs/2020/DevNetDay_Meraki_PlatformSimulation.pdf>`
+
+Introduction to Meraki Integrations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Matthew DeNapoli, Developer Advocate
+
+https://youtu.be/sCbcBw4bcfk
+
+:download:`Download presentation <_docs/2020/DevNetDay_Meraki_Intro_toMerakiIntegrations.pdf>`
+
+Introduction to Dashboard APIs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Jon Hartman, Consulting Sales Engineer
+
+https://youtu.be/8OoQcD_X5CU
+
+:download:`Download presentation <_docs/2020/DevNetDay_Meraki_Intro to APIs.pdf>`
+
+API Updates on v1 Documentation, Postman & Python Library: Part I
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cory Guynn, Solutions Architect
+
+https://youtu.be/xvoIAB8uN3Q
+
+:download:`Download presentation <_docs/2020/DevNet Day_API_Updates_Meraki.pdf>`
+
+API Updates on v1 Documentation, Postman & Python Library: Part II
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Shiyue (Shay) Cheng
+
+https://youtu.be/6o1n1_Pcgqc
+
+Webhooks
+^^^^^^^^
+
+Jon Hartman, Consulting Sales Engineer
+
+https://youtu.be/9P5S2eUj1Bw
+
+:download:`Download presentation <_docs/2020/DevNetDay_Meraki_Webhooks.pdf>`
+
+Applying Machine Learning Techniques to Detect Objects with a Meraki MV Camera
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Rafa Carvalho, Meraki SE
+
+https://youtu.be/HD9EGSqqMMY
+
+Security
+--------
+
+Exploring Development and Integration Opportunities with Cisco's Security Platform, SecureX
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ben Greenbaum, Technical Engineer
+
+https://youtu.be/--k3PiT-d6g
+
+:download:`Download presentation <_docs/2020/DevNetDay_Security_SecureX.pdf>`
+
+Start Now 101: Security Introduction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Oxana Sannikova (Security Programmability Lead)
+* Gabriel Liechtman-Manor (Senior Software Engineer)
+* Krishan Veer (Developer Advocate & Technical Leader)
+* Christopher van der Made (Developer Advocate)
+* Jared Smith (Principal Engineer)
+* Yatish Joshi (Technical Leader)
+
+https://youtu.be/3_tpLsUfqZU
+
+:download:`Download presentation <_docs/2020/DevNetDay_Security_StartNow.pdf>`
+
+Firepower API and O365Lightning Talk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Christopher Van Der Made, Developer Advocate
+
+https://youtu.be/N9GLEgRyXpU
+
+:download:`Download presentation <_docs/2020/DevNetDay_Security_FirepowerO365.pdf>`
+
+Firepower & Firepower APIs Part 1: FTD API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Jared Smith, Principal Engineer
+
+https://youtu.be/Kpcy67Vqnvc
+
+:download:`Download presentation <_docs/2020/DevNetDay_Security_Firepower Device Manager.pdf>`
+
+Firepower & Firepower APIs Part 2: FMC APIs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yatish Joshi, Technical Leader
+
+https://youtu.be/9zcMV8Tsf2Y
+
+:download:`Download presentation <_docs/2020/DevNetDay_Security_FirepowerPart2.pdf>`
+
+Service Provider
+----------------
+
+Crosswork Qualification Environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Mike Korshunov, Technical Marketing Engineer
+
+https://youtu.be/edTs1QNSM80
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_CrossworkQual.pdf>`
+
+Automating XR Protocols
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Amrit Hanspal, Product Manager
+
+https://youtu.be/RQrHQozWk8A
+
+:download:`Download presentation <_docs/2020/DevNetDay2020_SP_Protocol Automation.pdf>`
+
+Service Orchestration with Pro-Active Monitoring & Remediation using Crosswork Applications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sriharsha Dhanekula, Technical Marketing Engineer
+
+https://youtu.be/tjkLDuEDUfk
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_Service-Orchestration-Lighting-Talk.pdf>`
+
+Getting Started with ZTP using IOS-XR and Cisco Crosswork
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Akshat Sharma, Technical Marketing Engineer
+
+https://youtu.be/ZNNOD-4Cghc
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_ZTP_IOSXR_Crswrk.pdf>`
+
+Automate your Deployment with XR7
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Akshat Sharma, Technical Marketing Engineer
+
+https://youtu.be/NRSSC0aVfhg
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_Auto_IOSXR7_CICD.pdf>`
+
+Accomplish Operational Excellence using Crosswork Applications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sriharsha Dhanekula, Technical Marketing Engineer
+
+https://youtu.be/QCBBLrmc2K4
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_Operational_Excellence.pdf>`
+
+Automating Cisco IOS XR Configuration with Unified Data Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Santiago Alvarez, Distinguished Technical Marketing Engineer
+
+https://youtu.be/GD9ATnRxKqk
+
+:download:`Download presentation <_docs/2020/DevNetDay_SP_IOS_XR.pdf>`
+
+DevNet Snack Minute: Automation Exchange
+----------------------------------------
+
+* Eric Thiel, Sr. Manager Cisco DevNet Technical Advocacy
+* Kareem IskanderDeveloper Advocate
+
+https://youtu.be/7eVLnyxxZsU
+
+DevNet Day Closing
+------------------
+
+Thanks for joining us!
+
+* Susie Wee
+* Robb Boyd
+* Silvia Spiva
+* Mandy Whaley
+* Shweta Palande
+
+https://youtu.be/0FuYcJHOuuM?t=31339

@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Cybersecurity &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Defining Threats, Vulnerabilities, &amp; Exploits" href="definitions.html" />
+    <link rel="prev" title="Fundamentals" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Security</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Fundamentals</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction to Cybersecurity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cybersecurity-vs-information-security-infosec">Cybersecurity vs. Information Security (InfoSec)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-nist-cybersecurity-framework">The NIST Cybersecurity Framework</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-nist-guidance-and-documents">Additional NIST Guidance and Documents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-international-organisation-of-standards-iso">The International Organisation of Standards (ISO)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html">Defining Threats, Vulnerabilities, &amp; Exploits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerabilities.html">Common Software and Hardware Vulnerabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cia.html">CIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud.html">Cloud Security Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iot.html">IoT Security Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="forensics.html">Digital Forensics and Incident Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptography/index.html">Cryptography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Fundamentals</a> &raquo;</li>
+        
+      <li>Introduction to Cybersecurity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/security/fundamentals/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-cybersecurity">
+<h1>Introduction to Cybersecurity<a class="headerlink" href="#introduction-to-cybersecurity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cybersecurity-vs-information-security-infosec">
+<h2>Cybersecurity vs. Information Security (InfoSec)<a class="headerlink" href="#cybersecurity-vs-information-security-infosec" title="Permalink to this headline">¶</a></h2>
+<p>Information security programs and policies are designed to protect the confidentiality, integrity, and availability of data within an organisation. Organisations are rarely self-contained, and the price of connectivity is exposure to attack. Every organisation is a potential target.</p>
+<p>Cybersecurity is the process of protecting information by preventing, detecting, and responding to attacks. It builds upon traditional information security programs and includes:</p>
+<ul class="simple">
+<li><p>Cyber risk management and oversight</p></li>
+<li><p>Threat intelligence and information sharing</p></li>
+<li><p>Third-party organisation, software, and hardware dependancy management</p></li>
+<li><p>Incident response and resiliency</p></li>
+</ul>
+</div>
+<div class="section" id="the-nist-cybersecurity-framework">
+<h2>The NIST Cybersecurity Framework<a class="headerlink" href="#the-nist-cybersecurity-framework" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.nist.gov/cyberframework">https://www.nist.gov/cyberframework</a></p>
+<p>The National Institute of Standards and Technology (NIST) is a well-known U.S. Department of Commerce. Their goal is to develop &amp; promote measurement, standards, and technology to enhance productivity, facilitate trade, improve quality of life. Their framework is a collection of industry standards and best practices to help organisations manage cybersecurity risks and acts as a blueprint for any organisation. The Computer Security Division (CSD) is one of seven divisions within NIST’s IT lab.</p>
+</div>
+<div class="section" id="additional-nist-guidance-and-documents">
+<h2>Additional NIST Guidance and Documents<a class="headerlink" href="#additional-nist-guidance-and-documents" title="Permalink to this headline">¶</a></h2>
+<p>There are currently more than 500 NIST InfoSec docs:</p>
+<ul class="simple">
+<li><p><strong>Federal Information Processing Standards (FIPS):</strong> This is the official publication series for standards and guidelines.</p></li>
+<li><p><strong>Special Publication (SP) 800 series:</strong> This series reports on ITL research, guidelines, and outreach efforts in information system security and its collaborative activities with industry, government, and academic organisations. SP 800 series documents can be downloaded from <a class="reference external" href="https://csrc.nist.gov/publications/sp800">https://csrc.nist.gov/publications/sp800</a>.</p></li>
+<li><p><strong>NIST Internal or Interagency Reports (NISTIR):</strong> These reports focus on research findings, including background information for FIPS and SPs.</p></li>
+<li><p><strong>ITL bulletins:</strong> Each bulletin presents an in-depth discussion of a single topic of significant interest to the information systems community. Bulletins are issued on an as-needed basis.</p></li>
+</ul>
+</div>
+<div class="section" id="the-international-organisation-of-standards-iso">
+<h2>The International Organisation of Standards (ISO)<a class="headerlink" href="#the-international-organisation-of-standards-iso" title="Permalink to this headline">¶</a></h2>
+<p>ISO is a network of the national standards institutes of more than 160 countries. ISO has developed more than 13,000 international standards on a variety of subjects, ranging from country codes to passenger safety.</p>
+<p>The ISO/IEC 27000 series (also known as the ISMS Family of Standards, or ISO27k for short) comprises information security standards published jointly by the ISO and the</p>
+<p>International Electrotechnical Commission (IEC). The first six documents in the ISO/IEC 27000 series provide recommendations for “establishing, implementing, operating, monitoring, reviewing, maintaining, and improving an Information Security Management System”: ISO 27001 is the specification for an Information Security Management System (ISMS). ISO 27002 describes the Code of Practice for information security management. ISO 27003 provides detailed implementation guidance. ISO 27004 outlines how an organisation can monitor and measure security using metrics. ISO 27005 defines the high-level risk management approach recommended by ISO. ISO 27006 outlines the requirements for organisations that will measure ISO 27000 compliance for certification.</p>
+<ul class="simple">
+<li><p>ISO 27001 is the specification for an Information Security Management System (ISMS).</p></li>
+<li><p>ISO 27002 describes the Code of Practice for information security management.</p></li>
+<li><p>ISO 27003 provides detailed implementation guidance.</p></li>
+<li><p>ISO 27004 outlines how an organisation can monitor and measure security metrics.</p></li>
+<li><p>ISO 27005 defines the high-level risk management approach recommended by ISO.</p></li>
+<li><p>ISO 27006 outlines the requirements for organisations that will measure ISO 27000 compliance for certification.</p></li>
+</ul>
+<p>There are 20 docs in the series and more in development. The framework is for all organisations. According to the ISO website, “the ISO standard gives recommendations for information security management for use by those who are responsible for initiating, implementing or maintaining security in their organization. It is intended to provide a common basis for developing organisational security standards and effective security management practice and to provide confidence in inter-organizational dealings.”</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="definitions.html" class="btn btn-neutral float-right" title="Defining Threats, Vulnerabilities, &amp; Exploits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Fundamentals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

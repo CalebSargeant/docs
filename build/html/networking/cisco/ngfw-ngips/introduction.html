@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to NGFW &amp; NGIPS &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Networking with Firewall Capabilities" href="networking-with-firewall-capabilities.html" />
+    <link rel="prev" title="NGFW &amp; NGIPS" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NGFW &amp; NGIPS</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction to NGFW &amp; NGIPS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firewall-history-and-legacy">Cisco Firewall History and Legacy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-asa">Cisco ASA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-asa-with-firepower-module">Cisco ASA with FirePOWER Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firepower-threat-defence-ftd">Cisco Firepower Threat Defence (FTD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firepower-1000-series">Cisco Firepower 1000 Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firepower-2100-series">Cisco Firepower 2100 Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firepower-4100-series">Cisco Firepower 4100 Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-firepower-9300-series">Cisco Firepower 9300 Series</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-ftd-for-cisco-integrated-services-routers-isrs">Cisco FTD for Cisco Integrated Services Routers (ISRs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#introduction-to-cisco-ngips">Introduction to Cisco NGIPS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#introduction-to-cisco-firepower-management-centre-fmc">Introduction to Cisco Firepower Management Centre (FMC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#introduction-to-cisco-firepower-device-manager-fdm">Introduction to Cisco Firepower Device Manager (FDM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-defence-orchestrator">Cisco Defence Orchestrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ftdv-ngfwv">FTDv / NGFWv</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="networking-with-firewall-capabilities.html">Networking with Firewall Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ha-clustering.html">High Availability and Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-control.html">Implementing Access Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firepower-ips.html">FirePOWER Intrusion Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="amp.html">Advanced Malware Protection (AMP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security-intelligence.html">Security Intelligence, Security Updates, and Keeping Firepower Software Up to Date</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">NGFW &amp; NGIPS</a> &raquo;</li>
+        
+      <li>Introduction to NGFW &amp; NGIPS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/cisco/ngfw-ngips/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-ngfw-ngips">
+<h1>Introduction to NGFW &amp; NGIPS<a class="headerlink" href="#introduction-to-ngfw-ngips" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Cisco Next Generation Security - protection throughout the attack continuum.</p></li>
+<li><p>Advanced Malware Protection (AMP) - discover threats and enforce and harden policies.</p></li>
+<li><p>Next-Generation IPS (NGIPs), Email Security, Web Security Appliance (WSA) with AMP - detect, block, and defend against attacks that have taken place.</p></li>
+<li><p>FirePOWER (uppercase) - Cisco ASA FirePOWER module.</p></li>
+<li><p>Firepower (lowercase) - FTD unified image and newer software.</p></li>
+</ul>
+<div class="section" id="cisco-firewall-history-and-legacy">
+<h2>Cisco Firewall History and Legacy<a class="headerlink" href="#cisco-firewall-history-and-legacy" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cisco started with Centri Firewall.</p></li>
+<li><p>Cisco acquired PIX (Private Internet Exchange) Firewall.</p></li>
+<li><p>Cisco purchased WheelGroup, Cisco’s legacy IDS and IPS system.</p></li>
+<li><p>Cisco released Adaptive Security Appliance (ASA), which was popular.</p></li>
+<li><p>There is a virtual appliance equivalent, ASAv.</p></li>
+<li><p>See <a class="reference external" href="https://www.cisco.com/c/en/us/products/security/firewalls/index.html">https://www.cisco.com/c/en/us/products/security/firewalls/index.html</a> for ASA releases.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-asa">
+<h2>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Simple packet filtering (ACLs) and stateful inspection.</p></li>
+<li><p>Application inspection/awareness.</p></li>
+<li><p>NATting.</p></li>
+<li><p>DHCP server or client, or both.</p></li>
+<li><p>RIP, EIGRP, OSPF, and static routing.</p></li>
+<li><p>Traditional layer 3 firewall.</p></li>
+<li><p>Optional transparent layer 2 firewall.</p></li>
+<li><p>Headend or remote-end for VPN tunnels for both remote access VPN &amp; site-to-site VPN.</p></li>
+<li><p>IPsec &amp; SSL-based remote-access VPNs with clientless SSL and full AnyConnect SSL VPN.</p></li>
+<li><p>Botnet traffic-filtering.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-asa-with-firepower-module">
+<h2>Cisco ASA with FirePOWER Module<a class="headerlink" href="#cisco-asa-with-firepower-module" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Integration of Sourcefire technology.</p></li>
+<li><p>Module can be managed via Firepower Management Center (FMC), formerly known as the FireSIGHT Management Centre.</p></li>
+<li><p>FMC and ASA FirePOWER module require additional licensing.</p></li>
+<li><p>All ASAs (except 5506-X, 5508-X, 5516-X) can be managed by Adaptive Security Device Manager (ASDM), where license can be installed.</p></li>
+<li><p>All ASAs with FirePOWER managed by FMC can have their license installed on FMC and used by module.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-firepower-threat-defence-ftd">
+<h2>Cisco Firepower Threat Defence (FTD)<a class="headerlink" href="#cisco-firepower-threat-defence-ftd" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cisco.com/go/security">https://cisco.com/go/security</a>.</p>
+<p>FTD is unified software that includes ASA, legacy FirePOWER, and new features. FTD is deployed via Firepower 1000, 2100, 4100, 9000 series appliances that provide NGFW services.</p>
+</div>
+<div class="section" id="cisco-firepower-1000-series">
+<h2>Cisco Firepower 1000 Series<a class="headerlink" href="#cisco-firepower-1000-series" title="Permalink to this headline">¶</a></h2>
+<p>Small business and home offices.</p>
+<ul class="simple">
+<li><p>Cisco Firepower 1010: A desktop firewall with eight 1 Gigabit Ethernet ports, and scales up to 650 Mbps of NGFW throughput.</p></li>
+<li><p>Cisco Firepower 1120: A rack-mount firewall with eight 1 Gigabit Ethernet ports and four SFP ports. The Firepower 1120 scales to up to 1.5 Gbps of NGFW throughput.</p></li>
+<li><p>Cisco Firepower 1140: A rack-mount firewall with eight 1 Gigabit Ethernet ports and four SFP ports. The Firepower 1140 scales to up to 2.2 Gbps of NGFW throughput.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-firepower-2100-series">
+<h2>Cisco Firepower 2100 Series<a class="headerlink" href="#cisco-firepower-2100-series" title="Permalink to this headline">¶</a></h2>
+<p>Internet edge and data centre.</p>
+<ul class="simple">
+<li><p>Cisco Firepower 2110: A rack-mount 1 RU firewall with twelve 1 Gigabit Ethernet ports and four SFP ports. The Firepower 2110 scales up to 2 Gbps of NGFW throughput.</p></li>
+<li><p>Cisco Firepower 2120: A rack-mount 1 RU firewall with twelve 1 Gigabit Ethernet ports and four SFP ports. The Firepower 2120 scales up to 3 Gbps of NGFW throughput.</p></li>
+<li><p>Cisco Firepower 2130: A rack-mount 1 RU firewall with up-to twenty-four 1 Gigabit Ethernet ports or twelve 1 Gigabit Ethernet and twelve 10 Gigabit Ethernet ports. The Firepower 2130 scales up to 5 Gbps of NGFW throughput.</p></li>
+<li><p>Cisco Firepower 2140: A rack-mount 1 RU firewall with up-to twenty-four 1 Gigabit Ethernet ports or twelve 1 Gigabit Ethernet and twelve 10 Gigabit Ethernet ports. The Firepower 2140 scales up to 8.5 Gbps of NGFW throughput.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-firepower-4100-series">
+<h2>Cisco Firepower 4100 Series<a class="headerlink" href="#cisco-firepower-4100-series" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cisco Firepower 4110: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 35 Gbps of firewall throughput and 11 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4120: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 60 Gbps of firewall throughput and 19 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4140: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 70 Gbps of firewall throughput and 27 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4150: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 75 Gbps of firewall throughput and 39 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4115: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 80 Gbps of firewall throughput and 26 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4125: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 80 Gbps of firewall throughput and 35 Gbps of threat inspection throughput.</p></li>
+<li><p>Cisco Firepower 4145: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 80 Gbps of firewall throughput and 45 Gbps of threat inspection throughput.</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-firepower-9300-series">
+<h2>Cisco Firepower 9300 Series<a class="headerlink" href="#cisco-firepower-9300-series" title="Permalink to this headline">¶</a></h2>
+<p>Very large enterprises or service providers. ASA, FTD, Radware DefencePro DDoS mitigation software (from 4150 up - realtime analysis to protect against DDoS).</p>
+</div>
+<div class="section" id="cisco-ftd-for-cisco-integrated-services-routers-isrs">
+<h2>Cisco FTD for Cisco Integrated Services Routers (ISRs)<a class="headerlink" href="#cisco-ftd-for-cisco-integrated-services-routers-isrs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>FTD can run on Cisco Unified Computing System (UCS) E-Series blades installed on ISR routers.</p></li>
+<li><p>FMC &amp; FTD are deployed as VMs.</p></li>
+<li><p>Two internal interfaces connect a router to UCS E-Series blade.</p></li>
+<li><p>On ISR G2, Slot0 is a Peripheral Component Interconnect Express (PCIe) internal interface.</p></li>
+<li><p>On UCS E-Series Slot1 is a switched interface connected to backplane Multi Gigabit Fabric (MGF).</p></li>
+<li><p>In ISR 400 series routers, both internal interfaces are connected to MGF.</p></li>
+</ul>
+<p>Hypervisor is installed on UCS E-Series blade, where FTD runs. FTD for ISR is supported on:</p>
+<ul class="simple">
+<li><p>Cisco ISR G2 Series: 2911, 2921, 2951, 3925, 3945, 3925E, and 3945E</p></li>
+<li><p>Cisco ISR 4000 Series: 4331, 4351, 4451, 4321, and 4431</p></li>
+</ul>
+</div>
+<div class="section" id="introduction-to-cisco-ngips">
+<h2>Introduction to Cisco NGIPS<a class="headerlink" href="#introduction-to-cisco-ngips" title="Permalink to this headline">¶</a></h2>
+<p>Legacy IPSs depend on matching signature patterns to identify malicious activity. Characteristics of legacy IPSs:</p>
+<ul class="simple">
+<li><p>They are sometimes deployed behind a firewall when providing IPS functionality (inline). Often, an IPS is also placed in the network without a firewall in front of it.</p></li>
+<li><p>They often look for attempts to exploit a vulnerability and not for the existence of a vulnerability.</p></li>
+<li><p>Legacy IPSs often generate large amounts of event data that are difficult to correlate.</p></li>
+<li><p>They focus on individual indicators/events without focusing on contextual information to take action.</p></li>
+<li><p>Legacy IPSs require manual tuning for better efficacy.</p></li>
+</ul>
+<p>Shortcomings of legacy IPSs:</p>
+<ul class="simple">
+<li><p>They often need to be operated in conjunction with other products or tools (firewalls, analytics, and correlation tools).</p></li>
+<li><p>They are sometimes not very effective and may be ignored.</p></li>
+<li><p>Their operation costs and the operating resources they need are high.</p></li>
+<li><p>They can leave infrastructures imperfectly covered against attackers.</p></li>
+</ul>
+<p>NGIPS capabilities:</p>
+<ul class="simple">
+<li><p>Application awareness and control: NGIPSs provide visibility into Layer 7 applications and can protect against Layer 7 threats.</p></li>
+<li><p>Content awareness of the information traversing the infrastructure: For example, knowledge about files transferred between two hosts can be used to identify viruses transferred and the trajectory of a virus infection in a system.</p></li>
+<li><p>Contextual awareness: Helps better understand alerts and automatically deduce comprehensive information about the events taking place, which makes the NGIPS less complex and means it requires less tuning.</p></li>
+<li><p>Host and user awareness: The infrastructure offers more conclusive information about the events taking place.</p></li>
+<li><p>Automated tuning and recommendations: This allows an administrator to follow recommendations and tune signatures specifically to his environment.</p></li>
+<li><p>Impact and vulnerability assessment of the events taking place: The impact of a security event identified by the system can be evaluated based on the information available for the environment. For example, a Windows system that is identified to secure a vulnerability cannot be severely impacted by an attempt to exploit the vulnerability against it.</p></li>
+</ul>
+<p>Cisco Firepower NGIPS engine is based on Snort, originally created by SourceFire, which is an open source IPS tool, used all over the industry. Cisco Snort IPS rules are developed by the Cisco Talos team. 3rd Party rules can also be used. Capabilities of Cisco NGIPS:</p>
+<ul class="simple">
+<li><p>Threat containment and remediation: Cisco Firepower NGIPS provides protection against known and new threats. Its features include file analysis, packet- and flow-based inspection, and vulnerability assessment.</p></li>
+<li><p>Application visibility: Cisco Firepower NGIPS offers deep inspection and control of application-specific information for better efficacy.</p></li>
+<li><p>Identity management: NGIPS policies can be enforced by using contextual user information.</p></li>
+<li><p>Security automation: Cisco Firepower NGIPS includes automated event impact assessment and policy tuning.</p></li>
+<li><p>Logging and traceability management: This can be used in retrospective analysis.</p></li>
+<li><p>High availability and stacking: Cisco Firepower NGIPS provides redundancy and performance by leveraging multiple devices.</p></li>
+<li><p>Network behavioural analysis: Key behavioural indicators and threat scores help analysts prioritise and recover from attacks.</p></li>
+<li><p>Access control and segmentation: Access policies can be applied to separate traffic profiles in the network.</p></li>
+<li><p>Real-time contextual awareness: NGIPS discovers and provides information about applications, users, devices, operating systems, vulnerabilities, services, processes, files, and threat data related to IT environments.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction-to-cisco-firepower-management-centre-fmc">
+<h2>Introduction to Cisco Firepower Management Centre (FMC)<a class="headerlink" href="#introduction-to-cisco-firepower-management-centre-fmc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>FTD devices, Firepower NGIPS devices, and ASA FirePOWER modules can be managed by FMC.</p></li>
+<li><p>When adding a device, you must provide an IP address of managed device with registration key for authentication.</p></li>
+<li><p>Use of registration key and NAT ID instead of IP address in case device is behind NAT to authenticate and authorise initial registration.</p></li>
+<li><p>NAT ID (must be unique per device) is used for NAT environments, but can be used to simplify adding many devices to FMC.</p></li>
+<li><p>Detailed analytics and statistics of what’s happening in network.</p></li>
+</ul>
+<p>Summary dashboard, showing statistics and data about top attackers, targets, intrusion events, events by application protocols, etc., all customisable:</p>
+<img alt="../../../_images/introduction-fmc-1.png" src="../../../_images/introduction-fmc-1.png" />
+<p>Connection Summary Dashboard, showing information about allowed and denied connections by applications over time:</p>
+<img alt="../../../_images/introduction-fmc-2.png" src="../../../_images/introduction-fmc-2.png" />
+<p>Content Explorer, showing statistics of traffic and intrusions over time, indicators of compromise, etc.:</p>
+<img alt="../../../_images/introduction-fmc-3.png" src="../../../_images/introduction-fmc-3.png" />
+<p>Network File Trajectory maps show how hosts transfer files, at risk hosts, trends, etc. Transfer of data, disposition of file, blocked or quarantined, etc.:</p>
+<img alt="../../../_images/introduction-fmc-4.png" src="../../../_images/introduction-fmc-4.png" />
+</div>
+<div class="section" id="introduction-to-cisco-firepower-device-manager-fdm">
+<h2>Introduction to Cisco Firepower Device Manager (FDM)<a class="headerlink" href="#introduction-to-cisco-firepower-device-manager-fdm" title="Permalink to this headline">¶</a></h2>
+<p>FDM configures small FTD deployments. Accessed via the firewall’s IP address / hostname in browser.</p>
+<p>FDM setup wizard:</p>
+<img alt="../../../_images/introduction-fdm-1.png" src="../../../_images/introduction-fdm-1.png" />
+<p>FDM main dashboard, showing configured interfaces, routes, updates, geolocation, rules, Vulnerability Database [VDB], Security Intelligence feeds, etc., smart licensing, backup and restore, troubleshooting, etc.:</p>
+<img alt="../../../_images/introduction-fdm-2.png" src="../../../_images/introduction-fdm-2.png" />
+<p>NAT rule in FDM:</p>
+<img alt="../../../_images/introduction-fdm-3.png" src="../../../_images/introduction-fdm-3.png" />
+<p>Access control rule in FDM:</p>
+<img alt="../../../_images/introduction-fdm-4.png" src="../../../_images/introduction-fdm-4.png" />
+<p>Traditional ACL (source and destination):</p>
+<img alt="../../../_images/introduction-fdm-5.png" src="../../../_images/introduction-fdm-5.png" />
+<p>Application based ACL:</p>
+<img alt="../../../_images/introduction-fdm-6.png" src="../../../_images/introduction-fdm-6.png" />
+</div>
+<div class="section" id="cisco-defence-orchestrator">
+<h2>Cisco Defence Orchestrator<a class="headerlink" href="#cisco-defence-orchestrator" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CDO allows you to manage firewalls from the cloud.</p></li>
+<li><p>You can write policies and enforce consistently across multiple ASA and FTD devices.</p></li>
+<li><p>Compare, filter, edit, and create new policies.</p></li>
+<li><p>Analyse access control policies and objects to identify errors and inconsistencies.</p></li>
+<li><p>Create standard policy templates for consistency and effectiveness across enterprise environment.</p></li>
+</ul>
+<p>CDO main dashboard:</p>
+<img alt="../../../_images/introduction-cdo-1.png" src="../../../_images/introduction-cdo-1.png" />
+<p>ASA policies configured in CDO:</p>
+<img alt="../../../_images/introduction-cdo-2.png" src="../../../_images/introduction-cdo-2.png" />
+<p>FTD, Meraki and virtual AWS firewalls being managed by CDO:</p>
+<img alt="../../../_images/introduction-cdo-3.png" src="../../../_images/introduction-cdo-3.png" />
+<p>More FTD policies in CDO:</p>
+<img alt="../../../_images/introduction-cdo-4.png" src="../../../_images/introduction-cdo-4.png" />
+</div>
+<div class="section" id="ftdv-ngfwv">
+<h2>FTDv / NGFWv<a class="headerlink" href="#ftdv-ngfwv" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/aws/ftdv-aws-qsg.html">https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/aws/ftdv-aws-qsg.html</a>
+<a class="reference external" href="https://community.cisco.com/t5/network-security/aws-ftdv-vs-ngfwv/m-p/3088214#M1006029">https://community.cisco.com/t5/network-security/aws-ftdv-vs-ngfwv/m-p/3088214#M1006029</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="networking-with-firewall-capabilities.html" class="btn btn-neutral float-right" title="Networking with Firewall Capabilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="NGFW &amp; NGIPS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

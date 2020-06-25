@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Digital Forensics and Incident Response &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Cryptography" href="../cryptography/index.html" />
+    <link rel="prev" title="IoT Security Threats" href="iot.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Security</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Fundamentals</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction to Cybersecurity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html">Defining Threats, Vulnerabilities, &amp; Exploits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vulnerabilities.html">Common Software and Hardware Vulnerabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cia.html">CIA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud.html">Cloud Security Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iot.html">IoT Security Threats</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Digital Forensics and Incident Response</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#iso-iec-27002-2013-and-nist-incident-response-guidance">ISO/IEC 27002:2013 and NIST Incident Response Guidance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-definition">Incident Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#false-positives-false-negatives-true-positives-and-true-negatives">False Positives, False Negatives, True Positives, and True Negatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-severity-levels">Incident Severity Levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-reporting">Incident Reporting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-response-program">Incident Response Program</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-response-plan">Incident Response Plan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-response-process">Incident Response Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulations-and-playbooks">Simulations and Playbooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#information-sharing-and-coordination">Information Sharing and Coordination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computer-security-incident-response-teams">Computer Security Incident Response Teams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#product-security-incident-response-teams-psirts">Product Security Incident Response Teams (PSIRTs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-common-vulnerability-scoring-system-cvss">The Common Vulnerability Scoring System (CVSS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#national-csirts-and-computer-emergency-response-teams-certs">National CSIRTs and Computer Emergency Response Teams (CERTs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coordination-centres">Coordination Centres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incident-response-providers-and-managed-security-service-providers-mssps">Incident Response Providers and Managed Security Service Providers (MSSPs)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-incident-management-personnel">Key Incident Management Personnel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptography/index.html">Cryptography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Fundamentals</a> &raquo;</li>
+        
+      <li>Digital Forensics and Incident Response</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/networking/security/fundamentals/forensics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="digital-forensics-and-incident-response">
+<h1>Digital Forensics and Incident Response<a class="headerlink" href="#digital-forensics-and-incident-response" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="iso-iec-27002-2013-and-nist-incident-response-guidance">
+<h2>ISO/IEC 27002:2013 and NIST Incident Response Guidance<a class="headerlink" href="#iso-iec-27002-2013-and-nist-incident-response-guidance" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-definition">
+<h2>Incident Definition<a class="headerlink" href="#incident-definition" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="false-positives-false-negatives-true-positives-and-true-negatives">
+<h2>False Positives, False Negatives, True Positives, and True Negatives<a class="headerlink" href="#false-positives-false-negatives-true-positives-and-true-negatives" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-severity-levels">
+<h2>Incident Severity Levels<a class="headerlink" href="#incident-severity-levels" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-reporting">
+<h2>Incident Reporting<a class="headerlink" href="#incident-reporting" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-response-program">
+<h2>Incident Response Program<a class="headerlink" href="#incident-response-program" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-response-plan">
+<h2>Incident Response Plan<a class="headerlink" href="#incident-response-plan" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-response-process">
+<h2>Incident Response Process<a class="headerlink" href="#incident-response-process" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="simulations-and-playbooks">
+<h2>Simulations and Playbooks<a class="headerlink" href="#simulations-and-playbooks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="information-sharing-and-coordination">
+<h2>Information Sharing and Coordination<a class="headerlink" href="#information-sharing-and-coordination" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="computer-security-incident-response-teams">
+<h2>Computer Security Incident Response Teams<a class="headerlink" href="#computer-security-incident-response-teams" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="product-security-incident-response-teams-psirts">
+<h2>Product Security Incident Response Teams (PSIRTs)<a class="headerlink" href="#product-security-incident-response-teams-psirts" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="the-common-vulnerability-scoring-system-cvss">
+<h2>The Common Vulnerability Scoring System (CVSS)<a class="headerlink" href="#the-common-vulnerability-scoring-system-cvss" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="national-csirts-and-computer-emergency-response-teams-certs">
+<h2>National CSIRTs and Computer Emergency Response Teams (CERTs)<a class="headerlink" href="#national-csirts-and-computer-emergency-response-teams-certs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="coordination-centres">
+<h2>Coordination Centres<a class="headerlink" href="#coordination-centres" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="incident-response-providers-and-managed-security-service-providers-mssps">
+<h2>Incident Response Providers and Managed Security Service Providers (MSSPs)<a class="headerlink" href="#incident-response-providers-and-managed-security-service-providers-mssps" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="key-incident-management-personnel">
+<h2>Key Incident Management Personnel<a class="headerlink" href="#key-incident-management-personnel" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cryptography/index.html" class="btn btn-neutral float-right" title="Cryptography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iot.html" class="btn btn-neutral float-left" title="IoT Security Threats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
