@@ -180,3 +180,9 @@ The Open Web Application Security Project (OWASP) is non-profit charitable organ
 
 Security Vulnerabilities in Open Source Software
 ------------------------------------------------
+
+Vulnerability patching for commercial & open software is important. Must use:
+
+* Vulnerability management software and scanners, such as Qualys, Nexpose, and Nessus
+* Software composition analysis tools, such as BlackDuck Hub, Synopsys Protecode (formerly known as AppCheck), FlexNet Code Insight (formerly known as Palamida),
+* SourceClear, and WhiteSource Security vulnerability feeds, such as MITRE’s CVE list, NIST’s National Vulnerability Database (NVD), VulnDB, and Recorded Future

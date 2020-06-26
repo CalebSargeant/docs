@@ -202,38 +202,231 @@
 <h1>Networking with Firewall Capabilities<a class="headerlink" href="#networking-with-firewall-capabilities" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="comparing-network-security-solutions-that-provide-firewall-capabilities">
 <h2>Comparing Network Security Solutions That Provide Firewall Capabilities<a class="headerlink" href="#comparing-network-security-solutions-that-provide-firewall-capabilities" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Zone-Based Firewall (ZBFW) is a stateful firewall in Cisco IOS devices is the successor of the Context-Based Access Control (CBAC) IOS firewall.</p></li>
+<li><p>ZBFW Has features not available in CBAC, ie. assignment of router interfaces into different security zones to control traffic.</p></li>
+<li><p>ZBFW is cost effective, as it is integrated within a router device.</p></li>
+<li><p>ZBFW zones must be configured before interfaces can be assigned to the zone.</p></li>
+<li><p>ZBFW interfaces can only be assigned to one zone.</p></li>
+<li><p>ZBFW interfaces by default deny all traffic, except for traffic within same zone.</p></li>
+<li><p>ZBFW self-zone (traffic destined for the router itself) is by default allowed.</p></li>
+<li><p>ZBFW ACLs must be put in place to allow traffic.</p></li>
+<li><p>Pass, inspect, and drop actions are applied between zones.</p></li>
+<li><p>More info: <a class="reference external" href="https://github.com/The-Art-of-Hacking/h4cker/blob/master/SCOR/zbfw.md">https://github.com/The-Art-of-Hacking/h4cker/blob/master/SCOR/zbfw.md</a>.</p></li>
+</ul>
+<p>ZBFW can be implement in SD-WANs and the configuration and zone deployments include:</p>
+<ul class="simple">
+<li><p>Source zone: A group of VPNs where the data traffic flows originate. A VPN can be part of only one Source zone.</p></li>
+<li><p>Destination zone: A grouping of VPNs where the data traffic flows terminate. A VPN can be part of only one Destination zone.</p></li>
+<li><p>Firewall policy: A security policy, similar to a localised security policy, that defines the conditions that the data traffic flow from the source zone must match to allow the flow to continue to the destination zone. Firewall policies can match IP prefixes, IP ports, the protocols TCP, UDP, and ICMP, and applications. Matching flows for prefixes, ports, and protocols can be accepted or dropped, and the packet headers can be logged. Non-matching flows are dropped by default. Matching applications can only be denied.</p></li>
+<li><p>Zone pair: A container that associates a source zone with a destination zone and applies a firewall policy to the traffic that flows between the two zones.</p></li>
+</ul>
+<p>Matching flows are accepted through:</p>
+<ul class="simple">
+<li><p>Inspect: The packet’s header can be inspected to determine its source address and port.</p></li>
+<li><p>Pass: The packet can pass to the destination zone without the packet’s header being inspected at all.</p></li>
+</ul>
 </div>
 <div class="section" id="deployment-modes-of-network-security-solutions-and-architectures-that-provide-firewall-capabilities">
 <h2>Deployment Modes of Network Security Solutions and Architectures That Provide Firewall Capabilities<a class="headerlink" href="#deployment-modes-of-network-security-solutions-and-architectures-that-provide-firewall-capabilities" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ASA protects internal network from external threats through untrusted interfaces, which are logically named (outside, inside, dmz).</p></li>
+<li><p>Security levels are applied, using <code class="docutils literal notranslate"><span class="pre">nameif</span></code>, to ASA (0 - 100). The safest being 100 (inside) and the least safest being 0 (outside). A DMZ would have 50.</p></li>
+<li><p>The same security level can be applied to multiple interfaces (in the case of having 2 outside links for example). The <code class="docutils literal notranslate"><span class="pre">same-security-traffic</span> <span class="pre">permit-interface</span></code> global command must be inputted to allow as it says.</p></li>
+<li><p>An interface with no security level set will not participate in the network layer.</p></li>
+<li><p>IP Addresses are assigned to the interfaces (routed mode). Either through static or dynamic (DHCP client) configuration.</p></li>
+</ul>
 <div class="section" id="routed-vs-transparent-firewalls">
 <h3>Routed vs. Transparent Firewalls<a class="headerlink" href="#routed-vs-transparent-firewalls" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Usually firewalls are deployed in routed mode. ACLs separate the layer 3 networks through examining upper-layer headers and data payloads in packets.</p></li>
+<li><p>In transparent mode, the IP Address is assigned in global configuration mode on a bridge virtual interface (BVI).</p></li>
+<li><p>DHCP is not supported if in failover pair.</p></li>
+<li><p>Firewalls in routed mode cannot filter packets from one host to another in the same LAN segment. L3 firewalls require network segments to be created and are inserted into network, causing downtime.</p></li>
+<li><p>Transparent firewalls are Layer 2. They are placed between LAN and layer 3 device (router), without disrupting network.</p></li>
+<li><p>You can then filter unwanted traffic on layer 2. Below image shows 192.168.10.2 sending traffic to cisco.com and being allowed by firewall. Router does the translation, not the transparent firewall.</p></li>
+</ul>
+<img alt="../../../_images/networking-with-firewall-capabilities-1.png" src="../../../_images/networking-with-firewall-capabilities-1.png" />
 </div>
 <div class="section" id="security-contexts">
 <h3>Security Contexts<a class="headerlink" href="#security-contexts" title="Permalink to this headline">¶</a></h3>
+<p>Security Contexts enable physical firewalls to partition into multiple firewalls. Each firewall behaves as an independent firewall with its own config, interfaces, policies, routing, etc. A context can be either layer 2 (transparent) or layer 3 (routed). Some examples:</p>
+<ul class="simple">
+<li><p>You act as a service provider and you want to provide firewall services to customers; however, you do not want to purchase additional physical firewalls for each client.</p></li>
+<li><p>You manage an educational institution and you want to segregate student networks from faculty networks for improved security while using one physical security appliance.</p></li>
+<li><p>You administer a large enterprise with different departmental groups, and each department wants to implement its own security policies.</p></li>
+<li><p>You have overlapping networks in your organisation and you want to provide firewall services to all those networks without changing the addressing scheme.</p></li>
+<li><p>You currently manage many physical firewalls and you want to integrate security policies from all firewalls into one physical firewall.</p></li>
+<li><p>You manage a data centre environment and you want to provide end-to-end virtualisation to reduce operational costs and increase efficiency.</p></li>
+</ul>
 </div>
 <div class="section" id="single-mode-transparent-firewalls">
 <h3>Single-Mode Transparent Firewalls<a class="headerlink" href="#single-mode-transparent-firewalls" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A SMTF is a secure bridge that switches traffic from one interface to another.</p></li>
+<li><p>IP Address is assigned in global config, not per-interface IP. IP Address is used mainly for management access.</p></li>
+<li><p>Allows simple config - ACLs, inspection rules, NAT policies.</p></li>
+</ul>
+<p><strong>The Admin Context:</strong></p>
+<ul class="simple">
+<li><p>SMTF is usually the admin context (similar to VM hypervisor), where you would only use this context for SNMP (of physical host), syslogs, file transfer, etc.</p></li>
+<li><p>The admin context is created first before other contexts by inputting the <code class="docutils literal notranslate"><span class="pre">admin-context</span></code> command.</p></li>
+<li><p>When ASA is converted from single to multiple mode, network config of single-mode is save in admin context. ASA names the context “admin”.</p></li>
+<li><p>Admin context can be used as a regular context, but not recommended at all.</p></li>
+</ul>
+<p><strong>The User Context:</strong></p>
+<p>Customer / user contexts are virtual firewalls that support the following (examples) that are available in standalone firewall:</p>
+<ul class="simple">
+<li><p>IPS functionality</p></li>
+<li><p>Dynamic routing Packet filtering</p></li>
+<li><p>Network address translation (NAT)</p></li>
+<li><p>Site-to-site VPN</p></li>
+<li><p>IPv6 and device management</p></li>
+</ul>
+<p><strong>Multiple-Context Mode:</strong></p>
+<ul class="simple">
+<li><p>Packets are classified and forwarded to correct context using a packet classifier, which identifies packets at the ingress interface.</p></li>
+<li><p>ASA designates packet-classifying criteria to identify the correct security context before forwarding packets (either shared interface or non-shared interface environment).</p></li>
+<li><p>Sharing of resources, such as physical interfaces occurs between contexts, one of the main benefits.</p></li>
+<li><p>ASA uses physical or logical sub-interfaces assigned to each context, which makes it easier for ASA to label packets based on source interface.</p></li>
+<li><p>ASA can share multiple interfaces between contexts and uses either destination IP or MAC address to classify packets to correct context.</p></li>
+<li><p>The MAC address on the interface(s) used by multiple context can the same, so classifier does not know which ingress packets received by ASA are for which context.</p></li>
+<li><p>Destination IP is used to identify destination context in above case. However, routing table might be the same on contexts, so ASA uses NAT table of each context to learn about subnets behind contexts.</p></li>
+</ul>
+<p><strong>Multimode Transparent Firewall (MMTF):</strong></p>
+<p>MMTFs perform the same way as single-mode, except:</p>
+<ul class="simple">
+<li><p>Packets are handled in different contexts. Because each context acts and behaves as an independent entity, you must configure an IP address to the bridge virtual interface (BVI) in each context for administration and management purposes.</p></li>
+<li><p>An interface cannot be shared between multiple contexts in this mode.</p></li>
+</ul>
 </div>
 <div class="section" id="cisco-ftd-deployment-modes">
 <h3>Cisco FTD Deployment Modes<a class="headerlink" href="#cisco-ftd-deployment-modes" title="Permalink to this headline">¶</a></h3>
+<p>FTDs can also either be in routed or transparent mode.</p>
+<p>FTD in routed mode:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-2.png" src="../../../_images/networking-with-firewall-capabilities-2.png" />
+<p>FTD in transparent mode:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-3.png" src="../../../_images/networking-with-firewall-capabilities-3.png" />
 </div>
 <div class="section" id="cisco-ftd-interface-modes">
 <h3>Cisco FTD Interface Modes<a class="headerlink" href="#cisco-ftd-interface-modes" title="Permalink to this headline">¶</a></h3>
+<p>FTD can operate as NGFW and NGIPS in different interfaces:</p>
+<ul class="simple">
+<li><p>NGFW is operational mode of ASA and adds Firepower features.</p></li>
+<li><p>NGIPS acts as standalone Firepower with limited ASA data plane functions.</p></li>
+</ul>
+<p>IPS-only passive interfaces, passive ERSPAN (routed mode only), and inline sets can be configured in FTD:</p>
+<ul class="simple">
+<li><p>IPS-only mode bypasses firewall checks and supports only IPS security policies. This is if you have a separate firewall and don’t want extra overhead.</p></li>
+<li><p>Inline sets and passive interface are only supported on physical and EtherChannel interfaces and intra-chassis and inter-chassis clustering.</p></li>
+<li><p>Inline sets cannot use redundant or VLANs.</p></li>
+<li><p>Bidirectional Forwarding Detection (BFD) echo packets are not allowed through FTD when using inline sets.</p></li>
+<li><p>If there are two neighbours on either side of FTD running BFD, FTD will drop BFD echo packets, as source and destination IP address are identical.</p></li>
+</ul>
+<p>FTD deployment modes:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-4.png" src="../../../_images/networking-with-firewall-capabilities-4.png" />
+<p>FTD interface modes:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-5.png" src="../../../_images/networking-with-firewall-capabilities-5.png" />
+<p>No additional routing required, as long as destination IP Address is in the same subnet as the BVI interface. FTD with intra-BVI communication:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-6.png" src="../../../_images/networking-with-firewall-capabilities-6.png" />
+<p>No additional routing required, as long as destination IP Address is in the directly connected subnet as the BVI interfaces. FTD with inter-BVI communication:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-7.png" src="../../../_images/networking-with-firewall-capabilities-7.png" />
+<p>Traffic between a routed (L3) interface and a BVI:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-8.png" src="../../../_images/networking-with-firewall-capabilities-8.png" />
 </div>
 <div class="section" id="inline-pair">
 <h3>Inline Pair<a class="headerlink" href="#inline-pair" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>NGIPS can operate in either inline or passive (monitoring) modes.</p></li>
+<li><p>Inline is for prevention, placed between switch &amp; router or switch &amp; firewall to block/mitigate threats.</p></li>
+<li><p>Traffic can be dropped, allowed or reset.</p></li>
+<li><p>Two interfaces are used, one to enter and one to exit the device for inspection.</p></li>
+<li><p>All traffic is dropped if failure with inline device.</p></li>
+<li><p>Can operate in either transparent or routed modes.</p></li>
+<li><p>Legacy ASA features (NAT, routing. ACLs, etc.) aren’t available for flows going through inline pair. Only few checks are available through Snort checks.</p></li>
+<li><p>One can configure FTD in inline NGIPS deployment or transparently on network segment by binding interfaces together.</p></li>
+<li><p>Unconditionally receive all traffic and retransmits out inline sets unless dropped.</p></li>
+<li><p>FTD categorises the inbound and outbound traffic as part of the same traffic flow when adding multiple inline interface pairs to the same inline interface set.</p></li>
+<li><p>FTD includes the same interface pairs in the same security zone when passive interfaces are configured (promiscuous mode).</p></li>
+</ul>
+<p>Below depicts an FTD with 10 interfaces with 2 inline sets, 1 for 3 pairs of interfaces, other for 2 pairs of interfaces:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-9.png" src="../../../_images/networking-with-firewall-capabilities-9.png" />
 </div>
 <div class="section" id="inline-pair-with-tap">
 <h3>Inline Pair with Tap<a class="headerlink" href="#inline-pair-with-tap" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Two physical interfaces internally bridged.</p></li>
+<li><p>Few firewall checks are applied with full snort checks with copy of traffic.</p></li>
+<li><p>Legacy ASA features (NAT, routing. ACLs, etc.) aren’t available for flows going through inline pair.</p></li>
+<li><p>Can operate in either transparent or routed modes.</p></li>
+</ul>
+<p>Example of inline pair with tap:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-10.png" src="../../../_images/networking-with-firewall-capabilities-10.png" />
 </div>
 <div class="section" id="passive-mode">
 <h3>Passive Mode<a class="headerlink" href="#passive-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Monitoring/passive mode do not prevent attacks.</p></li>
+<li><p>Silently inspects and identifies malicious activity without interrupting the flow of traffic.</p></li>
+<li><p>Can operate in either transparent or routed modes.</p></li>
+</ul>
+<p>Example of passive mode:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-11.png" src="../../../_images/networking-with-firewall-capabilities-11.png" />
 </div>
 <div class="section" id="passive-with-erspan-mode">
 <h3>Passive with ERSPAN Mode<a class="headerlink" href="#passive-with-erspan-mode" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Similar to remote IDS</p></li>
+<li><p>GRE tunnel between capture point and FTD.</p></li>
+</ul>
+<p>Example of ERSPAN passive mode:</p>
+<img alt="../../../_images/networking-with-firewall-capabilities-12.png" src="../../../_images/networking-with-firewall-capabilities-12.png" />
 </div>
 <div class="section" id="cisco-ftd-deployment-design-configurations">
 <h3>Cisco FTD Deployment Design Configurations<a class="headerlink" href="#cisco-ftd-deployment-design-configurations" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Design Consideration</p></th>
+<th class="head"><p>Recommendation/Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Management</p></td>
+<td><p>Local (FDM), or Central (FMC). FMC recommended for multiple appliances, enhanced visual analysis, central configuration, alerting, and reporting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Standalone or Resilient</p></td>
+<td><p>Resilient recommended. Has impact on the number of interfaces required.</p></td>
+</tr>
+<tr class="row-even"><td><p>Link Speed(s)/Types</p></td>
+<td><p>Up/downstream speeds, internal/DMZ connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Routed or Transparent mode</p></td>
+<td><p>Routed mode recommended for Edge. Transparent/NGIPS only for customers who already have a third-party firewall.</p></td>
+</tr>
+<tr class="row-even"><td><p>Number of Interfaces</p></td>
+<td><p>Internal, External, HA or DMZs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Traffic Profile</p></td>
+<td><p>Clear or Encrypted, Streaming, Hosting Services.</p></td>
+</tr>
+<tr class="row-even"><td><p>Application Control</p></td>
+<td><p>Typical requirement at the edge. Opportunity to discuss OpenAppID.</p></td>
+</tr>
+<tr class="row-odd"><td><p>URL Filtering</p></td>
+<td><p>Good for remote/branch locations. Central/HQ may already have provision.</p></td>
+</tr>
+<tr class="row-even"><td><p>Deep Inspection</p></td>
+<td><p>Cisco strength. Industry-leading protection. Can have an impact on performance, so size accordingly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>File and Malware Protection</p></td>
+<td><p>Cisco differentiator. Advanced Malware Protection (AMP) can enhance existing AMP solutions or lead to upsell or further expansion.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

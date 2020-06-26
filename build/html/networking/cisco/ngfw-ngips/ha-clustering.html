@@ -199,8 +199,68 @@
             
   <div class="section" id="high-availability-and-clustering">
 <h1>High Availability and Clustering<a class="headerlink" href="#high-availability-and-clustering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>HA (failover) or cluster</p></li>
+<li><p>Identical FTD devices or identical ASA devices</p></li>
+<li><p>State link between devices</p></li>
+<li><p>ASA supports active-active &amp; active-standby. FTD only supports active-standby</p></li>
+<li><p>Only active passes traffic</p></li>
+<li><p>Failover and stateful links are dedicated</p></li>
+<li><p>Stateful link is used to pass connection state information. Ensure that it the bandwidth available is equal on both sides. Latency must be less than 10ms, no more than 250ms.</p></li>
+</ul>
+<p>Active-standby failover:</p>
+<img alt="../../../_images/ha-clustering-1.png" src="../../../_images/ha-clustering-1.png" />
+<p>Communication over the failover link:</p>
+<ul class="simple">
+<li><p>The firewall state (active or standby)</p></li>
+<li><p>Hello messages (keepalives)</p></li>
+<li><p>Network link status</p></li>
+<li><p>MAC address exchange</p></li>
+<li><p>Configuration replication and synchronisation</p></li>
+</ul>
+<p>Failover configuration requirements:</p>
+<ul class="simple">
+<li><p>The two participant devices must be configured in the same firewall mode (for example, routed or transparent).</p></li>
+<li><p>The two participant devices must be running the same software version.</p></li>
+<li><p>You can configure different Cisco FTD devices in groups (or domains) in the Cisco FMC. Devices configured for failover must be in the same domain or group on the Cisco FMC.</p></li>
+<li><p>The two participant devices must have the same Network Time Protocol (NTP) configuration (and time must be synchronized).</p></li>
+<li><p>Failover participant devices must be fully deployed with no uncommitted changes in the Cisco FMC.</p></li>
+<li><p>DHCP or PPPoE must not be configured on any of their interfaces.</p></li>
+<li><p>Same licenses - FMC releases any unnecessary licenses assigned to the standby device and replaces them with identical licenses assigned to the active and standby device.</p></li>
+</ul>
+<p>Methods for connecting failover link:</p>
+<ul class="simple">
+<li><p>Use a switch with dedicated network segment (VLAN or broadcast domain).</p></li>
+<li><p>Direct connection between the two devices with the same ethernet speeds and ethernet numbers.</p></li>
+</ul>
 <div class="section" id="clustering">
 <h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://h4cker.org/scor/clustering.html">https://h4cker.org/scor/clustering.html</a></p>
+<ul class="simple">
+<li><p>Multiple FTDs into one, logical device.</p></li>
+<li><p>Supported only on 4100 &amp; 9300.</p></li>
+<li><p>Increased throughput and redundancy.</p></li>
+<li><p>Cluster-control link (by default, port-channel 48) for unit-to-unit communication. Data and control traffic, state update and forwarded packets are sent over this link. Must be sized to handle comms of all members.</p></li>
+<li><p>Intra-chassis clustering can occur in 9300, using backplane for cluster comms.</p></li>
+<li><p>Inter-chassis clustering is achieved by allocating 1 or more physical interfaces in EtherChannel.</p></li>
+<li><p>Firepower chassis supervisor pushes minimal bootstrap config to each unit that has cluster name and control link interface settings when deploying cluster.</p></li>
+<li><p>FTD cluster assigns data interfaces to the cluster as spanned interfaces.</p></li>
+<li><p>FTD cluster members share policy and traffic flows.</p></li>
+<li><p>One FTD is the master unit (automatically determined), others are slaves. Master is either the first unit joining or on config’d priority.</p></li>
+<li><p>All config is done on master unit and replicated to slaves.</p></li>
+<li><p>New master is elected when master leaves cluster.</p></li>
+<li><p>Master handles all management and centralised functions.</p></li>
+<li><p>All members must be connected to single management network (separate to cluster control link). Management interfaces must be assigned when enabling clustering to be able to connect directly to member.</p></li>
+</ul>
+<p>4 FTD devices connected to 2 switches:</p>
+<img alt="../../../_images/ha-clustering-2.png" src="../../../_images/ha-clustering-2.png" />
+<p>FTD cluster unit state transition:</p>
+<img alt="../../../_images/ha-clustering-3.png" src="../../../_images/ha-clustering-3.png" />
+<ol class="arabic simple">
+<li><p>After the unit boots, it looks for a master over the cluster control link.</p></li>
+<li><p>If there are no master units, it waits 45 seconds before assuming the master role. If a master already exists, it becomes a slave and the configuration is synchronized.</p></li>
+<li><p>If there is a synchronisation or health issue, the unit is considered disabled in the cluster.</p></li>
+</ol>
 </div>
 </div>
 

@@ -6,6 +6,15 @@ General, random and useful Linux-related config and things.
 
 A good site to browse random commands and things: https://www.commandlinefu.com/
 
+Find
+----
+
+https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name
+
+.. code-block:: bash
+
+  find ~ -name foldername -type d
+
 Screen
 ------
 

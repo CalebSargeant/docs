@@ -210,27 +210,255 @@
 <h1>Implementing Access Control<a class="headerlink" href="#implementing-access-control" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="acls-in-cisco-asa">
 <h2>ACLs in Cisco ASA<a class="headerlink" href="#acls-in-cisco-asa" title="Permalink to this headline">¶</a></h2>
+<p>An ACL is a collection of security rules or policies that allows or denies packets after looking at the packet headers and other attributes. Each permit or deny statement in the ACL is referred to as an access control entry (ACE). These ACEs classify packets by inspecting Layer 2 through Layer 7 headers for a number of parameters, including the following:</p>
+<ul class="simple">
+<li><p>Layer 2 protocol information such as EtherTypes</p></li>
+<li><p>Layer 3 protocol information such as ICMP, TCP, or UDP</p></li>
+<li><p>Layer 3 header information such as source and destination IP addresses</p></li>
+<li><p>Layer 4 header information such as source and destination TCP or UDP ports</p></li>
+<li><p>Layer 7 information such as application and system service calls</p></li>
+</ul>
+<p>ACLs on the ASA:</p>
+<ul class="simple">
+<li><p>ACLs get applied to an interface to filter traffic.</p></li>
+<li><p>ASA filters inbound and outbound.</p></li>
+<li><p>Inbound ACL - ASA analyses packets against the ACEs.</p></li>
+<li><p>Outbound ACL - ASA inspects packets exiting out of interface, but not packets entering interface.</p></li>
+<li><p>Permitted packets get processed by the ASA and the packet and passes out egress interface.</p></li>
+<li><p>Denied packets get <em>discarded</em> and the ASA generates a syslog message.</p></li>
+<li><p>You can apply only 1 extended ACL per direction of an interface.</p></li>
+<li><p>You can apply an extended ACL and an EtherType ACL in the same direction, if running in transparent mode.</p></li>
+<li><p>Return TCP/UDP traffic is not blocked from lower security-level higher security-level.</p></li>
+<li><p>Return GRE/ESP traffic must be permitted on the ACL applied on respective interface.</p></li>
+<li><p>Return ICMP traffic in ACL must be allowed or enable ICMP inspection.</p></li>
+</ul>
+<p>ACLs include a five-tuple:</p>
+<ul class="simple">
+<li><p>Source IP address (or subnet)</p></li>
+<li><p>Source port</p></li>
+<li><p>Destination IP address (or subnet)</p></li>
+<li><p>Destination port</p></li>
+<li><p>Protocol</p></li>
+</ul>
+<p>Dissected ACL on ASA:</p>
+<img alt="../../../_images/access-control-1.png" src="../../../_images/access-control-1.png" />
+<p>Inbound ACL:</p>
+<img alt="../../../_images/access-control-2.png" src="../../../_images/access-control-2.png" />
+<p>Outbound ACL:</p>
+<img alt="../../../_images/access-control-3.png" src="../../../_images/access-control-3.png" />
+<p>Characteristics of an ACL:</p>
+<ul class="simple">
+<li><p>When a new ACE is added to an existing ACL, it is appended to the end of the ACL, unless a specific line number is specified.</p></li>
+<li><p>When a packet enters the security appliance, the ACEs are evaluated in sequential order. Hence, the order of an ACE is critical. For example, if you have an ACE that allows all IP traffic to pass through, and then you create another ACE to block all IP traffic, the packets are never evaluated against the second ACE because all packets match the first ACE.</p></li>
+<li><p>There is an implicit deny at the end of all ACLs. If a packet is not matched against a configured ACE, it is dropped and a syslog with message ID of 106023 is generated.</p></li>
+<li><p>By default, you do not need to define an ACE to permit traffic from a high-security-level interface to a low-security-level interface. However, if you want to restrict traffic flows from a high-security-level interface destined to a low-security-level interface, you can define an ACL. If you configure an ACL for traffic originating from a high-security-level interface to a low-security-level interface, it disables the implicit permit from that interface. All traffic is now subject to the entries defined in that ACL.</p></li>
+<li><p>An ACL must explicitly permit traffic traversing the Cisco ASA from a lower- to a higher-security-level interface of the firewall. The ACL must be applied to the lower-security-level interface or globally.</p></li>
+<li><p>The ACLs (extended or IPv6) must be applied to an interface to filter traffic that is passing through the security appliance. Beginning with Cisco ASA Software version 9.0(1), you can use a single ACL to filter both IPv4 and IPv6 traffic.</p></li>
+<li><p>You can bind one extended ACL and one EtherType ACL in each direction of an interface at the same time.</p></li>
+<li><p>You can apply the same ACL to multiple interfaces. However, doing so is not considered to be a good security practice because correlating ACL hit counts to a specific interface’s traffic would be impossible.</p></li>
+<li><p>You can use ACLs to control both traffic through the Cisco ASA and traffic to the security appliance. The ACLs that control traffic to the appliance are applied differently than ACLs that filter traffic through the appliance.</p></li>
+<li><p>When TCP or UDP traffic flows through the security appliance, the return traffic is automatically allowed to pass through because the connections are bidirectional.</p></li>
+<li><p>Other protocols such as ICMP are considered unidirectional connections, so you need to allow ACL entries in both directions. However, when you enable the ICMP inspection engine, the inspection engine keeps track of the ICMP messages and then allows replies (such as ping packets).</p></li>
+</ul>
+<p><strong>Four types of ACLs:</strong></p>
+<ul class="simple">
+<li><p>Standard</p>
+<ul>
+<li><p>Based on destination IP Address.</p></li>
+<li><p>Used in split-tunnels and route-distribution in route maps.</p></li>
+<li><p>Cannot be applied to interface for traffic filtering.</p></li>
+<li><p>Can only be used if device is in routed mode.</p></li>
+</ul>
+</li>
+<li><p>Extended</p>
+<ul>
+<li><p>Attributes:</p>
+<ul>
+<li><p>Source and Destination IP Addresses</p></li>
+<li><p>Layer 3 Protocols</p></li>
+<li><p>Source and/or Destination TCP and UDP ports</p></li>
+<li><p>Destination ICMP type for ICMP packets</p></li>
+<li><p>User identity attributes such as AD username or group membership</p></li>
+</ul>
+</li>
+<li><p>Used for interface packet filtering, QoS classification, NAT, VPN encryption, etc.</p></li>
+<li><p>Can be used in both routed and transparent modes.</p></li>
+</ul>
+</li>
+<li><p>EtherType</p>
+<ul>
+<li><p>Filter IP and non-IP-based traffic, checking the Ethernet type code (0x800 is IP) in L2 header. Novell IPX, for example uses 0x8137/8</p></li>
+<li><p>Can be used only if device is in transparent mode.</p></li>
+<li><p>Implicit deny does not affect IP traffic, therefore, can be applied in each direction of interface, unless one inputs an explicit deny.</p></li>
+</ul>
+</li>
+<li><p>Webtype</p>
+<ul>
+<li><p>Restrict traffic coming through SSL VPN.</p></li>
+<li><p>Implicit deny if ACL configured, else all allowed.</p></li>
+</ul>
+</li>
+</ul>
+<p>ASA Extended ACL topology:</p>
+<img alt="../../../_images/access-control-4.png" src="../../../_images/access-control-4.png" />
+<p>Security-Levels:</p>
+<ul class="simple">
+<li><p>100 most secure (<code class="docutils literal notranslate"><span class="pre">nameif</span> <span class="pre">inside</span></code> will automatically set <code class="docutils literal notranslate"><span class="pre">security-level</span></code> to 100)</p></li>
+<li><p>0 leaast secure (<code class="docutils literal notranslate"><span class="pre">nameif</span> <span class="pre">outside</span></code> will automatically set <code class="docutils literal notranslate"><span class="pre">security-level</span></code> to 0)</p></li>
+<li><p>Input``same-security-traffic permit inter-interface`` global config command to allow what it says…</p></li>
+</ul>
+<p>ACL example, allowing 10.2.2.2 &amp; 3 to reach 10.1.1.2 on http &amp; 209.165.202.132 on smtp:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa# conf t
+asa(config)# access-list outside_in extended permit tcp host 10.2.2.2 host 10.1.1.2 eq http
+asa(config)# access-list outside_in extended permit tcp host 10.2.2.3 host 10.1.1.2 eq http
+asa(config)# access-list outside_in extended permit tcp host 10.2.2.2 host 209.165.202.132 eq smtp
+asa(config)# access-list outside_in extended permit tcp host 10.2.2.3 host 209.165.202.132 eq smtp
+asa(config)# access-list outside_in extended deny ip any any log
+asa(config)# access-group outside_in in interface outside
+</pre></div>
+</div>
 </div>
 <div class="section" id="cisco-asa-application-inspection">
 <h2>Cisco ASA Application Inspection<a class="headerlink" href="#cisco-asa-application-inspection" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Stateful inspection keeps info about each connection traversing ASA &amp; examines packet header and contents of packet in application layer.</p></li>
+<li><p>Applications and protocols and secondary channels on dynamically assigned ports that embedded IP Address information in the data payload of the packet require inspection, which allows for NAT to work and update any other fields or checksums.</p></li>
+<li><p>ASA identifies dynamic port assignments and allows data exchange on ports during connection.</p></li>
+<li><p>Modular Policy Framework (MPF) is provided by ASA for QoS. MPF is flexible and simple, similar to IOS Modular QoS CLI.</p></li>
+</ul>
+<p>Configuration Steps:</p>
+<ol class="arabic simple">
+<li><p>Configure traffic classes to identify interesting traffic.</p></li>
+<li><p>Associate actions to each traffic class to create service policies.</p></li>
+<li><p>Activate the service policies on an interface or globally.</p></li>
+</ol>
+<p>Commands of the MPF:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class-map</span></code>: classifies traffic for inspection. Various types of match criteria in a class map can be used to classify traffic. The primary criterion is the use of an access control list (ACL).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policy-map</span></code>: configures security or QoS policies. A policy consists of a <em>class</em> command and its associated actions. Additionally, a policy map can contain multiple policies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">service-policy</span></code>: activates a policy map globally (on all interfaces) or on a targeted interface.</p></li>
+</ul>
+<p>Application inspection example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa(config)# access-list tftptraffic permit udp any any eq 69
+asa(config)# class-map TFTPclass
+asa(config-cmap)# match access-list tftptraffic
+asa(config-cmap)# exit
+asa(config)# policy-map tftppolicy
+asa(config-pmap)# class TFTPclass
+asa(config-pmap-c)# inspect tftp
+asa(config-pmap-c)# exit
+asa(config-pmap)# exit
+asa(config)# service-policy tftppolicy global
+</pre></div>
+</div>
 </div>
 <div class="section" id="to-the-box-traffic-filtering-in-cisco-asa">
 <h2>To-the-Box Traffic Filtering in Cisco ASA<a class="headerlink" href="#to-the-box-traffic-filtering-in-cisco-asa" title="Permalink to this headline">¶</a></h2>
+<p>Management access rules apply to traffic that terminate on the ASA. Guidelines:</p>
+<ul class="simple">
+<li><p>Traffic filtering requires you to configure an ACL and then apply the ACL to the appropriate interface, using the <code class="docutils literal notranslate"><span class="pre">control-plane</span></code> keyword at the end, which tells the ASA to block the specified traffic destined for the ASA.</p></li>
+<li><p>The ACL cannot be applied to an interface designated as a <code class="docutils literal notranslate"><span class="pre">management-only</span></code> interface.</p></li>
+<li><p>Management-specific protocols provide their own control-plane protection and have higher precedence than a to-the-box traffic-filtering ACL. For example, if you allow a host to establish an SSH session (by defining its IP address in the <code class="docutils literal notranslate"><span class="pre">ssh</span></code> command) and then block its IP address in the management access rule, the host can establish an SSH session to the security appliance.</p></li>
+</ul>
+<p>Example of management access rule:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa# conf t
+asa(config)# access-list outside_access_in_1 remark Blocking all Management Traffic on the Outside Interface
+asa(config)# access-list outside_access_in_1 extended deny ip any any
+asa(config)# access-group outside_access_in_1 in interface outside control-plane
+</pre></div>
+</div>
 </div>
 <div class="section" id="object-grouping-and-other-acl-features">
 <h2>Object Grouping and Other ACL Features<a class="headerlink" href="#object-grouping-and-other-acl-features" title="Permalink to this headline">¶</a></h2>
+<p>Advanced packet-filtering features:</p>
+<ul class="simple">
+<li><p>Object grouping</p>
+<ul>
+<li><p>Group similar items together to reduce ACEs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">access-list</span></code> reveals the individual ACEs regardless of grouping.</p></li>
+<li><p>Hierarchical/nested grouping can take place.</p></li>
+<li><p>Types that can be grouped:</p>
+<ul>
+<li><p>Protocol</p></li>
+<li><p>Network</p></li>
+<li><p>Service</p></li>
+<li><p>Local user group</p></li>
+<li><p>Security group</p></li>
+<li><p>ICMP type</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Standard ACLs</p></li>
+<li><p>Time-based ACLs</p></li>
+<li><p>Downloadable ACLs</p></li>
+</ul>
 </div>
 <div class="section" id="standard-acls">
 <h2>Standard ACLs<a class="headerlink" href="#standard-acls" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa(config)# access-list Dest-Net standard permit host 192.168.88.10
+asa(config)# access-list Dest-Net standard permit 192.168.20.0 255.255.255.0
+asa(config)# access-list Dest_Net standard deny any
+! application of standard ACL to OSPF route map
+asa(config)# route-map OSPFMAP permit 10
+asa(config-route-map)# match ip address Dest_Net
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 <div class="section" id="time-based-acls">
 <h2>Time-Based ACLs<a class="headerlink" href="#time-based-acls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Prevent access based on the preconfigured time intervals.</p></li>
+<li><p>NTP config is recommended.</p></li>
+<li><p>Can be used with extended, IPv6 and Webtype ACLs</p></li>
+<li><p>Applies only to new connections.</p></li>
+<li><p>Types of time restrictions (absolute evaluated before periodic):</p>
+<ul>
+<li><p>Absolute: has start and end time. If no start time stipulated, ASA applies immediately. If no end time stipulated, ASA applies ACL forever. Only one <code class="docutils literal notranslate"><span class="pre">absolute</span></code> parameter allowed at a time.</p></li>
+<li><p>Periodic: values based on recurring events. Only allow things during specific hours. Use of weekdays.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="icmp-filtering-in-cisco-asa">
 <h2>ICMP Filtering in Cisco ASA<a class="headerlink" href="#icmp-filtering-in-cisco-asa" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Interface ACLs can block all ICMP traffic.</p></li>
+<li><p>Allowed by default.</p></li>
+<li><p>Control-plane ACL or ICMP policies (<code class="docutils literal notranslate"><span class="pre">icmp</span></code> command) control ICMP.</p></li>
+<li><p>Processed in sequential order, implicit deny at end.</p></li>
+<li><p>ICMP traffic filtering takes precedence over control-plane filtering.</p></li>
+</ul>
+<p>ICMP filtering example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa(config)# icmp deny any echo outside
+asa(config)# icmp permit any outside
+</pre></div>
+</div>
 </div>
 <div class="section" id="network-address-translation-in-cisco-asa">
 <h2>Network Address Translation in Cisco ASA<a class="headerlink" href="#network-address-translation-in-cisco-asa" title="Permalink to this headline">¶</a></h2>
+<p>Hide internal addressing from outside by showing different IP address spaces.</p>
+<p>Deployment examples:</p>
+<ul class="simple">
+<li><p>You use a private addressing scheme internally and want to assign global routable addresses to those hosts.</p></li>
+<li><p>You change to a service provider that requires you to modify your addressing scheme.</p></li>
+<li><p>Rather than redesigning the entire IP infrastructure, you implement translation on the border appliance.</p></li>
+<li><p>For security reasons, you do not want to advertise the internal addressing scheme to the outside hosts.</p></li>
+<li><p>You have multiple internal networks that require Internet connectivity through the security appliance, but only one global address (or a few) is available for translation.</p></li>
+<li><p>You have overlapping networks in your organisation and you want to provide connectivity between the two without modifying the existing addressing scheme.</p></li>
+<li><p>One-to-one address mapping when packet traverses ASA and matches criteria for translation.</p></li>
+<li><p>The ASA either assigns a static IP Address (static NAT) or allocates an address from a pool of addresses (dynamic NAT)</p></li>
+<li><p>Internal address gets translated to global address when packets go to the public network (inside NAT).</p></li>
+<li></li>
+</ul>
+<p>Two types of NAT:</p>
+<ul class="simple">
+<li><p>Network Address Translation (NAT)</p></li>
+<li><p>Port Address Translation (PAT)</p></li>
+</ul>
 </div>
 <div class="section" id="cisco-asa-auto-nat">
 <h2>Cisco ASA Auto NAT<a class="headerlink" href="#cisco-asa-auto-nat" title="Permalink to this headline">¶</a></h2>
