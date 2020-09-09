@@ -3,9 +3,6 @@ NetDevOps Tool Chest
 
 .. image:: _images/netdevops-toolchest-1.png
 
-SSG-350M Site-to-Site VPN
--------------------------
-
 .. image:: _images/netdevops-toolchest-2.png
 
 .. image:: _images/netdevops-toolchest-3.png
