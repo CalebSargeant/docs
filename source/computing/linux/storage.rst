@@ -224,3 +224,24 @@ Windows Harddrive
   cd /mnt/boot
   badblocks -sv /dev/hdbx -o <file_name_here>
   e2fsck -t ext3 -l <file_name_here> /dev/hdbx
+
+MDADM
+-----
+
+.. code-block:: bash
+
+  # Add entry to fstab to automount
+  nano /etc/fstab
+    /dev/md0        /media/data     ext4 defaults 0 0
+
+  # Ensure that the mountpoint exists
+  mkdir /media/data
+
+  # Create a FS on the array if not done already
+  mkfs.ext4 /dev/md0
+
+  # Mount the FS
+  mount /dev/md0 /media/data
+
+  # Or mount all
+  mount -a
