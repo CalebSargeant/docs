@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Storage &mdash; Caleb Sargeant&#39;s Docs 0.0.1 documentation</title>
+  <title>Storage &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
 
   
@@ -115,6 +115,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#windows-harddrive">Windows Harddrive</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#mdadm">MDADM</a></li>
 </ul>
 </li>
 </ul>
@@ -410,6 +411,26 @@ badblocks -sv /dev/hdbx -o &lt;file_name_here&gt;
 e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/hdbx
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="mdadm">
+<h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add entry to fstab to automount</span>
+nano /etc/fstab
+  /dev/md0        /media/data     ext4 defaults <span class="m">0</span> <span class="m">0</span>
+
+<span class="c1"># Ensure that the mountpoint exists</span>
+mkdir /media/data
+
+<span class="c1"># Create a FS on the array if not done already</span>
+mkfs.ext4 /dev/md0
+
+<span class="c1"># Mount the FS</span>
+mount /dev/md0 /media/data
+
+<span class="c1"># Or mount all</span>
+mount -a
+</pre></div>
 </div>
 </div>
 </div>

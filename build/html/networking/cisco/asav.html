@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ASAv &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Network Design and Documentation" href="design-and-documentation.html" />
+    <link rel="prev" title="ASA" href="asa.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asa.html">ASA</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ASAv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws">AWS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#important-caveats">Important Caveats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useful-links">Useful Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#launch-steps">Launch Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#day-0-configuration">Day 0 Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-s3-as-software-storage-location">Using S3 as Software Storage Location</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Cisco</a> &raquo;</li>
+        
+      <li>ASAv</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/networking/cisco/asav.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asav">
+<h1>ASAv<a class="headerlink" href="#asav" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws">
+<h2>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="important-caveats">
+<h3>Important Caveats<a class="headerlink" href="#important-caveats" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Launching through the AWS Marketplace does not allow you to input the <em>Day 0 Configuration</em>, which means you will not be able to contact the device. Ensure that you create the ASAv via <em>EC2 &gt; Launch Instance</em>.</p></li>
+<li><p>Also note that if you want to test the difference between BYOL and standard, whichever you subscribe to last will change the subscription of all ASAvs.</p></li>
+<li><p>The initial interface that gets created with the ASAv cannot be deleted or dissociated and is exclusively used for the management interface. The second interface you associate is g0/0, the third interface is g0/1, etc. If you remove g0/0, g0/1 will become g0/1.</p></li>
+<li><p>You need to reboot the ASAv after modifying the interfaces.</p></li>
+<li><p>You need to license the ASAv before the ASA allows AnyConnect configuration.</p></li>
+<li><p>ASAv AnyConnect can only be done via Smart Licensing. The ASAv License can be done via the BYOL or Standard AWS license models.</p></li>
+</ul>
+</div>
+<div class="section" id="useful-links">
+<h3>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa95/asav/quick-start/asav-quick/asav-aws.html">https://www.cisco.com/c/en/us/td/docs/security/asa/asa95/asav/quick-start/asav-quick/asav-aws.html</a></p></li>
+<li><p><a class="reference external" href="https://aws.amazon.com/marketplace/pp/B00WRGASUC?qid=1593698881714&amp;sr=0-2&amp;ref_=srh_res_product_title">https://aws.amazon.com/marketplace/pp/B00WRGASUC?qid=1593698881714&amp;sr=0-2&amp;ref_=srh_res_product_title</a></p></li>
+</ul>
+</div>
+<div class="section" id="launch-steps">
+<h3>Launch Steps<a class="headerlink" href="#launch-steps" title="Permalink to this headline">¶</a></h3>
+<p>The process to launch a BYOL ASAv as opposed to the Standard AWS ASAv is the same:</p>
+<img alt="../../_images/asav-aws-1.png" src="../../_images/asav-aws-1.png" />
+<p>c4.large is the recommended size (to start with):</p>
+<img alt="../../_images/asav-aws-2.png" src="../../_images/asav-aws-2.png" />
+<p>Configure your network settings:</p>
+<img alt="../../_images/asav-aws-3.png" src="../../_images/asav-aws-3.png" />
+<p>Configure ASAv interfaces and set day 0 configuration.</p>
+<img alt="../../_images/asav-aws-4.png" src="../../_images/asav-aws-4.png" />
+<p>Skip Storage and Tags, select (or create) your Security Group for ASAv:</p>
+<img alt="../../_images/asav-aws-5.png" src="../../_images/asav-aws-5.png" />
+<p>Select or create the Key Pair for your ASAv:</p>
+<img alt="../../_images/asav-aws-6.png" src="../../_images/asav-aws-6.png" />
+<p>Then, create 2 network interfaces, one in your public subnet (outside), to attach elastic IP, and the other in your private subnet (inside) via <em>EC2 &gt; Network Interfaces &gt; Create Network Interface</em>:</p>
+<img alt="../../_images/asav-aws-9.png" src="../../_images/asav-aws-9.png" />
+<img alt="../../_images/asav-aws-10.png" src="../../_images/asav-aws-10.png" />
+<p>Allocate an Elastic IP:</p>
+<img alt="../../_images/asav-aws-7.png" src="../../_images/asav-aws-7.png" />
+<p>Associate the created Elastic IP to your public (outside) interface:</p>
+<img alt="../../_images/asav-aws-8.png" src="../../_images/asav-aws-8.png" />
+</div>
+<div class="section" id="day-0-configuration">
+<h3>Day 0 Configuration<a class="headerlink" href="#day-0-configuration" title="Permalink to this headline">¶</a></h3>
+<p>In the below day 0 configuration, we will be disabling the management interface to have only 2 interfaces (outside, inside). Management will be done via outside, as per standard with physical ASAs in offices.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface management0/0
+management-only
+nameif management
+security-level 100
+no ip address
+no shut
+!
+interface g0/0
+nameif outside
+security-level 0
+ip address dhcp setroute
+no shut
+!
+interface g0/1
+nameif inside
+security-level 100
+ip address dhcp setroute
+no shut
+!
+same-security-traffic permit inter-interface
+same-security-traffic permit intra-interface
+!
+crypto key generate rsa modulus 2048
+ssh 0 0 management
+ssh 0 0 outside
+http 0 0 management
+http 0 0 outside
+ssh timeout 30
+ssh scopy enable
+http server enable 443
+username admin SUPERSECUREPASSWORD privilege 15
+username admin attributes
+service-type admin
+dns domain-lookup management
+DNS server-group DefaultDNS
+name-server 1.1.1.1
+ntp server 169.254.169.123
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-s3-as-software-storage-location">
+<h3>Using S3 as Software Storage Location<a class="headerlink" href="#using-s3-as-software-storage-location" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/s3-aws-ip-addresses-access/">https://aws.amazon.com/premiumsupport/knowledge-center/s3-aws-ip-addresses-access/</a></p></li>
+<li><p><a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html">https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html</a></p></li>
+</ul>
+<p>Create an S3 Bucket with the default settings (permission settings to follow):</p>
+<img alt="../../_images/asav-aws-s3-1.png" src="../../_images/asav-aws-s3-1.png" />
+<img alt="../../_images/asav-aws-s3-2.png" src="../../_images/asav-aws-s3-2.png" />
+<img alt="../../_images/asav-aws-s3-3.png" src="../../_images/asav-aws-s3-3.png" />
+<img alt="../../_images/asav-aws-s3-4.png" src="../../_images/asav-aws-s3-4.png" />
+<p>Modify the permission setting to allow a <em>Bucket Policy</em> (this could have been done in creating the bucket).</p>
+<img alt="../../_images/asav-aws-s3-5.png" src="../../_images/asav-aws-s3-5.png" />
+<p>Create the Bucket Policy:</p>
+<img alt="../../_images/asav-aws-s3-6.png" src="../../_images/asav-aws-s3-6.png" />
+<p>The below bucket policy allows only x.x.x.x/32 and y.y.y.y/32 access.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Id&quot;</span><span class="p">:</span> <span class="s2">&quot;S3PolicyId1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+          <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;IPAllow&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Principal&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:s3:::bucketname/*&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;Condition&quot;</span><span class="p">:</span> <span class="p">{</span>
+              <span class="nt">&quot;IpAddress&quot;</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="nt">&quot;aws:SourceIp&quot;</span><span class="p">:</span> <span class="p">[</span>
+                      <span class="s2">&quot;x.x.x.x/32&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;y.y.y.y/32&quot;</span>
+                  <span class="p">]</span>
+              <span class="p">}</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can now copy files directly from the S3 bucket onto the ASA:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa# copy  https://bucketname.amazonaws.com/anyconnect-linux64-4.8.02042-webdeploy-k9.zip disk0:/anyconnect-linux64-4.8.02042-webdeploy-k9.zip
+
+Address or name of remote host [bucketname.amazonaws.com]?
+
+Source filename [anyconnect-linux64-4.8.02042-webdeploy-k9.zip]?
+
+Destination filename [anyconnect-linux64-4.8.02042-webdeploy-k9.zip]?
+
+Accessing https://bucketname.amazonaws.com/anyconnect-linux64-4.8.02042-webdeploy-k9.zip...!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Writing file disk0:/anyconnect-linux64-4.8.02042-webdeploy-k9.zip...
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+40004376 bytes copied in 2.90 secs (20002188 bytes/sec)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="design-and-documentation.html" class="btn btn-neutral float-right" title="Network Design and Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="asa.html" class="btn btn-neutral float-left" title="ASA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
