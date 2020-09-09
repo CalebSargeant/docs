@@ -21,6 +21,7 @@ Table of Contents
   networking/hp
   networking/juniper
   networking/ubiquiti-unifi
+  networking/netdevops-toolchest
 
 .. toctree::
   :maxdepth: 2

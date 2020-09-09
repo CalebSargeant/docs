@@ -188,7 +188,16 @@
 <h1>Genie<a class="headerlink" href="#genie" title="Permalink to this headline">¶</a></h1>
 <p>Automatically parses device configuration into yaml, json, etc. to be used with python, for example.</p>
 <p><a class="reference external" href="https://developer.cisco.com/docs/genie-docs/">https://developer.cisco.com/docs/genie-docs/</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>genie learn interface --testbed testbed.yaml --device iosxe --output learn
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># get a state of the network</span>
+genie learn interface --testbed testbed.yaml --device iosxe --output learn
+
+<span class="c1"># some stuff changes in the network</span>
+
+<span class="c1"># learn the network again</span>
+genie learn interface --testbed testbed.yaml --device iosxe --output learn2
+
+<span class="c1"># get a diff of the network to see what changed</span>
+genie diff learn learn2 --output diff
 </pre></div>
 </div>
 </div>
