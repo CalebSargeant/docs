@@ -132,13 +132,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#if">if</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remove-first-line">Remove First Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#search-for-text-in-files">Search for Text in Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-text-before-character">Extract Text Before Character</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#history">History</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 </ul>
 </li>
@@ -525,6 +529,18 @@ caleb.sargeant
 <div class="section" id="search-for-text-in-files">
 <h2>Search for Text in Files<a class="headerlink" href="#search-for-text-in-files" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-rnw</span> <span class="pre">'/etc/'</span> <span class="pre">-e</span> <span class="pre">'NULL'</span></code></p>
+</div>
+<div class="section" id="extract-text-before-character">
+<h2>Extract Text Before Character<a class="headerlink" href="#extract-text-before-character" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/20348097/bash-extract-string-before-a-colon">https://stackoverflow.com/questions/20348097/bash-extract-string-before-a-colon</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace colon with whatever:</span>
+cut -d: -f1
+<span class="c1"># or</span>
+awk -F: <span class="s1">&#39;{print $1}&#39;</span>
+<span class="c1"># or</span>
+sed <span class="s1">&#39;s/:.*//&#39;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>

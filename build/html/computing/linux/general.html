@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Monitoring" href="monitoring.html" />
+    <link rel="next" title="KVM" href="kvm.html" />
     <link rel="prev" title="Databases" href="databases.html" /> 
 </head>
 
@@ -101,6 +101,13 @@
 <li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rsync">Rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fstab">Fstab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curl">Curl</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
@@ -139,10 +146,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#on-the-client-s-machine">On the Client’s Machine</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#age-of-system">Age of System</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 </ul>
 </li>
@@ -225,6 +236,93 @@
 <h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
 <p>General, random and useful Linux-related config and things.</p>
 <p>A good site to browse random commands and things: <a class="reference external" href="https://www.commandlinefu.com/">https://www.commandlinefu.com/</a></p>
+<div class="section" id="rsync">
+<h2>Rsync<a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://ss64.com/bash/rsync.html">https://ss64.com/bash/rsync.html</a></p>
+<p><a class="reference external" href="https://www.computerhope.com/unix/rsync.htm">https://www.computerhope.com/unix/rsync.htm</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># rsync without owner and group attributes</span>
+rsync -avP --no-o --no-g /mnt/data/share/ /mnt/server3/Backups/
+
+<span class="c1"># cronning rsync (https://unix.stackexchange.com/questions/392780/how-to-schedule-an-rsync-command)</span>
+crontab -e
+  <span class="m">0</span> <span class="m">19</span> * * * root rsync -a src dest
+
+<span class="c1"># rsync showing progress (https://www.cyberciti.biz/faq/show-progress-during-file-transfer/)</span>
+rsync -P src dest
+
+<span class="c1"># rsync exclude stuff</span>
+rsync -avP --exclude <span class="s1">&#39;file_or_dir&#39;</span> src/ dst/
+
+<span class="c1"># rsync exclude from source file list</span>
+cat excl-list.txt
+  thisdir
+  thatdir
+  myfile.txt
+rsync -av --exclude-from<span class="o">={</span>excl-list.txt<span class="o">}</span>
+
+<span class="c1"># stop rsync from bandwidth vreet (https://www.cyberciti.biz/faq/how-to-set-keep-rsync-from-using-all-your-bandwidth-on-linux-unix/)</span>
+rsync -avP --bwlimit<span class="o">=</span>KBps
+rsync -avP --bwlimit<span class="o">=</span><span class="m">1024</span> src/ dst/
+
+<span class="c1"># rsync specify multiple source dirs (https://unix.stackexchange.com/questions/368210/how-to-rsync-multiple-source-folders)</span>
+rsync -avP /src/one /src/two /src/etcetra /dst
+</pre></div>
+</div>
+</div>
+<div class="section" id="fstab">
+<h2>Fstab<a class="headerlink" href="#fstab" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="emergency-mode-bad-fstab">
+<h3>Emergency Mode Bad Fstab<a class="headerlink" href="#emergency-mode-bad-fstab" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put SD card / HDD into another PC</span>
+nano /boot/cmdline.txt
+  <span class="nv">init</span><span class="o">=</span>/bin/sh
+
+<span class="c1"># Put SD card / HDD back into original machine</span>
+
+<span class="c1"># Mount FS (but not fstab)</span>
+mount -o remount,rw / –target /
+
+<span class="c1"># Modify fstab</span>
+nano /etc/fstab
+  <span class="c1"># modify what must be</span>
+
+<span class="c1"># Put SD card / HDD into another PC</span>
+nano /boot/cmdline.txt
+  <span class="c1"># delete init=/bin/sh</span>
+
+<span class="c1"># Put SD card / HDD back into original machine</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ssh-config">
+<h2>SSH Config<a class="headerlink" href="#ssh-config" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.ssh.com/ssh/config/">https://www.ssh.com/ssh/config/</a></p>
+<p><a class="reference external" href="https://www.openssh.com/legacy.html">https://www.openssh.com/legacy.html</a></p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat ~/.ssh/config
+  Host server
+   LocalForward <span class="m">2222</span> <span class="m">192</span>.168.99.99:22
+   User ubuntu
+   Hostname <span class="m">192</span>.168.100.1
+   IdentityFile ~/.ssh/server
+  Host router
+   User cisco
+   Hostname <span class="m">192</span>.168.1.1
+   IdentityFile ~/.ssh/router
+   Ciphers aes256-cbc
+  Host switch
+   User cisco
+   Hostname <span class="m">192</span>.168.33.2
+   Ciphers aes256-cbc
+   KexAlgorithms +diffie-hellman-group1-sha1
+</pre></div>
+</div>
+</div>
+<div class="section" id="curl">
+<h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h2>
+<p>Uploading files: <a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
+</div>
 <div class="section" id="find">
 <h2>Find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name">https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name</a></p>
@@ -624,6 +722,14 @@ web code).
 Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&gt;/path/to/gits to clone an existing server repository.</p>
 </div>
 </div>
+<div class="section" id="age-of-system">
+<h2>Age of System<a class="headerlink" href="#age-of-system" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation">https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@server:~$ sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep created
+Filesystem created:       Mon Sep  <span class="m">7</span> <span class="m">06</span>:49:22 <span class="m">2020</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -634,7 +740,7 @@ Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="monitoring.html" class="btn btn-neutral float-right" title="Monitoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kvm.html" class="btn btn-neutral float-right" title="KVM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="databases.html" class="btn btn-neutral float-left" title="Databases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

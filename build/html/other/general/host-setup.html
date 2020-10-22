@@ -118,6 +118,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#git">Git</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloning">Cloning</a></li>
 </ul>
 </li>
 </ul>
@@ -267,6 +268,13 @@ ansible-playbook -i ./hosts.yml playbookname.yml
 <span class="o">[</span>user<span class="o">]</span>
   <span class="nv">name</span> <span class="o">=</span> Caleb Sargeant
   <span class="nv">email</span> <span class="o">=</span> <span class="m">4991715</span>+CalebSargeant@users.noreply.github.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="cloning">
+<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username">https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@provider.com:userName/projectName.git --config core.sshCommand<span class="o">=</span><span class="s2">&quot;ssh -i ~/.ssh/github&quot;</span>
 </pre></div>
 </div>
 </div>

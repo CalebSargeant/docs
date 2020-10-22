@@ -110,6 +110,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#redirect-output-to-file">Redirect Output to File</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#searching-a-file">Searching a File</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#csv-files">CSV Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#content-type-of-files">Content-Type of Files</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="randomness.html">Randomness</a></li>
@@ -323,6 +324,15 @@
           <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
           <span class="k">if</span> <span class="n">column</span><span class="o">==</span><span class="s2">&quot;SPECIFIC VALUE&quot;</span><span class="p">:</span>
               <span class="c1">#do stuff</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="content-type-of-files">
+<h2>Content-Type of Files<a class="headerlink" href="#content-type-of-files" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/20244757/content-type-in-for-individual-files-in-python-requests">https://stackoverflow.com/questions/20244757/content-type-in-for-individual-files-in-python-requests</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;example.docx&#39;</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Path/to/example.docx&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="s1">&#39;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
 </div>

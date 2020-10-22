@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>KVM &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Monitoring" href="monitoring.html" />
+    <link rel="prev" title="General" href="general.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">KVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Linux</a> &raquo;</li>
+        
+      <li>KVM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/linux/kvm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kvm">
+<h1>KVM<a class="headerlink" href="#kvm" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://wiki.debian.org/KVM">https://wiki.debian.org/KVM</a></p>
+<p><a class="reference external" href="https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli">https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli</a></p>
+<p><a class="reference external" href="https://forums.linuxmint.com/viewtopic.php?t=227510">https://forums.linuxmint.com/viewtopic.php?t=227510</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies, virtmanager, etc.</span>
+apt-get install --no-install-recommends qemu-system libvirt-clients libvirt-daemon-system virtinst qemu-utils libosinfo-bin
+
+<span class="c1"># To get a list of IDs for --os-variant:</span>
+osinfo-query os
+
+<span class="c1"># Install the VM</span>
+virt-install --name<span class="o">=</span>windows10 --vcpus<span class="o">=</span><span class="m">2</span> --memory<span class="o">=</span><span class="m">4096</span> --cdrom<span class="o">=</span>/media/data/share/Software/ISO/Win10_2004_English_x64.iso --disk <span class="nv">size</span><span class="o">=</span><span class="m">32</span> --os-variant<span class="o">=</span>win10
+</pre></div>
+</div>
+<p><a class="reference external" href="https://levelup.gitconnected.com/how-to-setup-bridge-networking-with-kvm-on-ubuntu-20-04-9c560b3e3991">https://levelup.gitconnected.com/how-to-setup-bridge-networking-with-kvm-on-ubuntu-20-04-9c560b3e3991</a></p>
+<p><a class="reference external" href="https://johnsiu.com/blog/macos-kvm-remote-connect/#install-virt-manager-and-virt-viewer">https://johnsiu.com/blog/macos-kvm-remote-connect/#install-virt-manager-and-virt-viewer</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create default.xml to define network settings. We want bridged mode to ensure VM gets its own IP.</span>
+nano ~/default.xml
+  &lt;network&gt;
+    &lt;name&gt;default&lt;/name&gt;
+    &lt;uuid&gt;c9f4a06b-1ddb-4057-8eda-858955e205c8&lt;/uuid&gt;
+    &lt;forward <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;bridge&quot;</span>/&gt;
+    &lt;bridge <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>/&gt;
+  &lt;/network&gt;
+
+<span class="c1"># Example netplan config BEFORE</span>
+cat <span class="m">00</span>-installer-config.yaml
+  network:
+    ethernets:
+      enp4s0:
+        addresses:
+        - <span class="m">192</span>.168.32.32/24
+        gateway4: <span class="m">192</span>.168.32.1
+        nameservers:
+          addresses:
+          - <span class="m">1</span>.1.1.1
+          - <span class="m">1</span>.0.0.1
+          search:
+          - mydomain.com
+    version: <span class="m">2</span>
+
+  <span class="c1"># Example netplan config AFTER</span>
+  cat /etc/netplan/00-installer-config.yaml
+    network:
+      ethernets:
+        enp4s0:
+          dhcp4: <span class="nb">false</span>
+          dhcp6: <span class="nb">false</span>
+      bridges:
+        br0:
+          interfaces: <span class="o">[</span> enp4s0 <span class="o">]</span>
+          addresses:
+          - <span class="m">192</span>.168.32.32/24
+          gateway4: <span class="m">192</span>.168.32.1
+          nameservers:
+            addresses:
+            - <span class="m">1</span>.1.1.1
+            - <span class="m">1</span>.0.0.1
+          parameters:
+            stp: <span class="nb">true</span>
+            forward-delay: <span class="m">4</span>
+          dhcp4: no
+          dhcp6: no
+      version: <span class="m">2</span>
+</pre></div>
+</div>
+<p>Okay then a couple of things:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify windows10 domain settings to change to vnc &amp; port</span>
+virsh edit windows10
+  &lt;graphics <span class="nv">type</span><span class="o">=</span><span class="s1">&#39;vnc&#39;</span> <span class="nv">port</span><span class="o">=</span><span class="s1">&#39;5950&#39;</span> <span class="nv">autoport</span><span class="o">=</span><span class="s1">&#39;no&#39;</span> <span class="nv">listen</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>&gt;
+    &lt;listen <span class="nv">type</span><span class="o">=</span><span class="s1">&#39;address&#39;</span> <span class="nv">address</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>/&gt;
+  &lt;/graphics&gt;
+  <span class="c1"># Boot device must be changed to cdrom:</span>
+  &lt;os&gt;
+    &lt;<span class="nb">type</span> <span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span> <span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
+    &lt;boot <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;cdrom&#39;</span>/&gt;
+  &lt;/os&gt;
+
+<span class="c1"># Then destroy (stop) VM and start again (reboot wont apply setting change)</span>
+virsh destroy windows10
+virsh start windows10
+
+<span class="c1"># Then INSTALL Windows</span>
+
+<span class="c1"># then:</span>
+virsh edit windows10
+  change back to hd
+  &lt;os&gt;
+    &lt;<span class="nb">type</span> <span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span> <span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
+    &lt;boot <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;hd&#39;</span>/&gt;
+  &lt;/os&gt;
+
+<span class="c1"># Then destroy (stop) VM and start again (reboot wont apply setting change)</span>
+virsh destroy windows10
+virsh start windows10
+
+<span class="c1"># Output of this needs to show 0.0.0.0:5950 (nice hat) to show that its listening on all interfaces</span>
+netstat -tulpn <span class="p">|</span> grep <span class="m">59</span>
+  tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">0</span>.0.0.0:5950            <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">26523</span>/qemu-system-x
+  <span class="c1">#redacted</span>
+
+<span class="c1">#but it will actually ask you to boot from cd-dvd so not to actually worry about changing it - it will make it a few seconds faster to boot though, so change it after install complete</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>You may need to add a rule through iptables, or just disable it (NO DONT - BAD IDEA!!!) <a class="reference external" href="https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu">https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu</a></p>
+<p>Autostart settings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virsh autostart windows10
+virsh autostart windows10 --disable
+</pre></div>
+</div>
+<p>Location of images:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/var/lib/libvirt/images/windows10.qcow2
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="monitoring.html" class="btn btn-neutral float-right" title="Monitoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

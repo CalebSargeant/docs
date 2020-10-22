@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cisco &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Routing" href="routing/index.html" />
-    <link rel="prev" title="Fundamentals of PKI" href="../security/cryptography/pki.html" /> 
+    <link rel="next" title="Genie" href="genie.html" />
+    <link rel="prev" title="DNA" href="dna.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../security/index.html">Security</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cisco</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cisco</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="routing/index.html">Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="switching/index.html">Switching</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
@@ -96,7 +96,10 @@
 <li class="toctree-l2"><a class="reference internal" href="asav.html">ASAv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#public-key-authentication">Public Key Authentication</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="genie.html">Genie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nexus.html">Nexus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nso.html">NSO</a></li>
@@ -168,13 +171,15 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Cisco</li>
+          <li><a href="index.html">Cisco</a> &raquo;</li>
+        
+      <li>General</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/networking/cisco/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/networking/cisco/general.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -187,68 +192,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cisco">
-<h1>Cisco<a class="headerlink" href="#cisco" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="routing/index.html">Routing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="routing/bgp.html">BGP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing/eigrp.html">EIGRP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing/ospf.html">OSPF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="routing/redistribution.html">Redistribution</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="switching/index.html">Switching</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="switching/general.html">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="switching/vlans.html">VLANs</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ngfw-ngips/index.html">NGFW &amp; NGIPS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/introduction.html">Introduction to NGFW &amp; NGIPS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/networking-with-firewall-capabilities.html">Networking with Firewall Capabilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/ha-clustering.html">High Availability and Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/access-control.html">Implementing Access Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/firepower-ips.html">FirePOWER Intrusion Policies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/amp.html">Advanced Malware Protection (AMP)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ngfw-ngips/security-intelligence.html">Security Intelligence, Security Updates, and Keeping Firepower Software Up to Date</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="devnetday/index.html">DevNet Day</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="devnetday/2020.html">Year 2020</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aci.html">ACI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="asa.html">ASA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="asa.html#health">Health</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asa.html#capture-file-download">Capture File Download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asa.html#failover">Failover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="asa.html#site-to-site-vpn">Site to Site VPN</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="asav.html">ASAv</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="asav.html#aws">AWS</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design-and-documentation.html">Network Design and Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html#planning-it-s-who-you-are">Planning: It’s Who You Are</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html#planning-what-s-included">Planning: What’s Included?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dna.html">DNA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="general.html#public-key-authentication">Public Key Authentication</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="genie.html">Genie</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nexus.html">Nexus</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nexus.html#api">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nexus.html#visore">Visore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nexus.html#bash">Bash</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nso.html">NSO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="virl.html">VIRL</a></li>
-</ul>
+  <div class="section" id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="public-key-authentication">
+<h2>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikiversity.org/wiki/Cisco_IOS/Configure_public_RSA_key_authentication">https://en.wikiversity.org/wiki/Cisco_IOS/Configure_public_RSA_key_authentication</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate RSA key on your client machine, laptop, or whatever</span>
+ssh-keygen
+
+<span class="c1"># Fold the key to format it for Cisco to understand</span>
+fold -b -w <span class="m">72</span> ~/.ssh/id_rsa.pub
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ROUTER# conf t
+ROUTER(config)#ip ssh pubkey-chain
+ROUTER(conf-ssh-pubkey)#username USERNAME
+ROUTER(conf-ssh-pubkey-user)#key-string
+ROUTER(conf-ssh-pubkey-data)#THE_FOLD_OUTPUT
+ROUTER(conf-ssh-pubkey-data)#exit
+ROUTER(conf-ssh-pubkey-user)#exi
+ROUTER(conf-ssh-pubkey)#exi
+ROUTER(config)#do wr
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -260,10 +226,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="routing/index.html" class="btn btn-neutral float-right" title="Routing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="genie.html" class="btn btn-neutral float-right" title="Genie" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../security/cryptography/pki.html" class="btn btn-neutral float-left" title="Fundamentals of PKI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dna.html" class="btn btn-neutral float-left" title="DNA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

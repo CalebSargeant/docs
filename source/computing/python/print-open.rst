@@ -156,3 +156,14 @@ https://stackoverflow.com/questions/45947887/python-looping-through-csv-files-an
             print(column)
             if column=="SPECIFIC VALUE":
                 #do stuff
+
+Content-Type of Files
+---------------------
+
+https://stackoverflow.com/questions/20244757/content-type-in-for-individual-files-in-python-requests
+
+.. code-block:: python
+
+  files = {
+    'doc': ('example.docx', open('/Path/to/example.docx', 'rb'), 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    }

@@ -361,6 +361,20 @@ Search for Text in Files
 
 ``grep -rnw '/etc/' -e 'NULL'``
 
+Extract Text Before Character
+-----------------------------
+
+https://stackoverflow.com/questions/20348097/bash-extract-string-before-a-colon
+
+.. code-block:: bash
+
+  # Replace colon with whatever:
+  cut -d: -f1
+  # or
+  awk -F: '{print $1}'
+  # or
+  sed 's/:.*//'
+
 History
 -------
 

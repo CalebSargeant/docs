@@ -6,6 +6,102 @@ General, random and useful Linux-related config and things.
 
 A good site to browse random commands and things: https://www.commandlinefu.com/
 
+Rsync
+-----
+
+https://ss64.com/bash/rsync.html
+
+https://www.computerhope.com/unix/rsync.htm
+
+.. code-block:: bash
+
+  # rsync without owner and group attributes
+  rsync -avP --no-o --no-g /mnt/data/share/ /mnt/server3/Backups/
+
+  # cronning rsync (https://unix.stackexchange.com/questions/392780/how-to-schedule-an-rsync-command)
+  crontab -e
+    0 19 * * * root rsync -a src dest
+
+  # rsync showing progress (https://www.cyberciti.biz/faq/show-progress-during-file-transfer/)
+  rsync -P src dest
+
+  # rsync exclude stuff
+  rsync -avP --exclude 'file_or_dir' src/ dst/
+
+  # rsync exclude from source file list
+  cat excl-list.txt
+    thisdir
+    thatdir
+    myfile.txt
+  rsync -av --exclude-from={excl-list.txt}
+
+  # stop rsync from bandwidth vreet (https://www.cyberciti.biz/faq/how-to-set-keep-rsync-from-using-all-your-bandwidth-on-linux-unix/)
+  rsync -avP --bwlimit=KBps
+  rsync -avP --bwlimit=1024 src/ dst/
+
+  # rsync specify multiple source dirs (https://unix.stackexchange.com/questions/368210/how-to-rsync-multiple-source-folders)
+  rsync -avP /src/one /src/two /src/etcetra /dst
+
+Fstab
+-----
+
+Emergency Mode Bad Fstab
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  # Put SD card / HDD into another PC
+  nano /boot/cmdline.txt
+    init=/bin/sh
+
+  # Put SD card / HDD back into original machine
+
+  # Mount FS (but not fstab)
+  mount -o remount,rw / –target /
+
+  # Modify fstab
+  nano /etc/fstab
+    # modify what must be
+
+  # Put SD card / HDD into another PC
+  nano /boot/cmdline.txt
+    # delete init=/bin/sh
+
+  # Put SD card / HDD back into original machine
+
+SSH Config
+----------
+
+https://www.ssh.com/ssh/config/
+
+https://www.openssh.com/legacy.html
+
+Example:
+
+.. code-block:: bash
+
+  cat ~/.ssh/config
+    Host server
+     LocalForward 2222 192.168.99.99:22
+     User ubuntu
+     Hostname 192.168.100.1
+     IdentityFile ~/.ssh/server
+    Host router
+     User cisco
+     Hostname 192.168.1.1
+     IdentityFile ~/.ssh/router
+     Ciphers aes256-cbc
+    Host switch
+     User cisco
+     Hostname 192.168.33.2
+     Ciphers aes256-cbc
+     KexAlgorithms +diffie-hellman-group1-sha1
+
+Curl
+----
+
+Uploading files: https://ec.haxx.se/usingcurl/usingcurl-uploads
+
 Find
 ----
 
@@ -463,3 +559,13 @@ Please note that you wont see any files on the server, because it is a bare repo
 protected. You can create a Git Hook to expose the bare repository's files in a different directory (useful for
 web code).
 Use git clone ssh://<hostname>/path/to/gits to clone an existing server repository.
+
+Age of System
+-------------
+
+https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation
+
+.. code-block:: bash
+
+  ubuntu@server:~$ sudo tune2fs -l /dev/sda2 | grep created
+  Filesystem created:       Mon Sep  7 06:49:22 2020

@@ -83,3 +83,12 @@ Configuration
   [user]
     name = Caleb Sargeant
     email = 4991715+CalebSargeant@users.noreply.github.com
+
+Cloning
+^^^^^^^
+
+https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username
+
+.. code-block:: bash
+
+  git clone git@provider.com:userName/projectName.git --config core.sshCommand="ssh -i ~/.ssh/github"
