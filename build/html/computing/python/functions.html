@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  <title>Functions &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Arguments" href="args.html" />
-    <link rel="prev" title="Storage" href="../linux/storage.html" /> 
+    <link rel="next" title="JSON" href="json.html" />
+    <link rel="prev" title="Errors" href="errors.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,10 +98,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="args.html">Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
 <li class="toctree-l2"><a class="reference internal" href="objects.html">Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="print-open.html">Print &amp; Open</a></li>
@@ -163,13 +163,15 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Python</li>
+          <li><a href="index.html">Python</a> &raquo;</li>
+        
+      <li>Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/computing/python/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/computing/python/functions.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -182,47 +184,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python">
-<h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="args.html">Arguments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="args.html#argparse">Argparse</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="errors.html#attributeerror">AttributeError</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="json.html">JSON</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="json.html#output-in-json">Output in JSON</a></li>
-<li class="toctree-l2"><a class="reference internal" href="json.html#iterating-over-dictionary-items">Iterating over Dictionary Items</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="objects.html#object-introspection">Object Introspection</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="print-open.html">Print &amp; Open</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="print-open.html#for-loops">For Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="print-open.html#if-statements">If Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="print-open.html#redirect-output-to-file">Redirect Output to File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="print-open.html#searching-a-file">Searching a File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="print-open.html#csv-files">CSV Files</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="randomness.html">Randomness</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="randomness.html#name-equals-main">Name Equals Main</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="strings.html#remove-whitespace">Remove Whitespace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strings.html#converting-to-string">Converting to String</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
-</ul>
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.w3schools.com/python/python_functions.asp">https://www.w3schools.com/python/python_functions.asp</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Function return output of single command</span>
+ <span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
+   <span class="k">return</span> <span class="n">whatever</span><span class="o">.</span><span class="n">thing</span><span class="p">()</span>
+
+<span class="c1"># Function with return end of for loop</span>
+ <span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
+   <span class="k">for</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+   <span class="k">return</span>
+</pre></div>
 </div>
 </div>
 
@@ -234,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="args.html" class="btn btn-neutral float-right" title="Arguments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="json.html" class="btn btn-neutral float-right" title="JSON" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../linux/storage.html" class="btn btn-neutral float-left" title="Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="errors.html" class="btn btn-neutral float-left" title="Errors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

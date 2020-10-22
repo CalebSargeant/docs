@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Virtualenv &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  <title>Arguments &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Microsoft" href="../microsoft/index.html" />
-    <link rel="prev" title="Strings" href="strings.html" /> 
+    <link rel="next" title="Errors" href="errors.html" />
+    <link rel="prev" title="Python" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,7 +99,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="args.html">Arguments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#argparse">Argparse</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
@@ -107,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="print-open.html">Print &amp; Open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="randomness.html">Randomness</a></li>
 <li class="toctree-l2"><a class="reference internal" href="strings.html">Strings</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
@@ -165,13 +168,13 @@
         
           <li><a href="index.html">Python</a> &raquo;</li>
         
-      <li>Virtualenv</li>
+      <li>Arguments</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/computing/python/virtualenv.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/computing/python/args.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -184,31 +187,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="virtualenv">
-<h1>Virtualenv<a class="headerlink" href="#virtualenv" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install virtualenv and create folder for python environments</span>
-pip3 install virtualenv
-mkdir ~/virtualenv
-<span class="nb">cd</span> ~/virtualenv
+  <div class="section" id="arguments">
+<h1>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="argparse">
+<h2>Argparse<a class="headerlink" href="#argparse" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackabuse.com/command-line-arguments-in-python/">https://stackabuse.com/command-line-arguments-in-python/</a></p>
+<p><a class="reference external" href="http://zetcode.com/python/argparse/">http://zetcode.com/python/argparse/</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/22570407/how-to-store-argparse-values-in-variables">https://stackoverflow.com/questions/22570407/how-to-store-argparse-values-in-variables</a></p>
+<p>Gentleman’s agreement: optional arguments should be flags, and required arguments should be positional.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Positional arguments</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
 
-<span class="c1"># Create Virtual Environment</span>
-virtualenv -p python3 sphinx
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Do this and that&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;arg1&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg1 is for this&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;arg2&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg2 is for that&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;arg3&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg3 is for the other&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-<span class="c1"># Go Into Environment</span>
-<span class="nb">source</span> ~/virtualenv/sphinx/bin/activate
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg3</span><span class="p">)</span>
 
-<span class="c1"># Change to repo dir</span>
-<span class="nb">cd</span> ~/repos/docs
+<span class="c1"># Flagged arguments</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
 
-<span class="c1"># Install all packages we need</span>
-pip3 install -r requirements.txt
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Do this and that&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--arg1&quot;</span><span class="p">,</span> <span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg1 is for this&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--arg2&quot;</span><span class="p">,</span> <span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg2 is for that&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--arg3&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;arg3 is for the other&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-<span class="c1"># You can then do stuff</span>
-make html
-
-<span class="c1"># Get out of the virtual environment</span>
-deactivate
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">arg3</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 
@@ -220,10 +233,10 @@ deactivate
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../microsoft/index.html" class="btn btn-neutral float-right" title="Microsoft" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="errors.html" class="btn btn-neutral float-right" title="Errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="strings.html" class="btn btn-neutral float-left" title="Strings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

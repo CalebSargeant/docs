@@ -360,3 +360,13 @@ Search for Text in Files
 ------------------------
 
 ``grep -rnw '/etc/' -e 'NULL'``
+
+History
+-------
+
+https://unix.stackexchange.com/questions/212872/how-to-get-last-n-commands-from-history
+
+.. code-block:: bash
+
+  # Where n is the number of lines you want to "tail":
+  history n

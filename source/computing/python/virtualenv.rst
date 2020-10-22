@@ -1,6 +1,5 @@
-##########
 Virtualenv
-##########
+==========
 
 .. code-block:: bash
 
@@ -19,7 +18,10 @@ Virtualenv
   cd ~/repos/docs
 
   # Install all packages we need
-  pip install -r requirements.txt
+  pip3 install -r requirements.txt
+
+  # You can then do stuff
+  make html
 
   # Get out of the virtual environment
   deactivate

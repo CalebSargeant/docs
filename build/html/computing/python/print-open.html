@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Print &amp; Open &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Randomness" href="randomness.html" />
+    <link rel="prev" title="Objects" href="objects.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="args.html">Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json.html">JSON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html">Objects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Print &amp; Open</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-loops">For Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-statements">If Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redirect-output-to-file">Redirect Output to File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#searching-a-file">Searching a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csv-files">CSV Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="randomness.html">Randomness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualenv.html">Virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Python</a> &raquo;</li>
+        
+      <li>Print &amp; Open</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/python/print-open.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="print-open">
+<h1>Print &amp; Open<a class="headerlink" href="#print-open" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="for-loops">
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kite.com/python/answers/how-to-iterate-through-the-lines-of-a-file-in-python#:~:text=Use%20a%20for%2Dloop%20to,line%20break%20from%20each%20line">https://www.kite.com/python/answers/how-to-iterate-through-the-lines-of-a-file-in-python#:~:text=Use%20a%20for%2Dloop%20to,line%20break%20from%20each%20line</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">a_file</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">a_file</span><span class="p">:</span>
+  <span class="n">stripped_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">stripped_line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-statements">
+<h2>If Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackabuse.com/python-check-if-string-contains-substring/">https://stackabuse.com/python-check-if-string-contains-substring/</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">substring</span> <span class="o">=</span> <span class="s2">&quot;caleb&quot;</span>
+<span class="n">fullstring</span> <span class="o">=</span> <span class="s2">&quot;calebsargeant&quot;</span>
+
+<span class="k">if</span> <span class="n">substring</span> <span class="ow">in</span> <span class="n">fullstring</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fullstring contains substring&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fullstring does not contain substring&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.w3schools.com/python/python_conditions.asp">https://www.w3schools.com/python/python_conditions.asp</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a and b are equal&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://stackoverflow.com/questions/5899497/how-can-i-check-the-extension-of-a-file">https://stackoverflow.com/questions/5899497/how-can-i-check-the-extension-of-a-file</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.docx&#39;</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it&#39;s a document&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.xlsx&#39;</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it&#39;s a spreadsheet&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;whatever&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="redirect-output-to-file">
+<h2>Redirect Output to File<a class="headerlink" href="#redirect-output-to-file" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python">https://stackoverflow.com/questions/7152762/how-to-redirect-print-output-to-a-file-using-python</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/36571560/directing-print-output-to-a-txt-file">https://stackoverflow.com/questions/36571560/directing-print-output-to-a-txt-file</a></p>
+<p>Using open to output to file. <code class="docutils literal notranslate"><span class="pre">a</span></code> appends and <code class="docutils literal notranslate"><span class="pre">w</span></code> writes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print into a file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">myvar</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+
+<span class="c1"># Similarly, showing py2 vs py3</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="nb">print</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;Filename:&#39;</span><span class="p">,</span> <span class="n">filename</span>     <span class="c1"># Python 2.x</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Filename:&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Python 3.x</span>
+</pre></div>
+</div>
+<p>Redirecting <code class="docutils literal notranslate"><span class="pre">stdout</span></code> to file, but printing directly to file is better:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">orig_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;out.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">f</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+  <span class="nb">print</span> <span class="s1">&#39;i = &#39;</span><span class="p">,</span> <span class="n">i</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">orig_stdout</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="searching-a-file">
+<h2>Searching a File<a class="headerlink" href="#searching-a-file" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kite.com/python/answers/how-to-search-a-file-using-grep-in-python">https://www.kite.com/python/answers/how-to-search-a-file-using-grep-in-python</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;grep_sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;first line</span><span class="se">\n</span><span class="s2">second line</span><span class="se">\n</span><span class="s2">third line&quot;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;second&quot;</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;grep_sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="csv-files">
+<h2>CSV Files<a class="headerlink" href="#csv-files" title="Permalink to this headline">¶</a></h2>
+<p>It’s easier to just iterate a file using <code class="docutils literal notranslate"><span class="pre">csv.reader</span></code> without going <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">row</span> <span class="pre">in</span> <span class="pre">reader</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">column</span> <span class="pre">in</span> <span class="pre">row</span></code>.</p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/49266463/read-csv-file-in-python-and-iterate-each-line-item-as-a-value-in-a-script/49266632">https://stackoverflow.com/questions/49266463/read-csv-file-in-python-and-iterate-each-line-item-as-a-value-in-a-script/49266632</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate over flat-file list OR a single column CSV file, header row cannot exist, or will be included as value to iterate over.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">foodlist</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">food</span><span class="p">:</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">veg</span><span class="p">,)</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+    <span class="n">veg</span> <span class="o">=</span> <span class="n">veg</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">veg</span><span class="p">)</span>
+
+<span class="c1"># Iterate over a CSV file with more than one column, specifying header row values:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">foodlist</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">food</span><span class="p">:</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">veg</span><span class="p">,</span> <span class="n">fruit</span><span class="p">,</span> <span class="n">protein</span><span class="p">)</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+    <span class="n">veg</span> <span class="o">=</span> <span class="n">veg</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">veg</span><span class="p">)</span>
+
+<span class="c1"># Iterate over a CSV file with more than one column, not caring about other header row values:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">foodlist</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">food</span><span class="p">:</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">veg</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">food</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+    <span class="n">veg</span> <span class="o">=</span> <span class="n">veg</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">veg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.programiz.com/python-programming/reading-csv-files">https://www.programiz.com/python-programming/reading-csv-files</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://stackoverflow.com/questions/45947887/python-looping-through-csv-files-and-their-columns">https://stackoverflow.com/questions/45947887/python-looping-through-csv-files-and-their-columns</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numFiles</span><span class="p">:</span>
+  <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pathName</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="s2">&quot;rU&quot;</span><span class="p">)</span>
+  <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+      <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">column</span><span class="o">==</span><span class="s2">&quot;SPECIFIC VALUE&quot;</span><span class="p">:</span>
+              <span class="c1">#do stuff</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="randomness.html" class="btn btn-neutral float-right" title="Randomness" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="objects.html" class="btn btn-neutral float-left" title="Objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
