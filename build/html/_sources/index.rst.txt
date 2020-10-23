@@ -28,6 +28,7 @@ Table of Contents
   :caption: Computing
 
   computing/ansible/index
+  computing/cloud/index
   computing/containerisation/index
   computing/linux/index
   computing/python/index

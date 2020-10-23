@@ -69,6 +69,43 @@ Getopt
     esac
   done
 
+Usage
+-----
+
+.. code-block:: bash
+
+  usage() {
+  printf "Usage: "$0" <region> \n
+          Regions available:
+          SA\t(South Africa)
+          UK\t(United Kingdom)
+          US\t(United States)\n\n" 1>&2;
+          }
+
+  case $1 in
+    (SA|UK|US) ;;
+    (*) usage
+  esac
+
+  if [ "$1" == "SA" ]; then
+    export MYVAR="varSA"
+  elif [[ "$1" == "UK" ]]; then
+    export MYVAR="varUK"
+  elif [[ "$1" == "US" ]]; then
+    export MYVAR="varUS"
+  fi
+
+Functions
+---------
+
+.. code-block:: bash
+
+  function() {
+    echo $@
+  }
+
+  # function accepts positional parameters via $@
+
 sed
 ---
 
