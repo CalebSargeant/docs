@@ -5,6 +5,14 @@ A docker image is like a template. A docker container is a running instance of t
 
 .. code-block:: bash
 
+  ## Manually installing docker
+  # https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sudo sh get-docker.sh
+  sudo usermod -aG docker ubuntu
+
+  # log out and back in
+
   # Show docker processes running
   docker ps
 

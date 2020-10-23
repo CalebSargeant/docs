@@ -107,6 +107,13 @@
 <li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#writing-sd-card">Writing SD Card</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firmware-update">Firmware Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluetooth-speaker">Bluetooth Speaker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audio-config">Audio Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spotify-connect">Spotify Connect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fixing-audio">Fixing Audio</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -205,6 +212,145 @@ sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if<
 <span class="c1"># Eject the disk afterwards</span>
 sudo diskutil eject /dev/rdiskN
 </pre></div>
+</div>
+</div>
+<div class="section" id="firmware-update">
+<h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md">https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md</a></p>
+<p><a class="reference external" href="https://elinux.org/R-Pi_Troubleshooting#Updating_firmware">https://elinux.org/R-Pi_Troubleshooting#Updating_firmware</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rpi-update
+sudo reboot
+</pre></div>
+</div>
+</div>
+<div class="section" id="bluetooth-speaker">
+<h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.raspberrypi.org/forums/viewtopic.php?t=235519">https://www.raspberrypi.org/forums/viewtopic.php?t=235519</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name">https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name</a></p>
+<p>Work in progress… RPI3B audio still skips every once in a while, despite official power adapter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install bluetooth &amp; pulseaudio &amp; bluez-tools (for autopairing/trusting)</span>
+sudo apt-get install pulseaudio pulseaudio-module-bluetooth bluez-tools
+
+<span class="c1"># Fix audio before you even get problems https://askubuntu.com/questions/707171/how-can-i-fix-choppy-audio (still getting audio jumps over bluetooth)</span>
+/etc/pulse/default.pa
+  load-module module-udev-detect
+  load-module module-udev-detect <span class="nv">tsched</span><span class="o">=</span><span class="m">0</span>
+  pulseaudio -k
+
+<span class="c1"># Add user to bluetooth group &amp; reboot</span>
+sudo usermod -a -G bluetooth pi
+
+<span class="c1"># Make pi discoverable as an A2DP Sink</span>
+sudo nano /etc/bluetooth/main.conf
+  ...
+  <span class="nv">Class</span> <span class="o">=</span> 0x41C
+  ...
+  <span class="nv">DiscoverableTimeout</span> <span class="o">=</span> <span class="m">0</span>
+  ...
+sudo systemctl restart bluetooth
+
+<span class="c1"># Run &amp; config bluetoothctl (can also be used to troubleshoot connections - just run bluetoothctl and connect device)</span>
+bluetoothctl
+  power on
+  discoverable on
+  pairable on
+  agent on
+  default-agent
+  system-alias <span class="s1">&#39;Your New BT Alias&#39;</span>
+  quit
+
+<span class="c1"># Start &amp; enable pulseaudio (as pi user)</span>
+pulesaudio --start
+sudo systemctl status bluetooth
+systemctl --user <span class="nb">enable</span> pulseaudio
+
+<span class="c1"># Enable autologin as pi user</span>
+sudo raspi-config
+  <span class="m">3</span> Boot Options
+  B1 Desktop / CLI
+  B2 Console Autologin
+sudo reboot now
+
+<span class="c1"># Configure bluez-tools</span>
+sudo nano /etc/systemd/system/bt-agent.service
+  <span class="o">[</span>Unit<span class="o">]</span>
+  <span class="nv">Description</span><span class="o">=</span>Bluetooth Auth Agent <span class="nv">After</span><span class="o">=</span>bluetooth.service <span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
+  <span class="o">[</span>Service<span class="o">]</span>
+  <span class="nv">Type</span><span class="o">=</span>simple
+  <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent -c NoInputNoOutput
+  <span class="o">[</span>Install<span class="o">]</span> <span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
+
+<span class="c1"># Start &amp; Enable bt-agent</span>
+sudo systemctl <span class="nb">enable</span> bt-agent
+sudo systemctl start bt-agent
+sudo systemctl status bt-agent
+
+<span class="c1"># OPTIONAL: Adding a PIN</span>
+sudo nano /etc/bluetooth/pin.conf
+  * <span class="m">123456</span>
+sudo chmod <span class="m">600</span> /etc/bluetooth/pin.conf
+sudo nano /etc/systemd/system/bt-agent.service
+  <span class="o">[</span>Unit<span class="o">]</span>
+  <span class="nv">Description</span><span class="o">=</span>Bluetooth Auth Agent <span class="nv">After</span><span class="o">=</span>bluetooth.service <span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
+
+  <span class="o">[</span>Service<span class="o">]</span>
+  <span class="nv">Type</span><span class="o">=</span>simple
+  <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent -c NoInputNoOutput -p /etc/bluetooth/pin.conf <span class="nv">ExecStartPost</span><span class="o">=</span>/bin/sleep <span class="m">1</span>
+  <span class="nv">ExecStartPost</span><span class="o">=</span>/bin/hciconfig hci0 sspmode <span class="m">0</span>
+
+  <span class="o">[</span>Install<span class="o">]</span> <span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
+sudo systemctl daemon-reload
+sudo systemctl restart bt-agent
+sudo systemctl status bt-agent
+
+<span class="c1"># OPTIONAL: Use USB bluetooth dongle (disable onboard)</span>
+sudo nano /etc/modprobe.d/blacklist-bluetooth.conf
+  blacklist btbcm
+  blacklist hci_uart
+sudo reboot
+</pre></div>
+</div>
+<div class="section" id="audio-config">
+<h3>Audio Config<a class="headerlink" href="#audio-config" title="Permalink to this headline">¶</a></h3>
+<p>Adjusting Volume:</p>
+<p><a class="reference external" href="https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line">https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">alsamixer</span></code></p>
+<p>Change Audio Output Device:</p>
+<p><a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/audio-config.md">https://www.raspberrypi.org/documentation/configuration/audio-config.md</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> &gt; Advanced Options &gt; Audio</p>
+</div>
+<div class="section" id="spotify-connect">
+<h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-spotify/">https://pimylifeup.com/raspberry-pi-spotify/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies</span>
+sudo apt install -y apt-transport-https curl
+
+<span class="c1"># Add raspotify GPG key &amp; repo</span>
+curl -sSL https://dtcooper.github.io/raspotify/key.asc <span class="p">|</span> sudo apt-key add -v -
+<span class="nb">echo</span> <span class="s1">&#39;deb https://dtcooper.github.io/raspotify raspotify main&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/raspotify.list
+
+<span class="c1"># Install raspotify</span>
+sudo apt update
+sudo apt install raspotify
+
+<span class="c1"># Changing name of device - leave &quot;OPTIONS&quot; alone if you don&#39;t want to tie to internet account and have it work over just the LAN (same L2 broadcast domain)</span>
+sudo nano /etc/default/raspotify
+  <span class="nv">DEVICE_NAME</span><span class="o">=</span><span class="s2">&quot;raspotify&quot;</span>
+  <span class="nv">BITRATE</span><span class="o">=</span><span class="s2">&quot;160&quot;</span>
+  <span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--username &lt;USERNAME&gt; --password &lt;PASSWORD&gt;&quot;</span>
+
+<span class="c1"># Restart raspotify after making changes</span>
+sudo systemctl restart raspotify
+</pre></div>
+</div>
+</div>
+<div class="section" id="fixing-audio">
+<h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Permalink to this headline">¶</a></h3>
+<p>Attempts to fix the audio jumps:</p>
+<p><a class="reference external" href="https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network">https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network</a></p>
+<p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering">https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering</a></p>
+<p><a class="reference external" href="https://dbader.org/blog/crackle-free-audio-on-the-raspberry-pi-with-mpd-and-pulseaudio">https://dbader.org/blog/crackle-free-audio-on-the-raspberry-pi-with-mpd-and-pulseaudio</a></p>
+<p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/32356/how-do-i-fix-cracking-sounds">https://raspberrypi.stackexchange.com/questions/32356/how-do-i-fix-cracking-sounds</a></p>
 </div>
 </div>
 </div>

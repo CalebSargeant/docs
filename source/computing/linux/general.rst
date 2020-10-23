@@ -6,6 +6,15 @@ General, random and useful Linux-related config and things.
 
 A good site to browse random commands and things: https://www.commandlinefu.com/
 
+Apt & Yum Cheat Sheets
+----------------------
+
+https://blog.packagecloud.io:
+
+:download:`Apt Cheat Sheet <_docs/APT Cheat Sheet - Packagecloud Blog.pdf>`
+
+:download:`Yum Cheat Sheet <_docs/Yum Cheat Sheet - Packagecloud Blog.pdf>`
+
 Rsync
 -----
 
@@ -97,10 +106,74 @@ Example:
      Ciphers aes256-cbc
      KexAlgorithms +diffie-hellman-group1-sha1
 
+Disk Usage
+----------
+
+.. code-block:: bash
+
+  # Human readable output
+  du -h mydir/
+
+  # Kilobytes
+  du -k mydir/
+
+  # Megabytes
+  du -m mydir/
+
+  # Which sub-dirs consume how much disk space:
+  du -h --max-depth=1 mydir/ | sort -hr
+
+  # List all items including files and dirs
+  du -ah mydir/
+
+  # Multiple dirs
+  du -h dir1/ dir2/
+
+  # Summary
+  du -sh
+
+  # Grand total of dirs
+  du -sch dir/
+
+  # Exclude:
+  du -sh --exclude='*.docx'
+
+Formatting Disk
+---------------
+
+.. code-block:: bash
+
+  # List disks
+  df -h
+  fdisk -l
+
+  # Unmount disk to format
+  sudo umount /dev/sdc1
+
+  # vFAT, NTFS, EXT4, etc.:
+  sudo mkfs.vfat /dev/sdc1
+  sudo mkfs.ntfs /dev/sdc1
+  sudo mkfs.ext4 /dev/sdc1
+
+ISO to Disk
+-----------
+
+.. code-block:: bash
+
+  sudo dd if=~/Downloads/ubuntu_something.iso of=/dev/diskN
+
 Curl
 ----
 
 Uploading files: https://ec.haxx.se/usingcurl/usingcurl-uploads
+
+.. code-block:: bash
+
+  curl https://EXAMPLE \
+    -F 'one=sometext' \
+    -F 'two=someothertext' \
+    -F 'three=somemoretext' \
+    -F 'doc=@/Users/caleb/Documents/Test.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 
 Find
 ----
@@ -125,7 +198,11 @@ Screen
 Generating SSH Keys
 -------------------
 
+https://askubuntu.com/questions/311558/ssh-permission-denied-publickey
+
 .. code-block:: bash
+
+  ### ON THE CLIENT
 
   # Generate a public key on the client
   ssh-keygen -t rsa -b 4096
@@ -154,6 +231,13 @@ Generating SSH Keys
   # Now try logging into the machine, with:   "ssh 'ubuntu@10.0.2.12'"
   # and check to make sure that only the key(s) you wanted were added.
 
+  # You can add IdentitiesOnly yes to ensure ssh uses the IdentityFile and no other keyfiles during authentication, which can cause issues and is not a good practice.
+  vim ~/.ssh/config
+    Host SERVERNAME
+    Hostname ip-or-domain-of-server
+    User USERNAME
+    PubKeyAuthentication yes
+    IdentityFile ./path/to/key
 
 Sudo without Password
 ---------------------
@@ -269,60 +353,74 @@ Xen
 Manually Starting
 ^^^^^^^^^^^^^^^^^
 
-xm list
-cd /etc/xen/
-ls
-xm create <vm-name>
-ping <vm-name>
-xm list
+.. code-block:: bash
+
+  xm list
+  cd /etc/xen/
+  ls
+  xm create <vm-name>
+  ping <vm-name>
+  xm list
 
 Install Xen
 ^^^^^^^^^^^
 
-yum install xen virt-manager kernel-xen
-chkconfig xend on
-reboot
+.. code-block:: bash
+
+  yum install xen virt-manager kernel-xen
+  chkconfig xend on
+  reboot
 
 Mount CD for Image of OS
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-mkdir /media/cdrom
-mount -t <name_of_iso> -o ro /dev/cdrom /media/cdrom
+.. code-block:: bash
+
+  mkdir /media/cdrom
+  mount -t <name_of_iso> -o ro /dev/cdrom /media/cdrom
 
 Install VM
 ^^^^^^^^^^
-virt-install --prompt (yes centos 512 /home/vm/centos /media/cdrom)
+
+``virt-install --prompt (yes centos 512 /home/vm/centos /media/cdrom)``
 
 Launch VM to Create Virtual OS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-startx
-virt-manager
 
-NOTE to exit startx press ctrl,alt,bkspce
+.. code-block:: bash
+
+  # NOTE to exit startx press ctrl,alt,bkspce
+  startx
+  virt-manager
 
 Skel Terminal Colours
 ---------------------
 
-Mv .bashrc .bashrc.bak
-Cp /etc/skel/.bashrc .bashrc
-Nano .bashrc
-# uncomment this:
-force_color_prompt=yes
-# add this to the bottom of the file
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-. .bashrc
+.. code-block:: bash
+
+  mv .bashrc .bashrc.bak
+  cp /etc/skel/.bashrc .bashrc
+  nano .bashrc
+  # uncomment this:
+  force_color_prompt=yes
+  # add this to the bottom of the file
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  . .bashrc
 
 Rename a File to a Filename with Date
 -------------------------------------
-cp <name_of_file> <new_name_of_file>.`date -I`
+
+``cp <name_of_file> <new_name_of_file>.`date -I```
 
 Checking CPU Architecture
 -------------------------
-uname -i
+
+``uname -i``
 
 Checking Uptime
 ---------------
-uptime
+
+``uptime``
 
 TigerVNC
 --------
@@ -569,3 +667,26 @@ https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-sys
 
   ubuntu@server:~$ sudo tune2fs -l /dev/sda2 | grep created
   Filesystem created:       Mon Sep  7 06:49:22 2020
+
+Temporary Failure in Name Resolution
+------------------------------------
+
+https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution
+
+.. code-block:: bash
+
+  sudo systemctl disable systemd-resolved.service
+  sudo systemctl stop systemd-resolved.service
+  sudo rm /etc/resolv.conf
+  echo "nameserver 1.1.1.1" > /etc/resolv.conf
+  echo "nameserver 1.0.0.3" >> /etc/resolv.conf
+
+Change Hosname
+--------------
+
+https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/
+
+.. code-block:: bash
+
+  sudo hostnamectl set-hostname SERVERNAME
+  nano /etc/hosts

@@ -35,3 +35,75 @@ https://computingforgeeks.com/openstack-deployment-on-ubuntu-with-devstack/
 
   # Deploy Openstack
   cd devstack && ./stack.sh
+
+Random Scriptjies
+-----------------
+
+List all SG rules of grepped SG names:
+
+.. code-block:: bash
+
+  read -p 'Enter substring of SG: ' PX
+  for SG in $(openstack security group list | grep $PX | awk '{print $4}')
+    do
+      echo $SG
+      openstack security group rule list $SG | grep -w "10."* | awk '{print $4,$6,$8}' > $PX.log
+    done
+
+Text manipulation of SG list:
+
+.. code-block:: bash
+
+  # Remove the |
+  openstack security group list | grep PX | sed 's/|//g'
+
+  # Extract the 2nd column
+  openstack security group list | grep PX | awk '{print $2}'
+
+  # Extract the 1st row of the 2nd column
+  openstack security group list | grep PX | awk 'NR==1{print $2}'
+
+  # Extract the 1st row
+  openstack security group list | grep PX | awk 'NR==1'
+
+  # Extract the 1st row
+  openstack security group list | grep PX | head -1
+
+  # Count the number of rows
+  openstack security group list | grep PX | wc -l
+
+  ### SG Rule List
+  openstack security group rule list xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+  # Add test to result
+  openstack security group rule list xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' | perl -ne 'print "test $_"'
+
+Lookup the machine(s) from IP Address:
+
+.. code-block:: bash
+
+  # List all VMs
+  nova list --all-tenants | grep 10.249.0
+
+  # IP Address Extractor
+  grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'
+
+  openstack security group rule list PX | grep -w "10."*
+
+Remove all text before characters:
+
+.. code-block:: bash
+
+  sed 's/^.*10./10./'
+
+Get ICMP rules:
+
+.. code-block:: bash
+
+  openstack security group rule list PX | grep -w "10."* | grep -v "icmp" | awk '{print $6,"_",$4,"_",$8}' | sed 's/ //g' | sed 's/:/-/g'
+
+Inbound rule list extract:
+
+.. code-block:: bash
+
+  openstack security group rule list PX | grep -w "10."* | awk '{print $4,$6,$8}'

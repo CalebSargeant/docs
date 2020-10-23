@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PowerShell &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Robocopy" href="robocopy.html" />
+    <link rel="prev" title="Group Policy" href="group-policy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PowerShell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#random">Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multipart-form-data">Multipart/form-data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="robocopy.html">Robocopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sendkeys.html">Sendkeys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sentinal.html">Sentinal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unattended.html">Unattended Installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server/index.html">Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exchange/index.html">Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharepoint/index.html">SharePoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql-server/index.html">SQL Server</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Microsoft</a> &raquo;</li>
+        
+      <li>PowerShell</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/microsoft/powershell.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="powershell">
+<h1>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="random">
+<h2>Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># If error?</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$error</span><span class="p">.</span><span class="n">count</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="n">-ForegroundColor</span> <span class="n">Red</span> <span class="s2">&quot;Uh-oh! $MyVar.&quot;</span>
+    <span class="nb">Write-Host</span> <span class="n">-ForegroundColor</span> <span class="n">White</span> <span class="n">-BackgroundColor</span> <span class="n">Black</span> <span class="s2">&quot;The error was:&quot;</span>
+    <span class="nb">Write-Host</span> <span class="nv">$error</span><span class="p">[</span><span class="n">0</span><span class="p">]</span>
+    <span class="nb">Write-Host</span> <span class="n">-ForegroundColor</span> <span class="n">White</span> <span class="n">-BackgroundColor</span> <span class="n">Black</span> <span class="s2">&quot;Oh no!&quot;</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+
+<span class="c"># Continue past errors</span>
+<span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multipart-form-data">
+<h2>Multipart/form-data<a class="headerlink" href="#multipart-form-data" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html">https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Initiate multipartContent</span>
+<span class="nv">$multipartContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.MultipartFormDataContent]</span><span class="p">::</span><span class="n">new</span><span class="p">()</span>
+
+<span class="nv">$stringHeader</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.ContentDispositionHeaderValue]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;form-data&quot;</span><span class="p">)</span>
+<span class="nv">$stringHeader</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s2">&quot;GivenName&quot;</span>
+<span class="nv">$StringContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.StringContent]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span>
+<span class="nv">$StringContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentDisposition</span> <span class="p">=</span> <span class="nv">$stringHeader</span>
+<span class="nv">$multipartContent</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="nv">$stringContent</span><span class="p">)</span>
+
+<span class="nv">$stringHeader</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.ContentDispositionHeaderValue]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;form-data&quot;</span><span class="p">)</span>
+<span class="nv">$stringHeader</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s2">&quot;Surname&quot;</span>
+<span class="nv">$StringContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.StringContent]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Kraus&quot;</span><span class="p">)</span>
+<span class="nv">$StringContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentDisposition</span> <span class="p">=</span> <span class="nv">$stringHeader</span>
+<span class="nv">$multipartContent</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="nv">$stringContent</span><span class="p">)</span>
+
+<span class="nv">$multipartFile</span> <span class="p">=</span> <span class="s1">&#39;C:\pics\profile.png&#39;</span>
+<span class="nv">$FileStream</span> <span class="p">=</span> <span class="no">[System.IO.FileStream]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="nv">$multipartFile</span><span class="p">,</span> <span class="no">[System.IO.FileMode]</span><span class="p">::</span><span class="n">Open</span><span class="p">)</span>
+<span class="nv">$fileHeader</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.ContentDispositionHeaderValue]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;form-data&quot;</span><span class="p">)</span>
+<span class="nv">$fileHeader</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s2">&quot;ProfilePic&quot;</span>
+<span class="nv">$fileHeader</span><span class="p">.</span><span class="n">FileName</span> <span class="p">=</span> <span class="s1">&#39;profile.png&#39;</span>
+<span class="nv">$fileContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.StreamContent]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="nv">$FileStream</span><span class="p">)</span>
+<span class="nv">$fileContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentDisposition</span> <span class="p">=</span> <span class="nv">$fileHeader</span>
+<span class="nv">$fileContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.MediaTypeHeaderValue]</span><span class="p">::</span><span class="n">Parse</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">)</span>
+<span class="nv">$multipartContent</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="nv">$fileContent</span><span class="p">)</span>
+
+<span class="nv">$multipartFile</span> <span class="p">=</span> <span class="s1">&#39;C:\music\LinkinPark_CrawlingInMySkin.midi&#39;</span>
+<span class="nv">$FileStream</span> <span class="p">=</span> <span class="no">[System.IO.FileStream]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="nv">$multipartFile</span><span class="p">,</span> <span class="no">[System.IO.FileMode]</span><span class="p">::</span><span class="n">Open</span><span class="p">)</span>
+<span class="nv">$fileHeader</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.ContentDispositionHeaderValue]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;form-data&quot;</span><span class="p">)</span>
+<span class="nv">$fileHeader</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s2">&quot;BackGroundMusic&quot;</span>
+<span class="nv">$fileHeader</span><span class="p">.</span><span class="n">FileName</span> <span class="p">=</span> <span class="s1">&#39;LinkinPark_CrawlingInMySkin.midi&#39;</span>
+<span class="nv">$fileContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.StreamContent]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="nv">$FileStream</span><span class="p">)</span>
+<span class="nv">$fileContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentDisposition</span> <span class="p">=</span> <span class="nv">$fileHeader</span>
+<span class="nv">$fileContent</span><span class="p">.</span><span class="n">Headers</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="no">[System.Net.Http.Headers.MediaTypeHeaderValue]</span><span class="p">::</span><span class="n">Parse</span><span class="p">(</span><span class="s2">&quot;audio/midi&quot;</span><span class="p">)</span>
+<span class="nv">$multipartContent</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="nv">$fileContent</span><span class="p">)</span>
+
+<span class="nb">Invoke-RestMethod</span> <span class="n">-Uri</span> <span class="nv">$uri</span> <span class="n">-Body</span> <span class="nv">$multipartContent</span> <span class="n">-Method</span> <span class="s1">&#39;POST&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="robocopy.html" class="btn btn-neutral float-right" title="Robocopy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="group-policy.html" class="btn btn-neutral float-left" title="Group Policy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

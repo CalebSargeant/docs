@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="download-videos.html">Download Videos</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Host Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-of-stuff">List of Stuff</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#updating-bash">Updating Bash</a></li>
 </ul>
 </li>
@@ -203,6 +204,53 @@
 </ul>
 <div class="section" id="mac">
 <h2>Mac<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list-of-stuff">
+<h3>List of Stuff<a class="headerlink" href="#list-of-stuff" title="Permalink to this headline">¶</a></h3>
+<p>List of stuff to install on a (new) Mac:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## New Mac Setup</span>
+<span class="c1"># Install Homebrew (https://brew.sh/)</span>
+/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># install git</span>
+brew install git
+
+<span class="c1"># install ansible</span>
+brew install ansible
+
+<span class="c1"># coreutils</span>
+brew install coreutils
+
+<span class="c1"># install python requests for API calls</span>
+pip3 install requirements
+
+<span class="c1"># install powershell (pwsh)</span>
+brew cask install powershell
+
+<span class="c1"># install powershell language for atom</span>
+apm install language-powershell
+
+<span class="c1"># Install Powershell beautifier</span>
+pwsh
+Install-Module -Name PowerShell-Beautifier
+<span class="c1"># modifying file - Edit-DTWBeautifyScript C:\temp\MyFile.ps1</span>
+
+<span class="c1"># install atom beautify</span>
+apm install beautify
+
+<span class="c1"># install atom compare-files</span>
+apm install compare-files
+
+<span class="c1"># Install nmap</span>
+brew install nmap
+
+<span class="c1"># Install pandoc (https://pandoc.org/) - usage ex. pandoc -t markdown -o output.md ~/input.docx</span>
+brew install pandoc
+
+<span class="c1"># Install virtualenv</span>
+pip3 install virtualenv
+</pre></div>
+</div>
+</div>
 <div class="section" id="updating-bash">
 <h3>Updating Bash<a class="headerlink" href="#updating-bash" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx</span>

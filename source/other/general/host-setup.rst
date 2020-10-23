@@ -10,6 +10,56 @@ Developer tools in Chrome:
 Mac
 ---
 
+List of Stuff
+^^^^^^^^^^^^^
+
+List of stuff to install on a (new) Mac:
+
+.. code-block:: bash
+
+  ## New Mac Setup
+  # Install Homebrew (https://brew.sh/)
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+  # install git
+  brew install git
+
+  # install ansible
+  brew install ansible
+
+  # coreutils
+  brew install coreutils
+
+  # install python requests for API calls
+  pip3 install requirements
+
+  # install powershell (pwsh)
+  brew cask install powershell
+
+  # install powershell language for atom
+  apm install language-powershell
+
+  # Install Powershell beautifier
+  pwsh
+  Install-Module -Name PowerShell-Beautifier
+  # modifying file - Edit-DTWBeautifyScript C:\temp\MyFile.ps1
+
+  # install atom beautify
+  apm install beautify
+
+  # install atom compare-files
+  apm install compare-files
+
+  # Install nmap
+  brew install nmap
+
+  # Install pandoc (https://pandoc.org/) - usage ex. pandoc -t markdown -o output.md ~/input.docx
+  brew install pandoc
+
+  # Install virtualenv
+  pip3 install virtualenv
+
+
 Updating Bash
 ^^^^^^^^^^^^^
 

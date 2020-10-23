@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="devnetday/index.html">DevNet Day</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aci.html">ACI</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ASA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scp">SCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#health">Health</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#capture-file-download">Capture File Download</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#failover">Failover</a></li>
@@ -105,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="asav.html">ASAv</a></li>
 <li class="toctree-l2"><a class="reference internal" href="design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="genie.html">Genie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nexus.html">Nexus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nso.html">NSO</a></li>
@@ -200,6 +202,20 @@
   <div class="section" id="asa">
 <h1>ASA<a class="headerlink" href="#asa" title="Permalink to this headline">¶</a></h1>
 <p>Adaptive Security Appliance</p>
+<div class="section" id="scp">
+<h2>SCP<a class="headerlink" href="#scp" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://thestupidengineer.wordpress.com/2015/04/01/scp-file-to-asa/">https://thestupidengineer.wordpress.com/2015/04/01/scp-file-to-asa/</a></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Enable SCP on ASA
+ssh scopy enable
+
+# From your host / laptop / desktop / whatever
+scp -v asa825-51-k8.bin username@IP_ADDRESS:disk0:asa825-51-k8.bin
+
+# From the ASA
+scp -v cisco@10.251.21.80:disk0:asa822-k8.bin asa822-k8.bin
+</pre></div>
+</div>
+</div>
 <div class="section" id="health">
 <h2>Health<a class="headerlink" href="#health" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Uptime

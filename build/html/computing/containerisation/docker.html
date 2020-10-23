@@ -183,7 +183,15 @@
   <div class="section" id="docker">
 <h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
 <p>A docker image is like a template. A docker container is a running instance of the template. Each micro-service, or application, is placed in their own container.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show docker processes running</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Manually installing docker</span>
+<span class="c1"># https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script</span>
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+
+<span class="c1"># log out and back in</span>
+
+<span class="c1"># Show docker processes running</span>
 docker ps
 
 <span class="c1"># Install docker</span>

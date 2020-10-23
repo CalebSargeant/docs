@@ -101,12 +101,16 @@
 <li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apt-yum-cheat-sheets">Apt &amp; Yum Cheat Sheets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rsync">Rsync</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fstab">Fstab</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disk-usage">Disk Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formatting-disk">Formatting Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iso-to-disk">ISO to Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#curl">Curl</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
@@ -147,6 +151,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#age-of-system">Age of System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temporary-failure-in-name-resolution">Temporary Failure in Name Resolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-hosname">Change Hosname</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -236,6 +242,12 @@
 <h1>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h1>
 <p>General, random and useful Linux-related config and things.</p>
 <p>A good site to browse random commands and things: <a class="reference external" href="https://www.commandlinefu.com/">https://www.commandlinefu.com/</a></p>
+<div class="section" id="apt-yum-cheat-sheets">
+<h2>Apt &amp; Yum Cheat Sheets<a class="headerlink" href="#apt-yum-cheat-sheets" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://blog.packagecloud.io">https://blog.packagecloud.io</a>:</p>
+<p><a class="reference download internal" download="" href="../../_downloads/2c165d93f5ab036fed628ab3f4a3fd45/APT Cheat Sheet - Packagecloud Blog.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Apt</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/d80fb69a6e5996ddfb3a33516bd7aab8/Yum Cheat Sheet - Packagecloud Blog.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Yum</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
+</div>
 <div class="section" id="rsync">
 <h2>Rsync<a class="headerlink" href="#rsync" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://ss64.com/bash/rsync.html">https://ss64.com/bash/rsync.html</a></p>
@@ -319,9 +331,69 @@ nano /boot/cmdline.txt
 </pre></div>
 </div>
 </div>
+<div class="section" id="disk-usage">
+<h2>Disk Usage<a class="headerlink" href="#disk-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Human readable output</span>
+du -h mydir/
+
+<span class="c1"># Kilobytes</span>
+du -k mydir/
+
+<span class="c1"># Megabytes</span>
+du -m mydir/
+
+<span class="c1"># Which sub-dirs consume how much disk space:</span>
+du -h --max-depth<span class="o">=</span><span class="m">1</span> mydir/ <span class="p">|</span> sort -hr
+
+<span class="c1"># List all items including files and dirs</span>
+du -ah mydir/
+
+<span class="c1"># Multiple dirs</span>
+du -h dir1/ dir2/
+
+<span class="c1"># Summary</span>
+du -sh
+
+<span class="c1"># Grand total of dirs</span>
+du -sch dir/
+
+<span class="c1"># Exclude:</span>
+du -sh --exclude<span class="o">=</span><span class="s1">&#39;*.docx&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formatting-disk">
+<h2>Formatting Disk<a class="headerlink" href="#formatting-disk" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List disks</span>
+df -h
+fdisk -l
+
+<span class="c1"># Unmount disk to format</span>
+sudo umount /dev/sdc1
+
+<span class="c1"># vFAT, NTFS, EXT4, etc.:</span>
+sudo mkfs.vfat /dev/sdc1
+sudo mkfs.ntfs /dev/sdc1
+sudo mkfs.ext4 /dev/sdc1
+</pre></div>
+</div>
+</div>
+<div class="section" id="iso-to-disk">
+<h2>ISO to Disk<a class="headerlink" href="#iso-to-disk" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dd <span class="k">if</span><span class="o">=</span>~/Downloads/ubuntu_something.iso <span class="nv">of</span><span class="o">=</span>/dev/diskN
+</pre></div>
+</div>
+</div>
 <div class="section" id="curl">
 <h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h2>
 <p>Uploading files: <a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://EXAMPLE <span class="se">\</span>
+  -F <span class="s1">&#39;one=sometext&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;two=someothertext&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;three=somemoretext&#39;</span> <span class="se">\</span>
+  -F <span class="s1">&#39;doc=@/Users/caleb/Documents/Test.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document&#39;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="find">
 <h2>Find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
@@ -342,7 +414,10 @@ screen -r -d caleb
 </div>
 <div class="section" id="generating-ssh-keys">
 <h2>Generating SSH Keys<a class="headerlink" href="#generating-ssh-keys" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a public key on the client</span>
+<p><a class="reference external" href="https://askubuntu.com/questions/311558/ssh-permission-denied-publickey">https://askubuntu.com/questions/311558/ssh-permission-denied-publickey</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### ON THE CLIENT</span>
+
+<span class="c1"># Generate a public key on the client</span>
 ssh-keygen -t rsa -b <span class="m">4096</span>
 
 <span class="c1">### Output</span>
@@ -368,6 +443,14 @@ ssh-copy-id ubuntu@10.0.2.12
 
 <span class="c1"># Now try logging into the machine, with:   &quot;ssh &#39;ubuntu@10.0.2.12&#39;&quot;</span>
 <span class="c1"># and check to make sure that only the key(s) you wanted were added.</span>
+
+<span class="c1"># You can add IdentitiesOnly yes to ensure ssh uses the IdentityFile and no other keyfiles during authentication, which can cause issues and is not a good practice.</span>
+vim ~/.ssh/config
+  Host SERVERNAME
+  Hostname ip-or-domain-of-server
+  User USERNAME
+  PubKeyAuthentication yes
+  IdentityFile ./path/to/key
 </pre></div>
 </div>
 </div>
@@ -467,57 +550,67 @@ fsck /dev/sda1 -f -y -a
 <h2>Xen<a class="headerlink" href="#xen" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="manually-starting">
 <h3>Manually Starting<a class="headerlink" href="#manually-starting" title="Permalink to this headline">¶</a></h3>
-<p>xm list
-cd /etc/xen/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xm list
+<span class="nb">cd</span> /etc/xen/
 ls
 xm create &lt;vm-name&gt;
 ping &lt;vm-name&gt;
-xm list</p>
+xm list
+</pre></div>
+</div>
 </div>
 <div class="section" id="install-xen">
 <h3>Install Xen<a class="headerlink" href="#install-xen" title="Permalink to this headline">¶</a></h3>
-<p>yum install xen virt-manager kernel-xen
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install xen virt-manager kernel-xen
 chkconfig xend on
-reboot</p>
+reboot
+</pre></div>
+</div>
 </div>
 <div class="section" id="mount-cd-for-image-of-os">
 <h3>Mount CD for Image of OS<a class="headerlink" href="#mount-cd-for-image-of-os" title="Permalink to this headline">¶</a></h3>
-<p>mkdir /media/cdrom
-mount -t &lt;name_of_iso&gt; -o ro /dev/cdrom /media/cdrom</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /media/cdrom
+mount -t &lt;name_of_iso&gt; -o ro /dev/cdrom /media/cdrom
+</pre></div>
+</div>
 </div>
 <div class="section" id="install-vm">
 <h3>Install VM<a class="headerlink" href="#install-vm" title="Permalink to this headline">¶</a></h3>
-<p>virt-install –prompt (yes centos 512 /home/vm/centos /media/cdrom)</p>
+<p><code class="docutils literal notranslate"><span class="pre">virt-install</span> <span class="pre">--prompt</span> <span class="pre">(yes</span> <span class="pre">centos</span> <span class="pre">512</span> <span class="pre">/home/vm/centos</span> <span class="pre">/media/cdrom)</span></code></p>
 </div>
 <div class="section" id="launch-vm-to-create-virtual-os">
 <h3>Launch VM to Create Virtual OS<a class="headerlink" href="#launch-vm-to-create-virtual-os" title="Permalink to this headline">¶</a></h3>
-<p>startx
-virt-manager</p>
-<p>NOTE to exit startx press ctrl,alt,bkspce</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE to exit startx press ctrl,alt,bkspce</span>
+startx
+virt-manager
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="skel-terminal-colours">
 <h2>Skel Terminal Colours<a class="headerlink" href="#skel-terminal-colours" title="Permalink to this headline">¶</a></h2>
-<p>Mv .bashrc .bashrc.bak
-Cp /etc/skel/.bashrc .bashrc
-Nano .bashrc
-# uncomment this:
-force_color_prompt=yes
-# add this to the bottom of the file
-[[ -s “$HOME/.rvm/scripts/rvm” ]] &amp;&amp; source “$HOME/.rvm/scripts/rvm”
-. .bashrc</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv .bashrc .bashrc.bak
+cp /etc/skel/.bashrc .bashrc
+nano .bashrc
+<span class="c1"># uncomment this:</span>
+<span class="nv">force_color_prompt</span><span class="o">=</span>yes
+<span class="c1"># add this to the bottom of the file</span>
+<span class="o">[[</span> -s <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.rvm/scripts/rvm&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.rvm/scripts/rvm&quot;</span>
+. .bashrc
+</pre></div>
+</div>
 </div>
 <div class="section" id="rename-a-file-to-a-filename-with-date">
 <h2>Rename a File to a Filename with Date<a class="headerlink" href="#rename-a-file-to-a-filename-with-date" title="Permalink to this headline">¶</a></h2>
-<p>cp &lt;name_of_file&gt; &lt;new_name_of_file&gt;.`date -I`</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">&lt;name_of_file&gt;</span> <span class="pre">&lt;new_name_of_file&gt;.`date</span> <span class="pre">-I`</span></code></p>
 </div>
 <div class="section" id="checking-cpu-architecture">
 <h2>Checking CPU Architecture<a class="headerlink" href="#checking-cpu-architecture" title="Permalink to this headline">¶</a></h2>
-<p>uname -i</p>
+<p><code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-i</span></code></p>
 </div>
 <div class="section" id="checking-uptime">
 <h2>Checking Uptime<a class="headerlink" href="#checking-uptime" title="Permalink to this headline">¶</a></h2>
-<p>uptime</p>
+<p><code class="docutils literal notranslate"><span class="pre">uptime</span></code></p>
 </div>
 <div class="section" id="tigervnc">
 <h2>TigerVNC<a class="headerlink" href="#tigervnc" title="Permalink to this headline">¶</a></h2>
@@ -727,6 +820,25 @@ Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&
 <p><a class="reference external" href="https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation">https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@server:~$ sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep created
 Filesystem created:       Mon Sep  <span class="m">7</span> <span class="m">06</span>:49:22 <span class="m">2020</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="temporary-failure-in-name-resolution">
+<h2>Temporary Failure in Name Resolution<a class="headerlink" href="#temporary-failure-in-name-resolution" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution">https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl disable systemd-resolved.service
+sudo systemctl stop systemd-resolved.service
+sudo rm /etc/resolv.conf
+<span class="nb">echo</span> <span class="s2">&quot;nameserver 1.1.1.1&quot;</span> &gt; /etc/resolv.conf
+<span class="nb">echo</span> <span class="s2">&quot;nameserver 1.0.0.3&quot;</span> &gt;&gt; /etc/resolv.conf
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-hosname">
+<h2>Change Hosname<a class="headerlink" href="#change-hosname" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/">https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo hostnamectl set-hostname SERVERNAME
+nano /etc/hosts
 </pre></div>
 </div>
 </div>

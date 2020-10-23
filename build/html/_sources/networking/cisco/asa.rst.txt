@@ -3,6 +3,22 @@ ASA
 
 Adaptive Security Appliance
 
+SCP
+---
+
+https://thestupidengineer.wordpress.com/2015/04/01/scp-file-to-asa/
+
+.. code-block:: none
+
+  # Enable SCP on ASA
+  ssh scopy enable
+
+  # From your host / laptop / desktop / whatever
+  scp -v asa825-51-k8.bin username@IP_ADDRESS:disk0:asa825-51-k8.bin
+
+  # From the ASA
+  scp -v cisco@10.251.21.80:disk0:asa822-k8.bin asa822-k8.bin
+
 Health
 ------
 
