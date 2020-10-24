@@ -690,3 +690,238 @@ https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/
 
   sudo hostnamectl set-hostname SERVERNAME
   nano /etc/hosts
+
+Google Authenticator
+--------------------
+
+CentOS 7
+^^^^^^^^
+
+.. code-block:: bash
+
+  # Update and Upgrade
+  yum -y update && yum -y upgrade
+
+  # Install FreeRADIUS
+  yum install freeradius freeradius-utils
+
+  # Install nano
+  yum install nano
+
+  # Make root the user
+  nano /etc/raddb/radiusd.conf
+
+  user = root
+  group = root
+
+  # Enable PAM
+  nano /etc/raddb/sites-enabled/default
+
+  # Pluggable Authentication Modules.
+  pam
+
+  ln -s /etc/raddb/mods-available/pam /etc/raddb/mods-enabled/pam
+
+  # Add the RADIUS clients
+  nano /etc/raddb/clients.conf
+
+  client asa {
+  ipaddr = 10.145.16.3
+  secret = supersecuresecret
+  nas_type = cisco
+  }
+
+  # Change auth type
+  nano /etc/raddb/users
+
+  DEFAULT Group == "disabled", Auth-Type := Reject
+
+  Reply-Message = "Your account has been disabled."
+
+  DEFAULT Auth-Type := PAM
+
+  # Reload radiusd
+  service radiusd restart
+
+  # Test RADIUS, look for any errors
+  radiusd -X
+
+  # Test RADIUS without LDAP or Google Auth
+  useradd raduser
+  passwd raduser
+
+  radtest raduser Password1 localhost 0 testing123
+
+  # Installing tools to add box to domain
+  yum install sssd realmd adcli oddjob oddjob-mkhomedir sssd samba-common-tools
+
+  # Make computer join the domain
+  realm join corp.domain.com -U caleb.sargeant
+
+  # Configure SSSD
+  nano /etc/sssd/sssd.conf
+
+  ad_domain = corp.domain.com
+  krb5_realm = CORP.DOMAIN.COM
+  realmd_tags = manages-system joined-with-samba
+  cache_credentials = True
+  id_provider = ad
+  krb5_store_password_if_offline = True
+  default_shell = /bin/bash
+  ldap_id_mapping = True
+  use_fully_qualified_names = False
+  fallback_homedir = /home/%u
+  access_provider = simple
+  simple_allow_groups = test-group
+
+  # Allow only users part of test-group to auth with radius server
+  realm permit -g test-group
+
+  ### SSH into the box with caleb.sargeant@ct-googleauth - not needed anymore, become the user via su only
+
+  # Reload radiusd & SSSD
+  service radiusd restart
+  service sssd restart
+
+  # Test RADIUS with LDAP, without Google Auth
+  radiusd -X
+
+  radtest caleb.sargeant <Password> localhost 0 testing123
+
+  # Install stuff for Google Authenticator
+  yum install pam-devel make gcc-c++ git wget
+
+  # Installing Google Authenticator
+  cd /tmp
+  wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/g/google-authenticator-1.04-1.el7.x86_64.rpm
+  rpm -i google-authenticator-1.04-1.el7.x86_64.rpm
+
+  # Configuring Google Authenticator for a user
+  su - caleb.sargeant
+  google-authenticator
+  ### say y for everything, backup the numbers!
+
+  # Add Google Authenticator to PAM
+  nano /etc/pam.d/radiusd
+  #%PAM-1.0
+  auth requisite pam_google_authenticator.so forward_pass
+  auth required pam_sss.so use_first_pass
+  account required pam_nologin.so
+  account include password-auth
+  session include password-auth
+
+  # Test RADIUS with LDAP and Google Auth
+  radtest caleb.sargeant <Password><GoogleAuthCode> localhost 0 testing123
+
+  # Disable SELinux
+  nano /etc/selinux/config
+  SELINUX=disabled
+
+  # Configuring firewall
+  firewall-cmd --get-default-zone
+  firewall-cmd --zone=public --list-all
+  firewall-cmd --get-services | grep rad
+  firewall-cmd --permanent --zone=public --add-service=radius
+  firewall-cmd --reload
+
+
+Cisco AnyConnect Connection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The below guide shows one how to connect to the VPN using one's OTP. The connection is exactly the same as the previous VPN connection.
+
+* To connect to the VPN using MFA, first connect to your region.
+
+.. image:: _images/google-authenticator-1.png
+
+* Select the MFA Group.
+
+.. image:: _images/google-authenticator-2.png
+
+* Enter your credentials. Once you have finished typing in your password, enter your TOTP. In this example, I will be using *Google Authenticator* on Android. The format is YOURPASSWORD-OTP (without the "-").
+
+.. image:: _images/google-authenticator-3.png
+
+.. image:: _images/google-authenticator-4.png
+
+* You will be connected to the VPN as per normal.
+
+.. image:: _images/google-authenticator-5.png
+
+LDAP Authentication
+-------------------
+
+Public Key Authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First, on the host, reset the password of ubuntu & root
+
+.. code-block:: bash
+
+  ubuntu@hostname:~$ sudo su -
+  root@hostname:~# passwd ubuntu
+  root@hostname:~# passwd root
+
+Modify the sudoers file, so that we don't have type in the password to become root. DO NOT make a mistake here.
+
+.. code-block:: bash
+
+  visudo
+    %sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+
+On your laptop, copy the sshkey to the host
+
+.. code-block:: bash
+
+  name.surname@MacBookPro:~$ sudo ssh-copy-id -i key.pub ubuntu@hostname
+
+You can now log into the host using ubuntu & the key.
+
+SSSD
+^^^^
+
+Modify the sudoers
+
+.. code-block:: bash
+
+  # Add Infrasturcture Team to Sudoers
+  nano /etc/sudoers.d/ad-ldap
+    %Infrastructure\ Team ALL=(ALL:ALL) NOPASSWD:ALL
+
+  # Change permissions on sudoers file to Owner & Group readable only
+  chmod 440 /etc/sudoers.d/ad-ldap
+
+Install SSSD & Related Tools
+
+.. code-block:: bash
+
+  apt-get install samba-common sssd sssd-tools realmd adcli oddjob oddjob-mkhomedir libnss-sss libpam-sss adcli -y
+
+Join the domain
+
+.. code-block:: bash
+
+  sudo realm join corp.example.com -U caleb.sargeant --install=/
+
+SSSD Configuration
+
+.. code-block:: bash
+
+  # Add or modify the below
+  nano /etc/sssd/sssd.conf
+    use_fully_qualified_names = False
+    fallback_homedir = /home/%u
+    skel_dir = /etc/skel
+    homedir_umask = 000
+    override_homedir = /home/%u
+    simple_allow_groups = Infrastructure\ Team
+
+Restart SSSD
+
+.. code-block:: bash
+
+  service sssd restart
+
+You can now log in to the host using your domain credentials
+
+To add Duo Authentication push notifications, see `here <https://docs.calebsargeant.com/en/latest/computing/cloud/duo.html#unix-ssh>`_.

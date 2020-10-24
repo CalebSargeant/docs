@@ -84,7 +84,8 @@ Usage
 
   case $1 in
     (SA|UK|US) ;;
-    (*) usage
+    #unhash the next line - it's just messing with RST
+    #(*) usage
   esac
 
   if [ "$1" == "SA" ]; then
@@ -386,6 +387,15 @@ https://stackoverflow.com/questions/3856747/check-whether-a-certain-file-type-ex
   count=$(ls -1 *.json 2>/dev/null | wc -l)
   if [ $count != 0 ]; then
     echo true
+  fi
+
+Check if variable not set
+
+.. code-block:: bash
+
+  if [[ -z "$REGION" ]]; then
+    echo "$REGION not set"
+    exit 1
   fi
 
 Remove First Line

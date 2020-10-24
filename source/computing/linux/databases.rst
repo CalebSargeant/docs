@@ -11,7 +11,7 @@ Backup
 
   # Backup directly to a remote host (zabbix is the DB name)
   # That pipes the mysqldump command through gzip, then to through and SSH connection. SSH on the remote side runs the ‘cat’ command to read the stdin, then redirects that to the actual file where I want it saved.
-  mysqldump -u root -p zabbix | gzip -c | ssh caleb.sargeant@i5-r-sftp.uk02.kexpress.net "cat > zabbix.sql.gz"
+  mysqldump -u root -p zabbix | gzip -c | ssh caleb.sargeant@server.example.com "cat > zabbix.sql.gz"
 
 Restore
 ^^^^^^^

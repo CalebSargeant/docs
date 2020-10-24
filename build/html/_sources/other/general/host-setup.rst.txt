@@ -59,6 +59,8 @@ List of stuff to install on a (new) Mac:
   # Install virtualenv
   pip3 install virtualenv
 
+  # Install webp to convert webp to png (for i in `ls | grep webp | cut -f 1 -d '.'`; do dwebp "$i.webp" -o "$i.png"; done)
+  brew install webp
 
 Updating Bash
 ^^^^^^^^^^^^^

@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Hardware Troubleshooting" href="troubleshooting-hardware.html" />
+    <link rel="next" title="Reading" href="reading.html" />
     <link rel="prev" title="Download Videos" href="download-videos.html" /> 
 </head>
 
@@ -96,6 +96,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/python/index.html">Python</a></li>
@@ -105,6 +106,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="download-videos.html">Download Videos</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Host Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a><ul>
@@ -124,6 +126,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="reading.html">Reading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting-hardware.html">Hardware Troubleshooting</a></li>
 </ul>
 </li>
@@ -248,6 +251,9 @@ brew install pandoc
 
 <span class="c1"># Install virtualenv</span>
 pip3 install virtualenv
+
+<span class="c1"># Install webp to convert webp to png (for i in `ls | grep webp | cut -f 1 -d &#39;.&#39;`; do dwebp &quot;$i.webp&quot; -o &quot;$i.png&quot;; done)</span>
+brew install webp
 </pre></div>
 </div>
 </div>
@@ -337,7 +343,7 @@ ansible-playbook -i ./hosts.yml playbookname.yml
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="troubleshooting-hardware.html" class="btn btn-neutral float-right" title="Hardware Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reading.html" class="btn btn-neutral float-right" title="Reading" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="download-videos.html" class="btn btn-neutral float-left" title="Download Videos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

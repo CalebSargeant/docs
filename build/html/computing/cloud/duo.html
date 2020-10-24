@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Duo &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Openstack" href="openstack.html" />
+    <link rel="prev" title="DigiCert" href="digicert.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflare.html">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digicert.html">DigiCert</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Duo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cisco-anyconnect-vpn">Cisco AnyConnect VPN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duo-admin-panel">Duo Admin Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duo-authentication-proxy">Duo Authentication Proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-asa-configuration">Cisco ASA Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cisco-management-access">Cisco Management Access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">DUO Authentication Proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-asa">Cisco ASA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-ios">Cisco IOS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logging-syslog">Logging &amp; Syslog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duoauthproxy-syslog-config">DuoAuthProxy Syslog Config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-server-config">Logging Server Config</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#directory-sync">Directory Sync</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-email-addresses-attributes-to-ad">Add Email Addresses Attributes to AD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-the-duo-admin-panel">In the Duo Admin Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-the-duo-authentication-proxy">On the Duo Authentication Proxy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#back-on-the-duo-admin-panel">Back on the Duo Admin Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#unix-ssh">Unix SSH</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-configuration">Installation &amp; Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duo-pam-module">Duo PAM Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#public-key-or-sssd-authentication">Public Key or SSSD Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#public-key-authentication">Public Key Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#password-authentication">Password Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rdp">RDP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Cloud</a> &raquo;</li>
+        
+      <li>Duo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/computing/cloud/duo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="duo">
+<h1>Duo<a class="headerlink" href="#duo" title="Permalink to this headline">¶</a></h1>
+<p>Stuff about Duo &amp; administration thereof</p>
+<div class="section" id="cisco-anyconnect-vpn">
+<h2>Cisco AnyConnect VPN<a class="headerlink" href="#cisco-anyconnect-vpn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duo-admin-panel">
+<span id="id1"></span><h3>Duo Admin Panel<a class="headerlink" href="#duo-admin-panel" title="Permalink to this headline">¶</a></h3>
+<p>Go to <em>Applications &gt; Protect an Application</em> &gt; search for cisco radius &gt; <em>Protect this Application</em></p>
+<img alt="../../_images/duo-8.png" src="../../_images/duo-8.png" />
+<p>Take note of the below. There are way more options that can be configured including but not limited to, logs, voice greetings, policies, etc.</p>
+<img alt="../../_images/duo-9.png" src="../../_images/duo-9.png" />
+</div>
+<div class="section" id="duo-authentication-proxy">
+<h3>Duo Authentication Proxy<a class="headerlink" href="#duo-authentication-proxy" title="Permalink to this headline">¶</a></h3>
+<p>See :<a class="reference internal" href="#id3"><span class="std std-ref">Directory Sync</span></a> for expected output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit the Duo config file</span>
+sudo nano /opt/duoauthproxy/conf/authproxy.cfg
+  <span class="o">[</span>radius_server_auto<span class="o">]</span>
+  <span class="nv">ikey</span><span class="o">=</span>REDACTED
+  <span class="nv">skey</span><span class="o">=</span>REDACTED
+  <span class="nv">api_host</span><span class="o">=</span>REDACTED.duosecurity.com
+  <span class="nv">client</span><span class="o">=</span>ad_client
+  <span class="nv">radius_ip_1</span><span class="o">=</span>x.x.x.x
+  <span class="nv">radius_secret_1</span><span class="o">=</span>REDACTED
+
+<span class="c1"># Restart the proxy service</span>
+service duoauthproxy restart
+
+<span class="c1"># Verify config</span>
+sudo /opt/duoauthproxy/bin/authproxy_connectivity_tool
+</pre></div>
+</div>
+</div>
+<div class="section" id="cisco-asa-configuration">
+<h3>Cisco ASA Configuration<a class="headerlink" href="#cisco-asa-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Create the aaa-server
+aaa-server CORP_DUO protocol radius
+aaa-server CORP_DUO (inside) host server.corp.example.com
+  timeout 60
+  key ***************
+  authentication-port 1812
+  accounting-port 1813
+  radius-common-pw ***************
+  no mschapv2-capable
+exit
+
+# Config tunnel-group
+tunnel-group DUO_TUNNEL_GROUP type remote-access
+tunnel-group DUO_TUNNEL_GROUP general-attributes
+  default-group-policy GROUP_POLICY
+  authentication-server-group  CORP_DUO
+  address-pool POOL
+  authorization-required
+  authorization-server-group CORP_LDAP
+tunnel-group DUO_TUNNEL_GROUP webvpn-attributes
+  group-alias DuoEnabledVPN enable
+</pre></div>
+</div>
+<p><strong>radius-common-pw</strong> is common password to be used for all users who are accessing this RADIUS authorization server through this security appliance</p>
+<p><strong>key</strong> is key specific to a client (i.e. client is a device) created on the Radius server.</p>
+</div>
+</div>
+<div class="section" id="cisco-management-access">
+<h2>Cisco Management Access<a class="headerlink" href="#cisco-management-access" title="Permalink to this headline">¶</a></h2>
+<p>We added independent Application to DUO cloud service to be able to independently manage groups allowed to access the group of devices.</p>
+<img alt="../../_images/duo-3.png" src="../../_images/duo-3.png" />
+<p>The group is:</p>
+<img alt="../../_images/duo-4.png" src="../../_images/duo-4.png" />
+<img alt="../../_images/duo-5.png" src="../../_images/duo-5.png" />
+<img alt="../../_images/duo-6.png" src="../../_images/duo-6.png" />
+<img alt="../../_images/duo-7.png" src="../../_images/duo-7.png" />
+<div class="section" id="id2">
+<h3>DUO Authentication Proxy<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>We needed a second instance of RADIUS proxy on the duo instances built for AnyConnect MFA.</p>
+<p>This was achieved by adding a section to the configuration of each DUO instance.</p>
+<p>We needed to specify different radius port, for example port=18120, to avoid mixing with DUO MFA for AnyConnect.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>radius_server_auto2<span class="o">]</span>
+<span class="nv">ikey</span><span class="o">=</span>REDACTED
+<span class="nv">skey</span><span class="o">=</span>REDACTED
+<span class="nv">api_host</span><span class="o">=</span>REDACTED.duosecurity.com
+<span class="nv">client</span><span class="o">=</span>ad_client
+
+<span class="nv">port</span><span class="o">=</span><span class="m">18120</span>
+<span class="nv">radius_ip_1</span><span class="o">=</span>x.x.x.x
+<span class="nv">radius_secret_1</span><span class="o">=</span>REDACTED
+<span class="nv">radius_ip_2</span><span class="o">=</span>y.y.y.y
+<span class="nv">radius_secret_2</span><span class="o">=</span>REDACTED
+<span class="nv">radius_ip_3</span><span class="o">=</span>z.z.z.z
+<span class="nv">radius_secret_3</span><span class="o">=</span>REDACTED
+</pre></div>
+</div>
+<p>Reload of the service should show no errors:</p>
+</div>
+<div class="section" id="cisco-asa">
+<h3>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this headline">¶</a></h3>
+<p>The configuration on each firewall has to point on the local duo proxy servers first, then as a fallback should be listed the remote proxy servers.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aaa-server CORP_DUO_NET protocol radius
+
+aaa-server CORP_DUO_NET (inside) host server1.corp.example.com
+timeout 60
+key REDACTED
+authentication-port 18120
+accounting-port 1813
+radius-common-pw REDACTED
+no mschapv2-capable
+
+aaa-server CORP_DUO_NET (inside) host server2.corp.example.com
+timeout 60
+key REDACTED
+authentication-port 18120
+accounting-port 1813
+radius-common-pw REDACTED
+no mschapv2-capable
+
+no aaa authentication ssh console LOCAL
+aaa authentication ssh console CORP_DUO_NET LOCAL
+</pre></div>
+</div>
+</div>
+<div class="section" id="cisco-ios">
+<h3>Cisco IOS<a class="headerlink" href="#cisco-ios" title="Permalink to this headline">¶</a></h3>
+<p>The configuration on each switch has to point on the local duo proxy servers first, then as a fallback should be listed the remote proxy servers. Also DNS had to be fixed to make sure the switch can find the instances by name.</p>
+<p>Importantly, the Duoauthproxy DNS to IP resolution is only performed at the configuration time and saved, as each Duoauthproxy is saved to the configuration as an IP address.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Enable DNS lookups
+ip domain-lookup
+
+ip domain-name corp.example.com
+ip name-server x.x.x.x
+ip name-server y.y.y.y
+ip name-server 1.1.1.1
+ip name-server 1.0.0.1
+
+aaa group server radius CORP_DUO_NET
+ server-private server1.corp.example.com auth-port 18120 timeout 60 key REDACTED
+ server-private server2.corp.example.com auth-port 18120 timeout 60 key REDACTED
+
+# Test
+test aaa group CORP_DUO_NET USER PASSWORD new-code
+
+no aaa authentication login default local
+aaa authentication login default group CORP_DUO_NET local
+aaa authorization exec default group CORP_DUO_NET local if-authenticated
+
+#change enable secret to let rancid elevate privileges via enable
+enable secret 5 REDACTED
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="logging-syslog">
+<h2>Logging &amp; Syslog<a class="headerlink" href="#logging-syslog" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duoauthproxy-syslog-config">
+<h3>DuoAuthProxy Syslog Config<a class="headerlink" href="#duoauthproxy-syslog-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/rsyslog.conf
+    *.*     @server1.corp.example.com:12202<span class="p">;</span>RSYSLOG_SyslogProtocol23Format
+    *.*     @server2.corp.example.com:12202<span class="p">;</span>RSYSLOG_SyslogProtocol23Format
+    *.*     @server3.corp.example.com:12202<span class="p">;</span>RSYSLOG_SyslogProtocol23Format
+service rsyslog restart
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging-server-config">
+<h3>Logging Server Config<a class="headerlink" href="#logging-server-config" title="Permalink to this headline">¶</a></h3>
+<p>I’m using Graylog in this example</p>
+<p>Navigate to <em>System &gt; Inputs</em></p>
+<img alt="../../_images/duo-10.png" src="../../_images/duo-10.png" />
+<p>Select <em>Syslog UDP</em></p>
+<img alt="../../_images/duo-11.png" src="../../_images/duo-11.png" />
+<p>Select the <em>Node</em>, type in the <em>Title</em> and <em>Port</em></p>
+<img alt="../../_images/duo-12.png" src="../../_images/duo-12.png" />
+<p>Viewing the Messages</p>
+<img alt="../../_images/duo-13.png" src="../../_images/duo-13.png" />
+<img alt="../../_images/duo-14.png" src="../../_images/duo-14.png" />
+</div>
+</div>
+<div class="section" id="directory-sync">
+<h2>Directory Sync<a class="headerlink" href="#directory-sync" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-email-addresses-attributes-to-ad">
+<span id="id3"></span><h3>Add Email Addresses Attributes to AD<a class="headerlink" href="#add-email-addresses-attributes-to-ad" title="Permalink to this headline">¶</a></h3>
+<p>The E-mail address field in AD needs to be filled out so that, when we do a Directory Sync with Duo, the email address will be populated in Duo for sending out enrolment links.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+
+<span class="nv">$OUList</span> <span class="p">=</span>
+<span class="s1">&#39;ExampleOU1</span>
+<span class="s1">ExampleOU2</span>
+<span class="s1">ExampleOU3&#39;</span>
+
+<span class="nv">$OUList</span> <span class="p">=</span> <span class="nv">$OUList</span> <span class="n">-split</span> <span class="s1">&#39;\r?\n&#39;</span>
+
+<span class="k">ForEach</span> <span class="p">(</span><span class="nv">$OU</span> <span class="k">in</span> <span class="nv">$OUList</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-SearchBase</span> <span class="s2">&quot;OU=\$OU,DC=corp,DC=domain,DC=com&quot;</span> <span class="p">|</span> <span class="p">`</span>
+    <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nb">Set-ADUser</span> <span class="n">-EmailAddress</span> <span class="p">(</span><span class="nv">$_</span><span class="p">.</span><span class="n">samaccountname</span> <span class="p">+</span> <span class="s1">&#39;@domain.com&#39;</span><span class="p">)</span> <span class="n">-Identity</span> <span class="nv">$_</span> <span class="p">}</span>
+    <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-SearchBase</span> <span class="s2">&quot;OU=\$OU,DC=mydc,DC=com&quot;</span> <span class="n">-Properties</span> <span class="p">*</span> <span class="p">|</span> <span class="nb">select </span><span class="n">SamAccountName</span><span class="p">,</span> <span class="n">mail</span> <span class="p">}</span> <span class="p">|</span> <span class="nb">Tee-Object</span> <span class="n">-Append</span> <span class="n">UpdateEmailAddressAttributes</span><span class="p">.</span><span class="n">log</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../_images/duo-1.png" src="../../_images/duo-1.png" />
+<img alt="../../_images/duo-2.png" src="../../_images/duo-2.png" />
+</div>
+<div class="section" id="in-the-duo-admin-panel">
+<h3>In the Duo Admin Panel<a class="headerlink" href="#in-the-duo-admin-panel" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://duo.com/docs/adsync#add-the-directory">https://duo.com/docs/adsync#add-the-directory</a></p>
+<p>Go to <em>Users &gt; Directory Sync &gt; New Directory</em></p>
+<img alt="../../_images/duo-23.png" src="../../_images/duo-23.png" />
+<p>Input the <em>Display name, Server</em> name (use the internal hostname, as the Duo Authentication Proxy is the device that connects to AD), and select <em>Plain Authentication type</em></p>
+<img alt="../../_images/duo-24.png" src="../../_images/duo-24.png" />
+<p>The <em>Transport type</em> is the connection between the <em>Duo Authentication Proxy</em> and AD. For the purpose of this guide, we are using <em>CLEAR Transport type</em>, but otherwise, we will configure <em>LDAPS</em>. When implementing, I recommend we add phones to AD and check Import phones, as this will make enrollment easier.</p>
+<img alt="../../_images/duo-25.png" src="../../_images/duo-25.png" />
+<p>Take note of the <em>Integrated key, Secret key, and API hostname</em></p>
+<img alt="../../_images/duo-26.png" src="../../_images/duo-26.png" />
+<p>We will now take a break from the <em>Duo Admin Panel</em> and configure the <em>Duo Authentication Proxy</em> and come back to this page. Ensure that you click on <em>Save Directory</em></p>
+</div>
+<div class="section" id="on-the-duo-authentication-proxy">
+<h3>On the Duo Authentication Proxy<a class="headerlink" href="#on-the-duo-authentication-proxy" title="Permalink to this headline">¶</a></h3>
+<p>As per <a class="reference external" href="https://duo.com/docs/adsync#duo-authentication-proxy">https://duo.com/docs/adsync#duo-authentication-proxy</a> and <a class="reference external" href="https://duo.com/docs/authproxy-reference">https://duo.com/docs/authproxy-reference</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update and upgrade</span>
+sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get upgrade -y
+
+<span class="c1"># Installing dependancies</span>
+sudo apt-get install build-essential python-dev libffi-dev perl zlib1g-dev -y
+
+<span class="c1"># Download the Duo &quot;auth proxy&quot;</span>
+sudo wget https://dl.duosecurity.com/duoauthproxy-latest-src.tgz
+
+<span class="c1"># Extract the program &amp; build</span>
+sudo tar zxf duoauthproxy-latest-src.tgz
+<span class="nv">dir</span><span class="o">=</span><span class="k">$(</span>ll <span class="p">|</span> grep src/ <span class="p">|</span> awk <span class="s1">&#39;{print $9}&#39;</span><span class="k">)</span>
+<span class="nb">cd</span> <span class="nv">$dir</span>
+sudo make
+
+<span class="c1"># Install the program</span>
+<span class="nb">cd</span> duoauthproxy-build/
+sudo ./install
+  <span class="c1"># enter, enter, yes</span>
+</pre></div>
+</div>
+<p><strong>Configuration - Cloud Section</strong></p>
+<p>As per <a class="reference external" href="https://duo.com/docs/authproxy-reference#cloud-section">https://duo.com/docs/authproxy-reference#cloud-section</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit the Duo config file</span>
+sudo nano /opt/duoauthproxy/conf/authproxy.cfg
+  <span class="o">[</span>cloud<span class="o">]</span>
+  <span class="nv">ikey</span><span class="o">=</span>REDACTED
+  <span class="nv">skey</span><span class="o">=</span>REDACTED
+  <span class="nv">api_host</span><span class="o">=</span>REDACTED.duosecurity.com
+  <span class="nv">service_account_username</span><span class="o">=</span>REDACTED
+  <span class="nv">service_account_password</span><span class="o">=</span>REDACTED
+</pre></div>
+</div>
+<p><strong>Configuration - Client Section</strong></p>
+<p>As per <a class="reference external" href="https://duo.com/docs/authproxy-reference#client-sections">https://duo.com/docs/authproxy-reference#client-sections</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit the Duo config file</span>
+sudo nano /opt/duoauthproxy/conf/authproxy.cfg
+  <span class="o">[</span>ad_client<span class="o">]</span>
+  <span class="nv">host</span><span class="o">=</span>x.x.x.x
+  <span class="nv">host_2</span><span class="o">=</span>y.y.y.y
+  <span class="nv">service_account_username</span><span class="o">=</span>REDACTED
+  <span class="nv">service_account_password</span><span class="o">=</span>REDACTED
+  <span class="nv">search_dn</span><span class="o">=</span><span class="nv">DC</span><span class="o">=</span>example,DC<span class="o">=</span>com
+
+<span class="c1"># Restart the proxy service</span>
+service duoauthproxy restart
+</pre></div>
+</div>
+<p><strong>Verification</strong></p>
+<p>As per <a class="reference external" href="https://duo.com/docs/authproxy-reference#using-the-connectivity-tool">https://duo.com/docs/authproxy-reference#using-the-connectivity-tool</a></p>
+<p>Note that the expected output below also contains the testing done for <em>radius_server_auto</em>, which is for <em>Cisco RADIUS VPN</em> - see :<a class="reference internal" href="#id1"><span class="std std-ref">Duo Admin Panel</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/duoauthproxy/bin/authproxy_connectivity_tool
+
+<span class="c1"># Expected output</span>
+Running The Duo Authentication Proxy Connectivity Tool. This may take several minutes...
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;cloud&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;api_host&#39;</span>: <span class="s1">&#39;REDACTED.duosecurity.com&#39;</span>,
+   <span class="s1">&#39;ikey&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;service_account_password&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;service_account_username&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;skey&#39;</span>: <span class="s1">&#39;*****[40]&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  There are no configuration problems
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;ad_client&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;host&#39;</span>: <span class="s1">&#39;x.x.x.x&#39;</span>,
+   <span class="s1">&#39;search_dn&#39;</span>: <span class="s1">&#39;DC=example,DC=com&#39;</span>,
+   <span class="s1">&#39;service_account_password&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;service_account_username&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  There are no configuration problems
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;radius_server_auto&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;api_host&#39;</span>: <span class="s1">&#39;REDACTED.duosecurity.com&#39;</span>,
+   <span class="s1">&#39;client&#39;</span>: <span class="s1">&#39;ad_client&#39;</span>,
+   <span class="s1">&#39;ikey&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;radius_ip_1&#39;</span>: <span class="s1">&#39;x.x.x.x&#39;</span>,
+   <span class="s1">&#39;radius_secret_1&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;skey&#39;</span>: <span class="s1">&#39;*****[40]&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  There are no configuration problems
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;cloud&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;api_host&#39;</span>: <span class="s1">&#39;REDACTED.duosecurity.com&#39;</span>,
+   <span class="s1">&#39;ikey&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;service_account_password&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;service_account_username&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;skey&#39;</span>: <span class="s1">&#39;*****[40]&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  The Cloud connection has no connectivity problems.
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;ad_client&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;host&#39;</span>: <span class="s1">&#39;x.x.x.x&#39;</span>,
+   <span class="s1">&#39;search_dn&#39;</span>: <span class="s1">&#39;DC=example,DC=dev&#39;</span>,
+   <span class="s1">&#39;service_account_password&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;service_account_username&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  The LDAP Client section has no connectivity issues.
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  Testing section <span class="s1">&#39;radius_server_auto&#39;</span> with configuration:
+<span class="o">[</span>info<span class="o">]</span>  <span class="o">{</span><span class="s1">&#39;api_host&#39;</span>: <span class="s1">&#39;REDACTED.duosecurity.com&#39;</span>,
+   <span class="s1">&#39;client&#39;</span>: <span class="s1">&#39;ad_client&#39;</span>,
+   <span class="s1">&#39;ikey&#39;</span>: <span class="s1">&#39;REDACTED&#39;</span>,
+   <span class="s1">&#39;radius_ip_1&#39;</span>: <span class="s1">&#39;x.x.x.x&#39;</span>,
+   <span class="s1">&#39;radius_secret_1&#39;</span>: <span class="s1">&#39;*****&#39;</span>,
+   <span class="s1">&#39;skey&#39;</span>: <span class="s1">&#39;*****[40]&#39;</span><span class="o">}</span>
+<span class="o">[</span>info<span class="o">]</span>  The RADIUS Server has no connectivity problems.
+<span class="o">[</span>info<span class="o">]</span>  -----------------------------
+<span class="o">[</span>info<span class="o">]</span>  SUMMARY
+<span class="o">[</span>info<span class="o">]</span>  No issues detected
+
+The results have also been logged in /opt/duoauthproxy/log/connectivity_tool.log
+</pre></div>
+</div>
+</div>
+<div class="section" id="back-on-the-duo-admin-panel">
+<h3>Back on the Duo Admin Panel<a class="headerlink" href="#back-on-the-duo-admin-panel" title="Permalink to this headline">¶</a></h3>
+<p>Click on <em>Save Directory</em> again. Select the groups that you would like to sync. For this demo I just selected Role-Infrastructure. Click on Save Groups.</p>
+<img alt="../../_images/duo-27.png" src="../../_images/duo-27.png" />
+<p>You can now sync the users that are part of the AD group, or sync specific users in the group(s).</p>
+<img alt="../../_images/duo-28.png" src="../../_images/duo-28.png" />
+</div>
+</div>
+<div class="section" id="unix-ssh">
+<h2>Unix SSH<a class="headerlink" href="#unix-ssh" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-configuration">
+<h3>Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permalink to this headline">¶</a></h3>
+<p>I recommend the <em>duo-unix</em> apt package gets installed via the official Duo repository, instead of building and installing the package from a download link. Therefore, as per <a class="reference external" href="https://duo.com/docs/duounix#linux-distribution-packages">https://duo.com/docs/duounix#linux-distribution-packages</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the source.list</span>
+sudo nano /etc/apt/sources.list.d/duosecurity.list
+  deb http://pkg.duosecurity.com/Ubuntu bionic main
+
+<span class="c1"># Install duo-unix</span>
+sudo curl -s https://duo.com/APT-GPG-KEY-DUO <span class="p">|</span> sudo apt-key add -
+sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get install duo-unix -y
+</pre></div>
+</div>
+<p>Configure the <a class="reference internal" href="#id4"><span class="std std-ref">DuoPAMModule</span></a>, then choose <strong>ONLY ONE</strong> of the following:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#id5"><span class="std std-ref">Public Key or SSSD Authentication</span></a>- select this option if you are using SSSD for logins to the host with the ubuntu/public key as the backdoor, in case SSSD fails.</p></li>
+<li><p>:<a class="reference internal" href="#id6"><span class="std std-ref">Public Key Authentication</span></a> - select this option if you are using ubuntu/public key as the only method to login to the host.</p></li>
+<li><p><a class="reference internal" href="#id7"><span class="std std-ref">Password Authentication</span></a> - select this option if you are using a local user account as the only method to login to the host.</p></li>
+</ol>
+</div>
+<div class="section" id="duo-pam-module">
+<h3>Duo PAM Module<a class="headerlink" href="#duo-pam-module" title="Permalink to this headline">¶</a></h3>
+<p id="id4">Duo PAM is the first thing that has to be configured. We specify the Duo API hostname, etc. in this configuration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/duo/pam_duo.conf
+  <span class="o">[</span>duo<span class="o">]</span>
+  <span class="p">;</span> Duo integration key
+  <span class="nv">ikey</span> <span class="o">=</span> REDACTED
+  <span class="p">;</span> Duo secret key
+  <span class="nv">skey</span> <span class="o">=</span> REDACTED
+  <span class="p">;</span> Duo API host
+  <span class="nv">host</span> <span class="o">=</span> REDACTED.duosecurity.com
+  <span class="p">;</span> Enable autopush
+  <span class="nv">autopush</span> <span class="o">=</span> yes
+      <span class="p">;</span> <span class="sb">`</span><span class="nv">failmode</span> <span class="o">=</span> safe<span class="sb">`</span> In the event of errors with this configuration file or connection to the Duo service
+  <span class="p">;</span> this mode will allow login without 2FA.
+  <span class="p">;</span> <span class="sb">`</span><span class="nv">failmode</span> <span class="o">=</span> secure<span class="sb">`</span> This mode will deny access in the above cases. Misconfigurations with this setting
+  <span class="p">;</span> enabled may result in you being locked out of your system.
+  <span class="nv">failmode</span> <span class="o">=</span> safe
+  <span class="p">;</span> Send <span class="nb">command</span> <span class="k">for</span> Duo Push authentication
+  <span class="p">;</span><span class="nv">pushinfo</span> <span class="o">=</span> yes
+</pre></div>
+</div>
+</div>
+<div class="section" id="public-key-or-sssd-authentication">
+<h3>Public Key or SSSD Authentication<a class="headerlink" href="#public-key-or-sssd-authentication" title="Permalink to this headline">¶</a></h3>
+<p id="id5">An example of the below configuration, as well as installing &amp; configuring SSSD, joining the domain, and configuring sudoers can be found <a class="reference external" href="https://docs.calebsargeant.com/en/latest/computing/linux/general.html#ldap-authentication">here</a>.</p>
+<p><strong>SSH Config</strong></p>
+<p>Add or modify the below parameters to the <code class="docutils literal notranslate"><span class="pre">sshd_config</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/ssh/sshd_config
+  PubkeyAuthentication yes
+  PasswordAuthentication yes
+  AuthenticationMethods publickey password
+  ChallengeResponseAuthentication yes
+  UsePam yes
+  UseDNS no
+</pre></div>
+</div>
+<p><strong>PAM Config</strong></p>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/sshd</span></code> PAM module config.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/sshd
+  <span class="c1">### comment-out @include common-auth</span>
+  <span class="c1">#@include common-auth</span>
+
+  <span class="c1">### add the below 3 lines underneath #@include common-auth</span>
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+  auth  requisite pam_deny.so
+  auth  required pam_permit.so
+</pre></div>
+</div>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/common-auth</span></code> PAM module config</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/common-auth
+  <span class="c1">### comment-out auth   [success=2 default=ignore]      pam_unix.so nullok_secure</span>
+  <span class="c1">#auth   [success=2 default=ignore]      pam_unix.so nullok_secure</span>
+
+  <span class="c1">### add the below 2 lines underneath #auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+  auth  requisite pam_unix.so nullok_secure
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">2</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+</pre></div>
+</div>
+</div>
+<div class="section" id="public-key-authentication">
+<h3>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this headline">¶</a></h3>
+<p id="id6"><strong>SSH Config</strong></p>
+<p>Add or modify the below parameters to the sshd_config file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/ssh/sshd_config
+  PubkeyAuthentication yes
+  PasswordAuthentication no
+  AuthenticationMethods publickey,keyboard-interactive
+  UsePam yes
+  ChallengeResponseAuthentication yes
+  UseDNS no
+
+service sshd restart
+</pre></div>
+</div>
+<p><strong>PAM Config</strong></p>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/sshd</span></code> PAM module config.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/sshd
+  <span class="c1">### comment-out @include common-auth</span>
+  <span class="c1">#@include common-auth</span>
+
+  <span class="c1">### add the below 3 lines underneath #@include common-auth</span>
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+  auth  requisite pam_deny.so
+  auth  required pam_permit.so
+</pre></div>
+</div>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/common-auth</span></code> PAM module config</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/common-auth
+  <span class="c1">### comment-out auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+  <span class="c1">#auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+
+  <span class="c1">### add the below 2 lines underneath #auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+  auth  requisite pam_unix.so nullok_secure
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+</pre></div>
+</div>
+</div>
+<div class="section" id="password-authentication">
+<h3>Password Authentication<a class="headerlink" href="#password-authentication" title="Permalink to this headline">¶</a></h3>
+<p id="id7"><strong>SSH Config</strong></p>
+<p>Although the defaults work, add or modify the below parameters to the <code class="docutils literal notranslate"><span class="pre">sshd_config</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/ssh/sshd_config
+    PubkeyAuthentication no
+    PasswordAuthentication yes
+    AuthenticationMethods password
+    UsePam yes
+    ChallengeResponseAuthentication yes
+    UseDNS no
+
+service sshd restart
+</pre></div>
+</div>
+<p><strong>PAM Config</strong></p>
+<p>Although the PAM configuration is the same as Public Key Authentication, below is the config again to avoid confusion.</p>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/sshd</span></code> PAM module config.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/sshd
+  <span class="c1">### comment-out @include common-auth</span>
+  <span class="c1">#@include common-auth</span>
+
+  <span class="c1">### add the below 3 lines underneath #@include common-auth</span>
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+  auth  requisite pam_deny.so
+  auth  required pam_permit.so
+</pre></div>
+</div>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">/etc/pam.d/common-auth</span></code> PAM module config</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/pam.d/common-auth
+  <span class="c1">### comment-out auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+  <span class="c1">#auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+
+  <span class="c1">### add the below 2 lines underneath #auth   [success=1 default=ignore]      pam_unix.so nullok_secure</span>
+  auth  requisite pam_unix.so nullok_secure
+  auth  <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">default</span><span class="o">=</span>ignore<span class="o">]</span> /lib64/security/pam_duo.so
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rdp">
+<h2>RDP<a class="headerlink" href="#rdp" title="Permalink to this headline">¶</a></h2>
+<p>As per <a class="reference external" href="https://duo.com/docs/rdp">https://duo.com/docs/rdp</a></p>
+<p>Download and install the Duo application for Windows: <a class="reference external" href="https://dl.duosecurity.com/duo-win-login-latest.exe">https://dl.duosecurity.com/duo-win-login-latest.exe</a></p>
+<p>Click Next</p>
+<img alt="../../_images/duo-15.png" src="../../_images/duo-15.png" />
+<p>Type in the <em>API Hostname</em>, click Next</p>
+<img alt="../../_images/duo-16.png" src="../../_images/duo-16.png" />
+<p>Type in the <em>Integration Key</em> and <em>Secret Key</em>, click <em>Next</em></p>
+<img alt="../../_images/duo-17.png" src="../../_images/duo-17.png" />
+<p>Check all three boxes, which will bypass Duo if the API host is unreachable on TCP 443, automatically send a push notification upon authentication and disable Duo login when physically logging in to the machine.</p>
+<img alt="../../_images/duo-18.png" src="../../_images/duo-18.png" />
+<p>Click Next</p>
+<img alt="../../_images/duo-19.png" src="../../_images/duo-19.png" />
+<p>Click Install</p>
+<img alt="../../_images/duo-20.png" src="../../_images/duo-20.png" />
+<p>Click Finish</p>
+<img alt="../../_images/duo-21.png" src="../../_images/duo-21.png" />
+<p>When logging in via RDP, a login request will be pushed to the user’s Duo app on their smartphone</p>
+<img alt="../../_images/duo-22.png" src="../../_images/duo-22.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="openstack.html" class="btn btn-neutral float-right" title="Openstack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="digicert.html" class="btn btn-neutral float-left" title="DigiCert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Caleb Sargeant
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

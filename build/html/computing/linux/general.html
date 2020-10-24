@@ -96,6 +96,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
@@ -153,12 +154,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#age-of-system">Age of System</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#temporary-failure-in-name-resolution">Temporary Failure in Name Resolution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#change-hosname">Change Hosname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-authenticator">Google Authenticator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#centos-7">CentOS 7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cisco-anyconnect-connection">Cisco AnyConnect Connection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ldap-authentication">LDAP Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#public-key-authentication">Public Key Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sssd">SSSD</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 </ul>
@@ -840,6 +852,218 @@ sudo rm /etc/resolv.conf
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo hostnamectl set-hostname SERVERNAME
 nano /etc/hosts
 </pre></div>
+</div>
+</div>
+<div class="section" id="google-authenticator">
+<h2>Google Authenticator<a class="headerlink" href="#google-authenticator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="centos-7">
+<h3>CentOS 7<a class="headerlink" href="#centos-7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update and Upgrade</span>
+yum -y update <span class="o">&amp;&amp;</span> yum -y upgrade
+
+<span class="c1"># Install FreeRADIUS</span>
+yum install freeradius freeradius-utils
+
+<span class="c1"># Install nano</span>
+yum install nano
+
+<span class="c1"># Make root the user</span>
+nano /etc/raddb/radiusd.conf
+
+<span class="nv">user</span> <span class="o">=</span> root
+<span class="nv">group</span> <span class="o">=</span> root
+
+<span class="c1"># Enable PAM</span>
+nano /etc/raddb/sites-enabled/default
+
+<span class="c1"># Pluggable Authentication Modules.</span>
+pam
+
+ln -s /etc/raddb/mods-available/pam /etc/raddb/mods-enabled/pam
+
+<span class="c1"># Add the RADIUS clients</span>
+nano /etc/raddb/clients.conf
+
+client asa <span class="o">{</span>
+<span class="nv">ipaddr</span> <span class="o">=</span> <span class="m">10</span>.145.16.3
+<span class="nv">secret</span> <span class="o">=</span> supersecuresecret
+<span class="nv">nas_type</span> <span class="o">=</span> cisco
+<span class="o">}</span>
+
+<span class="c1"># Change auth type</span>
+nano /etc/raddb/users
+
+DEFAULT <span class="nv">Group</span> <span class="o">==</span> <span class="s2">&quot;disabled&quot;</span>, Auth-Type :<span class="o">=</span> Reject
+
+Reply-Message <span class="o">=</span> <span class="s2">&quot;Your account has been disabled.&quot;</span>
+
+DEFAULT Auth-Type :<span class="o">=</span> PAM
+
+<span class="c1"># Reload radiusd</span>
+service radiusd restart
+
+<span class="c1"># Test RADIUS, look for any errors</span>
+radiusd -X
+
+<span class="c1"># Test RADIUS without LDAP or Google Auth</span>
+useradd raduser
+passwd raduser
+
+radtest raduser Password1 localhost <span class="m">0</span> testing123
+
+<span class="c1"># Installing tools to add box to domain</span>
+yum install sssd realmd adcli oddjob oddjob-mkhomedir sssd samba-common-tools
+
+<span class="c1"># Make computer join the domain</span>
+realm join corp.domain.com -U caleb.sargeant
+
+<span class="c1"># Configure SSSD</span>
+nano /etc/sssd/sssd.conf
+
+<span class="nv">ad_domain</span> <span class="o">=</span> corp.domain.com
+<span class="nv">krb5_realm</span> <span class="o">=</span> CORP.DOMAIN.COM
+<span class="nv">realmd_tags</span> <span class="o">=</span> manages-system joined-with-samba
+<span class="nv">cache_credentials</span> <span class="o">=</span> True
+<span class="nv">id_provider</span> <span class="o">=</span> ad
+<span class="nv">krb5_store_password_if_offline</span> <span class="o">=</span> True
+<span class="nv">default_shell</span> <span class="o">=</span> /bin/bash
+<span class="nv">ldap_id_mapping</span> <span class="o">=</span> True
+<span class="nv">use_fully_qualified_names</span> <span class="o">=</span> False
+<span class="nv">fallback_homedir</span> <span class="o">=</span> /home/%u
+<span class="nv">access_provider</span> <span class="o">=</span> simple
+<span class="nv">simple_allow_groups</span> <span class="o">=</span> test-group
+
+<span class="c1"># Allow only users part of test-group to auth with radius server</span>
+realm permit -g test-group
+
+<span class="c1">### SSH into the box with caleb.sargeant@ct-googleauth - not needed anymore, become the user via su only</span>
+
+<span class="c1"># Reload radiusd &amp; SSSD</span>
+service radiusd restart
+service sssd restart
+
+<span class="c1"># Test RADIUS with LDAP, without Google Auth</span>
+radiusd -X
+
+radtest caleb.sargeant &lt;Password&gt; localhost <span class="m">0</span> testing123
+
+<span class="c1"># Install stuff for Google Authenticator</span>
+yum install pam-devel make gcc-c++ git wget
+
+<span class="c1"># Installing Google Authenticator</span>
+<span class="nb">cd</span> /tmp
+wget https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/g/google-authenticator-1.04-1.el7.x86_64.rpm
+rpm -i google-authenticator-1.04-1.el7.x86_64.rpm
+
+<span class="c1"># Configuring Google Authenticator for a user</span>
+su - caleb.sargeant
+google-authenticator
+<span class="c1">### say y for everything, backup the numbers!</span>
+
+<span class="c1"># Add Google Authenticator to PAM</span>
+nano /etc/pam.d/radiusd
+<span class="c1">#%PAM-1.0</span>
+auth requisite pam_google_authenticator.so forward_pass
+auth required pam_sss.so use_first_pass
+account required pam_nologin.so
+account include password-auth
+session include password-auth
+
+<span class="c1"># Test RADIUS with LDAP and Google Auth</span>
+radtest caleb.sargeant &lt;Password&gt;&lt;GoogleAuthCode&gt; localhost <span class="m">0</span> testing123
+
+<span class="c1"># Disable SELinux</span>
+nano /etc/selinux/config
+<span class="nv">SELINUX</span><span class="o">=</span>disabled
+
+<span class="c1"># Configuring firewall</span>
+firewall-cmd --get-default-zone
+firewall-cmd --zone<span class="o">=</span>public --list-all
+firewall-cmd --get-services <span class="p">|</span> grep rad
+firewall-cmd --permanent --zone<span class="o">=</span>public --add-service<span class="o">=</span>radius
+firewall-cmd --reload
+</pre></div>
+</div>
+</div>
+<div class="section" id="cisco-anyconnect-connection">
+<h3>Cisco AnyConnect Connection<a class="headerlink" href="#cisco-anyconnect-connection" title="Permalink to this headline">¶</a></h3>
+<p>The below guide shows one how to connect to the VPN using one’s OTP. The connection is exactly the same as the previous VPN connection.</p>
+<ul class="simple">
+<li><p>To connect to the VPN using MFA, first connect to your region.</p></li>
+</ul>
+<img alt="../../_images/google-authenticator-1.png" src="../../_images/google-authenticator-1.png" />
+<ul class="simple">
+<li><p>Select the MFA Group.</p></li>
+</ul>
+<img alt="../../_images/google-authenticator-2.png" src="../../_images/google-authenticator-2.png" />
+<ul class="simple">
+<li><p>Enter your credentials. Once you have finished typing in your password, enter your TOTP. In this example, I will be using <em>Google Authenticator</em> on Android. The format is YOURPASSWORD-OTP (without the “-“).</p></li>
+</ul>
+<img alt="../../_images/google-authenticator-3.png" src="../../_images/google-authenticator-3.png" />
+<img alt="../../_images/google-authenticator-4.png" src="../../_images/google-authenticator-4.png" />
+<ul class="simple">
+<li><p>You will be connected to the VPN as per normal.</p></li>
+</ul>
+<img alt="../../_images/google-authenticator-5.png" src="../../_images/google-authenticator-5.png" />
+</div>
+</div>
+<div class="section" id="ldap-authentication">
+<h2>LDAP Authentication<a class="headerlink" href="#ldap-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="public-key-authentication">
+<h3>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this headline">¶</a></h3>
+<p>First, on the host, reset the password of ubuntu &amp; root</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@hostname:~$ sudo su -
+root@hostname:~# passwd ubuntu
+root@hostname:~# passwd root
+</pre></div>
+</div>
+<p>Modify the sudoers file, so that we don’t have type in the password to become root. DO NOT make a mistake here.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>visudo
+  %sudo   <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
+</pre></div>
+</div>
+<p>On your laptop, copy the sshkey to the host</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>name.surname@MacBookPro:~$ sudo ssh-copy-id -i key.pub ubuntu@hostname
+</pre></div>
+</div>
+<p>You can now log into the host using ubuntu &amp; the key.</p>
+</div>
+<div class="section" id="sssd">
+<h3>SSSD<a class="headerlink" href="#sssd" title="Permalink to this headline">¶</a></h3>
+<p>Modify the sudoers</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add Infrasturcture Team to Sudoers</span>
+nano /etc/sudoers.d/ad-ldap
+  %Infrastructure<span class="se">\ </span>Team <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
+
+<span class="c1"># Change permissions on sudoers file to Owner &amp; Group readable only</span>
+chmod <span class="m">440</span> /etc/sudoers.d/ad-ldap
+</pre></div>
+</div>
+<p>Install SSSD &amp; Related Tools</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install samba-common sssd sssd-tools realmd adcli oddjob oddjob-mkhomedir libnss-sss libpam-sss adcli -y
+</pre></div>
+</div>
+<p>Join the domain</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo realm join corp.example.com -U caleb.sargeant --install<span class="o">=</span>/
+</pre></div>
+</div>
+<p>SSSD Configuration</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add or modify the below</span>
+nano /etc/sssd/sssd.conf
+  <span class="nv">use_fully_qualified_names</span> <span class="o">=</span> False
+  <span class="nv">fallback_homedir</span> <span class="o">=</span> /home/%u
+  <span class="nv">skel_dir</span> <span class="o">=</span> /etc/skel
+  <span class="nv">homedir_umask</span> <span class="o">=</span> <span class="m">000</span>
+  <span class="nv">override_homedir</span> <span class="o">=</span> /home/%u
+  <span class="nv">simple_allow_groups</span> <span class="o">=</span> Infrastructure<span class="se">\ </span>Team
+</pre></div>
+</div>
+<p>Restart SSSD</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service sssd restart
+</pre></div>
+</div>
+<p>You can now log in to the host using your domain credentials</p>
+<p>To add Duo Authentication push notifications, see <a class="reference external" href="https://docs.calebsargeant.com/en/latest/computing/cloud/duo.html#unix-ssh">here</a>.</p>
 </div>
 </div>
 </div>

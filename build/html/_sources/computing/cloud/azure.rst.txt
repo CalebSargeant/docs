@@ -352,3 +352,62 @@ Deploy AADDS
     -Properties @{"DomainName"=$ManagedDomainName; `
       "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
     -Force -Verbose
+
+Connection Troubleshooting
+--------------------------
+
+GUI
+^^^
+
+https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-portal
+
+**Create a Storage Account**
+
+.. image:: _images/azure-connection-troubleshooting-1.png
+
+Go to Home > `Network Watcher - Packet capture <https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/packetCapture>`_ > Add
+
+.. image:: _images/azure-connection-troubleshooting-1.png
+
+Select the following from the dropdowns:
+
+* Resource group: (your RSG)
+* Target Virtual Machine: (the VM that you want to run the capture on)
+* Packet capture name: (give it something unique)
+* Storage account: (your storage account )
+* Maximum bytes per session: 10485760 (10MB, instead of the default 1GB)
+
+.. image:: _images/azure-connection-troubleshooting-1.png
+
+CLI
+^^^
+
+https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-powershell
+
+https://docs.microsoft.com/en-us/cli/azure/network/watcher/packet-capture?view=azure-cli-latest
+
+.. code-block:: bash
+
+  az network watcher packet-capture create -g MyResourceGroup -n MyPacketCaptureName --vm MyVm \
+                            --storage-account MyStorageAccount --filters '[ \
+                                { \
+                                    "protocol":"TCP", \
+                                    "remoteIPAddress":"1.1.1.1-255.255.255", \
+                                    "localIPAddress":"10.0.0.3", \
+                                    "remotePort":"20" \
+                                }, \
+                                { \
+                                    "protocol":"TCP", \
+                                    "remoteIPAddress":"1.1.1.1-255.255.255", \
+                                    "localIPAddress":"10.0.0.3", \
+                                    "remotePort":"80" \
+                                }, \
+                                { \
+                                    "protocol":"TCP", \
+                                    "remoteIPAddress":"1.1.1.1-255.255.255", \
+                                    "localIPAddress":"10.0.0.3", \
+                                    "remotePort":"443" \
+                                }, \
+                                { \
+                                    "protocol":"UDP" \
+                                }]'

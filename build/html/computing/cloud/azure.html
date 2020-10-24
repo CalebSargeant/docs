@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Openstack" href="openstack.html" />
+    <link rel="next" title="Cloudflare" href="cloudflare.html" />
     <link rel="prev" title="Cloud" href="index.html" /> 
 </head>
 
@@ -112,8 +112,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#deploy-aadds">Deploy AADDS</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-troubleshooting">Connection Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gui">GUI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cli">CLI</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflare.html">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digicert.html">DigiCert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="duo.html">Duo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 </ul>
 </li>
@@ -544,6 +552,56 @@ az vm start -g RSG -n SERVERNAME
 </div>
 </div>
 </div>
+<div class="section" id="connection-troubleshooting">
+<h2>Connection Troubleshooting<a class="headerlink" href="#connection-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gui">
+<h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-portal">https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-portal</a></p>
+<p><strong>Create a Storage Account</strong></p>
+<img alt="../../_images/azure-connection-troubleshooting-1.png" src="../../_images/azure-connection-troubleshooting-1.png" />
+<p>Go to Home &gt; <a class="reference external" href="https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/packetCapture">Network Watcher - Packet capture</a> &gt; Add</p>
+<img alt="../../_images/azure-connection-troubleshooting-1.png" src="../../_images/azure-connection-troubleshooting-1.png" />
+<p>Select the following from the dropdowns:</p>
+<ul class="simple">
+<li><p>Resource group: (your RSG)</p></li>
+<li><p>Target Virtual Machine: (the VM that you want to run the capture on)</p></li>
+<li><p>Packet capture name: (give it something unique)</p></li>
+<li><p>Storage account: (your storage account )</p></li>
+<li><p>Maximum bytes per session: 10485760 (10MB, instead of the default 1GB)</p></li>
+</ul>
+<img alt="../../_images/azure-connection-troubleshooting-1.png" src="../../_images/azure-connection-troubleshooting-1.png" />
+</div>
+<div class="section" id="cli">
+<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-powershell">https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-powershell</a></p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/network/watcher/packet-capture?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/network/watcher/packet-capture?view=azure-cli-latest</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az network watcher packet-capture create -g MyResourceGroup -n MyPacketCaptureName --vm MyVm <span class="se">\</span>
+                          --storage-account MyStorageAccount --filters <span class="s1">&#39;[ \</span>
+<span class="s1">                              { \</span>
+<span class="s1">                                  &quot;protocol&quot;:&quot;TCP&quot;, \</span>
+<span class="s1">                                  &quot;remoteIPAddress&quot;:&quot;1.1.1.1-255.255.255&quot;, \</span>
+<span class="s1">                                  &quot;localIPAddress&quot;:&quot;10.0.0.3&quot;, \</span>
+<span class="s1">                                  &quot;remotePort&quot;:&quot;20&quot; \</span>
+<span class="s1">                              }, \</span>
+<span class="s1">                              { \</span>
+<span class="s1">                                  &quot;protocol&quot;:&quot;TCP&quot;, \</span>
+<span class="s1">                                  &quot;remoteIPAddress&quot;:&quot;1.1.1.1-255.255.255&quot;, \</span>
+<span class="s1">                                  &quot;localIPAddress&quot;:&quot;10.0.0.3&quot;, \</span>
+<span class="s1">                                  &quot;remotePort&quot;:&quot;80&quot; \</span>
+<span class="s1">                              }, \</span>
+<span class="s1">                              { \</span>
+<span class="s1">                                  &quot;protocol&quot;:&quot;TCP&quot;, \</span>
+<span class="s1">                                  &quot;remoteIPAddress&quot;:&quot;1.1.1.1-255.255.255&quot;, \</span>
+<span class="s1">                                  &quot;localIPAddress&quot;:&quot;10.0.0.3&quot;, \</span>
+<span class="s1">                                  &quot;remotePort&quot;:&quot;443&quot; \</span>
+<span class="s1">                              }, \</span>
+<span class="s1">                              { \</span>
+<span class="s1">                                  &quot;protocol&quot;:&quot;UDP&quot; \</span>
+<span class="s1">                              }]&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -554,7 +612,7 @@ az vm start -g RSG -n SERVERNAME
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="openstack.html" class="btn btn-neutral float-right" title="Openstack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cloudflare.html" class="btn btn-neutral float-right" title="Cloudflare" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

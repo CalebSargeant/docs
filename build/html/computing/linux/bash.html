@@ -143,6 +143,8 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -301,7 +303,8 @@ chmod u+x filename.sh
 
 <span class="k">case</span> <span class="nv">$1</span> in
   <span class="o">(</span>SA<span class="p">|</span>UK<span class="p">|</span>US<span class="o">)</span> <span class="p">;;</span>
-  <span class="o">(</span>*<span class="o">)</span> usage
+  <span class="c1">#unhash the next line - it&#39;s just messing with RST</span>
+  <span class="c1">#(*) usage</span>
 <span class="k">esac</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;SA&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
@@ -555,6 +558,13 @@ caleb.sargeant
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">count</span><span class="o">=</span><span class="k">$(</span>ls -1 *.json <span class="m">2</span>&gt;/dev/null <span class="p">|</span> wc -l<span class="k">)</span>
 <span class="k">if</span> <span class="o">[</span> <span class="nv">$count</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="nb">true</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p>Check if variable not set</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&quot;</span><span class="nv">$REGION</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$REGION</span><span class="s2"> not set&quot;</span>
+  <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 </pre></div>
 </div>

@@ -94,6 +94,25 @@
 <li class="toctree-l2"><a class="reference internal" href="aci.html">ACI</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ASA</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#scp">SCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ldap-authentication">LDAP Authentication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ldap-authorization">LDAP Authorization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authorization-testing">Authorization Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#radius-aaa">RADIUS AAA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nps">NPS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#certificates">Certificates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#intermediate-cert-with-key">Intermediate Cert with Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csr-wildcard">CSR Wildcard</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#health">Health</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#capture-file-download">Capture File Download</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#failover">Failover</a></li>
@@ -122,6 +141,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/python/index.html">Python</a></li>
@@ -216,6 +236,288 @@ scp -v cisco@10.251.21.80:disk0:asa822-k8.bin asa822-k8.bin
 </pre></div>
 </div>
 </div>
+<div class="section" id="ldap-authentication">
+<h2>LDAP Authentication<a class="headerlink" href="#ldap-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>AAA Authentication via corp-ldap (AD servers). Enable to be kept as LOCAL authentication, otherwise, all AD users will be able to enable.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA(config)# no aaa authentication http console LOCAL
+ASA(config)# aaa authentication http console corp-ldap LOCAL
+ASA(config)# no aaa authentication ssh console LOCAL
+ASA(config)# aaa authentication ssh console corp-ldap LOCAL
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p><strong>AD Server Becomes Unreachable</strong></p>
+<p>Run a preliminary test: we can see the aaa-server is active.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# sh aaa-server corp-ldap
+Server Group: corp-ldap
+Server Protocol: ldap
+Server Hostname: server.example.com
+Server Address: x.x.x.x
+Server port: 0
+Server status: ACTIVE, Last transaction at 10:28:15 SAST Mon Feb 25 2019
+</pre></div>
+</div>
+<p>Shutdown inside interface to simulate AD becoming unavailable.</p>
+<p>When connecting to the ASA via SSH or HTTPS, the ASA will flag the aaa-server as FAILED.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# test aaa-server authentication corp-ldap username caleb.sargeant
+Server IP Address or name: server.example.com
+Password: **************
+INFO: Attempting Authentication test to IP address (x.x.x.x) (timeout: 12 seconds)
+ERROR: Authentication Server not responding: AAA Server has been removed
+
+ASA# sh aaa-server corp-ldap
+Server Group: corp-ldap
+Server Protocol: ldap
+Server Hostname: server.example.com
+Server Address: x.x.x.x
+Server port: 0
+Server status: FAILED, Server disabled at 12:28:46 SAST Tue Feb 26 2019
+</pre></div>
+</div>
+<p>If we unshut the inside interface the ASA flags the aaa-server as ACTIVE again after the first authentication test fails.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# conf t
+ASA(config)# int g0/0
+ASA(config-if)# no shut
+ASA(config-if)# end
+
+ASA# test aaa-server authentication corp-ldap username caleb.sargeant
+Server IP Address or name: server.example.com
+Password: **************
+INFO: Attempting Authentication test to IP address (x.x.x.x) (timeout: 12 seconds)
+ERROR: Authentication Server not responding: AAA Server has been removed
+
+ASA# test aaa-server authentication corp-ldap username caleb.$
+Server IP Address or name: server.example.com
+Password: **************
+INFO: Attempting Authentication test to IP address (x.x.x.x) (timeout: 12 seconds)
+INFO: Authentication Successful
+
+ASA# sh aaa-server corp-ldap
+Server Group:  corp-ldap
+Server Protocol: ldap
+Server Hostname: server.example.com
+Server Address:        x.x.x.x
+Server port:   0
+Server status:         ACTIVE, Last transaction at 10:28:15 SAST Mon Feb 25 2019
+</pre></div>
+</div>
+<p><strong>Bind User Gets Deleted</strong></p>
+<p>The AD Recycle Bin was enabled and he corp-ldap user was deleted.</p>
+<img alt="../../_images/asa-ldap-1.png" src="../../_images/asa-ldap-1.png" />
+<p>Test authentication</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# test aaa-server authentication corp-ldap username caleb.sargeant
+Server IP Address or name: server.example.com
+Password: **************
+INFO: Attempting Authentication test to IP address (x.x.x.x) (timeout: 12 seconds)
+ERROR: Authentication Server not responding: AAA Server has been removed
+</pre></div>
+</div>
+<p>AAA-Server gets marked as FAILED</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# sh aaa-server corp-ldap
+Server Group:  corp-ldap
+Server Protocol: ldap
+Server Hostname: server.example.com
+Server Address:        x.x.x.x
+Server port:   0
+Server status:         FAILED, Server disabled at 13:44:16 SAST Tue Feb 26 2019
+</pre></div>
+</div>
+<p>Restore the bind user from Deleted Objects in AD</p>
+<img alt="../../_images/asa-ldap-2.png" src="../../_images/asa-ldap-2.png" />
+<p>Test authentication again</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA# test aaa-server authentication corp-ldap username caleb.sargeant
+Server IP Address or name: server.example.com
+Password: **************
+INFO: Attempting Authentication test to IP address (x.x.x.x) (timeout: 12 seconds)
+INFO: Authentication Successful
+</pre></div>
+</div>
+<p><strong>User Account(s) Get(s) Deleted</strong></p>
+<p>This one is obvious. We will be able to log in as a different user. If all users are deleted, we can have the ASA’s inside interface cable be unplugged, or console into the ASA and shut the inside interface (or on the switch). When authenticating with the interface shut, the ASA will flag the aaa-server as FAILED and we will be able to login with root (LOCAL) again. See the above tests for proof.</p>
+</div>
+</div>
+<div class="section" id="ldap-authorization">
+<h2>LDAP Authorization<a class="headerlink" href="#ldap-authorization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="authorization-testing">
+<h3>Authorization Testing<a class="headerlink" href="#authorization-testing" title="Permalink to this headline">¶</a></h3>
+<p>We need to deauthorize other users from accessing the ASA. We will use “John Doe” from Finance to test and change the configuration on the ASA and on AD accordingly. Even though SSH access to the ASA without logging in or enabling is in non-privileged mode, only members in #Infrastructure should be able to access the ASA.</p>
+<p>John Doe is allowed to SSH into the ASA, but because we left <code class="docutils literal notranslate"><span class="pre">enable</span></code> as LOCAL authentication, John Doe is unable to login.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>caleb.sargeant@MacBook:~$ ssh john.doe@vpn.example.com
+john.doe@vpn.example.com&#39;s password:
+User john.doe logged in to ASA
+Logins over the last 34 days: 1.
+Failed logins since the last login: 0.
+Type help or &#39;?&#39; for a list of available commands.
+ASA&gt; login
+Username: john.doe
+Password: *********
+%Login failed
+ERROR: Invalid username
+</pre></div>
+</div>
+<p>John Doe is allowed to configure the ASA through ASDM</p>
+<img alt="../../_images/asa-ldap-3.png" src="../../_images/asa-ldap-3.png" />
+<p>To prevent this, we create a new aaa-server and be more specific with the ldap-base-dn. Only members inside the #Infrastructure OU will be able to log in.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aaa-server asa-ldap protocol ldap
+aaa-server asa-ldap (inside) host server.example.com
+  ldap-scope subtree
+  ldap-base-dn ou=REDACTED, dc=REDACTED, dc=com
+  ldap-login-dn cn=corp-ldap, dc=REDACTED, dc=com
+  ldap-login-password **********
+  ldap-naming-attribute sAMAccountName
+  server-type microsoft
+exit
+
+aaa authentication http console asa-ldap LOCAL
+aaa authentication ssh console asa-ldap LOCAL
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="radius-aaa">
+<h2>RADIUS AAA<a class="headerlink" href="#radius-aaa" title="Permalink to this headline">¶</a></h2>
+<p>With RADIUS Authentication, we are able to specify which Windows group a user needs to be part of to log in to the ASA.</p>
+<div class="section" id="id1">
+<h3>Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Configure the aaa-server &amp; enable authentication through RADIUS</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aaa-server asa-radius protocol radius
+aaa-server asa-radius (inside) host server.example.com
+key *****
+authentication-port 1812
+accounting-port 1813
+
+no aaa authentication http console LOCAL
+aaa authentication http console asa-radius LOCAL
+no aaa authentication ssh console LOCAL
+aaa authentication ssh console asa-radius LOCAL
+
+# View packets
+ debug radius all
+</pre></div>
+</div>
+</div>
+<div class="section" id="nps">
+<h3>NPS<a class="headerlink" href="#nps" title="Permalink to this headline">¶</a></h3>
+<p>Add a RADIUS Client</p>
+<img alt="../../_images/asa-radius-aaa-1.png" src="../../_images/asa-radius-aaa-1.png" />
+<img alt="../../_images/asa-radius-aaa-2.png" src="../../_images/asa-radius-aaa-2.png" />
+<p>Create a Network Policy (skip Connection Request Policy). The Client Friendly Name optional and perhaps not recommended so that we can use one policy for all network devices</p>
+<img alt="../../_images/asa-radius-aaa-3.png" src="../../_images/asa-radius-aaa-3.png" />
+<p>Enable only Unencrypted authentication (PAP, SPAP)</p>
+<img alt="../../_images/asa-radius-aaa-4.png" src="../../_images/asa-radius-aaa-4.png" />
+<p>NAS Port Type is Virtual (VPN)</p>
+<img alt="../../_images/asa-radius-aaa-5.png" src="../../_images/asa-radius-aaa-5.png" />
+<p>Service-Type is Administrative</p>
+<img alt="../../_images/asa-radius-aaa-6.png" src="../../_images/asa-radius-aaa-6.png" />
+</div>
+</div>
+<div class="section" id="certificates">
+<h2>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="intermediate-cert-with-key">
+<h3>Intermediate Cert with Key<a class="headerlink" href="#intermediate-cert-with-key" title="Permalink to this headline">¶</a></h3>
+<p>Create a PKCS #12 Certificate which we will use to import into the ASA:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl pkcs12 -export -in wildcard.corp.example.com.crt -inkey wildcard.corp.example.com.key -out wildcard.corp.example.com.p12
+Enter Export Password: secret
+Verifying - Enter Export Password: secret
+</pre></div>
+</div>
+<p>To read the certificate:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat wildcard.corp.example.com.p12 | base64
+REDACTED (long string)
+</pre></div>
+</div>
+<p>On the ASA via CLI (don’t use command <code class="docutils literal notranslate"><span class="pre">nointeractive</span></code>, which is the default behaviour via ASDM):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ASA/sec/actNoFailover(config)# crypto ca import 2018-10-TrustPoint pkcs12 &quot;secret&quot;
+
+Enter the base 64 encoded pkcs12.
+End with the word &quot;quit&quot; on a line by itself:
+REDACTED (long string)
+quit
+% You already have RSA or ECDSA keys named 2018-10-TrustPoint.
+% If you replace them, all device certs issued using these keys
+% will be removed.
+% Do you really want to replace them? [yes/no]: yes
+
+Trustpoint &#39;2018-10-TrustPoint&#39; is a subordinate CA and holds a non self-signed certificate.
+
+Trustpoint CA certificate accepted.
+INFO: Import PKCS12 operation completed successfully
+
+ASA/sec/actNoFailover(config)# crypto ca trustpoint 2018-10-TrustPoint
+ASA/sec/actNoFailover(config-ca-trustpoint)#   revocation-check none
+ASA/sec/actNoFailover(config-ca-trustpoint)#   id-usage ssl-ipsec
+ASA/sec/actNoFailover(config-ca-trustpoint)#   exit
+ASA/sec/actNoFailover(config)# ssl trust-point 2018-10-TrustPoint outside
+ASA/sec/actNoFailover(config)# ssl trust-point 2018-10-TrustPoint inside
+</pre></div>
+</div>
+<p>Now, when connecting to ASA via RA VPN, as long as you are using a corp.example.com hostname (example vpn.corp.example.com), you will not receive any certificate errors, because the wildcard.corp.example.com certificate is being used.</p>
+</div>
+<div class="section" id="csr-wildcard">
+<h3>CSR Wildcard<a class="headerlink" href="#csr-wildcard" title="Permalink to this headline">¶</a></h3>
+<p><strong>Generate the key</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>crypto key generate rsa label 2018-10-TrustPoint modulus 2048 noconfirm
+</pre></div>
+</div>
+<p><strong>Create the Identity Certificate</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>crypto ca trustpoint 2018-10-TrustPoint
+  revocation-check none
+  keypair -corp.TrustPoint-2018
+  id-usage ssl-ipsec
+  fqdn vpn.corp.example.com
+  subject-name CN=asa,CN=vpn,CN=vpn-out,CN=vpn-in,O=Example,C=US
+  enrollment terminal
+  no ca-check
+</pre></div>
+</div>
+<p><strong>Generate the CSR</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>crypto ca enroll 2018-10-TrustPoint noconfirm
+  -----BEGIN CERTIFICATE-----
+  ASA-generated random stuff
+  -----END CERTIFICATE-----
+# Copy the generated CSR to your clipboard
+</pre></div>
+</div>
+<p><strong>Generate a Certificate from the 3rd Party CA</strong></p>
+<p>Go to <a class="reference external" href="https://www.digicert.com">https://www.digicert.com</a>. We will be requesting a duplicate wildcard certificate.</p>
+<ul class="simple">
+<li><p>Paste the ASA-generated CSR into the <em>Add Your CSR field</em>.</p></li>
+</ul>
+<img alt="../../_images/asa-cert-1.png" src="../../_images/asa-cert-1.png" />
+<ul class="simple">
+<li><p>Input all the hostnames in FQDN format into the <em>Other Hostnames (SANs) field</em>. In this example, I inputted the below, not “vpn.corp.example.com”, as per the below screenshot. This should match up with the <em>subject-name</em> command from when we created the <em>Identity Certificate</em>.</p>
+<ul>
+<li><p>vpn-out.corp.example.com</p></li>
+<li><p>asa.corp.example.com</p></li>
+<li><p>vpn.corp.example.com</p></li>
+<li><p>vpn-in.corp.example.com</p></li>
+</ul>
+</li>
+</ul>
+<img alt="../../_images/asa-cert-2.png" src="../../_images/asa-cert-2.png" />
+<ul class="simple">
+<li><p>Select SHA-256 from the <em>Signature Hash</em> drop-down menu.</p></li>
+<li><p>Select Cisco from the <em>Server Platform</em> list.</p></li>
+</ul>
+<p><strong>Install the Certificate from the 3rd Party CA</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>crypto ca import 2018-10-TrustPoint certificate nointeractive
+  -----BEGIN CERTIFICATE-----
+  DigiCert-generated random stuff
+  -----END CERTIFICATE-----
+quit
+</pre></div>
+</div>
+<p><strong>Attach the Certificate to the Interfaces for SSL Authentication</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ssl trust-point 2018-10-TrustPoint inside
+ssl trust-point 2018-10-TrustPoint outside
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="health">
 <h2>Health<a class="headerlink" href="#health" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Uptime
@@ -298,7 +600,7 @@ show vpn-sessiondb detail l2l filter ipaddress PEERADDRESS | i Conn|Dur
 Clear ipsec sa peer PEERADDRESS</p>
 <div class="section" id="tunnel-establishing-in-asdm">
 <h3>Tunnel Establishing in ASDM<a class="headerlink" href="#tunnel-establishing-in-asdm" title="Permalink to this headline">¶</a></h3>
-<a class="reference internal image-reference" href="../../_images/asa-tunnel-establish.png"><img alt="../../_images/asa-tunnel-establish.png" class="align-center" src="../../_images/asa-tunnel-establish.png" style="width: 1848.0px; height: 495.0px;" /></a>
+<img alt="../../_images/asa-tunnel-establish.png" src="../../_images/asa-tunnel-establish.png" />
 </div>
 </div>
 </div>

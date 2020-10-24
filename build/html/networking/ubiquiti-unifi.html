@@ -91,7 +91,14 @@
 <li class="toctree-l1"><a class="reference internal" href="hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="juniper.html">Juniper</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Ubiquiti UniFi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#access-point">Access Point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cisco-switchport-config">Cisco Switchport Config</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#controller">Controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backups">Backups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restoring">Restoring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#windows-credential-recovery">Windows Credential Recovery</a></li>
 </ul>
 </li>
@@ -102,6 +109,7 @@
 <p class="caption"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/python/index.html">Python</a></li>
@@ -179,8 +187,39 @@
             
   <div class="section" id="ubiquiti-unifi">
 <h1>Ubiquiti UniFi<a class="headerlink" href="#ubiquiti-unifi" title="Permalink to this headline">¶</a></h1>
+<p>It’s a pretty self-explanatory system, but anyway, here’s some stuff on it.</p>
+<div class="section" id="access-point">
+<h2>Access Point<a class="headerlink" href="#access-point" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cisco-switchport-config">
+<h3>Cisco Switchport Config<a class="headerlink" href="#cisco-switchport-config" title="Permalink to this headline">¶</a></h3>
+<p>Below shows UAP config for switchport, where 10 is the VLAN the AP natively lives in, 20 &amp; 30 being WLANs.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface GigabitEthernet0/5
+description UAP
+switchport trunk encapsulation dot1q
+switchport trunk native vlan 10
+switchport trunk allowed vlan 10,20,30
+switchport mode trunk
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="controller">
 <h2>Controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Refer to this guide: <a class="reference external" href="https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu">https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu</a></p>
+</div>
+<div class="section" id="backups">
+<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this headline">¶</a></h3>
+<p><strong>Manual Backups</strong></p>
+<p>To manually backup the controller, go to <em>Settings &gt; Maintenance &gt; Backup</em>. Set the <em>Backup Data Retention</em> and click on <em>Download Backup</em>. Manually copy the backup to &lt;LOCATION&gt;.</p>
+<p><strong>Auto Backups</strong></p>
+<img alt="../_images/unifi-backup-1.png" src="../_images/unifi-backup-1.png" />
+</div>
+<div class="section" id="restoring">
+<h3>Restoring<a class="headerlink" href="#restoring" title="Permalink to this headline">¶</a></h3>
+<p>To restore the controller from a file, go to <em>Settings &gt; Maintenance &gt; Restore</em>. Click on <em>Choose File</em> and select the file to restore.</p>
+</div>
 <div class="section" id="windows-credential-recovery">
 <h3>Windows Credential Recovery<a class="headerlink" href="#windows-credential-recovery" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
