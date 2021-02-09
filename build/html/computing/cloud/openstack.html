@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Openstack &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -52,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
           
 
           
@@ -103,6 +106,12 @@
 <li class="toctree-l2"><a class="reference internal" href="duo.html">Duo</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Openstack</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installing-openstack-on-ubuntu">Installing Openstack on Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openstack-cli">Openstack CLI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#image">Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flavor">Flavor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#server">Server</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#random-scriptjies">Random Scriptjies</a></li>
 </ul>
 </li>
@@ -158,6 +167,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -171,7 +182,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/computing/cloud/openstack.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -216,8 +227,81 @@ sudo apt install git -y
   <span class="nv">HOST_IP</span><span class="o">=</span><span class="m">192</span>.168.10.100
 
 <span class="c1"># Deploy Openstack</span>
-<span class="nb">cd</span> devstack <span class="o">&amp;&amp;</span> ./stack.sh
+<span class="nb">cd</span> devstack
+./stack.sh
 </pre></div>
+</div>
+</div>
+<div class="section" id="openstack-cli">
+<h2>Openstack CLI<a class="headerlink" href="#openstack-cli" title="Permalink to this headline">¶</a></h2>
+<p>Download the OpenStack RC File from the GUI:</p>
+<img alt="../../_images/openstack-1.png" src="../../_images/openstack-1.png" />
+<p>Example OpenRC File downloaded:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># To use an OpenStack cloud you need to authenticate against the Identity</span>
+<span class="c1"># service named keystone, which returns a **Token** and **Service Catalog**.</span>
+<span class="c1"># The catalog contains the endpoints for all services the user/tenant has</span>
+<span class="c1"># access to - such as Compute, Image Service, Identity, Object Storage, Block</span>
+<span class="c1"># Storage, and Networking (code-named nova, glance, keystone, swift,</span>
+<span class="c1"># cinder, and neutron).</span>
+<span class="c1">#</span>
+<span class="c1"># *NOTE*: Using the 3 *Identity API* does not necessarily mean any other</span>
+<span class="c1"># OpenStack API is version 3. For example, your cloud provider may implement</span>
+<span class="c1"># Image API v1.1, Block Storage API v2, and Compute API v2.0. OS_AUTH_URL is</span>
+<span class="c1"># only for the Identity API served through keystone.</span>
+<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://10.0.3.211/identity
+<span class="c1"># With the addition of Keystone we have standardized on the term **project**</span>
+<span class="c1"># as the entity that owns the resources.</span>
+<span class="nb">export</span> <span class="nv">OS_PROJECT_ID</span><span class="o">=</span>3468cb55fe6044bf8643fe9db74fd179
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span>
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span><span class="s2">&quot;Default&quot;</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$OS_USER_DOMAIN_NAME</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">unset</span> OS_USER_DOMAIN_NAME<span class="p">;</span> <span class="k">fi</span>
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_ID</span><span class="o">=</span><span class="s2">&quot;default&quot;</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$OS_PROJECT_DOMAIN_ID</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">unset</span> OS_PROJECT_DOMAIN_ID<span class="p">;</span> <span class="k">fi</span>
+<span class="c1"># unset v2.0 items in case set</span>
+<span class="nb">unset</span> OS_TENANT_ID
+<span class="nb">unset</span> OS_TENANT_NAME
+<span class="c1"># In addition to the owning entity (tenant), OpenStack stores the entity</span>
+<span class="c1"># performing the action as the **user**.</span>
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span>
+<span class="c1"># With Keystone you pass the keystone password.</span>
+<span class="c1">#echo &quot;Please enter your OpenStack Password for project $OS_PROJECT_NAME as user $OS_USERNAME: &quot;</span>
+<span class="c1">#read -sr OS_PASSWORD_INPUT</span>
+<span class="c1">#export OS_PASSWORD=$OS_PASSWORD_INPUT</span>
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>password
+<span class="c1"># If your configuration has multiple regions, we set that information here.</span>
+<span class="c1"># OS_REGION_NAME is optional and only valid in certain environments.</span>
+<span class="nb">export</span> <span class="nv">OS_REGION_NAME</span><span class="o">=</span><span class="s2">&quot;RegionOne&quot;</span>
+<span class="c1"># Don&#39;t leave a blank variable, unset it if it was empty</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$OS_REGION_NAME</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">unset</span> OS_REGION_NAME<span class="p">;</span> <span class="k">fi</span>
+<span class="nb">export</span> <span class="nv">OS_INTERFACE</span><span class="o">=</span>public
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html">Install openstack CLI here</a>.</p>
+<p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-list.html">See openstack cli docs here</a>.</p>
+<div class="section" id="image">
+<h3>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/image.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/image.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image Create</span>
+openstack image create --container-format ova --disk-format vdi --min-disk <span class="m">8</span> --min-ram <span class="m">1024</span> --file ~/Downloads/VirtualCanary_334d99a4.ova VirtualCanary
+</pre></div>
+</div>
+</div>
+<div class="section" id="flavor">
+<h3>Flavor<a class="headerlink" href="#flavor" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/flavor.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/flavor.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openstack flavor create --id canary --ram <span class="m">1024</span> --disk <span class="m">8</span> --vcpus <span class="m">1</span> canary
+</pre></div>
+</div>
+</div>
+<div class="section" id="server">
+<h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/server.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/server.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Server Create</span>
+openstack server create --image VirtualCanary --flavor ds1G --network private canary
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="random-scriptjies">
@@ -287,37 +371,29 @@ openstack security group rule list PX <span class="p">|</span> grep -w <span cla
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../containerisation/index.html" class="btn btn-neutral float-right" title="Containerisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="duo.html" class="btn btn-neutral float-left" title="Duo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../containerisation/index.html" class="btn btn-neutral float-right" title="Containerisation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="duo.html" class="btn btn-neutral float-left" title="Duo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Caleb Sargeant
+        &#169; Copyright 2020, Caleb Sargeant.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

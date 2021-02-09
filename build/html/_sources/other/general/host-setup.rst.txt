@@ -1,4 +1,3 @@
-##########
 Host Setup
 ##########
 
@@ -50,6 +49,15 @@ List of stuff to install on a (new) Mac:
   # install atom compare-files
   apm install compare-files
 
+  # install atom file-icons
+  apm install --production file-icons
+
+  # Install atom minimap
+  apm install minimap
+
+  # Install atom minimap auto-hider
+  apm install minimap-autohider
+
   # Install nmap
   brew install nmap
 
@@ -61,6 +69,33 @@ List of stuff to install on a (new) Mac:
 
   # Install webp to convert webp to png (for i in `ls | grep webp | cut -f 1 -d '.'`; do dwebp "$i.webp" -o "$i.png"; done)
   brew install webp
+
+  # Openstack (https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html)
+  pip3 install python-openstackclient
+
+  # Install qemu
+  brew install qemu
+
+  # Jinja2 template syntax highlighting
+  apm install atom-jinja2
+
+  # Install tabula extractor to extract tables out pdfs
+  brew cask install tabula
+
+  # Install jq
+  brew install jq
+
+  # Install Azure CLI
+  brew update && brew install azure-cli
+
+  # Install AWS CLI v2
+  curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+  sudo installer -pkg AWSCLIV2.pkg -target /
+
+  ## Powershell Modules
+  # PowerCLI for VMWARE
+  Install-Module -Name VMware.PowerCLI -Scope CurrentUser
+
 
 Updating Bash
 ^^^^^^^^^^^^^

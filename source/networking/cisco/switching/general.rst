@@ -97,3 +97,24 @@ IOS Upgrade
   # Specify to boot off of the new .bin file
   boot system flash:xxxxxxx.bin
   reload
+
+Isolating Guest Network
+-----------------------
+
+The below configuration is applied on the Core Switch(es) in to block the guest network (VLAN100) from accessing the rest of the networks.
+
+.. code-block:: none
+
+  ip access-list extended VLAN100
+    permit udp any eq bootpc host 10.10.10.10 eq bootps
+    permit udp any eq bootpc host 10.10.10.11 eq bootps
+    permit udp any any eq domain
+    permit tcp any host 10.10.10.12 eq 8880
+    deny ip any 10.0.0.0 0.255.255.255
+    deny ip any 172.16.0.0 0.15.255.255
+    deny ip any 192.168.0.0 0.0.255.255
+    deny ip any 169.254.0.0 0.0.255.255
+    permit ip any any
+
+  interface Vlan100
+    ip access-group VLAN100 in

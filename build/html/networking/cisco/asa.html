@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>ASA &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -52,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caleb Sargeant's Docs
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
           
 
           
@@ -114,6 +117,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#health">Health</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#host-scan">Host Scan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#capabilities">Capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-host-scan">Enabling Host Scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host-scan-configuration">Host Scan Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dynamic-access-policy-configuration">Dynamic Access Policy Configuration</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#capture-file-download">Capture File Download</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#failover">Failover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#site-to-site-vpn">Site to Site VPN</a><ul>
@@ -127,6 +137,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dna.html">DNA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ise.html">ISE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nexus.html">Nexus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nso.html">NSO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="virl.html">VIRL</a></li>
@@ -192,6 +203,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -205,7 +218,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/networking/cisco/asa.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -534,6 +547,69 @@ sh failover state
 </pre></div>
 </div>
 </div>
+<div class="section" id="host-scan">
+<h2>Host Scan<a class="headerlink" href="#host-scan" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="capabilities">
+<h3>Capabilities<a class="headerlink" href="#capabilities" title="Permalink to this headline">¶</a></h3>
+<p>Host Scan is capable of checking for the following endpoint attributes:</p>
+<ul class="simple">
+<li><p>Registry</p></li>
+<li><p>File</p></li>
+<li><p>Process</p></li>
+<li><p>AntiVirus</p></li>
+<li><p>AntiSpyware</p></li>
+<li><p>Personal Firewall</p></li>
+</ul>
+<p>DAP is capable of checking for the following endpoint attributes:</p>
+<ul class="simple">
+<li><p>Anti-Spyware (through Host Scan)</p></li>
+<li><p>Anti-Virus (through Host Scan)</p></li>
+<li><p>AnyConnect (version, platform, etc.)</p></li>
+<li><p>Application (VPN Application type, eg. AnyConnect or Clientless SSL)</p></li>
+<li><p>File (through Host Scan)</p></li>
+<li><p>Device (Host Name, MAC Address, BIOS Serial Number, etc)</p></li>
+<li><p>NAC (Posture Status)</p></li>
+<li><p>Operating System</p></li>
+<li><p>Personal Firewall (through Host Scan)</p></li>
+<li><p>Multiple Certificate Authentication (when MCA is the authentication method for AnyConnect)</p></li>
+<li><p>Policy ( ? )</p></li>
+<li><p>Process (through Host Scan)</p></li>
+<li><p>Registry (through Host Scan)</p></li>
+</ul>
+<p>The below guide demonstrates how to install and configure Host Scan &amp; modifying the matching DAP policies on Cisco ASA. We will be enabling Host Scan to check if the endpoint has been added to the domain. For Windows, the best way of doing this is for Host Scan to check the registry setting for the <em>DomainName</em> value. On Mac, the only way (/best way) of doing this is for Host Scan to check that a file exists. There are no official methods of checking that a Mac has been added to the domain through Host Scan, as Macs get added to the domain through a 3rd party application (like Centrify) to Cisco.</p>
+</div>
+<div class="section" id="enabling-host-scan">
+<h3>Enabling Host Scan<a class="headerlink" href="#enabling-host-scan" title="Permalink to this headline">¶</a></h3>
+<p>First upload the image, then enable hostscan:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>webvpn
+hostscan image disk0:/hostscan_4.3.05047-k9.pkg
+hostscan enable
+</pre></div>
+</div>
+</div>
+<div class="section" id="host-scan-configuration">
+<h3>Host Scan Configuration<a class="headerlink" href="#host-scan-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Add a <em>Basic Host</em> Scan item:</p>
+<img alt="../../_images/asa-host-scan-1.png" src="../../_images/asa-host-scan-1.png" />
+<p><strong>Windows:</strong></p>
+<p>n ASDM, add a Basic Host Scan item under <em>Configuration &gt; Remote Access VPN &gt; Secure Desktop Manager &gt; Host Scan &gt; Basic Host Scan &gt; Add &gt; Registry</em>:</p>
+<p>Entry Path: <code class="docutils literal notranslate"><span class="pre">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Group</span> <span class="pre">Policy\Datastore\Machine\0\DomainName</span></code></p>
+<p><strong>Mac:</strong></p>
+<p>In ASDM, add a Basic Host Scan item under <em>Configuration &gt; Remote Access VPN &gt; Secure Desktop Manager &gt; Host Scan &gt; Basic Host Scan &gt; Add &gt; File</em>:</p>
+<p>File Path: <code class="docutils literal notranslate"><span class="pre">/Applications/Utilities/Centrify/AD</span> <span class="pre">Check.app</span></code></p>
+</div>
+<div class="section" id="dynamic-access-policy-configuration">
+<h3>Dynamic Access Policy Configuration<a class="headerlink" href="#dynamic-access-policy-configuration" title="Permalink to this headline">¶</a></h3>
+<p>In ASDM, add one group for Windows and one group for Mac, per policy entry. Then add an endpoint attribute per DAP policy.</p>
+<p>We have to duplicate the DAP Policies, creating one policy for Mac and one for Windows, because when the endpoint connects through VPN, the ASA compares the endpoint’s attributes against each DAP Policy. We, unfortunately, cannot add a <em>File</em> and <em>Registry endpoint attribute</em> and modify the <em>Logical Operation</em> to “or” instead of “and”. The only way we can change the <em>Logical Operation</em> to “and”, is to have multiple of the same endpoint attribute per policy, however, this would be nonsensical, as the <em>File endpoint attribute</em> is only applicable to Mac (in our case) and the <em>Registry endpoint attribute</em> is only applicable to Windows.</p>
+<img alt="../../_images/asa-host-scan-2.png" src="../../_images/asa-host-scan-2.png" />
+<p><strong>Windows</strong></p>
+<p>Endpoint Attribute Type: Registry</p>
+<p>Value: string = corp.example.com</p>
+<p><strong>Mac</strong></p>
+<p>Endpoint Attribute Type: File=</p>
+</div>
+</div>
 <div class="section" id="capture-file-download">
 <h2>Capture File Download<a class="headerlink" href="#capture-file-download" title="Permalink to this headline">¶</a></h2>
 <p>Go to <a class="reference external" href="https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap">https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap</a>
@@ -610,37 +686,29 @@ Clear ipsec sa peer PEERADDRESS</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="asav.html" class="btn btn-neutral float-right" title="ASAv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="aci.html" class="btn btn-neutral float-left" title="ACI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="asav.html" class="btn btn-neutral float-right" title="ASAv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="aci.html" class="btn btn-neutral float-left" title="ACI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Caleb Sargeant
+        &#169; Copyright 2020, Caleb Sargeant.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

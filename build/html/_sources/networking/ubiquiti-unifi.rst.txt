@@ -6,6 +6,21 @@ It's a pretty self-explanatory system, but anyway, here's some stuff on it.
 Access Point
 ------------
 
+L3 Adopting SSH
+^^^^^^^^^^^^^^^
+
+For the Ubiquity white page, please see: https://help.ubnt.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers
+
+1. Make sure the AP is running the same firmware as the controller. If it is not, see this guide: `Changing UniFi firmware via SSH <http://community.ubnt.com/t5/UniFi-Troubleshooting/UniFi-Upgrading-firmware-image-via-SSH/ta-p/944337>`_. This is not required for minor version differences.
+
+2. Make sure the AP is in factory default state if it's not, do: ```syswrapper.sh restore-default```
+
+3. SSH into the device and type the following: ```set-inform http://unifi.example.com:8080/inform```
+
+4. The AP will now show up for adoption. Click adopt and the device will go offline.
+
+5. Once the device goes offline, repeat step 3. The device will save the inform URL and will start provisioning.
+
 Cisco Switchport Config
 ^^^^^^^^^^^^^^^^^^^^^^^
 

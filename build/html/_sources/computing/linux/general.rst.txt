@@ -54,6 +54,20 @@ https://www.computerhope.com/unix/rsync.htm
 Fstab
 -----
 
+Automounting
+^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  # List all UUIDs of drives
+  blkid
+
+  # List all disks
+  fdisk -l
+
+  nano /etc/fstab
+    UUID=05cdfcb3-90fc-40ec-8ff1-3324e3767b1d	/media/data	ext4	defaults,nofail 0 0
+
 Emergency Mode Bad Fstab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

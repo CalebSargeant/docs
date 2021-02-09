@@ -67,6 +67,12 @@ A docker image is like a template. A docker container is a running instance of t
   docker container stop $(docker container ls -aq)
   docker container rm $(docker container ls -aq)
 
+  # Updating Images
+  docker stop containername
+  docker rm containername
+  docker pull image/name
+  # deploy container again via compose/ansible/whatever
+
 Docker Swarm
 ------------
 

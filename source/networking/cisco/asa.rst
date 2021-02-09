@@ -378,6 +378,88 @@ Health
   # Failover
   sh failover state
 
+Host Scan
+---------
+
+Capabilities
+^^^^^^^^^^^^
+
+Host Scan is capable of checking for the following endpoint attributes:
+
+* Registry
+* File
+* Process
+* AntiVirus
+* AntiSpyware
+* Personal Firewall
+
+DAP is capable of checking for the following endpoint attributes:
+
+* Anti-Spyware (through Host Scan)
+* Anti-Virus (through Host Scan)
+* AnyConnect (version, platform, etc.)
+* Application (VPN Application type, eg. AnyConnect or Clientless SSL)
+* File (through Host Scan)
+* Device (Host Name, MAC Address, BIOS Serial Number, etc)
+* NAC (Posture Status)
+* Operating System
+* Personal Firewall (through Host Scan)
+* Multiple Certificate Authentication (when MCA is the authentication method for AnyConnect)
+* Policy ( ? )
+* Process (through Host Scan)
+* Registry (through Host Scan)
+
+The below guide demonstrates how to install and configure Host Scan & modifying the matching DAP policies on Cisco ASA. We will be enabling Host Scan to check if the endpoint has been added to the domain. For Windows, the best way of doing this is for Host Scan to check the registry setting for the *DomainName* value. On Mac, the only way (/best way) of doing this is for Host Scan to check that a file exists. There are no official methods of checking that a Mac has been added to the domain through Host Scan, as Macs get added to the domain through a 3rd party application (like Centrify) to Cisco.
+
+Enabling Host Scan
+^^^^^^^^^^^^^^^^^^
+
+First upload the image, then enable hostscan:
+
+.. code-block:: none
+
+  webvpn
+  hostscan image disk0:/hostscan_4.3.05047-k9.pkg
+  hostscan enable
+
+Host Scan Configuration
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Add a *Basic Host* Scan item:
+
+.. image:: _images/asa-host-scan-1.png
+
+**Windows:**
+
+n ASDM, add a Basic Host Scan item under *Configuration > Remote Access VPN > Secure Desktop Manager > Host Scan > Basic Host Scan > Add > Registry*:
+
+Entry Path: ``HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\Datastore\Machine\0\DomainName``
+
+**Mac:**
+
+In ASDM, add a Basic Host Scan item under *Configuration > Remote Access VPN > Secure Desktop Manager > Host Scan > Basic Host Scan > Add > File*:
+
+File Path: ``/Applications/Utilities/Centrify/AD Check.app``
+
+Dynamic Access Policy Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ASDM, add one group for Windows and one group for Mac, per policy entry. Then add an endpoint attribute per DAP policy.
+
+We have to duplicate the DAP Policies, creating one policy for Mac and one for Windows, because when the endpoint connects through VPN, the ASA compares the endpoint's attributes against each DAP Policy. We, unfortunately, cannot add a *File* and *Registry endpoint attribute* and modify the *Logical Operation* to "or" instead of "and". The only way we can change the *Logical Operation* to "and", is to have multiple of the same endpoint attribute per policy, however, this would be nonsensical, as the *File endpoint attribute* is only applicable to Mac (in our case) and the *Registry endpoint attribute* is only applicable to Windows.
+
+.. image:: _images/asa-host-scan-2.png
+
+**Windows**
+
+Endpoint Attribute Type: Registry
+
+Value: string = corp.example.com
+
+**Mac**
+
+Endpoint Attribute Type: File=
+
 Capture File Download
 ---------------------
 Go to https://IPADDRESS/CONTEXT/capture/CAPTURENAME/pcap
