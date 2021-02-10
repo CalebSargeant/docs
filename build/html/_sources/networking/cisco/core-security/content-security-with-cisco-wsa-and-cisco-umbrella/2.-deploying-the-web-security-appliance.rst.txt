@@ -1,0 +1,62 @@
+2. Deploying the Web Security Appliance
+=======================================
+
+Different Deployment Modes for the WSA
+--------------------------------------
+
+Explicit Forward Mode
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Endpoint explicitly configured to use WSA
+-  Can use PAC file to configure machine
+
+Transparent Mode
+~~~~~~~~~~~~~~~~
+
+-  WCCP configured
+-  Policy Based Routing or a L4-7 device can also be used to redirect
+   traffic
+
+Licensing and Initial Setup of the WSA
+--------------------------------------
+
+.. code:: text
+
+   interfaceconfig
+   setgateway
+   commit
+
+Finishing the Setup Using the GUI
+---------------------------------
+
+|image1|
+
+|image2|
+
+|image3|
+
+|image4|
+
+Integrating the WSA with Active Directory
+-----------------------------------------
+
+|image5|
+
+Configuring Identification Profiles
+-----------------------------------
+
+Identification Profiles
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  WSA imposes policies based off of various criteria
+-  Policies can use user/group information, subnet, and proxy ports
+-  Different identification profiles can be used for different policies
+
+|image6|
+
+.. |image1| image:: _images/deploying-the-web-security-appliance-1.png
+.. |image2| image:: _images/deploying-the-web-security-appliance-2.png
+.. |image3| image:: _images/deploying-the-web-security-appliance-3.png
+.. |image4| image:: _images/deploying-the-web-security-appliance-4.png
+.. |image5| image:: _images/deploying-the-web-security-appliance-5.png
+.. |image6| image:: _images/deploying-the-web-security-appliance-6.png

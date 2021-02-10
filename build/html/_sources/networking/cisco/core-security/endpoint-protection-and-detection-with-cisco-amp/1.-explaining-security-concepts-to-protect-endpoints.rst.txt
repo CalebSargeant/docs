@@ -1,0 +1,141 @@
+1. Explaining Security Concepts to Protect Endpoints
+====================================================
+
+Antivirus & Dynamic File Analysis
+---------------------------------
+
+Why Endpoints Need Protected
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Defense in-depth
+-  Endpoints contain sensitive information
+
+   -  They now leave the protected network infrastructure
+
+Computer Viruses
+~~~~~~~~~~~~~~~~
+
+-  Attach themselves to otherwise benign files or programs
+-  Lay dormant until file or program is executed
+
+Antivirus
+~~~~~~~~~
+
+-  Create signatures to identify viruses
+
+   -  Analyzed known viruses
+   -  Without a signature, antivirus won’t detect a virus
+
+-  Malicious actors slightly change the virus so a new signature needs
+   to be created
+-  Required scanning of the endpoint
+
+Heuristics
+~~~~~~~~~~
+
+Looks at the behavior of the software rather than a predefined
+signature.
+
+Machine Learning
+~~~~~~~~~~~~~~~~
+
+Dynamically creates algorithms and finds patterns based on large sets of
+both malicious files and benign files.
+
+Cisco AMP for Endpoints Overview
+--------------------------------
+
+Cisco AMP Cloud
+~~~~~~~~~~~~~~~
+
+-  Heavy lifting is done in the cloud and not on the endpoint
+-  Quickly integrate to other security products
+-  Connectors communicate to the Cisco AMP cloud
+
+Cisco AMP’s Engines
+~~~~~~~~~~~~~~~~~~~
+
+Uses a file’s SHA-256 hash to quickly determine if it has been seen and
+if it is malicious
+
+Ethos
+^^^^^
+
+Looks at the different artifacts of the file, rather than the entire
+file itself
+
+Spero
+^^^^^
+
+Uses machine learning in order to find patterns to determine malicious
+files from benign files
+
+TETRA
+^^^^^
+
+Provides antimalware capabilities when the device is not connected to
+the cloud
+
+Additional Cisco AMP Benefits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Evaluate indicators of compromise (IOCs)
+
+   -  Anomalies that could mean a compromise
+
+-  AMP can protect endpoints in real time
+-  Dynamic analysis
+
+   -  Execute that file in a sandbox
+
+-  Exploit prevention
+
+   -  AMP moves the location RAM that the program is running
+
+Cisco AMP Flow
+~~~~~~~~~~~~~~
+
+-  Hash of file is used to determine if it has been seen
+-  If it has been seen, previous verdict is used
+-  AMPs engines, IOCs, & dynamic analysis are used
+-  AMP will update the rest of the security suite of the new threat
+
+Retrospective Security
+----------------------
+
+Go back in time and see which endpoints the malicious file has touched.
+
+Device Trajectory
+~~~~~~~~~~~~~~~~~
+
+Determine every interaction between the malicious file and other files
+on the endpoint.
+
+AMP can dynamically create rules based on the events that occurred.
+
+Endpoint Protection Platform & Endpoint Detection and Response
+--------------------------------------------------------------
+
+EPP vs EDR
+~~~~~~~~~~
+
+============================= ===============================
+Endpoint Protection Platform  Endpoint Detection & Response
+============================= ===============================
+Known threats are not allowed Retroactively find malware
+Machine learning & big data   Contain the malicious files
+Sandbox capability            Investigate the malicious files
+Threat Intelligence           Eliminate the threat
+============================= ===============================
+
+Cisco AMP provides both EPP and EDR capabilities
+
+Justifying Endpoint Patching
+----------------------------
+
+Keeping Endpoints up to Date
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Exploit vulnerabilities in system code or software code
+-  Flaw allowed malicious actors to spoof digital certificate
+-  Microsoft released a patch that fixed the flaw

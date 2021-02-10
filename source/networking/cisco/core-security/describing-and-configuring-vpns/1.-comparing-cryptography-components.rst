@@ -1,0 +1,370 @@
+1. Comparing Cryptography Components
+====================================
+
+Cryptography, Encryption, and Hashing
+-------------------------------------
+
+Cryptography
+~~~~~~~~~~~~
+
+-  Confidentiality
+-  Integrity
+-  Non-repudiation
+-  Authentication
+
+**What is it?**
+
+-  Plain text is encrypted using a key
+-  Data becomes cipher text, cipher text is decrypted with a key
+-  Data is plain text again
+
+Encryption
+~~~~~~~~~~
+
+**Purpose of encryption**
+
+-  Unauthorized parties don’t have access
+-  Provides confidentiality
+-  Encrypted cipher text has to be decrypted
+-  Various protocols can accomplish this
+
+**Types of Encryption**
+
+-  Symmetric
+
+   -  Same key used to encrypt is used to decrypt
+
+-  Asymmetric
+
+   -  Two keys, one to encrypt, and a different one to decrypt
+
+**Types of Symmetric Ciphers**
+
+-  Block Ciphers
+
+   -  Encrypt a fix size of data, one block at a time
+
+-  Stream Cipher
+
+   -  Encrypt one bit/byte at a time
+
+Hashing
+~~~~~~~
+
+-  Hash is secure when it cannot be converted back to original text
+-  String or number generated from text
+-  Fixed in length
+-  Very greatly with just a small change
+
+**Hash Use Case**
+
+-  Store hashes of passwords
+
+   -  Compare hash of entered password to a stored hash of the password
+
+-  Ensure file downloads have not been modified
+
+   -  Compare hash on website to hash of the file that was downloaded
+
+Symmetric Algorithms
+--------------------
+
+-  The algorithms in use today may not be secure tomorrow
+-  Next Generation Algorithms
+
+   -  Secure enough for today’s computing power
+   -  Estimated to be secure for 2 decades
+
+-  Commercial NSA Suite will need to be replaced
+
+   -  Standards expected by 2024
+
+-  Algorithm is considered secure if the algorithm is known publicly,
+   but the data is still confidential.
+
+DES & 3DES
+~~~~~~~~~~
+
+**DES**
+
+-  64 bit block
+-  56 bit key
+
+**3DES**
+
+-  Data encrypted with key1
+-  Decrypted with key2
+-  Encrypted again with key3
+
+AES
+~~~
+
+-  Blocks are 128 bit
+-  Various key sizes
+
+   -  128 bit, 192 bit, 256 bit
+   -  AES 256 required for Top Secret information
+
+-  GCM & CBC
+
+   -  GCM is more secure, and provides hashing
+
+Blowfish & Twofish
+~~~~~~~~~~~~~~~~~~
+
+-  Blowfish
+
+   -  64 bit block
+   -  Various key sizes
+   -  32 bits to 448 bits
+
+-  Twofish
+
+   -  128 bit block
+   -  Key sizes of 128, 192 and 256
+
+RC4
+~~~
+
+-  Stream cipher
+-  Key sizes from 40 bits to 2048 bits
+-  Insecure
+
+Asymmetric Algorithms
+---------------------
+
+Diffie Hellman
+~~~~~~~~~~~~~~
+
+-  Create a shared key over an insecure medium
+-  Mainly used as a key exchange
+-  Legacy
+
+   -  Group 1: 768 modulus bits
+   -  Group 2: 1024 modulus bits
+   -  Group 5: 1536 modulus bits
+
+-  Current
+
+   -  Group 14: 2048 modulus bits
+   -  Group 15: 3072 modulus bits
+   -  Group 16: 4096 Modulus bits
+
+-  Next Generation
+
+   -  Based off of elliptic curve math
+   -  Group 19: 256 bit elliptic curve
+   -  Group 20: 384 bit elliptic curve
+   -  Group 21: 521bit elliptic curve
+
+RSA
+~~~
+
+-  Traffic encrypted with KeyA and decrypted with KeyB
+-  Public key known by everyone
+-  Private key only known by system
+-  Allows for easier key management
+
+**RSA Key Size**
+
+-  768 & 1024
+-  3072 - top secret information
+-  2048 - Minimum
+-  4096
+
+DSA
+~~~
+
+-  Asymmetric private and public key pair
+-  Traditional key values from 512 3072
+-  Elliptic Curve Keys
+
+   -  ECDSA 256
+   -  ECDSA 384 - top secret information
+
+Hashing Algorithms
+------------------
+
+-  MD5
+
+   -  128-bit hash
+   -  32 hex characters
+   -  Multiple vulnerabilities - insecure
+
+-  SHA1
+
+   -  160-bit hash value
+   -  40 hexadecimal characters
+   -  Also proven to not be secure
+
+Key Sizes
+~~~~~~~~~
+
+-  SHA-256
+-  SHA-384
+-  SHA-512
+-  All SHA versions have an HMAC (hash-based message authentication code
+   - md5, etc.) variant
+
+VPN Types
+---------
+
+Site-to-Site VPN
+~~~~~~~~~~~~~~~~
+
+-  Allow branches to connect with each other or HQ
+-  Allow different companies to connect to each other
+
+Remote Access VPN
+~~~~~~~~~~~~~~~~~
+
+-  VPNs are encrypted
+
+   -  IPSEC
+   -  TLS
+
+Pre Shared Keys, Digital Certificates, and PKI
+----------------------------------------------
+
+Pre-Shared Keys for Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Both sides of VPN need to authenticate each other
+-  If both sides are using the correct pre- shared key, they are who
+   they say they are
+-  Can be difficult to share the pre-shared key
+-  Not scalable
+
+Public Key Infrastructure
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Certificate Authority (CA)
+
+   -  Device that issues and revokes certificates
+
+-  PKI Hierarchy
+
+   -  Chain of CA’s that sign certificates
+
+-  Validation Authority (VA)
+
+   -  Ensure that the certificates are still valid
+
+-  Digital Certificates
+
+   -  Provides the identity & public key of the devices
+
+IPsec Encryption
+----------------
+
+-  Composed of multiple protocols
+-  IKEv1 or IKEv:
+-  ESP
+-  AH
+
+IKE
+~~~
+
+-  IKE version 1
+-  IKE version 2
+-  Phase 1 and Phase 2
+
+**IKE Phase 1 - ISAKMP**
+
+-  Used to identify both sides of tunnel
+-  Authentication, Encryption, Integrity
+-  UDP 500
+-  **H**\ ash - SHA or MD5
+-  **A**\ uthentication - Certs or PSK
+-  **G**\ roup - Diffie Hellman
+-  **L**\ ifetime - Sec, Min, Hrs, Days
+-  **E**\ ncryption - 3DES or AES
+
+**Phase 1 Main Mode Messages**
+
+-  Client sends HAGLE config
+-  Server replies with choice
+-  Client sends DH secret key
+-  Server sends DH secret key
+-  PSK/cert sent by client
+-  PSK/cert sent by server
+
+**IKE Phase 2 - ESP or AH**
+
+-  HAGLE gets matched again for phase 2 (IPSec)
+-  Known as quick mode (3 messages sent)
+-  ESP (IP 50) (italics are protected)
+
+   -  Plain Text
+
+      -  IP \| TCP/UDP \| PAYLOAD
+
+   -  ESP Transport
+
+      -  IP \| *ESP HDR* \| *TCP/UDP* \| *PAYLOAD* \| *ESP TRAIL* \| ESP
+         AUTH
+
+   -  ESP Tunnel
+
+      -  New IP \| *ESP HDR* \| *IP* \| *TCP/UDP* \| *PAYLOAD* \| *ESP
+         TRAIL* \| ESP AUTH
+
+   -  ESP Tunnel w/NAT-T
+
+      -  New IP \| UDP 4500 \| *ESP HDR* \| *IP* \| *TCP/UDP* \|
+         *PAYLOAD* \| *ESP TRAIL* \| ESP AUTH
+
+-  AH (IP 51) (not recommended)
+
+   -  Plain Text
+
+      -  IP \| TCP/UDP \| PAYLOAD
+
+   -  AH Transport
+
+      -  IP \| AH HDR \| TCP/UDP \| PAYLOAD
+
+   -  AH Tunnel
+
+      -  NEW \| IP \| AH HDR \| IP \| TCP/UDP \| PAYLOAD
+
+IKEv2
+~~~~~
+
+-  Additional capabilities
+
+   -  NAT
+
+-  Dead-peer detection
+
+   -  Different authentication methods
+
+-  4 messages to setup
+-  IKE_SA and Child_SA
+
+SSL/TLS
+-------
+
+-  Secure Socket Layer
+
+   -  Created by Netscape
+   -  SSL 1.0, SSL 2.0, SSL 3.0
+   -  Officially depreciated in 2015
+
+-  Transport Layer Security
+
+   -  RFC Standard
+   -  TLS 1.0 is the same as SSL 3.0
+   -  TLS1.0, TLS1.1, TLS1.2
+
+**Tunnel Forming**
+
+-  Client sends ciphers/hashing it supports & TLS version & session ID
+-  Server/FW sends choice of cipher, etc.
+-  Server sends digital cert
+-  Client uses digital cert to see that server is who they say they are
+-  Client uses server’s public key in digital cert to encrypt master key
+-  Master key is used to encrypt all traffic going forward
+-  Client sends message to server to say this
+-  Server decrypts using private key and uses master key
+-  Tunnel established

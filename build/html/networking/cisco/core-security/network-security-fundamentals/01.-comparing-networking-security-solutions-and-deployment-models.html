@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Comparing Networking Security Solutions &amp; Deployment Models &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="2. Describing Components, Capabilities, &amp; Benefits of NetFlow" href="02.-describing-components-capabilities-and-benefits-of-netflow.html" />
+    <link rel="prev" title="Network Security Fundamentals" href="index.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security Fundamentals</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-securing-the-management-plane.html">3. Securing the Management Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security Fundamentals</a> &raquo;</li>
+        
+      <li>1. Comparing Networking Security Solutions &amp; Deployment Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/01.-comparing-networking-security-solutions-and-deployment-models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="comparing-networking-security-solutions-deployment-models">
+<h1>1. Comparing Networking Security Solutions &amp; Deployment Models<a class="headerlink" href="#comparing-networking-security-solutions-deployment-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cisco-safe-and-cvds">
+<h2>Cisco SAFE and CVDs<a class="headerlink" href="#cisco-safe-and-cvds" title="Permalink to this headline">¶</a></h2>
+<p>Cisco SAFE (Security Architecture for the Enterprise)</p>
+<ul class="simple">
+<li><p>One of Cisco’s Validated Designs (CVD)</p></li>
+<li><p>Module framework of CVDs</p>
+<ul>
+<li><p>Combine to create a secure architecture</p></li>
+</ul>
+</li>
+<li><p>Allow the proper design of Cisco security products</p></li>
+<li><p>We’re going to focus on IPS (Firepower) and Firewall (ASA)</p></li>
+</ul>
+<div class="section" id="security-control-framework">
+<h3>Security Control Framework<a class="headerlink" href="#security-control-framework" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Firewalls and Intrusion prevention system work together with other
+products</p></li>
+<li><p>SCF increases visibility and control in a network environment</p></li>
+</ul>
+</div>
+<div class="section" id="defence-in-depth">
+<h3>Defence in Depth<a class="headerlink" href="#defence-in-depth" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Crucial to the security of a network</p></li>
+<li><p>Device availability and resiliency</p></li>
+<li><p>Regulatory compliance</p></li>
+<li><p>Operational effeciency</p></li>
+<li><p>Auditable implementations</p></li>
+<li><p>Global information sharing and collaboration</p></li>
+<li><p>SAFE allows for modularity and flexibility in design to meet our
+needs</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-validated-designs">
+<h3>Cisco Validated Designs<a class="headerlink" href="#cisco-validated-designs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Be familiar with CVDs</p></li>
+<li><p>Proven designs to allow products to function the way you want to use
+them</p></li>
+<li><p>Edge connectivity</p></li>
+<li><p>Firewall segmentation</p></li>
+<li><p>IPS</p></li>
+<li><p>VPN Solutions</p></li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul class="simple">
+<li><p>Not a one size fits all</p></li>
+<li><p>Every environment is different</p></li>
+<li><p>Apply the designs that are closest to your environment</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="architectures">
+<h2>Architectures<a class="headerlink" href="#architectures" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Defence in depth</p></li>
+<li><p>Different CVDs based on your network design</p></li>
+<li><p><a class="reference external" href="https://www.cisco.com/c/en/us/solutions/design-zone.html">https://www.cisco.com/c/en/us/solutions/design-zone.html</a></p></li>
+</ul>
+<p><strong>Data Centre:</strong></p>
+<ul class="simple">
+<li><p>Firewalls would enforce access policies</p>
+<ul>
+<li><p>Exclude insecure protocols</p></li>
+<li><p>Protect against internal threats</p></li>
+</ul>
+</li>
+<li><p>Intrusion prevention systems</p>
+<ul>
+<li><p>Provide deep packet inspection</p></li>
+<li><p>Cisco Firepower</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>WAN Edge:</strong></p>
+<ul class="simple">
+<li><p>Firewall to protect WAN Edge</p>
+<ul>
+<li><p>Adaptive Security Appliance (ASA)</p></li>
+<li><p>Firepower Threat Defence (FTD)</p></li>
+<li><p>IOS Zone Based Firewalls</p></li>
+</ul>
+</li>
+<li><p>Enforce security policy</p>
+<ul>
+<li><p>Provide inspections at firewall level</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Branch:</strong></p>
+<ul class="simple">
+<li><p>Multiple attack vectors</p></li>
+<li><p>VPNs - connect back to enterprise</p></li>
+<li><p>Firewalls - implicit deny</p></li>
+<li><p>IPS</p></li>
+</ul>
+</div>
+<div class="section" id="designing-deploying-firewall-solutions">
+<h2>Designing &amp; Deploying Firewall Solutions<a class="headerlink" href="#designing-deploying-firewall-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ios-zone-based-firewall">
+<h3>IOS Zone Based Firewall<a class="headerlink" href="#ios-zone-based-firewall" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Zone Based Firewall running on an IOS device</p></li>
+<li><p>Protects network with security zones</p></li>
+<li><p>Stateful</p></li>
+<li><p>Define zones, assign interfaces to zones, define zone to zone allow
+traffic</p>
+<ul>
+<li><p>Replaces ACLs on each interface</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="high-availablity">
+<h3>High Availablity<a class="headerlink" href="#high-availablity" title="Permalink to this headline">¶</a></h3>
+<p><strong>Active/Active:</strong></p>
+<ul class="simple">
+<li><p>Two devices can pass traffic at the same time</p></li>
+<li><p>Configurations are replicated</p></li>
+<li><p>Both devices are providing services</p></li>
+</ul>
+<p><strong>Active/Standby:</strong></p>
+<ul class="simple">
+<li><p>Only one (active) firewall is passing the traffic</p></li>
+<li><p>Configs are replicated from active device to standby device</p></li>
+<li><p>If active device fails, standby device would take over role of active</p></li>
+</ul>
+</div>
+<div class="section" id="adaptive-security-appliance">
+<h3>Adaptive Security Appliance<a class="headerlink" href="#adaptive-security-appliance" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cisco’s firewall workhorse for years</p></li>
+<li><p>Single or multi-context mode</p></li>
+<li><p>Multi-context mode logically divides 1 physical appliance</p>
+<ul>
+<li><p>Each logical ASA is called a security context</p></li>
+</ul>
+</li>
+<li><p>Only active/active mode is available if using multiple contexts</p></li>
+<li><p>ASA Cluster</p>
+<ul>
+<li><p>Group multiple ASAs together into one logical device</p>
+<ul>
+<li><p>Easier management</p></li>
+<li><p>Better throughput</p></li>
+<li><p>Better redundancy - shared workload</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="transparent-vs-routed-mode">
+<h3>Transparent vs Routed Mode<a class="headerlink" href="#transparent-vs-routed-mode" title="Permalink to this headline">¶</a></h3>
+<p><strong>Routed Mode:</strong></p>
+<ul class="simple">
+<li><p>Firewall is next routing hop</p></li>
+<li><p>Either default gateway</p></li>
+<li><p>Or visible layer 3 hop in the packets</p></li>
+</ul>
+<p><strong>Transparent mode:</strong></p>
+<ul class="simple">
+<li><p>Layer 2 device</p></li>
+<li><p>Only a bump in the wire</p></li>
+</ul>
+</div>
+<div class="section" id="vpn-termination">
+<h3>VPN Termination<a class="headerlink" href="#vpn-termination" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>VPNs are in most organizations</p>
+<ul>
+<li><p>Will determine where ASAs of FTD are placed in the network</p></li>
+<li><p>Place firewall close to the border</p>
+<p>OR</p>
+</li>
+<li><p>Have a separate set of dedicated for VPN termination</p></li>
+</ul>
+</li>
+<li><p>Firepower threat defense can be the firewall solution</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="designing-deploying-ips-solutions">
+<h2>Designing &amp; Deploying IPS Solutions<a class="headerlink" href="#designing-deploying-ips-solutions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="firepower-features">
+<h3>Firepower features<a class="headerlink" href="#firepower-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Analytics and automated defense against threats</p></li>
+<li><p>URL Filtering</p></li>
+<li><p>Malware protection</p></li>
+<li><p>Network profiling</p></li>
+<li><p>Identity-based policies and control</p></li>
+<li><p>Application visibility and control</p></li>
+</ul>
+</div>
+<div class="section" id="firepower-module-in-an-asa">
+<h3>Firepower Module in an ASA<a class="headerlink" href="#firepower-module-in-an-asa" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Provides IPS/IDS functionality to an ASA</p></li>
+<li><p>Next Generation IPS</p>
+<ul>
+<li><p>ASA FirePOWER Services</p></li>
+</ul>
+</li>
+<li><p>CVDs will help determine where to place ASA with FirePOWER Services</p></li>
+</ul>
+</div>
+<div class="section" id="next-generation-ips">
+<h3>Next Generation IPS<a class="headerlink" href="#next-generation-ips" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Defense in depth</p></li>
+<li><p>Deploy sensors throughout the network</p></li>
+<li><p>Allows us to protect critical systems, not just the border</p></li>
+</ul>
+</div>
+<div class="section" id="firepower-threat-defence">
+<h3>Firepower Threat Defence<a class="headerlink" href="#firepower-threat-defence" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Many firewall features from the ASA, as well as Firepower IPS
+features</p>
+<ul>
+<li><p>Deep packet inspection</p></li>
+<li><p>Malware protection</p></li>
+<li><p>Firewall features</p></li>
+<li><p>VPN termination</p></li>
+</ul>
+</li>
+<li><p>Not all ASA features are available on FTD yet</p></li>
+</ul>
+</div>
+<div class="section" id="managing-firepower">
+<h3>Managing Firepower<a class="headerlink" href="#managing-firepower" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Firepower Device Manager (FDM)</p>
+<ul>
+<li><p>On board management of a single FTD</p></li>
+<li><p>Smaller, less complex deployments</p></li>
+<li><p>Less analytics and configuration options</p></li>
+</ul>
+</li>
+<li><p>Firepower Management Center (FMC)</p>
+<ul>
+<li><p>Manage multiple firepowers</p>
+<ul>
+<li><p>FTD</p></li>
+<li><p>Firepower sensors</p></li>
+<li><p>FirePOWER services on an ASA</p></li>
+</ul>
+</li>
+<li><p>Analytics</p></li>
+<li><p>Security Intelligence</p></li>
+<li><p>Correlation tools for the threats</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="firepower-high-availability">
+<h3>Firepower High Availability<a class="headerlink" href="#firepower-high-availability" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Firepower and FMC can be configured for Active/Standby</p></li>
+<li><p>FTD devices can be deployed in a cluster</p></li>
+<li><p>Multitenancy (similar to multi-context mode)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-integrations-for-firepower-and-asas">
+<h2>Additional Integrations for Firepower and ASAs<a class="headerlink" href="#additional-integrations-for-firepower-and-asas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rest-apis">
+<h3>REST APIs<a class="headerlink" href="#rest-apis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create custom programs or scripts to gain context or control FTD or
+ASA</p></li>
+</ul>
+</div>
+<div class="section" id="pxgrid">
+<h3>pxGrid<a class="headerlink" href="#pxgrid" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Platform Exchange Grid (pxGrid)</p>
+<ul>
+<li><p>Used in almost all of Cisco’s security products</p></li>
+<li><p>ISE is needed to run pxGrid</p></li>
+</ul>
+</li>
+<li><p>Rapid Threat Containment</p>
+<ul>
+<li><p>Create policy based on user information</p></li>
+<li><p>dynamically shut down hosts</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cisco-threat-response">
+<h3>Cisco Threat Response<a class="headerlink" href="#cisco-threat-response" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cloud Offering</p>
+<ul>
+<li><p>Detect, investigate, analyse and respond to threats</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="authentication-integrations">
+<h3>Authentication Integrations<a class="headerlink" href="#authentication-integrations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use Cisco ISE to authenticate management administrators and VPN users</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="02.-describing-components-capabilities-and-benefits-of-netflow.html" class="btn btn-neutral float-right" title="2. Describing Components, Capabilities, &amp; Benefits of NetFlow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Network Security Fundamentals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+3. Using Multi-Factor Authentication
+====================================
+
+Multi-Factor Authentication
+---------------------------
+
+Single Factore Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Strong passwords are essential for security, but they have their
+limitations.
+
+**Provide Authentication** Passwords determine the person is who they
+say they are.
+
+**Single Factor** Passwords are only one factor, even if they are
+complex and strong.
+
+**Can be Compromised** Complex passwords don’t eliminate being
+compromised.
+
+Multifactor Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Multiple forms of authentication
+-  Common Access Card (CAC)
+
+   -  Physical device with chip and picture
+
+-  Both CAC and password required for access
+-  End-user would notice the CAC missing
+-  Token with numbers that change every minute
+-  Biometric features such as fingerprint or facial recognition
+-  Consumers use multifactor authentication for additional security
+-  Multilayer authentication is when the same factor is presented
+   multiple times
+-  Two-factor authentication (2FA) is a subset of multifactor
+   authentication
+
+DUO Security
+------------
+
+-  Cloud-based and on-premises multifactor authentication
+-  Application that runs on smart devices Provides real-time alerts if
+   password was compromised
+-  Posture assessment
+-  Single sign-on
+-  Time-based restrictions

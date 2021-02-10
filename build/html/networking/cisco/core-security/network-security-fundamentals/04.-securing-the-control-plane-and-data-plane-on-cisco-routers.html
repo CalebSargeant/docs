@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Securing the Control Plane and Data Plane on Cisco Routers &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="5. Securing the Control Plane and Data Plane on Cisco Switches" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html" />
+    <link rel="prev" title="3. Securing the Management Plane" href="03.-securing-the-management-plane.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security Fundamentals</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-securing-the-management-plane.html">3. Securing the Management Plane</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security Fundamentals</a> &raquo;</li>
+        
+      <li>4. Securing the Control Plane and Data Plane on Cisco Routers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/04.-securing-the-control-plane-and-data-plane-on-cisco-routers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="securing-the-control-plane-and-data-plane-on-cisco-routers">
+<h1>4. Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lab-setup">
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id1">
+<img alt="Lab topology" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers.png" />
+<p class="caption"><span class="caption-text">Lab topology</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers.gns3project?raw=true">Download Lab
+File</a></p>
+<p><strong>Router1:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router#
+Router#conf t
+Router(config)#hostname Router1
+Router1(config)#int g0/1
+Router1(config-if)#ip add 12.12.12.1 255.255.255.0
+Router1(config-if)#no shut
+Router1(config-if)#int lo1
+Router1(config-if)#ip add 1.1.1.1 255.255.255.255
+Router1(config-if)#no shut
+Router1(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router2:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router#conf t
+Router(config)#hostname Router2
+Router2(config)#int g0/1
+Router2(config-if)#ip add 12.12.12.2 255.255.255.0
+Router2(config-if)#no shut
+Router2(config-if)#int lo1
+Router2(config-if)#ip add 2.2.2.2 255.255.255.255
+Router2(config-if)#no sh
+Router2(config-if)#int g0/2
+Router2(config-if)#ip add 23.23.23.2 255.255.255.0
+Router2(config-if)#no shut
+Router2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router3:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router#conf t
+Router(config)#hostname Router3
+Router3(config)#int g0/1
+Router3(config-if)#ip add 23.23.23.1 255.255.255.0
+Router3(config-if)#no shut
+Router3(config-if)#int lo1
+Router3(config-if)#ip add 3.3.3.3 255.255.255.255
+Router3(config-if)#no shut
+Router3(config-if)#do wr
+</pre></div>
+</div>
+</div>
+<div class="section" id="securing-eigrp">
+<h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="securing-the-control-plane">
+<h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use MD5 hash of a passcode/key</p></li>
+<li><p>Prevents rogue router from injecting</p></li>
+<li><p>EIGRP malicious routes</p></li>
+<li><p>Authentication Create passcode inside of keychain</p></li>
+<li><p>Reference keychain on interfaces participating in EIGRP</p></li>
+</ul>
+</div>
+<div class="section" id="other-routing-protocols">
+<h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>RIP</p>
+<ul>
+<li><p>Authentication key configured inside of keychain</p></li>
+</ul>
+</li>
+<li><p>OSPF</p>
+<ul>
+<li><p>Authentication key configured on interface</p></li>
+</ul>
+</li>
+<li><p>BGP</p>
+<ul>
+<li><p>Authentication key configured in BGP configuration mode</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="configuration-steps">
+<h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Configure EIGRP</p></li>
+<li><p>Create keychain</p></li>
+<li><p>Reference keychain on interfaces</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers-eigrp.gns3project?raw=true">Download Lab
+File</a></p>
+<p><strong>Router1:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1#conf t
+Router1(config)#router eigrp 100
+Router1(config-router)#network 12.12.12.0 0.0.0.255
+Router1(config-router)#network 1.1.1.0 0.0.0.255
+Router1(config-router)#passive-interface default
+Router1(config-router)#no passive-interface gi 0/1
+Router1(config-router)#exit
+Router1(config)#key chain GloboRoutingKeys
+Router1(config-keychain)#key 1
+Router1(config-keychain-key)#key-string Globo123
+Router1(config-keychain-key)#exit
+Router1(config-keychain)#exit
+Router1(config)#int g0/1
+Router1(config-if)#ip authentication key-chain eigrp 100 GloboRoutingKeys
+Router1(config-if)#ip authentication mode eigrp 100 md5
+Router1(config-if)#do show run | sec key
+  key chain GloboRoutingKeys
+    key 1
+      key-string Globo123
+    ip authentication key-chain eigrp 100 GloboRoutingKeys
+Router1(config-if)#exit
+Router1(config)#service password-encryption
+Router1(config)#do show run | sec key
+  key chain GloboRoutingKeys
+    key 1
+      key-string 7 1535070306257A767B
+    ip authentication key-chain eigrp 100 GloboRoutingKeys
+Router1(config)#do wr
+</pre></div>
+</div>
+<p><strong>Router 2:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router2#conf t
+Router2(config)#service password-encryption
+Router2(config)#router eigrp 100
+Router2(config-router)#passive-interface default
+Router2(config-router)#no passive-interface gi 0/1
+Router2(config-router)#no passive-interface gi 0/2
+Router2(config-router)#network 23.23.23.0 0.0.0.255
+Router2(config-router)#network 2.2.2.0 0.0.0.255
+Router2(config-router)#network 12.12.12.0 0.0.0.255
+Router2(config-router)#key chain GloboRoutingKeys
+Router2(config-keychain)#key 1
+Router2(config-keychain-key)#key-string Globo123
+Router2(config-keychain-key)#exit
+Router2(config-keychain)#exit
+Router2(config)#int g0/1
+Router2(config-if)#ip authentication key-chain eigrp 100 GloboRoutingKeys
+Router2(config-if)#ip authentication mode eigrp 100 md5
+Router2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router 3:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3#conf t
+Router3(config)#router eigrp 100
+Router3(config-router)#passive-interface default
+Router3(config-router)#no passive-interface gi 0/1
+Router3(config-router)#network 3.3.3.0 0.0.0.255
+Router3(config-router)#network 23.23.23.0 0.0.0.255
+Router3(config-router)#do wr
+</pre></div>
+</div>
+<p><strong>EIGRP Debug:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># We see that router 1 is ignoring the packets until auth configured
+*Dec 4 19:04:41.469 EIGRP: Gi0/1: ignored packet from 12.12.12.1, opcode = 5 (authentication off or key-chain missing)
+# We see the adjacency forms when auth is configured
+*Dec 4 19:07:33.818: %DUAL-5-NBRCHANGE: EIGRP-IPv4 100: Neighbor 12.12.12.1 (GigabitEthernet0/1) is up: new adjacency
+
+### show ip route on Router3
+Router3(config-router)#do show ip route
+Codes:  L local, C - connected, S static, R - RIP ,  M mobile, B - BGP
+        D - EIGRP , EX EIGRP external, 0 OSPF. IA OSPF inter area
+        N1 OSPF NSSA external type 1, N2 OSPF NSSA external type 2
+        E1 OSPF external type 1, E2 OSPF external type 2
+        i. IS-IS, su - IS-IS summary, L1 IS-IS level-1, L2 - IS-IS level-2
+        ia IS-IS inter area, candidate default, U - per-user static route
+        o - ODR, P periodic downloaded static route, H NHRP , 1 LISP
+        a application route
+        + replicated route, % - next hop override, overrides from PfR
+
+Gateway of last resort is not set
+
+  1.0.0.0/24 is subnetted, 1 subnets
+D   1.1.1.0 [90/131072] via 23.23.23.2, 00:00:11. GigabitEthernet0/1
+  2.0.0.0/24 is subnetted, 1 subnets
+D   2.2.2.0 [90/130816] via 23.23.23.2, 00:00:11, GigabitEthernet0/1
+  3.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C   3.3.3.0/24 is directly connected, Loopback3
+L   3.3.3.3/32 is directly connected, Loopback3
+  12.0.0.0/24 is subnetted, 1 subnets
+S   12.12.12.0 [1/0] via 23.23.23.2
+  23.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C   23.23.23.0/24 is directly connected, GigabitEthernet0/1
+L   23.23.23.3/32 is directly connected, GigabitEthernet0/1
+
+### ping 1.1.1.1 from 3.3.3.3
+Router3(config-router)#do ping 1.1.1.1 source 3.3.3.3
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 1.1.1.1, timeout is 2 seconds:
+Packet sent with a source address of 3.3.3.3
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/8 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="securing-rip">
+<h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use the keychain</p></li>
+<li><p>Configure RIPv2</p></li>
+<li><p>Configure authentication</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers-rip.gns3project?raw=true">Download Lab
+File</a></p>
+<p><strong>Router1:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1#conf t
+Router1(config)#key chain GloboRoutingKeys
+Router1(config-keychain)#key 1
+Router1(config-keychain-key)#key-string Globo123
+Router1(config-keychain-key)#exit
+Router1(config-keychain)#exit
+Router1(config)#router rip
+Router1(config-router)#version 2
+Router1(config-router)#passive-interface default
+Router1(config-router)#no passive-interface gig 0/1
+Router1(config-router)#network 1.1.1.0
+Router1(config-router)#network 12.12.12.0
+Router1(config-router)#int g0/1
+Router1(config-if)#ip rip authentication key-chain GloboRoutingKeys
+Router1(config-if)#ip rip authentication mode md5
+Router1(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router2:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router2#conf t
+Router2(config)#key chain GloboRoutingKeys
+Router2(config-keychain)#key 1
+Router2(config-keychain-key)#key-string Globo123
+Router2(config-keychain-key)#exit
+Router2(config-keychain)#exit
+Router2(config)#router rip
+Router2(config-router)#version 2
+Router2(config-router)#passive-interface default
+Router2(config-router)#no passive-interface gi 0/1
+Router2(config-router)#no passive-interface gi 0/2
+Router2(config-router)#network 2.2.2.0
+Router2(config-router)#network 12.12.12.0
+Router2(config-router)#network 23.23.23.0
+Router2(config)#interface range gi 0/1 - 2
+Router2(config-if-range)#ip rip authentication key-chain GloboRoutingKeys
+Router2(config-if-range)#ip rip authentication mode MD5
+Router2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router3:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3#conf t
+Router3(config)#key chain GloboRoutingKeys
+Router3(config-keychain)#key 1
+Router3(config-keychain-key)#key-string Globo123
+Router3(config-keychain-key)#exit
+Router3(config-keychain)#exit
+Router3(config)#router rip
+Router3(config-router)#version 2
+Router3(config-router)#passive-interface default
+Router3(config-router)#no passive-interface gi 0/1
+Router3(config-router)#network 23.23.23.0
+Router3(config-router)#network 3.3.3.0
+Router3(config-router)#int gi 0/1
+Router3(config-if)#ip rip authentication key-chain GloboRoutingKeys
+Router3(config-if)#ip rip authentication mode md5
+Router3(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>RIP Debug:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3#sh ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+R     1.0.0.0/8 [120/2] via 23.23.23.2, 00:00:13, GigabitEthernet0/1
+R     2.0.0.0/8 [120/1] via 23.23.23.2, 00:00:13, GigabitEthernet0/1
+      3.0.0.0/32 is subnetted, 1 subnets
+C        3.3.3.3 is directly connected, Loopback1
+R     12.0.0.0/8 [120/1] via 23.23.23.2, 00:00:13, GigabitEthernet0/1
+      23.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        23.23.23.0/24 is directly connected, GigabitEthernet0/1
+L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
+</pre></div>
+</div>
+</div>
+<div class="section" id="securing-ospf">
+<h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Configure authentication without a hash</p></li>
+<li><p>Look at packet capture</p></li>
+<li><p>Configure authentication to use hash</p></li>
+<li><p>Configure the other routers</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers-ospf.gns3project?raw=true">Download Lab
+File</a></p>
+<p><strong>Router1:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1#conf t
+Router1(config)#key chain GloboRoutingKeys
+Router1(config-keychain)#key 1
+Router1(config-keychain-key)#key-string Globo123
+Router1(config-keychain-key)#exit
+Router1(config-keychain)#exit
+Router1(config)#router ospf 100
+Router1(config-router)#passive-interface default
+Router1(config-router)#no passive-interface GigabitEthernet 0/1
+Router1(config-router)#network 12.12.12.0 0.0.0.255 area 0
+Router1(config-router)#network 1.1.1.0 0.0.0.255 area 0
+Router1(config-router)#exit
+Router1(config)#interface GigabitEthernet 0/1
+Router1(config-if)#ip ospf 100 area 0
+Router1(config-if)#ip ospf authentication message-digest
+Router1(config-if)#ip ospf message-digest-key 1 md5 Globo123
+Router1(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router2:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router2#conf t
+Router2(config)#key chain GloboRoutingKeys
+Router2(config-keychain)#key 1
+Router2(config-keychain-key)#key-string Globo123
+Router2(config-keychain-key)#exit
+Router2(config-keychain)#exit
+Router2(config)#router ospf 100
+Router2(config-router)#passive-interface default
+Router2(config-router)#no passive-interface GigabitEthernet 0/1
+Router2(config-router)#no passive-interface GigabitEthernet 0/2
+Router2(config-router)#network 12.12.12.0 0.0.0.255 area 0
+Router2(config-router)#network 23.23.23.0 0.0.0.255 area 0
+Router2(config-router)#network 2.2.2.0 0.0.0.255 area 0
+Router2(config-router)#exit
+Router2(config)#interface range GigabitEthernet 0/1 - 2
+Router2(config-if)#ip ospf 100 area 0
+Router2(config-router)#ip ospf authentication message-digest
+Router2(config-if)#ip ospf message-digest-key 1 md5 Globo123
+Router2(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>Router3:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3#conf t
+Router3(config)#key chain GloboRoutingKeys
+Router3(config-keychain)#key 1
+Router3(config-keychain-key)#key-string Globo123
+Router3(config-keychain-key)#exit
+Router3(config-keychain)#exit
+Router3(config)#router ospf 100
+Router3(config-router)#passive-interface default
+Router3(config-router)#no passive-interface GigabitEthernet 0/1
+Router3(config-router)#network 23.23.23.0 0.0.0.255 area 0
+Router3(config-router)#network 3.3.3.0 0.0.0.255 area 0
+Router3(config-router)#exit
+Router3(config)#interface GigabitEthernet 0/1
+Router3(config-if)#ip ospf 100 area 0
+Router3(config-router)#ip ospf authentication message-digest
+Router3(config-if)#ip ospf message-digest-key 1 md5 Globo123
+Router3(config-if)#do wr
+</pre></div>
+</div>
+<p><strong>OSPF Debug:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>### OSPF without hashing:
+Router1(config-if)#ip ospf authentication-key Globo123
+Router1(config-if)#ip ospf authentication
+</pre></div>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="Packet capture showing OSPF authentication in plain-text" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf1.png" />
+<p class="caption"><span class="caption-text">Packet capture showing OSPF authentication in plain-text</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>### OSPF with hashing:
+Router1(config-if)#ip ospf authentication message-digest
+Router1(config-if)#ip ospf message-digest-key 1 md5 Globo123
+</pre></div>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="Packet capture showing OSPF Auth Type as Cryptographic" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf2.png" />
+<p class="caption"><span class="caption-text">Packet capture showing OSPF Auth Type as Cryptographic</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3(config-if)#do sh ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+
+Gateway of last resort is not set
+
+      1.0.0.0/32 is subnetted, 1 subnets
+O        1.1.1.1 [110/3] via 23.23.23.2, 00:00:09, GigabitEthernet0/1
+      2.0.0.0/32 is subnetted, 1 subnets
+O        2.2.2.2 [110/2] via 23.23.23.2, 00:00:09, GigabitEthernet0/1
+      3.0.0.0/32 is subnetted, 1 subnets
+C        3.3.3.3 is directly connected, Loopback1
+      12.0.0.0/24 is subnetted, 1 subnets
+O        12.12.12.0 [110/2] via 23.23.23.2, 00:00:09, GigabitEthernet0/1
+      23.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C        23.23.23.0/24 is directly connected, GigabitEthernet0/1
+L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
+## Securing OSPF
+
+* Use the keychain
+* Configure RIPv2
+* Configure authentication
+</pre></div>
+</div>
+</div>
+<div class="section" id="securing-bgp">
+<h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Configure TTL Security command</p></li>
+<li><p>Configure BGP neighbor authentication</p></li>
+</ul>
+<p><strong>Multihops:</strong></p>
+<ul class="simple">
+<li><p>Command to allow peers to connect:
+<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">23.23.23.0</span> <span class="pre">ebgp-multihop</span></code></p></li>
+<li><p>More secure way to do it (specifying exact number of hops for
+neighborship to perform): <code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">23.23.23.0</span> <span class="pre">ttl-security</span> <span class="pre">hops</span> <span class="pre">2</span></code></p>
+<ul>
+<li><p>Protects against peering with an unauthorised neighbor</p></li>
+<li><p>Prevents DoS against BGP process</p></li>
+<li><p>Prevents a CPU exhaustion attack (lots of SYN packets) - if TTL
+too high, router won’t accept packet and CPU won’t be affected</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="image1" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-bgp1.png" /></p>
+<p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers-ospf.gns3project?raw=true">Download Lab
+File</a></p>
+<p><strong>Router1:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1(config)#ip route 23.23.23.0 255.255.255.0 12.12.12.2
+Router1(config)#router bgp 66001
+Router1(config-router)#bgp router-id 12.12.12.1
+Router1(config-router)#neighbor 23.23.23.1 remote-as 66003
+Router1(config-router)#network 1.1.1.0 mask 255.255.255.0
+Router1(config-router)#neighbor 23.23.23.1 ttl-security hops 2
+Router1(config-router)#neighbor 23.23.23.1 password Globo123
+</pre></div>
+</div>
+<p><strong>Router3:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3(config)#ip route 12.12.12.0 255.255.255.0 23.23.23.2
+Router3(config)#router bgp 66003
+Router3(config-router)#bgp router-id 23.23.23.3
+Router3(config-router)#neighbor 12.12.12.1 remote-as 66001
+Router3(config-router)#network 3.3.3.0 mask 255.255.255.0
+Router3(config-router)#neighbor 12.12.12.1 ttl-security hops 2
+Router3(config-router)#neighbor 12.12.12.1 password Globo123
+</pre></div>
+</div>
+<p><strong>BGP Debug:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1(config-router)#do clear ip bgp *
+Router3(config-router)#do clear ip bgp *
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-control-lists">
+<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline">¶</a></h2>
+<p>All ACLs have an implicit deny statement at the bottom of the list</p>
+<div class="section" id="standard-acl">
+<h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Matches the source IP address</p></li>
+<li><p>Permit and deny</p></li>
+<li><p>IP address followed by</p>
+<ul>
+<li><p>wildcard</p></li>
+<li><p>use keyword host</p></li>
+<li><p>use keyword any</p></li>
+</ul>
+</li>
+<li><p>Traffic is matched against an ACL line-by-line until a match is found</p></li>
+</ul>
+<p><strong>Sample Standard ACL</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#access-list 11 permit 192.168.1.0 0.0.0.255
+(config)#access-list 11 deny host 172.20.1.55
+(config)#access-list 11 permit 172.20.1.0 0.0.0.255
+(config)#access-list 11 deny any
+</pre></div>
+</div>
+<p><strong>Sample Standard ACL 2</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip access-list standard 1350
+(config-std-nacl)#permit 192.168.1.0 0.0.0.255
+(config-std-nacl)#permit 172.20.1.0 0.0.0.255
+(config-std-nacl)#deny host 172.20.1.55
+(config-std-nacl)#deny any
+</pre></div>
+</div>
+</div>
+<div class="section" id="extended-acl">
+<h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Source &amp; destination IP addresses</p></li>
+<li><p>Layer 4 protocol</p></li>
+<li><p>Layer 4 port</p></li>
+<li><p>QoS, multicast, &amp; routing protocols</p></li>
+<li><p>Extended ACLs are numbered (100-199 &amp; 2000-2699)</p></li>
+</ul>
+<p><strong>Sample Extended ACL</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#access-list 111 permit ip 10.10.10.0 0.0.0.255 any log
+(config)#access-list 111 deny tcp any host 192.168.1.85 eq 22 log
+(config)#access-list 111 deny any any
+</pre></div>
+</div>
+<p><strong>Sample Extended ACL 2</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip access-list extended 2050
+(config-ext-nacl)#deny ip host 192.168.1.50 any
+(config-ext-nacl)#deny ip host 192.168.1.51 any
+(config-ext-nacl)#permit ip 192.168.1.0 0.0.0.255 any
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="applying-acls-and-other-acl-types">
+<h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acl-placement">
+<h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Apply the ACL inbound or outbound on an interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(config-if)#ip</span> <span class="pre">access-group</span> <span class="pre">nameOrNumber</span> <span class="pre">{inlout}</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="other-acl-usage">
+<h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>permit host 1.1.5.25
+permit host 1.1.5.26 deny any
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Inside of auth policy</p></li>
+<li><p>Define traffic to be NATd</p></li>
+<li><p>Traffic to be encrypted</p></li>
+<li><p>Can be used on VLAN interfaces</p></li>
+<li><p>dACls</p></li>
+<li><p>Policy-maps</p></li>
+</ul>
+</div>
+<div class="section" id="time-based-acl">
+<h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#time-range Friday
+(config-time-range)#periodic Friday 08:00 to 16:59
+(config-time-range)#exit
+(config)#time-range Jan2020
+(config-time-range)#absolute start 00:00 Jan 2020 end 23:59 31 Jan 2020
+(config-time-range)#exit
+(config)#access-list 2050 permit ip 172.20.1.0 0.0.0.255 any time-range Jan2020
+</pre></div>
+</div>
+</div>
+<div class="section" id="reflexive-acls">
+<h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Keep track of IP sessions</p></li>
+<li><p>Create dynamic ACEs allowing return traffic</p></li>
+<li><p>Once session has ended ACE will be removed</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip access-list extended Internet-Traffic-Out
+(config-ext-nacl)#permit tcp 172.20.1.0 0.0.0.255 any eq 443 reflect dynamic-ACL
+(config-ext-nacl)#permit tcp 172.20.1.0 0.0.0.255 any eq 80 reflect dynamic-ACL
+(config-ext-nacl)#exit
+(config)#ip access-list extended Internet-Traffic-In
+(config-ext-nacl)#evaluate-dynamic-ACL
+(config-ext-nacl)#exit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="policy-maps-nbar-urpf-tcp-intercept">
+<h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="policy-maps-and-class-maps">
+<h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this headline">¶</a></h3>
+<p><strong>Policy Maps</strong> Can apply policy such as policing bandwidth, priority,
+or drop the traffic.</p>
+<p><strong>Class Maps</strong> Matches traffic based on ACLs, VLANs, protocols, QoS
+attributes</p>
+</div>
+<div class="section" id="network-based-application-recognition">
+<h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this headline">¶</a></h3>
+<p>NBAR:</p>
+<ul class="simple">
+<li><p>ACLs can be difficult to identify applications</p></li>
+<li><p>Uses protocol discovery to classify traffic</p></li>
+<li><p>Traffic matched in a class map</p></li>
+<li><p>Would then be dropped in a policy map</p></li>
+<li><p>Apply policy map to interface</p></li>
+</ul>
+<p><strong>Configuring NBAR:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#ip nbar protocol-discovery
+(config-if)#exit
+(config)#class-map ptpTraffic
+(config-cmap)#match protocol bittorrent
+(config-cmap)#match protocol edonkey
+(config-cmap)#exit
+(config)#policy-map drop-p2pTraffic
+(config-pmap)#class ptpTraffic
+(config-pmap-c)#drop
+(config-pmap-c)#exit
+(config-pmap)#exit
+</pre></div>
+</div>
+<p><strong>Applying NBAR:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#int gi 0/1
+(config-if)#service-policy {inputloutput} drop-p2p
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicast-reverse-path-forwarding">
+<h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>URPF:</p>
+<ul class="simple">
+<li><p>Helps prevent spoofed IP addresses</p></li>
+<li><p>Verifies the packet was received on the correct interface</p></li>
+<li><p>Packet must be reachable from the same interface it came from</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#ip verify unicast reverse-path
+(config-if)#ip verify unicast reachable-via rx
+</pre></div>
+</div>
+</div>
+<div class="section" id="tcp-intercept">
+<h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Intervenes and protects servers from SYN-Flood Attacks</p></li>
+<li><p>Intercept Mode</p>
+<ul>
+<li><p>Router is a man-in-the-middle</p></li>
+<li><p>Uses aggressive timeouts for half-open TCP sessions</p></li>
+<li><p>Router will stitch legitimate sessions together</p></li>
+</ul>
+</li>
+<li><p>Watch Mode</p>
+<ul>
+<li><p>Watch connection requests</p></li>
+<li><p>Intervene if connections aren’t established within allotted time</p></li>
+</ul>
+</li>
+</ul>
+<p>Intervenes and protects servers from SYN-Flood Attacks:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip access-list standard Important_Servers
+(config-ext-nacl)#permit tcp any host 192.168.1.50
+(config-ext-nacl)#exit
+(config)#ip tcp intercept mode {watch]intercept}
+(config)#ip tcp intercept list Important_Servers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="control-plane-policing">
+<h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="copp">
+<h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Utilizes ACLs and policy maps</p></li>
+<li><p>Used to police any packets that are routed to the control plane</p></li>
+</ul>
+<p><strong>Configuring CoPP:</strong></p>
+<ul class="simple">
+<li><p>Define traffic using ACLs</p></li>
+<li><p>Create a class map referencing ACL</p></li>
+<li><p>Policy map referencing class map</p></li>
+<li><p>Apply policy map to the control plane</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router1(config)#ip access-list extended CoPP-Traffic
+Router1(config-ext-nacl)#permit tcp any any eq bgp
+Router1(config-ext-nacl)#permit ospf any any
+Router1(config-ext-nacl)#permit eigrp any any
+Router1(config-ext-nacl)#exit
+Router1(config)#class-map CoPp-Class-Map
+Router1(config-cmap)#match access-group name CoPP-Traffic
+Router1(config-cmap)#exit
+Router1(config)#policy-map CoPP-Policy-Map
+Router1(config-pmap)#class CoPP-Class-Map
+Router1(config-pmap-c)#police 200000 conform-action transmit exceed-action drop
+Router1(config-pmap-c-police)#exit
+Router1(config-pmap-c)#exit
+Router1(config-pmap)#exit
+Router1(config)#control-plane
+Router1(config-cp)#service-policy input Copp-Policy-Map
+policy map Copp-Policy-Map not configured
+Router1(config-cp)#service-policy input CoPP-Policy-Map
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html" class="btn btn-neutral float-right" title="5. Securing the Control Plane and Data Plane on Cisco Switches" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="03.-securing-the-management-plane.html" class="btn btn-neutral float-left" title="3. Securing the Management Plane" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

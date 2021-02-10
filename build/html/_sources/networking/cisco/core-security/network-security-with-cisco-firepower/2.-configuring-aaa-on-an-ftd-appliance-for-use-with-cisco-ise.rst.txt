@@ -1,0 +1,73 @@
+2. Configuring AAA on an FTD Appliance for Use with Cisco ISE
+=============================================================
+
+Prepping Cisco ISE to Support RADIUS for Device Administration
+--------------------------------------------------------------
+
+.. figure:: ../network-security-with-cisco-asa/_images/configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise-1.png
+   :alt: Leverage AD security groups
+
+   Leverage AD security groups
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-2.png
+   :alt: Define a network device
+
+   Define a network device
+
+Role-based Access for Firepower Device Manager
+----------------------------------------------
+
+-  When devices use role-based access to determine privilege, RADIUS
+   must be used as the AAA protocol.
+-  TACACS should be used when the device configured mainly through CLI,
+   since TACACS allows each command to be authorized.
+
+Role-based Access Using FDM GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cisco AV Pairs:
+
+-  Read-Only (``fdm.userrole.authority.ro``)
+-  Read-Write (``fdm.userrole.authority.rw``)
+-  Admin (``fdm.userrole.authority.admin``)
+
+Role-based Access Using FDM CLI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Service Types:
+
+-  Read-Only (``Service-Type:Administrator(6)``)
+-  Read-Write (``Service-Type:NAS Prompt(7)``)
+
+Configuring RADIUS Authorization Profiles for Device Administration on Cisco ISE
+--------------------------------------------------------------------------------
+
+|image1|
+
+Configuring RADIUS Policy Sets for Device Administration Using RADIUS
+---------------------------------------------------------------------
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-7.png
+   :alt: Configure Device Admin Policy Sets
+
+   Configure Device Admin Policy Sets
+
+Configure Firepower to Use ISE as RADIUS Server for Device Administration
+-------------------------------------------------------------------------
+
+.. figure:: _images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-1.png
+   :alt: Authorisation Policy
+
+   Authorisation Policy
+
+.. figure:: _images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-2.png
+   :alt: FTD Identity Source
+
+   FTD Identity Source
+
+.. figure:: _images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-3.png
+   :alt: FTD Management Access
+
+   FTD Management Access
+
+.. |image1| image:: _images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-4.png

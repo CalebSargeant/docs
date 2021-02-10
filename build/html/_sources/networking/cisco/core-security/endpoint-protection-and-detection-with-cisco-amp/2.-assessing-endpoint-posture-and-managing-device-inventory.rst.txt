@@ -1,0 +1,75 @@
+2. Assessing Endpoint Posture and Managing Device Inventory
+===========================================================
+
+Endpoint Posture Assessment
+---------------------------
+
+Posture Assessment Solution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Malware takes advantage of vulnerabilities
+
+   -  Companies issue patches
+
+-  Organizations want to know the posture of their devices
+
+   -  Posture assessment solutions automate this process
+
+Cisco AnyConnect
+~~~~~~~~~~~~~~~~
+
+ISE Posture Module
+^^^^^^^^^^^^^^^^^^
+
+Integrates with Cisco ISE to determine the posture of the device
+
+HostScan Module
+^^^^^^^^^^^^^^^
+
+The device’s posture is sent to the ASA when client connects to the VPN
+
+Enterprise Mobility Management and Cisco Meraki Systems Manager
+---------------------------------------------------------------
+
+Enterprise Mobility Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Solution that manages devices when they are not on the network
+-  Organization’s networks provide physical and digital security
+-  Devices are now more mobile than ever
+-  EMM’s provide additional safeguards
+
+Cisco Meraki Systems Manager
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Cloud-based device management tool
+-  Mobile Device Management (MDM)
+-  Mobile Application Management (MAM)
+-  Mobile Content Management (MCM)
+-  Mobile Identity Management (MIM)
+-  Seamlessly integrates with other Meraki components
+
+Posture Compliance
+^^^^^^^^^^^^^^^^^^
+
+Ensure devices meet minimum requirements
+
+Deploy Apps
+^^^^^^^^^^^
+
+Install preconfigured Applications
+
+Location Detection
+^^^^^^^^^^^^^^^^^^
+
+Determine the location of the device
+
+Software Version
+^^^^^^^^^^^^^^^^
+
+Determine software of the device and apps
+
+Troubleshooting Tools
+^^^^^^^^^^^^^^^^^^^^^
+
+Diagnostics and reports of the device

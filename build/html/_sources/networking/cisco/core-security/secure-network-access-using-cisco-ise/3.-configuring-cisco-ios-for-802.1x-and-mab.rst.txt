@@ -1,0 +1,78 @@
+3. Configuring Cisco IOS for 802.1X and MAB
+===========================================
+
+Configuring Global Settings on a Cisco Switch to Support 802.1X
+---------------------------------------------------------------
+
+.. code:: text
+
+   Globo-Access (config)#aaa new-model
+   Globo-Access (config)#aaa authentication dot1x default group radius
+   Globo-Access (config)#aaa authorization network default group radius
+   Globo-Access (config)#aaa accounting dot1x default start-stop group radius
+   Globo-Access (config)#aaa accounting update newinfo periodic 1440
+   Globo-Access(config)#username dot1x-test password Globo123
+   Globo-Access (config)#radius server Globo-ISE-DOT1X
+   Globo-Access(config-radius-server)#address ipv4 172.20.1.55 auth-port 1812 acct-port 1813
+   Globo-Access(config-radius-server)#key GloboDot1x
+   Globo-Access(config-radius-server)#automate-test username dot1x-test probe-on
+   Globo-Access (config-radius-server)#exit
+   Globo-Access (config)#aaa group server radius DOT1X-Group
+   Globo-Access (config-sg-radius)#server name Globo-ISE-DOT1X
+
+   Globo-Access(config)#radius-server dead-criteria time 5 tries 3
+   Globo-Access(config)#radius-server deadtime 10
+   Globo-Access(config)#aaa server radius dynamic-author
+   Globo-Access(config-locsvr-da-radius)#client 172.20.1.55
+   Globo-Access(config-locsvr-da-radius)#server-key GloboDot1x
+   Globo-Access(config-locsvr-da-radius)#exit
+   Globo-Access(config)#ip radius source-interface gi 1/0/24
+   Globo-Access(config)#snmp-server trap-source gi 1/0/24
+   Globo-Access(config)#snmp-server source-interface informs gi 1/0/24
+   Globo-Access(config)#radius-server vsa send authentication
+   Globo-Access(config)#radius-server vsa send accounting
+   Globo-Access(config)#dot1x system-auth-control
+
+Configuring a Cisco Switchport to Use 802.1X and MAB
+----------------------------------------------------
+
+Host Authentication Modes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Multi-host** All devices are allowed as long as the 1st MAC address
+Authenticated
+
+**Multi-auth** Every device would need to authenticate
+
+**Multi-domain** One device for DATA and one device for VOICE domains
+
+**Single-host** Only one device per switchport
+
+**Open authentication mode** self-explanatory
+
+.. code:: text
+
+   Globo-Access#conf t
+   Enter configuration commands, one per line. End with CNTL/Z.
+   Globo-Access (config)#int gi 1/0/2
+   Globo-Access(config-if)#switchport host
+   Globo-Access(config-if)#authentication priority dot1x mab
+   Globo-Access(config-if)#authentication order dot1x mab
+   Globo-Access(config-if)#authentication event fail action next-method
+   Globo-Access(config-if)#authentication event server dead action authorize vlan 30
+   Globo-Access(config-if)#authentication event server alive action reinitialize
+   Globo-Access(config-if)#authentication host-mode multi-domain
+   Globo-Access(config-if)#authentication violation restrict
+   Globo-Access(config-if)#authentication open
+   Globo-Access(config-if)#mab
+   Globo-Access(config-if)#dot1x pae authenticator
+   Globo-Access(config-if)#dot1x timeout tx-period 10
+   Globo-Access(config-if)#authentication port-control auto
+
+Configuring ISE to Support MAB & Course Summary
+-----------------------------------------------
+
+.. figure:: _images/configuring-cisco-ios-for-802.1x-and-mab-1.png
+   :alt: MAB Authentication Policy
+
+   MAB Authentication Policy

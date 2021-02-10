@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Configuring Management Protocols on a Cisco IOS Device &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="4. Managing Cisco IOS Devices with Cisco Prime Infrastructure" href="4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.html" />
+    <link rel="prev" title="2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE" href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security with Cisco IOS</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1.-securely-managing-cisco-ios-devices.html">1. Securely Managing Cisco IOS Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html">2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3. Configuring Management Protocols on a Cisco IOS Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.html">4. Managing Cisco IOS Devices with Cisco Prime Infrastructure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security with Cisco IOS</a> &raquo;</li>
+        
+      <li>3. Configuring Management Protocols on a Cisco IOS Device</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-with-cisco-ios/3.-configuring-management-protocols-on-a-cisco-ios-device.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-management-protocols-on-a-cisco-ios-device">
+<h1>3. Configuring Management Protocols on a Cisco IOS Device<a class="headerlink" href="#configuring-management-protocols-on-a-cisco-ios-device" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuring-snmpv3-users-on-a-cisco-router-or-switch">
+<h2>Configuring SNMPv3 Users on a Cisco Router or Switch<a class="headerlink" href="#configuring-snmpv3-users-on-a-cisco-router-or-switch" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="snmpv3">
+<h3>SNMPv3<a class="headerlink" href="#snmpv3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>SNMP Users</p></li>
+<li><p>Defines credentials and algorithms</p></li>
+<li><p>SNMP Groups</p>
+<ul>
+<li><p>Associates with SNMP Users with SNMP Views</p></li>
+</ul>
+</li>
+<li><p>SNMP Views</p>
+<ul>
+<li><p>Defines the information that the SNMP user can access</p>
+<ul>
+<li><p>All information is stored in the Management Information Base
+(MIB)</p></li>
+<li><p>Object Identifiers (OID) correspond to specific information
+about a router</p></li>
+<li><p>OIDs are stored in a hierarchical tree. OIDs lower in the tree
+are included with OIDs above it</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="figure align-default" id="id1">
+<img alt="SNMP Configuration on Cisco Prime" src="../../../../_images/configuring-management-protocols-on-a-cisco-ios-device-1.png" />
+<p class="caption"><span class="caption-text">SNMP Configuration on Cisco Prime</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HO(confia)#snmp-server view EVERTHING iso included
+Globo-HQ(config)#snmp-server group Write-EVERYTHING v3 priv read EVERYTHING write EVERYTHING
+Globo-HQ(config)#snmp-server user SNMP-Write Write-EVERYTHING v3 auth sha Globo123 priv aes 256 Globo123
+</pre></div>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="Syncronization Complete" src="../../../../_images/configuring-management-protocols-on-a-cisco-ios-device-2.png" />
+<p class="caption"><span class="caption-text">Syncronization Complete</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-ntp-authentication">
+<h2>Configuring NTP Authentication<a class="headerlink" href="#configuring-ntp-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ(config)#ntp server vrf Mgmt-intf 172.20.1.51
+Globo-HQ(config)#ntp authentication-key 1 md5 Globo123
+Globo-HQ(config)#ntp trusted-key 1
+Globo-HQ(config)#ntp authenticate
+Globo-HQ(config)#ntp server vrf Mgmt-intf 172.20.1.51 key 1
+Globo-HQ(config)#do show ntp associations detail
+</pre></div>
+</div>
+</div>
+<div class="section" id="securing-cdp-on-a-cisco-router-or-switch">
+<h2>Securing CDP on a Cisco Router or Switch<a class="headerlink" href="#securing-cdp-on-a-cisco-router-or-switch" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core#show cdp neigh
+Globo-Core#show cdp neigh gi 0/1 detail
+Globo-HQ(config)#no cdp run
+Globo-HQ(config)#cdp run
+Globo-HQ(config)#int gi 0/1
+Globo-HQ(config-if)#no cdp enable
+Globo-HQ(config-if)#cdp enable
+Globo-HQ(config-if)#exit
+Globo-HQ(config)#cdp tlv-list Mgmt-Only
+Globo-HQ(config-tlv-list)#address
+Globo-HQ(config-tlv-list)#capability
+Globo-HQ(config-tlv-list)#cos
+Globo-HQ(config-tlv-list)#duplex
+Globo-HQ(config-tlv-list)#ext-port
+Globo-HQ(config-tlv-list)#hell
+Globo-HQ(config-tlv-list)#ip
+Globo-HQ(config-tlv-list)#nativ
+Globo-HQ(config-tlv-list)#plat
+Globo-HQ(config-tlv-list)#port
+Globo-HQ(config-tlv-list)#power
+Globo-HQ(config-tlv-list)#powernet
+Globo-HQ(config-tlv-list)#spare-
+Globo-HQ(config-tlv-list)#trust
+Globo-HQ(config-tlv-list)#version
+Globo-HQ(config-tlv-list)#vtp
+Globo-HQ(config-tlv-list)#vvid
+Globo-HQ(config)#int gi 0/1
+Globo-HQ(config-if)#cdp filter-tlv-list Mgmt-Only
+Globo-Core#clear cdp table
+Globo-Core#show cdp neigh
+Globo-Core#show cdp neigh gi 0/1 detail
+
+Device  ID: Globo-HQ.globomantics.com
+Entry address(es):
+Interface: GigabitEthernet0/1
+Holdtime 135 sec
+
+advertisement version: 2
+Management address(es):
+  IP address: 172.20.1.57
+
+Total cdp entries displayed 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-scp-to-transfer-files">
+<h2>Using SCP to Transfer Files<a class="headerlink" href="#using-scp-to-transfer-files" title="Permalink to this headline">¶</a></h2>
+<p>Globo-HQ(config)#ip ssh source-interface gig 0/1 Globo-HQ(config)#exit
+Globo-HQ#dir Globo-HQ#copy startup-config scp: Address or name of remote
+host []? 172.20.1.15 Destination username [caleb]? Destination filename
+[globo-hq-confg]? Writing globo-hq-confg Password:</p>
+</div>
+<div class="section" id="configuring-dhcp-and-dns-on-an-ios-device">
+<h2>Configuring DHCP and DNS on an IOS Device<a class="headerlink" href="#configuring-dhcp-and-dns-on-an-ios-device" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core(config)#int vlan 172
+Globo-Core(config-if)#ip add 172.20.1.189 255.255.255.0
+Globo-Core(config-if)#no shut
+Globo-Core(config-if)#exit
+Globo-Core(config)#ip dhcp excluded-address 172.20.1.1 172.20.1.200
+Globo-Core(config)#ip dhcp excluded-address 172.20.1.210 172.20.1.255
+Globo-Core(config)#ip dhcp pool Mgmt-Hosts
+Globo-Core(dhcp-config)#network 172.20.1.0 255.255.255.0
+Globo-Core(dhcp-config)#default-router 172.20.1.1
+Globo-Core(dhcp-config)#dns-server 172.20.1.57
+Globo-Core(dhcp-config)#domain-name globomantics.com
+Globo-Core(dhcp-config)#option 150 ip 172.20.1.110
+Globo-Core(dhcp-config)#lease 700
+Globo-Core(config)#do show ip dhcp binding
+Globo-HQ(config)#ip dns server
+Globo-HQ(config)#ip domain-lookup
+Globo-HQ(config)#ip name-server 8.8.8.8
+Globo-HQ(config)#ip host Globo-ISE 172.20.1.55
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.html" class="btn btn-neutral float-right" title="4. Managing Cisco IOS Devices with Cisco Prime Infrastructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html" class="btn btn-neutral float-left" title="2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

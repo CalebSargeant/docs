@@ -1,0 +1,485 @@
+5. Securing the Control Plane and Data Plane on Cisco Switches
+==============================================================
+
+Securing Spanning Tree Protocol
+-------------------------------
+
+-  Frames to not contain a TTL
+-  Switches will broadcast frames they don’t know the destination to
+-  Can cause the original frame to be recreated millions of times
+
+Spanning Tree Overview
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  **Creates a tree of the network**
+
+   -  Root of the tree is the rool bridge
+
+      -  Elected via lowest Bridge ID (BID)
+
+   -  BID is a combination MAC and priority
+   -  Communicate the information via BPDU
+
+-  **Each switch determines best path to root**
+
+   -  That interface is the root port
+   -  Downstream ports are designated ports
+
+End of convergence, there will be no loops
+
+How Can Malicious Attackers Leverage STP?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Attacker sends BPDUs, switches must go into convergence, no switches
+   forward frames, causing DoS.
+
+image of bpdu
+
+1. Attacker becomes Root Bridge, switches determines best path to
+   attacker, attacker becoming MiTM, attacker can see all info.
+
+image of root
+
+Mitigating Attacks Against STP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Shutdown any interfaces not in use
+-  Disable DTP (Dynamic Trunking Protocol): ``switchport nonegotiate``
+-  Manually configure non-trunk ports as access ports:
+   ``switchport mode access``
+-  Enabling DTP and manually configuring access ports significantly
+   protects network
+
+Enabling BPDU Guard
+~~~~~~~~~~~~~~~~~~~
+
+**Global Configuration:**
+
+.. code:: text
+
+   (config)#spanning-tree portfast edge {bpduguard]bpdufilter} default
+   (config-if)#spanning-tree portfast edge
+
+OR
+
+**Interface Configuration:**
+
+.. code:: text
+
+   (config-if)#spanning-tree {bpduguard]bpdufilter} enable
+
+Additional Mitigations
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  Manually configure bridge priority
+
+   -  Root primary command will only decrement switch to be the root of
+      the current switches in the spanning tree
+   -  It is still technically possible for a device to become root if
+      its priority is also 0, and has a lower MAC address
+
+-  Configure root guard on all designated ports
+
+   -  Would cause the interface to ignore any BPDUs that have a BID
+      lower than current root
+
+**Configure Switch as the Priority (PVST):**
+
+.. code:: text
+
+   (config)#spanning-tree vlan 100-200 priority 0
+   ### OR
+   (config)#spanning-tree vlan 100-200 root primary
+
+**Configure Switch as the Priority (MST):**
+
+.. code:: text
+
+   (config)#spanning-tree mst 1 priority 0
+   ### OR
+   (config)#spanning-tree mst 1 root primary
+
+**Configure Root Guard:**
+
+.. code:: text
+
+   (config-if)#spanning-tree guard root
+
+Securing Virtual Trunking Protocol
+----------------------------------
+
+Virtual Trunking Protocol
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Quickly propagate VLANs across switches without having to manually
+   configure
+-  Versions 1, 2 & 3
+-  Server Mode
+
+   -  Changes are configured and then pushed out
+
+-  Client Mode
+
+   -  Applies changes from a server, but cannot be manually changed by
+      administrator
+
+-  Transparent mode
+
+   -  Does not apply changes, but still forwards VTP messages to other
+      switches
+
+-  Revision number is important!
+
+   -  If VTP revision number is higher in message:
+   -  Switch will update its VLAN database
+
+      -  Include only the VLANs in the message
+
+   -  Not hard to overwrite a working VLAN database
+   -  Erasing startup-config does not remove VLANs
+
+Mistake Waiting to Happen
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Switch has different VLANs
+-  Has a higher revision number
+-  Still configured as VTP server
+-  All switches would erase valid VLANs and add bogus VLANs
+
+VTP Version 3
+~~~~~~~~~~~~~
+
+-  Primary VTP server
+-  Can only be one VTP server
+-  Use MD5 hashed password
+
+.. code:: text
+
+   GloboSwitch1#show vtp status
+   GloboSwitch1#conf t
+   GloboSwitchi(confia)#vtp domain GloboVTP
+   GloboSwitch1(config)#vtp version 3
+   GloboSwitch1(config)#vtp password Globo123
+   GloboSwitch1(config)#int range gi 0/2 -3
+   GloboSwitch1(config-if-range)#no vtp
+   GloboSwitch1(config-if-range)#switchport mode access
+   GloboSwitch1(config-if-range)#switchport nonegotiate
+   GloboSwitch1#vtp primary
+
+Port Security
+-------------
+
+CAM Table
+~~~~~~~~~
+
+-  Associates MAC address, switch interface, & VLAN
+-  Switches frames if it knows the port to send it too
+-  Broadcasts frame in order to find port MAC address resides on
+-  Updates table once port and MAC address are found
+
+MAC Spoofing Attack
+~~~~~~~~~~~~~~~~~~~
+
+-  Attacker could spoof MAC
+
+   -  Switch would update CAM table with attackers port, and send future
+      packets to it
+
+-  Legitimate device will eventually respond, causing the switch to
+   update CAM table
+
+   -  Attacker could continue to send spoof MAC addresses in order to
+      keep the switch forwarding it frames
+
+CAM Flooding Attack
+~~~~~~~~~~~~~~~~~~~
+
+When attacker sends so many frames with spoofed MAC addresses, that the
+CAM table is filled up and isn’t able to process frames in an efficient
+manner.
+
+.. _port-security-1:
+
+Port Security
+~~~~~~~~~~~~~
+
+-  Configures the interface to only allow certain MAC addresses
+-  Can manually configure MAC addresses on interface. Is
+   administratively difficult to do for all interfaces
+-  Sticky MAC address allows port to dynamically learn MAC addresses as
+   they are plugged in
+
+.. code:: text
+
+   (config-if)#switchport port-security
+   (config-if)#switchport port-security mac-address 48-bit MAC address
+   (config-if)#switchport port-security mac-address sticky
+   (config if)#switchport port-security maximum 5
+   (config-if)#exit
+   (config)#errdisable recovery cause psecure-violation
+
+**Additional Port Security Violation Actions:**
+
+-  Drop frames silently until the number of MAC addresses have been
+   removed: ``(config if)#switchport port-security violation protect``
+-  Drop frames until the number of MAC addresses have been removed, but
+   creates a syslog and SNMP message:
+   ``(config if)#switchport port-security violation restrict``
+-  Default: ``(config if)#switchport port-security violation shutdown``
+
+**Age Out the MAC Addresses:**
+
+.. code:: text
+
+   (config-if)#switchport port-security aging time 10
+   (config-if)#switchport port-security aging type {inactivitylabsolute}
+
+DHCP Snooping
+-------------
+
+DHCP Security Risks
+~~~~~~~~~~~~~~~~~~~
+
+**\* Rogue DHCP server could start issuing IPs**
+
+-  Could place itself as the default gateway
+
+   -  Man-in-the-middle
+   -  **Rogue DHCP server floods DHCP requests**
+
+-  Cause legitimate DHCP to run out of IPs
+
+   -  DHCP Starvation attack
+
+Clients will only receive offer from the Rogue DHCP server
+
+.. _dhcp-snooping-1:
+
+DHCP Snooping
+~~~~~~~~~~~~~
+
+-  Define interfaces connected to trusted DHCP servers
+-  DHCP offers on untrusted interfaces will be dropped
+-  Creates a DHCP database of clients.
+-  Contains MAC, IP and VLAN ID
+-  Rate limiting feature
+-  Used to prevent DHCP starvation attacks
+
+.. code:: text
+
+   GloboAccess(config)#ip dhcp snooping vlan 100
+   GloboAccess(config)#int eth 0/0
+   GloboAccess(config-if)#ip dhcp snooping trust
+   GloboAccess(config-if)#exit
+   GloboAccess(config)#int range eth 0/0 -1
+   GloboAccess(config-if-range)#ip dhcp snooping limit rate 10
+   GloboAccess(config-if-range)#exit
+   GloboAccess(config)#ip dhcp snooping
+
+Dynamic ARP Inspection
+----------------------
+
+ARP Poisoning
+~~~~~~~~~~~~~
+
+-  Change ARP entry to point to their MAC for the victim’s IP address
+-  Respond to a legitimate ARP request
+-  Send a Gratuitous ARP packet
+
+.. _dynamic-arp-inspection-1:
+
+Dynamic ARP Inspection
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  Can leverage the DHCP snooping database
+
+   -  Would verify ARP replies to see if they match the database
+
+-  If they ARP packets aren’t correct, they are dropped
+-  All untrusted interfaces would be checked
+
+Configuring Dynamic ARP Inspection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: text
+
+   (config)#ip arp inspection vlan 90-100,200
+   (config)#arp access-list ARP-ACL
+   (config-arp-nacl)#permit ip host 192.168.1.10 mac host 0050.7966.6800
+   (config-arp-nacl)#exit
+   (config)#ip arp inspection filter ARP-ACL vlan 90-100,200
+   (config)#int ethernet 0/1
+   (config-ip)#ip arp inspection trust
+
+Segmentation and Private VLANs
+------------------------------
+
+Segmentation
+~~~~~~~~~~~~
+
+-  Better network performance
+-  Reduced area of attack
+-  Easier to monitor smaller segments
+-  Each VLAN usually part of a single subnet
+
+   -  Devices can communicate with each other
+   -  Leave subnet to communicate outside VLAN
+
+-  May want to segment VLAN even further
+
+Private VLANs
+~~~~~~~~~~~~~
+
+-  Use traditional VLANs as Primary VLANs
+-  Associate secondary VLANs to Primary VLANs
+-  Promiscuous Port
+
+   -  Part of primary VLAN
+   -  Used by secondary VLANs to talk outside of their VLAN
+   -  VLAN 100
+
+-  Community Port
+
+   -  Can communicate with any other device in the same community, but
+      not other communities
+   -  VLANs 200, 300, 400, & 500
+
+-  Isolated Port
+
+   -  Can’t communicate with any isolated or community port
+   -  VLAN 600
+
+lab image lab file
+
+.. code:: text
+
+   GloboCore(config)#int vlan 100
+   GloboCore(config-if)#ip add 192.168.1.1 255.255.255.0
+   GloboCore(config-if)#no shut
+   GloboCore(config-if)#int lo 1
+   GloboCore(config-if)#ip add 10.10.10.1 255.255.255.255
+   GloboCore(config-if)#exit
+   GloboCore(config)#int eth 0/0
+   GloboCore(config-if)#sw mode acc
+   GloboCore(config-if)#sw acc vlan 100
+   GloboCore(config-if)#no shut
+   GloboCore(config-if)#exit
+   GloboCore(config)#int vlan 100
+   GloboCore(config-if)#ip add 192.168.1.1 255.255.255.0
+   GloboCore(config-if)#no shut
+   GloboCore(config-if)#int lo 1
+   GloboCore(config-if)#ip add 10.10.10.1 255.255.255.255
+   GloboCore(config-if)#exit
+   GloboCore(config)#int eth 0/0
+   GloboCore(config-if)#sw mode acc
+   GloboCore(config-if)#sw acc vlan 100
+   GloboCore(config-if)#no shut
+   GloboCore(config-if)#exit
+   GloboAccess(config)#vtp mode transparent
+   GloboAccess(config)#vlan 200
+   GloboAccess(config-vlan)#private-vlan community
+   GloboAccess(config-vlan)#exit
+   GloboAccess(config)#vlan 600
+   GloboAccess(config-vlan)#private-vlan isolated
+   GloboAccess(config-vlan)#exit
+   GloboAccess(config)#vlan 100
+   GloboAccess(config-vlan)#private-vlan primary
+   GloboAccess(config-vlan)#private-vlan association 200,600
+   GloboAccess(config-vlan)#exit
+   GloboAccess(config)#int eth 0/0
+   GloboAccess(config-if)#switchport mode private-vlan promiscuous
+   GloboAccess(config-if)#switchport private-vlan mapping 100 200,600
+   GloboAccess(config-if)#no shut
+   GloboAccess(config-if)#exit
+   GloboAccess(config)#int range eth 0/1 -2
+   GloboAccess(config-if-range)#switchport mode private-vlan host
+   GloboAccess(config-if-range)#switchport private-vlan host-association 100 200
+   GloboAccess(config-if-range)#exit
+   GloboAccess(config)#int range eth 1/1 -2
+   GloboAccess(config-if-range)#switchport mode private-vlan host
+   GloboAccess(config-if-range)#switchport private-vlan host-association 100 600
+
+Protecting Against Segmentation Attacks & Traffic Filtering at Layer 2
+----------------------------------------------------------------------
+
+Attacks Against Segmentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  VLAN Hopping Attack
+
+   -  Establish trunk port with switch, then tag frames with any VLAN
+   -  Mitigate by disabling DTP
+
+-  Double Tagging
+
+   -  Tag frame with the native VLAN, then tag with destination VLAN
+   -  Set native VLAN to unused VLAN:
+      ``#switchport trunk native vlan 999``
+
+ACLs
+~~~~
+
+-  Use L3 and L4 ACLs on L2 ports
+-  Use L2 ACL on L2 ports
+-  ``#ip access-group NAME {inlout}``
+-  ``#mac access-group NAME in``
+-  Applying to VLAN interface only affects traffic entering or leaving
+   VLAN
+-  VACLs are applied to all traffic in a VLAN
+
+**ACLs to Define Traffic for Access MAP:**
+
+.. code:: text
+
+   (config)#ip access-list extended telnet-Traffic
+   (config-ext-nacl)#permit tcp any any eq 23
+   (config-ext-nacl)#exit
+   (config)# ip access-list extended Microsoft-RPC
+   (config-ext-nacl)#permit tcp any any eq 135
+   (config-ext-nacl)#permit udp any any eq 135
+   (config-ext-nacl)#exit
+   (config)#access-list 112 permit ip any any
+
+**Sample VLAN Access-Map:**
+
+ACLs used to match traffic do not determine what happens to the traffic.
+Whatever references the ACL determines what happens to the traffic that
+matches any permit statements
+
+.. code:: text
+
+   (config)#vlan access-map VLAN-MAP 10
+   (config-access-map)#match ip address telnet-traffic
+   (config-access-map)#action drop
+   (config-access-map)#exit
+   (config)#vlan access-map VLAN-MAP 20
+   (config-access-map)#match ip address Microsoft-RPC
+   (config-access-map)#action drop log
+   (config-access-map)#exit
+   (config)#vlan access-map VLAN-MAP 30
+   (config-access-map)#match ip address 112
+   (config-access-map)#action forward
+
+**Apply the VLAN Access Map to VLANs:**
+
+.. code:: text
+
+   (config)#vlan filter VLAN-MAP vlan-list 10,20-50,100
+
+Storm Control
+-------------
+
+-  Broadcast storms can wreak havoc on a network
+-  Storm control can be used to prevent storms
+-  Monitors broadcast traffic on an interface
+-  Hardware storm control will drop any future broadcast traffic
+-  Software storm control will drop any future traffic
+
+Configuring Storm Control
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: text
+
+   (config-if)#storm-control broadcast level 60 [lower level]
+   (config-if)#storm-control action shutdown
+   (config-if)#storm-control broadcast include multicast

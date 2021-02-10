@@ -1,0 +1,107 @@
+1. Explaining Exfiltration Techniques
+=====================================
+
+Exfiltrating Data Using DNS, NTP, ICMP, or IRC
+----------------------------------------------
+
+DNS Tunneling
+~~~~~~~~~~~~~
+
+-  DNS resolves hostnames to IP addresses
+-  Usually uses port 53
+-  Infect a computer
+-  Resolve DNS for attacker’s website
+-  Local DNS server will forward DNS queries to attacker’s DNS
+-  DNS Queries contain sensitive data
+-  Smaller queries in order to transport large amounts of data
+-  Attacker now has the compromised data
+
+**Cisco’s Umbrella** \* DNS attacks are becoming difficult for NGFW and
+NGIPS to detect \* 200 billion daily DNS requests \* Large data set of
+malicious DNS servers \* Organizations would forward DNS requests to
+Umbrella \* Malicious queries won’t be forwarded
+
+NTP Covert Channels
+~~~~~~~~~~~~~~~~~~~
+
+-  Initiation pattern known by malicious server and client
+
+   -  NTP request gets sent to malicious server from client
+   -  NTP Response & int. pattern gets sent to client
+
+-  Malicious client will generate NTP request including the int. pattern
+
+   -  NTP Request & Int. Pattern from malicious client
+
+-  NTP Server will begin encoding data in its NTP responses
+
+   -  NTP Response & encoded data to malicious client
+
+-  Even legitimate NTP responses will contain encoded data
+
+   -  Malicious client then sees:
+
+      -  NTP Response & int. pattern to client
+      -  NTP Request from client
+
+ICMP Echo Manipulation
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  Input data into payload of ICMP echo requests
+-  Segment data over multiple echo requests
+
+   -  Larger sized echoes are suspicious
+
+-  Server receiving echo requests will place data back together
+
+   -  May send an ICMP echo reply
+
+-  Inspect ICMP payload using deep packet inspection
+
+Internet Relay Chat
+~~~~~~~~~~~~~~~~~~~
+
+-  Client will authenticate with malicious server
+-  Data will flow between the two parties
+-  Block all IRC traffic or:
+-  Whitelist only specific IRC servers
+
+Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP
+-----------------------------------------------------
+
+HTTPs
+~~~~~
+
+**Problems** \* Exfiltrate data over encrypted TLS session \* Send data
+to cloud file hosting
+
+**Solutions** \* Decrypt the data and implement DLP \* Use Cognitive
+Threat Analytics
+
+FTP SFTP SCP
+~~~~~~~~~~~~
+
+-  Designed to transfer files
+-  SFTP and SCP are both encrypted
+-  Makes detection even harder
+-  Mitigation techniques
+
+   -  Implement SSH decryption
+   -  Deny SSH to outside hosts
+   -  WSA and Umbrella
+
+Exfiltrating Data Using Email
+-----------------------------
+
+-  Disgruntled employee
+-  Sends emails that contain data
+-  Attacker compromises computers
+
+   -  Auto forwarding rule
+   -  Manipulate the SMTP protocol as well
+
+Email Security
+~~~~~~~~~~~~~~
+
+-  Email Security Appliance (ESA)
+-  Cisco Email Security (CES)

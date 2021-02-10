@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Describing Security Intelligence &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="4. Explaining and Interpreting APIs" href="04.-explaining-and-interpreting-apis.html" />
+    <link rel="prev" title="2. Explaining Common Threats &amp; Protecting Humans from Attacks" href="02.-explaining-common-threats-and-protecting-humans-from-attacks.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Security Concepts</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-common-vulnerabilities.html">1. Comparing Common Vulnerabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-explaining-common-threats-and-protecting-humans-from-attacks.html">2. Explaining Common Threats &amp; Protecting Humans from Attacks</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3. Describing Security Intelligence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-explaining-and-interpreting-apis.html">4. Explaining and Interpreting APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Security Concepts</a> &raquo;</li>
+        
+      <li>3. Describing Security Intelligence</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/security-concepts/03.-describing-security-intelligence.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="describing-security-intelligence">
+<h1>3. Describing Security Intelligence<a class="headerlink" href="#describing-security-intelligence" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="security-intelligence-overview">
+<h2>Security Intelligence Overview<a class="headerlink" href="#security-intelligence-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hard-to-keep-up-with-threats">
+<h3>Hard to Keep up with Threats<a class="headerlink" href="#hard-to-keep-up-with-threats" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Not a “set it and forget it” solution</p></li>
+<li><p>Cant just sit back and monitor</p></li>
+<li><p>Too many devices to manually update</p></li>
+<li><p>A large amount of surface areas</p></li>
+</ul>
+</div>
+<div class="section" id="too-much-work">
+<h3>Too Much Work<a class="headerlink" href="#too-much-work" title="Permalink to this headline">¶</a></h3>
+<p>Identify threats, research solutions, and implement mitigations for
+every threat on each attack medium</p>
+</div>
+<div class="section" id="security-intelligence">
+<h3>Security Intelligence<a class="headerlink" href="#security-intelligence" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Organisations can participate in a community of security devices</p>
+<ul>
+<li><p>All organisations benefit from new threat information</p></li>
+</ul>
+</li>
+<li><p>Author, share, and consume</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="security-intelligence-authoring-sharing-and-consuming">
+<h2>Security Intelligence Authoring, Sharing, and Consuming<a class="headerlink" href="#security-intelligence-authoring-sharing-and-consuming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="telemetry-sharing">
+<h3>Telemetry Sharing<a class="headerlink" href="#telemetry-sharing" title="Permalink to this headline">¶</a></h3>
+<p>Device upload data to network/Cloud</p>
+<p><strong>Scenario:</strong></p>
+<ul class="simple">
+<li><p>Threat affects organisation</p></li>
+<li><p>Device now has info on threat</p></li>
+<li><p>Info is uploaded to cloud</p></li>
+<li><p>Additional info is uploaded from other orgs</p></li>
+</ul>
+</div>
+<div class="section" id="security-intelligence-1">
+<span id="id1"></span><h3>Security Intelligence<a class="headerlink" href="#security-intelligence-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cloud performs analytics</p></li>
+<li><p>Normalises data and finds pattens</p>
+<ul>
+<li><p>Time, duration, surface area, other metrics</p></li>
+<li><p>Who is being attacked</p></li>
+<li><p>More info allows for better mitigations</p></li>
+</ul>
+</li>
+<li><p>Create signatures for different threats</p></li>
+<li><p>Different security devices have different mitigations</p></li>
+<li><p>Updates are shared with community</p>
+<ul>
+<li><p>Cisco Talos can be every 3-5min</p></li>
+</ul>
+</li>
+<li><p>Each device installs the updates</p></li>
+<li><p>All organizations participating in the cloud are protected from the
+new threat</p></li>
+<li><p>Mo manual input required</p></li>
+<li><p>Provides research and info to security professionals</p></li>
+<li><p>Allows you to stay in the loop of the new types of threats that are
+emerging</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cisco-talos">
+<h2>Cisco Talos<a class="headerlink" href="#cisco-talos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>1.1 million malicious software samples</p></li>
+<li><p>300 billion email samples, 200 billion are malicious</p></li>
+<li><p>Block malware, phishing, and spam</p></li>
+<li><p>Need to have the appropriate license</p>
+<ul>
+<li><p>Create policy and ruleset</p></li>
+</ul>
+</li>
+<li><p>Defence in depth</p></li>
+</ul>
+<p><strong>Cisco Products that use Talos:</strong></p>
+<ul class="simple">
+<li><p>NGFW &amp; NGIPS</p></li>
+<li><p>Cisco AMP</p></li>
+<li><p>Email Security Appliance, Web Security Appliance</p></li>
+<li><p>Cloud Email Security, Cloud Web Security</p></li>
+<li><p>Cisco Umbrella</p></li>
+<li><p>Cisco Threat Grid</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<img alt="Here you can see Legitimate Email, Spam &amp; Malware colour-coded" src="../../../../_images/talos1.png" />
+<p class="caption"><span class="caption-text">Here you can see Legitimate Email, Spam &amp; Malware colour-coded</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="Vulnerability Reports showing summary of the report" src="../../../../_images/talos2.png" />
+<p class="caption"><span class="caption-text">Vulnerability Reports showing summary of the report</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="Vulnerability Reports showing the severity of threat" src="../../../../_images/talos3.png" />
+<p class="caption"><span class="caption-text">Vulnerability Reports showing the severity of threat</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="Vulnerability Reports showing details of how threat works" src="../../../../_images/talos4.png" />
+<p class="caption"><span class="caption-text">Vulnerability Reports showing details of how threat works</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id6">
+<img alt="See the reputation for different things, like IP and Domain Reputation and File Reputation" src="../../../../_images/talos5.png" />
+<p class="caption"><span class="caption-text">See the reputation for different things, like IP and Domain Reputation and File Reputation</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="04.-explaining-and-interpreting-apis.html" class="btn btn-neutral float-right" title="4. Explaining and Interpreting APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02.-explaining-common-threats-and-protecting-humans-from-attacks.html" class="btn btn-neutral float-left" title="2. Explaining Common Threats &amp; Protecting Humans from Attacks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Describing Identity Management, CoA, and Device Compliance &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="2. Configuring Cisco ISE for 802.1X" href="2.-configuring-cisco-ise-for-802.1x.html" />
+    <link rel="prev" title="Secure Network Access Using Cisco ISE" href="index.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Secure Network Access Using Cisco ISE</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. Describing Identity Management, CoA, and Device Compliance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-configuring-cisco-ise-for-802.1x.html">2. Configuring Cisco ISE for 802.1X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3.-configuring-cisco-ios-for-802.1x-and-mab.html">3. Configuring Cisco IOS for 802.1X and MAB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Secure Network Access Using Cisco ISE</a> &raquo;</li>
+        
+      <li>1. Describing Identity Management, CoA, and Device Compliance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/secure-network-access-using-cisco-ise/1.-describing-identity-management-coa-and-device-compliance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="describing-identity-management-coa-and-device-compliance">
+<h1>1. Describing Identity Management, CoA, and Device Compliance<a class="headerlink" href="#describing-identity-management-coa-and-device-compliance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-802-1x">
+<h2>What Is 802.1X?<a class="headerlink" href="#what-is-802-1x" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>802.1X allows for layer 2 network access control to be centrally
+managed.</p></li>
+</ul>
+<p><strong>Supplicant</strong> Software that is able to communicate with 802.1X. It is
+installed on the device trying to gain network access.</p>
+<p><strong>Authenticator</strong> The Network Access Device (NAD) that the supplicant is
+connecting to. The authenticator passes information between the
+supplicant and the authentication server.</p>
+<p><strong>Authentication Server</strong> Centralized server responsible for
+authenticating each device on the network, and authorizing what they are
+allowed to do.</p>
+<p><img alt="image1" src="../../../../_images/describing-identity-management-coa-and-device-compliance-1.png" /></p>
+</div>
+<div class="section" id="benefits-of-802-1x-and-cisco-ise">
+<h2>Benefits of 802.1X and Cisco ISE<a class="headerlink" href="#benefits-of-802-1x-and-cisco-ise" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Users and devices are authenticated and authorized at a central
+location</p></li>
+<li><p>No need to update switchports or Wi-Fi passwords</p></li>
+<li><p>Can apply different settings to different devices</p></li>
+</ul>
+<div class="section" id="network-security-without-802-x">
+<h3>Network Security without 802.X<a class="headerlink" href="#network-security-without-802-x" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Port security and Wi-Fi passwords are not scalable</p>
+<ul>
+<li><p>Wi-Fi password changes need to be distributed</p></li>
+<li><p>Interfaces need to be updated with the correct MAC address</p></li>
+<li><p>MAC addresses are easily spoofed</p></li>
+</ul>
+</li>
+<li><p>Administrative overhead</p></li>
+</ul>
+</div>
+<div class="section" id="device-profiling">
+<h3>Device Profiling<a class="headerlink" href="#device-profiling" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cisco ISE is able to probe devices</p></li>
+<li><p>Determines what type of device it is</p>
+<ul>
+<li><p>Operating system and version</p></li>
+<li><p>Smart devices or computers</p></li>
+</ul>
+</li>
+<li><p>Can start to use profiling information to make authorization
+decisions</p></li>
+</ul>
+</div>
+<div class="section" id="device-posturing">
+<h3>Device Posturing<a class="headerlink" href="#device-posturing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>NAC agents installed on device collect information:</p></li>
+<li><p>Antivirus signatures, security patches, registry settings,
+applications installed, etc.</p></li>
+</ul>
+<p><strong>Unknown</strong></p>
+<ul class="simple">
+<li><p>No NAC agent installed or running</p></li>
+<li><p>VLAN would only allow NAC agent to be installed</p></li>
+</ul>
+<p><strong>Non-Compliant</strong></p>
+<ul class="simple">
+<li><p>Device doesn’t meet minimum requirements</p></li>
+<li><p>VLAN would only allow for updates and correct settings to be
+installed</p></li>
+</ul>
+<p><strong>Compliant</strong></p>
+<ul class="simple">
+<li><p>Device meets minimum requirements</p></li>
+<li><p>Settings applied would be based off of policy</p></li>
+</ul>
+</div>
+<div class="section" id="change-of-authorization-coa">
+<h3>Change of Authorization (CoA)<a class="headerlink" href="#change-of-authorization-coa" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allows authorization of device to change after the initial RADIUS
+access-accept message</p></li>
+<li><p>RFC 3576 &amp; 5176</p></li>
+</ul>
+</div>
+<div class="section" id="bring-your-own-device-byod">
+<h3>Bring Your Own Device (BYOD)<a class="headerlink" href="#bring-your-own-device-byod" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allows network users to bring their personal devices to join the
+network</p></li>
+<li><p>Security checks of these devices is done via ISE</p>
+<ul>
+<li><p>Administrators don’t need to manually complete</p></li>
+</ul>
+</li>
+<li><p>Can be a tiered approach</p></li>
+</ul>
+</div>
+<div class="section" id="guest-services">
+<h3>Guest Services<a class="headerlink" href="#guest-services" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allows visitors to quickly gain access without the need to have a
+permanent account created</p></li>
+</ul>
+<p><strong>Non-Authenticated</strong></p>
+<ul class="simple">
+<li><p>Guest is unknown</p></li>
+<li><p>Click through a portal to gain access</p></li>
+</ul>
+<p><strong>Authenticated</strong></p>
+<ul class="simple">
+<li><p>Guest would register</p></li>
+<li><p>Can apply different policies to different types of guests</p>
+<ul>
+<li><p>Long-term Contractor VS. Daily Visitor</p></li>
+</ul>
+</li>
+<li><p>Utilize Central Web Server</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="different-eap-types">
+<h2>Different EAP Types<a class="headerlink" href="#different-eap-types" title="Permalink to this headline">¶</a></h2>
+<p><strong>Native EAP</strong> Passes information immediately</p>
+<p><strong>Tunneled EAP</strong> Forms an outer tunnel, then uses a Native EAP method as
+the inner EAP tunnel</p>
+<div class="section" id="native-eap-types">
+<h3>Native EAP Types<a class="headerlink" href="#native-eap-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>EAP-MD5</p>
+<ul>
+<li><p>Uses MD5 hash to pass credentials and other sensitive information.</p></li>
+</ul>
+</li>
+<li><p>EAP-TLS</p>
+<ul>
+<li><p>Uses certificates on both supplicant and authentication server to
+establish TLS tunnel. Both sides of tunnel are able to
+authenticate each other.</p></li>
+</ul>
+</li>
+<li><p>EAP-MSCHAPV2</p>
+<ul>
+<li><p>Uses Microsoft’s implementation of CHAP to pass Active Directory
+credentials.</p></li>
+</ul>
+</li>
+<li><p>EAP-GTC</p>
+<ul>
+<li><p>Similar to EAP-MSCHAPv2, but allows authentication with any
+identity store not just Active Directory.</p></li>
+</ul>
+</li>
+</ul>
+<p>Both EAP-MSCHAPv2 and EAP-GTC need to be inside of a tunneled EAP
+protocol to work with Cisco ISE.</p>
+</div>
+<div class="section" id="two-different-eap-tunnels">
+<h3>Two Different EAP Tunnels<a class="headerlink" href="#two-different-eap-tunnels" title="Permalink to this headline">¶</a></h3>
+<p><strong>Protected EAP (PEAP)</strong></p>
+<ul class="simple">
+<li><p>Created by Microsoft</p></li>
+<li><p>Creates a TLS tunnel only using the authentication server’s
+certificate</p></li>
+<li><p>Commonly used with EAP-MSCHAPV2 as the inner tunnel</p></li>
+<li><p>Can also be used with EAP-TLS or EAP-GTC,</p></li>
+</ul>
+<p><strong>EAP-FAST</strong></p>
+<ul class="simple">
+<li><p>Created by Cisco</p></li>
+<li><p>Allows for faster wireless roaming between access points. Uses
+Protected Access Cookies (PACs)</p></li>
+<li><p>Creates a TLS tunnel only using the authentication server’s
+certificate</p></li>
+<li><p>EAP-MSCHAPV2 is a popular inner protocol</p></li>
+<li><p>EAP-GTC can be used to connect to non-Microsoft identity stores</p></li>
+<li><p>EAP-TLS is popular because it allows for EAP Chaining</p></li>
+<li><p>EAP chaining is where both the device and user credentials are being
+passed at the same time</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mac-authentication-bypass-webauth">
+<h2>MAC Authentication Bypass &amp; WebAuth<a class="headerlink" href="#mac-authentication-bypass-webauth" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Uses MAC Address to authenticate - must be added to identity store
+using ISE</p></li>
+<li><p>No supplicant - EAPol sent every 30sec per 3 attempts to see if
+device is 802.1x capable</p></li>
+<li><p>Authenticator assumes that device doesn’t support 802.1x and puts MAC
+Address in RADIUS Access-Request message</p></li>
+</ul>
+<div class="section" id="drawbacks-of-mab">
+<h3>Drawbacks of MAB<a class="headerlink" href="#drawbacks-of-mab" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Weaker posture and requires more administrative overhead</p></li>
+<li><p>Each MAC address has to be in ISE</p></li>
+<li><p>Not difficult for an attacker to spoof the MAC address of a
+legitimate device</p></li>
+</ul>
+</div>
+<div class="section" id="web-authentication-webauth">
+<h3>Web Authentication (WebAuth)<a class="headerlink" href="#web-authentication-webauth" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Local WebAuth (LWA) and Central WebAuth (CWA)</p></li>
+<li><p>Allows user to enter username and password to provide identification</p></li>
+<li><p>Additional policies can assigned based off of the identification</p></li>
+</ul>
+</div>
+<div class="section" id="lwa-versions">
+<h3>LWA Versions<a class="headerlink" href="#lwa-versions" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Local WebAuth</p></th>
+<th class="head"><p>Local WebAuth with a Centralized
+Portal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Portal hosted on the
+authenticator</p></td>
+<td><p>Authenticator redirects user to
+central server to enter
+credentials</p></td>
+</tr>
+<tr class="row-odd"><td><p>Authenticator generates RADIUS
+Access-Request message containing
+username and password</p></td>
+<td><p>Portal sends credentials back to
+authenticator using either HTTP
+Post or hidden I-frame</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Authenticator then generates
+RADIUS Access-Request message
+containing username and password</p></td>
+</tr>
+<tr class="row-odd"><td><p>The authenticator is generating
+the RADIUS Access-Request message</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cwa-process">
+<h3>CWA Process<a class="headerlink" href="#cwa-process" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Device without a supplicant connects to the network</p></li>
+<li><p>802.1X times out, authenticator generates a MAB Access-Request
+message</p></li>
+<li><p>ISE responds with RADIUS Message</p></li>
+<li><p>Within RADIUS messages is a URL Redirection to portal located on ISE</p></li>
+<li><p>User enters credentials, and they are stored in ISE and tied to the
+MAB session</p></li>
+<li><p>ISE issues a CoA reauth message, causing a new MAB request to be sent</p></li>
+<li><p>MAB request contains the same session ID as the first request</p></li>
+<li><p>ISE associates new MAB request to the user’s credentials that were
+previously entered</p></li>
+<li><p>ISE now has all information needed to perform policy lookup and issue
+final authorization</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="introduction-to-cisco-trustsec">
+<h2>Introduction to Cisco TrustSec<a class="headerlink" href="#introduction-to-cisco-trustsec" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tag devices based on their business purpose</p></li>
+<li><p>All traffic from the device will include this tag</p></li>
+<li><p>Use Security/Scalable Group Tag (SGT)</p></li>
+<li><p>Policies can then be created to shape traffic between devices with
+different SGTs</p></li>
+</ul>
+<div class="section" id="trustsec-benefits">
+<h3>TrustSec Benefits<a class="headerlink" href="#trustsec-benefits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Keeping up with ACLs can be administratively cumbersome</p>
+<ul>
+<li><p>IP space for each scenario would need to be carved out</p></li>
+<li><p>ACLs would need to be created accordingly to match each scenario</p></li>
+</ul>
+</li>
+<li><p>TrustSec allows for devices to have the same SGT regardless of where
+they are</p></li>
+<li><p>Policies would be configured centrally, and dynamically pushed to all
+network devices in the network</p>
+<ul>
+<li><p>Configured in a matrix, so it is easy to see which SGTs do or
+don’t have access to each other</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="2.-configuring-cisco-ise-for-802.1x.html" class="btn btn-neutral float-right" title="2. Configuring Cisco ISE for 802.1X" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Secure Network Access Using Cisco ISE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

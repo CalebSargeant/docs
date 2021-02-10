@@ -1,0 +1,140 @@
+4. Managing Cisco IOS Devices with Cisco Prime Infrastructure
+=============================================================
+
+Adding a Device to Cisco Prime Infrastructure
+---------------------------------------------
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-1.png
+   :alt: Add a profile
+
+   Add a profile
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-2.png
+   :alt: Config SSH
+
+   Config SSH
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-3.png
+   :alt: Config HTTPS
+
+   Config HTTPS
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-4.png
+   :alt: Add a device
+
+   Add a device
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-5.png
+   :alt: Specify the profile & add device
+
+   Specify the profile & add device
+
+Using Cisco Prime Infrastructure to Make Changes on IOS Devices
+---------------------------------------------------------------
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-6.png
+   :alt: Configure an existing device
+
+   Configure an existing device
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-7.png
+   :alt: Device's config
+
+   Device's config
+
+.. code:: text
+
+   Globo-HQ#show ip int bri
+   Interface IP-Address 0K? Method Status Protocol
+   GigabitEthernet0/0 192.168.1.100 YES manual up up
+   GigabitEthernet0/1 172.20.1.57 YES manual up up
+   Loopback100 1.1.1.1 YES manual up up
+
+Using Cisco Prime Templates to Make Changes on IOS Devices
+----------------------------------------------------------
+
+**Current config on device:**
+
+.. code:: text
+
+   Globo-HQ-MPLS#show run sec aaa
+   aaa new-model
+   aaa session-id common
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-8.png
+   :alt: Configuring a device template
+
+   Configuring a device template
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-9.png
+   :alt: Creating a composite template
+
+   Creating a composite template
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-10.png
+   :alt: Deploying config to devices
+
+   Deploying config to devices
+
+**Config deployed:**
+
+.. code:: text
+
+   Globo-HQ-MPLS#show run | sec aaa
+   aaa new-model
+   aaa group server tacacs+ GloboISEGroup
+   server name GloboISE1
+   ip vrf forwarding Mgmt-intf
+   ip tacacs source-interface GigabitEthernet0/1
+   aaa authentication login default group GloboISEGroup local
+   aaa authentication enable default group GloboISEGroup enable
+   aaa authorization console
+   aaa authorization config-commands
+   aaa authorization exec default group GloboISEGroup local if-authenticated
+   aaa authorization commands default group GloboISEGroup local if-authenticated
+   aaa authorization commands default group GloboISEGroup local if-authenticated
+   aaa authorization commands 4 default group GloboISEGroup local if-authenticated
+   aaa authorization commands 15 default group GloboISEGroup local if-authenticated
+   aaa accounting exec default start-stop group GloboISEGroup
+   aaa accounting commands 0 default start-stop group GloboISEGroup
+   aaa accounting commands 1 default start-stop group GloboISEGroup
+   aaa accounting commands 4 default start-stop group GloboISEGroup
+   aaa accounting commands 15 default start-stop group GloboISEGroup
+   aaa session-id common
+
+Using Prime to Upgrade IOS Devices
+----------------------------------
+
+**We want to upgrade this image:**
+
+.. code:: text
+
+   sh ver
+   System image file is "flash:c3750e-universalk9-mz.152-4.E6/c3750e-universalk9-mz.152-4.E6.bin"
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-11.png
+   :alt: Downloading software images via Cisco
+
+   Downloading software images via Cisco
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-12.png
+   :alt: Downloading software from file
+
+   Downloading software from file
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-13.png
+   :alt: Distribute the image and follow the wizard
+
+   Distribute the image and follow the wizard
+
+.. figure:: _images/managing-cisco-ios-devices-with-cisco-prime-infrastructure-14.png
+   :alt: Activate the image and follow the wizard
+
+   Activate the image and follow the wizard
+
+**The image is upgraded:**
+
+.. code:: text
+
+   sh ver
+   System image file is "flash:c3750e-universalk9-mz.152-4.E9.bin"

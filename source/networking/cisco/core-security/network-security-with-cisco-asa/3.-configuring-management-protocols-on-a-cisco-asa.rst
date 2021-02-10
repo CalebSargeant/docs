@@ -1,0 +1,61 @@
+3. Configuring Management Protocols on a Cisco ASA
+==================================================
+
+Configuring SNMPv3 Users on a Cisco ASA
+---------------------------------------
+
+-  SNMP Users
+
+   -  Defines credentials and algorithms
+
+-  SNMP Groups
+
+   -  Associates with SNMP Users with SNMP mode
+
+-  SNMP Host
+
+   -  Defines the SNMP hosts that can access the ASA
+
+configuring-management-protocols-on-a-cisco-asa-1
+configuring-management-protocols-on-a-cisco-asa-2
+
+.. code:: text
+
+   Globo-ASA(config)# snmp-server aroup GloboSNMP v3 priv
+   Globo-ASA(config)# snmp-server user GloboSNMPUser GloboSNMP v3 auth priv aes 256 Globo123
+   Globo-ASA(config)# snmp-server host MGMT 172.20.1.56 version 3 GloboSNMPUser
+
+configuring-management-protocols-on-a-cisco-asa-3
+
+Configuring NTP Authentication on a Cisco ASA
+---------------------------------------------
+
+.. code:: text
+
+   Globo-ASA(config)# ntp authentication-key 1 md5 Globo123
+   Globo-ASA(config)# ntp authenticate
+   Globo-ASA(config)# ntp trusted-key 1
+   Globo-ASA(config)# ntp server 172.20.1.51 source MGMT key 1
+   Globo-ASA(config)# show ntp associations detail
+
+configuring-management-protocols-on-a-cisco-asa-4
+
+Using SCP and the ASDM Client to Transfer Files
+-----------------------------------------------
+
+.. code:: text
+
+   Globo-ASA# copy startup-conf scp:
+
+   Address or name of remote host []? 172.20.1.15
+
+   Destination username []? craig
+
+   Destination filename [startup-config]?
+
+   Password:********* *************
+
+   !!!!!!!!!!
+   9842 bytes copied in 12.650 secs (820 bytes/sec)
+
+configuring-management-protocols-on-a-cisco-asa-5

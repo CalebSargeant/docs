@@ -1,0 +1,31 @@
+3. Configuring Management Protocols on a Cisco Firepower
+========================================================
+
+Configuring Syslog on a Cisco FTD Appliance
+-------------------------------------------
+
+.. figure:: _images/configuring-management-protocols-on-a-cisco-firepower-1.png
+   :alt: Add a Syslog Server
+
+   Add a Syslog Server
+
+.. figure:: _images/configuring-management-protocols-on-a-cisco-firepower-2.png
+   :alt: Logging Settings
+
+   Logging Settings
+
+Configuring NTP on a Cisco FTD Appliance
+----------------------------------------
+
+.. figure:: _images/configuring-management-protocols-on-a-cisco-firepower-3.png
+   :alt: NTP Settings
+
+   NTP Settings
+
+Configuring DHCP on a FTD Appliance
+-----------------------------------
+
+.. figure:: _images/configuring-management-protocols-on-a-cisco-firepower-4.png
+   :alt: DHCP Settings
+
+   DHCP Settings

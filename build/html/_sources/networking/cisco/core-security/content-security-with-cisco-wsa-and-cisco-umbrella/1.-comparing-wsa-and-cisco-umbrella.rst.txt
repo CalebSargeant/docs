@@ -1,0 +1,231 @@
+1. Comparing WSA and Cisco Umbrella
+===================================
+
+Web Security Appliance and Cisco Umbrella
+-----------------------------------------
+
+WSA Versus Umbrella
+~~~~~~~~~~~~~~~~~~~
+
+Both are designed to protect against threats that occur through web
+traffic
+
+**Web Security Appliance** On-premises proxy appliance that web traffic
+flows through for inspection
+
+**Cisco Umbrella** Cloud based product that blocks DNS reply to
+malicious sites before the connection occurs
+
+WSA Acceptable Use Controls - URL Filtering and Dynamic Content Analysis
+------------------------------------------------------------------------
+
+URL Filtering
+~~~~~~~~~~~~~
+
+-  Legacy proxies can incorrectly categorize up to 80% of websites
+-  WSA integrates into Cisco ecosystem
+-  Talos determines malicious sites
+-  85 predetermined URL categories
+
+   -  Sites can change categorization based on updated information
+
+WSA Actions
+~~~~~~~~~~~
+
+-  Monitor - Monitor traffic and compare to other settings
+-  Warn - Users will have to acknowledge AUP to continue
+-  Block - Deny access to the site
+-  Time Based - Access to sites during preconfigured times
+-  Quota Based - Daily amount of traffic or time spent on a category
+-  Explicit Allow - Allow sites regardless if they fall into blocked
+   categories
+-  Redirect - Redirects traffic to another URL
+
+The WSA allows organizations to categorize websites into custom URL
+categories.
+
+Uncategorized URLs
+~~~~~~~~~~~~~~~~~~
+
+-  If the URLs are for internal sites, create a custom category
+-  WSA will use Dynamic Content Analysis engine
+-  Look for words inside of the URL
+-  Analyze content of site and compare to large dataset
+
+Precedence
+~~~~~~~~~~
+
+-  Custom URL Categories
+-  Predefined URL Categories
+-  Undefined URL Categories
+
+WSA Acceptable Use Controls Application Visibility and Control
+--------------------------------------------------------------
+
+Application Visibility and Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Differences between URLs and applications
+-  URL filtering alone is all or nothing
+-  AVC sees applications in use on the website
+
+Categorize Applications
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Name
+-  Behavior
+-  Type
+
+.. _wsa-actions-1:
+
+WSA Actions
+~~~~~~~~~~~
+
+-  Monitor - Monitor traffic and compare to other settings
+-  Bandwidth - Limit Limit the total amount of traffic on the site
+-  Restrict - Application isn’t allowed but the website is
+-  Block - Entire website is blocked
+
+Anti-malware on the WSA
+-----------------------
+
+Dynamic Vectoring and Streaming Engine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+DVS engine is a framework that allows for other systems to integrate
+with the WSA.
+
+-  Webroot - Adware and spyware detection that compares URL request to
+   signature database
+-  Sophos - Malware scanning engine that uses genotype and behavioral
+   genotype technologies
+-  McAfee - Uses signatures and heuristic analysis. Allows for new
+   threats to be detected
+
+Sophos and McAfee can not be used at the same time. Webroot can be used
+with either Sophos or McAfee.
+
+Cisco AMP Integration
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Sends AMP SHA-256 hash of file
+
+   -  Know if the file is malicious or not
+
+-  If hash hasn’t been seen, WSA will allow the file
+-  Send AMP a copy of the file
+-  AMP will update files maliciousness as more information is learned
+
+Web Reputation Scores (WBRS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Integrate with Talos to determine a sites score on the likelihood that
+it would contain malicious content
+
+-  -10 through -6
+
+   -  Sites that have been hijacked or that are actively spreading
+      malware
+   -  Block traffic to that site
+
+-  +6 through +10
+
+   -  Widely accessed sites that have a long history of being
+      responsible
+   -  Allow traffic, and not decrypt
+
+-  -6 through +6
+
+   -  Ad syndication or user generated content
+   -  Allow traffic, but decrypt and scan for DLP
+
+Cisco Umbrella Features
+-----------------------
+
+Traditional Firewalls and Proxies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Inspect the communication as it’s occurring
+-  Requires traffic to be decrypted
+-  Powerful devices are on-site
+
+   -  Can affect performance
+
+Cisco Umbrella
+~~~~~~~~~~~~~~
+
+-  Blocks DNS reply so communication never occurs
+-  Relies on Cisco Talos data to know whether sites are safe or not
+-  Safe sites/Whitelisted
+
+   -  Resolves DNS request to the website
+
+-  Unsafe Sites/Blacklisted
+
+   -  DNS response goes to a block page
+
+-  Unknown/Risky
+
+   -  DNS response goes to Umbrella’s Intelligent Proxy in the cloud
+
+Additional Umbrella Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Associates multiple related domains
+
+   -  Forexample.com and forinstance.com
+   -  Different domains are associated
+
+-  Top level domain mapping
+
+   -  American Registry for Internet Numbers
+   -  Asia-Pacific Network Information Centre
+   -  Region specific domains should have region specific IP address
+
+Intelligent Proxy
+~~~~~~~~~~~~~~~~~
+
+-  Used for risky sites
+-  Resolve DNS request with Umbrella’s proxy IP
+-  Inspect traffic, and can scale in size as needed
+
+Umbrella Investigate
+~~~~~~~~~~~~~~~~~~~~
+
+-  View real time data on a website
+-  DNS requests over time
+-  Integrate with Umbrella Investigate’s API
+
+Cisco Umbrella Tiers
+--------------------
+
+Free Umbrella Tier
+~~~~~~~~~~~~~~~~~~
+
+-  Point endpoints to 208.67.220.220 or 208.67.222.222
+-  Blocks websites that Umbrella knows are malicious
+
+Umbrella DNS Security Essentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Create specific policies
+-  Custom URL filtering and policies
+-  Block users on-premises or using the Umbrella agents
+-  Reports and APl available
+
+Umbrella DNS Security Advantage
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Decrypt TLS traffic
+-  Block direct IP communication
+-  Umbrella investigate
+
+Umbrella Secure Internet Gateway Essentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Direct IPsec tunnel to Umbrella
+-  Threat grid file sandboxing
+-  Cloud-delivered firewall
+-  Cloud Access Security Broker
+
+All policies are configured in the Umbrella Cloud dashboard.

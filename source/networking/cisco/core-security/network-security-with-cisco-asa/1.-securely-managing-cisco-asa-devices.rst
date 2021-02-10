@@ -1,0 +1,81 @@
+1. Securely Managing Cisco ASA Devices
+======================================
+
+Out of Band Management
+----------------------
+
+Out of Band Management Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Network dedicated for the management of network devices
+-  Access in/out of network restricted by ACLs
+
+   -  Define which traffic will need to leave network
+   -  Some management networks will be completely self contained
+
+-  Size of management network determined by size of the organization
+
+Management Interfaces on the ASA
+--------------------------------
+
+Management Interfaces
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Dedicated management interface
+-  Logically divides router
+-  Segments traffic
+
+.. code:: text
+
+   Globo-ASA(config)# interface Management 0/0
+   Globo-ASA(config-if)# ip address 172.20.1.61 255.255.255.0
+   Globo-ASA(config-if)# nameif MGMT
+   Globo-ASA(config-if)# no shut
+   Globo-ASA(config-if)# Management-only
+   Globo-ASA(config-if)# exit
+
+   Globo-ASA(config)# show route Management-only
+
+   Routing Table: MgMt-only
+   Codes: L local, C • connected, S static, R RIP. M Mobile, B BGP
+       D EIGRP. EX EIGRP external. 0 OSPF IA OSPF inter area
+       N1 OSPF NSSA external type 1, N2 OSPF NSSA external type 2
+       E1 OSPF external type 1, E2 OSPF external type 2, U UPN
+       i - IS-IS, Su IS-IS summary, L1 IS-IS level-1, L2 IS-IS level-2
+       ia - IS-IS inter area, * candidate default, U per-user static route
+       0 - ODR, P periodic downloaded static route. replicated route
+   Gateway of last resort is not set
+
+   C   172.20.1.0 255.255.255.0 is directly connected, MGMT
+   L   172.20.1.61 255.255.255.255 is directly connected, MGMT
+
+Configuring SSH and HTTPS Access on an ASA
+------------------------------------------
+
+.. code:: text
+
+   Globo-ASA(config)# domain-name globomantics.com
+   Globo-ASA(config)# crypto key generate rsa Modulus 2048
+   Globo-ASA(config)# ssh version 2
+   Globo-ASA(config)# ssh key-exchange group dh-group14-sha1
+   Globo-ASA(config)# username kinda password Globo123 privilege 15
+   Globo-ASA(config)# enable password Globo123
+   Globo-ASA(config)# ssh 172.20.1.0 255.255.255.0 MGMT
+   Globo-ASA(config)# http server enable
+   Globo-ASA(config)# http 172.20.1.0 255.255.255.0 MGMT
+
+Cisco ASDM
+----------
+
+ASDM Overview
+~~~~~~~~~~~~~
+
+-  Adaptive Security Device Manager
+-  GUI used to manage the ASA
+-  Requires java
+-  Download from Cisco.com or the ASA
+
+.. figure:: _images/securely-managing-cisco-asa-devices-1.png
+   :alt: ASDM - preview commands before sending to device
+
+   ASDM - preview commands before sending to device

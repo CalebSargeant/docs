@@ -1,0 +1,124 @@
+3. Benefitting from Additional Cisco Security Products
+======================================================
+
+Cisco Stealthwatch
+------------------
+
+Stealthwatch Components
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Stealthwatch Management Console
+-  Stealthwatch Flow Collector
+-  Flows Per Second License
+-  Stealthwatch Flow Sensor
+-  UDP Director
+
+AnyConnect Network Visibility Module and Stealthwatch Cloud
+-----------------------------------------------------------
+
+Network Visibility Module
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Installs on a host system as an application
+-  Configure what data to collect and where to send it
+-  Gain information on processes, PIDs, services
+
+Stealthwatch Cloud
+~~~~~~~~~~~~~~~~~~
+
+-  Behavior analytics cloud offering
+-  Uses native telemetry sources
+
+   -  AWS VPC flow logs
+   -  Azure NGS flow logs
+
+Stealthwatch Cloud Modeling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Forecast: Predicts future behavior based on past activities
+-  Group: Compares entity/host to similar ones
+-  Role: Categorizes role based on traffic seen
+-  Rule: Detects when policies are violated
+-  Consistency: When a device veers heavily from the baseline/normal
+   behavior
+
+Cognitive Threat Analytics and Encrypted Traffic Analytics
+----------------------------------------------------------
+
+Cognitive Threat Analytics
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CTA for short
+-  Uses machine learning and data sharing
+-  Analyzes network and endpoint telemetry
+-  Correlates your activity with known threats
+-  Provides risk assessment for threats
+-  cognitive.cisco.com
+
+Encrypted Traffic Analytics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  ETA for short
+-  Analyzes encrypted traffic
+-  Doesn’t need to decrypt packets
+-  Helps with compliance
+-  See what cipher suites are being used
+
+**What You Need Far ETA**
+
+-  Network device capable of enhanced NetFlow
+-  Internet connection for Stealthwatch
+-  CTA/ETA turned on
+-  Enhanced NetFlow, which is sent to the Flow Collector and contains
+   metadata and packet stream information.
+
+Cisco PxGrid
+------------
+
+Provides a unified framework that enables ecosystem partners to
+integrate with, then share context either unidirectionally or
+bidirectionally without the need to adopt special APIs.
+
+pxGrid Ecosystem
+~~~~~~~~~~~~~~~~
+
+-  ISE is the brain behind Cisco’s pxGrid implementation!
+-  Subscribers and publishers
+-  No changing the data format
+-  Information can be consumed by all desired subscribers
+
+Adaptive Network Control
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  ISE capability that uses special policies to restrict or allow access
+   on the network
+-  Quarantine policy as an example; cut off access via RADIUS CoA for
+   endpoint or user in question
+-  Do not need to change overall network policies to enforce!
+
+Rapid Threat Containment
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Provides additional automation for discovering and mitigating threats
+-  Learn, Detect, Respond, Contain
+-  Uses CVSS and STIX standards
+
+Cisco Umbrella Investigate
+--------------------------
+
+Helps fill the gaps left by other security technologies
+
+What Does It Do?
+~~~~~~~~~~~~~~~~
+
+-  Gives you risk scores, request patterns, domain context information,
+   key events, and more
+-  Looks for relationships between the malware, domains, IP addresses,
+   networks, and more
+
+Guilt?
+~~~~~~
+
+-  Guilt by association
+-  Guilt by inference
+-  Patterns of guilt

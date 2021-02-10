@@ -1,0 +1,21 @@
+4. Managing Cisco ASAs with Cisco Security Manager
+==================================================
+
+Adding ASAs to Cisco Security Manager
+-------------------------------------
+
+|image1|
+
+Using Cisco Security Manager to Push Policies to ASAs
+-----------------------------------------------------
+
+|image2|
+
+Using Cisco Security Manager to Upgrade ASA Software
+----------------------------------------------------
+
+|image3|
+
+.. |image1| image:: _images/managing-cisco-asas-with-cisco-security-manager-1.png
+.. |image2| image:: _images/managing-cisco-asas-with-cisco-security-manager-2.png
+.. |image3| image:: _images/managing-cisco-asas-with-cisco-security-manager-3.png

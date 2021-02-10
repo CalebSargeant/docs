@@ -1,0 +1,166 @@
+2. Describing Components, Capabilities, & Benefits of NetFlow
+=============================================================
+
+NetFlow Introduction
+--------------------
+
+What is Flow?
+~~~~~~~~~~~~~
+
+-  Information about the packets that traverse a router
+-  Source and destination, ports, and the protocol being used
+
+NetFlow
+~~~~~~~
+
+-  Created by Cisco
+-  Netflow records stored in NetFlow cache
+-  NetFlow records are small
+-  Receipt of the traffic
+-  Flows are unidirectional
+-  Send to stealthwatch for analytics
+-  User ports
+-  Data center
+-  VPNs
+-  Internet Edge
+-  Sample traffic
+
+   -  May miss important packets
+
+Netflow Benefits
+----------------
+
+-  Use existing hardware
+
+   -  Dont need to purchase expensive network tap infrastructure
+
+-  Network as a sensor
+-  Gain insight about the traffic using the network
+
+   -  Use information to make strategic business decisions
+
+Aditional NetFlow Benefits
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Use NetFlow information to make design changes
+-  Test different changes and verify the traffic is being shaped the way
+   you want to
+-  Use NetFlow to troubleshoot issues and find root cause
+
+NetFlow Secuirty Benefits
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Quickly identify suspicious traffic
+-  Concerning Port (the type of traffic doesn’t match the services)
+-  Wrong Industry (traffic flowing to sites that your organisation
+   doesnt do buisness with)
+-  Embargoed Countries (Traffic leaves the country your org resides in
+   destined to an embargoed country)
+
+Network as an Enforcer
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  Integrate with different Cisco tools
+-  Segment traffic
+-  Switch can apply ACLs dynamically
+
+NetFlow Versions & Flow Standards
+---------------------------------
+
+NetFlow Versions
+~~~~~~~~~~~~~~~~
+
+**Netflow v1:**
+
+-  Limited to IPv4 without network masks
+-  Obsolete
+
+**Netflow v5:**
+
+-  Can collect IP ToS, ASN, network masks
+
+**Netflow v9:**
+
+-  Template based
+
+   -  Can add or remove infor without rewriting code
+
+NetFlow v9
+~~~~~~~~~~
+
+-  Template is included in NetFlow packet
+-  Stealthwatch will know what info to expect
+-  UDP 2055
+-  127 different field types
+
+Flexible NetFlow
+~~~~~~~~~~~~~~~~
+
+-  Different cache buckets
+-  Can have different data stored in different caches
+-  Allow for users to create their own fields of what to collect on
+
+IPFIX
+~~~~~
+
+-  IETF standard based on NetFlow v9
+-  Supports templates
+-  UDP 4739
+
+Configuring NetFlow
+~~~~~~~~~~~~~~~~~~~
+
+-  Create flow record
+-  Create flow exporter
+-  Create flow monitor
+-  Apply flow monitor to interface
+
+Cisco Stealthwatch
+------------------
+
+Stealthwatch
+~~~~~~~~~~~~
+
+-  Normalize traffic and find anomalies
+
+   -  Spike in traffic
+   -  Suspicious IPs and ports
+   -  Malware in encrypted traffic
+
+-  Concern index
+-  Associate users to flow
+-  Flow generated for all traffic
+
+**Usages:**
+
+-  PxGrid
+-  Custom policies
+-  Forensics
+-  Generate reports
+
+Stealthwatch Components
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  SMC
+
+   -  Used to interact with flow and what analyses the flow
+
+-  Flow collector
+
+   -  Device that all network devices send flow to
+   -  Associate Proxy information with flow data
+
+-  Both flow collector and SMC are required for Stealthwatch
+
+Aditional Stealthwatch Benefits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Flow sensor
+
+   -  Generate flow for devices that cannot do it natively
+   -  Can be used for layer 2 only traffic
+
+-  UDP Director
+
+   -  Aggregates flow and sends to stealthwatch
+   -  Allows devices to only send flow to one destination

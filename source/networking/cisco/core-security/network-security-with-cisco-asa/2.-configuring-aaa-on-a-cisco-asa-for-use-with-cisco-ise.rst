@@ -1,0 +1,67 @@
+2. Configuring AAA on a Cisco ASA For Use with Cisco ISE
+========================================================
+
+Prepping Cisco ISE to Support TACACS
+------------------------------------
+
+.. figure:: ../network-security-with-cisco-ios/../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-1.png
+   :alt: Enable TACACS+
+
+   Enable TACACS+
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-2.png
+   :alt: Define a network device
+
+   Define a network device
+
+.. figure:: _images/configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise-1.png
+   :alt: Leverage AD security groups
+
+   Leverage AD security groups
+
+TACACS Profiles and TACACS Command Sets
+---------------------------------------
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-5.png
+   :alt: Configure TACACS Profiles
+
+   Configure TACACS Profiles
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-6.png
+   :alt: Configure TACACS Command Sets
+
+   Configure TACACS Command Sets
+
+Configuring Device Admin Policy Sets
+------------------------------------
+
+.. figure:: ../network-security-with-cisco-ios/_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-7.png
+   :alt: Configure Device Admin Policy Sets
+
+   Configure Device Admin Policy Sets
+
+Configuring AAA on an ASA Using the CLI and ASDM
+------------------------------------------------
+
+.. code:: text
+
+   Globo-ASA(config)# aaa-server GloboISE protocol tacacs
+   Globo-ASA(config-aaa-server-group)# aaa-server GloboISE (MGMT) host 172.20.1.55
+   Globo-ASA(config-aaa-server-host)# key GloboISE123
+   Globo-ASA(config-aaa-server-host)# exit
+   Globo-ASA(config)# aaa authentication ssh console GloboISE LOCAL
+   Globo-ASA(config)# aaa authentication http console GloboISE LOCAL
+   Globo-ASA(config)# aaa authentication enable console GloboISE LOCAL
+   Globo-ASA(config)# aaa authentication secure-http-client
+   Globo-ASA(config)# aaa authorization http console GloboISE
+   Globo-ASA(config)# aaa authorization command GloboISE LOCAL
+   Globo-ASA(config)# aaa authorization exec authentication-server auto-enable
+   Globo-ASA(config)# aaa accounting ssh console GloboISE
+   Globo-ASA(config)# aaa accounting serial console GloboISE
+   Globo-ASA(config)# aaa accounting enable console GloboISE
+   Globo-ASA(config)# aaa accounting command GloboISE
+
+.. figure:: _images/configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise-2.png
+   :alt: Configuring AAA in ASDM
+
+   Configuring AAA in ASDM

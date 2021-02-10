@@ -1,0 +1,100 @@
+1. Deploying the ESA and Placing It in the Email Path
+=====================================================
+
+ESA Overview
+------------
+
+-  Placing the ESA in the Email Path
+-  The MX record for Globomantics needs to be updated to point to the
+   ESA’s public facing IP
+-  Configured on-premises
+
+   -  Physical
+   -  Virtual
+
+-  Configured in the cloud (CES)
+-  Built using AsyncOS
+-  Designed to block:
+
+   -  Malicious content
+   -  SPAM
+
+ESA Email Work Queue
+--------------------
+
+Incoming Mail Flow Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Receipt
+
+   -  Setting up SMTP connection
+   -  Sender’s reputation
+   -  Recipient domain
+
+-  Work Queue
+
+   -  Message Filters
+   -  Anti-spam
+   -  Anti-virus
+   -  AMP
+   -  Graymail
+   -  Content Filters
+   -  Outbreak Filters
+
+-  Delivery
+
+   -  Delivery to email server
+
+Outgoing Flow Process
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Receipt
+
+   -  Setting up SMTP connection
+
+-  Work Queue
+
+   -  Message Filters
+   -  Anti-spam
+   -  Anti-virus
+   -  AMP
+   -  Graymail
+   -  Content Filters
+   -  Outbreak Filters
+   -  Data Loss Prevention
+
+-  Delivery
+
+   -  Deliver to external email server
+
+Email Security Deployment Options
+---------------------------------
+
+-  Use CES to secure hosted email
+-  Physical or virtual ESA
+
+   -  Physical - dedicated resources
+   -  Virtual - dynamic and quicker deployments
+
+-  Number of interfaces
+
+Initial Config and Licensing of the ESA
+---------------------------------------
+
+.. code:: text
+
+   interfaceconfig
+   edit
+   loadlicense
+
+-  MUA - Mail User Agent
+
+   -  Email client installed on user’s computer/phone
+
+-  MTA - Mail Transfer Agent
+
+   -  Also called email server or Mail eXchanger (MX)
+
+-  DNS is required for email to function properly.
+
+   -  MX and host records

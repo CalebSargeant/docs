@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Securely Managing Cisco IOS Devices &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE" href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html" />
+    <link rel="prev" title="Network Security with Cisco IOS" href="index.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security with Cisco IOS</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. Securely Managing Cisco IOS Devices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html">2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3.-configuring-management-protocols-on-a-cisco-ios-device.html">3. Configuring Management Protocols on a Cisco IOS Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.html">4. Managing Cisco IOS Devices with Cisco Prime Infrastructure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security with Cisco IOS</a> &raquo;</li>
+        
+      <li>1. Securely Managing Cisco IOS Devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-with-cisco-ios/1.-securely-managing-cisco-ios-devices.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="securely-managing-cisco-ios-devices">
+<h1>1. Securely Managing Cisco IOS Devices<a class="headerlink" href="#securely-managing-cisco-ios-devices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="out-of-band-management">
+<h2>Out of Band Management<a class="headerlink" href="#out-of-band-management" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="out-of-band-management-networks">
+<h3>Out of Band Management Networks<a class="headerlink" href="#out-of-band-management-networks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Network dedicated for the management of network devices</p></li>
+<li><p>Access in/out of network restricted by ACLas</p>
+<ul>
+<li><p>Define which traffic will need to leave network</p></li>
+<li><p>Some management networks will be completely self contained</p></li>
+</ul>
+</li>
+<li><p>Size of management network determined by size of the organization</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="management-interfaces">
+<h2>Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dedicated management interface</p></li>
+<li><p>Logically divides router</p></li>
+<li><p>Segments traffic</p></li>
+</ul>
+<p><strong>Configuration:</strong></p>
+<ul class="simple">
+<li><p>Create VRF</p></li>
+<li><p>Assign interface to VRF</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ#conf t
+Globo-HQ(config)#vrf definition Mgmt-intf
+Globo-HQ(config-vrf)#address-family ipv4
+Globo-HQ(confiq-vrf-af#exit
+Globo-HQ(config-vrf)#exit
+Globo-HQ(config-if)#vrf forwarding Mgmt-intf
+Globo-HO(confia-if)#ip add 172.20.1.57 255.255.255.0
+Globo-HQ#show ip route vrf Mgmt-intf
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-ssh-on-an-ios-device">
+<h2>Configuring SSH on an IOS Device<a class="headerlink" href="#configuring-ssh-on-an-ios-device" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ#conf t
+Globo-HQ(config)#ip domain-name globomantics.com
+Globo-HQ(config)#crypto key generate rsa modulus 2048 label HQ-SSH
+Globo-HQ(config)#
+Globo-HQ(config)#ip ssh version 2
+Globo-HQ(config)#username kinda privilege 15 secret Globo456
+Globo-HQ(config)#enable password Globo123
+Globo-HQ(config)#do show run include enable
+enable password Globo123
+Globo-HQ(config)#do show run include kinda
+username kinda privilege 15 secret 5 $1$08Q0$71jkagYJdD2v9RTzgj2xs1
+GLobo-HQ(config)#service password-encryption
+Globo-HQ(config)#do show run include enable
+enable password 7 080640410B16544541
+Globo-HQ(config)#line vty 0 4
+Globo-HQ(config-line)#transport input ssh
+Globo-HQ(config-line)#exit
+Globo-HQ(config)#aaa new-model
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-management-acl">
+<h2>Configuring a Management ACL<a class="headerlink" href="#configuring-a-management-acl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sample-management-acl-inbound-traffic">
+<h3>Sample Management ACL Inbound Traffic<a class="headerlink" href="#sample-management-acl-inbound-traffic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended Management-ACL-In
+permit tcp host 172.20.1.15 host 172.20.1.57 eq 22
+permit udp host 172.20.1.55 host 172.20.1.57 eq 1812
+permit udp host 172.20.1.55 host 172.20.1.57 eq 1813
+permit tcp host 172.20.1.55 host 172.20.1.57 eq 49
+permit udp host 172.20.1.56 host 172.20.1.57 eq 161
+permit udp host 172.20.1.56 host 172.20.1.57 eq 162
+permit udp host 172.20.1.40 host 172.20.1.57 eq 123
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-management-acl-logging">
+<h3>Sample Management ACL - Logging<a class="headerlink" href="#sample-management-acl-logging" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended Management-ACL-In
+permit tcp host 172.20.1.15 host 172.20.1.57 eq 22
+permit udp host 172.20.1.55 host 172.20.1.57 eq 1812
+permit udp host 172.20.1.55 host 172.20.1.57 eq 1813
+permit ip 172.20.1.0 0.0.0.255 host 172.20.1.57 log
+</pre></div>
+</div>
+</div>
+<div class="section" id="management-plane-protection">
+<h3>Management Plane Protection<a class="headerlink" href="#management-plane-protection" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#control-plane host
+(config-cp-host)#management-interface gi 0/1 allow ssh snmp
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-lines-to-in-band-acls-denying-ssh-to-the-device">
+<h3>Add Lines to In Band ACLs denying SSH to the Device<a class="headerlink" href="#add-lines-to-in-band-acls-denying-ssh-to-the-device" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended INBAND-ACL-TEMPLATE
+deny tcp any host 172.20.1.57 eq 22
+deny tcp any host 192.168.1.15 eq 22
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html" class="btn btn-neutral float-right" title="2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Network Security with Cisco IOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

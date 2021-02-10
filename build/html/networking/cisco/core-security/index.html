@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Core Security &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Security Concepts" href="security-concepts/index.html" />
+    <link rel="prev" title="Cisco" href="../index.html" />
+    <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Core Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+      <li>Core Security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/core-security/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-security">
+<h1>Core Security<a class="headerlink" href="#core-security" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="security-concepts/index.html">Security Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security-concepts/01.-comparing-common-vulnerabilities.html">1. Comparing Common Vulnerabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-concepts/02.-explaining-common-threats-and-protecting-humans-from-attacks.html">2. Explaining Common Threats &amp; Protecting Humans from Attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-concepts/03.-describing-security-intelligence.html">3. Describing Security Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-concepts/04.-explaining-and-interpreting-apis.html">4. Explaining and Interpreting APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network-security-fundamentals/index.html">Network Security Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/03.-securing-the-management-plane.html">3. Securing the Management Plane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-fundamentals/06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-ios/1.-securely-managing-cisco-ios-devices.html">1. Securely Managing Cisco IOS Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-ios/2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.html">2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-ios/3.-configuring-management-protocols-on-a-cisco-ios-device.html">3. Configuring Management Protocols on a Cisco IOS Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-ios/4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.html">4. Managing Cisco IOS Devices with Cisco Prime Infrastructure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-asa/1.-securely-managing-cisco-asa-devices.html">1. Securely Managing Cisco ASA Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-asa/2.-configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise.html">2. Configuring AAA on a Cisco ASA For Use with Cisco ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-asa/3.-configuring-management-protocols-on-a-cisco-asa.html">3. Configuring Management Protocols on a Cisco ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-asa/4.-managing-cisco-asas-with-cisco-security-manager.html">4. Managing Cisco ASAs with Cisco Security Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-firepower/1.-securely-managing-cisco-firepower-devices.html">1. Securely Managing Cisco Firepower Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-firepower/2.-configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise.html">2. Configuring AAA on an FTD Appliance for Use with Cisco ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-firepower/3.-configuring-management-protocols-on-a-cisco-firepower.html">3. Configuring Management Protocols on a Cisco Firepower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-security-with-cisco-firepower/4.-managing-multiple-firepowers-with-cisco-firepower-management-center.html">4. Managing Multiple Firepowers with Cisco Firepower Management Center</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/1.-comparing-cryptography-components.html">1. Comparing Cryptography Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/2.-comparing-cisco-vpn-types.html">2. Comparing Cisco VPN Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/3.-configuring-dmvpn.html">3. Configuring DMVPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/4.-configuring-flexvpn.html">4. Configuring FlexVPN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/5.-configuring-cisco-anyconnect-on-the-asa.html">5. Configuring Cisco AnyConnect on the ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="describing-and-configuring-vpns/6.-configuring-cisco-anyconnect-on-the-ftd.html">6. Configuring Cisco AnyConnect on the FTD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/1.-explaining-exfiltration-techniques.html">1. Explaining Exfiltration Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/2.-describing-the-benefits-of-network-telemetry.html">2. Describing the Benefits of Network Telemetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/3.-benefitting-from-additional-cisco-security-products.html">3. Benefitting from Additional Cisco Security Products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-visibility-and-enforcement/4.-implementing-cisco-application-visibility-and-control-avc.html">4. Implementing Cisco Application Visibility and Control (AVC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-using-cisco-ise/1.-describing-identity-management-coa-and-device-compliance.html">1. Describing Identity Management, CoA, and Device Compliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-using-cisco-ise/2.-configuring-cisco-ise-for-802.1x.html">2. Configuring Cisco ISE for 802.1X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secure-network-access-using-cisco-ise/3.-configuring-cisco-ios-for-802.1x-and-mab.html">3. Configuring Cisco IOS for 802.1X and MAB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/1.-explaining-security-concepts-to-protect-endpoints.html">1. Explaining Security Concepts to Protect Endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/2.-assessing-endpoint-posture-and-managing-device-inventory.html">2. Assessing Endpoint Posture and Managing Device Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/3.-using-multi-factor-authentication.html">3. Using Multi-Factor Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="endpoint-protection-and-detection-with-cisco-amp/4.-configuring-malware-protection-and-outbreak-controls.html">4. Configuring Malware Protection and Outbreak Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/1.-comparing-wsa-and-cisco-umbrella.html">1. Comparing WSA and Cisco Umbrella</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/2.-deploying-the-web-security-appliance.html">2. Deploying the Web Security Appliance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/3.-configuring-the-wsa-as-a-secure-internet-gateway.html">3. Configuring the WSA as a Secure Internet Gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/4.-configuring-traffic-redirection-on-the-wsa.html">4. Configuring Traffic Redirection on the WSA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content-security-with-cisco-wsa-and-cisco-umbrella/5.-deploying-cisco-umbrella.html">5. Deploying Cisco Umbrella</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email-security-with-cisco-esa/1.-deploying-the-esa-and-placing-it-in-the-email-path.html">1. Deploying the ESA and Placing It in the Email Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email-security-with-cisco-esa/2.-configuring-the-esa-to-accept-email.html">2. Configuring the ESA to Accept Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email-security-with-cisco-esa/3.-configuring-the-default-incoming-mail-policy.html">3. Configuring the Default Incoming Mail Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email-security-with-cisco-esa/4.-configuring-the-default-outgoing-mail-policy-and-verifying.html">4. Configuring the Default Outgoing Mail Policy and Verifying</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="security-concepts/index.html" class="btn btn-neutral float-right" title="Security Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Cisco" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

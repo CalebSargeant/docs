@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5. Securing the Control Plane and Data Plane on Cisco Switches &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="6. Configuring Wireless LAN Controller Device Hardening Methods" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html" />
+    <link rel="prev" title="4. Securing the Control Plane and Data Plane on Cisco Routers" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security Fundamentals</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-securing-the-management-plane.html">3. Securing the Management Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security Fundamentals</a> &raquo;</li>
+        
+      <li>5. Securing the Control Plane and Data Plane on Cisco Switches</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/05.-securing-the-control-plane-and-data-plane-on-cisco-switches.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="securing-the-control-plane-and-data-plane-on-cisco-switches">
+<h1>5. Securing the Control Plane and Data Plane on Cisco Switches<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-switches" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="securing-spanning-tree-protocol">
+<h2>Securing Spanning Tree Protocol<a class="headerlink" href="#securing-spanning-tree-protocol" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Frames to not contain a TTL</p></li>
+<li><p>Switches will broadcast frames they don’t know the destination to</p></li>
+<li><p>Can cause the original frame to be recreated millions of times</p></li>
+</ul>
+<div class="section" id="spanning-tree-overview">
+<h3>Spanning Tree Overview<a class="headerlink" href="#spanning-tree-overview" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Creates a tree of the network</strong></p>
+<ul>
+<li><p>Root of the tree is the rool bridge</p>
+<ul>
+<li><p>Elected via lowest Bridge ID (BID)</p></li>
+</ul>
+</li>
+<li><p>BID is a combination MAC and priority</p></li>
+<li><p>Communicate the information via BPDU</p></li>
+</ul>
+</li>
+<li><p><strong>Each switch determines best path to root</strong></p>
+<ul>
+<li><p>That interface is the root port</p></li>
+<li><p>Downstream ports are designated ports</p></li>
+</ul>
+</li>
+</ul>
+<p>End of convergence, there will be no loops</p>
+</div>
+<div class="section" id="how-can-malicious-attackers-leverage-stp">
+<h3>How Can Malicious Attackers Leverage STP?<a class="headerlink" href="#how-can-malicious-attackers-leverage-stp" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Attacker sends BPDUs, switches must go into convergence, no switches
+forward frames, causing DoS.</p></li>
+</ol>
+<p>image of bpdu</p>
+<ol class="arabic simple">
+<li><p>Attacker becomes Root Bridge, switches determines best path to
+attacker, attacker becoming MiTM, attacker can see all info.</p></li>
+</ol>
+<p>image of root</p>
+</div>
+<div class="section" id="mitigating-attacks-against-stp">
+<h3>Mitigating Attacks Against STP<a class="headerlink" href="#mitigating-attacks-against-stp" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Shutdown any interfaces not in use</p></li>
+<li><p>Disable DTP (Dynamic Trunking Protocol): <code class="docutils literal notranslate"><span class="pre">switchport</span> <span class="pre">nonegotiate</span></code></p></li>
+<li><p>Manually configure non-trunk ports as access ports:
+<code class="docutils literal notranslate"><span class="pre">switchport</span> <span class="pre">mode</span> <span class="pre">access</span></code></p></li>
+<li><p>Enabling DTP and manually configuring access ports significantly
+protects network</p></li>
+</ul>
+</div>
+<div class="section" id="enabling-bpdu-guard">
+<h3>Enabling BPDU Guard<a class="headerlink" href="#enabling-bpdu-guard" title="Permalink to this headline">¶</a></h3>
+<p><strong>Global Configuration:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#spanning-tree portfast edge {bpduguard]bpdufilter} default
+(config-if)#spanning-tree portfast edge
+</pre></div>
+</div>
+<p>OR</p>
+<p><strong>Interface Configuration:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#spanning-tree {bpduguard]bpdufilter} enable
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-mitigations">
+<h3>Additional Mitigations<a class="headerlink" href="#additional-mitigations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Manually configure bridge priority</p>
+<ul>
+<li><p>Root primary command will only decrement switch to be the root of
+the current switches in the spanning tree</p></li>
+<li><p>It is still technically possible for a device to become root if
+its priority is also 0, and has a lower MAC address</p></li>
+</ul>
+</li>
+<li><p>Configure root guard on all designated ports</p>
+<ul>
+<li><p>Would cause the interface to ignore any BPDUs that have a BID
+lower than current root</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Configure Switch as the Priority (PVST):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#spanning-tree vlan 100-200 priority 0
+### OR
+(config)#spanning-tree vlan 100-200 root primary
+</pre></div>
+</div>
+<p><strong>Configure Switch as the Priority (MST):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#spanning-tree mst 1 priority 0
+### OR
+(config)#spanning-tree mst 1 root primary
+</pre></div>
+</div>
+<p><strong>Configure Root Guard:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#spanning-tree guard root
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="securing-virtual-trunking-protocol">
+<h2>Securing Virtual Trunking Protocol<a class="headerlink" href="#securing-virtual-trunking-protocol" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="virtual-trunking-protocol">
+<h3>Virtual Trunking Protocol<a class="headerlink" href="#virtual-trunking-protocol" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Quickly propagate VLANs across switches without having to manually
+configure</p></li>
+<li><p>Versions 1, 2 &amp; 3</p></li>
+<li><p>Server Mode</p>
+<ul>
+<li><p>Changes are configured and then pushed out</p></li>
+</ul>
+</li>
+<li><p>Client Mode</p>
+<ul>
+<li><p>Applies changes from a server, but cannot be manually changed by
+administrator</p></li>
+</ul>
+</li>
+<li><p>Transparent mode</p>
+<ul>
+<li><p>Does not apply changes, but still forwards VTP messages to other
+switches</p></li>
+</ul>
+</li>
+<li><p>Revision number is important!</p>
+<ul>
+<li><p>If VTP revision number is higher in message:</p></li>
+<li><p>Switch will update its VLAN database</p>
+<ul>
+<li><p>Include only the VLANs in the message</p></li>
+</ul>
+</li>
+<li><p>Not hard to overwrite a working VLAN database</p></li>
+<li><p>Erasing startup-config does not remove VLANs</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="mistake-waiting-to-happen">
+<h3>Mistake Waiting to Happen<a class="headerlink" href="#mistake-waiting-to-happen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Switch has different VLANs</p></li>
+<li><p>Has a higher revision number</p></li>
+<li><p>Still configured as VTP server</p></li>
+<li><p>All switches would erase valid VLANs and add bogus VLANs</p></li>
+</ul>
+</div>
+<div class="section" id="vtp-version-3">
+<h3>VTP Version 3<a class="headerlink" href="#vtp-version-3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Primary VTP server</p></li>
+<li><p>Can only be one VTP server</p></li>
+<li><p>Use MD5 hashed password</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GloboSwitch1#show vtp status
+GloboSwitch1#conf t
+GloboSwitchi(confia)#vtp domain GloboVTP
+GloboSwitch1(config)#vtp version 3
+GloboSwitch1(config)#vtp password Globo123
+GloboSwitch1(config)#int range gi 0/2 -3
+GloboSwitch1(config-if-range)#no vtp
+GloboSwitch1(config-if-range)#switchport mode access
+GloboSwitch1(config-if-range)#switchport nonegotiate
+GloboSwitch1#vtp primary
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="port-security">
+<h2>Port Security<a class="headerlink" href="#port-security" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cam-table">
+<h3>CAM Table<a class="headerlink" href="#cam-table" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Associates MAC address, switch interface, &amp; VLAN</p></li>
+<li><p>Switches frames if it knows the port to send it too</p></li>
+<li><p>Broadcasts frame in order to find port MAC address resides on</p></li>
+<li><p>Updates table once port and MAC address are found</p></li>
+</ul>
+</div>
+<div class="section" id="mac-spoofing-attack">
+<h3>MAC Spoofing Attack<a class="headerlink" href="#mac-spoofing-attack" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Attacker could spoof MAC</p>
+<ul>
+<li><p>Switch would update CAM table with attackers port, and send future
+packets to it</p></li>
+</ul>
+</li>
+<li><p>Legitimate device will eventually respond, causing the switch to
+update CAM table</p>
+<ul>
+<li><p>Attacker could continue to send spoof MAC addresses in order to
+keep the switch forwarding it frames</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cam-flooding-attack">
+<h3>CAM Flooding Attack<a class="headerlink" href="#cam-flooding-attack" title="Permalink to this headline">¶</a></h3>
+<p>When attacker sends so many frames with spoofed MAC addresses, that the
+CAM table is filled up and isn’t able to process frames in an efficient
+manner.</p>
+</div>
+<div class="section" id="port-security-1">
+<span id="id1"></span><h3>Port Security<a class="headerlink" href="#port-security-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Configures the interface to only allow certain MAC addresses</p></li>
+<li><p>Can manually configure MAC addresses on interface. Is
+administratively difficult to do for all interfaces</p></li>
+<li><p>Sticky MAC address allows port to dynamically learn MAC addresses as
+they are plugged in</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#switchport port-security
+(config-if)#switchport port-security mac-address 48-bit MAC address
+(config-if)#switchport port-security mac-address sticky
+(config if)#switchport port-security maximum 5
+(config-if)#exit
+(config)#errdisable recovery cause psecure-violation
+</pre></div>
+</div>
+<p><strong>Additional Port Security Violation Actions:</strong></p>
+<ul class="simple">
+<li><p>Drop frames silently until the number of MAC addresses have been
+removed: <code class="docutils literal notranslate"><span class="pre">(config</span> <span class="pre">if)#switchport</span> <span class="pre">port-security</span> <span class="pre">violation</span> <span class="pre">protect</span></code></p></li>
+<li><p>Drop frames until the number of MAC addresses have been removed, but
+creates a syslog and SNMP message:
+<code class="docutils literal notranslate"><span class="pre">(config</span> <span class="pre">if)#switchport</span> <span class="pre">port-security</span> <span class="pre">violation</span> <span class="pre">restrict</span></code></p></li>
+<li><p>Default: <code class="docutils literal notranslate"><span class="pre">(config</span> <span class="pre">if)#switchport</span> <span class="pre">port-security</span> <span class="pre">violation</span> <span class="pre">shutdown</span></code></p></li>
+</ul>
+<p><strong>Age Out the MAC Addresses:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#switchport port-security aging time 10
+(config-if)#switchport port-security aging type {inactivitylabsolute}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dhcp-snooping">
+<h2>DHCP Snooping<a class="headerlink" href="#dhcp-snooping" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dhcp-security-risks">
+<h3>DHCP Security Risks<a class="headerlink" href="#dhcp-security-risks" title="Permalink to this headline">¶</a></h3>
+<p><strong>* Rogue DHCP server could start issuing IPs</strong></p>
+<ul class="simple">
+<li><p>Could place itself as the default gateway</p>
+<ul>
+<li><p>Man-in-the-middle</p></li>
+<li><p><strong>Rogue DHCP server floods DHCP requests</strong></p></li>
+</ul>
+</li>
+<li><p>Cause legitimate DHCP to run out of IPs</p>
+<ul>
+<li><p>DHCP Starvation attack</p></li>
+</ul>
+</li>
+</ul>
+<p>Clients will only receive offer from the Rogue DHCP server</p>
+</div>
+<div class="section" id="dhcp-snooping-1">
+<span id="id2"></span><h3>DHCP Snooping<a class="headerlink" href="#dhcp-snooping-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Define interfaces connected to trusted DHCP servers</p></li>
+<li><p>DHCP offers on untrusted interfaces will be dropped</p></li>
+<li><p>Creates a DHCP database of clients.</p></li>
+<li><p>Contains MAC, IP and VLAN ID</p></li>
+<li><p>Rate limiting feature</p></li>
+<li><p>Used to prevent DHCP starvation attacks</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GloboAccess(config)#ip dhcp snooping vlan 100
+GloboAccess(config)#int eth 0/0
+GloboAccess(config-if)#ip dhcp snooping trust
+GloboAccess(config-if)#exit
+GloboAccess(config)#int range eth 0/0 -1
+GloboAccess(config-if-range)#ip dhcp snooping limit rate 10
+GloboAccess(config-if-range)#exit
+GloboAccess(config)#ip dhcp snooping
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dynamic-arp-inspection">
+<h2>Dynamic ARP Inspection<a class="headerlink" href="#dynamic-arp-inspection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arp-poisoning">
+<h3>ARP Poisoning<a class="headerlink" href="#arp-poisoning" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Change ARP entry to point to their MAC for the victim’s IP address</p></li>
+<li><p>Respond to a legitimate ARP request</p></li>
+<li><p>Send a Gratuitous ARP packet</p></li>
+</ul>
+</div>
+<div class="section" id="dynamic-arp-inspection-1">
+<span id="id3"></span><h3>Dynamic ARP Inspection<a class="headerlink" href="#dynamic-arp-inspection-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Can leverage the DHCP snooping database</p>
+<ul>
+<li><p>Would verify ARP replies to see if they match the database</p></li>
+</ul>
+</li>
+<li><p>If they ARP packets aren’t correct, they are dropped</p></li>
+<li><p>All untrusted interfaces would be checked</p></li>
+</ul>
+</div>
+<div class="section" id="configuring-dynamic-arp-inspection">
+<h3>Configuring Dynamic ARP Inspection<a class="headerlink" href="#configuring-dynamic-arp-inspection" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip arp inspection vlan 90-100,200
+(config)#arp access-list ARP-ACL
+(config-arp-nacl)#permit ip host 192.168.1.10 mac host 0050.7966.6800
+(config-arp-nacl)#exit
+(config)#ip arp inspection filter ARP-ACL vlan 90-100,200
+(config)#int ethernet 0/1
+(config-ip)#ip arp inspection trust
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="segmentation-and-private-vlans">
+<h2>Segmentation and Private VLANs<a class="headerlink" href="#segmentation-and-private-vlans" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="segmentation">
+<h3>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Better network performance</p></li>
+<li><p>Reduced area of attack</p></li>
+<li><p>Easier to monitor smaller segments</p></li>
+<li><p>Each VLAN usually part of a single subnet</p>
+<ul>
+<li><p>Devices can communicate with each other</p></li>
+<li><p>Leave subnet to communicate outside VLAN</p></li>
+</ul>
+</li>
+<li><p>May want to segment VLAN even further</p></li>
+</ul>
+</div>
+<div class="section" id="private-vlans">
+<h3>Private VLANs<a class="headerlink" href="#private-vlans" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use traditional VLANs as Primary VLANs</p></li>
+<li><p>Associate secondary VLANs to Primary VLANs</p></li>
+<li><p>Promiscuous Port</p>
+<ul>
+<li><p>Part of primary VLAN</p></li>
+<li><p>Used by secondary VLANs to talk outside of their VLAN</p></li>
+<li><p>VLAN 100</p></li>
+</ul>
+</li>
+<li><p>Community Port</p>
+<ul>
+<li><p>Can communicate with any other device in the same community, but
+not other communities</p></li>
+<li><p>VLANs 200, 300, 400, &amp; 500</p></li>
+</ul>
+</li>
+<li><p>Isolated Port</p>
+<ul>
+<li><p>Can’t communicate with any isolated or community port</p></li>
+<li><p>VLAN 600</p></li>
+</ul>
+</li>
+</ul>
+<p>lab image lab file</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GloboCore(config)#int vlan 100
+GloboCore(config-if)#ip add 192.168.1.1 255.255.255.0
+GloboCore(config-if)#no shut
+GloboCore(config-if)#int lo 1
+GloboCore(config-if)#ip add 10.10.10.1 255.255.255.255
+GloboCore(config-if)#exit
+GloboCore(config)#int eth 0/0
+GloboCore(config-if)#sw mode acc
+GloboCore(config-if)#sw acc vlan 100
+GloboCore(config-if)#no shut
+GloboCore(config-if)#exit
+GloboCore(config)#int vlan 100
+GloboCore(config-if)#ip add 192.168.1.1 255.255.255.0
+GloboCore(config-if)#no shut
+GloboCore(config-if)#int lo 1
+GloboCore(config-if)#ip add 10.10.10.1 255.255.255.255
+GloboCore(config-if)#exit
+GloboCore(config)#int eth 0/0
+GloboCore(config-if)#sw mode acc
+GloboCore(config-if)#sw acc vlan 100
+GloboCore(config-if)#no shut
+GloboCore(config-if)#exit
+GloboAccess(config)#vtp mode transparent
+GloboAccess(config)#vlan 200
+GloboAccess(config-vlan)#private-vlan community
+GloboAccess(config-vlan)#exit
+GloboAccess(config)#vlan 600
+GloboAccess(config-vlan)#private-vlan isolated
+GloboAccess(config-vlan)#exit
+GloboAccess(config)#vlan 100
+GloboAccess(config-vlan)#private-vlan primary
+GloboAccess(config-vlan)#private-vlan association 200,600
+GloboAccess(config-vlan)#exit
+GloboAccess(config)#int eth 0/0
+GloboAccess(config-if)#switchport mode private-vlan promiscuous
+GloboAccess(config-if)#switchport private-vlan mapping 100 200,600
+GloboAccess(config-if)#no shut
+GloboAccess(config-if)#exit
+GloboAccess(config)#int range eth 0/1 -2
+GloboAccess(config-if-range)#switchport mode private-vlan host
+GloboAccess(config-if-range)#switchport private-vlan host-association 100 200
+GloboAccess(config-if-range)#exit
+GloboAccess(config)#int range eth 1/1 -2
+GloboAccess(config-if-range)#switchport mode private-vlan host
+GloboAccess(config-if-range)#switchport private-vlan host-association 100 600
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="protecting-against-segmentation-attacks-traffic-filtering-at-layer-2">
+<h2>Protecting Against Segmentation Attacks &amp; Traffic Filtering at Layer 2<a class="headerlink" href="#protecting-against-segmentation-attacks-traffic-filtering-at-layer-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="attacks-against-segmentation">
+<h3>Attacks Against Segmentation<a class="headerlink" href="#attacks-against-segmentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>VLAN Hopping Attack</p>
+<ul>
+<li><p>Establish trunk port with switch, then tag frames with any VLAN</p></li>
+<li><p>Mitigate by disabling DTP</p></li>
+</ul>
+</li>
+<li><p>Double Tagging</p>
+<ul>
+<li><p>Tag frame with the native VLAN, then tag with destination VLAN</p></li>
+<li><p>Set native VLAN to unused VLAN:
+<code class="docutils literal notranslate"><span class="pre">#switchport</span> <span class="pre">trunk</span> <span class="pre">native</span> <span class="pre">vlan</span> <span class="pre">999</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="acls">
+<h3>ACLs<a class="headerlink" href="#acls" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use L3 and L4 ACLs on L2 ports</p></li>
+<li><p>Use L2 ACL on L2 ports</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ip</span> <span class="pre">access-group</span> <span class="pre">NAME</span> <span class="pre">{inlout}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#mac</span> <span class="pre">access-group</span> <span class="pre">NAME</span> <span class="pre">in</span></code></p></li>
+<li><p>Applying to VLAN interface only affects traffic entering or leaving
+VLAN</p></li>
+<li><p>VACLs are applied to all traffic in a VLAN</p></li>
+</ul>
+<p><strong>ACLs to Define Traffic for Access MAP:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip access-list extended telnet-Traffic
+(config-ext-nacl)#permit tcp any any eq 23
+(config-ext-nacl)#exit
+(config)# ip access-list extended Microsoft-RPC
+(config-ext-nacl)#permit tcp any any eq 135
+(config-ext-nacl)#permit udp any any eq 135
+(config-ext-nacl)#exit
+(config)#access-list 112 permit ip any any
+</pre></div>
+</div>
+<p><strong>Sample VLAN Access-Map:</strong></p>
+<p>ACLs used to match traffic do not determine what happens to the traffic.
+Whatever references the ACL determines what happens to the traffic that
+matches any permit statements</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#vlan access-map VLAN-MAP 10
+(config-access-map)#match ip address telnet-traffic
+(config-access-map)#action drop
+(config-access-map)#exit
+(config)#vlan access-map VLAN-MAP 20
+(config-access-map)#match ip address Microsoft-RPC
+(config-access-map)#action drop log
+(config-access-map)#exit
+(config)#vlan access-map VLAN-MAP 30
+(config-access-map)#match ip address 112
+(config-access-map)#action forward
+</pre></div>
+</div>
+<p><strong>Apply the VLAN Access Map to VLANs:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#vlan filter VLAN-MAP vlan-list 10,20-50,100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="storm-control">
+<h2>Storm Control<a class="headerlink" href="#storm-control" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Broadcast storms can wreak havoc on a network</p></li>
+<li><p>Storm control can be used to prevent storms</p></li>
+<li><p>Monitors broadcast traffic on an interface</p></li>
+<li><p>Hardware storm control will drop any future broadcast traffic</p></li>
+<li><p>Software storm control will drop any future traffic</p></li>
+</ul>
+<div class="section" id="configuring-storm-control">
+<h3>Configuring Storm Control<a class="headerlink" href="#configuring-storm-control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#storm-control broadcast level 60 [lower level]
+(config-if)#storm-control action shutdown
+(config-if)#storm-control broadcast include multicast
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="06.-configuring-wireless-lan-controller-device-hardening-methods.html" class="btn btn-neutral float-right" title="6. Configuring Wireless LAN Controller Device Hardening Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html" class="btn btn-neutral float-left" title="4. Securing the Control Plane and Data Plane on Cisco Routers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+6. Configuring Wireless LAN Controller Device Hardening Methods
+===============================================================
+
+Wireless Security Overview
+--------------------------
+
+Why Wireless Security Is Needed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Malicious attacker doesn’t need physical access to cable
+-  Can listen if they are within distance of wireless signal
+-  Additional security measures are needed
+
+Wired Equivalent Privacy (WEP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Password required before device allowed on network
+-  24 bit initialization vector (IV and RC4
+-  IV was too short and insecure
+
+Wifi Protected Access (WPA)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  48-bit IV & TKIP
+-  Message Integrity Check
+-  Sequence counter
+
+WPA2
+~~~~
+
+-  IEEE 802.11i
+-  AES-128 & Cipher Block Chaining Message Authentication Code Protocol
+   (CCMP)
+-  WPA2 Enterprise
+
+   -  Uses 802.1X
+   -  Authentication occurs at AAA server
+
+-  WPA2 Personal
+
+   -  Use Pre-Shared-Key as authentication
+
+Adding Encryption to Wireless LANS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: _images/securing-the-wireless-lan-controller-1.png
+   :alt: WLANs > select profile
+
+   WLANs > select profile
+
+.. figure:: _images/securing-the-wireless-lan-controller-2.png
+   :alt: Security > Layer 2 > WPA+WPA2
+
+   Security > Layer 2 > WPA+WPA2
+
+.. figure:: _images/securing-the-wireless-lan-controller-3.png
+   :alt: PSK > input password
+
+   PSK > input password
+
+Configuring WPA2 Enterprise
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: _images/securing-the-wireless-lan-controller-4.png
+   :alt: Security > AAA > RADIUS > Authentication
+
+   Security > AAA > RADIUS > Authentication
+
+.. figure:: _images/securing-the-wireless-lan-controller-5.png
+   :alt: Input Server IP and Shared Secret
+
+   Input Server IP and Shared Secret
+
+.. figure:: _images/securing-the-wireless-lan-controller-6.png
+   :alt: WLANs > select profile > Security & Layer 2 > 802.1X
+
+   WLANs > select profile > Security > Layer 2 > 802.1X
+
+.. figure:: _images/securing-the-wireless-lan-controller-7.png
+   :alt: AAA Servers > Server 1
+
+   AAA Servers > Server 1
+
+.. figure:: _images/securing-the-wireless-lan-controller-8.png
+   :alt: Advanced > Allow AAA Override, P2P Blocking Action (Drop), DHCP Addr. Assignment (Reguired)
+
+   Advanced > Allow AAA Override, P2P Blocking Action (Drop), DHCP Addr. Assignment (Reguired)
+
+.. figure:: _images/securing-the-wireless-lan-controller-9.png
+   :alt: Advanced > NAC State > ISE NAC
+
+   Advanced > NAC State > ISE NAC
+
+.. figure:: _images/securing-the-wireless-lan-controller-10.png
+   :alt: Advanced > Radius Client Profiling (enable all), Local Client Profiling (enable all)
+
+   Advanced > Radius Client Profiling (enable all), Local Client Profiling (enable all)
+
+Securing the Management Plane on a Wireless LAN Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: _images/securing-the-wireless-lan-controller-11.png
+   :alt: Security > Priority Order > Management User > move LOCAL down
+
+   Security > Priority Order > Management User > move LOCAL down
+
+.. figure:: _images/securing-the-wireless-lan-controller-12.png
+   :alt: HTTP-HTTPS
+
+   HTTP-HTTPS
+
+.. figure:: _images/securing-the-wireless-lan-controller-13.png
+   :alt: Telnet-SSH
+
+   Telnet-SSH
+
+.. figure:: _images/securing-the-wireless-lan-controller-14.png
+   :alt: Mgmt Via Wireless
+
+   Mgmt Via Wireless
+
+.. figure:: _images/securing-the-wireless-lan-controller-15.png
+   :alt: SNMP > General
+
+   SNMP > General
+
+.. figure:: _images/securing-the-wireless-lan-controller-16.png
+   :alt: SNMP > Create User
+
+   SNMP > Create User
+
+.. figure:: _images/securing-the-wireless-lan-controller-17.png
+   :alt: SNMP > Trap Receivers
+
+   SNMP > Trap Receivers
+
+.. figure:: _images/securing-the-wireless-lan-controller-18.png
+   :alt: Security > Access Control Lists > Access Control Lists> New …
+
+   Security > Access Control Lists > Access Control Lists > New
+
+.. figure:: _images/securing-the-wireless-lan-controller-19.png
+   :alt: Add new rule
+
+   Add new rule
+
+.. figure:: _images/securing-the-wireless-lan-controller-20.png
+   :alt: More rules
+
+   More rules
+
+.. figure:: _images/securing-the-wireless-lan-controller-21.png
+   :alt: Apply ACL to CPU
+
+   Apply ACL to CPU

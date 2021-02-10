@@ -1,0 +1,54 @@
+5. Deploying Cisco Umbrella
+===========================
+
+Configuring Networks to Use Cisco Umbrella
+------------------------------------------
+
+-  Umbrella virtual machine forwarder
+-  DHCP
+-  Add public IPs to Umbrella
+-  Add internal networks to Umbrella
+
+|image1|
+
+.. code:: text
+
+   config va localdns 172.20.1.5
+   exit
+
+|image2|
+
+Creating Policies in Cisco Umbrella
+-----------------------------------
+
+-  Create policy components
+-  Create a policy
+
+|image3|
+
+|image4|
+
+|image5|
+
+Cisco Umbrella Roaming Computer Profiles
+----------------------------------------
+
+-  Configure DNS and verify IP address
+-  Download and install roaming client
+-  Update proxy
+-  Verify
+
+|image6|
+
+Cisco Umbrella Investigate
+--------------------------
+
+|image7|
+
+.. |image1| image:: _images/deploying-cisco-umbrella-1.png
+.. |image2| image:: _images/deploying-cisco-umbrella-2.png
+.. |image3| image:: _images/deploying-cisco-umbrella-3.png
+.. |image4| image:: _images/deploying-cisco-umbrella-4.png
+.. |image5| image:: _images/deploying-cisco-umbrella-5.png
+.. |image6| image:: _images/deploying-cisco-umbrella-6.png
+.. |image7| image:: _images/deploying-cisco-umbrella-7.png

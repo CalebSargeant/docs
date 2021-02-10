@@ -1,0 +1,38 @@
+1. Securely Managing Cisco Firepower Devices
+============================================
+
+Out of Band Management
+----------------------
+
+-  Network dedicated for the management of network devices
+-  Access in/out of network restricted by ACLs
+
+   -  Define which traffic will need to leave network
+   -  Some management networks will be completely self contained
+
+-  Size of management network determined by
+-  size of the organization
+
+Firepower Threat Defence
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Deployed in routed mode
+-  Firepower Device Manager (FDM)
+
+   -  Management of local device
+
+-  Firepower Management Center (FMC)
+
+   -  External device used to manage multiple FTD appliances
+
+Configuring the Initial Management of a Firepower Threat Defense Appliance
+--------------------------------------------------------------------------
+
+This is self-explanatory when booting the device for the first time
+
+Finishing the Setup of the FTD Using the GUI
+--------------------------------------------
+
+|image1|
+
+.. |image1| image:: _images/securely-managing-cisco-firepower-devices-1.png

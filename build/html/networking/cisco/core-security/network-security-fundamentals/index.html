@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Network Security Fundamentals &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="1. Comparing Networking Security Solutions &amp; Deployment Models" href="01.-comparing-networking-security-solutions-and-deployment-models.html" />
+    <link rel="prev" title="4. Explaining and Interpreting APIs" href="../security-concepts/04.-explaining-and-interpreting-apis.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Network Security Fundamentals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-securing-the-management-plane.html">3. Securing the Management Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+      <li>Network Security Fundamentals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="network-security-fundamentals">
+<h1>Network Security Fundamentals<a class="headerlink" href="#network-security-fundamentals" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#cisco-safe-and-cvds">Cisco SAFE and CVDs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#security-control-framework">Security Control Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#defence-in-depth">Defence in Depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#cisco-validated-designs">Cisco Validated Designs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#architectures">Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#designing-deploying-firewall-solutions">Designing &amp; Deploying Firewall Solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#ios-zone-based-firewall">IOS Zone Based Firewall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#high-availablity">High Availablity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#adaptive-security-appliance">Adaptive Security Appliance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#transparent-vs-routed-mode">Transparent vs Routed Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#vpn-termination">VPN Termination</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#designing-deploying-ips-solutions">Designing &amp; Deploying IPS Solutions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#firepower-features">Firepower features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#firepower-module-in-an-asa">Firepower Module in an ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#next-generation-ips">Next Generation IPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#firepower-threat-defence">Firepower Threat Defence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#managing-firepower">Managing Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#firepower-high-availability">Firepower High Availability</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#additional-integrations-for-firepower-and-asas">Additional Integrations for Firepower and ASAs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#rest-apis">REST APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#pxgrid">pxGrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#cisco-threat-response">Cisco Threat Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html#authentication-integrations">Authentication Integrations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-introduction">NetFlow Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#what-is-flow">What is Flow?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow">NetFlow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-benefits">Netflow Benefits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#aditional-netflow-benefits">Aditional NetFlow Benefits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-secuirty-benefits">NetFlow Secuirty Benefits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#network-as-an-enforcer">Network as an Enforcer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-versions-flow-standards">NetFlow Versions &amp; Flow Standards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-versions">NetFlow Versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#netflow-v9">NetFlow v9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#flexible-netflow">Flexible NetFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#ipfix">IPFIX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#configuring-netflow">Configuring NetFlow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#cisco-stealthwatch">Cisco Stealthwatch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#stealthwatch">Stealthwatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#stealthwatch-components">Stealthwatch Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html#aditional-stealthwatch-benefits">Aditional Stealthwatch Benefits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03.-securing-the-management-plane.html">3. Securing the Management Plane</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#secure-planes">Secure Planes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#physical-security">Physical Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#network-device-planes">Network Device Planes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#telnet-http-ssh-and-https">Telnet, HTTP, SSH, and HTTPs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#how-do-you-manage-a-device">How Do You Manage a Device?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#aaa">AAA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#managing-administrators">Managing Administrators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#aaa-process">AAA Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#radius-tacacs">RADIUS &amp; TACACS+</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#radius">RADIUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#tacacs">TACACS+</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#when-do-you-use-tacacs">When Do You Use TACACS+?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#when-do-you-use-radius">When Do You Use RADIUS?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#snmp">SNMP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#snmp-benefits">SNMP Benefits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#snmpv1-snmpv2c">SNMPv1 &amp; SNMPv2c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#snmpv3-configuration">SNMPv3 Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#additional-protocol-security">Additional Protocol Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#securely-transferring-files">Securely Transferring Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#syslog">Syslog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#network-time-protocol">Network Time Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#dns">DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03.-securing-the-management-plane.html#cisco-discovery-protocol">Cisco Discovery Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03.-securing-the-management-plane.html#management-plane-acls">Management Plane ACLs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#lab-setup">Lab Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#securing-eigrp">Securing EIGRP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#securing-the-control-plane">Securing the Control Plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#other-routing-protocols">Other Routing Protocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#configuration-steps">Configuration Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#securing-rip">Securing RIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#securing-ospf">Securing OSPF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#securing-bgp">Securing BGP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#access-control-lists">Access Control Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#standard-acl">Standard ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#extended-acl">Extended ACL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#applying-acls-and-other-acl-types">Applying ACLs and Other ACL Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#acl-placement">ACL Placement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#other-acl-usage">Other ACL Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#time-based-acl">Time Based ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#reflexive-acls">Reflexive ACLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#policy-maps-nbar-urpf-tcp-intercept">Policy Maps, NBAR, URPF &amp; TCP Intercept</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#policy-maps-and-class-maps">Policy Maps and Class Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#network-based-application-recognition">Network Based Application Recognition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#unicast-reverse-path-forwarding">Unicast Reverse Path Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#tcp-intercept">TCP Intercept</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#control-plane-policing">Control Plane Policing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html#copp">CoPP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#securing-spanning-tree-protocol">Securing Spanning Tree Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#spanning-tree-overview">Spanning Tree Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#how-can-malicious-attackers-leverage-stp">How Can Malicious Attackers Leverage STP?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#mitigating-attacks-against-stp">Mitigating Attacks Against STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#enabling-bpdu-guard">Enabling BPDU Guard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#additional-mitigations">Additional Mitigations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#securing-virtual-trunking-protocol">Securing Virtual Trunking Protocol</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#virtual-trunking-protocol">Virtual Trunking Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#mistake-waiting-to-happen">Mistake Waiting to Happen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#vtp-version-3">VTP Version 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#port-security">Port Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#cam-table">CAM Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#mac-spoofing-attack">MAC Spoofing Attack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#cam-flooding-attack">CAM Flooding Attack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#port-security-1">Port Security</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#dhcp-snooping">DHCP Snooping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#dhcp-security-risks">DHCP Security Risks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#dhcp-snooping-1">DHCP Snooping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#dynamic-arp-inspection">Dynamic ARP Inspection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#arp-poisoning">ARP Poisoning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#dynamic-arp-inspection-1">Dynamic ARP Inspection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#configuring-dynamic-arp-inspection">Configuring Dynamic ARP Inspection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#segmentation-and-private-vlans">Segmentation and Private VLANs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#segmentation">Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#private-vlans">Private VLANs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#protecting-against-segmentation-attacks-traffic-filtering-at-layer-2">Protecting Against Segmentation Attacks &amp; Traffic Filtering at Layer 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#attacks-against-segmentation">Attacks Against Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#acls">ACLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#storm-control">Storm Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html#configuring-storm-control">Configuring Storm Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#wireless-security-overview">Wireless Security Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#why-wireless-security-is-needed">Why Wireless Security Is Needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#wired-equivalent-privacy-wep">Wired Equivalent Privacy (WEP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#wifi-protected-access-wpa">Wifi Protected Access (WPA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#wpa2">WPA2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#adding-encryption-to-wireless-lans">Adding Encryption to Wireless LANS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#configuring-wpa2-enterprise">Configuring WPA2 Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html#securing-the-management-plane-on-a-wireless-lan-controller">Securing the Management Plane on a Wireless LAN Controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="01.-comparing-networking-security-solutions-and-deployment-models.html" class="btn btn-neutral float-right" title="1. Comparing Networking Security Solutions &amp; Deployment Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../security-concepts/04.-explaining-and-interpreting-apis.html" class="btn btn-neutral float-left" title="4. Explaining and Interpreting APIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

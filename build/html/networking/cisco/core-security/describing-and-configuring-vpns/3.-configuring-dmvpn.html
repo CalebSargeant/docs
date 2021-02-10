@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Configuring DMVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="4. Configuring FlexVPN" href="4.-configuring-flexvpn.html" />
+    <link rel="prev" title="2. Comparing Cisco VPN Types" href="2.-comparing-cisco-vpn-types.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Describing and Configuring VPNs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1.-comparing-cryptography-components.html">1. Comparing Cryptography Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-comparing-cisco-vpn-types.html">2. Comparing Cisco VPN Types</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3. Configuring DMVPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4.-configuring-flexvpn.html">4. Configuring FlexVPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5.-configuring-cisco-anyconnect-on-the-asa.html">5. Configuring Cisco AnyConnect on the ASA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6.-configuring-cisco-anyconnect-on-the-ftd.html">6. Configuring Cisco AnyConnect on the FTD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Describing and Configuring VPNs</a> &raquo;</li>
+        
+      <li>3. Configuring DMVPN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/describing-and-configuring-vpns/3.-configuring-dmvpn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-dmvpn">
+<h1>3. Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuring-dmvpn-on-the-hub-router">
+<h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Configure interface tunnel 100 on HQ router</p></li>
+<li><p>Configure spokes</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ(config)#int tun 100
+Globomantics-HQCconfig-if)#ip address 192.168.100.1 255.255.255.0
+Globomantics-HQ(config-if)#tunnel mode gre multipoint
+Globomantics-HQ(Config-if)#tunnel source ethernet 0/1
+Globomantics-HQ(config-if)#ip mtu 1400
+Globomantics-HQ(config-if)#ip tcp adjust-mss 1360
+Globomantics-HQ(config-if)#ip nhrp network-id 100
+Globomantics-HQ(config-if)#ip nhrp authentication Globo123
+Globomantics-HQ(config-if)#ip nhrp map multicast dynamic
+Globomantics-HQconfig-if)#ip nhrp shortcut
+Globomantics-HQ(config-if)#ip nhrp redirect
+Globomantics-HQ(config-if)#tunnel key 7178
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-dmvpn-on-the-spoke-routers">
+<h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-0MA(config)#int tun 100
+Globmantics-0MA(config-if)#ip add 192.168.100.2 255.255.255.0
+Globmantics-OMA(config-if)#tunnel mode gre multipoint
+Globmantics-0MA(config-if)#tunnel source ethernet 0/1
+Globmantics-OMA(config-if)#ip mtu 1400
+Globmantics-OMA(config-if)#ip tcp adjust-mss 1360
+Globmantics-OMA(config-if)#tunnel key 7178
+Globmantics-OMA(config-if)#ip nhrp network-id 100
+Globmantics-0MA(config-if)#ip nhrp authentication Globo123
+Globmantics-OMA(config-if)#ip nhrp shortcut
+Globmantics-OMACconfig-if)#ip nhrp nhs 192.168.100.1
+Globmantics-OMA(config-if)#ip nhrp map 192.168.100.1 1.1.1.1
+Globmantics-OMA(config-if)#ip nhrp map multicast 1.1.1.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-dynamic-routing">
+<h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Look at NHRP &amp; DMVPN statistics</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-OMA#show in nhrp
+192.168.100.1/32 via 192.168.100.1
+  Tunnel100 created 00:08:44, never expire
+  Type: static. Flags: used
+  NBMA address: 1.1.1.1
+Globmantics-OMA#show dmvpn
+Legend: Attrb --&gt; S Static, D Dynamic, I - Incomplete
+        NATed, L Local, X No Socket
+        # Ent --&gt; Number of NHRP entries with same NBMA peer
+        NHS Status: E --&gt; Expecting Replies, R --&gt; Responding, W --&gt; Waiting UpDn Time --&gt; Up or Down Time for a Tunnel
+
+Interface: Tunnel100, IPv4 NHRP Details
+Type:Spoke, NHRP Peers:1,
+
+  # Ent Peer NBMA Addr Peer Tunnel Add State UpDn Tm Attrb
+
+  1 1.1.1.1 192.168.100.1 UP 00:09:05 S
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Configure EIGRP 100</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Gtobomantics-HQ#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+Globomantics-HQ(config)#router eigrp 100
+Globomantics-HQ(config-router)#no auto-summary
+Globomantics-HQ(config-router)#network 192.168.100.0
+Globomantics-HQ(config-router)#network 172.18.1.0
+Globomantics-HQ(config-router)#int tun 100
+Globomantics-HQ(config-if)#no ip next-hop-self eigrp 100
+Globomantics-HQ(config-if)#no ip split-horizon eigrp 100
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifying-dmvpn">
+<h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-OMA#traceroute 172.18.3.1 source lo1
+Type escape sequence to abort.
+Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
+1 192.168.100.1 2 msec 1 msec 1 msec
+2 192.168.100.3 6 msec 2 msec 2 msec
+
+Globmantics-OMA#show ip nhrp
+172.18.2.0/24 via 192.168.100.2
+  Tunnel100 created 00:05:11, expire 01.54:48
+  Type: dynamic, Flags: router unique local
+  NBMA address: 2.2.2.2
+    (no-socket)
+172.18.3.0/24 via 192.168.100.3
+  Tunnel100 created 00:05:11, expire 01:54:48
+  Type: dynamic, Flags: router rib nho
+  NBMA address: 3.3.3.3
+192.168.100.1/32 via 192.168.100.1
+  Tunnel100 created 00:22:08, never expire
+  Type: static, Flags: used
+  NBMA address: 1.1.1.1
+192.168.100.3/32 via 192.168.100.3
+  Tunnel100 created 00:05:11, expire 01:54:48
+  Type: dynamic, Flags: router nhop rib
+  NBMA address: 3.3.3.3
+
+Globmantics-OMA#show dmvpn
+Legend: Attrb --&gt; S Static, Dynamic, - Incomplete
+        N NATed, L - Local, X No Socket
+        # Ent --&gt; Number of NHRP entries with same NBMA peer NHS Status: E --&gt; Expecting Replies, R --&gt; Responding, W --&gt; Waiting UpDn Time --&gt; Up or Down Time for a Tunnel
+
+Interface: Tunnel100, IPv4 NHRP Details
+Type:Spoke, NHRP Peers:2,
+
+# Ent Peer NBMA Addr Peer Tunnel Add State UpDn Tm Attrb
+
+  2 3.3.3.3 192.168.100.3 UP 00:05:27 DT2
+  192.168.100.3 UP 00:05:27 DT1
+  1 1.1.1.1 192.168.100.1 UP 00:22:07
+
+Globmantics-OMA#traceroute 172.18.3.1 source lo1
+Type escape sequence to abort.
+Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
+1 192.168.100.3 2 msec 5 msec 1 msec
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipsec-config-intro-and-smart-defaults">
+<h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-ikev2-on-cisco-ios">
+<h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Configure IKE_SA Tunnel</p>
+<ul>
+<li><p>Configure Keyring</p></li>
+<li><p>Configure IKEv2 Proposal</p></li>
+<li><p>Configure IKEv2 Profile</p></li>
+<li><p>Configure IKEv2 Policy</p></li>
+</ul>
+</li>
+<li><p>Configure Child_SA Tunnel</p>
+<ul>
+<li><p>Configure Transform Set</p></li>
+<li><p>Configure IPsec Profile</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Headquarters Key Ring</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Peer Omaha-Router
+Address 2.2.2.2
+Identity FQDN oma.globomantics.com
+Pre-shared-key local GloboHQ
+Pre-shared-key remote GloboOMA
+
+Peer Portland-Router
+Address 3.3.3.3
+Identity FQDN pdx.globomantics.com
+Pre-shared-key local GloboHQ
+Pre-shared-key remote GloboPDX
+
+Peer San_Antonio-Router
+Address 4.4.4.4
+Identity fqdn sat.globomantics.com Pre-shared-key local GloboHQ
+Pre-shared-key remote GloboSAT
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Look at IKEv2 smart defaults</p></li>
+<li><p>Configure HQ IKEv2 keyring, proposal, profile, policy, transform-set
+and IPsec profile</p></li>
+<li><p>Apply IPsec profile to the tunnel interface</p></li>
+<li><p>Configure the rest of the routers with IPsec</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="securing-dmvpn-with-ipsec">
+<h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Permalink to this headline">¶</a></h2>
+<p><strong>HQ Router config</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-Main#conf t
+Globomantics-Main(config)#crypto ikev2 keyring DMVPN-Keys
+Globomantics-Main(config-ikev2-keyring)#peer Omaha-Router
+Globomantics-Main(config-ikevZ-keyring-peer)#address 2.2.2.2
+Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn oma.globomantics.com
+Globomantics-Main(config-ikev2-keyring-peer)#pre-shared-key local GLoboHQ
+Globomantics-Main(config-ikev2-keyring-peer)#pre-shared remote GLoboOMA
+Globomantics-Main(config-ikev2-keyring-peer)#exit
+Globomantics-Main(config-ikev2-keyring)#peer Portland-Router
+GlObomanticS-Main(config-ikevZ-keyring-peer)#address 3.3.3.3
+Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn pdx.globomantics.com
+Globomantics-Main(config-ikev2-keyring-peer)#pre local GLoboHQ
+Globomantics-Main(config-ikev2-keyring-peer)#pre remote GloboPDX
+Globomantics-Main(config-ikev2-keyring-peer)#exit
+Globomantics-Main(config-ikev2-keyring)#peer San_Antonio-Router
+Globomantics-Main(config-ikev2-keyring-peer)#address 4.4.4.4
+Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn sat.globomantics.com
+Globomantics-Main(config-ikev2-keyring-peer)#pre loc GLoboHQ
+Globomantics-Main(config-ikev2-keyring-peer)#pre rem GLoboSAT
+Globomantics-Main(config-ikev2-keyring-peer)#exit
+Globomantics-Main(config-ikev2-keyring)#exit
+Globomantics-Main(config)#crypto ikev2 profile DMVPN-Prof
+Globomantics-Main(Config-ikev2-profile)#match identity remote fqdn fqdn domain globomantics.com
+Globomantics-Main(config-ikev2-profile)#identity local hq.globomantics.com
+Globomantics-Main(config-ikev2-profile)#identity local fqdn ha.globomantics.com
+Globomantics-Main(config-ikevz-profile)#authentication 1ocal pre-share
+Globomantics-Main(config-ikev2-profile)#authe remote pre
+Globomantics-Main(config-ikev2-profile)#keyring local DMVPN-Keys
+Globomantics-Main(config-ikev2-profile)#lifetime 86400
+Globomantics-Main(config-ikev2-profile)#exit
+Globomantics-Main(config)#crypto ikev2 proposal DMVPN-Prop
+Globomantics-Main(config-ikevz-proposal)#encryption aes-gcm-256
+GlobomantiCs-Main(config-ikev2-proposal)#prf sha256
+Globomantics-Main(config-ikev2-proposal)#group 15
+Globomantics-Main(config-ikev2-proposal)#exit
+Globomantics-Main(config)#crypto ikev2 policy DMVPN-Pol
+Globomantics-Main(config-ikev2-policy)#proposal DMVPN-Prop
+Globomantics-Main(config-ikev2-policy)#exit
+Globomantics-Main(config)#crypto ipsec transform-set DMVPN-Set esp-aes 256 esp-sha256-hmac
+Globomantics-Main(cfg-crypto-trans)#mode tunnel
+Globomantics-Main(cfg-crypto-trans)#exit
+Globomantics-Main(cfg-crypto-trans)#mode tunnel
+Globomantics-Main(cfg-crypto-trans)#exit
+Globomantics-Main(config)#crypto ipsec profile DMVPN-IPsec
+Globomantics-Main(ipsec-profile)#set transform-set DMVPN-Set
+Globomantics-Main(ipsec-profile)#set ikev2-profile DMVPN-Prof
+Globomantics-Main(ipsec-profile)# Globomantics-Main(ipsec-profile)#set ikev2-profile DMVPN-Prof2
+Globomantics-Main(ipsec-profile)#exit Globomantics-Main(config)#int tun 100
+Globomantics-Main(config-if)#tunnel protection ipsec profile DMVPN-IPsec
+</pre></div>
+</div>
+<p><strong>Configure the keyring</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ikev2 keyring DMVPN-Keys
+Peer HO-Router
+Address 1.1.1.1
+Identity FQDN hq.globomantics.com
+Pre-shared-key local GloboOMA
+Pre-shared-key remote GloboHQ
+Exit
+Peer Portland-Router
+Address 3.3.3.3
+Identity FQDN pdx.globomantics.com
+Pre-shared-key local GloboOMA
+Pre-shared-key remote GloboPDX
+Exit
+Peer San_Antonio-Router
+Address 4.4.4.4
+Identity fadn sat.globomantics.com
+Pre-shared-key local GloboOMA
+Pre-shared-key remote GloboSAT
+Exit
+Exit
+</pre></div>
+</div>
+<p><strong>Create IKEv2 Profile</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ikev2 profile DMVPN-Prof
+match identity remote fqdn domain globomantics.com
+identity local fqdn oma.globomantics.com
+authentication local pre-share
+authentication remote pre-share
+keyring local DMVPN-Keys
+lifetime 86400
+exit
+</pre></div>
+</div>
+<p><strong>Create IKEv2 Proposal</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ikev2 proposal DMVPN-Prop
+encryption aes-gcm-256
+group 15
+prf sha256
+</pre></div>
+</div>
+<p><strong>Create IKEv2 Policy</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ikev2 policy DMVPN-Pol
+proposal DMVPN-Prop
+</pre></div>
+</div>
+<p><strong>Create Transform-set</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ipsec transform-set DMVPN-Set esp-aes 256 esp-sha256-hmac
+mode tunnel
+</pre></div>
+</div>
+<p><strong>Create IPSec Profile</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>crypto ipsec profile DMVPN-IPsec
+set transform-set DMVPN-Set
+set ikev2-profile DMVPN-Prof
+</pre></div>
+</div>
+<p><strong>Apply to interface</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>int tun 100
+tunnel protection ipsec profile DMVPN-IPsec
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifying-and-troubleshooting-ipsec">
+<h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#show crypto ikev2 sa
+Globomantics-HQ#show crypto ikev2 sa detail
+Globomantics-HQ#show crypto ipsec sa
+GLobomantics-HQ#show crypto engine connections active
+Globomantics-HQ#debug crypto ikev2
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="4.-configuring-flexvpn.html" class="btn btn-neutral float-right" title="4. Configuring FlexVPN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2.-comparing-cisco-vpn-types.html" class="btn btn-neutral float-left" title="2. Comparing Cisco VPN Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

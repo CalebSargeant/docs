@@ -1,0 +1,69 @@
+3. Configuring the WSA as a Secure Internet Gateway
+===================================================
+
+Modifying the Global Access Policy
+----------------------------------
+
+-  Restrict URL categories
+-  Restrict Google Maps application
+-  Look at file types we can block
+-  Configure antimalware settings
+
+|image1|
+
+Creating an Exemption Access Policy
+-----------------------------------
+
+-  Look at new identification profiles
+-  Create exemption policy for IT admins
+
+|image2|
+
+|image3|
+
+Testing the WSA’s Access Policies
+---------------------------------
+
+|image4|
+
+Decryption Policy Overview
+--------------------------
+
+-  Client initiates TLS session with site
+-  WSA initiates TLS session with site on client’s behalf
+-  Site sends signed certificate to present to client
+-  WSA sends signed copy of site’s certificate
+
+Configuring Certificates on the WSA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Self-Signed Certificates**
+
+-  Certificates will need to be added to every endpoint
+-  Not scalable
+
+**Add Certificate to PKI**
+
+-  Endpoints already trust certificates signed by CA
+-  More scalable
+
+Installing Certificates on the WSA
+----------------------------------
+
+-  Install root certificate on WSA
+-  Create CSR and obtain cert
+-  Install certificate on WSA
+
+|image5|
+
+Configuring Decryption Policies and Verifying
+---------------------------------------------
+
+|image6|
+
+.. |image1| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-1.png
+.. |image2| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-2.png
+.. |image3| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-3.png
+.. |image4| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-4.png
+.. |image5| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-5.png
+.. |image6| image:: _images/configuring-the-wsa-as-a-secure-internet-gateway-6.png

@@ -1,0 +1,395 @@
+2. Comparing Cisco VPN Types
+============================
+
+Configuring ISAKMP & IKE SA Tunnels
+-----------------------------------
+
+**Configuring IPSec on Cisco IOS**
+
+**Configure IKEv1**
+
+-  Configure Phase 1 Tunnel
+
+   -  Configure ISAKMP Policy
+
+      -  Where the HAGLE parameters are configured
+
+   -  Configure ISAKMP PSK
+
+      -  Where the PSK is configured for each VPN address
+
+-  Configuring Phase 2 Tunnel
+
+   -  Configure Transform Set
+   -  Configure IPsec Profile
+
+**Configure IKEv2**
+
+-  Configure IKE_SA Tunnel
+
+   -  Configure IKEv2 Proposal
+   -  Configure IKEv2 Profile
+   -  Configure IKEv2 Policy
+   -  Configure Keyring
+
+-  Configure Child SA Tunnel
+
+   -  Configure Transform Set
+   -  Configure IPsec Profile
+
+IKEv1 Phase 1 Configuration Tasks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Configure ISAKMP Policy**
+
+-  The lower the number, the higher the priority
+-  Configure each HAGLE parameter by entering the attribute that you
+   want to configure, followed by the chosen configuration
+-  It is best practice to have the most secure algorithm with the
+   highest priority, while the least secure algorithm will be the lowest
+   priority
+-  The ISAKMP policy number does not need to be the same on both sides
+
+.. code:: text
+
+   (config)#crypto isakmp policy 10
+   (config-isakmp)#hash sha512
+   (config-isakmp)#authentication pre-share
+   (config-isakmp)#group 15
+   (config-isakmp)#lifetime 86400
+   (config-isakmp)#encryption aes 256
+
+**Configure ISAKMP PSK**
+
+.. code:: text
+
+   (config)#crypto isakmp key cisco123 1.1.1.1
+   # OR
+   (config)#crypto isakmp key cisco123 hostname omaha-router.globomantics.com
+
+IKEV2 IKE_SA Configuration Tasks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Configure Keyring**
+
+-  Defines the PSKs of VPN peers are configured
+
+.. code:: text
+
+   # Creates a keyring with a locally significant name
+   (config)#crypto ikev2 keyring name_of_keyring
+
+   # Creates a peer within the key ring that all attributes will be assigned to
+   (config-ikev2-keyring)#peer name_of_peer
+
+   # Specify the IP address
+   (config-ikev2-keyring-peer)#address ip_address
+
+   # Enter the identity mechanism the router will use to identify the peer
+   (config-ikev2-keyring-peer)#identity <address[FQDN[email[key-id> r1.test.com
+
+   # Enter both the local and remote PSK
+   (config-ikev2-keyring-peer)#pre-shared-key local cisco123
+
+   # Enter both the local and remote PSK
+   (config-ikev2-keyring-peer)#pre-shared-key remote cisco456
+
+**Configure IKEv2 Proposal**
+
+-  Defines Hash, DH Group, and Encryption
+
+**Configure IKEv2 Profile**
+
+-  Defines Authentication, Keyring, Lifetime
+
+.. code:: text
+
+   # Creates an IKEv2 profile with a locally significant name
+   (config)#crypto ikev2 profile name_of_profile
+
+   # Matches our peer. Can be IP address, Domain name, email, etc
+   (config-ikev2-profile)#match identity remote <addresslemaillfqdn> identifier
+
+   # Identifies how we will authenticate with the peer locally
+   (config-ikev2-profile)#authentication local <pre-sharelrsa-sig>
+
+   # Identifies how we will authenticate with the peer remotely
+   (config-ikev2-profile)#authentication remote <pre-sharelrsa-sig>
+
+   # Enter both the local and remote PSK
+   (config-ikev2-profile)#keyring name_of_keyring
+
+   # Specifies the lifetime
+   (config-ikev2-profile)#lifetime lifetime_length_in_seconds
+
+   # Determines the identity the router will send to VPN peer
+   (config-ikev2-profile)# identity local fqdn fully_qualified_domain_name
+
+**Configure IKEv2 Policy**
+
+-  Defines router traffic to match
+-  Whenever possible, use explicit policies for VPN connections
+
+.. code:: text
+
+   (config)#crypto ikev2 policy name_of_policy
+   (config-ikev2-profile)#match address local ip_address
+   (config-ikev2-profile)#match fvrf name_of_fvrf
+   # Specifies the IKEv2 Proposal traffic that matches this policy will use
+   (config-ikev2-profile)#proposal name_of_ikev2_proposal
+
+Configuring the IPsec Tunnel
+----------------------------
+
+Configuring the 2nd Tunnel (IKEv1 or IKEv2)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Configure Transform Set**
+
+-  Defines encryption and hash of second tunnel
+
+.. code:: text
+
+   # Specifies the encryption and hashing algorithm
+   (config)#crypto ipsec transform-set name esp-aes 256 esp-sha256-hmac
+
+   # Specifies if the tunnel is in transport mode or tunnel mode
+   (cfg-crypto-trans)#mode <tunnel[transport>
+
+**Configure IPsec Profile**
+
+-  Associates transform set with the first tunnel
+
+.. code:: text
+
+   (config)#crypto ipsec profile name_of_profile
+
+   # Matches transform set to the first tunnel
+   (ipsec-profile)#set transform-set name_of_transform_set
+   (ipsec-profile)#set <ikev2-profile|isakmp-profile> name_of_profile
+
+Legacy Configuration (Crypto-Maps)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: text
+
+   (config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any
+   (config)#crypto map crypto_map_name sequence_number ipsec-isakmp
+   (config-crypto-map)#match address 100
+   (config-crypto-map)#set peer 1.1.1.1
+   (config-crypto-map)#set transform-set transform_set_name
+   (config-crypto-map)#set isakmp-profile isakmp_profile_name
+   (config-crypto-map)#exit
+   (config)#interface ethernet 0/1
+   (config-if)#crypto map crypto_map_name
+
+Cisco Tunnel Interface Types
+----------------------------
+
+Virtual Tunnel Interface (VTI)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Allows for easier management
+
+   -  Can apply policies to tunnel interface just like any other
+      interface
+
+-  Can use the IP address of another interface
+
+**VTI Configuration**
+
+.. code:: text
+
+   (config)#tunnel interface interface_number
+   (config-if)#tunnel mode ipsec <ipv4lipv6>
+   (config-if)#ip address ip_address subnet_mask OR
+   (config-if)#ip unnumbered interface_number
+   (config-if)#tunnel source <ip_addresslinterface_name>
+   (config-if)#tunnel destination ip_address_of_peer
+   (config-if)#tunnel protection ipsec profile name_of_profile
+
+Dynamic VTI
+~~~~~~~~~~~
+
+-  Used in hub-and-spoke S2S VPNs
+-  Use a template to dynamically
+-  Each interface would use the config outlined in the template create
+   tunnel interfaces
+
+**dVTI Configuration**
+
+.. code:: text
+
+   (config)#interface virtual-template template_number type tunnel
+   (config-if)#tunnel mode ipsec <ipv4lipv6>
+   (config-if)#ip address ip_address subnet_mask
+   (config-if)#tunnel source <ip_addresslinterface_name>
+   (config-if)#tunnel protection ipsec profile name_of_profile
+   (config-if)#exit
+   (config)#crypto ikev2 profile name_of_profile
+   (config-ikev2-profile)#virtual-template template_number
+
+GRE Tunnel
+~~~~~~~~~~
+
+-  Generic Routing Encapsulation
+-  Not encrypted
+-  Allows unicast, multicast, broadcast and non-IP traffic
+-  Needs its own IP address, source interface, and destination IP
+   address
+
+**GRE Tunnel Configuration**
+
+.. code:: text
+
+   (config)#tunnel interface interface_number
+   (config-if)#tunnel mode gre <iplipv6>
+   (config-if)#ip address ip_address subnet_mask
+   (config-if)#tunnel source <ip_addresslinterface_name>
+   (config-if)#tunnel destination ip_address_of_peer
+   (config-if)#tunnel protection ipsec profile name_of_profile
+
+MTU Size and MSS Size
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Ethernet MTU is 1500
+
+   -  Any packet that is 1500 will need to be fragmented after IPsec
+      headers are added
+   -  That will not work as the IPsec trailers would not be included
+
+-  Smaller MTU on the interface
+
+   -  Packets will be fragmented before IPsec is applied
+
+-  MSS value
+
+   -  40 less for IPv4
+
+**MTU Size and MSS Size Configuration**
+
+.. code:: text
+
+   (config-if)#ip mtu 1400
+   (config-if)#ip tcp adjust-mss 1360
+
+GRE Multipoint Interface
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Allows tunnel interface to create Multiple VPNs with multiple devices
+-  Used with DMVPN
+
+**GRE Multipoint Interface Configuration**
+
+.. code:: text
+
+   ### (config-if)#tunnel destination ip_address_of_peer - is not configured
+   (config)#tunnel interface interface_number
+   (config-if)#tunnel mode gre multipoint (ipv6)
+   (config-if)#ip address ip_address subnet_mask
+   (config-if)#tunnel source <ip_addresslinterface_name>
+   (config-if)#tunnel protection ipsec profile name_of_profile
+   (config-if)#ip mtu 1400
+   (config-if)#ip tcp adjust-mss 1360
+
+DMVPN
+-----
+
+-  DMVPN doesn’t require each spoke to have a static NBMA
+-  NHRP network IDs
+-  DMVPN uses GRE interfaces, IPsec still needs to be applied
+-  Configure additional security
+
+   -  Tunnel keys
+   -  NHRP authentication
+
+DMVPN Components
+~~~~~~~~~~~~~~~~
+
+-  Non-Broadcast Multiple Access (NBMA) Address
+
+   -  IP address routers use to establish VPN
+
+-  Next Hop Resolution Protocol (NHRP)
+
+   -  Maps the NBMA to each tunnel interface
+
+-  Next Hop Server (NHS)
+
+   -  Main device that has the NBMA’s for all of the routers
+
+**DMVPN in Words**
+
+-  R1 uses dynamic routing protocol to get to R2 via HQ
+-  R1 tunnel interface is configured as MGRE and configured with NHRP
+-  As soon as first packet is sent, R1 will make NHRP request to
+   next-hop server
+-  R1 asks HQ how to get to R2
+-  HQ sends NHRP to R2, R2 sends NBMA address to R1
+-  R1 establishes its own tunnel to R2
+
+DMVPN Phases
+~~~~~~~~~~~~
+
+Hub will always forward NHRP request, even if it knows the NBMA that the
+request initiator is trying to find.
+
+-  Phase 1
+
+   -  Requires all traffic to go through the hub
+   -  Benefit: Allows dynamic tunnels
+
+-  Phase 2
+
+   -  Allows spoke-to-spoke tunnels
+
+-  Phase 3
+
+   -  Hub can enforce optimal path
+   -  Hierarchical design of DMVPN
+   -  Better route summaries
+
+FlexVPN
+-------
+
+-  Framework that encompasses different VPN deployments
+-  Hub router has different templates for each VPN type
+-  Virtual templates contains the necessary configurations
+-  Once authentication is matched, corresponding virtual template is
+   used
+-  Can send configurations through the VPN tunnel
+-  High availability (secondary hubs, etc.)
+-  FlexVPN requires IKEv2 to be used.
+
+**Authorization**
+
+-  Authorization can be done through RADIUS or local database
+
+   -  Find attributes in certificate
+   -  Pass those attributes to auth server
+   -  Based on auth server, implement various configurations
+
+Cisco AnyConnect
+----------------
+
+-  Client that is installed on user’s device that allows a remote access
+   VPN
+-  Can connect to IOS, ASA, or FTD
+-  Can have different profiles push out different parameters IP address,
+   ACLs, login times
+-  IP address could be used on ACLs in other parts of the network
+-  Split Tunneling
+
+   -  Allows some traffic to flow through tunnel, while other traffic
+      goes through user’s LAN
+
+-  Encryption can be IPsec or TLS
+-  IPv4 or IPv6
+-  Allows multiple tunnel endpoints to be configured
+
+Additional AnyConnect Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Integrate with other Cisco products
+-  Provide visibility, compliance, malware protection, & web inspection
+-  Remote Access VPNs can also be achieved through Clientless VPN

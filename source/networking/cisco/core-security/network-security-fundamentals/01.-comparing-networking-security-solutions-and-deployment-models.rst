@@ -1,0 +1,270 @@
+1. Comparing Networking Security Solutions & Deployment Models
+==============================================================
+
+Cisco SAFE and CVDs
+-------------------
+
+Cisco SAFE (Security Architecture for the Enterprise)
+
+-  One of Cisco’s Validated Designs (CVD)
+-  Module framework of CVDs
+
+   -  Combine to create a secure architecture
+
+-  Allow the proper design of Cisco security products
+-  We’re going to focus on IPS (Firepower) and Firewall (ASA)
+
+Security Control Framework
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Firewalls and Intrusion prevention system work together with other
+   products
+-  SCF increases visibility and control in a network environment
+
+Defence in Depth
+~~~~~~~~~~~~~~~~
+
+-  Crucial to the security of a network
+-  Device availability and resiliency
+-  Regulatory compliance
+-  Operational effeciency
+-  Auditable implementations
+-  Global information sharing and collaboration
+-  SAFE allows for modularity and flexibility in design to meet our
+   needs
+
+Cisco Validated Designs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Be familiar with CVDs
+-  Proven designs to allow products to function the way you want to use
+   them
+-  Edge connectivity
+-  Firewall segmentation
+-  IPS
+-  VPN Solutions
+
+**Solutions:**
+
+-  Not a one size fits all
+-  Every environment is different
+-  Apply the designs that are closest to your environment
+
+Architectures
+-------------
+
+-  Defence in depth
+-  Different CVDs based on your network design
+-  https://www.cisco.com/c/en/us/solutions/design-zone.html
+
+**Data Centre:**
+
+-  Firewalls would enforce access policies
+
+   -  Exclude insecure protocols
+   -  Protect against internal threats
+
+-  Intrusion prevention systems
+
+   -  Provide deep packet inspection
+   -  Cisco Firepower
+
+**WAN Edge:**
+
+-  Firewall to protect WAN Edge
+
+   -  Adaptive Security Appliance (ASA)
+   -  Firepower Threat Defence (FTD)
+   -  IOS Zone Based Firewalls
+
+-  Enforce security policy
+
+   -  Provide inspections at firewall level
+
+**Branch:**
+
+-  Multiple attack vectors
+-  VPNs - connect back to enterprise
+-  Firewalls - implicit deny
+-  IPS
+
+Designing & Deploying Firewall Solutions
+----------------------------------------
+
+IOS Zone Based Firewall
+~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Zone Based Firewall running on an IOS device
+-  Protects network with security zones
+-  Stateful
+-  Define zones, assign interfaces to zones, define zone to zone allow
+   traffic
+
+   -  Replaces ACLs on each interface
+
+High Availablity
+~~~~~~~~~~~~~~~~
+
+**Active/Active:**
+
+-  Two devices can pass traffic at the same time
+-  Configurations are replicated
+-  Both devices are providing services
+
+**Active/Standby:**
+
+-  Only one (active) firewall is passing the traffic
+-  Configs are replicated from active device to standby device
+-  If active device fails, standby device would take over role of active
+
+Adaptive Security Appliance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Cisco’s firewall workhorse for years
+-  Single or multi-context mode
+-  Multi-context mode logically divides 1 physical appliance
+
+   -  Each logical ASA is called a security context
+
+-  Only active/active mode is available if using multiple contexts
+-  ASA Cluster
+
+   -  Group multiple ASAs together into one logical device
+
+      -  Easier management
+      -  Better throughput
+      -  Better redundancy - shared workload
+
+Transparent vs Routed Mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Routed Mode:**
+
+-  Firewall is next routing hop
+-  Either default gateway
+-  Or visible layer 3 hop in the packets
+
+**Transparent mode:**
+
+-  Layer 2 device
+-  Only a bump in the wire
+
+VPN Termination
+~~~~~~~~~~~~~~~
+
+-  VPNs are in most organizations
+
+   -  Will determine where ASAs of FTD are placed in the network
+
+   -  Place firewall close to the border
+
+      OR
+
+   -  Have a separate set of dedicated for VPN termination
+
+-  Firepower threat defense can be the firewall solution
+
+Designing & Deploying IPS Solutions
+-----------------------------------
+
+Firepower features
+~~~~~~~~~~~~~~~~~~
+
+-  Analytics and automated defense against threats
+-  URL Filtering
+-  Malware protection
+-  Network profiling
+-  Identity-based policies and control
+-  Application visibility and control
+
+Firepower Module in an ASA
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Provides IPS/IDS functionality to an ASA
+-  Next Generation IPS
+
+   -  ASA FirePOWER Services
+
+-  CVDs will help determine where to place ASA with FirePOWER Services
+
+Next Generation IPS
+~~~~~~~~~~~~~~~~~~~
+
+-  Defense in depth
+-  Deploy sensors throughout the network
+-  Allows us to protect critical systems, not just the border
+
+Firepower Threat Defence
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Many firewall features from the ASA, as well as Firepower IPS
+   features
+
+   -  Deep packet inspection
+   -  Malware protection
+   -  Firewall features
+   -  VPN termination
+
+-  Not all ASA features are available on FTD yet
+
+Managing Firepower
+~~~~~~~~~~~~~~~~~~
+
+-  Firepower Device Manager (FDM)
+
+   -  On board management of a single FTD
+   -  Smaller, less complex deployments
+   -  Less analytics and configuration options
+
+-  Firepower Management Center (FMC)
+
+   -  Manage multiple firepowers
+
+      -  FTD
+      -  Firepower sensors
+      -  FirePOWER services on an ASA
+
+   -  Analytics
+   -  Security Intelligence
+   -  Correlation tools for the threats
+
+Firepower High Availability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Firepower and FMC can be configured for Active/Standby
+-  FTD devices can be deployed in a cluster
+-  Multitenancy (similar to multi-context mode)
+
+Additional Integrations for Firepower and ASAs
+----------------------------------------------
+
+REST APIs
+~~~~~~~~~
+
+-  Create custom programs or scripts to gain context or control FTD or
+   ASA
+
+pxGrid
+~~~~~~
+
+-  Platform Exchange Grid (pxGrid)
+
+   -  Used in almost all of Cisco’s security products
+   -  ISE is needed to run pxGrid
+
+-  Rapid Threat Containment
+
+   -  Create policy based on user information
+   -  dynamically shut down hosts
+
+Cisco Threat Response
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Cloud Offering
+
+   -  Detect, investigate, analyse and respond to threats
+
+Authentication Integrations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Use Cisco ISE to authenticate management administrators and VPN users

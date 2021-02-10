@@ -1,0 +1,554 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Securing the Management Plane &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="4. Securing the Control Plane and Data Plane on Cisco Routers" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html" />
+    <link rel="prev" title="2. Describing Components, Capabilities, &amp; Benefits of NetFlow" href="02.-describing-components-capabilities-and-benefits-of-netflow.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Network Security Fundamentals</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-networking-security-solutions-and-deployment-models.html">1. Comparing Networking Security Solutions &amp; Deployment Models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-describing-components-capabilities-and-benefits-of-netflow.html">2. Describing Components, Capabilities, &amp; Benefits of NetFlow</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3. Securing the Management Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html">4. Securing the Control Plane and Data Plane on Cisco Routers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html">5. Securing the Control Plane and Data Plane on Cisco Switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06.-configuring-wireless-lan-controller-device-hardening-methods.html">6. Configuring Wireless LAN Controller Device Hardening Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Network Security Fundamentals</a> &raquo;</li>
+        
+      <li>3. Securing the Management Plane</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/03.-securing-the-management-plane.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="securing-the-management-plane">
+<h1>3. Securing the Management Plane<a class="headerlink" href="#securing-the-management-plane" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="secure-planes">
+<h2>Secure Planes<a class="headerlink" href="#secure-planes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="physical-security">
+<h3>Physical Security<a class="headerlink" href="#physical-security" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>One of the most important things to consider</p></li>
+<li><p>Configurations to secure device be undone if anyone has access to
+device</p></li>
+<li><p>Boot into ROMmon</p></li>
+<li><p>Could just as easily power off device</p>
+<ul>
+<li><p>Cut cables</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="network-device-planes">
+<h3>Network Device Planes<a class="headerlink" href="#network-device-planes" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image1" src="../../../../_images/device-planes.png" /></p>
+</div>
+</div>
+<div class="section" id="telnet-http-ssh-and-https">
+<h2>Telnet, HTTP, SSH, and HTTPs<a class="headerlink" href="#telnet-http-ssh-and-https" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-do-you-manage-a-device">
+<h3>How Do You Manage a Device?<a class="headerlink" href="#how-do-you-manage-a-device" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Console</p></li>
+<li><p>Telnet</p></li>
+<li><p>HTTP</p></li>
+<li><p>Without encryption, data can be compromised</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="aaa">
+<h2>AAA<a class="headerlink" href="#aaa" title="Permalink to this headline">¶</a></h2>
+<p>TACACS+ &amp; RADIUS are used for AAA</p>
+<div class="section" id="managing-administrators">
+<h3>Managing Administrators<a class="headerlink" href="#managing-administrators" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Create users, passwords, and permissions on each device</p>
+<ul class="simple">
+<li><p>Doesn’t scale</p></li>
+</ul>
+</li>
+<li><p>AAA</p>
+<p>Authentication, Authorization &amp; Accounting</p>
+</li>
+</ul>
+</div>
+<div class="section" id="aaa-process">
+<h3>AAA Process<a class="headerlink" href="#aaa-process" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Provide security guard with identification (Guard authenticates you)</p></li>
+<li><p>Verify that the proper forms and approvals have been met (Guard
+authorizes you)</p></li>
+<li><p>Logbook and camera track movements and activities (Accounting record)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="radius-tacacs">
+<h2>RADIUS &amp; TACACS+<a class="headerlink" href="#radius-tacacs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="radius">
+<h3>RADIUS<a class="headerlink" href="#radius" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Remote Authentication Dial-in User Service</p></li>
+<li><p>Users would dial office modem</p></li>
+<li><p>Radius used for authentication</p></li>
+<li><p>UDP Ports 1812 &amp; 1813</p></li>
+<li><p>Password field is encrypted</p></li>
+</ul>
+<p><strong>Authentication Protocols:</strong></p>
+<ul class="simple">
+<li><p>Challenge Handshake Authentication Protocol (CHAP)</p></li>
+<li><p>Password Authentication Protocol (PAP)</p></li>
+<li><p>Microsoft CHAP (MS-CHAP)</p></li>
+<li><p>Extensible Authentication Protocol (EAP)</p></li>
+</ul>
+<p><strong>RADIUS Messages:</strong></p>
+<ul class="simple">
+<li><p>Access-Accept</p></li>
+<li><p>Access-Reject</p></li>
+<li><p>Access-Challenge</p></li>
+<li><p>Accounting-Request</p></li>
+<li><p>Accounting-Response</p></li>
+</ul>
+</div>
+<div class="section" id="tacacs">
+<h3>TACACS+<a class="headerlink" href="#tacacs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Terminal Access Controller Access Control System</p></li>
+<li><p>Does not include authorization in authentication request</p></li>
+<li><p>Start message</p></li>
+<li><p>Reply asking for username</p></li>
+<li><p>Continue with username</p></li>
+<li><p>Reply asking for password</p></li>
+<li><p>Continue with password</p></li>
+<li><p>Reply with authentication determination</p></li>
+<li><p>TCP port 49</p></li>
+<li><p>Entire payload is encrypted</p></li>
+</ul>
+<p><strong>Authorization Messages:</strong></p>
+<ul class="simple">
+<li><p>AAA Client starts with a new conversation for authentication</p></li>
+<li><p>Occurs each time user tries to do anything</p></li>
+<li><p>Send a request message</p></li>
+<li><p>Server Responds with:</p>
+<ul>
+<li><p>FAIL</p></li>
+<li><p>PASS_ADD</p></li>
+<li><p>PASS_REPL</p></li>
+<li><p>FOLLOW</p></li>
+<li><p>ERROR</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Accounting Messages:</strong></p>
+<ul class="simple">
+<li><p>Request</p></li>
+<li><p>Response</p></li>
+</ul>
+</div>
+<div class="section" id="when-do-you-use-tacacs">
+<h3>When Do You Use TACACS+?<a class="headerlink" href="#when-do-you-use-tacacs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use to authorize IT employees</p>
+<ul>
+<li><p>Have different command sets per different IT levels</p></li>
+<li><p>Each command set would verify with AAA server that the user is
+authorized</p></li>
+<li><p>Continue checking authorization for each command</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="when-do-you-use-radius">
+<h3>When Do You Use RADIUS?<a class="headerlink" href="#when-do-you-use-radius" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>User access to the network</p></li>
+<li><p>802.1X</p></li>
+<li><p>Change of Authorization (CoA)</p></li>
+<li><p>Cisco ISE</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="snmp">
+<h2>SNMP<a class="headerlink" href="#snmp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="snmp-benefits">
+<h3>SNMP Benefits<a class="headerlink" href="#snmp-benefits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Audit trail</p></li>
+<li><p>Immediately alerted of issues</p></li>
+<li><p>Events are stored in MIB</p></li>
+<li><p>Changes can be made by SNMP server</p></li>
+</ul>
+</div>
+<div class="section" id="snmpv1-snmpv2c">
+<h3>SNMPv1 &amp; SNMPv2c<a class="headerlink" href="#snmpv1-snmpv2c" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Community strings</p>
+<ul>
+<li><p>all info is in plain text</p></li>
+</ul>
+</li>
+<li><p>At a minimum change default community</p>
+<ul>
+<li><p>Too many orgs leave the default</p></li>
+<li><p>Easy attack</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="snmpv3-configuration">
+<h3>SNMPv3 Configuration<a class="headerlink" href="#snmpv3-configuration" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>noAuthnoPriv</p>
+<ul>
+<li><p>Similar to SNMPv1 and SNMPv2c - not secure</p></li>
+</ul>
+</li>
+<li><p>AuthNoPriv</p>
+<ul>
+<li><p>Username and HMAC password</p></li>
+</ul>
+</li>
+<li><p>AuthPriv</p>
+<ul>
+<li><p>Username, HMAC password, &amp; encryption - most secure</p></li>
+</ul>
+</li>
+<li><p>SNMP users are tied to SNMP groups</p></li>
+<li><p>SNMP groups can be restricted to only see certain info from MIB</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-protocol-security">
+<h2>Additional Protocol Security<a class="headerlink" href="#additional-protocol-security" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="securely-transferring-files">
+<h3>Securely Transferring Files<a class="headerlink" href="#securely-transferring-files" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Secure File Transfer Protocol (SFTP)</p>
+<ul>
+<li><p>Secure version of FTP</p></li>
+<li><p>Uses SSH framework to provide security</p></li>
+</ul>
+</li>
+<li><p>Requires secure algorithms!</p></li>
+<li><p>Secure Copy Protocol (SCP)</p>
+<ul>
+<li><p>Also uses SSH to secure traffic</p></li>
+<li><p>Also relies on secure algorithms</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="syslog">
+<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Logs created for events</p></li>
+<li><p>SIEM correlates logs and finds anomalies</p></li>
+<li><p>Syslog messages aren’t secure</p></li>
+<li><p>Theres now Secure Syslog</p></li>
+<li><p>Using TLS</p></li>
+</ul>
+</div>
+<div class="section" id="network-time-protocol">
+<h3>Network Time Protocol<a class="headerlink" href="#network-time-protocol" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Proper time allows logs and SNMP messages to be correlated</p></li>
+<li><p>Some industries require precision time in orter to function</p></li>
+<li><p>Not traditionally secured - easily attacked</p></li>
+<li><p>DoS attacks &amp; disrupting business activities</p></li>
+<li><p>Use NTP authentication</p></li>
+</ul>
+</div>
+<div class="section" id="dns">
+<h3>DNS<a class="headerlink" href="#dns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Registrar hijacking</p>
+<ul>
+<li><p>Attacker hacks into organizations DNS account</p></li>
+</ul>
+</li>
+<li><p>DNS Cache Poisoning</p>
+<ul>
+<li><p>Attacker sends false DNS records to DNS server</p></li>
+</ul>
+</li>
+<li><p>Can point DNS records to malicious server to cause DoS or gain data</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-discovery-protocol">
+<h3>Cisco Discovery Protocol<a class="headerlink" href="#cisco-discovery-protocol" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Learn which devices are connected</p></li>
+<li><p>IP Address, device model, VLANs, etc.</p></li>
+<li><p>Info can be used by attacker</p>
+<ul>
+<li><p>Reconnaissance</p></li>
+</ul>
+</li>
+<li><p>Disable CDP on untrusted interfaces</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="management-plane-acls">
+<h2>Management Plane ACLs<a class="headerlink" href="#management-plane-acls" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Controls which IPs and protocols access management plane</p></li>
+<li><p>Permit and deny traffic based on srs/dst IPs and ports</p></li>
+<li><p>Deny insecure protocols</p></li>
+<li><p>Allow ssh and https from management IPs</p></li>
+<li><p>Permit mgmt. protocols to/from management servers</p></li>
+<li><p>Apply ACL to mgmt. plane</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="04.-securing-the-control-plane-and-data-plane-on-cisco-routers.html" class="btn btn-neutral float-right" title="4. Securing the Control Plane and Data Plane on Cisco Routers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02.-describing-components-capabilities-and-benefits-of-netflow.html" class="btn btn-neutral float-left" title="2. Describing Components, Capabilities, &amp; Benefits of NetFlow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. Configuring Cisco IOS for 802.1X and MAB &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Endpoint Protection and Detection with Cisco AMP" href="../endpoint-protection-and-detection-with-cisco-amp/index.html" />
+    <link rel="prev" title="2. Configuring Cisco ISE for 802.1X" href="2.-configuring-cisco-ise-for-802.1x.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Secure Network Access Using Cisco ISE</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1.-describing-identity-management-coa-and-device-compliance.html">1. Describing Identity Management, CoA, and Device Compliance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-configuring-cisco-ise-for-802.1x.html">2. Configuring Cisco ISE for 802.1X</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3. Configuring Cisco IOS for 802.1X and MAB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Secure Network Access Using Cisco ISE</a> &raquo;</li>
+        
+      <li>3. Configuring Cisco IOS for 802.1X and MAB</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/secure-network-access-using-cisco-ise/3.-configuring-cisco-ios-for-802.1x-and-mab.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-cisco-ios-for-802-1x-and-mab">
+<h1>3. Configuring Cisco IOS for 802.1X and MAB<a class="headerlink" href="#configuring-cisco-ios-for-802-1x-and-mab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuring-global-settings-on-a-cisco-switch-to-support-802-1x">
+<h2>Configuring Global Settings on a Cisco Switch to Support 802.1X<a class="headerlink" href="#configuring-global-settings-on-a-cisco-switch-to-support-802-1x" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Access (config)#aaa new-model
+Globo-Access (config)#aaa authentication dot1x default group radius
+Globo-Access (config)#aaa authorization network default group radius
+Globo-Access (config)#aaa accounting dot1x default start-stop group radius
+Globo-Access (config)#aaa accounting update newinfo periodic 1440
+Globo-Access(config)#username dot1x-test password Globo123
+Globo-Access (config)#radius server Globo-ISE-DOT1X
+Globo-Access(config-radius-server)#address ipv4 172.20.1.55 auth-port 1812 acct-port 1813
+Globo-Access(config-radius-server)#key GloboDot1x
+Globo-Access(config-radius-server)#automate-test username dot1x-test probe-on
+Globo-Access (config-radius-server)#exit
+Globo-Access (config)#aaa group server radius DOT1X-Group
+Globo-Access (config-sg-radius)#server name Globo-ISE-DOT1X
+
+Globo-Access(config)#radius-server dead-criteria time 5 tries 3
+Globo-Access(config)#radius-server deadtime 10
+Globo-Access(config)#aaa server radius dynamic-author
+Globo-Access(config-locsvr-da-radius)#client 172.20.1.55
+Globo-Access(config-locsvr-da-radius)#server-key GloboDot1x
+Globo-Access(config-locsvr-da-radius)#exit
+Globo-Access(config)#ip radius source-interface gi 1/0/24
+Globo-Access(config)#snmp-server trap-source gi 1/0/24
+Globo-Access(config)#snmp-server source-interface informs gi 1/0/24
+Globo-Access(config)#radius-server vsa send authentication
+Globo-Access(config)#radius-server vsa send accounting
+Globo-Access(config)#dot1x system-auth-control
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-cisco-switchport-to-use-802-1x-and-mab">
+<h2>Configuring a Cisco Switchport to Use 802.1X and MAB<a class="headerlink" href="#configuring-a-cisco-switchport-to-use-802-1x-and-mab" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="host-authentication-modes">
+<h3>Host Authentication Modes<a class="headerlink" href="#host-authentication-modes" title="Permalink to this headline">¶</a></h3>
+<p><strong>Multi-host</strong> All devices are allowed as long as the 1st MAC address
+Authenticated</p>
+<p><strong>Multi-auth</strong> Every device would need to authenticate</p>
+<p><strong>Multi-domain</strong> One device for DATA and one device for VOICE domains</p>
+<p><strong>Single-host</strong> Only one device per switchport</p>
+<p><strong>Open authentication mode</strong> self-explanatory</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Access#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+Globo-Access (config)#int gi 1/0/2
+Globo-Access(config-if)#switchport host
+Globo-Access(config-if)#authentication priority dot1x mab
+Globo-Access(config-if)#authentication order dot1x mab
+Globo-Access(config-if)#authentication event fail action next-method
+Globo-Access(config-if)#authentication event server dead action authorize vlan 30
+Globo-Access(config-if)#authentication event server alive action reinitialize
+Globo-Access(config-if)#authentication host-mode multi-domain
+Globo-Access(config-if)#authentication violation restrict
+Globo-Access(config-if)#authentication open
+Globo-Access(config-if)#mab
+Globo-Access(config-if)#dot1x pae authenticator
+Globo-Access(config-if)#dot1x timeout tx-period 10
+Globo-Access(config-if)#authentication port-control auto
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-ise-to-support-mab-course-summary">
+<h2>Configuring ISE to Support MAB &amp; Course Summary<a class="headerlink" href="#configuring-ise-to-support-mab-course-summary" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id1">
+<img alt="MAB Authentication Policy" src="../../../../_images/configuring-cisco-ios-for-802.1x-and-mab-1.png" />
+<p class="caption"><span class="caption-text">MAB Authentication Policy</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../endpoint-protection-and-detection-with-cisco-amp/index.html" class="btn btn-neutral float-right" title="Endpoint Protection and Detection with Cisco AMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2.-configuring-cisco-ise-for-802.1x.html" class="btn btn-neutral float-left" title="2. Configuring Cisco ISE for 802.1X" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

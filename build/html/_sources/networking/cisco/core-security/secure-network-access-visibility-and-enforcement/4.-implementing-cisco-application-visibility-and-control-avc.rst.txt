@@ -1,0 +1,135 @@
+4. Implementing Cisco Application Visibility and Control (AVC)
+==============================================================
+
+Introduction to Cisco’s Application Visibility and Control
+----------------------------------------------------------
+
+Why Do We Need AVC?
+~~~~~~~~~~~~~~~~~~~
+
+-  Traditional networks focus on controlling traffic between layers 2-4
+-  QoS also relied on layers 2-4
+
+Application Visibility and Control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Framework of Cisco features
+-  Provides additional layer 5-7 information
+-  Uses NBAR (network based application recognition)
+
+   -  Able to used advanced features to determine the application
+
+**4 Stages of AVC**
+
+-  Application Recognition
+-  Metrics Collection
+-  Management and Reporting
+-  Control
+
+Controlling Application Traffic Using Policy Maps
+-------------------------------------------------
+
+QoS Concepts
+~~~~~~~~~~~~
+
+-  Control traffic with class-maps and policy-maps
+-  QoS allows the controlling of traffic for limited bandwidth
+
+   -  Delay
+   -  Jitter
+   -  Packet Loss
+
+-  Classifying
+-  Marking
+-  Queuing
+-  Policing
+-  Shaping
+
+**Enable NBAR on Interfaces**
+
+.. code:: text
+
+   (config)#interface gigabitethernet 3
+   (config-if)#ip nbar protocol-discover
+   (config)#interface gigabitethernet 3
+   (config-if)#service-policy input netbios-policy
+
+**Create a Class-Map**
+
+.. code:: text
+
+   (config)#class-map netbios-class
+   (config-cmap)#match protocol netbios
+
+**Create a Policy-Map**
+
+.. code:: text
+
+   (config)#policy-map netbios-policy
+   (config-pmap)#class netbios-class
+   (config-pmap-c)#set dscp 45
+
+Configuring a Switch to Capture and Send Flows
+----------------------------------------------
+
+-  Enable NBAR
+-  Create flow record
+-  Create flow exporter
+-  Create flow monitor
+-  Apply flow monitor to interface
+
+.. code:: text
+
+   Globo-Core-Router(config)#int gi 3
+   Globo-Core-Router(config-if)#ip nbar protocol-discovery
+   Globo-Core-Router(config-if)#flow record Globo_Flow_Record
+   Globo-Core-Router(config-flow-record)#description send NBAR Application Data to Stealthwatch
+   Globo-Core-Router(config-flow-record)#match ipv4 tos
+   Globo-Core-Router(config-flow-record)#match ipv4 protocol
+   Globo-Core-Router(config-flow-record)#match ipv4 source address
+   Globo-Core-Router(config-flow-record)#match ipv4 destination address
+   Globo-Core-Router(config-flow-record)#match transport source-port
+   Globo-Core-Router(config-flow-record)#match transport destination-port
+   Globo-Core-Router(config-flow-record)#match interface input
+   Globo-Core-Router(config-flow-record)#match flow direction
+   Globo-Core-Router(config-flow-record)#collect routing source as
+   Globo-Core-Router(Config-flow-record)#collect routina destination as
+   Globo-Core-Router(confia-flow-recordì#collect routina next-hop address ipv4
+   Globo-Core-Router(config-flow-record)#collect ipv4 dscp
+   Globo-Core-Router(confia-flow-record)#collect ipv4 id
+   Globo-Core-Router(config-flow-record)#collect ipv4 source prefix
+   Globo-Core-Router(config-flow-record)#collect ipv4 source mask
+   Globo-Core-Router(config-flow-record)#collect ipv4 dest mask
+   Globo-Core-Router(config-flow-record)#collect ipv4 ttl max
+   Globo-Core-Router(config-flow-record)#collect transport tcp flags
+   Globo-Core-Router(config-flow-record)#collect interface output
+   Globo-Core-Router(config-flow-record)#collect transport tcp flags
+   Globo-Core-Router(config-flow-record)#collect interface output
+   Globo-Core-Router(config-fLow-record)#collect counter bytes
+   Globo-Core-Router(Config-flow-record)#collect counter packets
+   Globo-Core-Router(config-flow-record)#collect timestamp sys-uptime first
+   Globo-Core-Router(config-flow-record)#collect timestamp sys-uptime last
+   Globo-Core-Router(config-flow-record)#collect application name
+   Globo-Core-Router(config-flow-record)#collect application http url
+   Globo-Core-Router(config-flow-record)#collect application http host
+   Globo-Core-Router(config-flow-record)#exit
+   Globo-Core-Router(config)#flow exporter Globo_NetFlow_Collector
+   Globo-Core-Router(Config-flow-exporter)#desc Stealthwatch NetFlow Collector
+   Globo-Core-Router(config-flow-exporter)#destination 172.20.1.53
+   Globo-Core-Router(config-flow-exporter)#source qi 2
+   Globo-Ccore-Router cont1g-1Low-exporter)#transport udp 2055
+   Globo-Core-Router(config-flow-exporter)#template data timeout 30
+   Globo-Core-Router(config-flow-exporter)#option interface-table
+   Globo-Core-Router(config-flow-exporter)#option application-table timeout 10
+   Globo-Core-Router(config-flow-exporter)#export-protocol ipfix
+   Globo-Core-Router(config-flow-exporter)#exit
+   Globo-Core-Router(config)#flow monitor GloboFlow
+   Globo-Core-Router(config-flow-monitor)#desc Globo Main Flow Monitor
+   Globo-Core-Router(config-flow-monitor)#record Globo_Flow_Record
+   Globo-Core-Router(config-flow-monitor)#exporter Globo_NetFlow Collector
+   Globo-Core-Router(config-flow-monitor)#cache timeout active 60
+   Globo-Core-Router(config-flow-monitor)#cache timeout inactive 15
+   G1obo-Core-Router(config-flow-monitor)#exit
+   Globo-Core-Router(config)#int gi3
+   Globo-Core-Router(config-if)#ip flow monitor GloboFlow input
+   Globo-Core-Router(config-if)#exit

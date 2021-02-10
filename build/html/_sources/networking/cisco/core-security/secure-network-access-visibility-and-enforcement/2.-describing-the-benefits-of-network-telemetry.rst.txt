@@ -1,0 +1,209 @@
+2. Describing the Benefits of Network Telemetry
+===============================================
+
+Introduction to Network Telemetry
+---------------------------------
+
+Network Telemetry
+~~~~~~~~~~~~~~~~~
+
+The technologies that are used in order to collection information from
+devices and then consume that information.
+
+**Model-Based Telemetry**
+
+Network telemetry that uses some sort of data model to share the
+information.
+
+**What’s the benefit?**
+
+-  Less resource intensive
+-  Gather as much information for analysis
+-  Used for SLAs and compliance
+-  Determine how to shape traffic
+-  Root cause analysis
+-  Accurate prediction models
+
+**Network Telemetry Compoents**
+
+-  Data source and object
+-  Data generation and processing
+-  Encoding and exporting
+-  Storage, analysis and querying
+-  Data configuration and subscription
+
+Information That Makes up Network Telemetry
+-------------------------------------------
+
+Management Plane Protocols
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Traditional protocols not sufficient
+
+   -  SNMP too infrequent & small scope
+   -  Syslog not standardized
+
+-  NETCONF/RESTCONF using YANG
+-  gNMI
+
+Control Plane Protocols
+~~~~~~~~~~~~~~~~~~~~~~~
+
+BGP Monitoring Protocol (BMP)
+
+Data Plane Protocols
+~~~~~~~~~~~~~~~~~~~~
+
+-  NetFlow
+-  Advanced Visibility and Control (AVC)
+
+Intro to Data Models and YANG
+-----------------------------
+
+Data Model
+~~~~~~~~~~
+
+The explicit instructions of the structure, syntax or semantics of the
+data. Other systems will use the model in order to properly access the
+data.
+
+Attributes of a Good Data Model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Accurate
+-  Clear
+-  Efficient
+-  Simple
+-  Limited in scope
+
+YANG
+~~~~
+
+-  Is made up of different modules that are used for a specific purpose
+-  Multiple YANG modules make up a YANG Model
+-  YANG is used to agree on how to interact with the data
+
+**Example Cisco Switch YANG Model**
+
+-  802.1X Module
+-  AAA Module
+-  ACL Module
+
+.. code:: text
+
+   container timeout {
+     description
+       "Various Timeouts";
+     leaf auth-period {
+       description
+         "Timeout for authenticator reply";
+       type uint16;
+
+     leaf tx-period {
+       description
+         "Timeout for supplicant retries";
+       type uint16;
+     }
+   }
+
+   container password {
+     description
+       "Set the authentication password";
+       leaf secret {
+         type string;
+     }
+   }
+
+-  Container to define dot1x timeouts
+-  Descriptions can be used to aid in understanding Leafs represent
+   attributes that CAN be configured
+-  Type specifies the data value that is expected. In this case it is an
+   integer
+-  tx-period leaf is used to define the timeout period for the
+   supplicant
+-  Expecting an integer “dotlx timeout tx-period 10”
+-  Separate container to define passwords secret leaf is used to define
+   the password
+-  expecting a string data type as the value
+
+Intro to NETCONF, RESTCONF, and gRPC
+------------------------------------
+
+NETCONF
+~~~~~~~
+
+-  NETCONF uses SSH protocol, usually port 830
+-  NETCONF uses XML to encode the data
+
+**Example XML sent to device**
+
+.. code:: text
+
+   <rpc message-id ="2">
+     <edit-config>
+       <target>
+           <running/>
+       </target>
+       <config>
+         <timeouts xmlms="dotix YANG module location">
+           <tx-period>10</tx-period>
+         </timeouts>
+       </config>
+     </edit-config>
+   </rpc>
+
+**Example device reply**
+
+.. code:: text
+
+   <rpc-reply message-id ="2">
+     </ok>
+   </rpc-reply>
+
+RESTCONF
+~~~~~~~~
+
+RESTCONF uses REST principles and HTTP methods: GET, PUT, POST, PATCH &
+DELETE
+
+**Example XML sent to device**
+
+.. code:: text
+
+   HTTP PUT restconf/api/running/dot1x
+   "data": {
+     "timeouts": [
+       {
+         "tx-period": "10"
+       }
+     ]
+   }
+
+**Example device reply**
+
+.. code:: text
+
+   HTTP 201 CREATED
+
+gRPC and gNMI
+~~~~~~~~~~~~~
+
+-  gNMI is a subset of Google’s gRPC to transfer YANG modeled data.
+-  Can use JSON or protobuf to encode the data
+
+Dial-In vs Dial-Out
+~~~~~~~~~~~~~~~~~~~
+
+-  Doesn’t describe how the subscription information flows
+
+**Dial-Out**
+
+-  Network device would initiate session with management server
+-  Statically configured to connect to each server
+-  Network device would reestablish connection if it was lost
+
+**Dial-In**
+
+-  Management server initiates session with network device
+-  Method is dynamic for the networking device, no config needed
+-  Management server would be responsible for reestablishing connection

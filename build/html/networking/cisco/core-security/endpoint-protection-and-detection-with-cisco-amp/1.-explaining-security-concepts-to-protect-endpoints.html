@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. Explaining Security Concepts to Protect Endpoints &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="2. Assessing Endpoint Posture and Managing Device Inventory" href="2.-assessing-endpoint-posture-and-managing-device-inventory.html" />
+    <link rel="prev" title="Endpoint Protection and Detection with Cisco AMP" href="index.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Endpoint Protection and Detection with Cisco AMP</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">1. Explaining Security Concepts to Protect Endpoints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-assessing-endpoint-posture-and-managing-device-inventory.html">2. Assessing Endpoint Posture and Managing Device Inventory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3.-using-multi-factor-authentication.html">3. Using Multi-Factor Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4.-configuring-malware-protection-and-outbreak-controls.html">4. Configuring Malware Protection and Outbreak Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Endpoint Protection and Detection with Cisco AMP</a> &raquo;</li>
+        
+      <li>1. Explaining Security Concepts to Protect Endpoints</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/1.-explaining-security-concepts-to-protect-endpoints.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="explaining-security-concepts-to-protect-endpoints">
+<h1>1. Explaining Security Concepts to Protect Endpoints<a class="headerlink" href="#explaining-security-concepts-to-protect-endpoints" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="antivirus-dynamic-file-analysis">
+<h2>Antivirus &amp; Dynamic File Analysis<a class="headerlink" href="#antivirus-dynamic-file-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="why-endpoints-need-protected">
+<h3>Why Endpoints Need Protected<a class="headerlink" href="#why-endpoints-need-protected" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Defense in-depth</p></li>
+<li><p>Endpoints contain sensitive information</p>
+<ul>
+<li><p>They now leave the protected network infrastructure</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="computer-viruses">
+<h3>Computer Viruses<a class="headerlink" href="#computer-viruses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Attach themselves to otherwise benign files or programs</p></li>
+<li><p>Lay dormant until file or program is executed</p></li>
+</ul>
+</div>
+<div class="section" id="antivirus">
+<h3>Antivirus<a class="headerlink" href="#antivirus" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Create signatures to identify viruses</p>
+<ul>
+<li><p>Analyzed known viruses</p></li>
+<li><p>Without a signature, antivirus won’t detect a virus</p></li>
+</ul>
+</li>
+<li><p>Malicious actors slightly change the virus so a new signature needs
+to be created</p></li>
+<li><p>Required scanning of the endpoint</p></li>
+</ul>
+</div>
+<div class="section" id="heuristics">
+<h3>Heuristics<a class="headerlink" href="#heuristics" title="Permalink to this headline">¶</a></h3>
+<p>Looks at the behavior of the software rather than a predefined
+signature.</p>
+</div>
+<div class="section" id="machine-learning">
+<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h3>
+<p>Dynamically creates algorithms and finds patterns based on large sets of
+both malicious files and benign files.</p>
+</div>
+</div>
+<div class="section" id="cisco-amp-for-endpoints-overview">
+<h2>Cisco AMP for Endpoints Overview<a class="headerlink" href="#cisco-amp-for-endpoints-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cisco-amp-cloud">
+<h3>Cisco AMP Cloud<a class="headerlink" href="#cisco-amp-cloud" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Heavy lifting is done in the cloud and not on the endpoint</p></li>
+<li><p>Quickly integrate to other security products</p></li>
+<li><p>Connectors communicate to the Cisco AMP cloud</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-amps-engines">
+<h3>Cisco AMP’s Engines<a class="headerlink" href="#cisco-amps-engines" title="Permalink to this headline">¶</a></h3>
+<p>Uses a file’s SHA-256 hash to quickly determine if it has been seen and
+if it is malicious</p>
+<div class="section" id="ethos">
+<h4>Ethos<a class="headerlink" href="#ethos" title="Permalink to this headline">¶</a></h4>
+<p>Looks at the different artifacts of the file, rather than the entire
+file itself</p>
+</div>
+<div class="section" id="spero">
+<h4>Spero<a class="headerlink" href="#spero" title="Permalink to this headline">¶</a></h4>
+<p>Uses machine learning in order to find patterns to determine malicious
+files from benign files</p>
+</div>
+<div class="section" id="tetra">
+<h4>TETRA<a class="headerlink" href="#tetra" title="Permalink to this headline">¶</a></h4>
+<p>Provides antimalware capabilities when the device is not connected to
+the cloud</p>
+</div>
+</div>
+<div class="section" id="additional-cisco-amp-benefits">
+<h3>Additional Cisco AMP Benefits<a class="headerlink" href="#additional-cisco-amp-benefits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Evaluate indicators of compromise (IOCs)</p>
+<ul>
+<li><p>Anomalies that could mean a compromise</p></li>
+</ul>
+</li>
+<li><p>AMP can protect endpoints in real time</p></li>
+<li><p>Dynamic analysis</p>
+<ul>
+<li><p>Execute that file in a sandbox</p></li>
+</ul>
+</li>
+<li><p>Exploit prevention</p>
+<ul>
+<li><p>AMP moves the location RAM that the program is running</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cisco-amp-flow">
+<h3>Cisco AMP Flow<a class="headerlink" href="#cisco-amp-flow" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Hash of file is used to determine if it has been seen</p></li>
+<li><p>If it has been seen, previous verdict is used</p></li>
+<li><p>AMPs engines, IOCs, &amp; dynamic analysis are used</p></li>
+<li><p>AMP will update the rest of the security suite of the new threat</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="retrospective-security">
+<h2>Retrospective Security<a class="headerlink" href="#retrospective-security" title="Permalink to this headline">¶</a></h2>
+<p>Go back in time and see which endpoints the malicious file has touched.</p>
+<div class="section" id="device-trajectory">
+<h3>Device Trajectory<a class="headerlink" href="#device-trajectory" title="Permalink to this headline">¶</a></h3>
+<p>Determine every interaction between the malicious file and other files
+on the endpoint.</p>
+<p>AMP can dynamically create rules based on the events that occurred.</p>
+</div>
+</div>
+<div class="section" id="endpoint-protection-platform-endpoint-detection-and-response">
+<h2>Endpoint Protection Platform &amp; Endpoint Detection and Response<a class="headerlink" href="#endpoint-protection-platform-endpoint-detection-and-response" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="epp-vs-edr">
+<h3>EPP vs EDR<a class="headerlink" href="#epp-vs-edr" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Endpoint Protection Platform</p></th>
+<th class="head"><p>Endpoint Detection &amp; Response</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Known threats are not allowed</p></td>
+<td><p>Retroactively find malware</p></td>
+</tr>
+<tr class="row-odd"><td><p>Machine learning &amp; big data</p></td>
+<td><p>Contain the malicious files</p></td>
+</tr>
+<tr class="row-even"><td><p>Sandbox capability</p></td>
+<td><p>Investigate the malicious files</p></td>
+</tr>
+<tr class="row-odd"><td><p>Threat Intelligence</p></td>
+<td><p>Eliminate the threat</p></td>
+</tr>
+</tbody>
+</table>
+<p>Cisco AMP provides both EPP and EDR capabilities</p>
+</div>
+</div>
+<div class="section" id="justifying-endpoint-patching">
+<h2>Justifying Endpoint Patching<a class="headerlink" href="#justifying-endpoint-patching" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="keeping-endpoints-up-to-date">
+<h3>Keeping Endpoints up to Date<a class="headerlink" href="#keeping-endpoints-up-to-date" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Exploit vulnerabilities in system code or software code</p></li>
+<li><p>Flaw allowed malicious actors to spoof digital certificate</p></li>
+<li><p>Microsoft released a patch that fixed the flaw</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="2.-assessing-endpoint-posture-and-managing-device-inventory.html" class="btn btn-neutral float-right" title="2. Assessing Endpoint Posture and Managing Device Inventory" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Endpoint Protection and Detection with Cisco AMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

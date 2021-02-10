@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Configuring FlexVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="5. Configuring Cisco AnyConnect on the ASA" href="5.-configuring-cisco-anyconnect-on-the-asa.html" />
+    <link rel="prev" title="3. Configuring DMVPN" href="3.-configuring-dmvpn.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Describing and Configuring VPNs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="1.-comparing-cryptography-components.html">1. Comparing Cryptography Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2.-comparing-cisco-vpn-types.html">2. Comparing Cisco VPN Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3.-configuring-dmvpn.html">3. Configuring DMVPN</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4. Configuring FlexVPN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5.-configuring-cisco-anyconnect-on-the-asa.html">5. Configuring Cisco AnyConnect on the ASA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6.-configuring-cisco-anyconnect-on-the-ftd.html">6. Configuring Cisco AnyConnect on the FTD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Describing and Configuring VPNs</a> &raquo;</li>
+        
+      <li>4. Configuring FlexVPN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/describing-and-configuring-vpns/4.-configuring-flexvpn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-flexvpn">
+<h1>4. Configuring FlexVPN<a class="headerlink" href="#configuring-flexvpn" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ikev2-authorization-policies">
+<h2>IKEv2 Authorization Policies<a class="headerlink" href="#ikev2-authorization-policies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Configurations sent during VPN setup</p></li>
+<li><p>FlexVPN can take full advantage of Authorization Policies</p></li>
+<li><p>IP Addresses</p></li>
+<li><p>Server Settings</p></li>
+<li><p>Static Routes</p></li>
+</ul>
+<p><strong>We’re going to:</strong></p>
+<ul class="simple">
+<li><p>Enable AAA</p></li>
+<li><p>Create an Authorization List</p></li>
+<li><p>Create an IPv6 ACL allowing IPs we want to include in peer’s routing
+table</p></li>
+<li><p>Reference the ACL in an Authorization Policy</p></li>
+<li><p>Reference both the Authorization List and Authorization Policy in the
+IKEv2 Profile</p></li>
+</ul>
+<p><strong>Hub Config</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ(config)#aaa new-model
+Globomantics-HQ(config)#aaa authorization network FlexAuthList local
+Globomantics-HQ(config)#ipv6 access-list Flex-IPs-Out
+Globomantics-HQ(config-ipv6-acl)#permit ipv6 fd00::/8 any
+Globomantics-HQ(config-ipv6-acl)#exit
+Globomantics-HQ(config)#crypto ikev2 authorization policy FlexAuthPolicy
+Globomantics-HQ(config-ikev2-author-policy)#route set access-list ipv6 Flex-IPs-Out
+Globomantics-HQ(config-ikev2-author-policy)#route set interface
+Globomantics-HQCconfig-ikev2-author-policy)#exit
+Globomantics-HQ(config)#crypto ikev2 profile FlexIKEv2Profile
+Globomantics-HQCconfig-ikev2-profile)#aaa authorization group cert list FlexAuthList FlexAuthPolicy
+</pre></div>
+</div>
+<p><strong>Spoke Config</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-0MA(config)#aaa authorization network FlexAuthList local
+Globomantics-OMA(config)#ipv6 access-list Flex-IPs-Out
+Globomantics-0MA(config-ipv6-acl)#permit ipv6 fd00:2::/64 any
+Globomantics-0MACconfig-ipv6-acl)#exit
+Globomantics-0MA(config)#crypto ikev2 auth policy FlexAuthPolicy
+Globomantics-0MA(config-ikev2-author-policy)#Sccess-list ipv6 Flex-IPs-Out
+Globomantics-0MA(config-ikev2-author-policy)#exit
+Globomantics-0MA(config)#crypto ikev2 profile FlexIKEv2Profile
+Globomantics-0MA(config-ikev2-profile)#faaa authorization group cert list FlexAuthList FlexAuthPolicy
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-dynamic-vti">
+<h2>Creating a Dynamic VTI<a class="headerlink" href="#creating-a-dynamic-vti" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dynamic-vtis">
+<h3>Dynamic VTIs<a class="headerlink" href="#dynamic-vtis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allow VPN interfaces to be automatically created</p>
+<ul>
+<li><p>Reduces administrative overhead</p></li>
+</ul>
+</li>
+<li><p>Virtual template</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#conf t
+Globomantics-HQ(config)#interface virtual-template 6 type tunnel
+Globomantics-HQ(config-if)#ipv6 unnumbered loopback
+Globomantics-HQ(config-if)#tunnel source 1000:1::1
+Globomantics-HQ(config-if)#tunnel mode ipsec ipv6
+Globomantics-HQ(config-if)#tunnel protection ipsec profile FlexIPsecProfile
+Globomantics-HQ(config-if)#
+Globomantics-HQ(config-if)#exit
+Globomantics-HQ(config)#crypto ikev2 profile FlexIKEv2Profile
+Globomantics-HQ(config-ikev2-profile)#virtual-template 6
+Globomantics-HQ(config-ikev2-profile)#exit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="enrolling-in-globomantics-pki">
+<h2>Enrolling in Globomantics’ PKI<a class="headerlink" href="#enrolling-in-globomantics-pki" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Still need to configure authentication</p></li>
+<li><p>Digital certificates are more secure</p></li>
+<li><p>Easier to scale</p></li>
+<li><p>Use RSA signatures as authentication</p></li>
+<li><p>Match on the issuer of the certificates</p></li>
+</ul>
+<p><strong>We’re going to:</strong></p>
+<ul class="simple">
+<li><p>Configure NTP</p></li>
+<li><p>Generate RSA keys</p></li>
+<li><p>Create PKI trustpoint pointing to Globomantics’ CA server</p></li>
+<li><p>Install CA cert</p></li>
+<li><p>Generate CSR and install our own cert</p></li>
+<li><p>Reference our cert in our IKEv2 profile by using a certificate map</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#conf t
+Globomantics-HQ(Config)#ntp server 8.8.8.8
+Globomantics-HQ(config)#clocl timezone est -5
+Globomantics-HQ(config)# Globomantics-HQ(config)#
+Globomantics-HQ(config)#$generate rsa modulus 2048 label HQ-RSA-Keys
+Globomantics-HQ(config)#crypto pki trustpoint Globo-CA
+Globomantics-HQ(ca-trustpoint)#enrollment terminal
+Globomantics-HQ(ca-trustpoint)#fqdn hq.globomantics.com
+Globomantics-HQ(ca-trustpoint)t#subject-name cn=hq.globomantiCs.com
+Globomantics-HQ(ca-trustpoint)#revocation-check none
+Globomantics-HQ(ca-trustpoint)#rsakeypair HA-RSA-Keys
+Globomantics-HQ(ca-trustpoint)#exit
+Globomantics-HQ(config)#crypto pki authenticate Globo-CA
+Globomantics-HQ(config)#crypto pki enroll Globo-CA
+</pre></div>
+</div>
+<p><img alt="image1" src="../../../../_images/configuring-flexvpn-1.png" /></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-H0(confia)#crypto pki import Globo-CA certificate
+Globomantics-HQ(config)#do show crypto pki certificates
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-digital-certificates-for-authentication">
+<h2>Using Digital Certificates for Authentication<a class="headerlink" href="#using-digital-certificates-for-authentication" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ(config)#crypto pki certificate map FlexCerts 1
+Globomantics-HQ(ca-certificate-map)#issuer-name co globomantics
+Globomantics-HQ(ca-certificate-map)#exit
+Globomantics-HQ(config)#crypto ikev2 profile FlexIKEv2Profile
+Globomantics-HQ(ca-certificate-Map)#issuer-name co globomantics
+Globomantics-HQ(ca-certificate-map)#exit
+Globomantics-HQ(config)#crypto ikev2 profile FlexIKEv2Profile
+Globomantics-HQ(config-ikev2-profile)#identity local dn Globomantics-HQ(config-ikevZ-profile)#match certificate FlexCerts
+Globomantics-HQ(config-ikev2-profile)#authentication remote rsa-sig
+Globomantics-HQCconfig-ikev2-profile)#authen local rsa-sig
+Globomantics-HQ(config-ikev2-profile)#pki trustpoint Globo-CA
+Globomantics-HQ(config-ikev2-profile)#lifetime 86400
+Globomantics-HQ(Config-ikev2-profile)#exit
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-flexvpn-client">
+<h2>Configuring a FlexVPN Client<a class="headerlink" href="#configuring-a-flexvpn-client" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="flexvpn-clients">
+<h3>FlexVPN Clients<a class="headerlink" href="#flexvpn-clients" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Previously configured static tunnels</p></li>
+<li><p>Configure spokes to act as FlexVPN client</p>
+<ul>
+<li><p>Connect to multiple peers</p></li>
+<li><p>Use SLA tracking objects</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-OMA(config)#crypto ikev2 client flexvpn GloboFlex
+Globomantics-0MA(config-ikev2-flexvpn)#peer 1 1000:1::1
+Globomantics-OMA(config-ikev2-flexvpn)#peer 2 1111:1::1
+Globomantics-0MA(config-ikev2-flexvpn)#connect auto
+Globomantics-OMA(config-ikev2-flexvpn)#client inside loop2
+Globomantics-OMA(config-ikevZ-flexvpn)#client connect tunnel 6
+Globomantics-OMA(config)#int tun 6
+Globomantics-0MA(config-if)#ipv6 unnumbered lo6
+Globomantics-OMA(config-if)#tunnel source 2000:2::2
+Globomantics-OMA(config-if)#tunnel mode ipsec ipv6
+Globomantics-QMA(config-if)#tunnel protection ipsec profile FlexIPsecProfile
+Globomantics-OMA(config-if)#tunnel destination dynamic
+Globomantics-0MA(config-if)#
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="5.-configuring-cisco-anyconnect-on-the-asa.html" class="btn btn-neutral float-right" title="5. Configuring Cisco AnyConnect on the ASA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="3.-configuring-dmvpn.html" class="btn btn-neutral float-left" title="3. Configuring DMVPN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

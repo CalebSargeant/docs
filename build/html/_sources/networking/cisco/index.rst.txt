@@ -5,6 +5,7 @@ Cisco
   :maxdepth: 2
   :glob:
 
+  core-security/index
   routing/index
   switching/index
   ngfw-ngips/index

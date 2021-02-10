@@ -1,0 +1,319 @@
+3. Configuring DMVPN
+====================
+
+Configuring DMVPN on the Hub Router
+-----------------------------------
+
+-  Configure interface tunnel 100 on HQ router
+-  Configure spokes
+
+.. code:: text
+
+   Globomantics-HQ(config)#int tun 100
+   Globomantics-HQCconfig-if)#ip address 192.168.100.1 255.255.255.0
+   Globomantics-HQ(config-if)#tunnel mode gre multipoint
+   Globomantics-HQ(Config-if)#tunnel source ethernet 0/1
+   Globomantics-HQ(config-if)#ip mtu 1400
+   Globomantics-HQ(config-if)#ip tcp adjust-mss 1360
+   Globomantics-HQ(config-if)#ip nhrp network-id 100
+   Globomantics-HQ(config-if)#ip nhrp authentication Globo123
+   Globomantics-HQ(config-if)#ip nhrp map multicast dynamic
+   Globomantics-HQconfig-if)#ip nhrp shortcut
+   Globomantics-HQ(config-if)#ip nhrp redirect
+   Globomantics-HQ(config-if)#tunnel key 7178
+
+Configuring DMVPN on the Spoke Routers
+--------------------------------------
+
+.. code:: text
+
+   Globmantics-0MA(config)#int tun 100
+   Globmantics-0MA(config-if)#ip add 192.168.100.2 255.255.255.0
+   Globmantics-OMA(config-if)#tunnel mode gre multipoint
+   Globmantics-0MA(config-if)#tunnel source ethernet 0/1
+   Globmantics-OMA(config-if)#ip mtu 1400
+   Globmantics-OMA(config-if)#ip tcp adjust-mss 1360
+   Globmantics-OMA(config-if)#tunnel key 7178
+   Globmantics-OMA(config-if)#ip nhrp network-id 100
+   Globmantics-0MA(config-if)#ip nhrp authentication Globo123
+   Globmantics-OMA(config-if)#ip nhrp shortcut
+   Globmantics-OMACconfig-if)#ip nhrp nhs 192.168.100.1
+   Globmantics-OMA(config-if)#ip nhrp map 192.168.100.1 1.1.1.1
+   Globmantics-OMA(config-if)#ip nhrp map multicast 1.1.1.1
+
+Configuring Dynamic Routing
+---------------------------
+
+-  Look at NHRP & DMVPN statistics
+
+.. code:: text
+
+   Globmantics-OMA#show in nhrp
+   192.168.100.1/32 via 192.168.100.1
+     Tunnel100 created 00:08:44, never expire
+     Type: static. Flags: used
+     NBMA address: 1.1.1.1
+   Globmantics-OMA#show dmvpn
+   Legend: Attrb --> S Static, D Dynamic, I - Incomplete
+           NATed, L Local, X No Socket
+           # Ent --> Number of NHRP entries with same NBMA peer
+           NHS Status: E --> Expecting Replies, R --> Responding, W --> Waiting UpDn Time --> Up or Down Time for a Tunnel
+
+   Interface: Tunnel100, IPv4 NHRP Details
+   Type:Spoke, NHRP Peers:1,
+
+     # Ent Peer NBMA Addr Peer Tunnel Add State UpDn Tm Attrb
+
+     1 1.1.1.1 192.168.100.1 UP 00:09:05 S
+
+-  Configure EIGRP 100
+
+.. code:: text
+
+   Gtobomantics-HQ#conf t
+   Enter configuration commands, one per line. End with CNTL/Z.
+   Globomantics-HQ(config)#router eigrp 100
+   Globomantics-HQ(config-router)#no auto-summary
+   Globomantics-HQ(config-router)#network 192.168.100.0
+   Globomantics-HQ(config-router)#network 172.18.1.0
+   Globomantics-HQ(config-router)#int tun 100
+   Globomantics-HQ(config-if)#no ip next-hop-self eigrp 100
+   Globomantics-HQ(config-if)#no ip split-horizon eigrp 100
+
+Verifying DMVPN
+---------------
+
+.. code:: text
+
+   Globmantics-OMA#traceroute 172.18.3.1 source lo1
+   Type escape sequence to abort.
+   Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
+   1 192.168.100.1 2 msec 1 msec 1 msec
+   2 192.168.100.3 6 msec 2 msec 2 msec
+
+   Globmantics-OMA#show ip nhrp
+   172.18.2.0/24 via 192.168.100.2
+     Tunnel100 created 00:05:11, expire 01.54:48
+     Type: dynamic, Flags: router unique local
+     NBMA address: 2.2.2.2
+       (no-socket)
+   172.18.3.0/24 via 192.168.100.3
+     Tunnel100 created 00:05:11, expire 01:54:48
+     Type: dynamic, Flags: router rib nho
+     NBMA address: 3.3.3.3
+   192.168.100.1/32 via 192.168.100.1
+     Tunnel100 created 00:22:08, never expire
+     Type: static, Flags: used
+     NBMA address: 1.1.1.1
+   192.168.100.3/32 via 192.168.100.3
+     Tunnel100 created 00:05:11, expire 01:54:48
+     Type: dynamic, Flags: router nhop rib
+     NBMA address: 3.3.3.3
+
+   Globmantics-OMA#show dmvpn
+   Legend: Attrb --> S Static, Dynamic, - Incomplete
+           N NATed, L - Local, X No Socket
+           # Ent --> Number of NHRP entries with same NBMA peer NHS Status: E --> Expecting Replies, R --> Responding, W --> Waiting UpDn Time --> Up or Down Time for a Tunnel
+
+   Interface: Tunnel100, IPv4 NHRP Details
+   Type:Spoke, NHRP Peers:2,
+
+   # Ent Peer NBMA Addr Peer Tunnel Add State UpDn Tm Attrb
+
+     2 3.3.3.3 192.168.100.3 UP 00:05:27 DT2
+     192.168.100.3 UP 00:05:27 DT1
+     1 1.1.1.1 192.168.100.1 UP 00:22:07
+
+   Globmantics-OMA#traceroute 172.18.3.1 source lo1
+   Type escape sequence to abort.
+   Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
+   1 192.168.100.3 2 msec 5 msec 1 msec
+
+IPsec Config Intro and Smart Defaults
+-------------------------------------
+
+Configuring IKEv2 on Cisco IOS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Configure IKE_SA Tunnel
+
+   -  Configure Keyring
+   -  Configure IKEv2 Proposal
+   -  Configure IKEv2 Profile
+   -  Configure IKEv2 Policy
+
+-  Configure Child_SA Tunnel
+
+   -  Configure Transform Set
+   -  Configure IPsec Profile
+
+**Headquarters Key Ring**
+
+.. code:: text
+
+   Peer Omaha-Router
+   Address 2.2.2.2
+   Identity FQDN oma.globomantics.com
+   Pre-shared-key local GloboHQ
+   Pre-shared-key remote GloboOMA
+
+   Peer Portland-Router
+   Address 3.3.3.3
+   Identity FQDN pdx.globomantics.com
+   Pre-shared-key local GloboHQ
+   Pre-shared-key remote GloboPDX
+
+   Peer San_Antonio-Router
+   Address 4.4.4.4
+   Identity fqdn sat.globomantics.com Pre-shared-key local GloboHQ
+   Pre-shared-key remote GloboSAT
+
+-  Look at IKEv2 smart defaults
+-  Configure HQ IKEv2 keyring, proposal, profile, policy, transform-set
+   and IPsec profile
+-  Apply IPsec profile to the tunnel interface
+-  Configure the rest of the routers with IPsec
+
+Securing DMVPN with IPsec
+-------------------------
+
+**HQ Router config**
+
+.. code:: text
+
+   Globomantics-Main#conf t
+   Globomantics-Main(config)#crypto ikev2 keyring DMVPN-Keys
+   Globomantics-Main(config-ikev2-keyring)#peer Omaha-Router
+   Globomantics-Main(config-ikevZ-keyring-peer)#address 2.2.2.2
+   Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn oma.globomantics.com
+   Globomantics-Main(config-ikev2-keyring-peer)#pre-shared-key local GLoboHQ
+   Globomantics-Main(config-ikev2-keyring-peer)#pre-shared remote GLoboOMA
+   Globomantics-Main(config-ikev2-keyring-peer)#exit
+   Globomantics-Main(config-ikev2-keyring)#peer Portland-Router
+   GlObomanticS-Main(config-ikevZ-keyring-peer)#address 3.3.3.3
+   Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn pdx.globomantics.com
+   Globomantics-Main(config-ikev2-keyring-peer)#pre local GLoboHQ
+   Globomantics-Main(config-ikev2-keyring-peer)#pre remote GloboPDX
+   Globomantics-Main(config-ikev2-keyring-peer)#exit
+   Globomantics-Main(config-ikev2-keyring)#peer San_Antonio-Router
+   Globomantics-Main(config-ikev2-keyring-peer)#address 4.4.4.4
+   Globomantics-Main(config-ikev2-keyring-peer)#identity fqdn sat.globomantics.com
+   Globomantics-Main(config-ikev2-keyring-peer)#pre loc GLoboHQ
+   Globomantics-Main(config-ikev2-keyring-peer)#pre rem GLoboSAT
+   Globomantics-Main(config-ikev2-keyring-peer)#exit
+   Globomantics-Main(config-ikev2-keyring)#exit
+   Globomantics-Main(config)#crypto ikev2 profile DMVPN-Prof
+   Globomantics-Main(Config-ikev2-profile)#match identity remote fqdn fqdn domain globomantics.com
+   Globomantics-Main(config-ikev2-profile)#identity local hq.globomantics.com
+   Globomantics-Main(config-ikev2-profile)#identity local fqdn ha.globomantics.com
+   Globomantics-Main(config-ikevz-profile)#authentication 1ocal pre-share
+   Globomantics-Main(config-ikev2-profile)#authe remote pre
+   Globomantics-Main(config-ikev2-profile)#keyring local DMVPN-Keys
+   Globomantics-Main(config-ikev2-profile)#lifetime 86400
+   Globomantics-Main(config-ikev2-profile)#exit
+   Globomantics-Main(config)#crypto ikev2 proposal DMVPN-Prop
+   Globomantics-Main(config-ikevz-proposal)#encryption aes-gcm-256
+   GlobomantiCs-Main(config-ikev2-proposal)#prf sha256
+   Globomantics-Main(config-ikev2-proposal)#group 15
+   Globomantics-Main(config-ikev2-proposal)#exit
+   Globomantics-Main(config)#crypto ikev2 policy DMVPN-Pol
+   Globomantics-Main(config-ikev2-policy)#proposal DMVPN-Prop
+   Globomantics-Main(config-ikev2-policy)#exit
+   Globomantics-Main(config)#crypto ipsec transform-set DMVPN-Set esp-aes 256 esp-sha256-hmac
+   Globomantics-Main(cfg-crypto-trans)#mode tunnel
+   Globomantics-Main(cfg-crypto-trans)#exit
+   Globomantics-Main(cfg-crypto-trans)#mode tunnel
+   Globomantics-Main(cfg-crypto-trans)#exit
+   Globomantics-Main(config)#crypto ipsec profile DMVPN-IPsec
+   Globomantics-Main(ipsec-profile)#set transform-set DMVPN-Set
+   Globomantics-Main(ipsec-profile)#set ikev2-profile DMVPN-Prof
+   Globomantics-Main(ipsec-profile)# Globomantics-Main(ipsec-profile)#set ikev2-profile DMVPN-Prof2
+   Globomantics-Main(ipsec-profile)#exit Globomantics-Main(config)#int tun 100
+   Globomantics-Main(config-if)#tunnel protection ipsec profile DMVPN-IPsec
+
+**Configure the keyring**
+
+.. code:: text
+
+   crypto ikev2 keyring DMVPN-Keys
+   Peer HO-Router
+   Address 1.1.1.1
+   Identity FQDN hq.globomantics.com
+   Pre-shared-key local GloboOMA
+   Pre-shared-key remote GloboHQ
+   Exit
+   Peer Portland-Router
+   Address 3.3.3.3
+   Identity FQDN pdx.globomantics.com
+   Pre-shared-key local GloboOMA
+   Pre-shared-key remote GloboPDX
+   Exit
+   Peer San_Antonio-Router
+   Address 4.4.4.4
+   Identity fadn sat.globomantics.com
+   Pre-shared-key local GloboOMA
+   Pre-shared-key remote GloboSAT
+   Exit
+   Exit
+
+**Create IKEv2 Profile**
+
+.. code:: text
+
+   crypto ikev2 profile DMVPN-Prof
+   match identity remote fqdn domain globomantics.com
+   identity local fqdn oma.globomantics.com
+   authentication local pre-share
+   authentication remote pre-share
+   keyring local DMVPN-Keys
+   lifetime 86400
+   exit
+
+**Create IKEv2 Proposal**
+
+.. code:: text
+
+   crypto ikev2 proposal DMVPN-Prop
+   encryption aes-gcm-256
+   group 15
+   prf sha256
+
+**Create IKEv2 Policy**
+
+.. code:: text
+
+   crypto ikev2 policy DMVPN-Pol
+   proposal DMVPN-Prop
+
+**Create Transform-set**
+
+.. code:: text
+
+   crypto ipsec transform-set DMVPN-Set esp-aes 256 esp-sha256-hmac
+   mode tunnel
+
+**Create IPSec Profile**
+
+.. code:: text
+
+   crypto ipsec profile DMVPN-IPsec
+   set transform-set DMVPN-Set
+   set ikev2-profile DMVPN-Prof
+
+**Apply to interface**
+
+.. code:: text
+
+   int tun 100
+   tunnel protection ipsec profile DMVPN-IPsec
+
+Verifying and Troubleshooting IPsec
+-----------------------------------
+
+.. code:: text
+
+   Globomantics-HQ#show crypto ikev2 sa
+   Globomantics-HQ#show crypto ikev2 sa detail
+   Globomantics-HQ#show crypto ipsec sa
+   GLobomantics-HQ#show crypto engine connections active
+   Globomantics-HQ#debug crypto ikev2

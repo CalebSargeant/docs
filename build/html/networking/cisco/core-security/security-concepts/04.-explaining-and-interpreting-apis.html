@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. Explaining and Interpreting APIs &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Network Security Fundamentals" href="../network-security-fundamentals/index.html" />
+    <link rel="prev" title="3. Describing Security Intelligence" href="03.-describing-security-intelligence.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Security Concepts</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-common-vulnerabilities.html">1. Comparing Common Vulnerabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02.-explaining-common-threats-and-protecting-humans-from-attacks.html">2. Explaining Common Threats &amp; Protecting Humans from Attacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-describing-security-intelligence.html">3. Describing Security Intelligence</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4. Explaining and Interpreting APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Security Concepts</a> &raquo;</li>
+        
+      <li>4. Explaining and Interpreting APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/security-concepts/04.-explaining-and-interpreting-apis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="explaining-and-interpreting-apis">
+<h1>4. Explaining and Interpreting APIs<a class="headerlink" href="#explaining-and-interpreting-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="http-basics-apis">
+<h2>HTTP Basics &amp; APIs<a class="headerlink" href="#http-basics-apis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="http-communication">
+<h3>HTTP Communication<a class="headerlink" href="#http-communication" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>HTTP GET (show data)</p></li>
+<li><p>HTTP POST (create data)</p></li>
+<li><p>HTTP PUT (modify data)</p></li>
+<li><p>HTTP Delete (delete data)</p></li>
+</ul>
+<p><strong>Contents of HTTP:</strong></p>
+<ul class="simple">
+<li><p>Headers contain metadata</p>
+<ul>
+<li><p>Authentication</p></li>
+<li><p>Payload formatting</p></li>
+</ul>
+</li>
+<li><p>Body</p>
+<ul>
+<li><p>XML</p></li>
+<li><p>JSON</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="http-codes">
+<h3>HTTP Codes<a class="headerlink" href="#http-codes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>100 Informational</p></li>
+<li><p>200 Success</p></li>
+<li><p>300 Redirection</p></li>
+<li><p>400 Client Error</p></li>
+<li><p>500 Server Error</p></li>
+</ul>
+</div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>Application Programming Interface (Set of specific operations that are
+built for the standardized management of a system)</p>
+<p><strong>RESTful API:</strong></p>
+<ul class="simple">
+<li><p>Architectual Style</p></li>
+<li><p>Stateless</p></li>
+<li><p>Works nicely with HTTP</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="northbound-and-southbound-apis">
+<h2>Northbound and Southbound APIs<a class="headerlink" href="#northbound-and-southbound-apis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="software-defined-networking">
+<h3>Software Defined Networking<a class="headerlink" href="#software-defined-networking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Network controlled by applications</p></li>
+<li><p>Automatic provisioning and optimizing</p></li>
+</ul>
+<p><strong>Three types of devices:</strong></p>
+<ul class="simple">
+<li><p>Controller (talk with other devices (south) &amp; applications (north))</p></li>
+<li><p>Devices (south-bound communication)</p></li>
+<li><p>Application (north-bound communication)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="using-dna-center-apis-to-provision-optimize-monitor-troubleshoot">
+<h2>Using DNA Center APIs to Provision, Optimize, Monitor &amp; Troubleshoot<a class="headerlink" href="#using-dna-center-apis-to-provision-optimize-monitor-troubleshoot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dna-center">
+<h3>DNA Center<a class="headerlink" href="#dna-center" title="Permalink to this headline">¶</a></h3>
+<p>Digital Network Architecture Centre</p>
+<ul class="simple">
+<li><p>Quickly provision and administer devices (also using plug and play)</p></li>
+<li><p>Health of network</p></li>
+<li><p>Deploy new devices and create new fabrics</p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<img alt="Authorization header (notice the URL of API call)" src="../../../../_images/api1.png" />
+<p class="caption"><span class="caption-text">Authorization header (notice the URL of API call)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="Content Type is JSON for this API call" src="../../../../_images/api2.png" />
+<p class="caption"><span class="caption-text">Content Type is JSON for this API call</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="We did a POST to get the auth token" src="../../../../_images/api3.png" />
+<p class="caption"><span class="caption-text">We did a POST to get the auth token</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="We did a get to list our devices (notice the URL of API call)" src="../../../../_images/api4.png" />
+<p class="caption"><span class="caption-text">We did a get to list our devices (notice the URL of API call)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="using-python-to-connect-to-firepowers-api">
+<h2>Using Python to Connect to Firepower’s API<a class="headerlink" href="#using-python-to-connect-to-firepowers-api" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use python to interact with FTD APIs</p></li>
+<li><p>Using Cisco DevNet sandbox</p></li>
+<li><p>Use a script that Cisco created</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">simple_client.py</span></code> to interact with FTD:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import requests
+import json
+from bravado.client import SwaggerClient
+from bravado.requests_client import RequestsClient
+import warnings
+import time
+
+class FTDClient:
+  headers = {
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;Accept&quot;: &quot;application/json&quot;
+  }
+
+  def __init__(self, address=&#39;192.168.1.1&#39;, port=443, username=&quot;admin&quot;, password=&quot;Admin123&quot;):
+    self.server_address = address
+    self.server_port = port
+    self.username = username
+    self.password = password
+
+    requests.package.urllib3.disable_warnings()
+    warnings.filterwarnings(&#39;ignore&#39;, &#39;config also_return_response is not a recognised config&#39;)
+
+    self.access_token = None
+    self.bravado_client = None
+
+  def login(self):
+      payload = &#39;{{&quot;grant_type&quot;: &quot;password&quot;, &quot;username&quot;: &quot;{}&quot;, &quot;password&quot;: &quot;{}&quot;}}&#39;.format(self.u???)
+      auth_headers = {**FTDClient.headers, &#39;Authorization&#39;: &#39;Bearer &#39;}
+      print (&#39;Authentication Headers: %s&#39;, auth_headers)
+      print (&#39;Authentication Payload is: %s&#39;, payload)
+      ourRequest = requests.post(&quot;https://{}:{}/api/fdm/v1/fdm/token&quot;.format(self.server_address???)
+        data=payload, verify=False, headers=auth_headers
+      if ourRequest.status_code == 400:
+        raise Exception(&quot;Error logging in: {}&quot;.format(r.content))
+      try:
+        self.access_token = ourRequest.json()[&#39;access_token&#39;]
+      except:
+        raise
+
+  def get_client(self):
+    if self.bravado_client:
+      return self.bravado_client
+
+    http_client = RequestsClient()
+    http_client.session.verify = False
+
+    http_client.session.headers = {**FTDClient.headers, &#39;Authorization&#39;: &#39;Bearer {}&#39;.format(self.access???)}
+
+    self.bravado_client = SwaggerClient.from_url(&#39;https://{}:{}/apispec/ngfw.json&#39;.format(self.server_???))
+      http_client=http_client, config={&#39;validate_responses&#39;: False,???
+      })
+
+    return self.bravado_client
+</pre></div>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="In Firepower, you'll see no objects, let's add one" src="../../../../_images/api-ftd1.png" />
+<p class="caption"><span class="caption-text">In Firepower, you’ll see no objects, let’s add one</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Adding an object to firepower:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">simple_client</span> <span class="kn">import</span> <span class="n">FTDClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">FTDClient</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.10.20.65&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;Cisco1234&#39;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">access_token</span>
+<span class="n">bravClient</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_client</span><span class="p">()</span>
+<span class="n">NetworkObject</span> <span class="o">=</span> <span class="n">bravClient</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s1">&#39;NetworkObject&#39;</span><span class="p">)</span>
+<span class="n">APINetObject</span> <span class="o">=</span> <span class="n">NetworkObject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;APITestObject&#39;</span><span class="p">,</span> <span class="n">subType</span><span class="o">=</span><span class="s1">&#39;HOST&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;1.1.1.1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;networkobject&#39;</span><span class="p">)</span>
+<span class="n">bravClient</span><span class="o">.</span><span class="n">NetworkObject</span><span class="o">.</span><span class="n">addNetworkObject</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">APINetObject</span><span class="p">)</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id6">
+<img alt="You'll now see the object created in Firepower" src="../../../../_images/api-ftd2.png" />
+<p class="caption"><span class="caption-text">You’ll now see the object created in Firepower</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="additional-phython-api-scripts">
+<h2>Additional Phython API Scripts<a class="headerlink" href="#additional-phython-api-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Get users from Cisco ISE:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import http.client
+import base64
+import ssl
+import sys
+
+host = sys.argv[1]
+user = sys.argv[2]
+password = sys.argv[3]
+
+conn = http.client.HTTPSConnection(&quot;{}:9060&quot;.format(host), context=ssl.SSLContext(ssl.PROTOCOL_TLS???))
+
+creds = str.encode(&#39;:&#39;.join((user, password)))
+encodedAuth = bytes.decode(base64.b64encode(creds))
+
+headers = {
+  &#39;accept&#39;: &quot;application/json&quot;
+  &#39;authorization&#39;: &quot; &quot;.join((&quot;Basic&quot;, encodedAuth)),
+  &#39;cache-control&#39;: &quot;no-cache&quot;,
+
+}
+
+conn.request(&quot;GET&quot;, &quot;/ers/config/internaluser&quot;, headers=headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(&quot;Status: {}&quot;.format(res.status))
+print(&quot;Header:\n{}&quot;.format(res.headers))
+print(&quot;Body:\n{}&quot;.format(data.decode(&quot;utf-8&quot;)))
+</pre></div>
+</div>
+<p>Print all event IDs in Cisco AMP:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;4d69c78ac2db6644d0f2&#39;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s1">&#39;72d0639c-56c2-4e5f-812f-54dbffd5a502&#39;</span>
+
+<span class="n">event_id_url</span> <span class="o">=</span> <span class="s2">&quot;https://</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">@api.amp.cisco.com/v1/event_types&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span><span class="n">api_key</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event_id_url</span><span class="p">)</span>
+
+<span class="n">event_ids</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">event_ids</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../network-security-fundamentals/index.html" class="btn btn-neutral float-right" title="Network Security Fundamentals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="03.-describing-security-intelligence.html" class="btn btn-neutral float-left" title="3. Describing Security Intelligence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. Explaining Common Threats &amp; Protecting Humans from Attacks &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="3. Describing Security Intelligence" href="03.-describing-security-intelligence.html" />
+    <link rel="prev" title="1. Comparing Common Vulnerabilities" href="01.-comparing-common-vulnerabilities.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Security Concepts</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="01.-comparing-common-vulnerabilities.html">1. Comparing Common Vulnerabilities</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2. Explaining Common Threats &amp; Protecting Humans from Attacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03.-describing-security-intelligence.html">3. Describing Security Intelligence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04.-explaining-and-interpreting-apis.html">4. Explaining and Interpreting APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Security Concepts</a> &raquo;</li>
+        
+      <li>2. Explaining Common Threats &amp; Protecting Humans from Attacks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/security-concepts/02.-explaining-common-threats-and-protecting-humans-from-attacks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="explaining-common-threats-protecting-humans-from-attacks">
+<h1>2. Explaining Common Threats &amp; Protecting Humans from Attacks<a class="headerlink" href="#explaining-common-threats-protecting-humans-from-attacks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="viruses-trojans-other-malware">
+<h2>Viruses, Trojans, &amp; Other Malware<a class="headerlink" href="#viruses-trojans-other-malware" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="malware-malicious-software">
+<h3>Malware: Malicious Software<a class="headerlink" href="#malware-malicious-software" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Viruses</p></li>
+<li><p>Trojans</p></li>
+<li><p>Worms</p></li>
+<li><p>Rootkits</p></li>
+<li><p>Spyware</p></li>
+<li><p>Adware</p></li>
+<li><p>PUP</p></li>
+</ul>
+</div>
+<div class="section" id="viruses">
+<h3>Viruses<a class="headerlink" href="#viruses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Computer Program that copies itself</p></li>
+<li><p>Spreads from one file to another</p>
+<ul>
+<li><p>Can spread from computer to computer</p></li>
+</ul>
+</li>
+<li><p>Executable code that attaches itself to another executable program</p>
+<ul>
+<li><p>.exe</p></li>
+<li><p>MS Office</p></li>
+</ul>
+</li>
+<li><p>Corrupts files and the OS</p></li>
+</ul>
+</div>
+<div class="section" id="spyware">
+<h3>Spyware<a class="headerlink" href="#spyware" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Could be through a keylogger</p></li>
+<li><p>Spies on victim</p></li>
+<li><p>Can find other sensitive information</p></li>
+</ul>
+</div>
+<div class="section" id="trojan">
+<h3>Trojan<a class="headerlink" href="#trojan" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Designed to do a specific task</p></li>
+<li><p>Can give attacker backdoor access to the victim’s machine</p></li>
+<li><p>Can control multiple machines to use as an attack - DDoS</p></li>
+<li><p>Ransomware: victim has to pay a ransom in order to access their files</p></li>
+</ul>
+</div>
+<div class="section" id="rootkits">
+<h3>RootKits<a class="headerlink" href="#rootkits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Designed to go undetected</p></li>
+<li><p>Can be installed in the computer’s kernal</p></li>
+<li><p>Can control the entire computer</p></li>
+</ul>
+</div>
+<div class="section" id="worms">
+<h3>Worms<a class="headerlink" href="#worms" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Replicate themselves</p></li>
+<li><p>Not attached to a program</p></li>
+<li><p>Attack a vulnerability of the target system</p></li>
+</ul>
+</div>
+<div class="section" id="adware">
+<h3>Adware<a class="headerlink" href="#adware" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Generates revenue</p>
+<ul>
+<li><p>Displays ads</p></li>
+<li><p>Pay-per-click</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="dos-attacks-man-in-the-middle-attacks">
+<h2>DoS Attacks &amp; Man-in-the-middle Attacks<a class="headerlink" href="#dos-attacks-man-in-the-middle-attacks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="denial-of-service">
+<h3>Denial of Service<a class="headerlink" href="#denial-of-service" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Degrades a system to prevent legitimate users access</p></li>
+<li><p>Too much traffic for the system to process</p></li>
+</ul>
+</div>
+<div class="section" id="distributed-dos">
+<h3>Distributed DoS<a class="headerlink" href="#distributed-dos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Multiple machines doing a DoS to one server</p></li>
+</ul>
+</div>
+<div class="section" id="man-in-the-middle">
+<h3>Man-in-the-middle<a class="headerlink" href="#man-in-the-middle" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Intercept client initial request to server</p></li>
+<li><p>Sends a copy to original server</p></li>
+<li><p>Server replies to Mitm</p></li>
+<li><p>Mitm replies to client with copy</p></li>
+<li><p>Can see contents of traffic intercepted by client to server
+communication</p></li>
+<li><p>Client &amp; server believe they’re talking correctly</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="social-engineering-phishing-attacks">
+<h2>Social Engineering &amp; Phishing Attacks<a class="headerlink" href="#social-engineering-phishing-attacks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="social-engineering">
+<h3>Social Engineering<a class="headerlink" href="#social-engineering" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Perceived trust between attacker and another party</p></li>
+<li><p>Could impersonate the victim in order to obtain sensitive information</p></li>
+<li><p>Convincing victim they are a trusted authority</p></li>
+<li><p>All future correspondence from them is legitimate</p></li>
+<li><p>Emails could contain malicious links</p></li>
+<li><p>Could provide the user with misinformation</p></li>
+</ul>
+</div>
+<div class="section" id="phishing">
+<h3>Phishing<a class="headerlink" href="#phishing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Social engineering attack that uses electronic communications</p></li>
+</ul>
+<p><strong>Types:</strong></p>
+<ul class="simple">
+<li><p>Bulk Phishing</p>
+<ul>
+<li><p>Not a specific target (Generic)</p></li>
+</ul>
+</li>
+<li><p>Spear Phishing</p>
+<ul>
+<li><p>Specific target (a lot of research)</p></li>
+</ul>
+</li>
+<li><p>Whaling</p>
+<ul>
+<li><p>Spear phishing targeting high profile targets</p></li>
+</ul>
+</li>
+<li><p>Clone Phishing</p>
+<ul>
+<li><p>Attacker clones logos of legitimate services</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Methods:</strong></p>
+<ul class="simple">
+<li><p>Link manipulation</p></li>
+<li><p>Realistic websites</p>
+<ul>
+<li><p>www.titlecompany.updated-wiretransfer.com</p></li>
+<li><p>Take the victim to the attackers website</p></li>
+</ul>
+</li>
+<li><p>Website forgery</p>
+<ul>
+<li><p>JavaScript to make the address bar look legitimate</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="endpoints-stopping-phishing">
+<h2>Endpoints Stopping Phishing<a class="headerlink" href="#endpoints-stopping-phishing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="train-the-userbase">
+<h3>Train the Userbase<a class="headerlink" href="#train-the-userbase" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Verify domain</p></li>
+<li><p>Ask if email makes sense</p></li>
+<li><p>Check the data</p></li>
+<li><p>Call to verify</p></li>
+<li><p>Flag the email as spam</p></li>
+<li><p>Call right away if attempt was successful</p></li>
+</ul>
+</div>
+<div class="section" id="computers-blocking-phishing-attempts">
+<h3>Computers Blocking Phishing Attempts<a class="headerlink" href="#computers-blocking-phishing-attempts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Phishing attacks are becoming more sophisticated</p></li>
+<li><p>Cisco Advanced Phishing Protection</p>
+<ul>
+<li><p>Analyzes emails</p></li>
+<li><p>Takes configured action with malicious emails</p></li>
+<li><p>Can be sent to Cisco’s security experts for further analysis</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="attacks-against-cloud-services">
+<h2>Attacks Against Cloud Services<a class="headerlink" href="#attacks-against-cloud-services" title="Permalink to this headline">¶</a></h2>
+<p>Dos &amp; DDoS can still happen in cloud environments</p>
+<div class="section" id="security-non-profits">
+<h3>Security Non-Profits<a class="headerlink" href="#security-non-profits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>CSA</p></li>
+<li><p>OWASP</p></li>
+</ul>
+</div>
+<div class="section" id="data-breach">
+<h3>Data Breach<a class="headerlink" href="#data-breach" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Confidential info is stolen</p></li>
+<li><p>Attacker targets less secure systems:</p>
+<ul>
+<li><p>Human error</p></li>
+<li><p>Application vulnerabilities</p></li>
+<li><p>Poor security practices</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="insecure-apis">
+<h3>Insecure APIs<a class="headerlink" href="#insecure-apis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allow for authorized data to be shared automatically</p></li>
+<li><p>Embedding API with a threat</p></li>
+<li><p>Stolen API keys</p></li>
+<li><p>API has more access than it should</p></li>
+</ul>
+</div>
+<div class="section" id="api-security-gateways">
+<h3>API Security Gateways<a class="headerlink" href="#api-security-gateways" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Allow for single point of connection for API</p></li>
+<li><p>Security features are built into API Security Gateways</p>
+<ul>
+<li><p>Not built into normal API Gateways</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="account-management">
+<h3>Account Management<a class="headerlink" href="#account-management" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Promptly remove accounts and change passwords</p></li>
+<li><p>Use MFA</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="03.-describing-security-intelligence.html" class="btn btn-neutral float-right" title="3. Describing Security Intelligence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01.-comparing-common-vulnerabilities.html" class="btn btn-neutral float-left" title="1. Comparing Common Vulnerabilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
