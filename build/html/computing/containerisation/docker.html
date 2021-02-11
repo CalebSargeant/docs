@@ -258,6 +258,12 @@ docker stop containername
 docker rm containername
 docker pull image/name
 <span class="c1"># deploy container again via compose/ansible/whatever</span>
+
+<span class="c1"># https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker</span>
+<span class="c1"># Cannot connect to the Docker daemon at unix:/var/run/docker.sock. Is the docker daemon running?</span>
+rm /var/snap/docker/&lt;your-version-number&gt;/run/docker.pid
+snap stop docker
+snap start docker
 </pre></div>
 </div>
 <div class="section" id="docker-swarm">
@@ -303,7 +309,7 @@ docker swarm leave --force
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Caleb Sargeant.
+        &#169; Copyright 2021, Caleb Sargeant.
 
     </p>
   </div>

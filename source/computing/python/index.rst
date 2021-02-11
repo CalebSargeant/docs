@@ -1,8 +1,7 @@
 Python
 ======
 
-The Python Philosophy
----------------------
+**The Python Philosophy**
 
 * Beautiful is better than ugly
 * Explicit is better than implicit
@@ -14,4 +13,6 @@ The Python Philosophy
   :maxdepth: 2
   :glob:
 
-  *
+  core/index
+  bootcamp/index
+  other/index

@@ -73,6 +73,12 @@ A docker image is like a template. A docker container is a running instance of t
   docker pull image/name
   # deploy container again via compose/ansible/whatever
 
+  # https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker
+  # Cannot connect to the Docker daemon at unix:/var/run/docker.sock. Is the docker daemon running?
+  rm /var/snap/docker/<your-version-number>/run/docker.pid
+  snap stop docker
+  snap start docker
+
 Docker Swarm
 ------------
 

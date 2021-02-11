@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "Caleb Sargeant's Docs"
-copyright = '2020, Caleb Sargeant'
+copyright = '2021, Caleb Sargeant'
 author = 'Caleb Sargeant'
 
 # The full version, including alpha/beta/rc tags

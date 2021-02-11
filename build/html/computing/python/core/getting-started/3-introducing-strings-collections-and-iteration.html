@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introducing Strings, Collections, and Iteration &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Bootcamp" href="../../bootcamp/index.html" />
+    <link rel="prev" title="Scalar Types, Operators, and Control Flow" href="2-scalar-types-operators-and-control-flow.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/index.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="2-scalar-types-operators-and-control-flow.html">Scalar Types, Operators, and Control Flow</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Introducing Strings, Collections, and Iteration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bootcamp/index.html">Bootcamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../other/index.html">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Introducing Strings, Collections, and Iteration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/computing/python/core/getting-started/3-introducing-strings-collections-and-iteration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introducing-strings-collections-and-iteration">
+<h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="string">
+<h2>String<a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>str</p>
+<ul>
+<li><p>Data type for strings in Python</p></li>
+<li><p>Sequence of Unicode code points</p></li>
+<li><p>Immutable</p></li>
+<li><p>Unicode</p></li>
+<li><p>Python 3 source encoding is UTF-8</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;This is a string&#39;</span>
+<span class="s2">&quot;This is also a string&quot;</span>
+<span class="s1">&#39;&quot;Yes!&quot;, he said, &quot;I agree!&quot;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-literals">
+<h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;first&quot;</span> <span class="s2">&quot;second&quot;</span>
+<span class="go">&#39;firstsecond&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="strings-with-newlines">
+<h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Multiline strings</p>
+<ul>
+<li><p>Spread the literal across multiple lines</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;&quot;</span> <span class="s2">&quot;This is</span>
+<span class="gp">... </span><span class="n">a</span> <span class="n">multiline</span>
+<span class="gp">... </span><span class="n">string</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="go">This is\na multiline\nstring&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sd">&#39;&#39;&#39;So</span>
+<span class="gp">... </span><span class="sd">is</span>
+<span class="gp">... </span><span class="sd">this.&#39;&#39;&#39;</span>
+<span class="go">So\nis\nthis.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="s1">&#39;This string</span><span class="se">\n</span><span class="s1">spans multiple</span><span class="se">\n</span><span class="s1">lines&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
+<span class="go">&#39;This string\nspans multiple\nlines&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">This string</span>
+<span class="go">spans multiple</span>
+<span class="go">lines</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Escape sequences</p>
+<ul>
+<li><p>Embed escape sequences in a single-line literal</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a </span><span class="se">\&quot;</span><span class="s2"> in a string&quot;</span>
+<span class="go">&#39;This is a &quot; in a string&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;This is a </span><span class="se">\&#39;</span><span class="s1"> in a string&#39;</span>
+<span class="go">&quot;This is a &#39; in a string&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;This is a </span><span class="se">\&quot;</span><span class="s1"> and a </span><span class="se">\&#39;</span><span class="s1"> in a string&#39;</span>
+<span class="go">&#39;This is a &quot; and a \&#39; in a string&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;A </span><span class="se">\\</span><span class="s1"> in a string&#39;</span>
+<span class="go">&#39;A \\ in a string&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="go">A \ in a string</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>All Escape Sequences</strong></p>
+<p>docs.python.org/3/reference/lexical_analysis.html#strings</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sequence</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>newline</p></td>
+<td><p>Backslash and newline ignored</p></td>
+</tr>
+<tr class="row-odd"><td><p>\</p></td>
+<td><p>Backslash ()</p></td>
+</tr>
+<tr class="row-even"><td><p>'</p></td>
+<td><p>Single quotes (“)</p></td>
+</tr>
+<tr class="row-odd"><td><p>&quot;</p></td>
+<td><p>Double quote (“)</p></td>
+</tr>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>ASCII Bell (BEL)</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>ASCII Backspace (BS)</p></td>
+</tr>
+<tr class="row-even"><td><p>f</p></td>
+<td><p>ASCII Formfeed (FF)</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>ASCII Linefeed (LF)</p></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>ASCII Carriage Return (CR)</p></td>
+</tr>
+<tr class="row-odd"><td><p>t</p></td>
+<td><p>ASCII Horizontal Tab (TAB)</p></td>
+</tr>
+<tr class="row-even"><td><p>v</p></td>
+<td><p>ASCII Vertical Tab (VT)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ooo</p></td>
+<td><p>Character with octal value 000</p></td>
+</tr>
+<tr class="row-even"><td><p>xhh</p></td>
+<td><p>Character with hex value hh</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Only recognized in string literals</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>N{name}</p></td>
+<td><p>Character named name in the Unicode database</p></td>
+</tr>
+<tr class="row-odd"><td><p>uxxxx</p></td>
+<td><p>Character with 16-bit hex value XXXX</p></td>
+</tr>
+<tr class="row-even"><td><p>Uxxxxxxxx</p></td>
+<td><p>Character with 32-bit hex value XxXXXXXX</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="string-features">
+<h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Merlin\Documents\Spells&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span>
+<span class="go">&#39;C: \\Users\\Merlin\\Documents\\Spells&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="go">C:\Users\Merlin\Documents\Spells</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">496</span><span class="p">)</span>
+<span class="go">&#39;496&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">6.02e23</span><span class="p">)</span>
+<span class="go">&#39;6.02e+23&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;parrot&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="go">&#39;o&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bytes">
+<h2>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline">¶</a></h2>
+<p>docs.python.org/3/library/codecs.html#standard-encodings</p>
+<ul class="simple">
+<li><p>bytes</p>
+<ul>
+<li><p>Data type for sequences of bytes</p></li>
+<li><p>Raw binary data</p></li>
+<li><p>Fixed-width single-byte encodings</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;data&#39;</span>
+<span class="go">b&#39;data&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s2">&quot;data&quot;</span>
+<span class="go">b&#39;data&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;some bytes&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">115</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[b&#39;some&#39;, b&#39;bytes&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list">
+<h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>list</p>
+<ul>
+<li><p>Sequences of objects</p></li>
+<li><p>Mutable</p></li>
+<li><p>A workhorse in Python</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="go">[1, 9, 8]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orrange&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;orrange&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[&#39;apple&#39;, 7, &#39;pear&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.618</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1.618]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.414</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1.618, 1.414]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;characters&quot;</span><span class="p">)</span>
+<span class="go">[&#39;c&#39;, &#39;h&#39;, &#39;a&#39;, &#39;r&#39;, &#39;a&#39;, &#39;c&#39;, &#39;t&#39;, &#39;e&#39;, &#39;r&#39;, &#39;s&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bear&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="s1">&#39;giraffe&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="s1">&#39;elephant&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="s1">&#39;caterpillar&#39;</span><span class="p">,]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">[&#39;bear&#39;, &#39;giraffe&#39;, &#39;elephant&#39;, &#39;caterpillar&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dict">
+<h2>Dict<a class="headerlink" href="#dict" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>dict</p>
+<ul>
+<li><p>Fundamental data structure Python</p></li>
+<li><p>Map keys to values</p></li>
+<li><p>Also known as maps or associative arrays</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alice&#39;</span><span class="p">:</span> <span class="s1">&#39;878-8728-922&#39;</span><span class="p">,</span> <span class="s1">&#39;bob&#39;</span><span class="p">:</span> <span class="s1">&#39;256-4532-523&#39;</span><span class="p">,</span> <span class="s1">&#39;eve&#39;</span><span class="p">:</span> <span class="s1">&#39;123-3432-342&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;alice&#39;</span><span class="p">]</span>
+<span class="go">&#39;878-8728-922&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;alice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;323-3123-156&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;charles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;123-5232-125&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;, &#39;charles&#39;: &#39;123-5232-125&#39;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-loop">
+<h2>For-loop<a class="headerlink" href="#for-loop" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>for-loop</p>
+<ul>
+<li><p>Visit each item in an iterable sequence</p></li>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="n">body</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cape Town&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;Paris&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Cape Town</span>
+<span class="go">London</span>
+<span class="go">New York</span>
+<span class="go">Paris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;crimson&#39;</span><span class="p">:</span> <span class="mh">0xdc143c</span><span class="p">,</span> <span class="s1">&#39;coral&#39;</span><span class="p">:</span> <span class="mh">0xff7f50</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">:</span> <span class="mh">0x008080</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">color</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="go">crimson 14423100</span>
+<span class="go">coral 16744272</span>
+<span class="go">teal 32896</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://sixty-north.com/c/t.txt&#39;</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span>
+<span class="go">[b&#39;It&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;best&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;worst&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;wisdom&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;foolishness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;belief&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;incredulity&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Light&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Darkness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;spring&#39;, b&#39;of&#39;, b&#39;hope&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;winter&#39;, b&#39;of&#39;, b&#39;despair&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;everything&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;nothing&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;to&#39;, b&#39;Heaven&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;the&#39;, b&#39;other&#39;, b&#39;way&#39;, b&#39;in&#39;, b&#39;short&#39;, b&#39;the&#39;, b&#39;period&#39;, b&#39;was&#39;, b&#39;so&#39;, b&#39;far&#39;, b&#39;like&#39;, b&#39;the&#39;, b&#39;present&#39;, b&#39;period&#39;, b&#39;that&#39;, b&#39;some&#39;, b&#39;of&#39;, b&#39;its&#39;, b&#39;noisiest&#39;, b&#39;authorities&#39;, b&#39;insisted&#39;, b&#39;on&#39;, b&#39;its&#39;, b&#39;being&#39;, b&#39;received&#39;, b&#39;for&#39;, b&#39;good&#39;, b&#39;or&#39;, b&#39;for&#39;, b&#39;evil&#39;, b&#39;in&#39;, b&#39;the&#39;, b&#39;superlative&#39;, b&#39;degree&#39;, b&#39;of&#39;, b&#39;comparison&#39;, b&#39;only&#39;]</span>
+</pre></div>
+</div>
+<div class="section" id="recall-bytes">
+<h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bytes literals prefixed with lowercase ‘b’</p></li>
+<li><p>HTTP data is provided as bytes</p></li>
+<li><p>Use bytes.decode() to get strings</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://sixty-north.com/c/t.txt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span>
+<span class="go">[&#39;It&#39;, &#39;was&#39;, &#39;the&#39;, &#39;best&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;worst&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;wisdom&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;foolishness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;belief&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;incredulity&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Light&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Darkness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;spring&#39;, &#39;of&#39;, &#39;hope&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;winter&#39;, &#39;of&#39;, &#39;despair&#39;, &#39;we&#39;, &#39;had&#39;, &#39;everything&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;had&#39;, &#39;nothing&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;to&#39;, &#39;Heaven&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;the&#39;, &#39;other&#39;, &#39;way&#39;, &#39;in&#39;, &#39;short&#39;, &#39;the&#39;, &#39;period&#39;, &#39;was&#39;, &#39;so&#39;, &#39;far&#39;, &#39;like&#39;, &#39;the&#39;, &#39;present&#39;, &#39;period&#39;, &#39;that&#39;, &#39;some&#39;, &#39;of&#39;, &#39;its&#39;, &#39;noisiest&#39;, &#39;authorities&#39;, &#39;insisted&#39;, &#39;on&#39;, &#39;its&#39;, &#39;being&#39;, &#39;received&#39;, &#39;for&#39;, &#39;good&#39;, &#39;or&#39;, &#39;for&#39;, &#39;evil&#39;, &#39;in&#39;, &#39;the&#39;, &#39;superlative&#39;, &#39;degree&#39;, &#39;of&#39;, &#39;comparison&#39;, &#39;only&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../bootcamp/index.html" class="btn btn-neutral float-right" title="Bootcamp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="2-scalar-types-operators-and-control-flow.html" class="btn btn-neutral float-left" title="Scalar Types, Operators, and Control Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
