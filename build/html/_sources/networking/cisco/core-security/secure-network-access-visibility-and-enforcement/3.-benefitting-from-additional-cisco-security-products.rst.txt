@@ -1,5 +1,5 @@
-3. Benefitting from Additional Cisco Security Products
-======================================================
+Benefitting from Additional Cisco Security Products
+===================================================
 
 Cisco Stealthwatch
 ------------------

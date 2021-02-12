@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Modularity &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Objects and Types" href="5-objects-and-types.html" />
+    <link rel="prev" title="Introducing Strings, Collections, and Iteration" href="3-introducing-strings-collections-and-iteration.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/security/index.html">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../linux/index.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="2-scalar-types-operators-and-control-flow.html">Scalar Types, Operators, and Control Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-introducing-strings-collections-and-iteration.html">Introducing Strings, Collections, and Iteration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Modularity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5-objects-and-types.html">Objects and Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bootcamp/index.html">Bootcamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../other/index.html">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Modularity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/computing/python/core/getting-started/4-modularity.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modularity">
+<h1>Modularity<a class="headerlink" href="#modularity" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">_docs/words.py</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">words</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defining-functions">
+<h3>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">launch_missiles</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missiles launched!&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">launch_missiles</span><span class="p">()</span>
+<span class="go">Missiles launched!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">even_or_odd</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even&quot;</span><span class="p">)</span>
+<span class="gp">... </span>            <span class="k">return</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">even_or_odd</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
+<span class="go">odd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">nth_root</span><span class="p">(</span><span class="n">radicand</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">radicand</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nth_root</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nth_root</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3.0</span>
+</pre></div>
+</div>
+<p><strong>dunder</strong></p>
+<ul class="simple">
+<li><p>Our way of pronouncing special names</p></li>
+<li><p>A portmanteau of “double underscore”</p></li>
+<li><p>Instead of “underscore underscore name underscore underscore” we’ll say “dunder name”</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="name">
+<h2>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p><code class="code docutils literal notranslate"><span class="pre">__name__</span></code></p>
+<ul class="simple">
+<li><p>Specially named variable allowing us to detect whether a module is run as a script or imported into another module.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> if name = main, execute function, if name != main, it knows it’s being imported into another module, not executed. By using this statement, the python script can be executed as a script or module.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">__name__</span></code> will be set as <code class="code docutils literal notranslate"><span class="pre">__main__</span></code> depending on how it’s used - if running <code class="code docutils literal notranslate"><span class="pre">python</span> <span class="pre">words.py</span></code>, <code class="code docutils literal notranslate"><span class="pre">__main__</span></code> will return as <code class="code docutils literal notranslate"><span class="pre">__name__</span></code> instead.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-python-execution-model">
+<h2>The Python Execution Model<a class="headerlink" href="#the-python-execution-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">def</span></code> is a statement</p></li>
+<li><p>Top-level functions are defined when a module is imported or run</p></li>
+</ul>
+<div class="section" id="module-script-or-program">
+<h3>Module Script or Program<a class="headerlink" href="#module-script-or-program" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python module - Convenient import with API</p></li>
+<li><p>Python script - Convenient execution from the command line (scripts should be importable)</p></li>
+<li><p>Python program - Perhaps composed of many modules</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="k">def</span> <span class="nf">fetch_words</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
+        <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
+            <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">story_words</span>
+
+<span class="k">def</span> <span class="nf">print_items</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">fetch_words</span><span class="p">()</span>
+    <span class="n">print_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="docstrings">
+<h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Literal strings which document functions, modules, and classes.</p></li>
+<li><p>They must be the first statement in the blocks for these constructs.</p></li>
+<li><p>PEP 257</p>
+<ul>
+<li><p>Official Python convention for docstrings.</p></li>
+<li><p>But… not widely adopted.</p></li>
+</ul>
+</li>
+<li><p>Sphinx</p>
+<ul>
+<li><p>Tool to create HTML documentation from Python docstrings.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; Retrieve and print words from a URL.</span>
+
+<span class="sd">Usage:</span>
+
+<span class="sd">  python3 words.py &lt;URL&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+
+<span class="k">def</span> <span class="nf">fetch_words</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fetch a list of words from a URL.</span>
+
+<span class="sd">      Args:</span>
+<span class="sd">        url: The URL of a UTF-8 text-document.</span>
+
+<span class="sd">      Returns:</span>
+<span class="sd">        A list of strings containing words from the document</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
+        <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
+            <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">story_words</span>
+
+
+<span class="k">def</span> <span class="nf">print_items</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print items one per line.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            An iterable series of printable items.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Print each word from a text document from at a URL.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            url: The URL of a UTF-8 text document.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">fetch_words</span><span class="p">()</span>
+    <span class="n">print_words</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">words</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="go">Help on module words:</span>
+
+<span class="go">NAME</span>
+<span class="go">    words - Retrieve and print words from a URL.</span>
+
+<span class="go">DESCRIPTION</span>
+<span class="go">    Usage:</span>
+
+<span class="go">        python3 words.py &lt;URL&gt;</span>
+
+<span class="go">FUNCTIONS</span>
+<span class="go">    fetch_words(url)</span>
+<span class="go">        Fetch a list of words from a URL.</span>
+
+<span class="go">        Args:</span>
+<span class="go">            url: The URL of a UTF-8 text document.</span>
+
+<span class="go">        Returns:</span>
+<span class="go">            A list of strings containing the words from the document</span>
+
+<span class="go">    main(url)</span>
+<span class="go">        Print each word from a text document from at a URL.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Code is ideally clear enough without ancillary explanation</p></li>
+<li><p>Sometimes you need to explain why your code is written as it is</p></li>
+<li><p>Comments in Python start with <code class="docutils literal notranslate"><span class="pre">#</span></code> and extend to the end of the line</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">_name_</span> <span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># The Oth arg is the module filename.]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shebang">
+<h2>Shebang<a class="headerlink" href="#shebang" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Special Comment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python3</span></code></p></li>
+</ul>
+<div class="section" id="pylauncher">
+<h3>Pylauncher<a class="headerlink" href="#pylauncher" title="Permalink to this headline">¶</a></h3>
+<p>On Windows</p>
+<ol class="arabic simple">
+<li><p>Associated with <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files</p></li>
+<li><p>Executable is <code class="docutils literal notranslate"><span class="pre">py.exe</span></code> and is on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p></li>
+<li><p>Parse the shebang and locate Python</p></li>
+<li><p>PEP397</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="5-objects-and-types.html" class="btn btn-neutral float-right" title="Objects and Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="3-introducing-strings-collections-and-iteration.html" class="btn btn-neutral float-left" title="Introducing Strings, Collections, and Iteration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

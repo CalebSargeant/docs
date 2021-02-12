@@ -1,5 +1,5 @@
-1. Explaining Exfiltration Techniques
-=====================================
+Explaining Exfiltration Techniques
+==================================
 
 Exfiltrating Data Using DNS, NTP, ICMP, or IRC
 ----------------------------------------------

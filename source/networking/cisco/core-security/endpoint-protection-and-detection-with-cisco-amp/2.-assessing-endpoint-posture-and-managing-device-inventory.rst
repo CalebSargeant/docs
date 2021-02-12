@@ -1,5 +1,5 @@
-2. Assessing Endpoint Posture and Managing Device Inventory
-===========================================================
+Assessing Endpoint Posture and Managing Device Inventory
+========================================================
 
 Endpoint Posture Assessment
 ---------------------------

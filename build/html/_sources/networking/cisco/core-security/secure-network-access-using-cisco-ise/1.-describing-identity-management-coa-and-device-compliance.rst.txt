@@ -1,5 +1,5 @@
-1. Describing Identity Management, CoA, and Device Compliance
-=============================================================
+Describing Identity Management, CoA, and Device Compliance
+==========================================================
 
 What Is 802.1X?
 ---------------

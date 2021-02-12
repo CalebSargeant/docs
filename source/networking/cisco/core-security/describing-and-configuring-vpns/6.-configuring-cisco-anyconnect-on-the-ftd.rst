@@ -1,5 +1,5 @@
-6. Configuring Cisco AnyConnect on the FTD
-==========================================
+Configuring Cisco AnyConnect on the FTD
+=======================================
 
 Integrating Active Directory with the FTD
 -----------------------------------------

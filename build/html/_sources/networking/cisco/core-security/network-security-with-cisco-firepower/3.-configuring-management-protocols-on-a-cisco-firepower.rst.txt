@@ -1,5 +1,5 @@
-3. Configuring Management Protocols on a Cisco Firepower
-========================================================
+Configuring Management Protocols on a Cisco Firepower
+=====================================================
 
 Configuring Syslog on a Cisco FTD Appliance
 -------------------------------------------

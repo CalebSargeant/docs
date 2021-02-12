@@ -1,5 +1,5 @@
-4. Managing Cisco IOS Devices with Cisco Prime Infrastructure
-=============================================================
+Managing Cisco IOS Devices with Cisco Prime Infrastructure
+==========================================================
 
 Adding a Device to Cisco Prime Infrastructure
 ---------------------------------------------

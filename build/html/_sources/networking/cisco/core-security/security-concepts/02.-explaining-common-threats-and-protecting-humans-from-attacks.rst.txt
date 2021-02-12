@@ -1,5 +1,5 @@
-2. Explaining Common Threats & Protecting Humans from Attacks
-=============================================================
+Explaining Common Threats & Protecting Humans from Attacks
+==========================================================
 
 Viruses, Trojans, & Other Malware
 ---------------------------------

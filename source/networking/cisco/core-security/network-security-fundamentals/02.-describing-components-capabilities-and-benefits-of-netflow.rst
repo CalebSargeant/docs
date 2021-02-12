@@ -1,5 +1,5 @@
-2. Describing Components, Capabilities, & Benefits of NetFlow
-=============================================================
+Describing Components, Capabilities, & Benefits of NetFlow
+==========================================================
 
 NetFlow Introduction
 --------------------

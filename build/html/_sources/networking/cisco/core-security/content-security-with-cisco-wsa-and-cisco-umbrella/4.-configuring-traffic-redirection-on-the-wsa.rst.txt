@@ -1,5 +1,5 @@
-4. Configuring Traffic Redirection on the WSA
-=============================================
+Configuring Traffic Redirection on the WSA
+==========================================
 
 WCCP Overview
 -------------

@@ -1,5 +1,5 @@
-4. Managing Cisco ASAs with Cisco Security Manager
-==================================================
+Managing Cisco ASAs with Cisco Security Manager
+===============================================
 
 Adding ASAs to Cisco Security Manager
 -------------------------------------

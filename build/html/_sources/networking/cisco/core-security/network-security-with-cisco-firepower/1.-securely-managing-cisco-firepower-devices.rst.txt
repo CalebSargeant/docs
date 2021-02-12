@@ -1,5 +1,5 @@
-1. Securely Managing Cisco Firepower Devices
-============================================
+Securely Managing Cisco Firepower Devices
+=========================================
 
 Out of Band Management
 ----------------------

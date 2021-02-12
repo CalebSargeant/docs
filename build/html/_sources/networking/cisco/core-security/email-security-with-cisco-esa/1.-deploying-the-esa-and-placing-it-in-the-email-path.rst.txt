@@ -1,5 +1,5 @@
-1. Deploying the ESA and Placing It in the Email Path
-=====================================================
+Deploying the ESA and Placing It in the Email Path
+==================================================
 
 ESA Overview
 ------------

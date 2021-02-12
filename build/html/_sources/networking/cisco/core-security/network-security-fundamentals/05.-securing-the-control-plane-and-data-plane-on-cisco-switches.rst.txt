@@ -1,5 +1,5 @@
-5. Securing the Control Plane and Data Plane on Cisco Switches
-==============================================================
+Securing the Control Plane and Data Plane on Cisco Switches
+===========================================================
 
 Securing Spanning Tree Protocol
 -------------------------------

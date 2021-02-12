@@ -1,5 +1,5 @@
-1. Comparing Cryptography Components
-====================================
+Comparing Cryptography Components
+=================================
 
 Cryptography, Encryption, and Hashing
 -------------------------------------

@@ -1,5 +1,5 @@
-3. Describing Security Intelligence
-===================================
+Describing Security Intelligence
+================================
 
 Security Intelligence Overview
 ------------------------------

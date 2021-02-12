@@ -1,5 +1,5 @@
-3. Configuring the Default Incoming Mail Policy
-===============================================
+Configuring the Default Incoming Mail Policy
+============================================
 
 Anti-Spam Policy
 ----------------

@@ -1,5 +1,5 @@
-2. Comparing Cisco VPN Types
-============================
+Comparing Cisco VPN Types
+=========================
 
 Configuring ISAKMP & IKE SA Tunnels
 -----------------------------------

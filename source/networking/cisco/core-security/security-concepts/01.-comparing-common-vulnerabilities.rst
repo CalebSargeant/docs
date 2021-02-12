@@ -1,5 +1,5 @@
-1. Comparing Common Vulnerabilities
-===================================
+Comparing Common Vulnerabilities
+================================
 
 Software Bugs & Buffer Overflow
 -------------------------------

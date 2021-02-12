@@ -1,5 +1,5 @@
-4. Managing Multiple Firepowers with Cisco Firepower Management Center
-======================================================================
+Managing Multiple Firepowers with Cisco Firepower Management Center
+===================================================================
 
 Initial Setup of Firepower Management Center
 --------------------------------------------

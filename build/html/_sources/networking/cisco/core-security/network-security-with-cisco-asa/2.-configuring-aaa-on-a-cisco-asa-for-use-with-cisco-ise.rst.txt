@@ -1,5 +1,5 @@
-2. Configuring AAA on a Cisco ASA For Use with Cisco ISE
-========================================================
+Configuring AAA on a Cisco ASA For Use with Cisco ISE
+=====================================================
 
 Prepping Cisco ISE to Support TACACS
 ------------------------------------

@@ -1,5 +1,5 @@
-5. Deploying Cisco Umbrella
-===========================
+Deploying Cisco Umbrella
+========================
 
 Configuring Networks to Use Cisco Umbrella
 ------------------------------------------

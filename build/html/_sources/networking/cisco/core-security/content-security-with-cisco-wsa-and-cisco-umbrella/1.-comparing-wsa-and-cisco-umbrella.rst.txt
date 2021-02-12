@@ -1,5 +1,5 @@
-1. Comparing WSA and Cisco Umbrella
-===================================
+Comparing WSA and Cisco Umbrella
+================================
 
 Web Security Appliance and Cisco Umbrella
 -----------------------------------------

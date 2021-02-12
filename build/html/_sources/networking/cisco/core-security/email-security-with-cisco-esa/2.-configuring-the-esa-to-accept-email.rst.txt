@@ -1,5 +1,5 @@
-2. Configuring the ESA to Accept Email
-======================================
+Configuring the ESA to Accept Email
+===================================
 
 Configuring Interfaces to Send and Receive Email
 ------------------------------------------------

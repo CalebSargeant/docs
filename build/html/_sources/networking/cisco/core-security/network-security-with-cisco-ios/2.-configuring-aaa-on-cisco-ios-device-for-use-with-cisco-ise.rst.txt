@@ -1,5 +1,5 @@
-2. Configuring AAA on Cisco IOS Device for Use with Cisco ISE
-=============================================================
+Configuring AAA on Cisco IOS Device for Use with Cisco ISE
+==========================================================
 
 Configuring Cisco ISE to Support TACACS
 ---------------------------------------

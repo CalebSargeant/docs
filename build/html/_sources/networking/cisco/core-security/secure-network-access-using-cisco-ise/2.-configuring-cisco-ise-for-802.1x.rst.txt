@@ -1,5 +1,5 @@
-2. Configuring Cisco ISE for 802.1X
-===================================
+Configuring Cisco ISE for 802.1X
+================================
 
 Policy Sets, Authentication Policies, and Authorization Policies
 ----------------------------------------------------------------

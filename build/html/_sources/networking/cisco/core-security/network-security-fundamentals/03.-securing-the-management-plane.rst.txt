@@ -1,5 +1,5 @@
-3. Securing the Management Plane
-================================
+Securing the Management Plane
+=============================
 
 Secure Planes
 -------------

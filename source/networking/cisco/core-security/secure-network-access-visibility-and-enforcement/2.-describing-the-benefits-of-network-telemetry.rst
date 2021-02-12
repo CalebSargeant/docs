@@ -1,5 +1,5 @@
-2. Describing the Benefits of Network Telemetry
-===============================================
+Describing the Benefits of Network Telemetry
+============================================
 
 Introduction to Network Telemetry
 ---------------------------------

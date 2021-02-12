@@ -1,5 +1,5 @@
-5. Configuring Cisco AnyConnect on the ASA
-==========================================
+Configuring Cisco AnyConnect on the ASA
+=======================================
 
 Uploading the AnyConnect Client to the ASA
 ------------------------------------------

@@ -1,5 +1,5 @@
-4. Configuring the Default Outgoing Mail Policy and Verifying
-=============================================================
+Configuring the Default Outgoing Mail Policy and Verifying
+==========================================================
 
 Text Resources
 --------------

@@ -1,5 +1,5 @@
-4. Securing the Control Plane and Data Plane on Cisco Routers
-=============================================================
+Securing the Control Plane and Data Plane on Cisco Routers
+==========================================================
 
 Lab Setup
 ---------

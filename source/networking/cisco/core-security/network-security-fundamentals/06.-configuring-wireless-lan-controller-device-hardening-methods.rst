@@ -1,5 +1,5 @@
-6. Configuring Wireless LAN Controller Device Hardening Methods
-===============================================================
+Configuring Wireless LAN Controller Device Hardening Methods
+============================================================
 
 Wireless Security Overview
 --------------------------

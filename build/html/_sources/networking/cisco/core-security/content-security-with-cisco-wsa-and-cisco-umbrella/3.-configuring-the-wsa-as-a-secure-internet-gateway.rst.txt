@@ -1,5 +1,5 @@
-3. Configuring the WSA as a Secure Internet Gateway
-===================================================
+Configuring the WSA as a Secure Internet Gateway
+================================================
 
 Modifying the Global Access Policy
 ----------------------------------

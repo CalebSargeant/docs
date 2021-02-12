@@ -1,5 +1,5 @@
-4. Configuring FlexVPN
-======================
+Configuring FlexVPN
+===================
 
 IKEv2 Authorization Policies
 ----------------------------

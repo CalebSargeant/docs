@@ -1,5 +1,5 @@
-4. Implementing Cisco Application Visibility and Control (AVC)
-==============================================================
+Implementing Cisco Application Visibility and Control (AVC)
+===========================================================
 
 Introduction to Cisco’s Application Visibility and Control
 ----------------------------------------------------------

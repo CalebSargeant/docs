@@ -1,5 +1,5 @@
-3. Configuring Cisco IOS for 802.1X and MAB
-===========================================
+Configuring Cisco IOS for 802.1X and MAB
+========================================
 
 Configuring Global Settings on a Cisco Switch to Support 802.1X
 ---------------------------------------------------------------

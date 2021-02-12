@@ -1,5 +1,5 @@
-1. Comparing Networking Security Solutions & Deployment Models
-==============================================================
+Comparing Networking Security Solutions & Deployment Models
+===========================================================
 
 Cisco SAFE and CVDs
 -------------------

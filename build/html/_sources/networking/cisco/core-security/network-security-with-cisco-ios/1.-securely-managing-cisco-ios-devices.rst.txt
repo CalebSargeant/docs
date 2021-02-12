@@ -1,5 +1,5 @@
-1. Securely Managing Cisco IOS Devices
-======================================
+Securely Managing Cisco IOS Devices
+===================================
 
 Out of Band Management
 ----------------------

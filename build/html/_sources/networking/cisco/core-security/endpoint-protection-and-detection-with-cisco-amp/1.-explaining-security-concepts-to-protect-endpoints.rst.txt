@@ -1,5 +1,5 @@
-1. Explaining Security Concepts to Protect Endpoints
-====================================================
+Explaining Security Concepts to Protect Endpoints
+=================================================
 
 Antivirus & Dynamic File Analysis
 ---------------------------------

@@ -1,5 +1,5 @@
-2. Deploying the Web Security Appliance
-=======================================
+Deploying the Web Security Appliance
+====================================
 
 Different Deployment Modes for the WSA
 --------------------------------------

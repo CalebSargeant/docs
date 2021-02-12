@@ -1,5 +1,5 @@
-1. Securely Managing Cisco ASA Devices
-======================================
+Securely Managing Cisco ASA Devices
+===================================
 
 Out of Band Management
 ----------------------

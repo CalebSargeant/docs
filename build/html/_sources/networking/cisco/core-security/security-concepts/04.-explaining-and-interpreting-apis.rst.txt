@@ -1,5 +1,5 @@
-4. Explaining and Interpreting APIs
-===================================
+Explaining and Interpreting APIs
+================================
 
 HTTP Basics & APIs
 ------------------
