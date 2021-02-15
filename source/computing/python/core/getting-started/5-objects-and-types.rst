@@ -77,3 +77,142 @@ Function Arguments
 
 Default Argument Values
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+Arguments with default values must come after those without default values.
+
+.. code-block::
+
+  >>> def banner (message, border='-'):
+  ...     line = border * len(message)
+  ...     print (line)
+  ...     print(message)
+  ...     print(line)
+  ...
+  >>> banner("Howzit my bru!")
+  --------------
+  Howzit my bru!
+  --------------
+  >>> banner("Sun, Moon, Stars", "*")
+  ****************
+  Sun, Moon, Stars
+  ****************
+  >>> banner("Sun, Moon, Stars", border="*")
+  ****************
+  Sun, Moon, Stars
+  ****************
+  >>> banner(border=".", message="Hello from Earth, we come in peace!")
+  ...................................
+  Hello from Earth, we come in peace!
+  ...................................
+
+When Are Default Values Evaluated?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+  >>> import time
+  >>> time.ctime()
+  'Fri Feb 12 20:26:02 2021'
+  >>> def show_default(arg=time.ctime()):
+  ...     print(arg)
+  ...
+  >>> show_default()
+  Fri Feb 12 20:26:35 2021
+  >>> show_default()
+  Fri Feb 12 20:26:35 2021
+  >>> show_default()
+  Fri Feb 12 20:26:35 2021
+
+- Remember that ``def`` is a statement executed at runtime
+- Default arguments are evaluated when ``def`` is executed
+- Immutable default values don't cause problems
+- Mutable default values can cause confusing effects
+
+Mutable Default Values
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+  >>> def add_spam(menu=[]):
+  ...     menu.append("spam")
+  ...     return menu
+  ...
+  >>> breakfast = ['bacon', 'eggs']
+  >>> add_spam(breakfast)
+  ['bacon', 'eggs', 'spam']
+  >>> lunch = ['baked beans']
+  >>> add_spam(lunch)
+  ['baked beans', 'spam']
+  >>> add_spam()
+  ['spam']
+  >>> add_spam()
+  ['spam', 'spam']
+  >>> add_spam()
+  ['spam', 'spam', 'spam']
+
+- The empty list that's used for the default argument is created once when the ``def`` statement is executed. The first time, spam is added, when adding second time, list still contains spam.
+- So always use immutable objects for default values!
+
+Immutable Default Values
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+  >>> def add_spam(menu=None):
+  ...     if menu is None:
+  ...         menu = []
+  ...     menu.append('spam')
+  ...     return menu
+  ...
+  >>> add_spam()
+  ['spam']
+  >>> add_spam()
+  ['spam']
+  >>> add_spam()
+  ['spam']
+
+Python's Type System
+--------------------
+
+.. code-block::
+
+  >>> def add(a, b):
+  ...     return a+b
+  ...
+  >>> add(5,7)
+  12
+  >>> add(3.1, 2.4)
+  5.5
+  >>> add("news", "paper")
+  'newspaper'
+  >>> add([1, 6], [21, 107])
+  [1, 6, 21, 107]
+  >>> add("The answer is", 42)
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "<stdin>", line 2, in add
+  TypeError: can only concatenate str (not "int") to str
+
+Python will not generally perform implicit conversions between types.
+
+Scopes
+------
+
+- Type declarations are unnecessary in Python.
+- Names can be rebound as necessary to objects of any type.
+- Name resolution to objects is managed by scopes and scoping rules.
+
+Scopes in Python
+^^^^^^^^^^^^^^^^
+
+(LEGB)
+
+- **L** ocal - Inside the current function
+- **E** nclosing - Inside enclosing functions
+- **G** lobal - At the tope level of the module
+- **B** uilt-in - In the special builtins module
+
+Scopes in python don't correspond source code blocks
+
+Rebinding Global Names
+^^^^^^^^^^^^^^^^^^^^^^

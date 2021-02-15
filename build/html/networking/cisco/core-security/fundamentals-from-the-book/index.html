@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Fundamentals &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Introduction to Cybersecurity" href="introduction.html" />
+    <link rel="prev" title="Configuring Wireless LAN Controller Device Hardening Methods" href="../network-security-fundamentals/06.-configuring-wireless-lan-controller-device-hardening-methods.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fundamentals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction to Cybersecurity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="definitions.html">Defining Threats, Vulnerabilities, &amp; Exploits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vulnerabilities.html">Common Software and Hardware Vulnerabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cia.html">CIA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud.html">Cloud Security Threats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iot.html">IoT Security Threats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="forensics.html">Digital Forensics and Incident Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+      <li>Fundamentals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/fundamentals-from-the-book/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fundamentals">
+<h1>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to Cybersecurity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#cybersecurity-vs-information-security-infosec">Cybersecurity vs. Information Security (InfoSec)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-nist-cybersecurity-framework">The NIST Cybersecurity Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#additional-nist-guidance-and-documents">Additional NIST Guidance and Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#the-international-organisation-of-standards-iso">The International Organisation of Standards (ISO)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Defining Threats, Vulnerabilities, &amp; Exploits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#threat">Threat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#vulnerability">Vulnerability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#exploit">Exploit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#risk-assets-threats-vulnerabilities">Risk, Assets, Threats, &amp; Vulnerabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#defining-threat-actors">Defining Threat Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#threat-intelligence">Threat Intelligence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#viruses-and-worms">Viruses and Worms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#trojans">Trojans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#distributing-malware">Distributing Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#ransomware">Ransomware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#covert-communication">Covert Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#keyloggers">Keyloggers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#spyware">Spyware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#analysing-malware">Analysing Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#static-analysis">Static Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#dynamic-analysis">Dynamic Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Common Software and Hardware Vulnerabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#injection-vulnerabilities">Injection Vulnerabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#sql-injection">SQL Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#html-injection">HTML Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#command-injection">Command Injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#authentication-based-vulnerabilities">Authentication-based Vulnerabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#cross-site-scripting">Cross-site Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#cross-site-request-forgery">Cross-site Request Forgery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#cookie-manipulation-attacks">Cookie Manipulation Attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#race-conditions">Race Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#unprotected-apis">Unprotected APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#return-to-libc-attacks-and-buffer-overflows">Return-to-LibC Attacks and Buffer Overflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#owasp-top-10">OWASP Top 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vulnerabilities.html#security-vulnerabilities-in-open-source-software">Security Vulnerabilities in Open Source Software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cia.html">CIA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cia.html#confidentiality">Confidentiality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cia.html#integrity">Integrity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cia.html#availability">Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cia.html#denial-of-service-attack">Denial-of-Service Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cia.html#access-control-management">Access Control Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Cloud Security Threats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloud.html#cloud-computing-issues-and-concerns">Cloud Computing Issues and Concerns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloud.html#cloud-computing-attacks">Cloud Computing Attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloud.html#cloud-computing-security">Cloud Computing Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iot.html">IoT Security Threats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iot.html#iot-protocols">IoT Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot.html#hacking-iot-implementations">Hacking IoT Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="forensics.html">Digital Forensics and Incident Response</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#iso-iec-27002-2013-and-nist-incident-response-guidance">ISO/IEC 27002:2013 and NIST Incident Response Guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-definition">Incident Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#false-positives-false-negatives-true-positives-and-true-negatives">False Positives, False Negatives, True Positives, and True Negatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-severity-levels">Incident Severity Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-reporting">Incident Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-response-program">Incident Response Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-response-plan">Incident Response Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#incident-response-process">Incident Response Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#simulations-and-playbooks">Simulations and Playbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#information-sharing-and-coordination">Information Sharing and Coordination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#computer-security-incident-response-teams">Computer Security Incident Response Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#product-security-incident-response-teams-psirts">Product Security Incident Response Teams (PSIRTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#the-common-vulnerability-scoring-system-cvss">The Common Vulnerability Scoring System (CVSS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#national-csirts-and-computer-emergency-response-teams-certs">National CSIRTs and Computer Emergency Response Teams (CERTs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#coordination-centres">Coordination Centres</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forensics.html#key-incident-management">Key Incident Management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction to Cybersecurity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../network-security-fundamentals/06.-configuring-wireless-lan-controller-device-hardening-methods.html" class="btn btn-neutral float-left" title="Configuring Wireless LAN Controller Device Hardening Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,6 +7,7 @@ Core Security
 
   security-concepts/index
   network-security-fundamentals/index
+  fundamentals-from-the-book/index
   network-security-with-cisco-ios/index
   network-security-with-cisco-asa/index
   network-security-with-cisco-firepower/index

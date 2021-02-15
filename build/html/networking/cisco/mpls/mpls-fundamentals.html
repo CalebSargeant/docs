@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>MPLS Fundamentals &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuring a Label Switched Network" href="configuring-a-label-switched-network.html" />
+    <link rel="prev" title="Introduction to MPLS" href="introduction-to-mpls.html" />
+    <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">MPLS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction-to-mpls.html">Introduction to MPLS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">MPLS Fundamentals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mpls-data-plane">MPLS Data Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-router-databases">Key Router Databases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpls-control-plan">MPLS Control Plan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#label-distribution-protocol-ldp">Label Distribution Protocol (LDP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpls-ping-and-traceroute">MPLS Ping and Traceroute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-a-label-switched-network.html">Configuring a Label Switched Network</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">MPLS</a> &raquo;</li>
+        
+      <li>MPLS Fundamentals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/mpls/mpls-fundamentals.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mpls-fundamentals">
+<h1>MPLS Fundamentals<a class="headerlink" href="#mpls-fundamentals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mpls-data-plane">
+<h2>MPLS Data Plane<a class="headerlink" href="#mpls-data-plane" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>LSR uses the <strong>FIB</strong> to forward <strong>unlabeled IP packets</strong></p></li>
+<li><p>LSR uses the <strong>LFIB</strong> to forward <strong>labeled packets</strong></p></li>
+<li><p>The FIB and LFIB databases are built by various control plane protocols</p></li>
+</ul>
+<img alt="../../../_images/mpls-3.png" src="../../../_images/mpls-3.png" />
+</div>
+<div class="section" id="key-router-databases">
+<h2>Key Router Databases<a class="headerlink" href="#key-router-databases" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/mpls-4.png" src="../../../_images/mpls-4.png" />
+<ul class="simple">
+<li><p>RIB (Routing Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">ip</span> <span class="pre">route</span></code> - Routing table, static, connected, etc.</p></li>
+<li><p>FIB (Forwarding Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">ip</span> <span class="pre">cef</span></code> works with CEF (Cisco Express Forwarding) adjacency table (prepackaged L2 info used for forwarding - MAC Address, DLCI), what do we do when we have a packet, what database do we look in, etc.</p></li>
+<li><p>LIB (Label Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">mpls</span> <span class="pre">ldp</span> <span class="pre">bindings</span></code> - Label Information Base (store anything to do with label)</p></li>
+<li><p>LFIB (Label Forward Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">mpls</span> <span class="pre">forwarding-table</span></code> - hardware based database, used to forward MPLS packets constructed by LIB, FIB &amp; RIB</p></li>
+</ul>
+</div>
+<div class="section" id="mpls-control-plan">
+<h2>MPLS Control Plan<a class="headerlink" href="#mpls-control-plan" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Step 1 - Every LSR generates a local label for every connected, static and IGP prefix</p></li>
+<li><p>Step 2 - Exchange prefix / label bindings with all LDP neighbors</p></li>
+<li><p>Once labels are exchanged, the MPLS data plane (LFIB can be constructed).</p></li>
+<li><p>Only the best prefix / label bindings from the LIB get put into LFIB</p></li>
+<li><p>The best path is still chosen by the IGP</p></li>
+</ul>
+</div>
+<div class="section" id="label-distribution-protocol-ldp">
+<h2>Label Distribution Protocol (LDP)<a class="headerlink" href="#label-distribution-protocol-ldp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ldp-label-exchange">
+<h3>LDP Label Exchange<a class="headerlink" href="#ldp-label-exchange" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/mpls-5.png" src="../../../_images/mpls-5.png" />
+</div>
+<div class="section" id="ldp-mechanics">
+<h3>LDP Mechanics<a class="headerlink" href="#ldp-mechanics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>LDP <strong>hello messages</strong> are <strong>multicast</strong> to <strong>224.0.0.2</strong> to discover LDP neighbors</p>
+<ul>
+<li><p><strong>UDP</strong> port <strong>646</strong></p></li>
+<li><p>Hello messages list the LDP <strong>router-id</strong>. This MUST be a valid IP address!</p></li>
+</ul>
+</li>
+<li><p><strong>TCP</strong> session is open between LDP routers to do <strong>label exchange</strong></p>
+<ul>
+<li><p><strong>TCP</strong> port <strong>646</strong></p></li>
+<li><p>TCP session is between LDP router-id’s - This is why they must be routable!</p></li>
+<li><p><strong>Highest LDP RID</strong> initiates TCP session</p></li>
+</ul>
+</li>
+<li><p>LDP RID is chosen first by <strong>configuration</strong>, then <strong>highest loopback</strong>, then <strong>highest interface</strong> IP assigned</p></li>
+</ul>
+</div>
+<div class="section" id="penultimate-hop-popping">
+<h3>Penultimate Hop Popping<a class="headerlink" href="#penultimate-hop-popping" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>LSR advertises a <strong>special label</strong> called <strong>implicit null</strong> (label value 3) for any prefixes that it needs to forward packets for using only (outside MPLS)</p></li>
+<li><p>The <strong>implicit null</strong> label tells the upstream neighbor to <strong>pop</strong> the outer most label before sending the packet as an efficiency mechanism</p></li>
+</ul>
+<img alt="../../../_images/mpls-6.png" src="../../../_images/mpls-6.png" />
+</div>
+</div>
+<div class="section" id="mpls-ping-and-traceroute">
+<h2>MPLS Ping and Traceroute<a class="headerlink" href="#mpls-ping-and-traceroute" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mpls-ping">
+<h3>MPLS Ping<a class="headerlink" href="#mpls-ping" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Classic ping works fine in MPLS environments but has some challenges</p>
+<ul>
+<li><p>Classic ping only verifies that IP forwarding is working, but does not verify the LSP</p></li>
+<li><p>If an end to end ping fails, it can be unclear where the exact problem is (could be many things - firewall, CE, MPLS could be broken but not pings, etc.)</p></li>
+</ul>
+</li>
+<li><p>To solve these challenges, a special MPLS ping utility was developed</p>
+<ul>
+<li><p>Can only be run on LSRs</p></li>
+<li><p>Verifies an end to end LSP</p></li>
+<li><p>IP packet that is carried across the LSP is constructed so it can NOT be routed</p>
+<ul>
+<li><p>IP packet gets put inside LSP packet</p></li>
+<li><p>TTL is 1</p></li>
+<li><p>Destination is 127.0.0.0/8</p></li>
+<li><p>Destination UDP is 3503 (reserved)</p></li>
+<li><p>Rotuer alert is set in IP header</p></li>
+<li><p>In MPLS header, TTL is set to 225</p></li>
+<li><p>Lookup destination of ping, generate full label stack, and push label stack on packet</p></li>
+<li><p>It won’t fallback to routing, because the parameters (TTL, port, etc.) won’t allow it to be routed</p></li>
+</ul>
+</li>
+<li><p>If the LSP is broken, an error message is returned to the source router</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="mpls-classic-traceroute">
+<h3>MPLS Classic Traceroute<a class="headerlink" href="#mpls-classic-traceroute" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Traditional traceroute in an MPLS environment works differently than you might imagine</p></li>
+<li><p>It suffers from the same problems as ping and is not efficient</p></li>
+</ul>
+<img alt="../../../_images/mpls-7.png" src="../../../_images/mpls-7.png" />
+<p><strong>Let’s say CE1 is trying to trace to CE2:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CE1 sends packet with TTL 1</p></li>
+<li><p>PE1 gets packet and decrements TTL to 0, sends ICMP TTL expired to CE1</p></li>
+<li><p>CE1 knows first hop is PE1</p></li>
+<li><p>CE1 sends packet with TTL 2</p></li>
+<li><p>PE1 gets packet and decrements TTL to 1, puts label 17 on the stack, and sends to P1</p></li>
+<li><p>TTL on MPLS header is set to 1</p></li>
+<li><p>P1 gets MPLS packet and decrements TTL to 0 in MPLS header</p></li>
+<li><p>(now normally, in classic traceroute, P1 would send TTL expired to CE1, P1 doesn’t know of IP realm and can’t send it back to 192.168.1.1)</p></li>
+<li><p>P1 generates ICMP TTL expired message and sends along LSP to PE2 (bizarre) sourced from its interface facing PE1 and the TTL expired message is destined to CE1, puts label 32 and sends to PE2</p></li>
+<li><p>TTL expired gets sent to CE2, CE2 sends it back to PE2</p></li>
+<li><p>CE1 eventually gets the TTL expired message</p></li>
+<li><p>Same thing happens for 3rd hop, etc.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Problems:</strong></p>
+<ul class="simple">
+<li><p>If LSP is broken, traceroute in MPLS might still work</p></li>
+<li><p>If we trace from one CE1 to CE2, no way to detect where LSP broke, ICMP responses travel along LSP first and break by the PE1 router</p></li>
+<li><p>MPLS traceroute utility was created and MPLS ping is used in the background and is run on LSR only</p></li>
+<li><p>A series MPLS (ping) echo packets are sent fully labelled checking the entire path</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="configuring-a-label-switched-network.html" class="btn btn-neutral float-right" title="Configuring a Label Switched Network" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction-to-mpls.html" class="btn btn-neutral float-left" title="Introduction to MPLS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

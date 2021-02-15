@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Digital Forensics and Incident Response &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Network Security with Cisco IOS" href="../network-security-with-cisco-ios/index.html" />
+    <link rel="prev" title="IoT Security Threats" href="iot.html" />
+    <link href="../../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core Security</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../security-concepts/index.html">Security Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-fundamentals/index.html">Network Security Fundamentals</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Fundamentals</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction to Cybersecurity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="definitions.html">Defining Threats, Vulnerabilities, &amp; Exploits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vulnerabilities.html">Common Software and Hardware Vulnerabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cia.html">CIA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud.html">Cloud Security Threats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="iot.html">IoT Security Threats</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Digital Forensics and Incident Response</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-ios/index.html">Network Security with Cisco IOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-asa/index.html">Network Security with Cisco ASA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network-security-with-cisco-firepower/index.html">Network Security with Cisco Firepower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../describing-and-configuring-vpns/index.html">Describing and Configuring VPNs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-visibility-and-enforcement/index.html">Secure Network Access, Visibility, and Enforcement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secure-network-access-using-cisco-ise/index.html">Secure Network Access Using Cisco ISE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../endpoint-protection-and-detection-with-cisco-amp/index.html">Endpoint Protection and Detection with Cisco AMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-security-with-cisco-wsa-and-cisco-umbrella/index.html">Content Security with Cisco WSA &amp; Cisco Umbrella</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../email-security-with-cisco-esa/index.html">Email Security with Cisco ESA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../routing/index.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../switching/index.html">Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../design-and-documentation.html">Network Design and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core Security</a> &raquo;</li>
+        
+          <li><a href="index.html">Fundamentals</a> &raquo;</li>
+        
+      <li>Digital Forensics and Incident Response</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/networking/cisco/core-security/fundamentals-from-the-book/forensics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="digital-forensics-and-incident-response">
+<h1>Digital Forensics and Incident Response<a class="headerlink" href="#digital-forensics-and-incident-response" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Many, many more diverse cybersecurity-related incidences have come about nowadays.</p></li>
+<li><p>Disruptive &amp; Damaging, can take down a whole company.</p></li>
+<li><p>Must respond quickly to minimise harm &amp; uphold laws.</p></li>
+</ul>
+<div class="section" id="iso-iec-27002-2013-and-nist-incident-response-guidance">
+<h2>ISO/IEC 27002:2013 and NIST Incident Response Guidance<a class="headerlink" href="#iso-iec-27002-2013-and-nist-incident-response-guidance" title="Permalink to this headline">¶</a></h2>
+<p>A consistent and effective approach to the management of information security incidents, including communication on security events and weaknesses:</p>
+<ul class="simple">
+<li><p>SP 800-61 Revision 2: “Computer Security Incident Handling Guide”</p></li>
+<li><p>SP 800-83: “Guide to Malware Incident Prevention and Handling”</p></li>
+<li><p>SP 800-86: “Guide to Integrating Forensic Techniques into Incident Response”</p></li>
+</ul>
+<p>Incidences:</p>
+<ul class="simple">
+<li><p>Drain resources.</p></li>
+<li><p>Are expensive.</p></li>
+<li><p>Disrupt business from businesses.</p></li>
+<li><p>Must be identified before vulnerabilities are exploited.</p></li>
+<li><p>Must be avoided by improving security posture.</p></li>
+<li><p>Must be avoided via assessment of risk, threat, threat sources, and vulnerabilities.</p></li>
+</ul>
+<p>Risk:</p>
+<ul class="simple">
+<li><p>Can be mitigated or avoided.</p></li>
+<li><p>Occurs when people are involved (which is always).</p></li>
+<li><p>Cannot be avoided by things out of company’s control</p></li>
+<li><p>Cannot be avoided by people with malicious intent.</p></li>
+<li><p>Can be reduced if we prepare.</p></li>
+</ul>
+<p>Incident preparedness:</p>
+<ul class="simple">
+<li><p>Involves having policies, strategies, plans &amp; procedures.</p></li>
+<li><p>Involves companies writing guidelines &amp; documentation, training staff, &amp; “fire” drills.</p></li>
+<li><p>Is being ready to act quickly and make swift decisions.</p></li>
+</ul>
+<p>Incident response:</p>
+<ul class="simple">
+<li><p>Is critical.</p></li>
+<li><p>Can be complex.</p></li>
+<li><p>Involves planning &amp; resources.</p></li>
+<li><p>An incident handling guide by NIST: <a class="reference download internal" download="" href="../../../../_downloads/006cf7cefbff130b61b9ee754aa3b512/NIST.SP.800-61r2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">view</span> <span class="pre">here</span></code></a> / <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf">view online</a></p></li>
+</ul>
+<p>Incident response benefits:</p>
+<ul class="simple">
+<li><p>Calm and systematic response</p></li>
+<li><p>Minimization of loss or damage</p></li>
+<li><p>Protection of affected parties</p></li>
+<li><p>Compliance with laws and regulations</p></li>
+<li><p>Preservation of evidence</p></li>
+<li><p>Integration of lessons learned</p></li>
+<li><p>Lower future risk and exposure</p></li>
+</ul>
+</div>
+<div class="section" id="incident-definition">
+<h2>Incident Definition<a class="headerlink" href="#incident-definition" title="Permalink to this headline">¶</a></h2>
+<p>A cybersecurity incident is an adverse event that threatens business security and/or disrupts service (loss of CIA). It is not a disaster, which is widespread damage/destruction, loss of life, or drastic change to envirmonment.</p>
+<p>Incident examples:</p>
+<ul class="simple">
+<li><p>Exposure or modification of legally protected data</p></li>
+<li><p>Unauthorized access to intellectual property</p></li>
+<li><p>Disruption of internal/external services.</p></li>
+<li><p>Attacker sends a crafted packet to a router and causes a denial-of-service condition.</p></li>
+<li><p>Attacker compromises a point-of-sale (POS) system and steals credit card information.</p></li>
+<li><p>Attacker compromises a hospital database and steals thousands of health records.</p></li>
+<li><p>Ransomware is installed in a critical server and all files are encrypted by the attacker.</p></li>
+</ul>
+<p>Incident management:</p>
+<ul class="simple">
+<li><p>Create organisation-specific definition of <em>incident</em>.</p></li>
+<li><p>Create a mandatory response process.</p></li>
+<li><p>3rd partys, vendors &amp; business partners, etc. must be contractually obligated to notify organisation when incident occurs.</p></li>
+</ul>
+<p>Events vs Incidents:</p>
+<ul class="simple">
+<li><p>From NIST Special Publication 800-61: “An event is any observable occurrence in a system or network. Events include a user connecting to a file share, a server receiving a request for a web page, a user sending email, and a firewall blocking a connection attempt. Adverse events are events with a negative consequence, such as system crashes, packet floods, unauthorized use of system privileges, unauthorized access to sensitive data, and execution of malware that destroys data.”</p></li>
+<li><p>“a computer security incident is a violation or imminent threat of violation of computer security policies, acceptable use policies, or standard security practices.”</p></li>
+</ul>
+</div>
+<div class="section" id="false-positives-false-negatives-true-positives-and-true-negatives">
+<h2>False Positives, False Negatives, True Positives, and True Negatives<a class="headerlink" href="#false-positives-false-negatives-true-positives-and-true-negatives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A <em>false positive</em> is a situation when security device triggers an alarm, but there is no malicious activity or attack. “Crying wolf”</p></li>
+<li><p>A <em>false negative</em> is when a device is unable to detect true security events / malicious activity isn’t detected by the device.</p></li>
+<li><p>A <em>true positive</em> is a successful identification of malicious activity.</p></li>
+<li><p>A <em>true negative</em> is when a device allows the malicious activity.</p></li>
+</ul>
+<p>Evasion techniques against traditional IDS and IPS devices:</p>
+<ul class="simple">
+<li><p>Fragmentation: When the attacker evades the IPS box by sending fragmented packets.</p></li>
+<li><p>Using low-bandwidth attacks: When the attacker uses techniques that use low bandwidth or a very small number of packets in order to evade the system.</p></li>
+<li><p>Address spoofing/proxying: Using spoofed IP addresses or sources, as well as using intermediary systems such as proxies to evade inspection.</p></li>
+<li><p>Pattern change evasion: Attackers may use polymorphic techniques to create unique attack patterns.</p></li>
+<li><p>Encryption: Attackers can use encryption to hide their communication and information.</p></li>
+</ul>
+</div>
+<div class="section" id="incident-severity-levels">
+<h2>Incident Severity Levels<a class="headerlink" href="#incident-severity-levels" title="Permalink to this headline">¶</a></h2>
+<p>Levels are based upon:</p>
+<ul class="simple">
+<li><p>operational, reputational, and legal impact to the organisation.</p></li>
+</ul>
+</div>
+<div class="section" id="incident-reporting">
+<h2>Incident Reporting<a class="headerlink" href="#incident-reporting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Implement simple mechanisms that all employees can use.</p></li>
+<li><p>Employees to report all real &amp; suspected incidents, but not security level.</p></li>
+<li><p>People are afraid of being wrong or looking foolish or don’t care. Management must encourage.</p></li>
+<li><p>People who report incidents (even if false positive) must be praised instead of ridiculed.</p></li>
+</ul>
+<p>Evidence:</p>
+<ul class="simple">
+<li><p>Digital forensic evidence is any information in digital form that can be processed by computing device or stored on other media. This evidence is classified as witness testimony/direct evidence or indirect, such as document, etc.</p></li>
+<li><p>Cybersecurity forensic evidence can be contaminated and so the targeted machine can be imaged (physical copy of data, bit for bit) to preserve exploit state. Avoid Electrostatic Discharge (ESD) from damaging evidence.</p></li>
+</ul>
+<p>Chain of custody:</p>
+<ul class="simple">
+<li><p>How evidence is collected</p></li>
+<li><p>When it was collected</p></li>
+<li><p>How it was transported</p></li>
+<li><p>How it was tracked</p></li>
+<li><p>How it was stored</p></li>
+<li><p>Who had access to the evidence and how it was accessed</p></li>
+</ul>
+</div>
+<div class="section" id="incident-response-program">
+<h2>Incident Response Program<a class="headerlink" href="#incident-response-program" title="Permalink to this headline">¶</a></h2>
+<p>An IRP contains policies, plans, procedures, and people, which provide well-defined and organised approach for handling incidents and taking action when incidents are traced back to company.</p>
+</div>
+<div class="section" id="incident-response-plan">
+<h2>Incident Response Plan<a class="headerlink" href="#incident-response-plan" title="Permalink to this headline">¶</a></h2>
+<p>NIST Special Publication 800-61 Revision 2 include the following:</p>
+<ul class="simple">
+<li><p>Statement of management commitment</p></li>
+<li><p>Purpose and objectives of the incident response policy</p></li>
+<li><p>The scope of the incident response policy</p></li>
+<li><p>Definition of computer security incidents and related terms</p></li>
+<li><p>Organisational structure and definition of roles, responsibilities, and levels of authority</p></li>
+<li><p>Prioritisation or severity ratings of incidents</p></li>
+<li><p>Performance measures</p></li>
+<li><p>Reporting and contact forms</p></li>
+</ul>
+<p>NIST’s incident response plan elements include the following:</p>
+<ul class="simple">
+<li><p>Incident response plan’s mission</p></li>
+<li><p>Strategies and goals of the incident response plan</p></li>
+<li><p>Senior management approval of the incident response plan</p></li>
+<li><p>Organisational approach to incident response</p></li>
+<li><p>How the incident response team will communicate with the rest of the organisation and with other organisations</p></li>
+<li><p>Metrics for measuring the incident response capability and its effectiveness</p></li>
+<li><p>Roadmap for maturing the incident response capability</p></li>
+<li><p>How the program fits into the overall organisation</p></li>
+</ul>
+<p>NIST also defines standard operating procedures (SOPs) as “a delineation of the specific technical processes, techniques, checklists, and forms used by the incident response team. SOPs should be reasonably comprehensive and detailed to ensure that the priorities of the organization are reflected in response operations.”</p>
+</div>
+<div class="section" id="incident-response-process">
+<h2>Incident Response Process<a class="headerlink" href="#incident-response-process" title="Permalink to this headline">¶</a></h2>
+<p>Phases of Incident Response Process:</p>
+<img alt="../../../../_images/security-fundamentals-forensics-1.png" src="../../../../_images/security-fundamentals-forensics-1.png" />
+<div class="section" id="preparation">
+<h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Creating processes for incident handler communications and the facilities that will host the security operation centre (SOC) and incident response team</p></li>
+<li><p>Making sure that the organisation has appropriate incident analysis hardware and software as well as incident mitigation software</p></li>
+<li><p>Creating risk assessment capabilities within the organisation</p></li>
+<li><p>Making sure the organisation has appropriately deployed host security, network security, and malware prevention solutions</p></li>
+<li><p>Developing user awareness training</p></li>
+</ul>
+</div>
+<div class="section" id="detection-analysis">
+<h3>Detection &amp; Analysis<a class="headerlink" href="#detection-analysis" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Profile networks and systems.</p></li>
+<li><p>Understand normal behaviours.</p></li>
+<li><p>Create a log retention policy.</p></li>
+<li><p>Perform event correlation.</p></li>
+<li><p>Maintain and use a knowledge base of information.</p></li>
+<li><p>Use Internet search engines for research.</p></li>
+<li><p>Run packet sniffers to collect additional data.</p></li>
+<li><p>Filter the data.</p></li>
+<li><p>Seek assistance from others.</p></li>
+<li><p>Keep all host clocks synchronised.</p></li>
+<li><p>Know the different types of attacks and attack vectors.</p></li>
+<li><p>Develop processes and procedures to recognise the signs of an incident.</p></li>
+<li><p>Understand the sources of precursors and indicators.</p></li>
+<li><p>Create appropriate incident documentation capabilities and processes.</p></li>
+<li><p>Create processes to effectively prioritise security incidents.</p></li>
+<li><p>Create processes to effectively communicate incident information (internal and external communications).</p></li>
+</ul>
+</div>
+<div class="section" id="containment-eradication-recovery">
+<h3>Containment, Eradication, &amp; Recovery<a class="headerlink" href="#containment-eradication-recovery" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Evidence gathering and handling</p></li>
+<li><p>Identifying the attacking hosts</p></li>
+<li><p>Choosing a containment strategy to effectively contain and eradicate the attack, as well as to successfully recover from it</p></li>
+<li><p>The potential damage to and theft of resources</p></li>
+<li><p>The need for evidence preservation</p></li>
+<li><p>Service availability (for example, network connectivity as well as services provided to external parties)</p></li>
+<li><p>Time and resources needed to implement the strategy</p></li>
+<li><p>Effectiveness of the strategy (for example, partial containment or full containment)</p></li>
+<li><p>Duration of the solution (for example, emergency workaround to be removed in four hours, temporary workaround to be removed in two weeks, or permanent solution)</p></li>
+</ul>
+</div>
+<div class="section" id="postmortem">
+<h3>Postmortem<a class="headerlink" href="#postmortem" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Exactly what happened, and at what times?</p></li>
+<li><p>How well did the staff and management perform while dealing with the incident?</p></li>
+<li><p>Were the documented procedures followed?</p></li>
+<li><p>Were they adequate?</p></li>
+<li><p>What information was needed sooner?</p></li>
+<li><p>Were any steps or actions taken that might have inhibited the recovery?</p></li>
+<li><p>What would the staff and management do differently the next time a similar incident occurs?</p></li>
+<li><p>How could information sharing with other organisations be improved?</p></li>
+<li><p>What corrective actions can prevent similar incidents in the future?</p></li>
+<li><p>What precursors or indicators should be watched for in the future to detect similar incidents?</p></li>
+<li><p>What additional tools or resources are needed to detect, analyse, and mitigate future incidents?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="simulations-and-playbooks">
+<h2>Simulations and Playbooks<a class="headerlink" href="#simulations-and-playbooks" title="Permalink to this headline">¶</a></h2>
+<p>Good for gap analysis of response processes &amp; procedures, create playbooks, which contains:</p>
+<ul class="simple">
+<li><p>Report identification</p></li>
+<li><p>Objective statement</p></li>
+<li><p>Result analysis</p></li>
+<li><p>Data query/code</p></li>
+<li><p>Analyst comments/notes</p></li>
+</ul>
+<p>Methodology of Playbooks:</p>
+<ol class="arabic simple">
+<li><p>Preparation: Identify the audience, what you want to simulate, and how the exercise will take place.</p></li>
+<li><p>Execution: Execute the simulation and record all findings to identify all areas for improvement in your program.</p></li>
+<li><p>Report: Create a report and distribute it to all the respective stakeholders. Narrow your assessment to specific facets of incident response. You can compare the results with the existing incident response plans. You should also measure the coordination among different teams within the organization and/or external to the organization. Provide a good technical analysis and identify gaps.</p></li>
+</ol>
+</div>
+<div class="section" id="information-sharing-and-coordination">
+<h2>Information Sharing and Coordination<a class="headerlink" href="#information-sharing-and-coordination" title="Permalink to this headline">¶</a></h2>
+<p>Communicate with outside parties regarding incidents:</p>
+<ul class="simple">
+<li><p>law enforcement</p></li>
+<li><p>media inquiries</p></li>
+<li><p>external expertise</p></li>
+<li><p>ISPs</p></li>
+<li><p>vendor of hardware &amp; software</p></li>
+<li><p>incident response teams</p></li>
+<li><p>industry pears</p></li>
+</ul>
+<p>Incident response plan interaction types:</p>
+<ul class="simple">
+<li><p>PR department, legal department, upper management</p></li>
+<li><p>avoid leaking sensitive info about incident to unauthorised parties (additional financial loss)</p></li>
+<li><p>list contacts &amp; communications of &amp; with external entities for evidence sake</p></li>
+</ul>
+</div>
+<div class="section" id="computer-security-incident-response-teams">
+<h2>Computer Security Incident Response Teams<a class="headerlink" href="#computer-security-incident-response-teams" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Computer Security Incident Response Team (CSIRT) (/infosec)</p></li>
+<li><p>Product security incident response team (PSIRT)</p></li>
+<li><p>National CSIRT and computer emergency response team (CERT)</p></li>
+<li><p>Coordination center The incident response team of a security vendor</p></li>
+<li><p>managed security service provider (MSSP)</p></li>
+</ul>
+<p>Creating a CSIRT:</p>
+<p><a class="reference external" href="https://www.cert.org/incident-management/csirt-development/csirt-faq.cfm">https://www.cert.org/incident-management/csirt-development/csirt-faq.cfm</a>.</p>
+<ol class="arabic simple">
+<li><p>Defining the CSIRT constituency</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Who will be the “customer” of the CSIRT?</p></li>
+<li><p>What is the scope? Will the CSIRT cover only the organization or also entities external to the organization? For example, at Cisco, all internal infrastructure and Cisco’s websites and tools (that is, cisco.com) are the responsibility of the Cisco CSIRT, and any incident or vulnerability concerning a Cisco product or service is the responsibility of the Cisco PSIRT.</p></li>
+<li><p>Will the CSIRT provide support for the complete organization or only for a specific area or segment? For example, an organization may have a CSIRT for traditional infrastructure and IT capabilities and a separate one dedicated to cloud security.</p></li>
+<li><p>Will the CSIRT be responsible for part of the organization or all of it? If external entities will be included, how will they be selected?</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Ensuring management and executive support</p></li>
+<li><p>Making sure that the proper budget is allocated</p></li>
+<li><p>Deciding where the CSIRT will reside within the organization’s hierarchy</p></li>
+<li><p>Determining whether the team will be central, distributed, or virtual</p></li>
+<li><p>Developing the process and policies for the CSIRT</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Incident classification and handling</p></li>
+<li><p>Information classification and protection</p></li>
+<li><p>Information dissemination</p></li>
+<li><p>Record retention and destruction</p></li>
+<li><p>Acceptable usage of encryption</p></li>
+<li><p>Engaging and cooperating with external groups (other IRTs, law enforcement, and so on)</p></li>
+<li><p>Hiring policy</p></li>
+<li><p>Using an outsourcing organization to handle incidents</p></li>
+<li><p>Working across multiple legal jurisdictions</p></li>
+</ul>
+</div></blockquote>
+<p>Resources for creating a CSIRT:</p>
+<ul class="simple">
+<li><p>ISO/IEC 27001:2005: “Information Technology—Security Techniques—Information Security Management Systems—Requirements”</p></li>
+<li><p>ISO/IEC 27002:2005: Information Technology—Security Techniques—Code of Practice for Information Security Management”</p></li>
+<li><p>ISO/IEC 27005:2008: “Information Technology—Security techniques—Information Security Risk Management”</p></li>
+<li><p>ISO/PAS 22399:2007: “Societal Security—Guidelines for Incident Preparedness and Operational Continuity Management”</p></li>
+<li><p>ISO/IEC 27033: Information Technology—Security Techniques—Information Security Incident Management</p></li>
+</ul>
+</div>
+<div class="section" id="product-security-incident-response-teams-psirts">
+<h2>Product Security Incident Response Teams (PSIRTs)<a class="headerlink" href="#product-security-incident-response-teams-psirts" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://blogs.cisco.com/security/psirt-services">https://blogs.cisco.com/security/psirt-services</a>.</p>
+</div>
+<div class="section" id="the-common-vulnerability-scoring-system-cvss">
+<h2>The Common Vulnerability Scoring System (CVSS)<a class="headerlink" href="#the-common-vulnerability-scoring-system-cvss" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Base, temporal, and environment scores (scoring from 0 [least severe] to 10 [highly critical]).</p></li>
+<li><p>Maintained by Forum of Incident Response &amp; Security Teams (FIRST) (<a class="reference external" href="https://www.first.org/cvss/v3.1/examples">https://www.first.org/cvss/v3.1/examples</a>.) (<a class="reference external" href="https://www.first.org/cvss">https://www.first.org/cvss</a>).</p></li>
+</ul>
+<p>Vulnerabilities are evaluated by:</p>
+<ul class="simple">
+<li><p>The base group represents the intrinsic characteristics of a vulnerability that are constant over time and do not depend on a user-specific environment. This is the most important information and the only one that’s mandatory to obtain a vulnerability score.</p></li>
+<li><p>The temporal group assesses the vulnerability as it changes over time.</p></li>
+<li><p>The environmental group represents the characteristics of a vulnerability, taking into account the organizational environment.</p></li>
+</ul>
+<p>Takeaway points:</p>
+<ul class="simple">
+<li><p>Exploits cannot exist without vulnerabilities, but there are not always exploits with vulnerabilities (theoretical vulnerabilities).</p></li>
+<li><p>Never deprioritise vulnerabilities because they have not been exploited yet.</p></li>
+<li><p>You cannot patch all vulnerabilities. Secure Development Lifecycles (SDL) are vital. <a class="reference external" href="https://www.cisco.com/c/en/us/about/security-center/security-programs/secure-development-lifecycle.html">https://www.cisco.com/c/en/us/about/security-center/security-programs/secure-development-lifecycle.html</a></p></li>
+</ul>
+<div class="section" id="secure-development-lifecycles">
+<h3>Secure Development Lifecycles<a class="headerlink" href="#secure-development-lifecycles" title="Permalink to this headline">¶</a></h3>
+<p>SDLs are “a repeatable and measurable process we’ve designed to increase the resiliency and trustworthiness of our products.” SDLs are the tools &amp; processes designed to accelerate product development methodologies (secure, resilient, &amp; trustworthy systems).:</p>
+<ul class="simple">
+<li><p>Base product security requirements</p></li>
+<li><p>Third-party software (TPS) security</p></li>
+<li><p>Secure design</p></li>
+<li><p>Secure coding</p></li>
+<li><p>Secure analysis</p></li>
+<li><p>Vulnerability testing</p></li>
+</ul>
+</div>
+<div class="section" id="exploitability-metrics">
+<h3>Exploitability Metrics<a class="headerlink" href="#exploitability-metrics" title="Permalink to this headline">¶</a></h3>
+<p>Attack Vector (AV) [level of access an attacker needs]:</p>
+<ul class="simple">
+<li><p>Network (N)</p></li>
+<li><p>Adjacent (A)</p></li>
+<li><p>Local (L)</p></li>
+<li><p>Physical (P)</p></li>
+</ul>
+<p>Attack Complexity (AC) [conditions beyond the attacker’s control]:</p>
+<ul class="simple">
+<li><p>Low (L)</p></li>
+<li><p>High (H)</p></li>
+</ul>
+<p>Privileges Required (PR) [level of privileges an attacker must have]:</p>
+<ul class="simple">
+<li><p>None (N)</p></li>
+<li><p>Low (L)</p></li>
+<li><p>High (H)</p></li>
+</ul>
+<p>User Interaction (UI) [whether UI is needed]</p>
+<ul class="simple">
+<li><p>None (N)</p></li>
+<li><p>Required (R)</p></li>
+</ul>
+<p>Scope (S) [impact on systems]:</p>
+<ul class="simple">
+<li><p>Unchanged (U)</p></li>
+<li><p>Changed (C)</p></li>
+</ul>
+</div>
+<div class="section" id="impact-metrics">
+<h3>Impact Metrics<a class="headerlink" href="#impact-metrics" title="Permalink to this headline">¶</a></h3>
+<p>Confidentiality (C) [impact to confidentiality]:</p>
+<ul class="simple">
+<li><p>Low (L)</p></li>
+<li><p>Medium (M)</p></li>
+<li><p>High (H)</p></li>
+</ul>
+<p>Integrity (I) [impact to integrity]:</p>
+<ul class="simple">
+<li><p>Low (L)</p></li>
+<li><p>Medium (M)</p></li>
+<li><p>High (H)</p></li>
+</ul>
+<p>Availability (A) [impact to availability]:</p>
+<ul class="simple">
+<li><p>Low (L)</p></li>
+<li><p>Medium (M)</p></li>
+<li><p>High (H)</p></li>
+</ul>
+</div>
+<div class="section" id="temporal-group-metrics">
+<h3>Temporal Group Metrics<a class="headerlink" href="#temporal-group-metrics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Exploit Code Maturity (E), which measures whether or not public exploit is available</p></li>
+<li><p>Remediation Level (RL), which indicates whether a fix or workaround is available</p></li>
+<li><p>Report Confidence (RC), which indicates the degree of confidence in the existence of the vulnerability</p></li>
+</ul>
+</div>
+<div class="section" id="environmental-group-metrics">
+<h3>Environmental Group Metrics<a class="headerlink" href="#environmental-group-metrics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Security Requirements (CR, IR, AR), which indicate the importance of confidentiality, integrity, and availability requirements for the system</p></li>
+<li><p>Modified Base Metrics (MAV, MAC, MAPR, MUI, MS, MC, MI, MA), which allow the organization to tweak the base metrics based on specific characteristics of the environment</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="national-csirts-and-computer-emergency-response-teams-certs">
+<h2>National CSIRTs and Computer Emergency Response Teams (CERTs)<a class="headerlink" href="#national-csirts-and-computer-emergency-response-teams-certs" title="Permalink to this headline">¶</a></h2>
+<p>Examples of teams:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.cert-in.org.in">http://www.cert-in.org.in</a></p></li>
+<li><p><a class="reference external" href="https://cert.gov.au">https://cert.gov.au</a></p></li>
+<li><p><a class="reference external" href="https://www.auscert.org.au/">https://www.auscert.org.au/</a></p></li>
+<li><p><a class="reference external" href="https://www.first.org/members/teams">https://www.first.org/members/teams</a></p></li>
+</ul>
+<p>“US-CERT’s critical mission activities include:</p>
+<ul class="simple">
+<li><p>Providing cybersecurity protection to Federal civilian executive branch agencies through intrusion detection and prevention capabilities.</p></li>
+<li><p>Developing timely and actionable information for distribution to federal departments and agencies; state, local, tribal and territorial (SLTT) governments; critical infrastructure owners and operators; private industry; and international organizations.</p></li>
+<li><p>Responding to incidents and analyzing data about emerging cyber threats.</p></li>
+<li><p>Collaborating with foreign governments and international entities to enhance the nation’s cybersecurity posture.”</p></li>
+</ul>
+</div>
+<div class="section" id="coordination-centres">
+<h2>Coordination Centres<a class="headerlink" href="#coordination-centres" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cert.org">https://cert.org</a>:</p>
+<ul class="simple">
+<li><p>“CERT Division of the Software Engineering Institute (SEI), we study and solve problems with widespread cybersecurity implications, research security vulnerabilities in software products, contribute to long-term changes in networked systems, and develop cutting-edge information and training to help improve cybersecurity.</p></li>
+<li><p>“We are more than a research organization. Working with software vendors, we help resolve software vulnerabilities. We develop tools, products, and methods to help organizations conduct forensic examinations, analyze vulnerabilities, and monitor large-scale networks. We help organizations determine how effective their security-related practices are. And we share our work at conferences; in blogs, webinars, and podcasts; and through our many articles, technical reports, and white papers. We collaborate with high-level government organizations, such as the U.S. Department of Defense and the Department of Homeland Security (DHS); law enforcement, including the FBI; the intelligence community; and many industry organizations.</p></li>
+<li><p>“Working together, DHS and the CERT Division meet mutually set goals in areas such as data collection and mining, statistics and trend analysis, computer and network security, incident management, insider threat, software assurance, and more. The results of this work include exercises, courses, and systems that were designed, implemented, and delivered to DHS and its customers as part of the SEI’s mission to transition SEI capabilities to the public and private sectors and improve the practice of cybersecurity.”</p></li>
+</ul>
+</div>
+<div class="section" id="key-incident-management">
+<h2>Key Incident Management<a class="headerlink" href="#key-incident-management" title="Permalink to this headline">¶</a></h2>
+<p>Incident Management Personnel:</p>
+<ul class="simple">
+<li><p>Incident Response Coordinators (IRC) (verify &amp; log incidents)</p></li>
+<li><p>Designated incident handlers</p></li>
+<li><p>Incident response team members</p></li>
+<li><p>Designated Incident Handeler (DIH) (senior personnel with crisis managemnt &amp; comm skills - incident declaration, liason with execs &amp; managing IRT)</p></li>
+</ul>
+<p>IRT tasks:</p>
+<ul class="simple">
+<li><p>Overall management of the incident</p></li>
+<li><p>Triage and impact analysis to determine the extent of the situation</p></li>
+<li><p>Development and implementation of containment and eradication strategies</p></li>
+<li><p>Compliance with government and/or other regulations</p></li>
+<li><p>Communication and follow-up with affected parties and/or individuals</p></li>
+<li><p>Communication and follow-up with other external parties, including the board of directors, business partners, government regulators (including federal, state, and other administrators), law enforcement, representatives of the media, and so on, as needed</p></li>
+<li><p>Root cause analysis and lessons learned</p></li>
+<li><p>Revision of policies/procedures necessary to prevent any recurrence of the incident</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../network-security-with-cisco-ios/index.html" class="btn btn-neutral float-right" title="Network Security with Cisco IOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="iot.html" class="btn btn-neutral float-left" title="IoT Security Threats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

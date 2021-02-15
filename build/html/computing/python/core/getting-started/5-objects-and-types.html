@@ -90,7 +90,6 @@
             
               <p class="caption"><span class="caption-text">Networking</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../networking/security/index.html">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../networking/hp.html">HP Procurve</a></li>
@@ -269,6 +268,140 @@
 <h2>Function Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="default-argument-values">
 <h3>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline">¶</a></h3>
+<p>Arguments with default values must come after those without default values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">banner</span> <span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">line</span> <span class="o">=</span> <span class="n">border</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Howzit my bru!&quot;</span><span class="p">)</span>
+<span class="go">--------------</span>
+<span class="go">Howzit my bru!</span>
+<span class="go">--------------</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Sun, Moon, Stars&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+<span class="go">****************</span>
+<span class="go">Sun, Moon, Stars</span>
+<span class="go">****************</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Sun, Moon, Stars&quot;</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+<span class="go">****************</span>
+<span class="go">Sun, Moon, Stars</span>
+<span class="go">****************</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Hello from Earth, we come in peace!&quot;</span><span class="p">)</span>
+<span class="go">...................................</span>
+<span class="go">Hello from Earth, we come in peace!</span>
+<span class="go">...................................</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="when-are-default-values-evaluated">
+<h3>When Are Default Values Evaluated?<a class="headerlink" href="#when-are-default-values-evaluated" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="go">&#39;Fri Feb 12 20:26:02 2021&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show_default</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
+<span class="go">Fri Feb 12 20:26:35 2021</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
+<span class="go">Fri Feb 12 20:26:35 2021</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
+<span class="go">Fri Feb 12 20:26:35 2021</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Remember that <code class="docutils literal notranslate"><span class="pre">def</span></code> is a statement executed at runtime</p></li>
+<li><p>Default arguments are evaluated when <code class="docutils literal notranslate"><span class="pre">def</span></code> is executed</p></li>
+<li><p>Immutable default values don’t cause problems</p></li>
+<li><p>Mutable default values can cause confusing effects</p></li>
+</ul>
+</div>
+<div class="section" id="mutable-default-values">
+<h3>Mutable Default Values<a class="headerlink" href="#mutable-default-values" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add_spam</span><span class="p">(</span><span class="n">menu</span><span class="o">=</span><span class="p">[]):</span>
+<span class="gp">... </span>    <span class="n">menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;spam&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">menu</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">breakfast</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bacon&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">(</span><span class="n">breakfast</span><span class="p">)</span>
+<span class="go">[&#39;bacon&#39;, &#39;eggs&#39;, &#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lunch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;baked beans&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">(</span><span class="n">lunch</span><span class="p">)</span>
+<span class="go">[&#39;baked beans&#39;, &#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;, &#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;, &#39;spam&#39;, &#39;spam&#39;]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The empty list that’s used for the default argument is created once when the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is executed. The first time, spam is added, when adding second time, list still contains spam.</p></li>
+<li><p>So always use immutable objects for default values!</p></li>
+</ul>
+</div>
+<div class="section" id="immutable-default-values">
+<h3>Immutable Default Values<a class="headerlink" href="#immutable-default-values" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add_spam</span><span class="p">(</span><span class="n">menu</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">menu</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">menu</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="n">menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">menu</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
+<span class="go">[&#39;spam&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="python-s-type-system">
+<h2>Python’s Type System<a class="headerlink" href="#python-s-type-system" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">)</span>
+<span class="go">5.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;news&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">)</span>
+<span class="go">&#39;newspaper&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">107</span><span class="p">])</span>
+<span class="go">[1, 6, 21, 107]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;The answer is&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">2</span>, in <span class="n">add</span>
+<span class="gr">TypeError</span>: <span class="n">can only concatenate str (not &quot;int&quot;) to str</span>
+</pre></div>
+</div>
+<p>Python will not generally perform implicit conversions between types.</p>
+</div>
+<div class="section" id="scopes">
+<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Type declarations are unnecessary in Python.</p></li>
+<li><p>Names can be rebound as necessary to objects of any type.</p></li>
+<li><p>Name resolution to objects is managed by scopes and scoping rules.</p></li>
+</ul>
+<div class="section" id="scopes-in-python">
+<h3>Scopes in Python<a class="headerlink" href="#scopes-in-python" title="Permalink to this headline">¶</a></h3>
+<p>(LEGB)</p>
+<ul class="simple">
+<li><p><strong>L</strong> ocal - Inside the current function</p></li>
+<li><p><strong>E</strong> nclosing - Inside enclosing functions</p></li>
+<li><p><strong>G</strong> lobal - At the tope level of the module</p></li>
+<li><p><strong>B</strong> uilt-in - In the special builtins module</p></li>
+</ul>
+<p>Scopes in python don’t correspond source code blocks</p>
+</div>
+<div class="section" id="rebinding-global-names">
+<h3>Rebinding Global Names<a class="headerlink" href="#rebinding-global-names" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>

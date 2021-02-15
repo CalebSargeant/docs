@@ -48,7 +48,6 @@ Table of Contents
   :maxdepth: 2
   :caption: Networking
 
-  networking/security/index
   networking/cisco/index
   networking/fortigate
   networking/hp
