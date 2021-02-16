@@ -97,7 +97,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">MPLS</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="introduction-to-mpls.html">Introduction to MPLS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mpls-fundamentals.html">MPLS Fundamentals</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuring a Label Switched Network</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuring a Label Switched Network</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab-setup">Lab Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-ospf">Configuring OSPF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-mpls">Configuring MPLS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verifying-mpls-forwarding">Verifying MPLS Forwarding</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
@@ -208,6 +214,367 @@
             
   <div class="section" id="configuring-a-label-switched-network">
 <h1>Configuring a Label Switched Network<a class="headerlink" href="#configuring-a-label-switched-network" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lab-setup">
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/mpls-8.png" src="../../../_images/mpls-8.png" />
+<p><a class="reference download internal" download="" href="../../../_downloads/1bf9fd1e8c0846aeef9656ec6f7ab1e2/configure-a-label-switched-network.zip"><code class="xref download docutils literal notranslate"><span class="pre">_files/configure-a-label-switched-network.zip</span></code></a></p>
+<p><strong>SW1</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 11.11.11.11 255.255.255.0</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 11</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN11</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.11</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 11</span>
+<span class="n">SW1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.11.2 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>SW2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 22.22.22.22 255.255.255.0</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 22</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN22</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int g0/0</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int g0/0.22</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 22</span>
+<span class="n">SW2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.22.2 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R1</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 1.1.1.1 255.255.255.0</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 12</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN12</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int g0/0.12</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 12</span>
+<span class="n">R1</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.12.2 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 2.2.2.2 255.255.255.0</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 22</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN22</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#vlan 12</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN12</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int r g0/0 - 2</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.23.1 255.255.255.0</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.12</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 12</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.12.1 255.255.255.0</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/2.22</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 22</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.22.1 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 3.3.3.3 255.255.255.0</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#vlan 34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int r g0/0 -1</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#int g0/0.23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.23.2 255.255.255.0</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.34.1 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 4.4.4.4 255.255.255.0</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int r g0/0 -1</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.45.1 255.255.255.0</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add  10.0.34.2 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R5</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 5.5.5.5 255.255.255.0</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 56</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN56</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 11</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN11</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int r g0/0 - 2</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nb">range</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 10.0.45.2 255.255.255.0</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.56</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 56</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.56.1 255.255.255.0</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/2.11</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 11</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.11.1 255.255.255.0</span>
+</pre></div>
+</div>
+<p><strong>R6</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int lo1</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#ip add 6.6.6.6 255.255.255.0</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no shut</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#vlan 56</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">vlan</span><span class="p">)</span><span class="c1">#name VLAN56</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#no switchport</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1">#int g0/0.56</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#encap dot1q 56</span>
+<span class="n">R6</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip add 192.168.56.2 255.255.255.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-ospf">
+<h2>Configuring OSPF<a class="headerlink" href="#configuring-ospf" title="Permalink to this headline">¶</a></h2>
+<p><strong>R2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#router ospf 1</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router-id 2.2.2.2</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface default</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/0.23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 2.2.2.2 0.0.0.255 area 0</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.23.0 0.0.0.255 area 0</span>
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#router ospf 1</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router-id 3.3.3.3</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface default</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/0.23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/1.34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 3.3.3.3 0.0.0.255 area 0</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.23.0 0.0.0.255 area 0</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.34.0 0.0.0.255 area 0</span>
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#router ospf 1</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router-id 4.4.4.4</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface default</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/1.34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/0.45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 4.4.4.4 0.0.0.255 area 0</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.34.0 0.0.0.255 area 0</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.45.0 0.0.0.255 area 0</span>
+</pre></div>
+</div>
+<p><strong>R5</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#ip ospf network point-to-point</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#router ospf 1</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#router-id 5.5.5.5</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#passive-interface default</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#no passive-interface g0/0.45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 5.5.5.5 0.0.0.255 area 0</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">router</span><span class="p">)</span><span class="c1">#network 10.0.45.0 0.0.0.255 area 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-mpls">
+<h2>Configuring MPLS<a class="headerlink" href="#configuring-mpls" title="Permalink to this headline">¶</a></h2>
+<p><strong>R2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ldp router-id lo1</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label protocol ldp</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label range 200 299</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.23</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#end</span>
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ldp router-id lo1</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label protocol ldp</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label range 300 399</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.23</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R3</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ldp router-id lo1</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label protocol ldp</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label range 400 499</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/1.34</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R4</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+</pre></div>
+</div>
+<p><strong>R5</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ip</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls ldp router-id lo1</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label protocol ldp</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label protocol ldp</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#mpls label range 500 599</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1">#int g0/0.45</span>
+<span class="n">R5</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">subif</span><span class="p">)</span><span class="c1">#mpls ip</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifying-mpls-forwarding">
+<h2>Verifying MPLS Forwarding<a class="headerlink" href="#verifying-mpls-forwarding" title="Permalink to this headline">¶</a></h2>
+<p><strong>Show the RIB</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="c1">#sh ip route</span>
+<span class="n">Codes</span><span class="p">:</span> <span class="n">L</span> <span class="o">-</span> <span class="n">local</span><span class="p">,</span> <span class="n">C</span> <span class="o">-</span> <span class="n">connected</span><span class="p">,</span> <span class="n">S</span> <span class="o">-</span> <span class="n">static</span><span class="p">,</span> <span class="n">R</span> <span class="o">-</span> <span class="n">RIP</span><span class="p">,</span> <span class="n">M</span> <span class="o">-</span> <span class="n">mobile</span><span class="p">,</span> <span class="n">B</span> <span class="o">-</span> <span class="n">BGP</span>
+       <span class="n">D</span> <span class="o">-</span> <span class="n">EIGRP</span><span class="p">,</span> <span class="n">EX</span> <span class="o">-</span> <span class="n">EIGRP</span> <span class="n">external</span><span class="p">,</span> <span class="n">O</span> <span class="o">-</span> <span class="n">OSPF</span><span class="p">,</span> <span class="n">IA</span> <span class="o">-</span> <span class="n">OSPF</span> <span class="n">inter</span> <span class="n">area</span>
+       <span class="n">N1</span> <span class="o">-</span> <span class="n">OSPF</span> <span class="n">NSSA</span> <span class="n">external</span> <span class="nb">type</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N2</span> <span class="o">-</span> <span class="n">OSPF</span> <span class="n">NSSA</span> <span class="n">external</span> <span class="nb">type</span> <span class="mi">2</span>
+       <span class="n">E1</span> <span class="o">-</span> <span class="n">OSPF</span> <span class="n">external</span> <span class="nb">type</span> <span class="mi">1</span><span class="p">,</span> <span class="n">E2</span> <span class="o">-</span> <span class="n">OSPF</span> <span class="n">external</span> <span class="nb">type</span> <span class="mi">2</span>
+       <span class="n">i</span> <span class="o">-</span> <span class="n">IS</span><span class="o">-</span><span class="n">IS</span><span class="p">,</span> <span class="n">su</span> <span class="o">-</span> <span class="n">IS</span><span class="o">-</span><span class="n">IS</span> <span class="n">summary</span><span class="p">,</span> <span class="n">L1</span> <span class="o">-</span> <span class="n">IS</span><span class="o">-</span><span class="n">IS</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">L2</span> <span class="o">-</span> <span class="n">IS</span><span class="o">-</span><span class="n">IS</span> <span class="n">level</span><span class="o">-</span><span class="mi">2</span>
+       <span class="n">ia</span> <span class="o">-</span> <span class="n">IS</span><span class="o">-</span><span class="n">IS</span> <span class="n">inter</span> <span class="n">area</span><span class="p">,</span> <span class="o">*</span> <span class="o">-</span> <span class="n">candidate</span> <span class="n">default</span><span class="p">,</span> <span class="n">U</span> <span class="o">-</span> <span class="n">per</span><span class="o">-</span><span class="n">user</span> <span class="n">static</span> <span class="n">route</span>
+       <span class="n">o</span> <span class="o">-</span> <span class="n">ODR</span><span class="p">,</span> <span class="n">P</span> <span class="o">-</span> <span class="n">periodic</span> <span class="n">downloaded</span> <span class="n">static</span> <span class="n">route</span><span class="p">,</span> <span class="n">H</span> <span class="o">-</span> <span class="n">NHRP</span><span class="p">,</span> <span class="n">l</span> <span class="o">-</span> <span class="n">LISP</span>
+       <span class="n">a</span> <span class="o">-</span> <span class="n">application</span> <span class="n">route</span>
+       <span class="o">+</span> <span class="o">-</span> <span class="n">replicated</span> <span class="n">route</span><span class="p">,</span> <span class="o">%</span> <span class="o">-</span> <span class="nb">next</span> <span class="n">hop</span> <span class="n">override</span>
+
+<span class="n">Gateway</span> <span class="n">of</span> <span class="n">last</span> <span class="n">resort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">set</span>
+
+      <span class="mf">2.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">subnetted</span><span class="p">,</span> <span class="mi">1</span> <span class="n">subnets</span>
+<span class="n">O</span>        <span class="mf">2.2</span><span class="o">.</span><span class="mf">2.2</span> <span class="p">[</span><span class="mi">110</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span> <span class="n">via</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.34</span>
+      <span class="mf">3.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">subnetted</span><span class="p">,</span> <span class="mi">1</span> <span class="n">subnets</span>
+<span class="n">O</span>        <span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span> <span class="p">[</span><span class="mi">110</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="n">via</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.34</span>
+      <span class="mf">4.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">8</span> <span class="ow">is</span> <span class="n">variably</span> <span class="n">subnetted</span><span class="p">,</span> <span class="mi">2</span> <span class="n">subnets</span><span class="p">,</span> <span class="mi">2</span> <span class="n">masks</span>
+<span class="n">C</span>        <span class="mf">4.4</span><span class="o">.</span><span class="mf">4.0</span><span class="o">/</span><span class="mi">24</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">Loopback1</span>
+<span class="n">L</span>        <span class="mf">4.4</span><span class="o">.</span><span class="mf">4.4</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">Loopback1</span>
+      <span class="mf">5.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">subnetted</span><span class="p">,</span> <span class="mi">1</span> <span class="n">subnets</span>
+<span class="n">O</span>        <span class="mf">5.5</span><span class="o">.</span><span class="mf">5.5</span> <span class="p">[</span><span class="mi">110</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="n">via</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">45.2</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">31</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.45</span>
+      <span class="mf">10.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">8</span> <span class="ow">is</span> <span class="n">variably</span> <span class="n">subnetted</span><span class="p">,</span> <span class="mi">5</span> <span class="n">subnets</span><span class="p">,</span> <span class="mi">2</span> <span class="n">masks</span>
+<span class="n">O</span>        <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.0</span><span class="o">/</span><span class="mi">24</span> <span class="p">[</span><span class="mi">110</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="n">via</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span><span class="p">,</span> <span class="mi">00</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.34</span>
+<span class="n">C</span>        <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.0</span><span class="o">/</span><span class="mi">24</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.34</span>
+<span class="n">L</span>        <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.2</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.34</span>
+<span class="n">C</span>        <span class="mf">10.0</span><span class="o">.</span><span class="mf">45.0</span><span class="o">/</span><span class="mi">24</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.45</span>
+<span class="n">L</span>        <span class="mf">10.0</span><span class="o">.</span><span class="mf">45.1</span><span class="o">/</span><span class="mi">32</span> <span class="ow">is</span> <span class="n">directly</span> <span class="n">connected</span><span class="p">,</span> <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.45</span>
+</pre></div>
+</div>
+<p><strong>Show the LIB</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="c1">#sh mpls ldp bindings</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">2.2</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">2</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="n">imp</span><span class="o">-</span><span class="n">null</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">4</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="mi">200</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">4.4</span><span class="o">.</span><span class="mf">4.4</span><span class="o">/</span><span class="mi">32</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">6</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="mi">201</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">8</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="n">imp</span><span class="o">-</span><span class="n">null</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">10</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="n">imp</span><span class="o">-</span><span class="n">null</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">12</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="mi">202</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">45.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">14</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="mi">203</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">16</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="n">imp</span><span class="o">-</span><span class="n">null</span>
+  <span class="n">lib</span> <span class="n">entry</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">22.0</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span> <span class="n">rev</span> <span class="mi">18</span>
+  <span class="n">local</span> <span class="n">binding</span><span class="p">:</span>  <span class="n">label</span><span class="p">:</span> <span class="n">imp</span><span class="o">-</span><span class="n">null</span>
+</pre></div>
+</div>
+<p><strong>Show the FIB</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R2</span><span class="c1">#sh ip cef</span>
+<span class="n">Prefix</span>               <span class="n">Next</span> <span class="n">Hop</span>             <span class="n">Interface</span>
+<span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span>            <span class="n">no</span> <span class="n">route</span>
+<span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">8</span>            <span class="n">drop</span>
+<span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">32</span>           <span class="n">receive</span>
+<span class="mf">2.2</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span>           <span class="n">attached</span>             <span class="n">Loopback1</span>
+<span class="mf">2.2</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">32</span>           <span class="n">receive</span>              <span class="n">Loopback1</span>
+<span class="mf">2.2</span><span class="o">.</span><span class="mf">2.2</span><span class="o">/</span><span class="mi">32</span>           <span class="n">receive</span>              <span class="n">Loopback1</span>
+<span class="mf">2.2</span><span class="o">.</span><span class="mf">2.255</span><span class="o">/</span><span class="mi">32</span>         <span class="n">receive</span>              <span class="n">Loopback1</span>
+<span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span><span class="o">/</span><span class="mi">32</span>           <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span>            <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">4.4</span><span class="o">.</span><span class="mf">4.4</span><span class="o">/</span><span class="mi">32</span>           <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span>            <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">5.5</span><span class="o">.</span><span class="mf">5.5</span><span class="o">/</span><span class="mi">32</span>           <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span>            <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">24</span>         <span class="n">attached</span>             <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.12</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">32</span>         <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.12</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">12.1</span><span class="o">/</span><span class="mi">32</span>         <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.12</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">12.255</span><span class="o">/</span><span class="mi">32</span>       <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">1.12</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">23.0</span><span class="o">/</span><span class="mi">24</span>         <span class="n">attached</span>             <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">23.0</span><span class="o">/</span><span class="mi">32</span>         <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">23.1</span><span class="o">/</span><span class="mi">32</span>         <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span><span class="o">/</span><span class="mi">32</span>         <span class="n">attached</span>             <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">23.255</span><span class="o">/</span><span class="mi">32</span>       <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">34.0</span><span class="o">/</span><span class="mi">24</span>         <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span>            <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">45.0</span><span class="o">/</span><span class="mi">24</span>         <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.2</span>            <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.23</span>
+<span class="n">Prefix</span>               <span class="n">Next</span> <span class="n">Hop</span>             <span class="n">Interface</span>
+<span class="mf">127.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">8</span>          <span class="n">drop</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">24</span>      <span class="n">attached</span>             <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.12</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">12.0</span><span class="o">/</span><span class="mi">32</span>      <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.12</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">12.2</span><span class="o">/</span><span class="mi">32</span>      <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.12</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">12.255</span><span class="o">/</span><span class="mi">32</span>    <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">0.12</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">22.0</span><span class="o">/</span><span class="mi">24</span>      <span class="n">attached</span>             <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">2.22</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">22.0</span><span class="o">/</span><span class="mi">32</span>      <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">2.22</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">22.1</span><span class="o">/</span><span class="mi">32</span>      <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">2.22</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">22.255</span><span class="o">/</span><span class="mi">32</span>    <span class="n">receive</span>              <span class="n">GigabitEthernet0</span><span class="o">/</span><span class="mf">2.22</span>
+<span class="mf">224.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">4</span>          <span class="n">drop</span>
+<span class="mf">224.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">24</span>         <span class="n">receive</span>
+<span class="mf">240.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">4</span>          <span class="n">drop</span>
+<span class="mf">255.255</span><span class="o">.</span><span class="mf">255.255</span><span class="o">/</span><span class="mi">32</span>   <span class="n">receive</span>
+</pre></div>
+</div>
+<p><strong>Show the LFIB</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R4</span><span class="c1">#sh mpls forwarding-table</span>
+<span class="n">Local</span>      <span class="n">Outgoing</span>   <span class="n">Prefix</span>           <span class="n">Bytes</span> <span class="n">Label</span>   <span class="n">Outgoing</span>   <span class="n">Next</span> <span class="n">Hop</span>
+<span class="n">Label</span>      <span class="n">Label</span>      <span class="ow">or</span> <span class="n">Tunnel</span> <span class="n">Id</span>     <span class="n">Switched</span>      <span class="n">interface</span>
+<span class="mi">400</span>        <span class="n">No</span> <span class="n">Label</span>   <span class="mf">3.3</span><span class="o">.</span><span class="mf">3.3</span><span class="o">/</span><span class="mi">32</span>       <span class="mi">0</span>             <span class="n">Gi0</span><span class="o">/</span><span class="mf">1.34</span>   <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span>
+<span class="mi">401</span>        <span class="mi">300</span>        <span class="mf">2.2</span><span class="o">.</span><span class="mf">2.2</span><span class="o">/</span><span class="mi">32</span>       <span class="mi">0</span>             <span class="n">Gi0</span><span class="o">/</span><span class="mf">1.34</span>   <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span>
+<span class="mi">402</span>        <span class="n">Pop</span> <span class="n">Label</span>  <span class="mf">10.0</span><span class="o">.</span><span class="mf">23.0</span><span class="o">/</span><span class="mi">24</span>     <span class="mi">590</span>           <span class="n">Gi0</span><span class="o">/</span><span class="mf">1.34</span>   <span class="mf">10.0</span><span class="o">.</span><span class="mf">34.1</span>
+<span class="mi">403</span>        <span class="n">No</span> <span class="n">Label</span>   <span class="mf">5.5</span><span class="o">.</span><span class="mf">5.5</span><span class="o">/</span><span class="mi">32</span>       <span class="mi">0</span>             <span class="n">Gi0</span><span class="o">/</span><span class="mf">0.45</span>   <span class="mf">10.0</span><span class="o">.</span><span class="mf">45.2</span>
+</pre></div>
+</div>
+<p><strong>Debug MPLS</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>R2#ping 5.5.5.5 so lo1 repeat 1
+Type escape sequence to abort.
+Sending 1, 100-byte ICMP Echos to 5.5.5.5, timeout is 2 seconds:
+Packet sent with a source address of 2.2.2.2
+!
+Success rate is 100 percent (1/1), round-trip min/avg/max = 23/23/23 ms
+R3#debug mpls packet
+Feb 16 09:04:31.397: MPLS les: Gi0/0.23: rx: Len 122 Stack {303 0 255} - ipv4 data s:2.2.2.2 d:5.5.5.5 ttl:255 tos:0 prot:1
+Feb 16 09:04:31.397: MPLS les: Gi0/1.34: tx: Len 122 Stack {403 0 254} - ipv4 data s:2.2.2.2 d:5.5.5.5 ttl:255 tos:0 prot:1
+Feb 16 09:04:31.409: MPLS les: Gi0/1.34: rx: Len 122 Stack {300 0 254} - ipv4 data s:5.5.5.5 d:2.2.2.2 ttl:255 tos:0 prot:1
+R4#debug mpls packet
+Feb 16 09:19:05.258: MPLS les: Gi0/1.34: rx: Len 122 Stack {403 0 254} - ipv4 data s:2.2.2.2 d:5.5.5.5 ttl:255 tos:0 prot:1
+Feb 16 09:19:05.261: MPLS les: Gi0/0.45: rx: Len 122 Stack {401 0 255} - ipv4 data s:5.5.5.5 d:2.2.2.2 ttl:255 tos:0 prot:1
+Feb 16 09:19:05.261: MPLS les: Gi0/1.34: tx: Len 122 Stack {300 0 254} - ipv4 data s:5.5.5.5 d:2.2.2.2 ttl:255 tos:0 prot:1
+</pre></div>
+</div>
+</div>
 </div>
 
 
