@@ -232,21 +232,21 @@
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;&quot;</span> <span class="s2">&quot;This is</span>
-<span class="gp">... </span><span class="n">a</span> <span class="n">multiline</span>
-<span class="gp">... </span><span class="n">string</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="go">This is\na multiline\nstring&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sd">&#39;&#39;&#39;So</span>
-<span class="gp">... </span><span class="sd">is</span>
-<span class="gp">... </span><span class="sd">this.&#39;&#39;&#39;</span>
-<span class="go">So\nis\nthis.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="s1">&#39;This string</span><span class="se">\n</span><span class="s1">spans multiple</span><span class="se">\n</span><span class="s1">lines&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
-<span class="go">&#39;This string\nspans multiple\nlines&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="go">This string</span>
-<span class="go">spans multiple</span>
-<span class="go">lines</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; &quot;&quot; &quot;This is
+... a multiline
+... string&quot;&quot;&quot;
+This is\na multiline\nstring&#39;
+&gt;&gt;&gt; &#39;&#39;&#39;So
+... is
+... this.&#39;&#39;&#39;
+So\nis\nthis.
+&gt;&gt;&gt; m = &#39;This string\nspans multiple\nlines&#39;
+&gt;&gt;&gt; m
+&#39;This string\nspans multiple\nlines&#39;
+&gt;&gt;&gt; print(m)
+This string
+spans multiple
+lines
 </pre></div>
 </div>
 <ul class="simple">
@@ -257,16 +257,16 @@
 </li>
 </ul>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;This is a </span><span class="se">\&quot;</span><span class="s2"> in a string&quot;</span>
-<span class="go">&#39;This is a &quot; in a string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;This is a </span><span class="se">\&#39;</span><span class="s1"> in a string&#39;</span>
-<span class="go">&quot;This is a &#39; in a string&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;This is a </span><span class="se">\&quot;</span><span class="s1"> and a </span><span class="se">\&#39;</span><span class="s1"> in a string&#39;</span>
-<span class="go">&#39;This is a &quot; and a \&#39; in a string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;A </span><span class="se">\\</span><span class="s1"> in a string&#39;</span>
-<span class="go">&#39;A \\ in a string&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="go">A \ in a string</span>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; &quot;This is a \&quot; in a string&quot;
+&#39;This is a &quot; in a string&#39;
+&gt;&gt;&gt; &#39;This is a \&#39; in a string&#39;
+&quot;This is a &#39; in a string&quot;
+&gt;&gt;&gt; &#39;This is a \&quot; and a \&#39; in a string&#39;
+&#39;This is a &quot; and a \&#39; in a string&#39;
+&gt;&gt;&gt; k = &#39;A \\ in a string&#39;
+&#39;A \\ in a string&#39;
+&gt;&gt;&gt; print(k)
+A \ in a string
 </pre></div>
 </div>
 </div></blockquote>
@@ -348,20 +348,20 @@
 </div>
 <div class="section" id="string-features">
 <h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Merlin\Documents\Spells&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span>
-<span class="go">&#39;C: \\Users\\Merlin\\Documents\\Spells&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="go">C:\Users\Merlin\Documents\Spells</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">496</span><span class="p">)</span>
-<span class="go">&#39;496&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">6.02e23</span><span class="p">)</span>
-<span class="go">&#39;6.02e+23&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;parrot&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-<span class="go">&#39;o&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; path = r&#39;C:\Users\Merlin\Documents\Spells&#39;
+&gt;&gt;&gt; path
+&#39;C: \\Users\\Merlin\\Documents\\Spells&#39;
+&gt;&gt;&gt; print(path)
+C:\Users\Merlin\Documents\Spells
+&gt;&gt;&gt; str(496)
+&#39;496&#39;
+&gt;&gt;&gt; str(6.02e23)
+&#39;6.02e+23&#39;
+&gt;&gt;&gt; s = &#39;parrot&#39;
+&gt;&gt;&gt; s[4]
+&#39;o&#39;
+&gt;&gt;&gt; type(s[4])
+&lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -378,15 +378,15 @@
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;data&#39;</span>
-<span class="go">b&#39;data&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s2">&quot;data&quot;</span>
-<span class="go">b&#39;data&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;some bytes&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">115</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="go">[b&#39;some&#39;, b&#39;bytes&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; b&#39;data&#39;
+b&#39;data&#39;
+&gt;&gt;&gt; b&quot;data&quot;
+b&#39;data&#39;
+&gt;&gt;&gt; d = b&#39;some bytes&#39;
+&gt;&gt;&gt; d[0]
+115
+&gt;&gt;&gt; d.split()
+[b&#39;some&#39;, b&#39;bytes&#39;]
 </pre></div>
 </div>
 </div>
@@ -401,29 +401,29 @@
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-<span class="go">[1, 9, 8]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orrange&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">&#39;orrange&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[&#39;apple&#39;, 7, &#39;pear&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.618</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[1.618]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.414</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[1.618, 1.414]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;characters&quot;</span><span class="p">)</span>
-<span class="go">[&#39;c&#39;, &#39;h&#39;, &#39;a&#39;, &#39;r&#39;, &#39;a&#39;, &#39;c&#39;, &#39;t&#39;, &#39;e&#39;, &#39;r&#39;, &#39;s&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bear&#39;</span><span class="p">,</span>
-<span class="gp">... </span><span class="s1">&#39;giraffe&#39;</span><span class="p">,</span>
-<span class="gp">... </span><span class="s1">&#39;elephant&#39;</span><span class="p">,</span>
-<span class="gp">... </span><span class="s1">&#39;caterpillar&#39;</span><span class="p">,]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
-<span class="go">[&#39;bear&#39;, &#39;giraffe&#39;, &#39;elephant&#39;, &#39;caterpillar&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; [1, 9, 8]
+[1, 9, 8]
+&gt;&gt;&gt; a = [&quot;apple&quot;, &quot;orrange&quot;, &quot;pear&quot;]
+&gt;&gt;&gt; a[1]
+&#39;orrange&#39;
+&gt;&gt;&gt; a[1] = 7
+&gt;&gt;&gt; a
+[&#39;apple&#39;, 7, &#39;pear&#39;]
+&gt;&gt;&gt; b = []
+&gt;&gt;&gt; b.append(1.618)
+&gt;&gt;&gt; b
+[1.618]
+&gt;&gt;&gt; b.append(1.414)
+&gt;&gt;&gt; b
+[1.618, 1.414]
+&gt;&gt;&gt; list(&quot;characters&quot;)
+[&#39;c&#39;, &#39;h&#39;, &#39;a&#39;, &#39;r&#39;, &#39;a&#39;, &#39;c&#39;, &#39;t&#39;, &#39;e&#39;, &#39;r&#39;, &#39;s&#39;]
+&gt;&gt;&gt; c = [&#39;bear&#39;,
+... &#39;giraffe&#39;,
+... &#39;elephant&#39;,
+... &#39;caterpillar&#39;,]
+&gt;&gt;&gt; c
+[&#39;bear&#39;, &#39;giraffe&#39;, &#39;elephant&#39;, &#39;caterpillar&#39;]
 </pre></div>
 </div>
 </div>
@@ -438,15 +438,15 @@
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alice&#39;</span><span class="p">:</span> <span class="s1">&#39;878-8728-922&#39;</span><span class="p">,</span> <span class="s1">&#39;bob&#39;</span><span class="p">:</span> <span class="s1">&#39;256-4532-523&#39;</span><span class="p">,</span> <span class="s1">&#39;eve&#39;</span><span class="p">:</span> <span class="s1">&#39;123-3432-342&#39;</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;alice&#39;</span><span class="p">]</span>
-<span class="go">&#39;878-8728-922&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;alice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;323-3123-156&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
-<span class="go">{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;charles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;123-5232-125&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
-<span class="go">{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;, &#39;charles&#39;: &#39;123-5232-125&#39;}</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; d = {&#39;alice&#39;: &#39;878-8728-922&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;}
+&gt;&gt;&gt; d[&#39;alice&#39;]
+&#39;878-8728-922&#39;
+&gt;&gt;&gt; d[&#39;alice&#39;] = &#39;323-3123-156&#39;
+&gt;&gt;&gt; d
+{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;}
+&gt;&gt;&gt; d[&#39;charles&#39;] = &#39;123-5232-125&#39;
+&gt;&gt;&gt; d
+{&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;, &#39;charles&#39;: &#39;123-5232-125&#39;}
 </pre></div>
 </div>
 </div>
@@ -456,46 +456,46 @@
 <li><p>for-loop</p>
 <ul>
 <li><p>Visit each item in an iterable sequence</p></li>
-<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
-    <span class="n">body</span>
+<li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for item in iterable:
+    body
 </pre></div>
 </div>
 </li>
 </ul>
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cape Town&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;Paris&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">Cape Town</span>
-<span class="go">London</span>
-<span class="go">New York</span>
-<span class="go">Paris</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;crimson&#39;</span><span class="p">:</span> <span class="mh">0xdc143c</span><span class="p">,</span> <span class="s1">&#39;coral&#39;</span><span class="p">:</span> <span class="mh">0xff7f50</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">:</span> <span class="mh">0x008080</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">color</span><span class="p">])</span>
-<span class="gp">...</span>
-<span class="go">crimson 14423100</span>
-<span class="go">coral 16744272</span>
-<span class="go">teal 32896</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; cities = [&quot;Cape Town&quot;, &quot;London&quot;, &quot;New York&quot;, &quot;Paris&quot;]
+&gt;&gt;&gt; for city in cities:
+...     print(city)
+...
+Cape Town
+London
+New York
+Paris
+&gt;&gt;&gt; colors = {&#39;crimson&#39;: 0xdc143c, &#39;coral&#39;: 0xff7f50, &#39;teal&#39;: 0x008080}
+&gt;&gt;&gt; for color in colors:
+...     print(color, colors[color])
+...
+crimson 14423100
+coral 16744272
+teal 32896
 </pre></div>
 </div>
 </div>
 <div class="section" id="putting-it-all-together">
 <h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://sixty-north.com/c/t.txt&#39;</span><span class="p">)</span>
-<span class="go">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span>
-<span class="go">[b&#39;It&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;best&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;worst&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;wisdom&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;foolishness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;belief&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;incredulity&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Light&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Darkness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;spring&#39;, b&#39;of&#39;, b&#39;hope&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;winter&#39;, b&#39;of&#39;, b&#39;despair&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;everything&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;nothing&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;to&#39;, b&#39;Heaven&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;the&#39;, b&#39;other&#39;, b&#39;way&#39;, b&#39;in&#39;, b&#39;short&#39;, b&#39;the&#39;, b&#39;period&#39;, b&#39;was&#39;, b&#39;so&#39;, b&#39;far&#39;, b&#39;like&#39;, b&#39;the&#39;, b&#39;present&#39;, b&#39;period&#39;, b&#39;that&#39;, b&#39;some&#39;, b&#39;of&#39;, b&#39;its&#39;, b&#39;noisiest&#39;, b&#39;authorities&#39;, b&#39;insisted&#39;, b&#39;on&#39;, b&#39;its&#39;, b&#39;being&#39;, b&#39;received&#39;, b&#39;for&#39;, b&#39;good&#39;, b&#39;or&#39;, b&#39;for&#39;, b&#39;evil&#39;, b&#39;in&#39;, b&#39;the&#39;, b&#39;superlative&#39;, b&#39;degree&#39;, b&#39;of&#39;, b&#39;comparison&#39;, b&#39;only&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from urllib.request import urlopen
+&gt;&gt;&gt; story = urlopen(&#39;http://sixty-north.com/c/t.txt&#39;)
+&gt;&gt;&gt;
+&gt;&gt;&gt; story_words = []
+&gt;&gt;&gt; for line in story:
+...     line_words = line.split()
+...     for word in line_words:
+...         story_words.append(word)
+...
+&gt;&gt;&gt; story.close()
+&gt;&gt;&gt; story_words
+[b&#39;It&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;best&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;worst&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;wisdom&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;foolishness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;belief&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;incredulity&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Light&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Darkness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;spring&#39;, b&#39;of&#39;, b&#39;hope&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;winter&#39;, b&#39;of&#39;, b&#39;despair&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;everything&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;nothing&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;to&#39;, b&#39;Heaven&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;the&#39;, b&#39;other&#39;, b&#39;way&#39;, b&#39;in&#39;, b&#39;short&#39;, b&#39;the&#39;, b&#39;period&#39;, b&#39;was&#39;, b&#39;so&#39;, b&#39;far&#39;, b&#39;like&#39;, b&#39;the&#39;, b&#39;present&#39;, b&#39;period&#39;, b&#39;that&#39;, b&#39;some&#39;, b&#39;of&#39;, b&#39;its&#39;, b&#39;noisiest&#39;, b&#39;authorities&#39;, b&#39;insisted&#39;, b&#39;on&#39;, b&#39;its&#39;, b&#39;being&#39;, b&#39;received&#39;, b&#39;for&#39;, b&#39;good&#39;, b&#39;or&#39;, b&#39;for&#39;, b&#39;evil&#39;, b&#39;in&#39;, b&#39;the&#39;, b&#39;superlative&#39;, b&#39;degree&#39;, b&#39;of&#39;, b&#39;comparison&#39;, b&#39;only&#39;]
 </pre></div>
 </div>
 <div class="section" id="recall-bytes">
@@ -505,16 +505,16 @@
 <li><p>HTTP data is provided as bytes</p></li>
 <li><p>Use bytes.decode() to get strings</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">story</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://sixty-north.com/c/t.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">story</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">line_words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="gp">... </span>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line_words</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">story_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">story_words</span>
-<span class="go">[&#39;It&#39;, &#39;was&#39;, &#39;the&#39;, &#39;best&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;worst&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;wisdom&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;foolishness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;belief&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;incredulity&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Light&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Darkness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;spring&#39;, &#39;of&#39;, &#39;hope&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;winter&#39;, &#39;of&#39;, &#39;despair&#39;, &#39;we&#39;, &#39;had&#39;, &#39;everything&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;had&#39;, &#39;nothing&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;to&#39;, &#39;Heaven&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;the&#39;, &#39;other&#39;, &#39;way&#39;, &#39;in&#39;, &#39;short&#39;, &#39;the&#39;, &#39;period&#39;, &#39;was&#39;, &#39;so&#39;, &#39;far&#39;, &#39;like&#39;, &#39;the&#39;, &#39;present&#39;, &#39;period&#39;, &#39;that&#39;, &#39;some&#39;, &#39;of&#39;, &#39;its&#39;, &#39;noisiest&#39;, &#39;authorities&#39;, &#39;insisted&#39;, &#39;on&#39;, &#39;its&#39;, &#39;being&#39;, &#39;received&#39;, &#39;for&#39;, &#39;good&#39;, &#39;or&#39;, &#39;for&#39;, &#39;evil&#39;, &#39;in&#39;, &#39;the&#39;, &#39;superlative&#39;, &#39;degree&#39;, &#39;of&#39;, &#39;comparison&#39;, &#39;only&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; story = urlopen(&#39;http://sixty-north.com/c/t.txt&#39;)
+&gt;&gt;&gt; story_words = []
+&gt;&gt;&gt; for line in story:
+...     line_words = line.decode(&#39;utf8&#39;).split()
+...     for word in line_words:
+...         story_words.append(word)
+...
+&gt;&gt;&gt; story.close()
+&gt;&gt;&gt; story_words
+[&#39;It&#39;, &#39;was&#39;, &#39;the&#39;, &#39;best&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;worst&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;wisdom&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;foolishness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;belief&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;incredulity&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Light&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Darkness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;spring&#39;, &#39;of&#39;, &#39;hope&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;winter&#39;, &#39;of&#39;, &#39;despair&#39;, &#39;we&#39;, &#39;had&#39;, &#39;everything&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;had&#39;, &#39;nothing&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;to&#39;, &#39;Heaven&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;the&#39;, &#39;other&#39;, &#39;way&#39;, &#39;in&#39;, &#39;short&#39;, &#39;the&#39;, &#39;period&#39;, &#39;was&#39;, &#39;so&#39;, &#39;far&#39;, &#39;like&#39;, &#39;the&#39;, &#39;present&#39;, &#39;period&#39;, &#39;that&#39;, &#39;some&#39;, &#39;of&#39;, &#39;its&#39;, &#39;noisiest&#39;, &#39;authorities&#39;, &#39;insisted&#39;, &#39;on&#39;, &#39;its&#39;, &#39;being&#39;, &#39;received&#39;, &#39;for&#39;, &#39;good&#39;, &#39;or&#39;, &#39;for&#39;, &#39;evil&#39;, &#39;in&#39;, &#39;the&#39;, &#39;superlative&#39;, &#39;degree&#39;, &#39;of&#39;, &#39;comparison&#39;, &#39;only&#39;]
 </pre></div>
 </div>
 </div>

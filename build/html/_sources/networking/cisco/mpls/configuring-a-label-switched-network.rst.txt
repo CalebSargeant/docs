@@ -10,7 +10,7 @@ Lab Setup
 
 **SW1**
 
-.. code-block::
+.. code-block:: none
 
   SW1(config)#int lo1
   SW1(config-if)#ip add 11.11.11.11 255.255.255.0
@@ -25,7 +25,7 @@ Lab Setup
 
 **SW2**
 
-.. code-block::
+.. code-block:: none
 
   SW2(config)#int lo1
   SW2(config-if)#ip add 22.22.22.22 255.255.255.0
@@ -40,7 +40,7 @@ Lab Setup
 
 **R1**
 
-.. code-block::
+.. code-block:: none
 
   R1(config)#int lo1
   R1(config-if)#ip add 1.1.1.1 255.255.255.0
@@ -54,7 +54,7 @@ Lab Setup
 
 **R2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int lo1
   R2(config-if)#ip add 2.2.2.2 255.255.255.0
@@ -78,7 +78,7 @@ Lab Setup
 
 **R3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int lo1
   R3(config-if)#ip add 3.3.3.3 255.255.255.0
@@ -98,7 +98,7 @@ Lab Setup
 
 **R4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int lo1
   R4(config-if)#ip add 4.4.4.4 255.255.255.0
@@ -118,7 +118,7 @@ Lab Setup
 
 **R5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int lo1
   R5(config-if)#ip add 5.5.5.5 255.255.255.0
@@ -143,7 +143,7 @@ Lab Setup
 
 **R6**
 
-.. code-block::
+.. code-block:: none
 
   R6(config)#int lo1
   R6(config-if)#ip add 6.6.6.6 255.255.255.0
@@ -161,7 +161,7 @@ Configuring OSPF
 
 **R2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#int g0/0.23
   R2(config-subif)#ip ospf network point-to-point
@@ -174,7 +174,7 @@ Configuring OSPF
 
 **R3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#int g0/0.23
   R3(config-subif)#ip ospf network point-to-point
@@ -191,7 +191,7 @@ Configuring OSPF
 
 **R4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#int g0/1.34
   R4(config-subif)#ip ospf network point-to-point
@@ -208,7 +208,7 @@ Configuring OSPF
 
 **R5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#int g0/0.45
   R5(config-subif)#ip ospf network point-to-point
@@ -224,7 +224,7 @@ Configuring MPLS
 
 **R2**
 
-.. code-block::
+.. code-block:: none
 
   R2(config)#mpls ip
   R2(config)#mpls ldp router-id lo1
@@ -236,7 +236,7 @@ Configuring MPLS
 
 **R3**
 
-.. code-block::
+.. code-block:: none
 
   R3(config)#mpls ip
   R3(config)#mpls ldp router-id lo1
@@ -249,7 +249,7 @@ Configuring MPLS
 
 **R4**
 
-.. code-block::
+.. code-block:: none
 
   R4(config)#mpls ip
   R4(config)#mpls ldp router-id lo1
@@ -263,7 +263,7 @@ Configuring MPLS
 
 **R5**
 
-.. code-block::
+.. code-block:: none
 
   R5(config)#mpls ip
   R5(config)#mpls ldp router-id lo1
@@ -278,7 +278,7 @@ Verifying MPLS Forwarding
 
 **Show the RIB**
 
-.. code-block::
+.. code-block:: none
 
   R4#sh ip route
   Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -311,7 +311,7 @@ Verifying MPLS Forwarding
 
 **Show the LIB**
 
-.. code-block::
+.. code-block:: none
 
   R2#sh mpls ldp bindings
     lib entry: 2.2.2.0/24, rev 2
@@ -335,7 +335,7 @@ Verifying MPLS Forwarding
 
 **Show the FIB**
 
-.. code-block::
+.. code-block:: none
 
   R2#sh ip cef
   Prefix               Next Hop             Interface
@@ -377,7 +377,7 @@ Verifying MPLS Forwarding
 
 **Show the LFIB**
 
-.. code-block::
+.. code-block:: none
 
   R4#sh mpls forwarding-table
   Local      Outgoing   Prefix           Bytes Label   Outgoing   Next Hop
@@ -389,7 +389,7 @@ Verifying MPLS Forwarding
 
 **Debug MPLS**
 
-.. code-block::
+.. code-block:: none
 
   R2#ping 5.5.5.5 so lo1 repeat 1
   Type escape sequence to abort.

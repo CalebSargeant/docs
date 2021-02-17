@@ -203,15 +203,15 @@
 <div class="section" id="argument-passing">
 <h3>Argument Passing<a class="headerlink" href="#argument-passing" title="Permalink to this headline">¶</a></h3>
 <p>When we pass an object reference to a function, we’re essentially assigning from an actual argument reference, in this case <code class="docutils literal notranslate"><span class="pre">m</span></code> to the formal argument reference, in this case <code class="docutils literal notranslate"><span class="pre">k</span></code>. Assignment causes the reference being assigned to being referred <strong>to</strong> the same object as the reference being assigned <strong>from</strong>, which is what’s going on here:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">modify</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">k</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">39</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;k =&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">modify</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="go">k = [9, 15, 24, 39]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span>
-<span class="go">[9, 15, 24, 39]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; m = [9, 15, 24]
+&gt;&gt;&gt; def modify(k):
+...     k.append(39)
+...     print(&quot;k =&quot;, k)
+...
+&gt;&gt;&gt; modify(m)
+k = [9, 15, 24, 39]
+&gt;&gt;&gt; m
+[9, 15, 24, 39]
 </pre></div>
 </div>
 <p>If you want a function to modify the copy of an object, it’s the responsibility of the function to do the copying.</p>
@@ -219,45 +219,45 @@
 <div class="section" id="replacing-argument-value">
 <h3>Replacing Argument Value<a class="headerlink" href="#replacing-argument-value" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">f</span></code> still refers to the unmodified list, this time the function didn’t modify the object it passed in.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g =&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">replace</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="go">g = [17, 28, 45]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
-<span class="go">[14, 23, 37]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f = [14, 23, 37]
+&gt;&gt;&gt; def replace(g):
+...     g = [17, 28, 45]
+...     print(&quot;g =&quot;, g)
+...
+&gt;&gt;&gt; replace(f)
+g = [17, 28, 45]
+&gt;&gt;&gt; f
+[14, 23, 37]
 </pre></div>
 </div>
 <p>The object reference named <code class="docutils literal notranslate"><span class="pre">f</span></code> was assigned to the formal argument named <code class="docutils literal notranslate"><span class="pre">g</span></code>, so <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code> did refer the the same object, just as in previous example. However in the first line in the function we reassigned the reference <code class="docutils literal notranslate"><span class="pre">g</span></code> to point to a newly constructed list. So within the function, the reference to the original list was overwritten, although the orignal list was still pointed to by the <code class="docutils literal notranslate"><span class="pre">f</span></code> reference outside the function.</p>
 </div>
 <div class="section" id="mutable-arguments">
 <h3>Mutable Arguments<a class="headerlink" href="#mutable-arguments" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">replace_contents</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="gp">... </span>    <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
-<span class="gp">... </span>    <span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">45</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g =&quot;</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_contents</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="go">g = [17, 28, 45]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
-<span class="go">[17, 28, 45]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def replace_contents(g):
+...     g[0] = 17
+...     g[1] = 28
+...     g[2] = 45
+...     print(&quot;g =&quot;, g)
+...
+&gt;&gt;&gt; f = [14, 23, 37]
+&gt;&gt;&gt; replace_contents(f)
+g = [17, 28, 45]
+&gt;&gt;&gt; f
+[17, 28, 45]
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Function arguments are transferred using pass-by-object-reference.</p></li>
 <li><p>References to objects are copied, not the objects themselves.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">d</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="ow">is</span> <span class="n">e</span>
-<span class="go">True</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def f(d):
+...     return d
+...
+&gt;&gt;&gt; c = [6, 10, 16]
+&gt;&gt;&gt; e = f(c)
+&gt;&gt;&gt; c is e
+True
 </pre></div>
 </div>
 </div>
@@ -267,45 +267,45 @@
 <div class="section" id="default-argument-values">
 <h3>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline">¶</a></h3>
 <p>Arguments with default values must come after those without default values.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">banner</span> <span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">line</span> <span class="o">=</span> <span class="n">border</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Howzit my bru!&quot;</span><span class="p">)</span>
-<span class="go">--------------</span>
-<span class="go">Howzit my bru!</span>
-<span class="go">--------------</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Sun, Moon, Stars&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
-<span class="go">****************</span>
-<span class="go">Sun, Moon, Stars</span>
-<span class="go">****************</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Sun, Moon, Stars&quot;</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
-<span class="go">****************</span>
-<span class="go">Sun, Moon, Stars</span>
-<span class="go">****************</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">banner</span><span class="p">(</span><span class="n">border</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Hello from Earth, we come in peace!&quot;</span><span class="p">)</span>
-<span class="go">...................................</span>
-<span class="go">Hello from Earth, we come in peace!</span>
-<span class="go">...................................</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def banner (message, border=&#39;-&#39;):
+...     line = border * len(message)
+...     print (line)
+...     print(message)
+...     print(line)
+...
+&gt;&gt;&gt; banner(&quot;Howzit my bru!&quot;)
+--------------
+Howzit my bru!
+--------------
+&gt;&gt;&gt; banner(&quot;Sun, Moon, Stars&quot;, &quot;*&quot;)
+****************
+Sun, Moon, Stars
+****************
+&gt;&gt;&gt; banner(&quot;Sun, Moon, Stars&quot;, border=&quot;*&quot;)
+****************
+Sun, Moon, Stars
+****************
+&gt;&gt;&gt; banner(border=&quot;.&quot;, message=&quot;Hello from Earth, we come in peace!&quot;)
+...................................
+Hello from Earth, we come in peace!
+...................................
 </pre></div>
 </div>
 </div>
 <div class="section" id="when-are-default-values-evaluated">
 <h3>When Are Default Values Evaluated?<a class="headerlink" href="#when-are-default-values-evaluated" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
-<span class="go">&#39;Fri Feb 12 20:26:02 2021&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">show_default</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()):</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
-<span class="go">Fri Feb 12 20:26:35 2021</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
-<span class="go">Fri Feb 12 20:26:35 2021</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">show_default</span><span class="p">()</span>
-<span class="go">Fri Feb 12 20:26:35 2021</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import time
+&gt;&gt;&gt; time.ctime()
+&#39;Fri Feb 12 20:26:02 2021&#39;
+&gt;&gt;&gt; def show_default(arg=time.ctime()):
+...     print(arg)
+...
+&gt;&gt;&gt; show_default()
+Fri Feb 12 20:26:35 2021
+&gt;&gt;&gt; show_default()
+Fri Feb 12 20:26:35 2021
+&gt;&gt;&gt; show_default()
+Fri Feb 12 20:26:35 2021
 </pre></div>
 </div>
 <ul class="simple">
@@ -317,22 +317,22 @@
 </div>
 <div class="section" id="mutable-default-values">
 <h3>Mutable Default Values<a class="headerlink" href="#mutable-default-values" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add_spam</span><span class="p">(</span><span class="n">menu</span><span class="o">=</span><span class="p">[]):</span>
-<span class="gp">... </span>    <span class="n">menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;spam&quot;</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">menu</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">breakfast</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bacon&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">(</span><span class="n">breakfast</span><span class="p">)</span>
-<span class="go">[&#39;bacon&#39;, &#39;eggs&#39;, &#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lunch</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;baked beans&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">(</span><span class="n">lunch</span><span class="p">)</span>
-<span class="go">[&#39;baked beans&#39;, &#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;, &#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;, &#39;spam&#39;, &#39;spam&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=[]):
+...     menu.append(&quot;spam&quot;)
+...     return menu
+...
+&gt;&gt;&gt; breakfast = [&#39;bacon&#39;, &#39;eggs&#39;]
+&gt;&gt;&gt; add_spam(breakfast)
+[&#39;bacon&#39;, &#39;eggs&#39;, &#39;spam&#39;]
+&gt;&gt;&gt; lunch = [&#39;baked beans&#39;]
+&gt;&gt;&gt; add_spam(lunch)
+[&#39;baked beans&#39;, &#39;spam&#39;]
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;]
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;, &#39;spam&#39;]
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;, &#39;spam&#39;, &#39;spam&#39;]
 </pre></div>
 </div>
 <ul class="simple">
@@ -342,40 +342,40 @@
 </div>
 <div class="section" id="immutable-default-values">
 <h3>Immutable Default Values<a class="headerlink" href="#immutable-default-values" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add_spam</span><span class="p">(</span><span class="n">menu</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">menu</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="n">menu</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">... </span>    <span class="n">menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">menu</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add_spam</span><span class="p">()</span>
-<span class="go">[&#39;spam&#39;]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=None):
+...     if menu is None:
+...         menu = []
+...     menu.append(&#39;spam&#39;)
+...     return menu
+...
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;]
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;]
+&gt;&gt;&gt; add_spam()
+[&#39;spam&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="python-s-type-system">
 <h2>Python’s Type System<a class="headerlink" href="#python-s-type-system" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-<span class="go">12</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">)</span>
-<span class="go">5.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;news&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">)</span>
-<span class="go">&#39;newspaper&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">107</span><span class="p">])</span>
-<span class="go">[1, 6, 21, 107]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;The answer is&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">2</span>, in <span class="n">add</span>
-<span class="gr">TypeError</span>: <span class="n">can only concatenate str (not &quot;int&quot;) to str</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add(a, b):
+...     return a+b
+...
+&gt;&gt;&gt; add(5,7)
+12
+&gt;&gt;&gt; add(3.1, 2.4)
+5.5
+&gt;&gt;&gt; add(&quot;news&quot;, &quot;paper&quot;)
+&#39;newspaper&#39;
+&gt;&gt;&gt; add([1, 6], [21, 107])
+[1, 6, 21, 107]
+&gt;&gt;&gt; add(&quot;The answer is&quot;, 42)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;&lt;stdin&gt;&quot;, line 2, in add
+TypeError: can only concatenate str (not &quot;int&quot;) to str
 </pre></div>
 </div>
 <p>Python will not generally perform implicit conversions between types.</p>

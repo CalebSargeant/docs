@@ -209,33 +209,33 @@
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="defining-functions">
 <h3>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">25</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">launch_missiles</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missiles launched!&quot;</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">launch_missiles</span><span class="p">()</span>
-<span class="go">Missiles launched!</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">even_or_odd</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even&quot;</span><span class="p">)</span>
-<span class="gp">... </span>            <span class="k">return</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">even_or_odd</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span>
-<span class="go">odd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="ow">is</span> <span class="kc">None</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">nth_root</span><span class="p">(</span><span class="n">radicand</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">radicand</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nth_root</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">4.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nth_root</span><span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">3.0</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def square(x):
+...     return x * x
+...
+&gt;&gt;&gt; square(5)
+25
+&gt;&gt;&gt; def launch_missiles():
+...     print(&quot;Missiles launched!&quot;)
+...
+&gt;&gt;&gt; launch_missiles()
+Missiles launched!
+&gt;&gt;&gt; def even_or_odd(n):
+...     if n % 2 == 0:
+...             print(&quot;even&quot;)
+...             return
+...     print(&quot;odd&quot;)
+...
+&gt;&gt;&gt; w = even_or_odd(31)
+odd
+&gt;&gt;&gt; w is None
+True
+&gt;&gt;&gt; def nth_root(radicand, n):
+...     return radicand ** (1/n)
+...
+&gt;&gt;&gt; nth_root(16,2)
+4.0
+&gt;&gt;&gt; nth_root(27,3)
+3.0
 </pre></div>
 </div>
 <p><strong>dunder</strong></p>
@@ -372,30 +372,30 @@
     <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">words</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="go">Help on module words:</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import words
+&gt;&gt;&gt; help(words)
+Help on module words:
 
-<span class="go">NAME</span>
-<span class="go">    words - Retrieve and print words from a URL.</span>
+NAME
+    words - Retrieve and print words from a URL.
 
-<span class="go">DESCRIPTION</span>
-<span class="go">    Usage:</span>
+DESCRIPTION
+    Usage:
 
-<span class="go">        python3 words.py &lt;URL&gt;</span>
+        python3 words.py &lt;URL&gt;
 
-<span class="go">FUNCTIONS</span>
-<span class="go">    fetch_words(url)</span>
-<span class="go">        Fetch a list of words from a URL.</span>
+FUNCTIONS
+    fetch_words(url)
+        Fetch a list of words from a URL.
 
-<span class="go">        Args:</span>
-<span class="go">            url: The URL of a UTF-8 text document.</span>
+        Args:
+            url: The URL of a UTF-8 text document.
 
-<span class="go">        Returns:</span>
-<span class="go">            A list of strings containing the words from the document</span>
+        Returns:
+            A list of strings containing the words from the document
 
-<span class="go">    main(url)</span>
-<span class="go">        Print each word from a text document from at a URL.</span>
+    main(url)
+        Print each word from a text document from at a URL.
 </pre></div>
 </div>
 </div>

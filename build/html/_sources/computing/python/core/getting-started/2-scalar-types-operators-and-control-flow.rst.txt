@@ -9,7 +9,7 @@ Scalar Types
   - arbitrary precision integer
   - unlimited precision signed integer
 
-.. code-block::
+.. code-block:: none
 
   >>> 10
   10
@@ -34,7 +34,7 @@ Scalar Types
   - IEEE-754 double-precision with 53-bits of binary precision
   - 15-16 significant digits in decimal
 
-.. code-block::
+.. code-block:: none
 
   >>> 3.125
   3.125
@@ -61,7 +61,7 @@ Scalar Types
   - Null value
   - Often represents the absence of a value
 
-.. code-block::
+.. code-block:: none
 
   >>> None
   >>> a = None
@@ -72,7 +72,7 @@ Scalar Types
 
   - boolean logical values
 
-.. code-block::
+.. code-block:: none
 
   >>> True
   True
@@ -120,7 +120,7 @@ Relational Operators
 | >= | greater-than or equal            |
 +----+----------------------------------+
 
-.. code-block::
+.. code-block:: none
 
   >>> g = 20
   >>> g == 20
@@ -150,7 +150,7 @@ Branch execution based on the value of an expression
 if statement
 ^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   # Syntax
   >>> if expression:
@@ -177,7 +177,7 @@ if statement
 Else-clause
 ^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> if h > 50 :
   ...    print("Greater than 50")
@@ -242,5 +242,3 @@ Break
     if int(response) % 7 == 0:
       break
   # start typing in numbers until a number is divisible by 7
-
-  

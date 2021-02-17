@@ -9,7 +9,7 @@ Argument Passing
 
 When we pass an object reference to a function, we're essentially assigning from an actual argument reference, in this case ``m`` to the formal argument reference, in this case ``k``. Assignment causes the reference being assigned to being referred **to** the same object as the reference being assigned **from**, which is what's going on here:
 
-.. code-block::
+.. code-block:: none
 
   >>> m = [9, 15, 24]
   >>> def modify(k):
@@ -28,7 +28,7 @@ Replacing Argument Value
 
 ``f`` still refers to the unmodified list, this time the function didn't modify the object it passed in.
 
-.. code-block::
+.. code-block:: none
 
   >>> f = [14, 23, 37]
   >>> def replace(g):
@@ -45,7 +45,7 @@ The object reference named ``f`` was assigned to the formal argument named ``g``
 Mutable Arguments
 ^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> def replace_contents(g):
   ...     g[0] = 17
@@ -62,7 +62,7 @@ Mutable Arguments
 - Function arguments are transferred using pass-by-object-reference.
 - References to objects are copied, not the objects themselves.
 
-.. code-block::
+.. code-block:: none
 
   >>> def f(d):
   ...     return d
@@ -80,7 +80,7 @@ Default Argument Values
 
 Arguments with default values must come after those without default values.
 
-.. code-block::
+.. code-block:: none
 
   >>> def banner (message, border='-'):
   ...     line = border * len(message)
@@ -108,7 +108,7 @@ Arguments with default values must come after those without default values.
 When Are Default Values Evaluated?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> import time
   >>> time.ctime()
@@ -131,7 +131,7 @@ When Are Default Values Evaluated?
 Mutable Default Values
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> def add_spam(menu=[]):
   ...     menu.append("spam")
@@ -156,7 +156,7 @@ Mutable Default Values
 Immutable Default Values
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> def add_spam(menu=None):
   ...     if menu is None:
@@ -174,7 +174,7 @@ Immutable Default Values
 Python's Type System
 --------------------
 
-.. code-block::
+.. code-block:: none
 
   >>> def add(a, b):
   ...     return a+b

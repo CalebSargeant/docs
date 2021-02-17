@@ -33,7 +33,7 @@ Strings with Newlines
 
   - Spread the literal across multiple lines
 
-.. code-block::
+.. code-block:: none
 
   >>> "" "This is
   ... a multiline
@@ -55,7 +55,7 @@ Strings with Newlines
 
   - Embed escape sequences in a single-line literal
 
- .. code-block::
+ .. code-block:: none
 
    >>> "This is a \" in a string"
    'This is a " in a string'
@@ -115,7 +115,7 @@ docs.python.org/3/reference/lexical_analysis.html#strings
 String Features
 ^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> path = r'C:\Users\Merlin\Documents\Spells'
   >>> path
@@ -143,7 +143,7 @@ docs.python.org/3/library/codecs.html#standard-encodings
   - Raw binary data
   - Fixed-width single-byte encodings
 
-.. code-block::
+.. code-block:: none
 
   >>> b'data'
   b'data'
@@ -164,7 +164,7 @@ List
   - Mutable
   - A workhorse in Python
 
-.. code-block::
+.. code-block:: none
 
   >>> [1, 9, 8]
   [1, 9, 8]
@@ -199,7 +199,7 @@ Dict
   - Map keys to values
   - Also known as maps or associative arrays
 
-.. code-block::
+.. code-block:: none
 
   >>> d = {'alice': '878-8728-922', 'bob': '256-4532-523', 'eve': '123-3432-342'}
   >>> d['alice']
@@ -217,12 +217,12 @@ For-loop
 - for-loop
 
   - Visit each item in an iterable sequence
-  - .. code-block::
+  - .. code-block:: none
 
       for item in iterable:
           body
 
-.. code-block::
+.. code-block:: none
 
   >>> cities = ["Cape Town", "London", "New York", "Paris"]
   >>> for city in cities:
@@ -243,7 +243,7 @@ For-loop
 Putting it all Together
 -----------------------
 
-.. code-block::
+.. code-block:: none
 
   >>> from urllib.request import urlopen
   >>> story = urlopen('http://sixty-north.com/c/t.txt')
@@ -265,7 +265,7 @@ Recall Bytes
 - HTTP data is provided as bytes
 - Use bytes.decode() to get strings
 
-.. code-block::
+.. code-block:: none
 
   >>> story = urlopen('http://sixty-north.com/c/t.txt')
   >>> story_words = []

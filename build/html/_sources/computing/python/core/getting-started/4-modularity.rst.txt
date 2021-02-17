@@ -16,7 +16,7 @@ Functions
 Defining Functions
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: none
 
   >>> def square(x):
   ...     return x * x
@@ -176,7 +176,7 @@ Docstrings
   if __name__ == '__main__':
       main(sys.argv[1])
 
-.. code-block::
+.. code-block:: none
 
   >>> import words
   >>> help(words)
