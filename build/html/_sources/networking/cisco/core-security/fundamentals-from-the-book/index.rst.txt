@@ -1,5 +1,5 @@
-Fundamentals
-============
+Fundamentals from the Book
+==========================
 
 .. toctree::
   :maxdepth: 2
