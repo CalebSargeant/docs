@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="AAA" href="aaa.html" />
-    <link rel="prev" title="Redistribution" href="../routing/redistribution.html" /> 
+    <link rel="next" title="Core Concepts and Design" href="core-concepts-and-design.html" />
+    <link rel="prev" title="IPv6 Routing" href="../routing/ipv6-routing.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,9 +92,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Switching</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="aaa.html">AAA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="l3-switching.html">L3 Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-voip.html">Campus VoIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
@@ -103,7 +112,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
@@ -206,23 +214,12 @@
 <h1>Switching<a class="headerlink" href="#switching" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="aaa.html">AAA</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aaa.html#radius">RADIUS</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="general.html#core-concepts-and-design">Core Concepts and Design</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="general.html#plug-and-play-switches">Plug and play switches</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#enterprise-composite-network-model">Enterprise Composite Network Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#vlans">VLANs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#designing-the-network">Designing the Network</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html#the-two-flavours-of-cisco-switches">The Two Flavours of CISCO Switches</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#health">Health</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#factory-default-settings">Factory Default Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#ios-upgrade">IOS Upgrade</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#isolating-guest-network">Isolating Guest Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core-concepts-and-design.html#plug-and-play-switches">Plug and play switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-concepts-and-design.html#enterprise-composite-network-model">Enterprise Composite Network Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-concepts-and-design.html#vlans">VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-concepts-and-design.html#designing-the-network">Designing the Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core-concepts-and-design.html#the-two-flavours-of-cisco-switches">The Two Flavours of CISCO Switches</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vlans.html">VLANs</a><ul>
@@ -238,6 +235,7 @@
 <li class="toctree-l3"><a class="reference internal" href="vlans.html#the-two-tagging-flavours">The Two Tagging Flavours</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vlans.html#digging-deeper-into-the-trunk">Digging Deeper Into the Trunk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vlans.html#negotiating-trunking">Negotiating Trunking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vlans.html#configuring-trunk-ports">Configuring Trunk Ports</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="vlans.html#vlan-trunking-protocol">VLAN Trunking Protocol</a><ul>
@@ -247,15 +245,151 @@
 <li class="toctree-l3"><a class="reference internal" href="vlans.html#common-vlan-problems">Common VLAN problems</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="vlans.html#stp-foundation-per-vlan-spanning-tree-concepts">STP - Foundation per-VLAN Spanning Tree Concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#the-facts-about-spanning-tree">The Facts About Spanning Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#understanding-bpdus-and-elections">Understanding BPDUs and Elections</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#how-stp-finds-the-best-path">How STP Finds the Best Path</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#initial-enhancements-per-vlan-spanning-tree">Initial Enhancements: Per VLAN Spanning Tree</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#the-spanning-tree-command">The Spanning-Tree Command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vlans.html#problems-with-spanning-tree">Problems with Spanning-Tree</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="stp.html">STP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stp.html#stp-foundation-per-vlan-spanning-tree-concepts">STP - Foundation per-VLAN Spanning Tree Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#the-facts-about-spanning-tree">The Facts About Spanning Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#understanding-bpdus-and-elections">Understanding BPDUs and Elections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#how-stp-finds-the-best-path">How STP Finds the Best Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#initial-enhancements-per-vlan-spanning-tree">Initial Enhancements: Per VLAN Spanning Tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#the-spanning-tree-command">The Spanning-Tree Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#problems-with-spanning-tree">Problems with Spanning-Tree</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stp.html#rapid-spanning-tree-concepts-and-configuration">Rapid Spanning Tree Concepts and Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#problems-and-solutions">Problems and Solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#rapid-stp-port-states">Rapid STP Port States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#rapid-stp-port-roles">Rapid STP Port Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#why-rstp-is-better">Why RSTP is Better</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html#configuring-rstp">Configuring RSTP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="etherchannel.html">Etherchannel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="etherchannel.html#two-negotiating-protocols">Two Negotiating Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="etherchannel.html#configuring-etherchannel">Configuring EtherChannel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html#layer-2-etherchannel">Layer 2 EtherChannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html#layer-3-etherchannel">Layer 3 EtherChannel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="etherchannel.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="l3-switching.html">L3 Switching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#router-on-a-stick-802-1q-isl">Router on a stick (802.1Q/ISL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#multi-layer-switching">Multi-Layer Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#understanding-layer-3-vs-multilayer-switching">Understanding Layer 3 vs Multilayer Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#layer-3-routing-vs-layer-3-switching">Layer 3 Routing vs Layer 3 Switching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#exceptions-to-cef">Exceptions to CEF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="l3-switching.html#verifying-cef-processing">Verifying CEF Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="redundancy-in-the-campus.html#redundancy-considerations">Redundancy Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redundancy-in-the-campus.html#hsrp-vs-vrrp-vs-glbp">HSRP vs VRRP vs GLBP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redundancy-in-the-campus.html#hsrp">HSRP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html#hsrp-base-configuration">HSRP Base Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html#tuning-and-optimizing-hsrp">Tuning and Optimizing HSRP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="redundancy-in-the-campus.html#vrrp">VRRP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html#vrrp-configuration">VRRP Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="redundancy-in-the-campus.html#glbp">GLBP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html#glbp-configuration">GLBP Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campus-security.html">Campus Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campus-security.html#basic-port-security-and-802-1x">Basic Port Security and 802.1x</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#port-security-on-catalyst-switches">Port Security on Catalyst Switches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#identity-based-network-services-ibns">Identity-Based Network Services (IBNS)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campus-security.html#vlan-and-spoofing-attacks">VLAN and Spoofing Attacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#preventing-vlan-hopping-attacks">Preventing VLAN Hopping Attacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#private-vlans">Private VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#setting-up-private-vlans">Setting up Private VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#man-in-the-middle-attacks">Man in the Middle Attacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campus-security.html#stp-attacks-and-other-security-considerations">STP Attacks and Other Security Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#spanning-tree-manipulation">Spanning Tree Manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#cisco-switches-best-practices">Cisco Switches Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="campus-security.html#vacls">VACLs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html#the-switch-acl-vacls">The Switch ACL: VACLs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="campus-voip.html">Campus VoIP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#why-an-organization-would-use-ipt">Why an Organization Would use IPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#phase-one-ip-telephony-migration">Phase One IP Telephony Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#phase-two-ip-telephony-migration">Phase Two IP Telephony Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#campus-issues-to-power-when-deploying-voip">Campus Issues to Power when Deploying VOIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#understanding-and-configuring-dual-vlans">Understanding and Configuring Dual VLANs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="campus-voip.html#understanding-and-configuring-qos">Understanding and Configuring QoS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wireless-lan.html#foundation-concepts-and-design">Foundation Concepts and Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#types-of-wireless-networks">Types of Wireless Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#wireless-lan-facts">Wireless LAN Facts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#understanding-the-ssid">Understanding the SSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#correct-design-of-a-wlan">Correct Design of a WLAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#client-roaming">Client Roaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#two-flavors-or-roaming">Two Flavors or Roaming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#how-a-client-roams">How a Client Roams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#wireless-vlan-support">Wireless VLAN Support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wireless-lan.html#frequencies-and-802-11-standards">Frequencies and 802.11 Standards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#unlicensed-frequencies">Unlicensed Frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#understanding-rf">Understanding RF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#the-802-11-lineup">The 802.11 Lineup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#wireless-range">Wireless Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#wireless-lan-security">Wireless LAN Security</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wireless-lan.html#understanding-the-hardware">Understanding the Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#understanding-the-ap-categories">Understanding the AP Categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#understanding-lightweight-access-points">Understanding Lightweight Access Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#wireless-lan-controllers">Wireless LAN Controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#cisco-wireless-indoor-access-points">Cisco Wireless Indoor Access Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#power-over-ethernet">Power Over Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html#understanding-antennas">Understanding Antennas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="the-switches-domain.html#understanding-loopguard">Understanding Loopguard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-switches-domain.html#understanding-udld">Understanding UDLD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-switches-domain.html#supervisor-redundancy-mechanisms">Supervisor Redundancy Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-switches-domain.html#designing-the-network">Designing the Network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring.html">Monitoring</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#implementing-syslog">Implementing Syslog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#understanding-snmp">Understanding SNMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html#understanding-ip-sla">Understanding IP SLA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html#aaa">AAA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#radius">RADIUS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#health">Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#factory-default-settings">Factory Default Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#ios-upgrade">IOS Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#isolating-guest-network">Isolating Guest Network</a></li>
 </ul>
 </li>
 </ul>
@@ -268,8 +402,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="aaa.html" class="btn btn-neutral float-right" title="AAA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../routing/redistribution.html" class="btn btn-neutral float-left" title="Redistribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="core-concepts-and-design.html" class="btn btn-neutral float-right" title="Core Concepts and Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../routing/ipv6-routing.html" class="btn btn-neutral float-left" title="IPv6 Routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Campus VoIP &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Wireless LAN" href="wireless-lan.html" />
+    <link rel="prev" title="Campus Security" href="campus-security.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="l3-switching.html">L3 Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Campus VoIP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-an-organization-would-use-ipt">Why an Organization Would use IPT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-one-ip-telephony-migration">Phase One IP Telephony Migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#phase-two-ip-telephony-migration">Phase Two IP Telephony Migration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#campus-issues-to-power-when-deploying-voip">Campus Issues to Power when Deploying VOIP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-and-configuring-dual-vlans">Understanding and Configuring Dual VLANs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-and-configuring-qos">Understanding and Configuring QoS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>Campus VoIP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/switching/campus-voip.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="campus-voip">
+<h1>Campus VoIP<a class="headerlink" href="#campus-voip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-an-organization-would-use-ipt">
+<h2>Why an Organization Would use IPT<a class="headerlink" href="#why-an-organization-would-use-ipt" title="Permalink to this headline">¶</a></h2>
+<p>Trackable Cost Savings:</p>
+<ul class="simple">
+<li><p>Moves, Adds, and changes (Macs)</p></li>
+<li><p>Bandwidth and equipment efficiency</p></li>
+<li><p>Lower cost of voice transmission</p></li>
+<li><p>New applications and devices</p></li>
+</ul>
+</div>
+<div class="section" id="phase-one-ip-telephony-migration">
+<h2>Phase One IP Telephony Migration<a class="headerlink" href="#phase-one-ip-telephony-migration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Keep the PBX system and digital phones</p></li>
+<li><p>Calls routed over WAN rather than PSTN</p>
+<ul>
+<li><p>Major benefit: Free LD</p></li>
+<li><p>Major requirement: QoS</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="phase-two-ip-telephony-migration">
+<h2>Phase Two IP Telephony Migration<a class="headerlink" href="#phase-two-ip-telephony-migration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Voice and Data network have become one</p></li>
+<li><p>PBX and Digital phones for sale on E-Bay</p></li>
+<li><p>True integration between voice and data</p></li>
+<li><p>Typically new structures start here</p></li>
+</ul>
+</div>
+<div class="section" id="campus-issues-to-power-when-deploying-voip">
+<h2>Campus Issues to Power when Deploying VOIP<a class="headerlink" href="#campus-issues-to-power-when-deploying-voip" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Inline Power</p></li>
+<li><p>Dual VLANs</p></li>
+<li><p>QoS</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-and-configuring-dual-vlans">
+<h2>Understanding and Configuring Dual VLANs<a class="headerlink" href="#understanding-and-configuring-dual-vlans" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switchport mode access
+switchport access vlan 200
+switchport voice vlan 100
+</pre></div>
+</div>
+</div>
+<div class="section" id="understanding-and-configuring-qos">
+<h2>Understanding and Configuring QoS<a class="headerlink" href="#understanding-and-configuring-qos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Two QoS markings:</p>
+<ul>
+<li><p>Class of service (CoS): layer 2</p></li>
+<li><p>Type of service (ToS): layer 3</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mls qos trust cos
+mls qos trust device cisco-phone
+auto qos voip trust
+no auto qos voip cisco-phone
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="wireless-lan.html" class="btn btn-neutral float-right" title="Wireless LAN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="campus-security.html" class="btn btn-neutral float-left" title="Campus Security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

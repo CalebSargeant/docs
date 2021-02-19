@@ -700,7 +700,7 @@ Stub and Totally Stubby Areas
   R5(config-router)#area 1 nssa
   R5#wr
 
-Another Example...
+OSPF Special Areas
 ^^^^^^^^^^^^^^^^^^
 
 :download:`_docs/ospf-stub-lab.zip`

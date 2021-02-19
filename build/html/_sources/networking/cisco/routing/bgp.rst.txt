@@ -1,6 +1,190 @@
 BGP
 ===
 
+BGP Concepts and Configuration
+------------------------------
+
+BGP Routing Algorithms
+^^^^^^^^^^^^^^^^^^^^^^
+
+* BGP is technically a distance vector, but most call it a "Path Vector" protocol.
+* Without tuning, BGP behaves just like RIP!
+
+BGP Packets and Tables
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Packets
+
+  * **Open:** starts the session
+  * **Keepalive:** duh..
+  * **Update:** network reachability exchanges
+  * **Notification:** something bad has happened; close session
+
+* Tables
+
+  * **Neighbour table:** the connected BGP friends
+  * **BGP table:** a list of ALL BGP routes (can be big!)
+  * **Routing table:** a list of the BEST routes
+
+Understanding IBGP vs EBGP
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: _images/bgp-understanding-ibgp-vs-ebgp.png
+    :width: 663px
+    :align: center
+    :height: 424px
+
+BGP Neighbour Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Two ways to get networks in BGP:
+
+  * ``network`` command
+  * Redistribution
+
+BGP Synchronisation
+^^^^^^^^^^^^^^^^^^^
+
+Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.
+
+BGP Next-Hop Processing
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* For EBGP peers: change next hop address on advertised routes
+* For IBGP peers: do not change next hop address on advertised routes
+
+BGP Configuration
+^^^^^^^^^^^^^^^^^
+
+:download:`_docs/bgp-configuration.zip`
+
+.. image:: _images/bgp-configuration.png
+    :width: 553px
+    :align: center
+    :height: 337px
+
+**Router R1**
+
+.. code-block:: none
+
+  R1#conf t
+  R1(config)#int s1/0
+  R1(config-if)#ip add 10.1.12.1 255.255.255.0
+  R1(config-if)#no shut
+  R1(config-if)#int s1/1
+  R1(config-if)#ip add 10.1.13.1 255.255.255.0
+  R1(config-if)#no shut
+  R1(config-if)#int lo0
+  R1(config-if)#ip add 1.1.1.1 255.255.255.255
+  R1(config-if)#router bgp 5500
+  R1(config-router)#neigh 4.4.4.4 remote-as 5500
+  R1(config-router)#neigh 4.4.4.4 update-source loopback 0
+  R1(config-router)#no sync
+  R1(config-router)#router ospf 1
+  R1(config-router)#no auto
+  R1(config-router)#net 10.1.13.0 0.0.0.255 area 0
+  R1(config-router)#net 10.1.12.0 0.0.0.255 area 0
+  R1(config-router)#net 1.1.1.1 0.0.0.0 area 0
+
+**Router R2**
+
+.. code-block:: none
+
+  R2(config)#int s1/0
+  R2(config-if)#ip add 10.1.12.2 255.255.255.0
+  R2(config-if)#no shut
+  R2(config-if)#int s1/1
+  R2(config-if)#ip add 10.1.24.1 255.255.255.0
+  R2(config-if)#no shut
+  R2(config-if)#router ospf 1
+  R2(config-router)#no auto
+  R2(config-router)#router-id 2.2.2.2
+  R2(config-router)#net 10.1.12.0 0.0.0.255 area 0
+  R2(config-router)#net 10.1.24.0 0.0.0.255 area 0
+
+**Router R3**
+
+.. code-block:: none
+
+  R3#conf t
+  R3(config)#int s1/0
+  R3(config-if)#ip add 10.1.13.2 255.255.255.0
+  R3(config-if)#no shut
+  R3(config-if)#int s1/1
+  R3(config-if)#ip add 10.1.34.1 255.255.255.0
+  R3(config-if)#no shut
+  R3(config-if)#router ospf 1
+  R3(config-router)#no auto
+  R3(config-router)#router-id 3.3.3.3
+  R3(config-router)#net 10.1.13.0 0.0.0.255 area 0
+  R3(config-router)#net 10.1.34.0 0.0.0.255 area 0
+
+**Router R4**
+
+.. code-block:: none
+
+  R4#conf t
+  R4(config)#int s1/0
+  R4(config-if)#ip add 10.1.24.2 255.255.255.0
+  R4(config-if)#no shut
+  R4(config-if)#int s1/1
+  R4(config-if)#int s1/1
+  R4(config-if)#ip add 10.1.34.2 255.255.255.0
+  R4(config-if)#no shut
+  R4(config-if)#int s1/2
+  R4(config-if)#ip add
+  R4(config-if)#ip add 10.1.4
+  R4(config-if)#ip add 10.1.45.1 255.255.255.0
+  R4(config-if)#no shut
+  R4(config-if)#int lo0
+  R4(config-if)#int lo0
+  R4(config-if)#ip add 4.4.4.4 255.255.255.255
+  R4(config-if)#router ospf 1
+  R4(config-router)#no auto
+  R4(config-router)#net 4.4.4.4 0.0.0.0 area 0
+  R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
+  R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
+  R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
+  R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
+  R4(config-router)#router bgp 5500
+  R4(config-router)#neigh 10.1.45.2 remote-as 6500
+  R4(config-router)#neigh 1.1.1.1 remote-as 5500
+  R4(config-router)#neigh 1.1.1.1 update-source lo0
+  R4(config-router)#ip route 5.5.5.5 255.255.255.255 10.1.45.2
+  R4(config)#router bgp 5500
+  R4(config-router)#neigh 5.5.5.5 remote-as 6500
+  R4(config-router)#neigh 5.5.5.5 update-source lo0
+  R4(config-router)#neigh 5.5.5.5 ebgp 2
+  R4(config-router)#neigh 1.1.1.1 next-hop-self
+  R4(config-router)#no sync
+  R4(config-router)#do wr
+
+**Router R5**
+
+.. code-block:: none
+
+  R5#conf t
+  R5(config)#int s1/0
+  R5(config-if)#ip add 10.1.45.2 255.255.255.0
+  R5(config-if)#no shut
+  R5(config-if)#int lo0
+  R5(config-if)#ip add 5.5.5.5 255.255.255.255
+  R5(config-if)#router bgp 6500
+  R5(config-router)#no auto
+  R5(config-router)#no sync
+  R5(config-router)#neigh 10.1.45.1 remote-as 5500
+  R5(config-router)#ip route 4.4.4.4 255.255.255.255 10.1.45.1
+  R5(config)#access-list 50 permit 200.1.1.0
+  R5(config)#access-list 50 permit 200.1.2.0
+  R5(config)#access-list 50 permit 200.1.3.0
+  R5(config)#access-list 50 permit 200.1.4.0
+  R5(config)#access-list 50 permit 200.1.5.0
+  R5(config)#access-list 50 permit 200.1.6.0
+  R5(config)#route-map FILTER
+  R5(config-route-map)#match ip add 50
+  R5(config-route-map)#router bgp 6500
+  R5(config-router)#redist con route-map FILTER
+
 BGP Tuning Attributes
 ---------------------
 
@@ -27,8 +211,7 @@ Understanding the BGP Attribute Lineup
 * Optional Attributes
 
   * Aggregator
-
-* Multi-exit discriminator (med/metric)
+  * Multi-exit discriminator (med/metric)
 
 How BGP Finds the Best Path
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -230,187 +413,3 @@ Configuring BGP and Tuning
   R7(config-if)#router bgp 711
   R7(config-router)#network 200.50.2.0 mask 255.255.255.0
   R7(config-router)#network 200.60.2.0 mask 255.255.255.0
-
-BGP Concepts and Configuration
-------------------------------
-
-BGP Routing Algorithms
-^^^^^^^^^^^^^^^^^^^^^^
-
-* BGP is technically a distance vector, but most call it a "Path Vector" protocol.
-* Without tuning, BGP behaves just like RIP!
-
-BGP Packets and Tables
-^^^^^^^^^^^^^^^^^^^^^^
-
-* Packets
-
-  * **Open:** starts the session
-  * **Keepalive:** duh..
-  * **Update:** network reachability exchanges
-  * **Notification:** something bad has happened; close session
-
-* Tables
-
-  * **Neighbour table:** the connected BGP friends
-  * **BGP table:** a list of ALL BGP routes (can be big!)
-  * **Routing table:** a list of the BEST routes
-
-Understanding IBGP vs EBGP
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. image:: _images/bgp-understanding-ibgp-vs-ebgp.png
-    :width: 663px
-    :align: center
-    :height: 424px
-
-BGP Neighbour Configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* Two ways to get networks in BGP:
-
-  * ``network`` command
-  * Redistribution
-
-BGP Synchronisation
-^^^^^^^^^^^^^^^^^^^
-
-Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.
-
-BGP Next-Hop Processing
-^^^^^^^^^^^^^^^^^^^^^^^
-
-* For EBGP peers: change next hop address on advertised routes
-* For IBGP peers: do not change next hop address on advertised routes
-
-BGP Configuration
-^^^^^^^^^^^^^^^^^
-
-:download:`_docs/bgp-configuration.zip`
-
-.. image:: _images/bgp-configuration.png
-    :width: 553px
-    :align: center
-    :height: 337px
-
-**Router R1**
-
-.. code-block:: none
-
-  R1#conf t
-  R1(config)#int s1/0
-  R1(config-if)#ip add 10.1.12.1 255.255.255.0
-  R1(config-if)#no shut
-  R1(config-if)#int s1/1
-  R1(config-if)#ip add 10.1.13.1 255.255.255.0
-  R1(config-if)#no shut
-  R1(config-if)#int lo0
-  R1(config-if)#ip add 1.1.1.1 255.255.255.255
-  R1(config-if)#router bgp 5500
-  R1(config-router)#neigh 4.4.4.4 remote-as 5500
-  R1(config-router)#neigh 4.4.4.4 update-source loopback 0
-  R1(config-router)#no sync
-  R1(config-router)#router ospf 1
-  R1(config-router)#no auto
-  R1(config-router)#net 10.1.13.0 0.0.0.255 area 0
-  R1(config-router)#net 10.1.12.0 0.0.0.255 area 0
-  R1(config-router)#net 1.1.1.1 0.0.0.0 area 0
-
-**Router R2**
-
-.. code-block:: none
-
-  R2(config)#int s1/0
-  R2(config-if)#ip add 10.1.12.2 255.255.255.0
-  R2(config-if)#no shut
-  R2(config-if)#int s1/1
-  R2(config-if)#ip add 10.1.24.1 255.255.255.0
-  R2(config-if)#no shut
-  R2(config-if)#router ospf 1
-  R2(config-router)#no auto
-  R2(config-router)#router-id 2.2.2.2
-  R2(config-router)#net 10.1.12.0 0.0.0.255 area 0
-  R2(config-router)#net 10.1.24.0 0.0.0.255 area 0
-
-**Router R3**
-
-.. code-block:: none
-
-  R3#conf t
-  R3(config)#int s1/0
-  R3(config-if)#ip add 10.1.13.2 255.255.255.0
-  R3(config-if)#no shut
-  R3(config-if)#int s1/1
-  R3(config-if)#ip add 10.1.34.1 255.255.255.0
-  R3(config-if)#no shut
-  R3(config-if)#router ospf 1
-  R3(config-router)#no auto
-  R3(config-router)#router-id 3.3.3.3
-  R3(config-router)#net 10.1.13.0 0.0.0.255 area 0
-  R3(config-router)#net 10.1.34.0 0.0.0.255 area 0
-
-**Router R4**
-
-.. code-block:: none
-
-  R4#conf t
-  R4(config)#int s1/0
-  R4(config-if)#ip add 10.1.24.2 255.255.255.0
-  R4(config-if)#no shut
-  R4(config-if)#int s1/1
-  R4(config-if)#int s1/1
-  R4(config-if)#ip add 10.1.34.2 255.255.255.0
-  R4(config-if)#no shut
-  R4(config-if)#int s1/2
-  R4(config-if)#ip add
-  R4(config-if)#ip add 10.1.4
-  R4(config-if)#ip add 10.1.45.1 255.255.255.0
-  R4(config-if)#no shut
-  R4(config-if)#int lo0
-  R4(config-if)#int lo0
-  R4(config-if)#ip add 4.4.4.4 255.255.255.255
-  R4(config-if)#router ospf 1
-  R4(config-router)#no auto
-  R4(config-router)#net 4.4.4.4 0.0.0.0 area 0
-  R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
-  R4(config-router)#net 10.1.24.0 0.0.0.255 area 0
-  R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
-  R4(config-router)#net 10.1.34.0 0.0.0.255 area 0
-  R4(config-router)#router bgp 5500
-  R4(config-router)#neigh 10.1.45.2 remote-as 6500
-  R4(config-router)#neigh 1.1.1.1 remote-as 5500
-  R4(config-router)#neigh 1.1.1.1 update-source lo0
-  R4(config-router)#ip route 5.5.5.5 255.255.255.255 10.1.45.2
-  R4(config)#router bgp 5500
-  R4(config-router)#neigh 5.5.5.5 remote-as 6500
-  R4(config-router)#neigh 5.5.5.5 update-source lo0
-  R4(config-router)#neigh 5.5.5.5 ebgp 2
-  R4(config-router)#neigh 1.1.1.1 next-hop-self
-  R4(config-router)#no sync
-  R4(config-router)#do wr
-
-**Router R5**
-
-.. code-block:: none
-
-  R5#conf t
-  R5(config)#int s1/0
-  R5(config-if)#ip add 10.1.45.2 255.255.255.0
-  R5(config-if)#no shut
-  R5(config-if)#int lo0
-  R5(config-if)#ip add 5.5.5.5 255.255.255.255
-  R5(config-if)#router bgp 6500
-  R5(config-router)#no auto
-  R5(config-router)#no sync
-  R5(config-router)#neigh 10.1.45.1 remote-as 5500
-  R5(config-router)#ip route 4.4.4.4 255.255.255.255 10.1.45.1
-  R5(config)#access-list 50 permit 200.1.1.0
-  R5(config)#access-list 50 permit 200.1.2.0
-  R5(config)#access-list 50 permit 200.1.3.0
-  R5(config)#access-list 50 permit 200.1.4.0
-  R5(config)#access-list 50 permit 200.1.5.0
-  R5(config)#access-list 50 permit 200.1.6.0
-  R5(config)#route-map FILTER
-  R5(config-route-map)#match ip add 50
-  R5(config-route-map)#router bgp 6500
-  R5(config-router)#redist con route-map FILTER

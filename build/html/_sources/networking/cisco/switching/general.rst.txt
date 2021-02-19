@@ -1,58 +1,56 @@
 General
 =======
 
-.. 1. Switches Domain - Core Concepts and Design
+AAA
+---
 
-Core Concepts and Design
-------------------------
+RADIUS
+^^^^^^
 
-Plug and play switches
-^^^^^^^^^^^^^^^^^^^^^^
+You cannot use LDAP on a Cisco switch (at least not this one):
 
-* Chance for failure
-* Broadcast traffic
-* Multicast issues
-* Security issues
-* MAC flooding
+.. code-block:: none
 
-Enterprise Composite Network Model
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  SW(config)#aaa authentication login default group ?
+  WORD     Server-group name
+  radius   Use list of all Radius hosts.
+  tacacs+  Use list of all Tacacs+ hosts.
 
-* Access
-* Distribution
-* Core
+The below adds the radius-server to the switch with the secret key "test" and enables authentication via radius, then local
 
-VLANs
-^^^^^
+.. code-block:: none
 
-* Simpler Management
-* Troubleshooting ease
-* Better performance
-* Mental sanity
-* Summarization points
+  # enable aaa
+  aaa new-model
 
-Designing the Network
-^^^^^^^^^^^^^^^^^^^^^
+  # configure the radius server on the switch
+  radius-server host x.x.x.x auth-port 1812 acct-port 1813 key test
 
-* Restrict VLANs to switch blocks
-* Implement management VLAN
-* Separate voice traffic
-* Implement multicast support
+  # enable radius authentication for the switch
+  aaa authentication login default group radius local
 
-The Two Flavours of CISCO Switches
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  # enable an enable password to become privileged
+  enable password mypasswordhere
 
-* CISCO catalyst OS (CatOS)
+  # enable vendor specific attributes (optional for basic config, but necessary for advanced features - ISE)
+  radius-server vsa send authentication
+  radius-server vsa send accounting
 
-  * Uses set-based syntax
-  * Typically combined with IOS for layer 3 functions
+  # maintain and build an IP tracking table to track hosts that connect to network (ISE)
+  ip device tracking
 
-* CISCO 'native' IOS
+  # to test authentication
+  SW#test aaa group radius caleb.test Password1 new-code
+  User successfully authenticated
 
-  * Similar to router configuration
+Via NPS:
 
-* Typically, all larger switch models (such as cat 4500, 6500, etc...) run CatOS
-* CISCO has a migration path for all mainline switches to the native IOS
+Add the client to NPS
+
+.. image:: _images/switching-aaa-radius-1.png
+
+.. image:: _images/switching-aaa-radius-2.png
+
 
 Health
 ------

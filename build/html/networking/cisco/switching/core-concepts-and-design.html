@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Core Concepts and Design &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="VLANs" href="vlans.html" />
+    <link rel="prev" title="Switching" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Core Concepts and Design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plug-and-play-switches">Plug and play switches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enterprise-composite-network-model">Enterprise Composite Network Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vlans">VLANs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#designing-the-network">Designing the Network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-two-flavours-of-cisco-switches">The Two Flavours of CISCO Switches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="l3-switching.html">L3 Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-voip.html">Campus VoIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>Core Concepts and Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/switching/core-concepts-and-design.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-concepts-and-design">
+<h1>Core Concepts and Design<a class="headerlink" href="#core-concepts-and-design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="plug-and-play-switches">
+<h2>Plug and play switches<a class="headerlink" href="#plug-and-play-switches" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Chance for failure</p></li>
+<li><p>Broadcast traffic</p></li>
+<li><p>Multicast issues</p></li>
+<li><p>Security issues</p></li>
+<li><p>MAC flooding</p></li>
+</ul>
+</div>
+<div class="section" id="enterprise-composite-network-model">
+<h2>Enterprise Composite Network Model<a class="headerlink" href="#enterprise-composite-network-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Access</p></li>
+<li><p>Distribution</p></li>
+<li><p>Core</p></li>
+</ul>
+</div>
+<div class="section" id="vlans">
+<h2>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Simpler Management</p></li>
+<li><p>Troubleshooting ease</p></li>
+<li><p>Better performance</p></li>
+<li><p>Mental sanity</p></li>
+<li><p>Summarization points</p></li>
+</ul>
+</div>
+<div class="section" id="designing-the-network">
+<h2>Designing the Network<a class="headerlink" href="#designing-the-network" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Restrict VLANs to switch blocks</p></li>
+<li><p>Implement management VLAN</p></li>
+<li><p>Separate voice traffic</p></li>
+<li><p>Implement multicast support</p></li>
+</ul>
+</div>
+<div class="section" id="the-two-flavours-of-cisco-switches">
+<h2>The Two Flavours of CISCO Switches<a class="headerlink" href="#the-two-flavours-of-cisco-switches" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CISCO catalyst OS (CatOS)</p>
+<ul>
+<li><p>Uses set-based syntax</p></li>
+<li><p>Typically combined with IOS for layer 3 functions</p></li>
+</ul>
+</li>
+<li><p>CISCO ‘native’ IOS</p>
+<ul>
+<li><p>Similar to router configuration</p></li>
+</ul>
+</li>
+<li><p>Typically, all larger switch models (such as cat 4500, 6500, etc…) run CatOS</p></li>
+<li><p>CISCO has a migration path for all mainline switches to the native IOS</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="vlans.html" class="btn btn-neutral float-right" title="VLANs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Switching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

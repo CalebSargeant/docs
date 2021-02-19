@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Wireless LAN &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="The Switch’s Domain" href="the-switches-domain.html" />
+    <link rel="prev" title="Campus VoIP" href="campus-voip.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="l3-switching.html">L3 Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-voip.html">Campus VoIP</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Wireless LAN</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foundation-concepts-and-design">Foundation Concepts and Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frequencies-and-802-11-standards">Frequencies and 802.11 Standards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-the-hardware">Understanding the Hardware</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>Wireless LAN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/switching/wireless-lan.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wireless-lan">
+<h1>Wireless LAN<a class="headerlink" href="#wireless-lan" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="foundation-concepts-and-design">
+<h2>Foundation Concepts and Design<a class="headerlink" href="#foundation-concepts-and-design" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="types-of-wireless-networks">
+<h3>Types of Wireless Networks<a class="headerlink" href="#types-of-wireless-networks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Personal Area Network (PAN)</p></li>
+<li><p>Local Area Network (LAN)</p></li>
+<li><p>Metropolitan Area Network (MAN)</p></li>
+<li><p>Wide Area Network (MAN)</p></li>
+</ul>
+</div>
+<div class="section" id="wireless-lan-facts">
+<h3>Wireless LAN Facts<a class="headerlink" href="#wireless-lan-facts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A Wireless Access Point (WAP) communicates like a hub</p>
+<ul>
+<li><p>Shared signal</p></li>
+<li><p>Half duplex</p></li>
+</ul>
+</li>
+<li><p>Uses unlicensed bands of radio frequency (RF)</p></li>
+<li><p>Wireless is a physicall and data link standard</p></li>
+<li><p>Uses CSMA/CA instead of CSMA/CD</p></li>
+<li><p>Faces connectivity issues because of interference</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-the-ssid">
+<h3>Understanding the SSID<a class="headerlink" href="#understanding-the-ssid" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The Service Set Identifier (SSID) uniquely identifies and seperates wireless networks</p></li>
+<li><p>When a wireless client is enabled:</p>
+<ol class="arabic simple">
+<li><p>Client issues a proble</p></li>
+<li><p>Access Point(s) respond with a beacon</p></li>
+<li><p>Client associates with chosen SSID</p></li>
+<li><p>Access Point adds client MAC to association table</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="correct-design-of-a-wlan">
+<h3>Correct Design of a WLAN<a class="headerlink" href="#correct-design-of-a-wlan" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>RF service areas should have 10-15% overlap</p></li>
+<li><p>Repeaters should have 50% overlap</p></li>
+<li><p>Bordering access points should use different channels</p></li>
+</ul>
+</div>
+<div class="section" id="client-roaming">
+<h3>Client Roaming<a class="headerlink" href="#client-roaming" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>As more mobile devices are released, client roaming becomes a big deal</p></li>
+<li><p>True roaming allows seamless movement between access points</p></li>
+<li><p>Not a feature ‘Joe-Shmo’ access points can support</p></li>
+<li><p>Provides solid coverage and better battery life</p></li>
+<li><p>Can be costly</p></li>
+</ul>
+</div>
+<div class="section" id="two-flavors-or-roaming">
+<h3>Two Flavors or Roaming<a class="headerlink" href="#two-flavors-or-roaming" title="Permalink to this headline">¶</a></h3>
+<p><strong>Layer 2 Roaming</strong></p>
+<p>Requirement: same SSID, same VLAN, same Subnet</p>
+<p><strong>Layer 3 Roaming (AKA Mobile IP)</strong></p>
+<p>Requirement: same SSID</p>
+</div>
+<div class="section" id="how-a-client-roams">
+<h3>How a Client Roams<a class="headerlink" href="#how-a-client-roams" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Beacons are missed</p></li>
+<li><p>Data reaches maximum retry count</p></li>
+<li><p>Data rate shifts down</p></li>
+<li><p>Periodic intervals</p></li>
+</ul>
+</div>
+<div class="section" id="wireless-vlan-support">
+<h3>Wireless VLAN Support<a class="headerlink" href="#wireless-vlan-support" title="Permalink to this headline">¶</a></h3>
+<p>Multiple VLANs provide support for:</p>
+<ul class="simple">
+<li><p>Multiple security levels</p></li>
+<li><p>Multiple subnets</p></li>
+<li><p>Multiple access privileges</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="frequencies-and-802-11-standards">
+<h2>Frequencies and 802.11 Standards<a class="headerlink" href="#frequencies-and-802-11-standards" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unlicensed-frequencies">
+<h3>Unlicensed Frequencies<a class="headerlink" href="#unlicensed-frequencies" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>900MHz Range: 902 - 928</p></li>
+<li><p>2.4GHz Range: 2.400 - 2.483</p></li>
+<li><p>5GhZ Range: 5.150 to 5.350</p></li>
+</ul>
+</div>
+<div class="section" id="understanding-rf">
+<h3>Understanding RF<a class="headerlink" href="#understanding-rf" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>RF waves are absorbed (passing through walls) or reflected (by metal)</p></li>
+<li><p>Higher data rates have shorter ranges</p></li>
+<li><p>Higher frequencies of RF have higher data rates</p></li>
+<li><p>Higher frequencies of RF have shorter ranges</p></li>
+</ul>
+</div>
+<div class="section" id="the-802-11-lineup">
+<h3>The 802.11 Lineup<a class="headerlink" href="#the-802-11-lineup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>802.11b</p>
+<ul>
+<li><p>Official as of september 1999</p></li>
+<li><p>up to 11 mbps (1, 2, 5.5, 11 data rates)</p></li>
+<li><p>most popular standard</p></li>
+<li><p>three ‘clean’ channels</p></li>
+</ul>
+</li>
+<li><p>802.11g</p>
+<ul>
+<li><p>Official as of june 2003</p></li>
+<li><p>Backwards compatible with 802.11b</p></li>
+<li><p>Up to 54 Mbps (12 data rates)</p></li>
+<li><p>Three ‘clean’ channels</p></li>
+</ul>
+</li>
+<li><p>802.11a</p>
+<ul>
+<li><p>Official as of september 1999</p></li>
+<li><p>Up to 54 Mbps</p></li>
+<li><p>Not cross-compatible with 802.11b/g</p></li>
+<li><p>12 to 23 ‘clean’ channels</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="wireless-range">
+<h3>Wireless Range<a class="headerlink" href="#wireless-range" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The further you go, the lower your speed</p></li>
+<li><p>Example: 802.11g does 54Mbps if you’re 40ft from the AP</p></li>
+<li><p>Example: 802.11a does 54Mbps if you’re 20 from the AP</p></li>
+<li><p>Example: 802.11b does 11Mbps if you’re 110ft from the AP</p></li>
+</ul>
+</div>
+<div class="section" id="wireless-lan-security">
+<h3>Wireless LAN Security<a class="headerlink" href="#wireless-lan-security" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Wireless has added a whole new paradigm to security</p></li>
+<li><p>The wireless security evolution:</p>
+<ul>
+<li><p>1997 - Wired Equivalent Privacy (WEP)</p></li>
+<li><p>2001 - 802.1x EAP</p></li>
+<li><p>2003 - Wi-Fi protected Access (WPA)</p></li>
+<li><p>2004 - IEEE 802.11i (WPA2)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="understanding-the-hardware">
+<h2>Understanding the Hardware<a class="headerlink" href="#understanding-the-hardware" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="understanding-the-ap-categories">
+<h3>Understanding the AP Categories<a class="headerlink" href="#understanding-the-ap-categories" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Autonomous APs</p>
+<ul>
+<li><p>Stand alone system</p></li>
+<li><p>Cisco IoS-based</p></li>
+<li><p>Can be centrally controlled using Wireless Domain Services (WDS)</p></li>
+<li><p>Managed using Ciscoworks WLAN Solution Engine (WLSE)</p></li>
+</ul>
+</li>
+<li><p>Lightweight APs</p>
+<ul>
+<li><p>Server-dependant system</p></li>
+<li><p>Zero-configuration access points</p></li>
+<li><p>Can be centrally controlled using Wireless LAN Controller (WLC)</p></li>
+<li><p>Managed using Cisco Wireless Control System (WCS) - optional</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="understanding-lightweight-access-points">
+<h3>Understanding Lightweight Access Points<a class="headerlink" href="#understanding-lightweight-access-points" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Lightweight Access Point Protocol (LWAPP) used between controller and WAPs</p></li>
+<li><p>Controller has all the intellegence for communication</p></li>
+<li><p>Access point acts as “dumb terminal” that processes packets</p></li>
+<li><p>Referred to as “split mac” design</p></li>
+</ul>
+</div>
+<div class="section" id="wireless-lan-controllers">
+<h3>Wireless LAN Controllers<a class="headerlink" href="#wireless-lan-controllers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>2100 series controller</p>
+<ul>
+<li><p>Designed for SMB</p></li>
+<li><p>Currently supports up to 6 access points</p></li>
+</ul>
+</li>
+<li><p>4400 series controller</p></li>
+<li><p>4402 supports 12, 25, or 50 access points</p></li>
+<li><p>4404 supports 100 access points</p></li>
+</ul>
+</div>
+<div class="section" id="cisco-wireless-indoor-access-points">
+<h3>Cisco Wireless Indoor Access Points<a class="headerlink" href="#cisco-wireless-indoor-access-points" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>1130AG</p>
+<ul>
+<li><p>Indoor design</p></li>
+<li><p>Slick, glowing plastic enclosure</p></li>
+<li><p>Designed for cubicle/office environment</p></li>
+</ul>
+</li>
+<li><p>1240AG</p>
+<ul>
+<li><p>Indoor design</p></li>
+<li><p>Durable metal enclosure</p></li>
+<li><p>Handle larger temperature swings</p></li>
+<li><p>Manufacturing, warehouses, etc</p></li>
+</ul>
+</li>
+<li><p>1300 series</p>
+<ul>
+<li><p>Outdoor design</p></li>
+<li><p>your typical “put it there, get wireless” sort of AP</p></li>
+<li><p>Handles outdoor temperatures (-22 to 131)</p></li>
+<li><p>Can be configured as a bridge</p></li>
+</ul>
+</li>
+<li><p>1400 series</p>
+<ul>
+<li><p>Outdoor design</p></li>
+<li><p>Point-to-point or multipoint bridging</p></li>
+<li><p>Handles outdoor temperatures</p></li>
+<li><p>8.5 mile (p2p) pr 2.75 mile (p2m) range</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="power-over-ethernet">
+<h3>Power Over Ethernet<a class="headerlink" href="#power-over-ethernet" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Two Standards:</p>
+<ul>
+<li><p>802.3af</p></li>
+<li><p>Cisco proprietary PoE</p></li>
+</ul>
+</li>
+<li><p>Comes in many forms</p>
+<ul>
+<li><p>Cisco PoE switches</p></li>
+<li><p>Switch router cards</p></li>
+<li><p>SOHO firewalls and routers</p></li>
+<li><p>Power patch panel</p></li>
+<li><p>Inline power injector</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="understanding-antennas">
+<h3>Understanding Antennas<a class="headerlink" href="#understanding-antennas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Omni-Directional Antenna: Provides even spread of wireless signal in a radius around the access point</p></li>
+<li><p>Directional Antenna: Allows you to point antennas to get more radius and range in a specific direction</p></li>
+<li><p>Yagi Antenna: Provides dual adjustments of direction and focus. The more streamlined focus gets intense reach/range.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="the-switches-domain.html" class="btn btn-neutral float-right" title="The Switch’s Domain" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="campus-voip.html" class="btn btn-neutral float-left" title="Campus VoIP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

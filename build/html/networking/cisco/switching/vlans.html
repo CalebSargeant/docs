@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="MPLS" href="../mpls/index.html" />
-    <link rel="prev" title="General" href="general.html" /> 
+    <link rel="next" title="STP" href="stp.html" />
+    <link rel="prev" title="Core Concepts and Design" href="core-concepts-and-design.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,15 +92,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="aaa.html">AAA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">VLANs</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration-and-verification">Configuration and Verification</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#in-depth-trunking">In-Depth Trunking</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#vlan-trunking-protocol">VLAN Trunking Protocol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stp-foundation-per-vlan-spanning-tree-concepts">STP - Foundation per-VLAN Spanning Tree Concepts</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="l3-switching.html">L3 Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-voip.html">Campus VoIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
@@ -109,7 +117,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../design-and-documentation.html">Network Design and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
@@ -316,6 +323,18 @@ del flash:vlan.dat
 </li>
 </ul>
 </div>
+<div class="section" id="configuring-trunk-ports">
+<h3>Configuring Trunk Ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int fa0/15
+switchport trunk encap dot1q
+switchport mode trunk
+! must do this everywhere:
+switchport nonegotiate
+switchport trunk native vlan 10
+switchport trunk allowed vlan x y z
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="vlan-trunking-protocol">
 <h2>VLAN Trunking Protocol<a class="headerlink" href="#vlan-trunking-protocol" title="Permalink to this headline">¶</a></h2>
@@ -362,6 +381,12 @@ del flash:vlan.dat
 <li><p>Set VTP version number</p></li>
 <li><p>Verify</p></li>
 </ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sh vtp status
+vtp domain calebsargeant.com
+vtp mode
+vtp version 2
+</pre></div>
+</div>
 </div>
 <div class="section" id="common-vlan-problems">
 <h3>Common VLAN problems<a class="headerlink" href="#common-vlan-problems" title="Permalink to this headline">¶</a></h3>
@@ -384,132 +409,6 @@ del flash:vlan.dat
 </ul>
 </div>
 </div>
-<div class="section" id="stp-foundation-per-vlan-spanning-tree-concepts">
-<h2>STP - Foundation per-VLAN Spanning Tree Concepts<a class="headerlink" href="#stp-foundation-per-vlan-spanning-tree-concepts" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Switches forward broadcast packets out all ports by design</p></li>
-<li><p>Redundant connections are necessary in business networks</p></li>
-<li><p>The place of spanning tree: drop trees on redundant links (until they are needed)</p></li>
-</ul>
-<div class="section" id="the-facts-about-spanning-tree">
-<h3>The Facts About Spanning Tree<a class="headerlink" href="#the-facts-about-spanning-tree" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Original STP (802.1D) was created to prevent loops</p></li>
-<li><p>Switches send “probes” into the network called Bridge Protocol Data Units (BPDUs) to discover loops</p></li>
-<li><p>The BPDU probes also help elect the core switch of the network, called the Root Bridge</p></li>
-<li><p>The simplistic view of STP: all switches find the best way to reach the root bridge than block all redundant links</p></li>
-</ul>
-</div>
-<div class="section" id="understanding-bpdus-and-elections">
-<h3>Understanding BPDUs and Elections<a class="headerlink" href="#understanding-bpdus-and-elections" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>BPDUs are sent once every two seconds</p>
-<ul>
-<li><p>Priority and Mac address in the packet</p></li>
-</ul>
-</li>
-<li><p>Priority is some value between 0 and 61440 (default is 32768); increments of 4096 - lower is better</p></li>
-<li><p>Three port types</p>
-<ul>
-<li><p>Root Port: used to reach the root bridge</p></li>
-<li><p>Designated Port: forwarding port, one per link</p></li>
-<li><p>Blocking / Non-designated port: where the tree fell</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="how-stp-finds-the-best-path">
-<h3>How STP Finds the Best Path<a class="headerlink" href="#how-stp-finds-the-best-path" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Elect the root</p></li>
-<li><p>Switches find lowest cost path to port</p></li>
-<li><p>Use lower bridge ID on equal paths</p></li>
-<li><p>Use lower port to break a tie</p></li>
-</ol>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Link Bandwidth</p></th>
-<th class="head"><p>STP Cost</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>4Mbps</p></td>
-<td><p>250</p></td>
-</tr>
-<tr class="row-odd"><td><p>10Mbps</p></td>
-<td><p>100</p></td>
-</tr>
-<tr class="row-even"><td><p>16Mbps</p></td>
-<td><p>62</p></td>
-</tr>
-<tr class="row-odd"><td><p>45Mbps</p></td>
-<td><p>39</p></td>
-</tr>
-<tr class="row-even"><td><p>100Mbps</p></td>
-<td><p>19</p></td>
-</tr>
-<tr class="row-odd"><td><p>155Mbps</p></td>
-<td><p>14</p></td>
-</tr>
-<tr class="row-even"><td><p>622Mbps</p></td>
-<td><p>6</p></td>
-</tr>
-<tr class="row-odd"><td><p>1Gbps</p></td>
-<td><p>4</p></td>
-</tr>
-<tr class="row-even"><td><p>10Gbps</p></td>
-<td><p>2</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="initial-enhancements-per-vlan-spanning-tree">
-<h3>Initial Enhancements: Per VLAN Spanning Tree<a class="headerlink" href="#initial-enhancements-per-vlan-spanning-tree" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>One root bridge elected for each VLAN</p></li>
-<li><p>Helps load-balance more effectively.</p></li>
-</ul>
-</div>
-<div class="section" id="the-spanning-tree-command">
-<h3>The Spanning-Tree Command<a class="headerlink" href="#the-spanning-tree-command" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)#spanning-tree vlan x root primary
-Switch(config)#spanning-tree vlan x root secondary
-Switch(config)#spanning-tree vlan x priority &lt;number&gt;
-</pre></div>
-</div>
-</div>
-<div class="section" id="problems-with-spanning-tree">
-<h3>Problems with Spanning-Tree<a class="headerlink" href="#problems-with-spanning-tree" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Listening</p>
-<ul>
-<li><p>15 seconds of listening for BPDUs</p></li>
-<li><p>Switch sends / receives BPDUs</p></li>
-</ul>
-</li>
-<li><p>Learning</p>
-<ul>
-<li><p>15 seconds of learning MAC addresses</p></li>
-<li><p>Populates CAM table</p></li>
-</ul>
-</li>
-<li><p>Forwarding</p>
-<ul>
-<li><p>Port is forwarding traffic (happy)</p></li>
-</ul>
-</li>
-<li><p>Blocking</p>
-<ul>
-<li><p>BONUS - switch will wait up to 20 seconds (max-age) before moving a blocked port into a listening phase.</p></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 </div>
 
 
@@ -518,8 +417,8 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../mpls/index.html" class="btn btn-neutral float-right" title="MPLS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stp.html" class="btn btn-neutral float-right" title="STP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="core-concepts-and-design.html" class="btn btn-neutral float-left" title="Core Concepts and Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

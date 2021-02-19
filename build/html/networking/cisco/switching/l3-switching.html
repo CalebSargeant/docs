@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>L3 Switching &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="HSRP, VRRP, and GLBP" href="redundancy-in-the-campus.html" />
+    <link rel="prev" title="Etherchannel" href="etherchannel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core-security/index.html">Core Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../routing/index.html">Routing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Switching</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core-concepts-and-design.html">Core Concepts and Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vlans.html">VLANs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stp.html">STP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="etherchannel.html">Etherchannel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">L3 Switching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#router-on-a-stick-802-1q-isl">Router on a stick (802.1Q/ISL)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-layer-switching">Multi-Layer Switching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-layer-3-vs-multilayer-switching">Understanding Layer 3 vs Multilayer Switching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layer-3-routing-vs-layer-3-switching">Layer 3 Routing vs Layer 3 Switching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions-to-cef">Exceptions to CEF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verifying-cef-processing">Verifying CEF Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="redundancy-in-the-campus.html">HSRP, VRRP, and GLBP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-security.html">Campus Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="campus-voip.html">Campus VoIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-lan.html">Wireless LAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="the-switches-domain.html">The Switch’s Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general.html">General</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../mpls/index.html">MPLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ngfw-ngips/index.html">NGFW &amp; NGIPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../devnetday/index.html">DevNet Day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aci.html">ACI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asa.html">ASA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asav.html">ASAv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dna.html">DNA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../genie.html">Genie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ise.html">ISE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nexus.html">Nexus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nso.html">NSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../virl.html">VIRL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Cisco</a> &raquo;</li>
+        
+          <li><a href="index.html">Switching</a> &raquo;</li>
+        
+      <li>L3 Switching</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/networking/cisco/switching/l3-switching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="l3-switching">
+<h1>L3 Switching<a class="headerlink" href="#l3-switching" title="Permalink to this headline">¶</a></h1>
+<p>The Problem:</p>
+<p>Clients need routing between VLANs</p>
+<div class="section" id="router-on-a-stick-802-1q-isl">
+<h2>Router on a stick (802.1Q/ISL)<a class="headerlink" href="#router-on-a-stick-802-1q-isl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Advantages:</p>
+<ul>
+<li><p>Simple to set up</p></li>
+<li><p>Lower cost</p></li>
+</ul>
+</li>
+<li><p>Disadvantages:</p>
+<ul>
+<li><p>Congestion on a link</p></li>
+<li><p>Single point of failure</p></li>
+<li><p>Delay of routing</p></li>
+</ul>
+</li>
+<li><p>Setup:</p>
+<ul>
+<li><p>(Switch) configure trunk</p></li>
+<li><p>(Router) create sub-interfaces</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int f0/1
+switchport trunk encap dot1q
+switchport mode trunk
+int f0/0.10
+encap dot1q 10
+ip address 10.1.10.1 255.255.255.0
+int f0/0.20
+encap dot1q 20
+ip add 10.1.20.1 255.255.255.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-layer-switching">
+<h2>Multi-Layer Switching<a class="headerlink" href="#multi-layer-switching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Advantages:</p>
+<ul>
+<li><p>Routing at wire speed</p></li>
+<li><p>Backplane bandwidth</p></li>
+<li><p>Redundancy-enabled</p></li>
+</ul>
+</li>
+<li><p>Disadvantages:</p>
+<ul>
+<li><p>Cost</p></li>
+</ul>
+</li>
+<li><p>Setup:</p>
+<ul>
+<li><p>Create SVIs</p></li>
+<li><p>(opt.) create routed ports</p></li>
+<li><p>(opt.) enable routing protocols</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip routing
+interface vlan 10
+ip add 10.1.10.1 255.255.255.0
+no shut
+interface vlan 20
+ip add 10.1.20.1 255.255.255.0
+no shut
+int fa0/24
+no switchport
+ip add 10.1.24.1 255.255.255.252
+</pre></div>
+</div>
+</div>
+<div class="section" id="understanding-layer-3-vs-multilayer-switching">
+<h2>Understanding Layer 3 vs Multilayer Switching<a class="headerlink" href="#understanding-layer-3-vs-multilayer-switching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>First packet hits router, all future packets go through CEF/ASIC</p></li>
+<li><p>L3 Switch is a switch with router inside</p></li>
+<li><p>Multilayer is a switch that can cache routing info (CEF)</p></li>
+<li><p>All L3 switches are multilayer switches</p></li>
+<li><p>But not all multilayer switches are L3</p></li>
+</ul>
+</div>
+<div class="section" id="layer-3-routing-vs-layer-3-switching">
+<h2>Layer 3 Routing vs Layer 3 Switching<a class="headerlink" href="#layer-3-routing-vs-layer-3-switching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Router and L3 switch both have IOS software routing</p></li>
+<li><p>Software routing is relatively slow compared to ASICs</p></li>
+<li><p>L3 switches can play a little software - hardware trick</p></li>
+</ul>
+</div>
+<div class="section" id="exceptions-to-cef">
+<h2>Exceptions to CEF<a class="headerlink" href="#exceptions-to-cef" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Packet with header options</p></li>
+<li><p>Packet with TTL expired</p></li>
+<li><p>Packets destined to a tunnel interface</p></li>
+<li><p>Packets with unsupported encapsulations</p></li>
+<li><p>Packets requiring fragmentation (MTU exceeded)</p></li>
+</ul>
+</div>
+<div class="section" id="verifying-cef-processing">
+<h2>Verifying CEF Processing<a class="headerlink" href="#verifying-cef-processing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip cef
+show ip cef summary
+show ip cef vlan 200
+sh ip arp 172.30.100.11
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="redundancy-in-the-campus.html" class="btn btn-neutral float-right" title="HSRP, VRRP, and GLBP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="etherchannel.html" class="btn btn-neutral float-left" title="Etherchannel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
