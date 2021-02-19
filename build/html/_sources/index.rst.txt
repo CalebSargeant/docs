@@ -11,7 +11,7 @@ A place for all of my technical how-to guides, documentation, study notes, rando
 About
 -----
 
-I have been working in the IT Industry since 2012. I have a passion for network security and open-source solutions. I work well in a team and independently. I am tenaciously dedicated, determined and devoted. I solve problems.
+I've been working in the IT Industry since 2012 and have a passion for network security & open-source solutions. I work well in a team and independently, am tenaciously dedicated, determined, devoted and solve problems.
 
 * Website: |website|
 * GitHub: |github|
