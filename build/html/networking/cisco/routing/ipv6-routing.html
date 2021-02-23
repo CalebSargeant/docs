@@ -97,7 +97,12 @@
 <li class="toctree-l3"><a class="reference internal" href="redistribution.html">Redistribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="bgp.html">BGP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="path-control.html">Path Control</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">IPv6 Routing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IPv6 Routing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-and-implementing-ipv6-addressing">Understanding and Implementing IPv6 Addressing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementing-ipv6-routing-and-routing-protocols">Implementing IPv6 Routing and Routing Protocols</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transitioning-to-ipv6">Transitioning to IPv6</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../switching/index.html">Switching</a></li>
@@ -209,6 +214,352 @@
             
   <div class="section" id="ipv6-routing">
 <h1>IPv6 Routing<a class="headerlink" href="#ipv6-routing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="understanding-and-implementing-ipv6-addressing">
+<h2>Understanding and Implementing IPv6 Addressing<a class="headerlink" href="#understanding-and-implementing-ipv6-addressing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rationale-for-ipv6">
+<h3>Rationale for IPv6<a class="headerlink" href="#rationale-for-ipv6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Yes there IS an IP Address shortage!</p>
+<ul>
+<li><p>USA is still sitting pretty</p></li>
+<li><p>Asia and Africa received single class C for entire country</p></li>
+</ul>
+</li>
+<li><p>Current IP Addresses poorly allocated</p>
+<ul>
+<li><p>Agencies needing class C asked for class B</p></li>
+<li><p>Estimates of IPv4 exhaustion largely debated (2011 - 2041)</p></li>
+</ul>
+</li>
+<li><p>New network devices on the rise</p></li>
+<li><p>NAT (our current solution) is now seen as a hinderence to innovation</p></li>
+<li><p>Potential future features: IPSec everywhere, mobility, simpler header</p></li>
+</ul>
+</div>
+<div class="section" id="ipv6-addressing">
+<h3>IPv6 Addressing<a class="headerlink" href="#ipv6-addressing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Address size moved from 32-bit (IPv4) to 128-bit (IPv6)</p></li>
+<li><p>Provides 340,282,366,920,138,463,463,374,607,431,770,000,000 addresses</p></li>
+<li><p>To make addresses more manageable, divided into 8 groups of 4 hex characters each: <code class="docutils literal notranslate"><span class="pre">2001:0050:0000:0000:0000:0AB4:1E2B:98AA</span></code></p></li>
+<li><p>Rule 1: eliminate groups of consecutive zeros <code class="docutils literal notranslate"><span class="pre">2001:0050::0AB4:1E2B:98AA</span></code></p></li>
+<li><p>Rule 2: Drop leading zeros: <code class="docutils literal notranslate"><span class="pre">2001:50::AB4:1E2B:98AA</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="simplified-ipv6-headers">
+<h3>Simplified IPv6 Headers<a class="headerlink" href="#simplified-ipv6-headers" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/ipv6-routing-1.png" src="../../../_images/ipv6-routing-1.png" />
+</div>
+<div class="section" id="types-of-communication-and-addresses">
+<h3>Types of Communication and Addresses<a class="headerlink" href="#types-of-communication-and-addresses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Unicast: one-to-one</p></li>
+<li><p>Multicast: one-to-many</p></li>
+<li><p>Anycast: one-to-closest</p></li>
+<li><p>Link local scope address: layer 2 domain</p></li>
+<li><p>Unique/site-local scope address: organization</p></li>
+<li><p>Global scope address: internet</p></li>
+</ul>
+<img alt="../../../_images/ipv6-routing-2.png" src="../../../_images/ipv6-routing-2.png" />
+</div>
+<div class="section" id="link-local-addresses">
+<h3>Link Local Addresses<a class="headerlink" href="#link-local-addresses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Assigned automatically as an IPv6 host comes online</p></li>
+<li><p>Similar to the 169.254.x.x addresses of IPv4</p></li>
+<li><p>Always begins with <code class="docutils literal notranslate"><span class="pre">fe80</span></code> (first 10 bits: <code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1110</span> <span class="pre">10</span></code>) followed by 54 bits of zeros</p></li>
+<li><p>Last 64 bits is the 48-bit mac address with <code class="docutils literal notranslate"><span class="pre">FFFE</span></code> squeezed in the middle</p></li>
+</ul>
+</div>
+<div class="section" id="global-addresses">
+<h3>Global Addresses<a class="headerlink" href="#global-addresses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Have their high-level 3 bits set to <code class="docutils literal notranslate"><span class="pre">0001</span></code> (<code class="docutils literal notranslate"><span class="pre">2000::/3</span></code>)</p></li>
+<li><p>Global routing prefix is 48 bits or less</p></li>
+<li><p>Subnet ID is comprised of whatever bits are left over after global routing prefix</p></li>
+<li><p>The primary addresses expected to comprise the ipv6 internet are from the <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code> subnet</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="implementing-ipv6-routing-and-routing-protocols">
+<h2>Implementing IPv6 Routing and Routing Protocols<a class="headerlink" href="#implementing-ipv6-routing-and-routing-protocols" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuring-ipv6-addressing">
+<h3>Configuring IPv6 Addressing<a class="headerlink" href="#configuring-ipv6-addressing" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/ipv6-routing-3.png" src="../../../_images/ipv6-routing-3.png" />
+<p><code class="file docutils literal notranslate"><span class="pre">_docs/ipv6-routing.zip</span></code></p>
+<ul class="simple">
+<li><p>Things to discuss:</p>
+<ul>
+<li><p>Manual address</p></li>
+<li><p>link local address</p></li>
+<li><p>Manual LL address</p></li>
+<li><p>ICMP ND (neighbor discovery) (goodbye ARP - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">ipv6</span> <span class="pre">neighbors</span></code>)</p></li>
+<li><p>Multicast addresses</p></li>
+<li><p>Ping</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#int g0/1
+R1(config-if)#ipv6 address 2001:11AA::1/64
+R1(config-if)#no shut
+R1(config-if)#int g0/0
+R1(config-if)#ipv6 address 2001:22AA::1/64
+R1(config-if)#no shut
+</pre></div>
+</div>
+<p><strong>R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int g0/0
+R2(config-if)#ipv6 address 2001:11AA::2/64
+R2(config-if)#no shut
+R2(config-if)#do ping 2001:11AA::1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 2001:11AA::1, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/3/10 ms
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#int g0/0
+R3(config-if)#ipv6 address 2001:22AA::2/64
+R3(config-if)#no shut
+R3(config-if)#int g0/1
+R3(config-if)#ipv6 address 2001:33AA::1/64
+R3(config-if)#no shut
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#int g0/0
+R4(config-if)#ipv6 address 2001:33AA::2/64
+R4(config-if)#no shut
+R4#sh ipv6 neighbors
+IPv6 Address                              Age Link-layer Addr State Interface
+2001:33AA::1                                4 0cfa.0cae.ce01  STALE Gi0/0
+FE80::EFA:CFF:FEAE:CE01                     4 0cfa.0cae.ce01  STALE Gi0/0
+</pre></div>
+</div>
+<p><strong>Debugging</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3#debug ipv6 nd
+Feb 23 06:19:19.011: ICMPv6-ND: ND input feature SEND executed on 3 - rc=0
+Feb 23 06:19:19.011: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::1) Received NS from 2001:33AA::2
+Feb 23 06:19:19.012: ICMPv6-ND: Validating ND packet options: valid
+Feb 23 06:19:19.012: ICMPv6-ND: Created ND Entry Chunk pool
+Feb 23 06:19:19.013: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) Glean
+Feb 23 06:19:19.013: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) LLA 0cfa.0cd7.b400
+Feb 23 06:19:19.014: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) INCMP -&gt; STALE
+Feb 23 06:19:19.014: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::1) Sending NA to 2001:33AA::2
+Feb 23 06:19:19.016: ICMPv6-ND: ND output feature SEND executed on 3 - rc=0
+Feb 23 06:19:19.017: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) STALE -&gt; DELAY
+Feb 23 06:19:24.080: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) DELAY -&gt; PROBE
+Feb 23 06:19:24.081: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) Sending NS
+Feb 23 06:19:24.081: ICMPv6-ND: ND output feature SEND executed on 3 - rc=0
+Feb 23 06:19:24.088: ICMPv6-ND: ND input feature SEND executed on 3 - rc=0
+Feb 23 06:19:24.088: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) Received NA from 2001:33AA::2
+Feb 23 06:19:24.088: ICMPv6-ND: Packet contains no options
+Feb 23 06:19:24.088: ICMPv6-ND: Validating ND packet options: valid
+Feb 23 06:19:24.089: ICMPv6-ND: Packet contains no options
+Feb 23 06:19:24.089: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) PROBE -&gt; REACH
+Feb 23 06:19:29.146: ICMPv6-ND: ND input feature SEND executed on 3 - rc=0
+Feb 23 06:19:29.147: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FEAE:CE01) Received NS from FE80::EFA:CFF:FED7:B400
+Feb 23 06:19:29.147: ICMPv6-ND: Validating ND packet options: valid
+Feb 23 06:19:29.147: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) Glean
+Feb 23 06:19:29.148: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) LLA 0cfa.0cd7.b400
+Feb 23 06:19:29.148: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) INCMP -&gt; STALE
+Feb 23 06:19:29.148: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FEAE:CE01) Sending NA to FE80::EFA:CFF:FED7:B400
+Feb 23 06:19:29.150: ICMPv6-ND: ND output feature SEND executed on 3 - rc=0
+Feb 23 06:19:29.151: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) STALE -&gt; DELAY
+Feb 23 06:19:34.198: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) DELAY -&gt; PROBE
+Feb 23 06:19:34.198: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) Sending NS
+Feb 23 06:19:34.199: ICMPv6-ND: ND output feature SEND executed on 3 - rc=0
+Feb 23 06:19:34.203: ICMPv6-ND: ND input feature SEND executed on 3 - rc=0
+Feb 23 06:19:34.203: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) Received NA from FE80::EFA:CFF:FED7:B400
+Feb 23 06:19:34.204: ICMPv6-ND: Packet contains no options
+Feb 23 06:19:34.204: ICMPv6-ND: Validating ND packet options: valid
+Feb 23 06:19:34.204: ICMPv6-ND: Packet contains no options
+Feb 23 06:19:34.204: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) PROBE -&gt; REACH
+Feb 23 06:19:54.193: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) REACH -&gt; STALE
+Feb 23 06:20:04.264: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) REACH -&gt; STALE
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipv6-static-routes">
+<h3>IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">_docs/ipv6-routing-static.zip</span></code></p>
+<p><strong>R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
+R1(config)#ipv6 route 2001:33aa::/64 2001:22aa::2
+</pre></div>
+</div>
+<p><strong>R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#ipv6 unicast-routing
+R2(config)#ipv6 route ::/0 2001:11aa::1
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#ipv6 unicast-routing
+R3(config)#ipv6 route 2001:11aa::/64 2001:22aa::1
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#ipv6 unicast-routing
+R4(config)#ipv6 route 2001:22aa::/64 2001:33aa::1
+R4(config)#ipv6 route 2001:11aa::/64 2001:33aa::1
+R4#traceroute ipv6 2001:11aa::2
+Type escape sequence to abort.
+Tracing the route to 2001:11AA::2
+
+1 2001:33AA::1 4 msec 2 msec 2 msec
+2 2001:22AA::1 4 msec 3 msec 4 msec
+3 2001:11AA::2 5 msec 4 msec 4 msec
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipv6-rip">
+<h3>IPv6 RIP<a class="headerlink" href="#ipv6-rip" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">ipv6-routing-rip.zip</span></code></p>
+<p><strong>R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
+R1(config)#int g0/0
+R1(config-if)#ipv6 rip CALEB enable
+R1(config-if)#int g0/1
+R1(config-if)#ipv6 rip CALEB enable
+</pre></div>
+</div>
+<p><strong>R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#ipv6 unicast-routing
+R2(config)#int g0/0
+R2(config-if)#ipv6 rip CALEB enable
+R2(config-if)#do sh ipv6 route
+IPv6 Routing Table - default - 4 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+     B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+     H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+     IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+     ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+     RL - RPL, O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1
+     OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+     la - LISP alt, lr - LISP site-registrations, ld - LISP dyn-eid
+     lA - LISP away, a - Application
+C   2001:11AA::/64 [0/0]
+   via GigabitEthernet0/0, directly connected
+L   2001:11AA::2/128 [0/0]
+   via GigabitEthernet0/0, receive
+R   2001:22AA::/64 [120/2]
+   via FE80::EFA:CFF:FE51:3201, GigabitEthernet0/0
+L   FF00::/8 [0/0]
+   via Null0, receive
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#ipv6 unicast-routing
+R3(config)#int g0/0
+R3(config-if)#ipv6 rip CALEB enable
+R3(config-if)#int g0/1
+R3(config-if)#ipv6 rip CALEB enable
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#ipv6 unicast-routing
+R4(config)#int g0/0
+R4(config-if)#ipv6 rip CALEB enable
+R4(config-if)#do sh ipv6 protocols
+IPv6 Routing Protocol is &quot;connected&quot;
+IPv6 Routing Protocol is &quot;application&quot;
+IPv6 Routing Protocol is &quot;ND&quot;
+IPv6 Routing Protocol is &quot;rip CALEB&quot;
+  Interfaces:
+    GigabitEthernet0/0
+  Redistribution:
+    None
+R4(config)#ipv6 router rip CALEB
+R4(config-rtr)#?
+  default          Set a command to its defaults
+  distance         Administrative distance
+  distribute-list  Filter networks in routing updates
+  exit             Exit from IPv6 routing protocol configuration mode
+  maximum-paths    Forward packets over multiple paths
+  no               Negate a command or set its defaults
+  poison-reverse   Poison reverse updates
+  redistribute     Redistribute IPv6 prefixes from another routing protocol
+  split-horizon    Split horizon updates
+  timers           Adjust routing timers
+</pre></div>
+</div>
+</div>
+<div class="section" id="ospfv3">
+<h3>OSPFv3<a class="headerlink" href="#ospfv3" title="Permalink to this headline">¶</a></h3>
+<p><code class="file docutils literal notranslate"><span class="pre">_docs/ipv6-routing-ospfv3</span></code></p>
+<p><strong>R1</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
+R1(config)#int g0/0
+R1(config-if)#ipv6 ospf 1 area 0
+R1(config-if)#int g0/1
+R1(config-if)#ipv6 ospf 1 area 10
+R1(config-if)#ipv6 router ospf 1
+R1(config-rtr)#router-id 0.0.0.1
+</pre></div>
+</div>
+<p><strong>R2</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#ipv6 unicast-routing
+R2(config)#int g0/0
+R2(config-if)#ipv6 ospf 1 area 10
+R2(config-if)#ipv6 router ospf 1
+R2(config-rtr)#router-id 0.0.0.2
+</pre></div>
+</div>
+<p><strong>R3</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R3(config)#ipv6 unicast-routing
+R3(config)#int g0/0
+R3(config-if)#ipv6 ospf 1 area 0
+R3(config-if)#int g0/1
+R3(config-if)#ipv6 ospf 1 area 20
+R3(config-if)#ipv6 router ospf 1
+R3(config-rtr)#router-id 0.0.0.3
+</pre></div>
+</div>
+<p><strong>R4</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4(config)#ipv6 unicast-routing
+R4(config)#int g0/0
+R4(config-if)#ipv6 ospf 1 area 20
+R4(config-if)#ipv6 router ospf 1
+R4(config-rtr)#router-id 0.0.0.4
+R4(config)#do sh ipv6 route
+IPv6 Routing Table - default - 5 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       RL - RPL, O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1
+       OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+       la - LISP alt, lr - LISP site-registrations, ld - LISP dyn-eid
+       lA - LISP away, a - Application
+OI  2001:11AA::/64 [110/3]
+     via FE80::EFA:CFF:FEAE:CE01, GigabitEthernet0/0
+OI  2001:22AA::/64 [110/2]
+     via FE80::EFA:CFF:FEAE:CE01, GigabitEthernet0/0
+C   2001:33AA::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:33AA::2/128 [0/0]
+     via GigabitEthernet0/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="transitioning-to-ipv6">
+<h2>Transitioning to IPv6<a class="headerlink" href="#transitioning-to-ipv6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-migration-to-ipv6">
+<h3>The Migration to IPv6<a class="headerlink" href="#the-migration-to-ipv6" title="Permalink to this headline">¶</a></h3>
+<p>Technology exists to provide a smooth, non-pressured transition:</p>
+<ul class="simple">
+<li><p>Dual-stack routers</p></li>
+<li><p>Tunneling (6to4 and 4to6)</p></li>
+<li><p>NAT protocol translation (NAT-PT)</p></li>
+</ul>
+</div>
+</div>
 </div>
 
 
