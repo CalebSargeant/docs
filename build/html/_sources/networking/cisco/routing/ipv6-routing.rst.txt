@@ -73,7 +73,7 @@ Configuring IPv6 Addressing
 
 .. image:: _images/ipv6-routing-3.png
 
-:file:`_docs/ipv6-routing.zip`
+:download:`_docs/ipv6-routing.zip`
 
 - Things to discuss:
 
@@ -179,7 +179,7 @@ Configuring IPv6 Addressing
 IPv6 Static Routes
 ^^^^^^^^^^^^^^^^^^
 
-:file:`_docs/ipv6-routing-static.zip`
+:download:`_docs/ipv6-routing-static.zip`
 
 **R1**
 
@@ -220,7 +220,7 @@ IPv6 Static Routes
 IPv6 RIP
 ^^^^^^^^
 
-:file:`ipv6-routing-rip.zip`
+:download:`_docs/ipv6-routing-rip.zip`
 
 **R1**
 
@@ -301,7 +301,7 @@ IPv6 RIP
 OSPFv3
 ^^^^^^
 
-:file:`_docs/ipv6-routing-ospfv3`
+:download:`_docs/ipv6-routing-ospfv3.zip`
 
 **R1**
 
