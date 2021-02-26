@@ -92,6 +92,15 @@ List of stuff to install on a (new) Mac:
   curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
   sudo installer -pkg AWSCLIV2.pkg -target /
 
+  # Install terraform
+  brew install terraform
+
+  # Install groovy language for Jenkins
+  apm install language-groovy
+
+  # Install atom language terraform
+  apm install language-terraform
+
   ## Powershell Modules
   # PowerCLI for VMWARE
   Install-Module -Name VMware.PowerCLI -Scope CurrentUser

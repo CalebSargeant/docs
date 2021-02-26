@@ -62,8 +62,10 @@ Table of Contents
   computing/ansible/index
   computing/cloud/index
   computing/containerisation/index
+  computing/jenkins/index
   computing/linux/index
   computing/python/index
+  computing/terraform/index
   computing/microsoft/index
 
 .. toctree::

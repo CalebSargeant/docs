@@ -100,8 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/microsoft/index.html">Microsoft</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Other</span></p>
@@ -289,6 +291,15 @@ brew update <span class="o">&amp;&amp;</span> brew install azure-cli
 <span class="c1"># Install AWS CLI v2</span>
 curl <span class="s2">&quot;https://awscli.amazonaws.com/AWSCLIV2.pkg&quot;</span> -o <span class="s2">&quot;AWSCLIV2.pkg&quot;</span>
 sudo installer -pkg AWSCLIV2.pkg -target /
+
+<span class="c1"># Install terraform</span>
+brew install terraform
+
+<span class="c1"># Install groovy language for Jenkins</span>
+apm install language-groovy
+
+<span class="c1"># Install atom language terraform</span>
+apm install language-terraform
 
 <span class="c1">## Powershell Modules</span>
 <span class="c1"># PowerCLI for VMWARE</span>

@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Deploying Your First Terraform Configuration &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Updating Your Configuration with More Resources" href="updating-configuration-with-more-resources.html" />
+    <link rel="prev" title="Infrastructure as a Code" href="infrastructure-as-a-code.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/index.html">Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Terraform</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="infrastructure-as-a-code.html">Infrastructure as a Code</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Deploying Your First Terraform Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#terraform-components">Terraform Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examining-the-configuration">Examining the Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#working-with-variables">Working with Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploying-the-configuration">Deploying the Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="updating-configuration-with-more-resources.html">Updating Your Configuration with More Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-a-resource-after-creation.html">Configuring a Resource After Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adding-a-new-provider-to-configuration.html">Adding a New Provider to Your Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-functions-and-variables.html">Using Functions and Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-a-module-for-common-configurations.html">Using a Module for Common Configurations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Terraform</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Deploying Your First Terraform Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/computing/terraform/getting-started/first-terraform-configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deploying-your-first-terraform-configuration">
+<h1>Deploying Your First Terraform Configuration<a class="headerlink" href="#deploying-your-first-terraform-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terraform-components">
+<h2>Terraform Components<a class="headerlink" href="#terraform-components" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Terraform executable</p></li>
+<li><p>Terraform files</p></li>
+<li><p>Terraform plugins</p></li>
+<li><p>Terraform state</p></li>
+</ul>
+<p><strong>Variables</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>variable &quot;aws_access_key&quot; {}
+variable &quot;aws_secret_key&quot; {}
+
+variable &quot;aws_region&quot; {
+  default = &quot;us-east-1&quot;
+}
+</pre></div>
+</div>
+<p><strong>Provider</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>provider &quot;aws&quot; {
+  access_key = &quot;var.access_key&quot;
+  secret_key = &quot;var.secret_key&quot;
+  region = &quot;var.aws_region&quot;
+}
+</pre></div>
+</div>
+<p><strong>Data</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data &quot;aws_ami&quot; &quot;alx&quot; {
+  most_recent = true
+  owners = [&quot;amazon&quot;]
+  filters {}
+}
+</pre></div>
+</div>
+<p><strong>Resource</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_instance&quot; &quot;ex&quot; {
+  ami = &quot;data.aws_ami.alx.id&quot;
+  instance_type = &quot;t2.micro&quot;
+}
+</pre></div>
+</div>
+<p><strong>Output</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>output &quot;aws_public_ip&quot; {
+  value = &quot;aws_instance.ex.public_dns&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="examining-the-configuration">
+<h2>Examining the Configuration<a class="headerlink" href="#examining-the-configuration" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m3/module_three.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m3/module_three.tf</span></code></a></p>
+</div>
+<div class="section" id="working-with-variables">
+<h2>Working with Variables<a class="headerlink" href="#working-with-variables" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m3/terraform.tfvars.example"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m3/terraform.tfvars.example</span></code></a></p>
+</div>
+<div class="section" id="deploying-the-configuration">
+<h2>Deploying the Configuration<a class="headerlink" href="#deploying-the-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List terraform commands</span>
+terraform
+
+<span class="c1"># Get the terraform version</span>
+terraform version
+
+<span class="c1"># Get AWS plugin and initialise configuration</span>
+terraform init
+
+<span class="c1"># Look at config files in directory and load variables</span>
+terraform plan -out m3.tfplan
+
+<span class="c1"># Executing what&#39;s in the plan</span>
+terraform apply <span class="s2">&quot;m3.tfplan&quot;</span>
+
+<span class="c1"># Looks at state file and what resources were created and destroys them</span>
+terraform destroy
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="updating-configuration-with-more-resources.html" class="btn btn-neutral float-right" title="Updating Your Configuration with More Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="infrastructure-as-a-code.html" class="btn btn-neutral float-left" title="Infrastructure as a Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
