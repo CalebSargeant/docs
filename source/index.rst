@@ -64,9 +64,16 @@ Table of Contents
   computing/containerisation/index
   computing/jenkins/index
   computing/linux/index
-  computing/python/index
   computing/terraform/index
   computing/microsoft/index
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Programming
+
+  programming/bash
+  programming/python/index
+  programming/golang/index
 
 .. toctree::
   :maxdepth: 2
