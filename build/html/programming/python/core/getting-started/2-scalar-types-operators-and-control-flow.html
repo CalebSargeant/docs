@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Scalar Types, Operators, and Control Flow &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Introducing Strings, Collections, and Iteration" href="3-introducing-strings-collections-and-iteration.html" />
+    <link rel="prev" title="Getting Started" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bash.html">Bash</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Core</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Scalar Types, Operators, and Control Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-introducing-strings-collections-and-iteration.html">Introducing Strings, Collections, and Iteration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4-modularity.html">Modularity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5-objects-and-types.html">Objects and Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bootcamp/index.html">Bootcamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../other/index.html">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Caleb Sargeant's Docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python</a> &raquo;</li>
+        
+          <li><a href="../index.html">Core</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Scalar Types, Operators, and Control Flow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/programming/python/core/getting-started/2-scalar-types-operators-and-control-flow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scalar-types-operators-and-control-flow">
+<h1>Scalar Types, Operators, and Control Flow<a class="headerlink" href="#scalar-types-operators-and-control-flow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scalar-types">
+<h2>Scalar Types<a class="headerlink" href="#scalar-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>int (42)</p>
+<ul>
+<li><p>arbitrary precision integer</p></li>
+<li><p>unlimited precision signed integer</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 10
+10
+&gt;&gt;&gt; 0b10
+2
+&gt;&gt;&gt; 0010
+8
+&gt;&gt;&gt; 0x10
+16
+&gt;&gt;&gt; int (3.5)
+3
+&gt;&gt;&gt; int(-3.5)
+-3
+&gt;&gt;&gt; int(&quot;496&quot;)
+496
+&gt;&gt;&gt; int (&quot;10000&quot;, 3)
+81
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>float (4.2)</p>
+<ul>
+<li><p>64-bit floating point numbers</p></li>
+<li><p>IEEE-754 double-precision with 53-bits of binary precision</p></li>
+<li><p>15-16 significant digits in decimal</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 3.125
+3.125
+&gt;&gt;&gt; 3e8
+300000000.0
+&gt;&gt;&gt; 1.616e-35
+1.616e-35
+&gt;&gt;&gt; float(7)
+7.0
+&gt;&gt;&gt; float(&quot;1.618&quot;)
+1.618
+&gt;&gt;&gt; float(&quot;nan&quot;)
+nan
+&gt;&gt;&gt; float(&quot;inf&quot;)
+inf
+&gt;&gt;&gt; float(&quot;-inf&quot;)
+-inf
+&gt;&gt;&gt; 3.0 + 1
+4.0
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>None (NoneType)</p>
+<ul>
+<li><p>the null object</p></li>
+<li><p>Null value</p></li>
+<li><p>Often represents the absence of a value</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; None
+&gt;&gt;&gt; a = None
+&gt;&gt;&gt; a is none
+True
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>bool (True/False)</p>
+<ul>
+<li><p>boolean logical values</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; True
+True
+&gt;&gt;&gt; False
+False
+&gt;&gt;&gt; bool(0)
+False
+&gt;&gt;&gt; bool(42)
+True
+&gt;&gt;&gt; bool(-1)
+True
+&gt;&gt;&gt; bool(0.0)
+False
+&gt;&gt;&gt; bool(0.207)
+True
+&gt;&gt;&gt; bool(-1.117)
+True
+&gt;&gt;&gt; bool([])
+False
+&gt;&gt;&gt; bool([1, 5, 9])
+True
+&gt;&gt;&gt; bool(&quot;&quot;)
+False
+&gt;&gt;&gt; bool(&quot;Spam&quot;)
+True
+&gt;&gt;&gt; bool(&quot;False&quot;)
+True
+&gt;&gt;&gt; bool(&quot;True&quot;)
+True
+</pre></div>
+</div>
+</div>
+<div class="section" id="relational-operators">
+<h2>Relational Operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>==</p></td>
+<td><p>value equality / equivalence</p></td>
+</tr>
+<tr class="row-even"><td><p>!=</p></td>
+<td><p>value inequality / inequivalence</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;</p></td>
+<td><p>less-than</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p>greater-than</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p>less-than or equal</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=</p></td>
+<td><p>greater-than or equal</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; g = 20
+&gt;&gt;&gt; g == 20
+True
+g == 13
+False
+&gt;&gt;&gt; g != 20
+False
+g != 13
+True
+&gt;&gt;&gt; g &lt; 30
+True
+&gt;&gt;&gt; g &lt;= 20
+True
+&gt;&gt;&gt; g &gt; 30
+False
+&gt;&gt;&gt; g &gt;= 20
+True
+</pre></div>
+</div>
+</div>
+<div class="section" id="control-flow">
+<h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
+<p><strong>Conditional statement</strong></p>
+<p>Branch execution based on the value of an expression</p>
+<div class="section" id="if-statement">
+<h3>if statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Syntax
+&gt;&gt;&gt; if expression:
+    block
+
+# Examples
+&gt;&gt;&gt; if True:
+...    print(&quot;It&#39;s true!&quot;)
+...
+It&#39;s True
+&gt;&gt;&gt; if False:
+...    print(&quot;It&#39;s true!&quot;)
+...
+&gt;&gt;&gt; if bool(&quot;eggs&quot;):
+...    print(&quot;Yes please!&quot;)
+...
+Yes please!
+&gt;&gt;&gt; if &quot;eggs&quot; :
+...    print(&quot;Yes please!&quot;)
+...
+Yes please!
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="else-clause">
+<h3>Else-clause<a class="headerlink" href="#else-clause" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; if h &gt; 50 :
+...    print(&quot;Greater than 50&quot;)
+... else:
+...    print(&quot;50 or smaller&quot;)
+50 or smaller
+&gt;&gt;&gt; if h &gt; 50:
+...    print(&quot;Greater than 50&quot;)
+... else:
+...    if h &lt; 20:
+...        print(&quot;Less than 20&quot;)
+...    else:
+...        print (&quot;Between 20 and 50&quot;)
+Between 20 and 50
+&gt;&gt;&gt; if h &gt; 50:
+...    print(&quot;Greater than 50&quot;)
+... elif h &lt; 20:
+...    print(&quot;Less than 20&quot;)
+... else:
+...    print(&quot;Between 20 and 50&quot;)
+Between 20 and 50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="while-loops">
+<h2>While-loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Syntax</span>
+<span class="k">while</span> <span class="n">expression</span><span class="p">:</span>
+  <span class="n">block</span>
+
+<span class="c1"># Example (will print 12345)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">while</span> <span class="n">c</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+  <span class="n">c</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="c1"># Example (will print 54321)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">while</span> <span class="n">c</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+  <span class="n">c</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="c1">## int truthiness</span>
+<span class="c1"># bool(5) == True</span>
+<span class="c1"># bool(4) == True</span>
+<span class="c1"># ...</span>
+<span class="c1"># bool(0) == False</span>
+</pre></div>
+</div>
+<div class="section" id="break">
+<h3>Break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Many languages support a loop ending in a predicate test</p></li>
+<li><p>C, C++, C#, and Java have do-while</p></li>
+<li><p>Python requires you to use while True and break</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code> jumps out of the inner-most executing loop to the line immediately after it</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+  <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">break</span>
+<span class="c1"># start typing in numbers until a number is divisible by 7</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="3-introducing-strings-collections-and-iteration.html" class="btn btn-neutral float-right" title="Introducing Strings, Collections, and Iteration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Caleb Sargeant.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,11 +31,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -85,7 +86,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Networking</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="networking/fortigate.html">FortiGate</a></li>
@@ -94,18 +95,23 @@
 <li class="toctree-l1"><a class="reference internal" href="networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="computing/python/index.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/microsoft/index.html">Microsoft</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming/golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="other/api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="other/general/index.html">General</a></li>
@@ -195,7 +201,7 @@
 <div class="section" id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Networking</span></p>
+<p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="networking/cisco/index.html">Cisco</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="networking/cisco/core-security/index.html">Core Security</a></li>
@@ -242,7 +248,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="computing/ansible/index.html">Ansible</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="computing/ansible/module-examples.html">Module Examples</a></li>
@@ -266,7 +272,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computing/linux/index.html">Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="computing/linux/bash.html">Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/kvm.html">KVM</a></li>
@@ -276,12 +281,7 @@
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/storage.html">Storage</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="computing/python/index.html">Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="computing/python/core/index.html">Core</a></li>
-<li class="toctree-l2"><a class="reference internal" href="computing/python/bootcamp/index.html">Bootcamp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="computing/python/other/index.html">Other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/linux/network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computing/terraform/index.html">Terraform</a><ul>
@@ -305,7 +305,49 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programming/bash.html">Bash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#associative-arrays">Associative Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#getopt">Getopt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#sed">sed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#awk">awk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#date">date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#cut">cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#prompt-for-input">Prompt for Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#output-formatting">Output Formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#while-true-loop">While True Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#for-loops">For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#arithmetic">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#wc">wc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#jq">jq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#ls">ls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#tr">tr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#pwd">pwd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#cat">cat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#id1">tr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#if">if</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#remove-first-line">Remove First Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#search-for-text-in-files">Search for Text in Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#extract-text-before-character">Extract Text Before Character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/bash.html#history">History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programming/python/index.html">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="programming/python/core/index.html">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/python/bootcamp/index.html">Bootcamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="programming/python/other/index.html">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="programming/golang/index.html">Golang</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="other/api/index.html">API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="other/api/netconf.html">NETCONF</a></li>

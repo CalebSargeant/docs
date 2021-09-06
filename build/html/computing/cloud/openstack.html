@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,11 +31,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -86,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Networking</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
@@ -119,11 +120,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
@@ -309,7 +315,7 @@ openstack server create --image VirtualCanary --flavor ds1G --network private ca
 <h2>Random Scriptjies<a class="headerlink" href="#random-scriptjies" title="Permalink to this headline">¶</a></h2>
 <p>List all SG rules of grepped SG names:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">read</span> -p <span class="s1">&#39;Enter substring of SG: &#39;</span> PX
-<span class="k">for</span> SG in <span class="k">$(</span>openstack security group list <span class="p">|</span> grep <span class="nv">$PX</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+<span class="k">for</span> SG <span class="k">in</span> <span class="k">$(</span>openstack security group list <span class="p">|</span> grep <span class="nv">$PX</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
   <span class="k">do</span>
     <span class="nb">echo</span> <span class="nv">$SG</span>
     openstack security group rule list <span class="nv">$SG</span> <span class="p">|</span> grep -w <span class="s2">&quot;10.&quot;</span>* <span class="p">|</span> awk <span class="s1">&#39;{print $4,$6,$8}&#39;</span> &gt; <span class="nv">$PX</span>.log

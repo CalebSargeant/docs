@@ -101,6 +101,12 @@ List of stuff to install on a (new) Mac:
   # Install atom language terraform
   apm install language-terraform
 
+  # Install VSCODE
+  brew install visual-studio-code
+
+  # Install go
+  brew install go
+
   ## Powershell Modules
   # PowerCLI for VMWARE
   Install-Module -Name VMware.PowerCLI -Scope CurrentUser

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,11 +31,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -86,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Networking</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
@@ -144,11 +145,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
@@ -544,7 +550,7 @@ Running The Duo Authentication Proxy Connectivity Tool. This may take several mi
 <span class="o">[</span>info<span class="o">]</span>  SUMMARY
 <span class="o">[</span>info<span class="o">]</span>  No issues detected
 
-The results have also been logged in /opt/duoauthproxy/log/connectivity_tool.log
+The results have also been logged <span class="k">in</span> /opt/duoauthproxy/log/connectivity_tool.log
 </pre></div>
 </div>
 </div>
@@ -592,8 +598,8 @@ sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get install du
   <span class="nv">autopush</span> <span class="o">=</span> yes
       <span class="p">;</span> <span class="sb">`</span><span class="nv">failmode</span> <span class="o">=</span> safe<span class="sb">`</span> In the event of errors with this configuration file or connection to the Duo service
   <span class="p">;</span> this mode will allow login without 2FA.
-  <span class="p">;</span> <span class="sb">`</span><span class="nv">failmode</span> <span class="o">=</span> secure<span class="sb">`</span> This mode will deny access in the above cases. Misconfigurations with this setting
-  <span class="p">;</span> enabled may result in you being locked out of your system.
+  <span class="p">;</span> <span class="sb">`</span><span class="nv">failmode</span> <span class="o">=</span> secure<span class="sb">`</span> This mode will deny access <span class="k">in</span> the above cases. Misconfigurations with this setting
+  <span class="p">;</span> enabled may result <span class="k">in</span> you being locked out of your system.
   <span class="nv">failmode</span> <span class="o">=</span> safe
   <span class="p">;</span> Send <span class="nb">command</span> <span class="k">for</span> Duo Push authentication
   <span class="p">;</span><span class="nv">pushinfo</span> <span class="o">=</span> yes

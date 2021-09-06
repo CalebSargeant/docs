@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,11 +31,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -86,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Networking</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
@@ -130,11 +131,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
@@ -245,7 +251,7 @@ az network local-gateway create -g <span class="s2">&quot;</span><span class="nv
 az network vpn-connection create -g <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> -n <span class="s2">&quot;</span><span class="nv">$CON1</span><span class="s2">&quot;</span> --vnet-gateway1 <span class="s2">&quot;</span><span class="nv">$VGW_NAME</span><span class="s2">&quot;</span> --local-gateway2 <span class="s2">&quot;</span><span class="nv">$LGW1</span><span class="s2">&quot;</span> --shared-key <span class="s2">&quot;</span><span class="nv">$PSK</span><span class="s2">&quot;</span>
 
 <span class="c1">## VNET to VNET Tunnels</span>
-<span class="k">for</span> XX in <span class="nv">$OTHER_REGIONS</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> XX <span class="k">in</span> <span class="nv">$OTHER_REGIONS</span><span class="p">;</span> <span class="k">do</span>
   <span class="nv">VGW_ID</span><span class="o">=</span><span class="k">$(</span>az network vnet-gateway show -g <span class="s2">&quot;</span><span class="nv">$XX</span><span class="s2">-RSG&quot;</span> -n <span class="s2">&quot;</span><span class="nv">$XX</span><span class="s2">-VPN-GW&quot;</span> <span class="p">|</span> grep id <span class="p">|</span> head -n1 <span class="p">|</span> awk -F <span class="s1">&#39;&quot;&#39;</span> <span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
   az network vpn-connection create -g <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> -n <span class="s2">&quot;</span><span class="nv">$VNET</span><span class="s2">-</span><span class="nv">$XX</span><span class="s2">-VNET&quot;</span> --vnet-gateway1 <span class="s2">&quot;</span><span class="nv">$VGW_NAME</span><span class="s2">&quot;</span> --vnet-gateway2 <span class="s2">&quot;</span><span class="nv">$VGW_ID</span><span class="s2">&quot;</span> --shared-key <span class="s2">&quot;</span><span class="nv">$VNET_PSK</span><span class="s2">&quot;</span>
 <span class="k">done</span>
@@ -271,7 +277,7 @@ az network vpn-connection create -g <span class="s2">&quot;</span><span class="n
 <span class="nb">echo</span> <span class="s2">&quot;}&quot;</span> &gt;&gt; <span class="s2">&quot;</span><span class="nv">$FILENAME</span><span class="s2">&quot;</span>
 
 <span class="c1"># Generate ASA tunnel configuration</span>
-<span class="k">for</span> i in <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OFFICES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OFFICES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
   <span class="nv">OFFICE</span><span class="o">=</span><span class="nv">$i</span>
   <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$OFFICE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;CPT&quot;</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
     <span class="nv">FILENAME</span><span class="o">=</span><span class="s2">&quot;03-4-tunnels-cpt-az</span><span class="nv">$REGION_PREFIX</span><span class="s2">&quot;</span>

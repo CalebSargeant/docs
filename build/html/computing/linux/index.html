@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,18 +31,17 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Bash" href="bash.html" />
+    <link rel="next" title="Databases" href="databases.html" />
     <link rel="prev" title="Colocating Jobs and Source Code with Jenkinsfile" href="../jenkins/getting-started/colocating-jobs-and-source-code-with-jenkinsfile.html" /> 
 </head>
 
@@ -86,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Networking</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
@@ -95,14 +96,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Computing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bash.html">Bash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -112,13 +112,19 @@
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Other</span></p>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/golang/index.html">Golang</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
@@ -194,46 +200,6 @@
 <h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bash.html">Bash</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#associative-arrays">Associative Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#getopt">Getopt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#sed">sed</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#awk">awk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#date">date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#cut">cut</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#prompt-for-input">Prompt for Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#output-formatting">Output Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#while-true-loop">While True Loop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#for-loops">For Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#arithmetic">Arithmetic</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#sum">Sum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#divide">Divide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#scientific-notation-rounding">Scientific Notation &amp; Rounding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#incrementing">Incrementing</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#wc">wc</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-lines">Number of Lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-words">Number of Words</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#number-of-characters">Number of Characters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bash.html#count-number-of-lines-of-output">Count Number of Lines of Output</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#jq">jq</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#ls">ls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#tr">tr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#pwd">pwd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#cat">cat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#id1">tr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#if">if</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#remove-first-line">Remove First Line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#search-for-text-in-files">Search for Text in Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#extract-text-before-character">Extract Text Before Character</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bash.html#history">History</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="databases.html">Databases</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="databases.html#mysql">MySQL</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#backup">Backup</a></li>
@@ -369,6 +335,10 @@
 <li class="toctree-l2"><a class="reference internal" href="storage.html#mdadm">MDADM</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="network-management/index.html">Network Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network-management/ip-vs-ifconfig.html">IP vs. IFCONFIG</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -379,7 +349,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="bash.html" class="btn btn-neutral float-right" title="Bash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="databases.html" class="btn btn-neutral float-right" title="Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../jenkins/getting-started/colocating-jobs-and-source-code-with-jenkinsfile.html" class="btn btn-neutral float-left" title="Colocating Jobs and Source Code with Jenkinsfile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
