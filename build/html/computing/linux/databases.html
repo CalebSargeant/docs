@@ -105,8 +105,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Databases</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mysql">MySQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-user">Creating a User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-user">Deleting a User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showing-users">Showing Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-in-remotely">Logging in Remotely</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#granting-privileges">Granting Privileges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#showing-privileges">Showing Privileges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-mysql-status">Checking MySQL Status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#backup">Backup</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#restore">Restore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-replication">Setting up Replication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
 </ul>
@@ -114,6 +122,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
@@ -211,6 +220,52 @@
 <h1>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="mysql">
 <h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-user">
+<h3>Creating a User<a class="headerlink" href="#creating-a-user" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create user <span class="s1">&#39;myuser&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-a-user">
+<h3>Deleting a User<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>drop user <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showing-users">
+<h3>Showing Users<a class="headerlink" href="#showing-users" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> user from mysql.user<span class="p">;</span>
+<span class="k">select</span> user,host from mysql.user<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging-in-remotely">
+<h3>Logging in Remotely<a class="headerlink" href="#logging-in-remotely" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can -p&#39;mypassword&#39; as well</span>
+mysql -u myuser -p -h mydbhostname.com -D mydatabase
+</pre></div>
+</div>
+</div>
+<div class="section" id="granting-privileges">
+<h3>Granting Privileges<a class="headerlink" href="#granting-privileges" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
+grant all privileges on mydb to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="showing-privileges">
+<h3>Showing Privileges<a class="headerlink" href="#showing-privileges" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show grants <span class="k">for</span> <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;host&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-mysql-status">
+<h3>Checking MySQL Status<a class="headerlink" href="#checking-mysql-status" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service mysqld status
+ps aux <span class="p">|</span> grep mysql
+</pre></div>
+</div>
+</div>
 <div class="section" id="backup">
 <h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup directly to a remote host (zabbix is the DB name)</span>
@@ -223,6 +278,10 @@ mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</
 <h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">¶</a></h3>
 <p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-p</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">database_name</span> <span class="pre">&lt;</span> <span class="pre">file.sql</span></code></p>
+</div>
+<div class="section" id="setting-up-replication">
+<h3>Setting up Replication<a class="headerlink" href="#setting-up-replication" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql">https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql</a></p>
 </div>
 <div class="section" id="size-of-db">
 <h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline">¶</a></h3>

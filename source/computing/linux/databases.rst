@@ -4,6 +4,60 @@ Databases
 MySQL
 -----
 
+Creating a User
+^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  create user 'myuser'@'localhost' identified by 'password';
+
+Deleting a User
+^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  drop user 'user'@'localhost';
+
+Showing Users
+^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  select user from mysql.user;
+  select user,host from mysql.user;
+
+Logging in Remotely
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  # You can -p'mypassword' as well
+  mysql -u myuser -p -h mydbhostname.com -D mydatabase
+
+Granting Privileges
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  # Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql
+  grant all privileges on mydb to 'user'@'localhost';
+
+Showing Privileges
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  show grants for 'username'@'host';
+
+Checking MySQL Status
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  service mysqld status
+  ps aux | grep mysql
+
+
 Backup
 ^^^^^^
 
@@ -19,6 +73,11 @@ Restore
 The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.
 
 ``mysql -p -u username database_name < file.sql``
+
+Setting up Replication
+^^^^^^^^^^^^^^^^^^^^^^
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql
 
 Size of DB
 ^^^^^^^^^^
