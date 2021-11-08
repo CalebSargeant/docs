@@ -1,5 +1,5 @@
-Getting Started
-===============
+Plugins
+=======
 
 .. toctree::
   :maxdepth: 4
