@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Other" href="../other/index.html" />
-    <link rel="prev" title="Bootcamp" href="index.html" /> 
+    <link rel="next" title="Statements" href="statements.html" />
+    <link rel="prev" title="Comparison Operators" href="comparison-operators.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,6 +99,7 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
@@ -112,11 +113,14 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../core/index.html">Core</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Bootcamp</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="comparison-operators.html">Comparison Operators</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Object and Data Structures</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#numbers">Numbers</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#variable-assignment">Variable Assignment</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexing-and-slicing">Indexing and Slicing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-properties-and-methods">String Properties and Methods</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#print-formatting-with-strings">Print Formatting with Strings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
@@ -125,6 +129,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#files">Files</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="statements.html">Statements</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../other/index.html">Other</a></li>
@@ -488,10 +493,9 @@ indicate positions of what you wish to grab.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="indexing-and-slicing">
-<h3>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="example-of-indexing">
-<h4>Example of Indexing<a class="headerlink" href="#example-of-indexing" title="Permalink to this headline">¶</a></h4>
+<h2>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the h from hello</span>
 <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
 <span class="n">mystring</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -500,9 +504,6 @@ indicate positions of what you wish to grab.</p>
 <span class="n">mystring</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-of-slicing">
-<h4>Example of Slicing<a class="headerlink" href="#example-of-slicing" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redefine the string</span>
 <span class="n">mystring</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijk&#39;</span>
 
@@ -529,28 +530,254 @@ indicate positions of what you wish to grab.</p>
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="string-properties-and-methods">
-<h3>String Properties and Methods<a class="headerlink" href="#string-properties-and-methods" title="Permalink to this headline">¶</a></h3>
+<h2>String Properties and Methods<a class="headerlink" href="#string-properties-and-methods" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># String Concatenattion</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sam&quot;</span>
+<span class="n">last_letters</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="s1">&#39;P&#39;</span> <span class="o">+</span> <span class="n">last_letters</span>
+<span class="n">Pam</span>
+
+<span class="n">letter</span> <span class="o">=</span> <span class="s1">&#39;z&#39;</span>
+<span class="n">letter</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">zzzzzzzzzz</span>
+
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="mi">5</span>
+
+<span class="s1">&#39;2&#39;</span> <span class="o">+</span> <span class="s1">&#39;3&#39;</span>
+<span class="mi">23</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="print-formatting-with-strings">
 <h2>Print Formatting with Strings<a class="headerlink" href="#print-formatting-with-strings" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Often you will want to “inject a variable into your string for printing. For example:</p>
+<ul class="simple">
+<li><p><cite>my_name = “Caleb”</cite></p></li>
+<li><p><cite>print(“Hello ” + my_name)</cite></p></li>
+</ul>
+</li>
+<li><p>There are multiple ways to format strings for printing variables in them.</p></li>
+<li><p>This is known as string interpolation.</p></li>
+<li><p>Two methods for this:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>.format()</cite> method</p></li>
+<li><p><cite>f-strings</cite> (formatted string literals)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># .format() method</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is a string </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;INSERTED&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fox&#39;</span><span class="p">,</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;quick&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The </span><span class="si">{2}</span><span class="s1"> </span><span class="si">{1}</span><span class="s1"> </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fox&#39;</span><span class="p">,</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;quick&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The </span><span class="si">{q}</span><span class="s1"> </span><span class="si">{b}</span><span class="s1"> </span><span class="si">{f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="s1">&#39;fox&#39;</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;quick&#39;</span><span class="p">))</span>
+
+<span class="c1"># Float formatting &quot;{value:width.precision f}&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="mi">100</span><span class="o">/</span><span class="mi">777</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The result was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The result was </span><span class="si">{r:1.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">result</span><span class="p">))</span>
+
+<span class="c1"># f-strings method</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello, his name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sam&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="lists">
 <h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Lists are ordered sequences that can hold a variety of object types</p></li>
+<li><p>They use [] brackets and commas to separate objects in the list.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>[1,2,3,4,5]</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Lists support indexing and slicing. Lists can be nested and also have a variety of useful methods that can be called off of them.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">another_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;four&#39;</span><span class="p">,</span><span class="s1">&#39;five&#39;</span><span class="p">]</span>
+<span class="n">mylist</span> <span class="o">+</span> <span class="n">another_list</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ONE&#39;</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;six&#39;</span><span class="p">)</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">popped_item</span> <span class="o">=</span> <span class="n">mylist</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">new_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">num_list</span><span class="o">.</span><span class="n">revers</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Dictionaries are unordered mappings for sorting objects. Previously we saw how lists store objects in an ordered sequence, dictionaries use a key-value pairing instead.</p></li>
+<li><p>This key-value pair allows users to quickly grab objects without needing to know an index location.</p></li>
+<li><p>Dictionaries use curly braces and colons to signify the keys and their associated values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>{‘key1’:’value1’,’key2’:’value2’</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>So when to choose a list and when to choose a dictionary?</p></li>
+<li><p><strong>Dictionaries:</strong> Objects retrieved by key name.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Unordered and can not be sorted.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Lists:</strong> Objects retrieved by location.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ordered Sequence can be indexed or sliced.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a dictionary</span>
+<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">:</span><span class="s1">&#39;value2&#39;</span>
+<span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]</span>
+
+<span class="c1"># A dict can have numbers, lists, and even other dicts</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="s1">&#39;k2&#39;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;k3&#39;</span><span class="p">:{</span><span class="s1">&#39;insidekey&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">}}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;k3&#39;</span><span class="p">][</span><span class="s1">&#39;insidekey&#39;</span><span class="p">]</span>
+
+<span class="c1"># Adding values to dict</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;k3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="c1"># Overwriting values</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NEW VALUE&#39;</span>
+
+<span class="c1"># Return the keys</span>
+<span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># Return the values</span>
+<span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="c1"># Return the items</span>
+<span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tuples are very similar to lists. However they have one key difference - immutability.</p></li>
+<li><p>Once an element is inside a tuple, it cannot be reassigned</p></li>
+<li><p>Tuples use parenthesis (1,2,3)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="sets-and-booleans">
 <h2>Sets and Booleans<a class="headerlink" href="#sets-and-booleans" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Sets</strong> are unordered collections of <strong>unique</strong> elements</p></li>
+<li><p>Meaning there can only be one representative of the same object.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">myset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">myset</span>
+
+<span class="n">myset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myset</span>
+
+<span class="n">myset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myset</span>
+
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Booleans</strong> are operators that allow you to convey <strong>True</strong> or <strong>False</strong> statements</p></li>
+<li><p>These are very important later on when we deal with control flow and logic!</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
+<span class="kc">True</span>
+<span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">b</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="files">
 <h2>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opening a file</span>
+<span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">)</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># The second time you open, the curser is at the end of the file</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Seak to 0 to go back to the beginning of the file</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">seak</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Read the file, all in one line</span>
+<span class="n">contents</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Read the file all in new lines</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="c1"># Close the file</span>
+<span class="n">myfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Read the file and close it after</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_new_file</span><span class="p">:</span>
+   <span class="n">contents</span> <span class="o">=</span> <span class="n">my_new_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">contents</span>
+
+<span class="c1"># Write to file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+   <span class="n">contents</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">contents</span>
+
+<span class="c1"># Reading</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_new_file.txt&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># Appending</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;my_new_file.txt&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;FOUR&#39;</span><span class="p">)</span>
+
+<span class="c1"># Writing</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sjkdhsakjfj.txt&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;I CREATED THIS FILE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>mode=’r’ is read only</p></li>
+<li><p>mode=’w is write only (will overwrite files or create new)</p></li>
+<li><p>mode=’a’ is append only (will add on to files)</p></li>
+<li><p>mode=’r+’ is reading and writing</p></li>
+<li><p>mode=’w+’ is writing and reading (overwrites existing files or creates a new file)</p></li>
+</ul>
 </div>
 </div>
 
@@ -560,8 +787,8 @@ indicate positions of what you wish to grab.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../other/index.html" class="btn btn-neutral float-right" title="Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="Bootcamp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="statements.html" class="btn btn-neutral float-right" title="Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="comparison-operators.html" class="btn btn-neutral float-left" title="Comparison Operators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -1,6 +1,49 @@
 Storage
 =======
 
+Resizing Disk
+-------------
+
+.. code-block:: bash
+  
+  [root@host ~]# df -h
+  Filesystem      Size  Used Avail Use% Mounted on
+  devtmpfs        7.6G     0  7.6G   0% /dev
+  tmpfs           7.6G  8.0K  7.6G   1% /dev/shm
+  tmpfs           7.6G  759M  6.9G  10% /run
+  tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+  /dev/sda1       151G   22G  123G  16% /
+  /dev/sdc        500G  247G  254G  50% /var/lib/pgsql
+  tmpfs           1.6G     0  1.6G   0% /run/user/1001
+  [root@host ~]# resize2fs /dev/sdc
+  resize2fs 1.42.9 (28-Dec-2013)
+  resize2fs: Bad magic number in super-block while trying to open /dev/sdc
+  Couldnt find valid filesystem superblock.
+  [root@host ~]# xfs_growfs /dev/sdc
+  meta-data=/dev/sdc               isize=512    agcount=4, agsize=32768000 blks
+          =                       sectsz=512   attr=2, projid32bit=1
+          =                       crc=1        finobt=1 spinodes=0
+  data     =                       bsize=4096   blocks=131072000, imaxpct=25
+          =                       sunit=0      swidth=0 blks
+  naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+  log      =internal               bsize=4096   blocks=64000, version=2
+          =                       sectsz=512   sunit=0 blks, lazy-count=1
+  realtime =none                   extsz=4096   blocks=0, rtextents=0
+  data blocks changed from 131072000 to 175636480
+  [root@host ~]# 
+  [root@host ~]# 
+  [root@host ~]# df -h
+  Filesystem      Size  Used Avail Use% Mounted on
+  devtmpfs        7.6G     0  7.6G   0% /dev
+  tmpfs           7.6G  8.0K  7.6G   1% /dev/shm
+  tmpfs           7.6G  759M  6.9G  10% /run
+  tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+  /dev/sda1       151G   22G  123G  16% /
+  /dev/sdc        670G  247G  424G  37% /var/lib/pgsql
+  tmpfs           1.6G     0  1.6G   0% /run/user/1001
+  [root@host ~]# 
+
+
 File System Check Loop
 ----------------------
 

@@ -254,7 +254,7 @@ Examples of strings
    len('I am')
 
 Indexing and Slicing
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Example of Indexing
 ^^^^^^^^^^^^^^^^^^^
@@ -298,22 +298,247 @@ Example of Slicing
    mystring[::-1]
 
 String Properties and Methods
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
+
+.. code-block:: python
+
+   # String Concatenattion
+   name = "Sam"
+   last_letters = name[1:]
+   'P' + last_letters
+   Pam
+
+   letter = 'z'
+   letter * 10
+   zzzzzzzzzz
+
+   2 + 3
+   5
+
+   '2' + '3'
+   23
+
+   x = 'Hello World'
+   x.upper()
 
 Print Formatting with Strings
 -----------------------------
 
+-  Often you will want to "inject a variable into your string for printing. For example:
+
+   -  `my_name = "Caleb"`
+   -  `print("Hello " + my_name)`
+
+- There are multiple ways to format strings for printing variables in them.
+- This is known as string interpolation.
+- Two methods for this:
+
+   - `.format()` method
+   - `f-strings` (formatted string literals)
+
+.. code-block:: python
+
+   # .format() method
+   print('This is a string {}'.format('INSERTED'))
+   print('The {} {} {}'.format('fox','brown','quick'))
+   print('The {2} {1} {0}'.format('fox','brown','quick'))
+   print('The {q} {b} {f}'.format(f='fox',b='brown',q='quick'))
+
+   # Float formatting "{value:width.precision f}"
+   result = 100/777
+   print("The result was {}".format(result))
+   print("The result was {r:1.3f}".format(r=result))
+
+   # f-strings method
+   print(f'Hello, his name is {name}')
+   name = "Sam"
+   age = 3
+   print(f'{name} is {age} years old)
+
+
 Lists
 -----
+
+- Lists are ordered sequences that can hold a variety of object types
+- They use [] brackets and commas to separate objects in the list.
+
+   - `[1,2,3,4,5]`
+
+- Lists support indexing and slicing. Lists can be nested and also have a variety of useful methods that can be called off of them.
+
+.. code-block:: python
+
+   my_list = [1,2,3]
+   my_list = ['string',100,23,2]
+   len(my_list)
+   mylist = ['one','two','three']
+   mylist[0]
+   mylist[1:]
+   another_list = ['four','five']
+   mylist + another_list
+   mylist[0] = 'ONE'
+   mylist.append('six')
+   mylist.pop()
+   popped_item = mylist.pop()
+   new_list = ['a','e','x','b','c']
+   num_list = [4,1,8,3]
+   new_list.sort()
+   num_list.revers()
+
 
 Dictionaries
 ------------
 
+- Dictionaries are unordered mappings for sorting objects. Previously we saw how lists store objects in an ordered sequence, dictionaries use a key-value pairing instead.
+- This key-value pair allows users to quickly grab objects without needing to know an index location.
+- Dictionaries use curly braces and colons to signify the keys and their associated values.
+
+   - `{'key1':'value1','key2':'value2'`
+
+- So when to choose a list and when to choose a dictionary?
+- **Dictionaries:** Objects retrieved by key name.
+
+   - Unordered and can not be sorted.
+
+- **Lists:** Objects retrieved by location.
+
+   - Ordered Sequence can be indexed or sliced.
+
+.. code-block:: python
+
+   # Creating a dictionary
+   my_dict = {'key1':'value1','key2':'value2'
+   my_dict['key1']
+
+   # A dict can have numbers, lists, and even other dicts
+   d = {'k1':123,'k2':[0,1,2],'k3':{'insidekey':100}}
+   d['k3']['insidekey']
+
+   # Adding values to dict
+   d = {'k1': 100, 'k2': 200}
+   d['k3'] = 300
+
+   # Overwriting values
+   d['k1'] = 'NEW VALUE'
+
+   # Return the keys
+   d.keys()
+
+   # Return the values
+   d.values()
+
+   # Return the items
+   d.items()
+   
+
 Tuples
 ------
+
+- Tuples are very similar to lists. However they have one key difference - immutability.
+- Once an element is inside a tuple, it cannot be reassigned
+- Tuples use parenthesis (1,2,3)
+
+.. code-block:: python
+
+   t = (1,2,3)
+   t = ('one',2)
+   t = ('a','a','b')
+   t.count('a')
+   t.index('a')
 
 Sets and Booleans
 -----------------
 
+Sets
+^^^^
+
+- **Sets** are unordered collections of **unique** elements
+- Meaning there can only be one representative of the same object.
+
+.. code-block:: python
+
+   myset = set()
+   myset.add(1)
+   myset
+
+   myset.add(2)
+   myset
+
+   myset.add(2)
+   myset
+
+   mylist = [1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3]
+   set(mylist)
+
+Booleans
+^^^^^^^^
+
+- **Booleans** are operators that allow you to convey **True** or **False** statements
+- These are very important later on when we deal with control flow and logic!
+
+.. code-block:: python
+
+   False
+   True
+   type(False)
+   1 > 2
+   1 == 1
+   b = None
+   b
+
 Files
 -----
+
+.. code-block:: python
+
+   # Opening a file
+   myfile = open('myfile.txt')
+   myfile.read()
+
+   # The second time you open, the curser is at the end of the file
+   myfile.read()
+
+   # Seak to 0 to go back to the beginning of the file
+   myfile.seak(0)
+
+   # Read the file, all in one line
+   contents = myfile.read()
+
+   # Read the file all in new lines
+   myfile.readlines()
+
+   # Close the file
+   myfile.close()
+
+   # Read the file and close it after
+   with open('myfile.txt') as my_new_file:
+      contents = my_new_file.read()
+   contents
+
+   # Write to file
+   with open('myfile.txt',mode='w') as myfile:
+      contents = myfile.read()
+   contents
+
+   # Reading
+   with open('my_new_file.txt',mode='r') as f:
+      print(f.read())
+
+   # Appending
+   with open('my_new_file.txt',mode='a') as f:
+      f.write('FOUR')
+   
+   # Writing
+   with open('sjkdhsakjfj.txt',mode='w') as f:
+      f.write('I CREATED THIS FILE')
+   
+Reading, Writing, Appending Modes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- mode='r' is read only
+- mode='w is write only (will overwrite files or create new)
+- mode='a' is append only (will add on to files)
+- mode='r+' is reading and writing
+- mode='w+' is writing and reading (overwrites existing files or creates a new file)
+
+   

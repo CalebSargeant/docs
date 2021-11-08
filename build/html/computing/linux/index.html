@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Databases" href="databases.html" />
-    <link rel="prev" title="Colocating Jobs and Source Code with Jenkinsfile" href="../jenkins/getting-started/colocating-jobs-and-source-code-with-jenkinsfile.html" /> 
+    <link rel="prev" title="&lt;no title&gt;" href="../jenkins/plugins/managing-and-upgrading-plugins.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,6 +99,7 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
@@ -111,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
@@ -207,14 +209,31 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#deleting-a-user">Deleting a User</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#showing-users">Showing Users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#logging-in-remotely">Logging in Remotely</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#privileges">Privileges</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#granting-privileges">Granting Privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#revoking-privileges">Revoking Privileges</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#showing-privileges">Showing Privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#updating-data">Updating Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#deleting-data">Deleting Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#checking-mysql-status">Checking MySQL Status</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#backup">Backup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#restore">Restore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#use">Use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#setting-up-replication">Setting up Replication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#size-of-db">Size of DB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#resetting-root-password">Resetting Root Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#checking-the-version">Checking the Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#checking-database-size">Checking Database Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#import-database-with-progress-bar">Import Database with Progress Bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#reinstall-mysql-after-deleting-var-lib-mysql">Reinstall Mysql after Deleting /var/lib/mysql</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="databases.html#postgresql">PostgreSQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#deleting-rows">Deleting Rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#selecting-rows">Selecting Rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#updating-data-in-table">Updating Data in Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#show-tables">Show Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-database">Connect to Database</a></li>
 </ul>
 </li>
 </ul>
@@ -222,15 +241,20 @@
 <li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="general.html#apt-yum-cheat-sheets">Apt &amp; Yum Cheat Sheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#rsync">Rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#while-loop">While Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#for-loop">For Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#fstab">Fstab</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#automounting">Automounting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#ssh-config">SSH Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#openssl">OpenSSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#disk-usage">Disk Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#iso-to-disk">ISO to Disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#grep">Grep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#tail">Tail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#curl">Curl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#find">Find</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#screen">Screen</a></li>
@@ -256,9 +280,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#skel-terminal-colours">Skel Terminal Colours</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#move-a-file-starting-with-dash">Move a File Starting with Dash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#lftp">LFTP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#rename-a-file-to-a-filename-with-date">Rename a File to a Filename with Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#checking-cpu-architecture">Checking CPU Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#checking-uptime">Checking Uptime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#crontab-different-editor">Crontab different editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#tigervnc">TigerVNC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#old-school-lamp">Old School LAMP</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#features">Features</a></li>
@@ -271,6 +298,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#age-of-system">Age of System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#list-all-services">List all Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#temporary-failure-in-name-resolution">Temporary Failure in Name Resolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#change-hosname">Change Hosname</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#google-authenticator">Google Authenticator</a><ul>
@@ -281,6 +309,10 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#ldap-authentication">LDAP Authentication</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#public-key-authentication">Public Key Authentication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#sssd">SSSD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#gcloud">Gcloud</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#id1">Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -319,6 +351,11 @@
 <li class="toctree-l2"><a class="reference internal" href="networking.html#ubuntu-16-change-ip-hostname">Ubuntu 16 - Change IP &amp; Hostname</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="prometheus.html">Prometheus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html#check-if-config-is-valid">Check if Config is Valid</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="raspberry.html">Raspberry Pi</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html#writing-sd-card">Writing SD Card</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html#firmware-update">Firmware Update</a></li>
@@ -331,6 +368,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="storage.html">Storage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="storage.html#resizing-disk">Resizing Disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#file-system-check-loop">File System Check Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#formatting-usb-flash-drive">Formatting USB Flash Drive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html#repairing-grub">Repairing Grub</a></li>
@@ -363,7 +401,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="databases.html" class="btn btn-neutral float-right" title="Databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../jenkins/getting-started/colocating-jobs-and-source-code-with-jenkinsfile.html" class="btn btn-neutral float-left" title="Colocating Jobs and Source Code with Jenkinsfile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../jenkins/plugins/managing-and-upgrading-plugins.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

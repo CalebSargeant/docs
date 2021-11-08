@@ -99,6 +99,7 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/jenkins/index.html">Jenkins</a></li>
@@ -132,6 +133,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#git">Git</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cloning">Cloning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#storing-credentials">Storing Credentials</a></li>
 </ul>
 </li>
 </ul>
@@ -313,6 +315,13 @@ brew install visual-studio-code
 <span class="c1"># Install go</span>
 brew install go
 
+<span class="c1"># Install Google Cloud SDK Tools</span>
+<span class="c1"># https://stackoverflow.com/questions/46144267/bash-gcloud-command-not-found-on-mac</span>
+brew install --cask google-cloud-sdk
+<span class="nb">source</span> <span class="s2">&quot;</span><span class="k">$(</span>brew --prefix<span class="k">)</span><span class="s2">/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc&quot;</span>
+<span class="nb">source</span> <span class="s2">&quot;</span><span class="k">$(</span>brew --prefix<span class="k">)</span><span class="s2">/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc&quot;</span>
+gcloud config <span class="nb">set</span> app/cloud_build_timeout <span class="m">4000</span>
+
 <span class="c1">## Powershell Modules</span>
 <span class="c1"># PowerCLI for VMWARE</span>
 Install-Module -Name VMware.PowerCLI -Scope CurrentUser
@@ -391,6 +400,15 @@ ansible-playbook -i ./hosts.yml playbookname.yml
 <h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username">https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@provider.com:userName/projectName.git --config core.sshCommand<span class="o">=</span><span class="s2">&quot;ssh -i ~/.ssh/github&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="storing-credentials">
+<h3>Storing Credentials<a class="headerlink" href="#storing-credentials" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git</span>
+git config --global credential.helper store
+git pull
+<span class="c1"># stored in ~/.git-credentials (insecure, but useful)</span>
 </pre></div>
 </div>
 </div>

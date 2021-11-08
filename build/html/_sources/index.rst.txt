@@ -60,6 +60,7 @@ Table of Contents
   :caption: Computing
 
   computing/ansible/index
+  computing/bamboo
   computing/cloud/index
   computing/containerisation/index
   computing/jenkins/index

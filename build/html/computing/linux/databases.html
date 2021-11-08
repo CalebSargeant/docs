@@ -99,6 +99,7 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
@@ -109,14 +110,31 @@
 <li class="toctree-l4"><a class="reference internal" href="#deleting-a-user">Deleting a User</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showing-users">Showing Users</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#logging-in-remotely">Logging in Remotely</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#privileges">Privileges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#granting-privileges">Granting Privileges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#revoking-privileges">Revoking Privileges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#showing-privileges">Showing Privileges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-data">Updating Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-data">Deleting Data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-mysql-status">Checking MySQL Status</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#backup">Backup</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#restore">Restore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use">Use</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#setting-up-replication">Setting up Replication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-the-version">Checking the Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-database-size">Checking Database Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-database-with-progress-bar">Import Database with Progress Bar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reinstall-mysql-after-deleting-var-lib-mysql">Reinstall Mysql after Deleting /var/lib/mysql</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-rows">Deleting Rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-rows">Selecting Rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-data-in-table">Updating Data in Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-tables">Show Tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-to-database">Connect to Database</a></li>
 </ul>
 </li>
 </ul>
@@ -128,6 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
@@ -222,13 +241,15 @@
 <h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="creating-a-user">
 <h3>Creating a User<a class="headerlink" href="#creating-a-user" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create user <span class="s1">&#39;myuser&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;password&#39;</span><span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
+create user <span class="s1">&#39;myuser&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="deleting-a-user">
 <h3>Deleting a User<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>drop user <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
+drop user <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -246,16 +267,50 @@ mysql -u myuser -p -h mydbhostname.com -D mydatabase
 </pre></div>
 </div>
 </div>
+<div class="section" id="privileges">
+<h3>Privileges<a class="headerlink" href="#privileges" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ALL PRIVILEGES- as we saw previously, this would allow a MySQL user full access to a designated database <span class="o">(</span>or <span class="k">if</span> no database is selected, global access across the system<span class="o">)</span>
+CREATE- allows them to create new tables or databases
+DROP- allows them to them to delete tables or databases
+DELETE- allows them to delete rows from tables
+INSERT- allows them to insert rows into tables
+SELECT- allows them to use the SELECT <span class="nb">command</span> to <span class="nb">read</span> through databases
+UPDATE- allow them to update table rows
+GRANT OPTION- allows them to grant or remove other users’ privileges
+</pre></div>
+</div>
+</div>
 <div class="section" id="granting-privileges">
 <h3>Granting Privileges<a class="headerlink" href="#granting-privileges" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
-grant all privileges on mydb to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+grant all privileges on mydb.* to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+flush privileges<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="revoking-privileges">
+<h3>Revoking Privileges<a class="headerlink" href="#revoking-privileges" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
+revoke DROP on databasename.tablename from <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+flush privileges<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="showing-privileges">
 <h3>Showing Privileges<a class="headerlink" href="#showing-privileges" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show grants <span class="k">for</span> <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;host&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-data">
+<h3>Updating Data<a class="headerlink" href="#updating-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>newvalue1, <span class="nv">column2</span><span class="o">=</span>newvalue2, where condition<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-data">
+<h3>Deleting Data<a class="headerlink" href="#deleting-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from table_name where condition<span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -278,6 +333,14 @@ mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</
 <h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">¶</a></h3>
 <p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-p</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">database_name</span> <span class="pre">&lt;</span> <span class="pre">file.sql</span></code></p>
+</div>
+<div class="section" id="use">
+<h3>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.tutorialspoint.com/mysql/mysql-select-database.htm">https://www.tutorialspoint.com/mysql/mysql-select-database.htm</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show databases<span class="p">;</span>
+use database<span class="p">;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="setting-up-replication">
 <h3>Setting up Replication<a class="headerlink" href="#setting-up-replication" title="Permalink to this headline">¶</a></h3>
@@ -303,6 +366,81 @@ mysql&gt; flush privileges<span class="p">;</span>
 mysql&gt; quit
 /etc/init.d/mysqld stop
 /etc/init.d/mysqld start
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-the-version">
+<h3>Checking the Version<a class="headerlink" href="#checking-the-version" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/8987679/how-to-retrieve-the-current-version-of-a-mysql-database-management-system-dbms</span>
+<span class="k">select</span> @@version<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-database-size">
+<h3>Checking Database Size<a class="headerlink" href="#checking-database-size" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database">https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;DB Name&quot;</span>,
+      ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
+FROM information_schema.tables
+GROUP BY table_schema<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="import-database-with-progress-bar">
+<h3>Import Database with Progress Bar<a class="headerlink" href="#import-database-with-progress-bar" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://gist.github.com/infusion/492418723b6736784af1">https://gist.github.com/infusion/492418723b6736784af1</a></p>
+<p><a class="reference external" href="https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file">https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pv dump.sql.tar.gz <span class="p">|</span> tar xO <span class="p">|</span> mysql -u <span class="nv">$user</span> -p <span class="nv">$database</span>
+<span class="c1"># Or</span>
+pv sqlfile.sql <span class="p">|</span> mysql -u root -p database
+</pre></div>
+</div>
+</div>
+<div class="section" id="reinstall-mysql-after-deleting-var-lib-mysql">
+<h3>Reinstall Mysql after Deleting /var/lib/mysql<a class="headerlink" href="#reinstall-mysql-after-deleting-var-lib-mysql" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files">https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files</a></p>
+<p><a class="reference external" href="https://mariadb.com/kb/en/mysql_secure_installation/">https://mariadb.com/kb/en/mysql_secure_installation/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /var/lib/mysql
+mkdir /var/lib/mysql/mysql
+chown -R mysql:mysql /var/lib/mysql
+mysql_secure_installation
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="postgresql">
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deleting-rows">
+<h3>Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-rows">
+<h3>Selecting Rows<a class="headerlink" href="#selecting-rows" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields">https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remember to use \G to display it nicely</span>
+<span class="k">select</span> * from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-data-in-table">
+<h3>Updating Data in Table<a class="headerlink" href="#updating-data-in-table" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table_name <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>value1 where condition<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-tables">
+<h3>Show Tables<a class="headerlink" href="#show-tables" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.postgresqltutorial.com/postgresql-show-tables/">https://www.postgresqltutorial.com/postgresql-show-tables/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\d</span>t
+</pre></div>
+</div>
+</div>
+<div class="section" id="connect-to-database">
+<h3>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline">¶</a></h3>
+<p>Same as use in mysql <a class="reference external" href="https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm">https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\c</span> database<span class="p">;</span>
 </pre></div>
 </div>
 </div>

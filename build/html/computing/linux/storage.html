@@ -99,19 +99,23 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resizing-disk">Resizing Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#file-system-check-loop">File System Check Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#formatting-usb-flash-drive">Formatting USB Flash Drive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#repairing-grub">Repairing Grub</a></li>
@@ -217,6 +221,47 @@
             
   <div class="section" id="storage">
 <h1>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="resizing-disk">
+<h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># df -h</span>
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /dev
+tmpfs           <span class="m">7</span>.6G  <span class="m">8</span>.0K  <span class="m">7</span>.6G   <span class="m">1</span>% /dev/shm
+tmpfs           <span class="m">7</span>.6G  759M  <span class="m">6</span>.9G  <span class="m">10</span>% /run
+tmpfs           <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /sys/fs/cgroup
+/dev/sda1       151G   22G  123G  <span class="m">16</span>% /
+/dev/sdc        500G  247G  254G  <span class="m">50</span>% /var/lib/pgsql
+tmpfs           <span class="m">1</span>.6G     <span class="m">0</span>  <span class="m">1</span>.6G   <span class="m">0</span>% /run/user/1001
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># resize2fs /dev/sdc</span>
+resize2fs <span class="m">1</span>.42.9 <span class="o">(</span><span class="m">28</span>-Dec-2013<span class="o">)</span>
+resize2fs: Bad magic number <span class="k">in</span> super-block <span class="k">while</span> trying to open /dev/sdc
+Couldnt find valid filesystem superblock.
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># xfs_growfs /dev/sdc</span>
+meta-data<span class="o">=</span>/dev/sdc               <span class="nv">isize</span><span class="o">=</span><span class="m">512</span>    <span class="nv">agcount</span><span class="o">=</span><span class="m">4</span>, <span class="nv">agsize</span><span class="o">=</span><span class="m">32768000</span> <span class="nv">blks</span>
+        <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">attr</span><span class="o">=</span><span class="m">2</span>, <span class="nv">projid32bit</span><span class="o">=</span><span class="nv">1</span>
+        <span class="o">=</span>                       <span class="nv">crc</span><span class="o">=</span><span class="m">1</span>        <span class="nv">finobt</span><span class="o">=</span><span class="m">1</span> <span class="nv">spinodes</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">data</span>     <span class="o">=</span>                       <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">131072000</span>, <span class="nv">imaxpct</span><span class="o">=</span><span class="nv">25</span>
+        <span class="o">=</span>                       <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span>      <span class="nv">swidth</span><span class="o">=</span><span class="m">0</span> blks
+<span class="nv">naming</span>   <span class="o">=</span>version <span class="m">2</span>              <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   ascii-ci<span class="o">=</span><span class="m">0</span> <span class="nv">ftype</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">log</span>      <span class="o">=</span>internal               <span class="nv">bsize</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">64000</span>, <span class="nv">version</span><span class="o">=</span><span class="nv">2</span>
+        <span class="o">=</span>                       <span class="nv">sectsz</span><span class="o">=</span><span class="m">512</span>   <span class="nv">sunit</span><span class="o">=</span><span class="m">0</span> blks, lazy-count<span class="o">=</span><span class="m">1</span>
+<span class="nv">realtime</span> <span class="o">=</span>none                   <span class="nv">extsz</span><span class="o">=</span><span class="m">4096</span>   <span class="nv">blocks</span><span class="o">=</span><span class="m">0</span>, <span class="nv">rtextents</span><span class="o">=</span><span class="m">0</span>
+data blocks changed from <span class="m">131072000</span> to <span class="m">175636480</span>
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1">#</span>
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1">#</span>
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># df -h</span>
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /dev
+tmpfs           <span class="m">7</span>.6G  <span class="m">8</span>.0K  <span class="m">7</span>.6G   <span class="m">1</span>% /dev/shm
+tmpfs           <span class="m">7</span>.6G  759M  <span class="m">6</span>.9G  <span class="m">10</span>% /run
+tmpfs           <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /sys/fs/cgroup
+/dev/sda1       151G   22G  123G  <span class="m">16</span>% /
+/dev/sdc        670G  247G  424G  <span class="m">37</span>% /var/lib/pgsql
+tmpfs           <span class="m">1</span>.6G     <span class="m">0</span>  <span class="m">1</span>.6G   <span class="m">0</span>% /run/user/1001
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="file-system-check-loop">
 <h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this headline">¶</a></h2>
 <p>You start up CentOS and it wants to do a File System check. You do the check, reboot and it happens again.
