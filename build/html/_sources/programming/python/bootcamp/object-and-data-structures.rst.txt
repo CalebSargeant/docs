@@ -257,7 +257,6 @@ Indexing and Slicing
 --------------------
 
 Example of Indexing
-^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -269,7 +268,6 @@ Example of Indexing
    mystring[-2]
 
 Example of Slicing
-^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -450,7 +448,6 @@ Sets and Booleans
 -----------------
 
 Sets
-^^^^
 
 - **Sets** are unordered collections of **unique** elements
 - Meaning there can only be one representative of the same object.
@@ -471,7 +468,6 @@ Sets
    set(mylist)
 
 Booleans
-^^^^^^^^
 
 - **Booleans** are operators that allow you to convey **True** or **False** statements
 - These are very important later on when we deal with control flow and logic!
@@ -533,7 +529,6 @@ Files
       f.write('I CREATED THIS FILE')
    
 Reading, Writing, Appending Modes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - mode='r' is read only
 - mode='w is write only (will overwrite files or create new)
