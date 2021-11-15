@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>BGP &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>BGP &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Path Control" href="path-control.html" />
     <link rel="prev" title="Redistribution" href="redistribution.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
@@ -150,88 +99,45 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Caleb Sargeant's Docs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">Cisco</a> &raquo;</li>
-        
           <li><a href="index.html">Routing</a> &raquo;</li>
-        
       <li>BGP</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../../_sources/networking/cisco/routing/bgp.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="bgp">
-<h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this headline">¶</a></h1>
+<h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this headline"></a></h1>
 <div class="section" id="bgp-concepts-and-configuration">
-<h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this headline"></a></h2>
 <div class="section" id="bgp-routing-algorithms">
-<h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>BGP is technically a distance vector, but most call it a “Path Vector” protocol.</p></li>
 <li><p>Without tuning, BGP behaves just like RIP!</p></li>
 </ul>
 </div>
 <div class="section" id="bgp-packets-and-tables">
-<h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Packets</p>
 <ul>
@@ -251,11 +157,11 @@
 </ul>
 </div>
 <div class="section" id="understanding-ibgp-vs-ebgp">
-<h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this headline">¶</a></h3>
+<h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this headline"></a></h3>
 <a class="reference internal image-reference" href="../../../_images/bgp-understanding-ibgp-vs-ebgp.png"><img alt="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" class="align-center" src="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" style="width: 663px; height: 424px;" /></a>
 </div>
 <div class="section" id="bgp-neighbour-configuration">
-<h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Two ways to get networks in BGP:</p>
 <ul>
@@ -266,18 +172,18 @@
 </ul>
 </div>
 <div class="section" id="bgp-synchronisation">
-<h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this headline"></a></h3>
 <p>Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.</p>
 </div>
 <div class="section" id="bgp-next-hop-processing">
-<h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>For EBGP peers: change next hop address on advertised routes</p></li>
 <li><p>For IBGP peers: do not change next hop address on advertised routes</p></li>
 </ul>
 </div>
 <div class="section" id="bgp-configuration">
-<h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/296be02849132d38a2692f584c4de6a1/bgp-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/bgp-configuration.png"><img alt="../../../_images/bgp-configuration.png" class="align-center" src="../../../_images/bgp-configuration.png" style="width: 553px; height: 337px;" /></a>
 <p><strong>Router R1</strong></p>
@@ -395,9 +301,9 @@ R5(config-router)#redist con route-map FILTER
 </div>
 </div>
 <div class="section" id="bgp-tuning-attributes">
-<h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this headline">¶</a></h2>
+<h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this headline"></a></h2>
 <div class="section" id="what-are-bgp-attributes">
-<h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this headline">¶</a></h3>
+<h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>The BGP metric is not simple</p></li>
 <li><p>Attributes are ways that you can ‘tag’ incoming or outgoing BGP routes</p></li>
@@ -407,7 +313,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </div>
 <div class="section" id="understanding-the-bgp-attribute-lineup">
-<h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this headline">¶</a></h3>
+<h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Well-Known Attributes</p>
 <ul>
@@ -427,7 +333,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </div>
 <div class="section" id="how-bgp-finds-the-best-path">
-<h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this headline">¶</a></h3>
+<h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Ignore routes with an inaccessible next hop address</p></li>
 <li><p>Prefer the path with the highest WEIGHT (CISCO proprietary)</p></li>
@@ -446,7 +352,7 @@ R5(config-router)#redist con route-map FILTER
 </ol>
 </div>
 <div class="section" id="tuning-bgp-attributes">
-<h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this headline">¶</a></h3>
+<h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Weight (<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">x.x.x.x</span> <span class="pre">weight</span> <span class="pre">500</span></code>)</p></li>
 <li><p>AS-Path</p></li>
@@ -457,7 +363,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </div>
 <div class="section" id="configuring-bgp-and-tuning">
-<h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/e2c2cb8e61fd5fbbba293cc448d75478/bgp-configuration-and-tuning.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration-and-tuning.zip</span></code></a></p>
 <p><strong>Router R1</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1#conf t
@@ -614,50 +520,33 @@ R7(config-router)#network 200.60.2.0 mask 255.255.255.0
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="path-control.html" class="btn btn-neutral float-right" title="Path Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="redistribution.html" class="btn btn-neutral float-left" title="Redistribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="path-control.html" class="btn btn-neutral float-right" title="Path Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Caleb Sargeant.
-
-    </p>
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

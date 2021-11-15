@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Storage &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Storage &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Network Management" href="network-management/index.html" />
     <link rel="prev" title="Raspberry Pi" href="raspberry.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
@@ -151,77 +100,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Caleb Sargeant's Docs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Linux</a> &raquo;</li>
-        
       <li>Storage</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/computing/linux/storage.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="storage">
-<h1>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h1>
+<h1>Storage<a class="headerlink" href="#storage" title="Permalink to this headline"></a></h1>
 <div class="section" id="resizing-disk">
-<h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this headline">¶</a></h2>
+<h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># df -h</span>
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /dev
@@ -262,7 +169,7 @@ tmpfs           <span class="m">1</span>.6G     <span class="m">0</span>  <span 
 </div>
 </div>
 <div class="section" id="file-system-check-loop">
-<h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this headline">¶</a></h2>
+<h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this headline"></a></h2>
 <p>You start up CentOS and it wants to do a File System check. You do the check, reboot and it happens again.
 Try the following:</p>
 <ol class="arabic simple">
@@ -279,7 +186,7 @@ vi /etc/fstab
 </div>
 </div>
 <div class="section" id="formatting-usb-flash-drive">
-<h2>Formatting USB Flash Drive<a class="headerlink" href="#formatting-usb-flash-drive" title="Permalink to this headline">¶</a></h2>
+<h2>Formatting USB Flash Drive<a class="headerlink" href="#formatting-usb-flash-drive" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>vFAT (FAT32): <code class="docutils literal notranslate"><span class="pre">mkfs.vfat</span></code></p></li>
 <li><p>NTFS: <code class="docutils literal notranslate"><span class="pre">mkfs.ntfs</span></code></p></li>
@@ -297,7 +204,7 @@ mount -t ext4 /dev/sdx1 /mnt/CALEB
 </div>
 </div>
 <div class="section" id="repairing-grub">
-<h2>Repairing Grub<a class="headerlink" href="#repairing-grub" title="Permalink to this headline">¶</a></h2>
+<h2>Repairing Grub<a class="headerlink" href="#repairing-grub" title="Permalink to this headline"></a></h2>
 <p>You boot up Linux machine (CentOS) and only “grub _” displays on the screen. You can try:</p>
 <ol class="arabic simple">
 <li><p>Boot from Linux live CD/USB</p></li>
@@ -312,7 +219,7 @@ reboot
 </div>
 </div>
 <div class="section" id="mount">
-<h2>Mount<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h2>
+<h2>Mount<a class="headerlink" href="#mount" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install cifs-utils</span>
 apt-get install cifs-utils
 
@@ -324,7 +231,7 @@ mount -a
 </div>
 </div>
 <div class="section" id="mount-usb-flash-disk">
-<h2>Mount USB Flash Disk<a class="headerlink" href="#mount-usb-flash-disk" title="Permalink to this headline">¶</a></h2>
+<h2>Mount USB Flash Disk<a class="headerlink" href="#mount-usb-flash-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create folder for mounting</span>
 mkdir -p /media/USB
 
@@ -342,14 +249,14 @@ umount /media/USB
 </div>
 </div>
 <div class="section" id="iostat">
-<h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this headline">¶</a></h2>
+<h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install sysstat
 iostat -d <span class="m">2</span> /dev/sda
 </pre></div>
 </div>
 </div>
 <div class="section" id="drbd">
-<h2>DRBD<a class="headerlink" href="#drbd" title="Permalink to this headline">¶</a></h2>
+<h2>DRBD<a class="headerlink" href="#drbd" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### CONFIGURATION</span>
 <span class="c1"># After deploying DRBD through Ansible:</span>
 <span class="c1"># Initialize the metadata</span>
@@ -390,7 +297,7 @@ sudo docker restart deluge
 </div>
 </div>
 <div class="section" id="zfs">
-<h2>ZFS<a class="headerlink" href="#zfs" title="Permalink to this headline">¶</a></h2>
+<h2>ZFS<a class="headerlink" href="#zfs" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install ZFS</span>
 sudo apt install zfsutils-linux
 
@@ -409,7 +316,7 @@ sudo zfs create -V 3486gb tank/vol
 </div>
 </div>
 <div class="section" id="glusterfs">
-<h2>GlusterFS<a class="headerlink" href="#glusterfs" title="Permalink to this headline">¶</a></h2>
+<h2>GlusterFS<a class="headerlink" href="#glusterfs" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install GlusterFS</span>
 apt install glusterfs-server -y
 
@@ -425,7 +332,7 @@ gluster volume start gv0
 </div>
 </div>
 <div class="section" id="badblocks">
-<h2>Badblocks<a class="headerlink" href="#badblocks" title="Permalink to this headline">¶</a></h2>
+<h2>Badblocks<a class="headerlink" href="#badblocks" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>You can use a Linux boot CD to repair a Windows NTFS disk fault.</p></li>
 <li><p>If no filesystems are specified on the command line, and the <code class="docutils literal notranslate"><span class="pre">-A</span></code> option is not specified, <code class="docutils literal notranslate"><span class="pre">fsck</span></code> will default to checking filesystems in the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> serial.</p></li>
@@ -437,7 +344,7 @@ gluster volume start gv0
 <li><p>To see a nice overall view of system health: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">smartctl</span> <span class="pre">-a</span> <span class="pre">/dev/sda</span></code></p></li>
 </ul>
 <div class="section" id="linux-harddrive">
-<h3>Linux Harddrive<a class="headerlink" href="#linux-harddrive" title="Permalink to this headline">¶</a></h3>
+<h3>Linux Harddrive<a class="headerlink" href="#linux-harddrive" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Put a CentOS disk into the DVD-Rom</p></li>
 <li><p>Start Rescue Mode</p></li>
@@ -454,7 +361,7 @@ e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/sdax
 </div>
 </div>
 <div class="section" id="windows-harddrive">
-<h3>Windows Harddrive<a class="headerlink" href="#windows-harddrive" title="Permalink to this headline">¶</a></h3>
+<h3>Windows Harddrive<a class="headerlink" href="#windows-harddrive" title="Permalink to this headline"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is not a good idea!</p>
@@ -479,7 +386,7 @@ e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/hdbx
 </div>
 </div>
 <div class="section" id="mdadm">
-<h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this headline">¶</a></h2>
+<h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add entry to fstab to automount</span>
 nano /etc/fstab
   /dev/md0        /media/data     ext4 defaults <span class="m">0</span> <span class="m">0</span>
@@ -502,50 +409,33 @@ mount -a
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="network-management/index.html" class="btn btn-neutral float-right" title="Network Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="raspberry.html" class="btn btn-neutral float-left" title="Raspberry Pi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="network-management/index.html" class="btn btn-neutral float-right" title="Network Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Caleb Sargeant.
-
-    </p>
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

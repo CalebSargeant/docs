@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>VLANs &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>VLANs &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="STP" href="stp.html" />
     <link rel="prev" title="Core Concepts and Design" href="core-concepts-and-design.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cisco</a><ul class="current">
@@ -156,81 +105,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../other/iperf.html">iPerf3</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Caleb Sargeant's Docs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../index.html">Cisco</a> &raquo;</li>
-        
           <li><a href="index.html">Switching</a> &raquo;</li>
-        
       <li>VLANs</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../../_sources/networking/cisco/switching/vlans.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="vlans">
-<h1>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline">¶</a></h1>
+<h1>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline"></a></h1>
 <div class="section" id="configuration-and-verification">
-<h2>Configuration and Verification<a class="headerlink" href="#configuration-and-verification" title="Permalink to this headline">¶</a></h2>
+<h2>Configuration and Verification<a class="headerlink" href="#configuration-and-verification" title="Permalink to this headline"></a></h2>
 <div class="section" id="vlan-foundations">
-<h3>VLAN Foundations<a class="headerlink" href="#vlan-foundations" title="Permalink to this headline">¶</a></h3>
+<h3>VLAN Foundations<a class="headerlink" href="#vlan-foundations" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Logically groups users</p></li>
 <li><p>Segments broadcast domains</p></li>
@@ -240,7 +146,7 @@
 </ul>
 </div>
 <div class="section" id="local-vlans">
-<h3>Local VLANs<a class="headerlink" href="#local-vlans" title="Permalink to this headline">¶</a></h3>
+<h3>Local VLANs<a class="headerlink" href="#local-vlans" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Local VLANs do not extend beyond the distribution layer</p></li>
 <li><p>Local VLAN traffic routed to other destinations</p></li>
@@ -248,7 +154,7 @@
 </ul>
 </div>
 <div class="section" id="configuring-vlans">
-<h3>Configuring VLANs<a class="headerlink" href="#configuring-vlans" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring VLANs<a class="headerlink" href="#configuring-vlans" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conf t
 vlan 200
 name MARKETTING
@@ -259,7 +165,7 @@ switchport access vlan 100
 </div>
 </div>
 <div class="section" id="deleting-vlan-database">
-<h3>Deleting VLAN Database<a class="headerlink" href="#deleting-vlan-database" title="Permalink to this headline">¶</a></h3>
+<h3>Deleting VLAN Database<a class="headerlink" href="#deleting-vlan-database" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wr e
 del flash:vlan.dat
 </pre></div>
@@ -267,9 +173,9 @@ del flash:vlan.dat
 </div>
 </div>
 <div class="section" id="in-depth-trunking">
-<h2>In-Depth Trunking<a class="headerlink" href="#in-depth-trunking" title="Permalink to this headline">¶</a></h2>
+<h2>In-Depth Trunking<a class="headerlink" href="#in-depth-trunking" title="Permalink to this headline"></a></h2>
 <div class="section" id="trunking">
-<h3>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline">¶</a></h3>
+<h3>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Trunking (aka tagging) passes multi-vlan information between switches</p></li>
 <li><p>Places VLAN information into each frame</p></li>
@@ -277,7 +183,7 @@ del flash:vlan.dat
 </ul>
 </div>
 <div class="section" id="the-two-tagging-flavours">
-<h3>The Two Tagging Flavours<a class="headerlink" href="#the-two-tagging-flavours" title="Permalink to this headline">¶</a></h3>
+<h3>The Two Tagging Flavours<a class="headerlink" href="#the-two-tagging-flavours" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Inter-Switch Link (ISL)</p>
 <ul>
@@ -295,7 +201,7 @@ del flash:vlan.dat
 </ul>
 </div>
 <div class="section" id="digging-deeper-into-the-trunk">
-<h3>Digging Deeper Into the Trunk<a class="headerlink" href="#digging-deeper-into-the-trunk" title="Permalink to this headline">¶</a></h3>
+<h3>Digging Deeper Into the Trunk<a class="headerlink" href="#digging-deeper-into-the-trunk" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>ISL</p>
 <ul>
@@ -316,7 +222,7 @@ del flash:vlan.dat
 </ul>
 </div>
 <div class="section" id="negotiating-trunking">
-<h3>Negotiating Trunking<a class="headerlink" href="#negotiating-trunking" title="Permalink to this headline">¶</a></h3>
+<h3>Negotiating Trunking<a class="headerlink" href="#negotiating-trunking" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Switches can auto-negotiate trunk connections using Dynamic Trunking Protocol (DTP)</p></li>
 <li><p>Can be confusing…</p></li>
@@ -332,7 +238,7 @@ del flash:vlan.dat
 </ul>
 </div>
 <div class="section" id="configuring-trunk-ports">
-<h3>Configuring Trunk Ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring Trunk Ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int fa0/15
 switchport trunk encap dot1q
 switchport mode trunk
@@ -345,9 +251,9 @@ switchport trunk allowed vlan x y z
 </div>
 </div>
 <div class="section" id="vlan-trunking-protocol">
-<h2>VLAN Trunking Protocol<a class="headerlink" href="#vlan-trunking-protocol" title="Permalink to this headline">¶</a></h2>
+<h2>VLAN Trunking Protocol<a class="headerlink" href="#vlan-trunking-protocol" title="Permalink to this headline"></a></h2>
 <div class="section" id="vtp-modes">
-<h3>VTP Modes<a class="headerlink" href="#vtp-modes" title="Permalink to this headline">¶</a></h3>
+<h3>VTP Modes<a class="headerlink" href="#vtp-modes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Server (default)</p>
 <ul>
@@ -374,14 +280,14 @@ switchport trunk allowed vlan x y z
 </ul>
 </div>
 <div class="section" id="vtp-pruning">
-<h3>VTP Pruning<a class="headerlink" href="#vtp-pruning" title="Permalink to this headline">¶</a></h3>
+<h3>VTP Pruning<a class="headerlink" href="#vtp-pruning" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Keeps unnecessary broadcast traffic from crossing trunk links</p></li>
 <li><p>Only works on vtp servers</p></li>
 </ul>
 </div>
 <div class="section" id="configuring-vtp">
-<h3>Configuring VTP<a class="headerlink" href="#configuring-vtp" title="Permalink to this headline">¶</a></h3>
+<h3>Configuring VTP<a class="headerlink" href="#configuring-vtp" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Verify current VTP status</p></li>
 <li><p>Configure VTP domain/password</p></li>
@@ -397,7 +303,7 @@ vtp version 2
 </div>
 </div>
 <div class="section" id="common-vlan-problems">
-<h3>Common VLAN problems<a class="headerlink" href="#common-vlan-problems" title="Permalink to this headline">¶</a></h3>
+<h3>Common VLAN problems<a class="headerlink" href="#common-vlan-problems" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Native VLAN mismatch</p></li>
 <li><p>Trunk negotiation issues</p>
@@ -421,50 +327,33 @@ vtp version 2
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="stp.html" class="btn btn-neutral float-right" title="STP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="core-concepts-and-design.html" class="btn btn-neutral float-left" title="Core Concepts and Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stp.html" class="btn btn-neutral float-right" title="STP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Caleb Sargeant.
-
-    </p>
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

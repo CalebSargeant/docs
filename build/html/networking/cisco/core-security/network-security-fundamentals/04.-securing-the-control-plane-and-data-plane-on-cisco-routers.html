@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Securing the Control Plane and Data Plane on Cisco Routers &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Securing the Control Plane and Data Plane on Cisco Routers &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Securing the Control Plane and Data Plane on Cisco Switches" href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html" />
     <link rel="prev" title="Securing the Management Plane" href="03.-securing-the-management-plane.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cisco</a><ul class="current">
@@ -159,84 +108,40 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../other/iperf.html">iPerf3</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../../index.html">Caleb Sargeant's Docs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../../index.html">Cisco</a> &raquo;</li>
-        
           <li><a href="../index.html">Core Security</a> &raquo;</li>
-        
           <li><a href="index.html">Network Security Fundamentals</a> &raquo;</li>
-        
       <li>Securing the Control Plane and Data Plane on Cisco Routers</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../../../_sources/networking/cisco/core-security/network-security-fundamentals/04.-securing-the-control-plane-and-data-plane-on-cisco-routers.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="securing-the-control-plane-and-data-plane-on-cisco-routers">
-<h1>Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this headline">¶</a></h1>
+<h1>Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this headline"></a></h1>
 <div class="section" id="lab-setup">
-<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline">¶</a></h2>
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline"></a></h2>
 <div class="figure align-default" id="id1">
 <img alt="Lab topology" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers.png" />
-<p class="caption"><span class="caption-text">Lab topology</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Lab topology</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </div>
 <p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers.gns3project?raw=true">Download Lab
 File</a></p>
@@ -282,9 +187,9 @@ Router3(config-if)#do wr
 </div>
 </div>
 <div class="section" id="securing-eigrp">
-<h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this headline">¶</a></h2>
+<h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this headline"></a></h2>
 <div class="section" id="securing-the-control-plane">
-<h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this headline">¶</a></h3>
+<h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Use MD5 hash of a passcode/key</p></li>
 <li><p>Prevents rogue router from injecting</p></li>
@@ -294,7 +199,7 @@ Router3(config-if)#do wr
 </ul>
 </div>
 <div class="section" id="other-routing-protocols">
-<h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this headline">¶</a></h3>
+<h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>RIP</p>
 <ul>
@@ -314,7 +219,7 @@ Router3(config-if)#do wr
 </ul>
 </div>
 <div class="section" id="configuration-steps">
-<h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this headline">¶</a></h3>
+<h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Configure EIGRP</p></li>
 <li><p>Create keychain</p></li>
@@ -429,7 +334,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/8 ms
 </div>
 </div>
 <div class="section" id="securing-rip">
-<h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this headline">¶</a></h2>
+<h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Use the keychain</p></li>
 <li><p>Configure RIPv2</p></li>
@@ -522,7 +427,7 @@ L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 </div>
 </div>
 <div class="section" id="securing-ospf">
-<h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this headline">¶</a></h2>
+<h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configure authentication without a hash</p></li>
 <li><p>Look at packet capture</p></li>
@@ -601,7 +506,7 @@ Router1(config-if)#ip ospf authentication
 </div>
 <div class="figure align-default" id="id2">
 <img alt="Packet capture showing OSPF authentication in plain-text" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf1.png" />
-<p class="caption"><span class="caption-text">Packet capture showing OSPF authentication in plain-text</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Packet capture showing OSPF authentication in plain-text</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>### OSPF with hashing:
 Router1(config-if)#ip ospf authentication message-digest
@@ -610,7 +515,7 @@ Router1(config-if)#ip ospf message-digest-key 1 md5 Globo123
 </div>
 <div class="figure align-default" id="id3">
 <img alt="Packet capture showing OSPF Auth Type as Cryptographic" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf2.png" />
-<p class="caption"><span class="caption-text">Packet capture showing OSPF Auth Type as Cryptographic</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Packet capture showing OSPF Auth Type as Cryptographic</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3(config-if)#do sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
@@ -645,7 +550,7 @@ L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 </div>
 </div>
 <div class="section" id="securing-bgp">
-<h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this headline">¶</a></h2>
+<h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configure TTL Security command</p></li>
 <li><p>Configure BGP neighbor authentication</p></li>
@@ -694,10 +599,10 @@ Router3(config-router)#do clear ip bgp *
 </div>
 </div>
 <div class="section" id="access-control-lists">
-<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline">¶</a></h2>
+<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline"></a></h2>
 <p>All ACLs have an implicit deny statement at the bottom of the list</p>
 <div class="section" id="standard-acl">
-<h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this headline">¶</a></h3>
+<h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Matches the source IP address</p></li>
 <li><p>Permit and deny</p></li>
@@ -727,7 +632,7 @@ Router3(config-router)#do clear ip bgp *
 </div>
 </div>
 <div class="section" id="extended-acl">
-<h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this headline">¶</a></h3>
+<h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Source &amp; destination IP addresses</p></li>
 <li><p>Layer 4 protocol</p></li>
@@ -751,16 +656,16 @@ Router3(config-router)#do clear ip bgp *
 </div>
 </div>
 <div class="section" id="applying-acls-and-other-acl-types">
-<h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this headline">¶</a></h2>
+<h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this headline"></a></h2>
 <div class="section" id="acl-placement">
-<h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this headline">¶</a></h3>
+<h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Apply the ACL inbound or outbound on an interface</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(config-if)#ip</span> <span class="pre">access-group</span> <span class="pre">nameOrNumber</span> <span class="pre">{inlout}</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="other-acl-usage">
-<h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this headline">¶</a></h3>
+<h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>permit host 1.1.5.25
 permit host 1.1.5.26 deny any
 </pre></div>
@@ -775,7 +680,7 @@ permit host 1.1.5.26 deny any
 </ul>
 </div>
 <div class="section" id="time-based-acl">
-<h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this headline">¶</a></h3>
+<h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#time-range Friday
 (config-time-range)#periodic Friday 08:00 to 16:59
 (config-time-range)#exit
@@ -787,7 +692,7 @@ permit host 1.1.5.26 deny any
 </div>
 </div>
 <div class="section" id="reflexive-acls">
-<h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this headline">¶</a></h3>
+<h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Keep track of IP sessions</p></li>
 <li><p>Create dynamic ACEs allowing return traffic</p></li>
@@ -805,16 +710,16 @@ permit host 1.1.5.26 deny any
 </div>
 </div>
 <div class="section" id="policy-maps-nbar-urpf-tcp-intercept">
-<h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this headline">¶</a></h2>
+<h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this headline"></a></h2>
 <div class="section" id="policy-maps-and-class-maps">
-<h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this headline">¶</a></h3>
+<h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this headline"></a></h3>
 <p><strong>Policy Maps</strong> Can apply policy such as policing bandwidth, priority,
 or drop the traffic.</p>
 <p><strong>Class Maps</strong> Matches traffic based on ACLs, VLANs, protocols, QoS
 attributes</p>
 </div>
 <div class="section" id="network-based-application-recognition">
-<h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this headline">¶</a></h3>
+<h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this headline"></a></h3>
 <p>NBAR:</p>
 <ul class="simple">
 <li><p>ACLs can be difficult to identify applications</p></li>
@@ -844,7 +749,7 @@ attributes</p>
 </div>
 </div>
 <div class="section" id="unicast-reverse-path-forwarding">
-<h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this headline">¶</a></h3>
+<h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this headline"></a></h3>
 <p>URPF:</p>
 <ul class="simple">
 <li><p>Helps prevent spoofed IP addresses</p></li>
@@ -857,7 +762,7 @@ attributes</p>
 </div>
 </div>
 <div class="section" id="tcp-intercept">
-<h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this headline">¶</a></h3>
+<h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Intervenes and protects servers from SYN-Flood Attacks</p></li>
 <li><p>Intercept Mode</p>
@@ -885,9 +790,9 @@ attributes</p>
 </div>
 </div>
 <div class="section" id="control-plane-policing">
-<h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this headline">¶</a></h2>
+<h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this headline"></a></h2>
 <div class="section" id="copp">
-<h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this headline">¶</a></h3>
+<h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Utilizes ACLs and policy maps</p></li>
 <li><p>Used to police any packets that are routed to the control plane</p></li>
@@ -925,50 +830,33 @@ Router1(config-cp)#service-policy input CoPP-Policy-Map
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html" class="btn btn-neutral float-right" title="Securing the Control Plane and Data Plane on Cisco Switches" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="03.-securing-the-management-plane.html" class="btn btn-neutral float-left" title="Securing the Management Plane" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05.-securing-the-control-plane-and-data-plane-on-cisco-switches.html" class="btn btn-neutral float-right" title="Securing the Control Plane and Data Plane on Cisco Switches" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Caleb Sargeant.
-
-    </p>
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

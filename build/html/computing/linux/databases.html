@@ -1,73 +1,33 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Databases &mdash; Caleb Sargeant&#39;s Docs 1.0.0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Databases &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="General" href="general.html" />
     <link rel="prev" title="Linux" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +35,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
@@ -167,107 +116,65 @@
 <li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Caleb Sargeant's Docs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="index.html">Linux</a> &raquo;</li>
-        
       <li>Databases</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/computing/linux/databases.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="databases">
-<h1>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h1>
+<h1>Databases<a class="headerlink" href="#databases" title="Permalink to this headline"></a></h1>
 <div class="section" id="mysql">
-<h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline"></a></h2>
 <div class="section" id="creating-a-user">
-<h3>Creating a User<a class="headerlink" href="#creating-a-user" title="Permalink to this headline">¶</a></h3>
+<h3>Creating a User<a class="headerlink" href="#creating-a-user" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 create user <span class="s1">&#39;myuser&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="deleting-a-user">
-<h3>Deleting a User<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline">¶</a></h3>
+<h3>Deleting a User<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 drop user <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="showing-users">
-<h3>Showing Users<a class="headerlink" href="#showing-users" title="Permalink to this headline">¶</a></h3>
+<h3>Showing Users<a class="headerlink" href="#showing-users" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> user from mysql.user<span class="p">;</span>
 <span class="k">select</span> user,host from mysql.user<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="logging-in-remotely">
-<h3>Logging in Remotely<a class="headerlink" href="#logging-in-remotely" title="Permalink to this headline">¶</a></h3>
+<h3>Logging in Remotely<a class="headerlink" href="#logging-in-remotely" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can -p&#39;mypassword&#39; as well</span>
 mysql -u myuser -p -h mydbhostname.com -D mydatabase
 </pre></div>
 </div>
 </div>
 <div class="section" id="privileges">
-<h3>Privileges<a class="headerlink" href="#privileges" title="Permalink to this headline">¶</a></h3>
+<h3>Privileges<a class="headerlink" href="#privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ALL PRIVILEGES- as we saw previously, this would allow a MySQL user full access to a designated database <span class="o">(</span>or <span class="k">if</span> no database is selected, global access across the system<span class="o">)</span>
 CREATE- allows them to create new tables or databases
 DROP- allows them to them to delete tables or databases
@@ -280,7 +187,7 @@ GRANT OPTION- allows them to grant or remove other users’ privileges
 </div>
 </div>
 <div class="section" id="granting-privileges">
-<h3>Granting Privileges<a class="headerlink" href="#granting-privileges" title="Permalink to this headline">¶</a></h3>
+<h3>Granting Privileges<a class="headerlink" href="#granting-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 grant all privileges on mydb.* to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 flush privileges<span class="p">;</span>
@@ -288,7 +195,7 @@ flush privileges<span class="p">;</span>
 </div>
 </div>
 <div class="section" id="revoking-privileges">
-<h3>Revoking Privileges<a class="headerlink" href="#revoking-privileges" title="Permalink to this headline">¶</a></h3>
+<h3>Revoking Privileges<a class="headerlink" href="#revoking-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 revoke DROP on databasename.tablename from <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 flush privileges<span class="p">;</span>
@@ -296,32 +203,32 @@ flush privileges<span class="p">;</span>
 </div>
 </div>
 <div class="section" id="showing-privileges">
-<h3>Showing Privileges<a class="headerlink" href="#showing-privileges" title="Permalink to this headline">¶</a></h3>
+<h3>Showing Privileges<a class="headerlink" href="#showing-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show grants <span class="k">for</span> <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;host&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="updating-data">
-<h3>Updating Data<a class="headerlink" href="#updating-data" title="Permalink to this headline">¶</a></h3>
+<h3>Updating Data<a class="headerlink" href="#updating-data" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>newvalue1, <span class="nv">column2</span><span class="o">=</span>newvalue2, where condition<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="deleting-data">
-<h3>Deleting Data<a class="headerlink" href="#deleting-data" title="Permalink to this headline">¶</a></h3>
+<h3>Deleting Data<a class="headerlink" href="#deleting-data" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from table_name where condition<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="checking-mysql-status">
-<h3>Checking MySQL Status<a class="headerlink" href="#checking-mysql-status" title="Permalink to this headline">¶</a></h3>
+<h3>Checking MySQL Status<a class="headerlink" href="#checking-mysql-status" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service mysqld status
 ps aux <span class="p">|</span> grep mysql
 </pre></div>
 </div>
 </div>
 <div class="section" id="backup">
-<h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h3>
+<h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup directly to a remote host (zabbix is the DB name)</span>
 <span class="c1"># That pipes the mysqldump command through gzip, then to through and SSH connection. SSH on the remote side runs the ‘cat’ command to read the stdin, then redirects that to the actual file where I want it saved.</span>
 mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</span> ssh caleb.sargeant@server.example.com <span class="s2">&quot;cat &gt; zabbix.sql.gz&quot;</span>
@@ -329,12 +236,12 @@ mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</
 </div>
 </div>
 <div class="section" id="restore">
-<h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline">¶</a></h3>
+<h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline"></a></h3>
 <p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-p</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">database_name</span> <span class="pre">&lt;</span> <span class="pre">file.sql</span></code></p>
 </div>
 <div class="section" id="use">
-<h3>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h3>
+<h3>Use<a class="headerlink" href="#use" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.tutorialspoint.com/mysql/mysql-select-database.htm">https://www.tutorialspoint.com/mysql/mysql-select-database.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show databases<span class="p">;</span>
 use database<span class="p">;</span>
@@ -342,11 +249,11 @@ use database<span class="p">;</span>
 </div>
 </div>
 <div class="section" id="setting-up-replication">
-<h3>Setting up Replication<a class="headerlink" href="#setting-up-replication" title="Permalink to this headline">¶</a></h3>
+<h3>Setting up Replication<a class="headerlink" href="#setting-up-replication" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql">https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql</a></p>
 </div>
 <div class="section" id="size-of-db">
-<h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline">¶</a></h3>
+<h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;zabbix&quot;</span>,
         ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
 FROM information_schema.tables
@@ -355,7 +262,7 @@ GROUP BY table_schema<span class="p">;</span>
 </div>
 </div>
 <div class="section" id="resetting-root-password">
-<h3>Resetting Root Password<a class="headerlink" href="#resetting-root-password" title="Permalink to this headline">¶</a></h3>
+<h3>Resetting Root Password<a class="headerlink" href="#resetting-root-password" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/init.d/mysqld stop
 mysqld_safe --skip-grant-tables <span class="p">&amp;</span>
 mysql -u root
@@ -369,14 +276,14 @@ mysql&gt; quit
 </div>
 </div>
 <div class="section" id="checking-the-version">
-<h3>Checking the Version<a class="headerlink" href="#checking-the-version" title="Permalink to this headline">¶</a></h3>
+<h3>Checking the Version<a class="headerlink" href="#checking-the-version" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/8987679/how-to-retrieve-the-current-version-of-a-mysql-database-management-system-dbms</span>
 <span class="k">select</span> @@version<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="checking-database-size">
-<h3>Checking Database Size<a class="headerlink" href="#checking-database-size" title="Permalink to this headline">¶</a></h3>
+<h3>Checking Database Size<a class="headerlink" href="#checking-database-size" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database">https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;DB Name&quot;</span>,
       ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
@@ -386,7 +293,7 @@ GROUP BY table_schema<span class="p">;</span>
 </div>
 </div>
 <div class="section" id="import-database-with-progress-bar">
-<h3>Import Database with Progress Bar<a class="headerlink" href="#import-database-with-progress-bar" title="Permalink to this headline">¶</a></h3>
+<h3>Import Database with Progress Bar<a class="headerlink" href="#import-database-with-progress-bar" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://gist.github.com/infusion/492418723b6736784af1">https://gist.github.com/infusion/492418723b6736784af1</a></p>
 <p><a class="reference external" href="https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file">https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pv dump.sql.tar.gz <span class="p">|</span> tar xO <span class="p">|</span> mysql -u <span class="nv">$user</span> -p <span class="nv">$database</span>
@@ -396,7 +303,7 @@ pv sqlfile.sql <span class="p">|</span> mysql -u root -p database
 </div>
 </div>
 <div class="section" id="reinstall-mysql-after-deleting-var-lib-mysql">
-<h3>Reinstall Mysql after Deleting /var/lib/mysql<a class="headerlink" href="#reinstall-mysql-after-deleting-var-lib-mysql" title="Permalink to this headline">¶</a></h3>
+<h3>Reinstall Mysql after Deleting /var/lib/mysql<a class="headerlink" href="#reinstall-mysql-after-deleting-var-lib-mysql" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files">https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files</a></p>
 <p><a class="reference external" href="https://mariadb.com/kb/en/mysql_secure_installation/">https://mariadb.com/kb/en/mysql_secure_installation/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /var/lib/mysql
@@ -408,15 +315,15 @@ mysql_secure_installation
 </div>
 </div>
 <div class="section" id="postgresql">
-<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline">¶</a></h2>
+<h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline"></a></h2>
 <div class="section" id="deleting-rows">
-<h3>Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permalink to this headline">¶</a></h3>
+<h3>Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="selecting-rows">
-<h3>Selecting Rows<a class="headerlink" href="#selecting-rows" title="Permalink to this headline">¶</a></h3>
+<h3>Selecting Rows<a class="headerlink" href="#selecting-rows" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields">https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remember to use \G to display it nicely</span>
 <span class="k">select</span> * from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
@@ -424,20 +331,20 @@ mysql_secure_installation
 </div>
 </div>
 <div class="section" id="updating-data-in-table">
-<h3>Updating Data in Table<a class="headerlink" href="#updating-data-in-table" title="Permalink to this headline">¶</a></h3>
+<h3>Updating Data in Table<a class="headerlink" href="#updating-data-in-table" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table_name <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>value1 where condition<span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="show-tables">
-<h3>Show Tables<a class="headerlink" href="#show-tables" title="Permalink to this headline">¶</a></h3>
+<h3>Show Tables<a class="headerlink" href="#show-tables" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.postgresqltutorial.com/postgresql-show-tables/">https://www.postgresqltutorial.com/postgresql-show-tables/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\d</span>t
 </pre></div>
 </div>
 </div>
 <div class="section" id="connect-to-database">
-<h3>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline">¶</a></h3>
+<h3>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline"></a></h3>
 <p>Same as use in mysql <a class="reference external" href="https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm">https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\c</span> database<span class="p">;</span>
 </pre></div>
@@ -448,50 +355,33 @@ mysql_secure_installation
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Caleb Sargeant.
-
-    </p>
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
