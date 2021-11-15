@@ -6,3 +6,4 @@ Jenkins
   :glob:
 
   getting-started/index
+  plugins/index

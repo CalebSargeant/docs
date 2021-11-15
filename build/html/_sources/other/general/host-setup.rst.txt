@@ -107,6 +107,13 @@ List of stuff to install on a (new) Mac:
   # Install go
   brew install go
 
+  # Install Google Cloud SDK Tools
+  # https://stackoverflow.com/questions/46144267/bash-gcloud-command-not-found-on-mac
+  brew install --cask google-cloud-sdk
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+  gcloud config set app/cloud_build_timeout 4000
+
   ## Powershell Modules
   # PowerCLI for VMWARE
   Install-Module -Name VMware.PowerCLI -Scope CurrentUser
@@ -194,3 +201,13 @@ https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-usern
 .. code-block:: bash
 
   git clone git@provider.com:userName/projectName.git --config core.sshCommand="ssh -i ~/.ssh/github"
+
+Storing Credentials
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  # https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git
+  git config --global credential.helper store
+  git pull
+  # stored in ~/.git-credentials (insecure, but useful)

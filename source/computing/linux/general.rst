@@ -51,6 +51,27 @@ https://www.computerhope.com/unix/rsync.htm
   # rsync specify multiple source dirs (https://unix.stackexchange.com/questions/368210/how-to-rsync-multiple-source-folders)
   rsync -avP /src/one /src/two /src/etcetra /dst
 
+While Loop
+----------
+
+https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-while-loop-in-bash
+
+.. code-block:: bash
+
+  while true; do foo; sleep 2; done
+
+For Loop
+--------
+
+https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/103922
+
+.. code-block:: bash
+
+  # Parellelize a for loop
+  for thing in a b c d e f g; do 
+    task "$thing" &
+  done
+
 Fstab
 -----
 
@@ -120,6 +141,15 @@ Example:
      Ciphers aes256-cbc
      KexAlgorithms +diffie-hellman-group1-sha1
 
+OpenSSL
+-------
+
+.. code-block:: bash
+  
+  # https://stackoverflow.com/questions/5244129/use-rsa-private-key-to-generate-public-key
+  # Generate public key from private
+  openssl rsa -in mykey.pem -pubout > mykey.pub
+
 Disk Usage
 ----------
 
@@ -176,6 +206,26 @@ ISO to Disk
 
   sudo dd if=~/Downloads/ubuntu_something.iso of=/dev/diskN
 
+Grep
+----
+
+.. code-block:: bash
+  
+  # exclude nologin
+  grep -wv nologin /etc/passwd
+
+  # recursive lookups - https://stackoverflow.com/questions/1987926/how-do-i-grep-recursively
+  grep -r "texthere" .
+
+Tail
+----
+
+.. code-block:: bash
+
+  ## https://stackoverflow.com/questions/39615142/bash-get-last-line-from-a-variable
+  # Get last line
+  tail -n1
+
 Curl
 ----
 
@@ -197,6 +247,12 @@ https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-
 .. code-block:: bash
 
   find ~ -name foldername -type d
+
+https://stackoverflow.com/questions/5905054/how-can-i-recursively-find-all-files-in-current-and-subfolders-based-on-wildcard
+
+.. code-block:: bash
+
+  find . -name "foo*"
 
 Screen
 ------
@@ -423,6 +479,19 @@ Skel Terminal Colours
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
   . .bashrc
 
+Move a File Starting with Dash
+------------------------------
+
+.. code-block:: bash
+
+  # https://www.cyberciti.biz/faq/linuxunix-move-file-starting-with-a-dash/
+  mv -- '--bar.txt' /path/to/dest
+
+LFTP
+----
+
+https://linuxconfig.org/lftp-tutorial-on-linux-with-examples
+
 Rename a File to a Filename with Date
 -------------------------------------
 
@@ -437,6 +506,16 @@ Checking Uptime
 ---------------
 
 ``uptime``
+
+Crontab different editor
+------------------------
+
+https://www.linux.org/threads/set-your-default-editor-for-things-like-crontab-visudo-etc.5046/
+
+.. code-block:: bash
+
+  export EDITOR="nano"
+  export VISUAL="nano"
 
 TigerVNC
 --------
@@ -683,6 +762,17 @@ https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-sys
 
   ubuntu@server:~$ sudo tune2fs -l /dev/sda2 | grep created
   Filesystem created:       Mon Sep  7 06:49:22 2020
+
+List all Services
+-----------------
+
+https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/
+
+.. code-block:: bash
+
+  systemctl list-units --type=service
+  systemctl --type=service
+
 
 Temporary Failure in Name Resolution
 ------------------------------------
@@ -941,3 +1031,20 @@ Restart SSSD
 You can now log in to the host using your domain credentials
 
 To add Duo Authentication push notifications, see `here <https://docs.calebsargeant.com/en/latest/computing/cloud/duo.html#unix-ssh>`_.
+
+Gcloud
+------
+
+Installation
+^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-installing-google-cloud-sdk
+
+.. code-block:: bash
+  
+  curl https://sdk.cloud.google.com | bash
+  # The next line updates PATH for the Google Cloud SDK.
+  source '[path-to-my-home]/google-cloud-sdk/path.bash.inc'
+  # The next line enables bash completion for gcloud.
+  source '[path-to-my-home]/google-cloud-sdk/completion.bash.inc'
+

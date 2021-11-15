@@ -60,6 +60,7 @@ Table of Contents
   :caption: Computing
 
   computing/ansible/index
+  computing/bamboo
   computing/cloud/index
   computing/containerisation/index
   computing/jenkins/index
@@ -73,7 +74,6 @@ Table of Contents
 
   programming/bash
   programming/python/index
-  programming/golang/index
 
 .. toctree::
   :maxdepth: 2

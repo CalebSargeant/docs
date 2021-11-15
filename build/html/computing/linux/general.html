@@ -99,6 +99,7 @@
 <p class="caption" role="heading"><span class="caption-text">Computing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
@@ -107,15 +108,20 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#apt-yum-cheat-sheets">Apt &amp; Yum Cheat Sheets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rsync">Rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while-loop">While Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-loop">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fstab">Fstab</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#automounting">Automounting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openssl">OpenSSL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#disk-usage">Disk Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iso-to-disk">ISO to Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grep">Grep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tail">Tail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#curl">Curl</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
@@ -141,9 +147,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#skel-terminal-colours">Skel Terminal Colours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#move-a-file-starting-with-dash">Move a File Starting with Dash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lftp">LFTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rename-a-file-to-a-filename-with-date">Rename a File to a Filename with Date</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-cpu-architecture">Checking CPU Architecture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#checking-uptime">Checking Uptime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crontab-different-editor">Crontab different editor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tigervnc">TigerVNC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#old-school-lamp">Old School LAMP</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
@@ -156,6 +165,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#age-of-system">Age of System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-all-services">List all Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#temporary-failure-in-name-resolution">Temporary Failure in Name Resolution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#change-hosname">Change Hosname</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#google-authenticator">Google Authenticator</a><ul>
@@ -168,6 +178,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#sssd">SSSD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#gcloud">Gcloud</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
@@ -176,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
@@ -188,7 +203,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../programming/golang/index.html">Golang</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -307,6 +321,23 @@ rsync -avP /src/one /src/two /src/etcetra /dst
 </pre></div>
 </div>
 </div>
+<div class="section" id="while-loop">
+<h2>While Loop<a class="headerlink" href="#while-loop" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-while-loop-in-bash">https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-while-loop-in-bash</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> foo<span class="p">;</span> sleep <span class="m">2</span><span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-loop">
+<h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/103922">https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/103922</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parellelize a for loop</span>
+<span class="k">for</span> thing <span class="k">in</span> a b c d e f g<span class="p">;</span> <span class="k">do</span>
+  task <span class="s2">&quot;</span><span class="nv">$thing</span><span class="s2">&quot;</span> <span class="p">&amp;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="fstab">
 <h2>Fstab<a class="headerlink" href="#fstab" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="automounting">
@@ -370,6 +401,14 @@ nano /boot/cmdline.txt
 </pre></div>
 </div>
 </div>
+<div class="section" id="openssl">
+<h2>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/5244129/use-rsa-private-key-to-generate-public-key</span>
+<span class="c1"># Generate public key from private</span>
+openssl rsa -in mykey.pem -pubout &gt; mykey.pub
+</pre></div>
+</div>
+</div>
 <div class="section" id="disk-usage">
 <h2>Disk Usage<a class="headerlink" href="#disk-usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Human readable output</span>
@@ -423,6 +462,24 @@ sudo mkfs.ext4 /dev/sdc1
 </pre></div>
 </div>
 </div>
+<div class="section" id="grep">
+<h2>Grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># exclude nologin</span>
+grep -wv nologin /etc/passwd
+
+<span class="c1"># recursive lookups - https://stackoverflow.com/questions/1987926/how-do-i-grep-recursively</span>
+grep -r <span class="s2">&quot;texthere&quot;</span> .
+</pre></div>
+</div>
+</div>
+<div class="section" id="tail">
+<h2>Tail<a class="headerlink" href="#tail" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## https://stackoverflow.com/questions/39615142/bash-get-last-line-from-a-variable</span>
+<span class="c1"># Get last line</span>
+tail -n1
+</pre></div>
+</div>
+</div>
 <div class="section" id="curl">
 <h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h2>
 <p>Uploading files: <a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
@@ -438,6 +495,10 @@ sudo mkfs.ext4 /dev/sdc1
 <h2>Find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name">https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find ~ -name foldername -type d
+</pre></div>
+</div>
+<p><a class="reference external" href="https://stackoverflow.com/questions/5905054/how-can-i-recursively-find-all-files-in-current-and-subfolders-based-on-wildcard">https://stackoverflow.com/questions/5905054/how-can-i-recursively-find-all-files-in-current-and-subfolders-based-on-wildcard</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find . -name <span class="s2">&quot;foo*&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -640,6 +701,17 @@ nano .bashrc
 </pre></div>
 </div>
 </div>
+<div class="section" id="move-a-file-starting-with-dash">
+<h2>Move a File Starting with Dash<a class="headerlink" href="#move-a-file-starting-with-dash" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.cyberciti.biz/faq/linuxunix-move-file-starting-with-a-dash/</span>
+mv -- <span class="s1">&#39;--bar.txt&#39;</span> /path/to/dest
+</pre></div>
+</div>
+</div>
+<div class="section" id="lftp">
+<h2>LFTP<a class="headerlink" href="#lftp" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://linuxconfig.org/lftp-tutorial-on-linux-with-examples">https://linuxconfig.org/lftp-tutorial-on-linux-with-examples</a></p>
+</div>
 <div class="section" id="rename-a-file-to-a-filename-with-date">
 <h2>Rename a File to a Filename with Date<a class="headerlink" href="#rename-a-file-to-a-filename-with-date" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">&lt;name_of_file&gt;</span> <span class="pre">&lt;new_name_of_file&gt;.`date</span> <span class="pre">-I`</span></code></p>
@@ -651,6 +723,14 @@ nano .bashrc
 <div class="section" id="checking-uptime">
 <h2>Checking Uptime<a class="headerlink" href="#checking-uptime" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">uptime</span></code></p>
+</div>
+<div class="section" id="crontab-different-editor">
+<h2>Crontab different editor<a class="headerlink" href="#crontab-different-editor" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.linux.org/threads/set-your-default-editor-for-things-like-crontab-visudo-etc.5046/">https://www.linux.org/threads/set-your-default-editor-for-things-like-crontab-visudo-etc.5046/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="s2">&quot;nano&quot;</span>
+<span class="nb">export</span> <span class="nv">VISUAL</span><span class="o">=</span><span class="s2">&quot;nano&quot;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="tigervnc">
 <h2>TigerVNC<a class="headerlink" href="#tigervnc" title="Permalink to this headline">¶</a></h2>
@@ -860,6 +940,14 @@ Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&
 <p><a class="reference external" href="https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation">https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@server:~$ sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep created
 Filesystem created:       Mon Sep  <span class="m">7</span> <span class="m">06</span>:49:22 <span class="m">2020</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-all-services">
+<h2>List all Services<a class="headerlink" href="#list-all-services" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/">https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl list-units --type<span class="o">=</span>service
+systemctl --type<span class="o">=</span>service
 </pre></div>
 </div>
 </div>
@@ -1092,6 +1180,20 @@ nano /etc/sssd/sssd.conf
 </div>
 <p>You can now log in to the host using your domain credentials</p>
 <p>To add Duo Authentication push notifications, see <a class="reference external" href="https://docs.calebsargeant.com/en/latest/computing/cloud/duo.html#unix-ssh">here</a>.</p>
+</div>
+</div>
+<div class="section" id="gcloud">
+<h2>Gcloud<a class="headerlink" href="#gcloud" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-installing-google-cloud-sdk">https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-installing-google-cloud-sdk</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://sdk.cloud.google.com <span class="p">|</span> bash
+<span class="c1"># The next line updates PATH for the Google Cloud SDK.</span>
+<span class="nb">source</span> <span class="s1">&#39;[path-to-my-home]/google-cloud-sdk/path.bash.inc&#39;</span>
+<span class="c1"># The next line enables bash completion for gcloud.</span>
+<span class="nb">source</span> <span class="s1">&#39;[path-to-my-home]/google-cloud-sdk/completion.bash.inc&#39;</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
