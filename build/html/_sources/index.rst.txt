@@ -74,7 +74,6 @@ Table of Contents
 
   programming/bash
   programming/python/index
-  programming/golang/index
 
 .. toctree::
   :maxdepth: 2
