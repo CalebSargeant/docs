@@ -14,3 +14,22 @@ https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-fro
   # becomes
   iptables -D
 
+Port Forwarding
+---------------
+
+.. code-block:: bash
+
+  echo '1' | sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
+  iptables -t nat -A PREROUTING -p tcp --dport 20443 -j DNAT --to-destination 10.8.8.188:443
+  iptables -A FORWARD -p tcp -s 10.8.8.188 —dport 443 -j ACCEPT
+  iptables -t nat -A POSTROUTING -j MASQUERADE
+
+Persistent Rules
+----------------
+
+https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule
+
+.. code-block:: bash
+
+  netfilter-persistent save
+  netfilter-persistent reload
