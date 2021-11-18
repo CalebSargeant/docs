@@ -245,3 +245,12 @@ Same as use in mysql https://www.tutorialspoint.com/postgresql/postgresql_select
 .. code-block:: bash
 
   \c database;
+
+Backup Database
+^^^^^^^^^^^^^^^
+
+https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-postgresql-db-backup-and-test
+
+.. code-block:: bash
+
+  pg_dumpall -U postgres -h localhost --clean --file=dump.sql

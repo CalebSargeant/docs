@@ -1,6 +1,12 @@
 Azure
 =====
 
+SFTP Server using Storage Account
+---------------------------------
+
+* Create Storage Account
+* Deploy template https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/
+
 Sentinal
 --------
 

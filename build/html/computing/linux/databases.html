@@ -84,6 +84,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#updating-data-in-table">Updating Data in Table</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#show-tables">Show Tables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-to-database">Connect to Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#backup-database">Backup Database</a></li>
 </ul>
 </li>
 </ul>
@@ -98,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -347,6 +349,13 @@ mysql_secure_installation
 <h3>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline"></a></h3>
 <p>Same as use in mysql <a class="reference external" href="https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm">https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\c</span> database<span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="backup-database">
+<h3>Backup Database<a class="headerlink" href="#backup-database" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-postgresql-db-backup-and-test">https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-postgresql-db-backup-and-test</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pg_dumpall -U postgres -h localhost --clean --file<span class="o">=</span>dump.sql
 </pre></div>
 </div>
 </div>

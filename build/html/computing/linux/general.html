@@ -71,7 +71,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#iso-to-disk">ISO to Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#grep">Grep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tail">Tail</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#curl">Curl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sftp">SFTP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pass-variable-into-sftp">Pass Variable into SFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#curl">Curl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uploading-files">Uploading Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#curl-to-sftp">Curl to SFTP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tcpdump">TCPDump</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
@@ -142,6 +151,7 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -387,14 +397,42 @@ tail -n1
 </pre></div>
 </div>
 </div>
+<div class="section" id="sftp">
+<h2>SFTP<a class="headerlink" href="#sftp" title="Permalink to this headline"></a></h2>
+<div class="section" id="pass-variable-into-sftp">
+<h3>Pass Variable into SFTP<a class="headerlink" href="#pass-variable-into-sftp" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/228859/how-do-i-pass-a-variable-into-sftp">https://unix.stackexchange.com/questions/228859/how-do-i-pass-a-variable-into-sftp</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sftp -i key.pem -b - un@server <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;get /some/path/with/</span><span class="nv">$yr</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="curl">
 <h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline"></a></h2>
-<p>Uploading files: <a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
+<div class="section" id="uploading-files">
+<h3>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://EXAMPLE <span class="se">\</span>
   -F <span class="s1">&#39;one=sometext&#39;</span> <span class="se">\</span>
   -F <span class="s1">&#39;two=someothertext&#39;</span> <span class="se">\</span>
   -F <span class="s1">&#39;three=somemoretext&#39;</span> <span class="se">\</span>
   -F <span class="s1">&#39;doc=@/Users/caleb/Documents/Test.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="curl-to-sftp">
+<h3>Curl to SFTP<a class="headerlink" href="#curl-to-sftp" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/31730476/curl-fails-on-sftp-password-authentication">https://stackoverflow.com/questions/31730476/curl-fails-on-sftp-password-authentication</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v --insecure --user username:urlencodedPassword sftp://somedomain.com
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tcpdump">
+<h2>TCPDump<a class="headerlink" href="#tcpdump" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://danielmiessler.com/study/tcpdump/">https://danielmiessler.com/study/tcpdump/</a></p>
+<p>Get all https traffic:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tcpdump -nnSX port <span class="m">443</span>
 </pre></div>
 </div>
 </div>

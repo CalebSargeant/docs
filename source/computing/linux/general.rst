@@ -226,10 +226,25 @@ Tail
   # Get last line
   tail -n1
 
+SFTP
+----
+
+Pass Variable into SFTP
+^^^^^^^^^^^^^^^^^^^^^^^
+
+https://unix.stackexchange.com/questions/228859/how-do-i-pass-a-variable-into-sftp
+
+.. code-block:: bash
+
+  sftp -i key.pem -b - un@server <<< "get /some/path/with/$yr"
+
 Curl
 ----
 
-Uploading files: https://ec.haxx.se/usingcurl/usingcurl-uploads
+Uploading Files
+^^^^^^^^^^^^^^^
+
+https://ec.haxx.se/usingcurl/usingcurl-uploads
 
 .. code-block:: bash
 
@@ -238,6 +253,26 @@ Uploading files: https://ec.haxx.se/usingcurl/usingcurl-uploads
     -F 'two=someothertext' \
     -F 'three=somemoretext' \
     -F 'doc=@/Users/caleb/Documents/Test.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+
+Curl to SFTP
+^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/31730476/curl-fails-on-sftp-password-authentication
+
+.. code-block:: bash
+
+  curl -v --insecure --user username:urlencodedPassword sftp://somedomain.com
+
+TCPDump
+-------
+
+https://danielmiessler.com/study/tcpdump/
+
+Get all https traffic:
+
+.. code-block:: bash
+
+  tcpdump -nnSX port 443
 
 Find
 ----

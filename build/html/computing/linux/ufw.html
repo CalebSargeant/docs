@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IPTables &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+  <title>UFW &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,8 +17,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="KVM" href="kvm.html" />
-    <link rel="prev" title="General" href="general.html" /> 
+    <link rel="next" title="Network Management" href="network-management/index.html" />
+    <link rel="prev" title="Storage" href="storage.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,11 +55,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">IPTables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#deleting-a-rule">Deleting a Rule</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
@@ -68,7 +64,12 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">UFW</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-ufw">Disable UFW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status">Status</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -102,9 +103,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Linux</a> &raquo;</li>
-      <li>IPTables</li>
+      <li>UFW</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/computing/linux/iptables.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/computing/linux/ufw.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -112,25 +113,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="iptables">
-<h1>IPTables<a class="headerlink" href="#iptables" title="Permalink to this headline"></a></h1>
-<div class="section" id="deleting-a-rule">
-<h2>Deleting a Rule<a class="headerlink" href="#deleting-a-rule" title="Permalink to this headline"></a></h2>
-<p><a class="reference external" href="https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables">https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace -A with -D</span>
-iptables -A
-
-<span class="c1"># becomes</span>
-iptables -D
+  <div class="section" id="ufw">
+<h1>UFW<a class="headerlink" href="#ufw" title="Permalink to this headline"></a></h1>
+<div class="section" id="port-forwarding">
+<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.cyberciti.biz/faq/how-to-configure-ufw-to-forward-port-80443-to-internal-server-hosted-on-lan/">https://www.cyberciti.biz/faq/how-to-configure-ufw-to-forward-port-80443-to-internal-server-hosted-on-lan/</a></p>
+<p><a class="reference external" href="https://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward">https://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A PREROUTING -i eth0 -p tcp -d <span class="o">{</span>PUBLIC_IP<span class="o">}</span> --dport <span class="m">443</span> -j DNAT --to <span class="o">{</span>INTERNAL_IP<span class="o">}</span>:443
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+vi /etc/ufw/before.rules
+    *nat
+    :PREROUTING ACCEPT <span class="o">[</span><span class="m">0</span>:0<span class="o">]</span>
+    <span class="c1"># forward 202.54.1.1  port 80 to 192.168.1.100:80</span>
+    <span class="c1"># forward 202.54.1.1  port 443 to 192.168.1.100:443</span>
+    -A PREROUTING -i eth0 -d <span class="m">202</span>.54.1.1   -p tcp --dport <span class="m">80</span> -j  DNAT --to-destination <span class="m">192</span>.168.1.100:80
+    -A PREROUTING -i eth0 -d <span class="m">202</span>.54.1.1   -p tcp --dport <span class="m">443</span> -j  DNAT --to-destination <span class="m">192</span>.168.1.100:443
+    <span class="c1"># setup routing</span>
+    -A POSTROUTING -s <span class="m">192</span>.168.1.0/24 ! -d <span class="m">192</span>.168.1.0/24 -j MASQUERADE
+    COMMIT
 </pre></div>
 </div>
 </div>
-<div class="section" id="port-forwarding">
-<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;1&#39;</span> <span class="p">|</span> sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
-iptables -t nat -A PREROUTING -p tcp --dport <span class="m">20443</span> -j DNAT --to-destination <span class="m">10</span>.8.8.188:443
-iptables -A FORWARD -p tcp -s <span class="m">10</span>.8.8.188 —dport <span class="m">443</span> -j ACCEPT
-iptables -t nat -A POSTROUTING -j MASQUERADE
+<div class="section" id="disable-ufw">
+<h2>Disable UFW<a class="headerlink" href="#disable-ufw" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://askubuntu.com/questions/275998/can-i-uninstall-ufw-completely">https://askubuntu.com/questions/275998/can-i-uninstall-ufw-completely</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ufw disable
+apt-get remove ufw
+apt-get purge ufw
+</pre></div>
+</div>
+</div>
+<div class="section" id="status">
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://serverfault.com/questions/516838/where-are-the-logs-for-ufw-located-on-ubuntu-server">https://serverfault.com/questions/516838/where-are-the-logs-for-ufw-located-on-ubuntu-server</a></p>
+<p><a class="reference external" href="https://fedingo.com/how-to-check-ufw-log-status/">https://fedingo.com/how-to-check-ufw-log-status/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ufw status verbose
+ufw logging on
 </pre></div>
 </div>
 </div>
@@ -140,8 +158,8 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kvm.html" class="btn btn-neutral float-right" title="KVM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="storage.html" class="btn btn-neutral float-left" title="Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="network-management/index.html" class="btn btn-neutral float-right" title="Network Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
