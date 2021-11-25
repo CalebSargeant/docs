@@ -154,6 +154,25 @@ Resetting Root Password
   /etc/init.d/mysqld stop
   /etc/init.d/mysqld start
 
+Resetting User Password
+^^^^^^^^^^^^^^^^^^^^^^^
+
+https://linuxize.com/post/how-to-change-mysql-user-password/
+
+.. code-block:: bash
+
+  # MySQL v5.7.6 or later / MariaDB 10.1.20 or later
+  ALTER USER 'user-name'@'localhost' IDENTIFIED BY 'NEW_USER_PASSWORD';
+  FLUSH PRIVILEGES;
+
+  # If the above didn't work:
+  UPDATE mysql.user SET authentication_string = PASSWORD('NEW_USER_PASSWORD') WHERE User = 'user-name' AND Host = 'localhost';
+  FLUSH PRIVILEGES;
+
+  # MySQL v5.7.5 or earlier / MariaDB 10.1.20 or earlier
+  SET PASSWORD FOR 'user-name'@'localhost' = PASSWORD('NEW_USER_PASSWORD');
+  FLUSH PRIVILEGES;
+
 Checking the Version
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -199,6 +218,41 @@ https://mariadb.com/kb/en/mysql_secure_installation/
   mkdir /var/lib/mysql
   mkdir /var/lib/mysql/mysql
   chown -R mysql:mysql /var/lib/mysql
+  mysql_secure_installation
+
+Could not open mysql.plugin table
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-some-plugins-may-be-not-loaded/46147066
+
+.. code-block:: bash
+
+  systemctl stop mariadb
+  # This will delete all database data!
+  rm -R /var/lib/mysql/*
+  mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+  systemctl start mariadb
+
+Change MySQL Temp Folder
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/49899160/change-mysql-tmp-to-somedrive-mysqltmp-in-centos-7-for-error-code-28
+
+.. code-block:: bash
+
+  nano /etc/mysqld.cnf
+    [mysqld]
+    tmpdir=/var/lib/mysql/tmp
+  mysqld --verbose --help | grep tmp
+
+Installing MySQL
+^^^^^^^^^^^^^^^^
+
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+
+.. code-block:: bash
+
+  apt install mysql-server
   mysql_secure_installation
 
 PostgreSQL

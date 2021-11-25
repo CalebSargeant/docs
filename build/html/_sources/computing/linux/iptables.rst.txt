@@ -24,3 +24,12 @@ Port Forwarding
   iptables -A FORWARD -p tcp -s 10.8.8.188 —dport 443 -j ACCEPT
   iptables -t nat -A POSTROUTING -j MASQUERADE
 
+Persistent Rules
+----------------
+
+https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule
+
+.. code-block:: bash
+
+  netfilter-persistent save
+  netfilter-persistent reload

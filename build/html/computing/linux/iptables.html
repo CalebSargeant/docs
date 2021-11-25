@@ -58,6 +58,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IPTables</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#deleting-a-rule">Deleting a Rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistent-rules">Persistent Rules</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -131,6 +132,14 @@ iptables -D
 iptables -t nat -A PREROUTING -p tcp --dport <span class="m">20443</span> -j DNAT --to-destination <span class="m">10</span>.8.8.188:443
 iptables -A FORWARD -p tcp -s <span class="m">10</span>.8.8.188 —dport <span class="m">443</span> -j ACCEPT
 iptables -t nat -A POSTROUTING -j MASQUERADE
+</pre></div>
+</div>
+</div>
+<div class="section" id="persistent-rules">
+<h2>Persistent Rules<a class="headerlink" href="#persistent-rules" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule">https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netfilter-persistent save
+netfilter-persistent reload
 </pre></div>
 </div>
 </div>

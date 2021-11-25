@@ -72,10 +72,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#setting-up-replication">Setting up Replication</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#resetting-user-password">Resetting User Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-database-size">Checking Database Size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#import-database-with-progress-bar">Import Database with Progress Bar</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reinstall-mysql-after-deleting-var-lib-mysql">Reinstall Mysql after Deleting /var/lib/mysql</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#could-not-open-mysql-plugin-table">Could not open mysql.plugin table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-mysql-temp-folder">Change MySQL Temp Folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-mysql">Installing MySQL</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a><ul>
@@ -277,6 +281,23 @@ mysql&gt; quit
 </pre></div>
 </div>
 </div>
+<div class="section" id="resetting-user-password">
+<h3>Resetting User Password<a class="headerlink" href="#resetting-user-password" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://linuxize.com/post/how-to-change-mysql-user-password/">https://linuxize.com/post/how-to-change-mysql-user-password/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># MySQL v5.7.6 or later / MariaDB 10.1.20 or later</span>
+ALTER USER <span class="s1">&#39;user-name&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;NEW_USER_PASSWORD&#39;</span><span class="p">;</span>
+FLUSH PRIVILEGES<span class="p">;</span>
+
+<span class="c1"># If the above didn&#39;t work:</span>
+UPDATE mysql.user SET <span class="nv">authentication_string</span> <span class="o">=</span> PASSWORD<span class="o">(</span><span class="s1">&#39;NEW_USER_PASSWORD&#39;</span><span class="o">)</span> WHERE <span class="nv">User</span> <span class="o">=</span> <span class="s1">&#39;user-name&#39;</span> AND <span class="nv">Host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+FLUSH PRIVILEGES<span class="p">;</span>
+
+<span class="c1"># MySQL v5.7.5 or earlier / MariaDB 10.1.20 or earlier</span>
+SET PASSWORD FOR <span class="s1">&#39;user-name&#39;</span>@<span class="s1">&#39;localhost&#39;</span> <span class="o">=</span> PASSWORD<span class="o">(</span><span class="s1">&#39;NEW_USER_PASSWORD&#39;</span><span class="o">)</span><span class="p">;</span>
+FLUSH PRIVILEGES<span class="p">;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="checking-the-version">
 <h3>Checking the Version<a class="headerlink" href="#checking-the-version" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/8987679/how-to-retrieve-the-current-version-of-a-mysql-database-management-system-dbms</span>
@@ -311,6 +332,35 @@ pv sqlfile.sql <span class="p">|</span> mysql -u root -p database
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /var/lib/mysql
 mkdir /var/lib/mysql/mysql
 chown -R mysql:mysql /var/lib/mysql
+mysql_secure_installation
+</pre></div>
+</div>
+</div>
+<div class="section" id="could-not-open-mysql-plugin-table">
+<h3>Could not open mysql.plugin table<a class="headerlink" href="#could-not-open-mysql-plugin-table" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-some-plugins-may-be-not-loaded/46147066">https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-some-plugins-may-be-not-loaded/46147066</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop mariadb
+<span class="c1"># This will delete all database data!</span>
+rm -R /var/lib/mysql/*
+mysql_install_db --user<span class="o">=</span>mysql --basedir<span class="o">=</span>/usr --datadir<span class="o">=</span>/var/lib/mysql
+systemctl start mariadb
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-mysql-temp-folder">
+<h3>Change MySQL Temp Folder<a class="headerlink" href="#change-mysql-temp-folder" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/49899160/change-mysql-tmp-to-somedrive-mysqltmp-in-centos-7-for-error-code-28">https://stackoverflow.com/questions/49899160/change-mysql-tmp-to-somedrive-mysqltmp-in-centos-7-for-error-code-28</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/mysqld.cnf
+  <span class="o">[</span>mysqld<span class="o">]</span>
+  <span class="nv">tmpdir</span><span class="o">=</span>/var/lib/mysql/tmp
+mysqld --verbose --help <span class="p">|</span> grep tmp
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-mysql">
+<h3>Installing MySQL<a class="headerlink" href="#installing-mysql" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install mysql-server
 mysql_secure_installation
 </pre></div>
 </div>

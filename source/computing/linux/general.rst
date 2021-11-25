@@ -15,6 +15,55 @@ https://blog.packagecloud.io:
 
 :download:`Yum Cheat Sheet <_docs/Yum Cheat Sheet - Packagecloud Blog.pdf>`
 
+Nmap
+----
+
+https://phoenixnap.com/kb/nmap-scan-open-ports
+
+.. code-block:: bash
+
+  # Scan a host
+  nmap www.hostname.com
+
+  # Scan a range
+  nmap 192.168.0.1-10
+
+  # Scan a subnet
+  nmap 192.168.0.1/24
+
+  # Scan a list of hosts
+  nmap -iL textlist.txt
+
+  # Scan a port
+  nmap -p 80 192.168.0.1
+
+  # Scan a range of ports
+  nmap -p 1-200 192.168.0.1
+
+  # Fast scan most common ports
+  nmap -F 192.168.0.1
+
+  # Scan all ports
+  nmap -p- 192.168.0.1
+
+  # Scan using TCP connect (takes longer but more likely to connect)
+  nmap -sT 192.168.0.1
+
+  # Scan default SYN scan (tests by performing only half the TCP handshake)
+  nmap -sS 192.168.0.1
+
+  # Scan UDP ports
+  nmap -sU -p 80,130,255 192.168.0.1
+
+  # Bypass host discovery (host discovery uses ping, but many firewalls don't respond to ping. This runs the test without waiting for ping response)
+  nmap -Pn -F 192.168.0.1
+
+  # Detect OS
+  nmap -A 192.168.0.1
+
+  # Scan for services that might be using different ports
+  nmap -sV 192.168.0.1
+
 Rsync
 -----
 
@@ -1082,4 +1131,37 @@ https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-inst
   source '[path-to-my-home]/google-cloud-sdk/path.bash.inc'
   # The next line enables bash completion for gcloud.
   source '[path-to-my-home]/google-cloud-sdk/completion.bash.inc'
+
+Find the PID Using Port
+-----------------------
+
+https://unix.stackexchange.com/questions/106561/finding-the-pid-of-the-process-using-a-specific-port
+
+.. code-block:: bash
+
+  sudo ss -lptn 'sport = :80'
+  sudo netstat -nlp | grep :80
+  sudo lsof -n -i :80 | grep LISTEN
+
+Unmounting a Busy Device
+------------------------
+
+https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device
+
+.. code-block:: bash
+
+  umount -l /PATH/OF/BUSY-DEVICE
+  umount -f /PATH/OF/BUSY-NFS (NETWORK-FILE-SYSTEM)
+
+
+Ubuntu Resize Logical Volume
+----------------------------
+
+https://askubuntu.com/questions/1269493/ubuntu-server-20-04-1-lts-not-all-disk-space-was-allocated-during-installation
+
+.. code-block:: bash
+
+  vgdisplay
+  lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+  resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
