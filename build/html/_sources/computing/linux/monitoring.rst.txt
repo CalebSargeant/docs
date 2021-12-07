@@ -73,3 +73,19 @@ Add the *Media* to the Administrator.
     :width: 663px
     :align: center
     :height: 424px
+
+Nagios
+------
+
+Install Nagios Client on Ubuntu
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://tecadmin.net/how-to-install-nrpe-on-ubuntu-20-04/
+
+.. code-block:: bash
+
+  apt update
+  apt install nagios-nrpe-server nagios-plugins
+  nano /etc/nagios/nrpe.cfg
+    allowed_hosts=127.0.0.1, 192.168.1.100
+  systemctl restart nagios-nrpe-server 

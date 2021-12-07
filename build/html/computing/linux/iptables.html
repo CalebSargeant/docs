@@ -56,9 +56,16 @@
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IPTables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-ports">Multiple Ports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-rule">Adding a Rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#allowing-incoming-traffic-after-changing-default-policy">Allowing Incoming Traffic after Changing Default Policy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deleting-a-rule">Deleting a Rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#persistent-rules">Persistent Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-rules">Listing Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#allow-only-certain-ip-ranges">Allow Only Certain IP Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -115,6 +122,37 @@
              
   <div class="section" id="iptables">
 <h1>IPTables<a class="headerlink" href="#iptables" title="Permalink to this headline"></a></h1>
+<div class="section" id="multiple-ports">
+<h2>Multiple Ports<a class="headerlink" href="#multiple-ports" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://serverfault.com/questions/353130/iptables-and-multiple-ports">https://serverfault.com/questions/353130/iptables-and-multiple-ports</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --match multiport --dports <span class="m">110</span>,143,993,995 -j ACCEPT
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-a-rule">
+<h2>Adding a Rule<a class="headerlink" href="#adding-a-rule" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address">https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp -s <span class="m">192</span>.168.0.0/24 --dport <span class="m">22</span> -j ACCEPT
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command">https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --dport <span class="m">22</span> -m comment --comment <span class="s2">&quot;allow ssh&quot;</span>
+iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
+iptables -A OUTPUT -p udp --dport <span class="m">53</span> -j ACCEPT
+</pre></div>
+</div>
+</div>
+<div class="section" id="allowing-incoming-traffic-after-changing-default-policy">
+<h2>Allowing Incoming Traffic after Changing Default Policy<a class="headerlink" href="#allowing-incoming-traffic-after-changing-default-policy" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules">https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules</a>
+<a class="reference external" href="https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/">https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+</pre></div>
+</div>
+</div>
 <div class="section" id="deleting-a-rule">
 <h2>Deleting a Rule<a class="headerlink" href="#deleting-a-rule" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables">https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables</a></p>
@@ -140,6 +178,37 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 <p><a class="reference external" href="https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule">https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netfilter-persistent save
 netfilter-persistent reload
+</pre></div>
+</div>
+<p><a class="reference external" href="https://upcloud.com/community/tutorials/configure-iptables-ubuntu/">https://upcloud.com/community/tutorials/configure-iptables-ubuntu/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables-save &gt; /etc/iptables/rules.v4
+</pre></div>
+</div>
+</div>
+<div class="section" id="listing-rules">
+<h2>Listing Rules<a class="headerlink" href="#listing-rules" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher">https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -v -L
+</pre></div>
+</div>
+</div>
+<div class="section" id="allow-only-certain-ip-ranges">
+<h2>Allow Only Certain IP Ranges<a class="headerlink" href="#allow-only-certain-ip-ranges" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables">https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -i lo -m comment --comment <span class="s2">&quot;Allow loopback connections&quot;</span> -j ACCEPT
+iptables -A INPUT -p icmp -m comment --comment <span class="s2">&quot;Allow Ping to work as expected&quot;</span> -j ACCEPT
+iptables -A INPUT -s <span class="m">192</span>.168.1.0/24 -j ACCEPT
+iptables -A INPUT -s <span class="m">198</span>.51.100.0 -j ACCEPT
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A INPUT -j LOG --log-prefix <span class="s2">&quot;Dropped INPUT Packet: &quot;</span>
+-A FORWARD -j LOG --log-prefix <span class="s2">&quot;Dropped FORWARD Packet: &quot;</span>
 </pre></div>
 </div>
 </div>

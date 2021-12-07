@@ -62,6 +62,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#slack-alerting">Slack Alerting</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#nagios">Nagios</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-nagios-client-on-ubuntu">Install Nagios Client on Ubuntu</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
@@ -70,6 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -144,6 +149,20 @@ Create <code class="docutils literal notranslate"><span class="pre">{ZABBIX.SERV
 <a class="reference internal image-reference" href="../../_images/zabbix-slack-7.png"><img alt="../../_images/zabbix-slack-7.png" class="align-center" src="../../_images/zabbix-slack-7.png" style="width: 663px; height: 424px;" /></a>
 <p>Add the <em>Media</em> to the Administrator.</p>
 <a class="reference internal image-reference" href="../../_images/zabbix-slack-8.png"><img alt="../../_images/zabbix-slack-8.png" class="align-center" src="../../_images/zabbix-slack-8.png" style="width: 663px; height: 424px;" /></a>
+</div>
+</div>
+<div class="section" id="nagios">
+<h2>Nagios<a class="headerlink" href="#nagios" title="Permalink to this headline"></a></h2>
+<div class="section" id="install-nagios-client-on-ubuntu">
+<h3>Install Nagios Client on Ubuntu<a class="headerlink" href="#install-nagios-client-on-ubuntu" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://tecadmin.net/how-to-install-nrpe-on-ubuntu-20-04/">https://tecadmin.net/how-to-install-nrpe-on-ubuntu-20-04/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt update
+apt install nagios-nrpe-server nagios-plugins
+nano /etc/nagios/nrpe.cfg
+  <span class="nv">allowed_hosts</span><span class="o">=</span><span class="m">127</span>.0.0.1, <span class="m">192</span>.168.1.100
+systemctl restart nagios-nrpe-server
+</pre></div>
+</div>
 </div>
 </div>
 </div>

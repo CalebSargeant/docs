@@ -351,6 +351,13 @@ https://linuxize.com/post/how-to-use-linux-screen/
   # Go into screen called caleb
   screen -r -d caleb
 
+https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions
+
+.. code-block:: bash
+
+  screen -ls
+  ls -laR /var/run/screen
+
 Generating SSH Keys
 -------------------
 
