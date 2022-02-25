@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raspberry Pi &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -74,6 +75,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -117,10 +119,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="raspberry-pi">
+  <section id="raspberry-pi">
 <h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline"></a></h1>
 <p>All Raspberry Pi-related stuff.</p>
-<div class="section" id="writing-sd-card">
+<section id="writing-sd-card">
 <h2>Writing SD Card<a class="headerlink" href="#writing-sd-card" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">https://www.raspberrypi.org/documentation/installation/installing-images/mac.md</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List disks to find SD card disk number (diskN)</span>
@@ -136,8 +138,8 @@ sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if<
 sudo diskutil eject /dev/rdiskN
 </pre></div>
 </div>
-</div>
-<div class="section" id="firmware-update">
+</section>
+<section id="firmware-update">
 <h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md">https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md</a></p>
 <p><a class="reference external" href="https://elinux.org/R-Pi_Troubleshooting#Updating_firmware">https://elinux.org/R-Pi_Troubleshooting#Updating_firmware</a></p>
@@ -145,8 +147,8 @@ sudo diskutil eject /dev/rdiskN
 sudo reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="bluetooth-speaker">
+</section>
+<section id="bluetooth-speaker">
 <h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/forums/viewtopic.php?t=235519">https://www.raspberrypi.org/forums/viewtopic.php?t=235519</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name">https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name</a></p>
@@ -233,7 +235,7 @@ sudo nano /etc/modprobe.d/blacklist-bluetooth.conf
 sudo reboot
 </pre></div>
 </div>
-<div class="section" id="audio-config">
+<section id="audio-config">
 <h3>Audio Config<a class="headerlink" href="#audio-config" title="Permalink to this headline"></a></h3>
 <p>Adjusting Volume:</p>
 <p><a class="reference external" href="https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line">https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line</a></p>
@@ -241,8 +243,8 @@ sudo reboot
 <p>Change Audio Output Device:</p>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/audio-config.md">https://www.raspberrypi.org/documentation/configuration/audio-config.md</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> &gt; Advanced Options &gt; Audio</p>
-</div>
-<div class="section" id="spotify-connect">
+</section>
+<section id="spotify-connect">
 <h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-spotify/">https://pimylifeup.com/raspberry-pi-spotify/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies</span>
@@ -266,17 +268,17 @@ sudo nano /etc/default/raspotify
 sudo systemctl restart raspotify
 </pre></div>
 </div>
-</div>
-<div class="section" id="fixing-audio">
+</section>
+<section id="fixing-audio">
 <h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Permalink to this headline"></a></h3>
 <p>Attempts to fix the audio jumps:</p>
 <p><a class="reference external" href="https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network">https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network</a></p>
 <p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering">https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering</a></p>
 <p><a class="reference external" href="https://dbader.org/blog/crackle-free-audio-on-the-raspberry-pi-with-mpd-and-pulseaudio">https://dbader.org/blog/crackle-free-audio-on-the-raspberry-pi-with-mpd-and-pulseaudio</a></p>
 <p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/32356/how-do-i-fix-cracking-sounds">https://raspberrypi.stackexchange.com/questions/32356/how-do-i-fix-cracking-sounds</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Networking with Firewall Capabilities &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -125,9 +126,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="networking-with-firewall-capabilities">
+  <section id="networking-with-firewall-capabilities">
 <h1>Networking with Firewall Capabilities<a class="headerlink" href="#networking-with-firewall-capabilities" title="Permalink to this headline"></a></h1>
-<div class="section" id="comparing-network-security-solutions-that-provide-firewall-capabilities">
+<section id="comparing-network-security-solutions-that-provide-firewall-capabilities">
 <h2>Comparing Network Security Solutions That Provide Firewall Capabilities<a class="headerlink" href="#comparing-network-security-solutions-that-provide-firewall-capabilities" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Zone-Based Firewall (ZBFW) is a stateful firewall in Cisco IOS devices is the successor of the Context-Based Access Control (CBAC) IOS firewall.</p></li>
@@ -153,8 +154,8 @@
 <li><p>Inspect: The packet’s header can be inspected to determine its source address and port.</p></li>
 <li><p>Pass: The packet can pass to the destination zone without the packet’s header being inspected at all.</p></li>
 </ul>
-</div>
-<div class="section" id="deployment-modes-of-network-security-solutions-and-architectures-that-provide-firewall-capabilities">
+</section>
+<section id="deployment-modes-of-network-security-solutions-and-architectures-that-provide-firewall-capabilities">
 <h2>Deployment Modes of Network Security Solutions and Architectures That Provide Firewall Capabilities<a class="headerlink" href="#deployment-modes-of-network-security-solutions-and-architectures-that-provide-firewall-capabilities" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>ASA protects internal network from external threats through untrusted interfaces, which are logically named (outside, inside, dmz).</p></li>
@@ -163,7 +164,7 @@
 <li><p>An interface with no security level set will not participate in the network layer.</p></li>
 <li><p>IP Addresses are assigned to the interfaces (routed mode). Either through static or dynamic (DHCP client) configuration.</p></li>
 </ul>
-<div class="section" id="routed-vs-transparent-firewalls">
+<section id="routed-vs-transparent-firewalls">
 <h3>Routed vs. Transparent Firewalls<a class="headerlink" href="#routed-vs-transparent-firewalls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Usually firewalls are deployed in routed mode. ACLs separate the layer 3 networks through examining upper-layer headers and data payloads in packets.</p></li>
@@ -174,8 +175,8 @@
 <li><p>You can then filter unwanted traffic on layer 2. Below image shows 192.168.10.2 sending traffic to cisco.com and being allowed by firewall. Router does the translation, not the transparent firewall.</p></li>
 </ul>
 <img alt="../../../_images/networking-with-firewall-capabilities-1.png" src="../../../_images/networking-with-firewall-capabilities-1.png" />
-</div>
-<div class="section" id="security-contexts">
+</section>
+<section id="security-contexts">
 <h3>Security Contexts<a class="headerlink" href="#security-contexts" title="Permalink to this headline"></a></h3>
 <p>Security Contexts enable physical firewalls to partition into multiple firewalls. Each firewall behaves as an independent firewall with its own config, interfaces, policies, routing, etc. A context can be either layer 2 (transparent) or layer 3 (routed). Some examples:</p>
 <ul class="simple">
@@ -186,8 +187,8 @@
 <li><p>You currently manage many physical firewalls and you want to integrate security policies from all firewalls into one physical firewall.</p></li>
 <li><p>You manage a data centre environment and you want to provide end-to-end virtualisation to reduce operational costs and increase efficiency.</p></li>
 </ul>
-</div>
-<div class="section" id="single-mode-transparent-firewalls">
+</section>
+<section id="single-mode-transparent-firewalls">
 <h3>Single-Mode Transparent Firewalls<a class="headerlink" href="#single-mode-transparent-firewalls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>A SMTF is a secure bridge that switches traffic from one interface to another.</p></li>
@@ -226,16 +227,16 @@
 <li><p>Packets are handled in different contexts. Because each context acts and behaves as an independent entity, you must configure an IP address to the bridge virtual interface (BVI) in each context for administration and management purposes.</p></li>
 <li><p>An interface cannot be shared between multiple contexts in this mode.</p></li>
 </ul>
-</div>
-<div class="section" id="cisco-ftd-deployment-modes">
+</section>
+<section id="cisco-ftd-deployment-modes">
 <h3>Cisco FTD Deployment Modes<a class="headerlink" href="#cisco-ftd-deployment-modes" title="Permalink to this headline"></a></h3>
 <p>FTDs can also either be in routed or transparent mode.</p>
 <p>FTD in routed mode:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-2.png" src="../../../_images/networking-with-firewall-capabilities-2.png" />
 <p>FTD in transparent mode:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-3.png" src="../../../_images/networking-with-firewall-capabilities-3.png" />
-</div>
-<div class="section" id="cisco-ftd-interface-modes">
+</section>
+<section id="cisco-ftd-interface-modes">
 <h3>Cisco FTD Interface Modes<a class="headerlink" href="#cisco-ftd-interface-modes" title="Permalink to this headline"></a></h3>
 <p>FTD can operate as NGFW and NGIPS in different interfaces:</p>
 <ul class="simple">
@@ -260,8 +261,8 @@
 <img alt="../../../_images/networking-with-firewall-capabilities-7.png" src="../../../_images/networking-with-firewall-capabilities-7.png" />
 <p>Traffic between a routed (L3) interface and a BVI:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-8.png" src="../../../_images/networking-with-firewall-capabilities-8.png" />
-</div>
-<div class="section" id="inline-pair">
+</section>
+<section id="inline-pair">
 <h3>Inline Pair<a class="headerlink" href="#inline-pair" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>NGIPS can operate in either inline or passive (monitoring) modes.</p></li>
@@ -278,8 +279,8 @@
 </ul>
 <p>Below depicts an FTD with 10 interfaces with 2 inline sets, 1 for 3 pairs of interfaces, other for 2 pairs of interfaces:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-9.png" src="../../../_images/networking-with-firewall-capabilities-9.png" />
-</div>
-<div class="section" id="inline-pair-with-tap">
+</section>
+<section id="inline-pair-with-tap">
 <h3>Inline Pair with Tap<a class="headerlink" href="#inline-pair-with-tap" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Two physical interfaces internally bridged.</p></li>
@@ -289,8 +290,8 @@
 </ul>
 <p>Example of inline pair with tap:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-10.png" src="../../../_images/networking-with-firewall-capabilities-10.png" />
-</div>
-<div class="section" id="passive-mode">
+</section>
+<section id="passive-mode">
 <h3>Passive Mode<a class="headerlink" href="#passive-mode" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Monitoring/passive mode do not prevent attacks.</p></li>
@@ -299,8 +300,8 @@
 </ul>
 <p>Example of passive mode:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-11.png" src="../../../_images/networking-with-firewall-capabilities-11.png" />
-</div>
-<div class="section" id="passive-with-erspan-mode">
+</section>
+<section id="passive-with-erspan-mode">
 <h3>Passive with ERSPAN Mode<a class="headerlink" href="#passive-with-erspan-mode" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Similar to remote IDS</p></li>
@@ -308,8 +309,8 @@
 </ul>
 <p>Example of ERSPAN passive mode:</p>
 <img alt="../../../_images/networking-with-firewall-capabilities-12.png" src="../../../_images/networking-with-firewall-capabilities-12.png" />
-</div>
-<div class="section" id="cisco-ftd-deployment-design-configurations">
+</section>
+<section id="cisco-ftd-deployment-design-configurations">
 <h3>Cisco FTD Deployment Design Configurations<a class="headerlink" href="#cisco-ftd-deployment-design-configurations" title="Permalink to this headline"></a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -354,9 +355,9 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

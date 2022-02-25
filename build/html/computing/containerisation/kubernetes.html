@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kubernetes &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -97,7 +98,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="kubernetes">
+  <section id="kubernetes">
 <h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline"></a></h1>
 <p>A Kubernetes deployment is a tier/micro-service of an application. The deployment isn’t a container. A Kubernetes pod is an atomic unit of work and everything it takes to run a deployment. It could be one or more containers per pod.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View Kubernetes deployments</span>
@@ -119,7 +120,7 @@ kubectl -n nodename get pods -o wide
 kubectl -n nodename annotate pod podname example.com/endpoint-group<span class="o">=</span><span class="s1">&#39;{&quot;tenant&quot;:&quot;tenantname&quot;,&quot;app-profile&quot;:&quot;approfilename&quot;,&quot;name&quot;:&quot;applicationname&quot;}&#39;</span> --overwrite
 </pre></div>
 </div>
-</div>
+</section>
 
 
            </div>

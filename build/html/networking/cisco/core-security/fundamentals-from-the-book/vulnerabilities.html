@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Common Software and Hardware Vulnerabilities &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -136,10 +137,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="common-software-and-hardware-vulnerabilities">
+  <section id="common-software-and-hardware-vulnerabilities">
 <h1>Common Software and Hardware Vulnerabilities<a class="headerlink" href="#common-software-and-hardware-vulnerabilities" title="Permalink to this headline"></a></h1>
 <p>Check the National Vulnerability Database <a class="reference external" href="https://nvd.nist.gov">https://nvd.nist.gov</a>.</p>
-<div class="section" id="injection-vulnerabilities">
+<section id="injection-vulnerabilities">
 <h2>Injection Vulnerabilities<a class="headerlink" href="#injection-vulnerabilities" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>SQL injection vulnerabilities</p></li>
@@ -156,8 +157,8 @@
 <li><p>Uncontrolled format string</p></li>
 <li><p>Shell injection</p></li>
 </ul>
-</div>
-<div class="section" id="sql-injection">
+</section>
+<section id="sql-injection">
 <h2>SQL Injection<a class="headerlink" href="#sql-injection" title="Permalink to this headline"></a></h2>
 <p>Allow an attacker to view, insert, delete, or modify records in a database. In an SQL injection attack, the attacker inserts, or injects, partial or complete SQL queries via the web application. The attacker injects SQL commands into input fields in an application or a URL in order to execute predefined SQL commands. If an application does not sanitise user input, an attacker can supply crafted input in an attempt to make the original SQL statement execute further actions in the database. The attacker must craft a syntactically correct SQL statement or query. The attacker takes advantage of error messages and can reconstruct the logic of the original query to understand how to attack correctly. The attacker might need to reverse engineer the logic of the original query if the application hides the error details.</p>
 <p>WebGoat being used to demonstrate effects of SQLi:
@@ -168,16 +169,16 @@
 <li><p>Out-of-band SQL injection: With this type of injection, the attacker retrieves data using a different channel. For example, an email, a text, or an instant message could be sent to the attacker with the results of the query. Alternatively, the attacker might be able to send the compromised data to another system.</p></li>
 <li><p>Blind (or inferential) SQL injection: With this type of injection, the attacker does not make the application display or transfer any data; rather, the attacker is able to reconstruct the information by sending specific statements and discerning the behaviour of the application and database.</p></li>
 </ul>
-</div>
-<div class="section" id="html-injection">
+</section>
+<section id="html-injection">
 <h2>HTML Injection<a class="headerlink" href="#html-injection" title="Permalink to this headline"></a></h2>
 <p>An HTML injection is a vulnerability that occurs when an unauthorised user is able to control an input point and able to inject arbitrary HTML code into a web application. Successful exploitation could lead to disclosure of a user’s session cookies; an attacker might do this to impersonate a victim or to modify the web page or application content seen by the victims. HTML injection vulnerabilities can lead to cross-site scripting (XSS).</p>
-</div>
-<div class="section" id="command-injection">
+</section>
+<section id="command-injection">
 <h2>Command Injection<a class="headerlink" href="#command-injection" title="Permalink to this headline"></a></h2>
 <p>A command injection is an attack in which an attacker tries to execute commands that he or she is not supposed to be able to execute on a system via a vulnerable application. Command injection attacks are possible when an application does not validate data supplied by the user (for example, data entered in web forms, cookies, HTTP headers, and other elements). The vulnerable system passes that data into a system shell. With command injection, an attacker tries to send operating system commands so that the application can execute them with the privileges of the vulnerable application. Command injection is not the same as code execution and code injection, which involve exploiting a buffer overflow or similar vulnerability.</p>
-</div>
-<div class="section" id="authentication-based-vulnerabilities">
+</section>
+<section id="authentication-based-vulnerabilities">
 <h2>Authentication-based Vulnerabilities<a class="headerlink" href="#authentication-based-vulnerabilities" title="Permalink to this headline"></a></h2>
 <p>Common ways authentication-based vulnerabilities are taken advantage of:</p>
 <ul class="simple">
@@ -188,7 +189,7 @@
 <li><p>Exploit weak credentials</p></li>
 <li><p>Exploiting Kerberos vulnerabilities</p></li>
 </ul>
-<div class="section" id="credential-brute-force-attacks-and-password-cracking">
+<section id="credential-brute-force-attacks-and-password-cracking">
 <h3>Credential Brute Force Attacks and Password Cracking<a class="headerlink" href="#credential-brute-force-attacks-and-password-cracking" title="Permalink to this headline"></a></h3>
 <p>The attacker attempts to log in to an application or a system by trying different usernames and passwords. The 2 major categories:</p>
 <ul class="simple">
@@ -202,8 +203,8 @@
 <li><p>Rainbow Tables: Attackers can also use statistical analysis and rainbow tables against systems that improperly protect passwords with a one-way hashing function. A rainbow table is a precomputed table for reversing cryptographic hash functions and for cracking password hashes, can be used to accelerate the process of cracking password hashes <a class="reference external" href="http://project-rainbowcrack.com/table.htm">http://project-rainbowcrack.com/table.htm</a>.</p></li>
 <li><p>Security Protocols: poorly designed security protocols such as Wired Equivalent Privacy (WEP) introduce avenues of attack to compromise user and application credentials.</p></li>
 </ul>
-</div>
-<div class="section" id="session-hijacking">
+</section>
+<section id="session-hijacking">
 <h3>Session Hijacking<a class="headerlink" href="#session-hijacking" title="Permalink to this headline"></a></h3>
 <p>If web applications do not validate and filter out invalid session ID values, they can potentially be used to exploit other web vulnerabilities, such as SQL injection (if the session IDs are stored on a relational database) or persistent XSS (if the session IDs are stored and reflected back afterward by the web application).</p>
 <ul class="simple">
@@ -212,12 +213,12 @@
 <li><p>Man-in-the-middle attack: With this type of attack, the attacker sits in the path between the client and the web server.</p></li>
 <li><p>Man-in-the-browser attack: This attack is similar in approach to a man-in-the-middle attack; however, in this case, a browser (or an extension or a plugin) is compromised and used to intercept and manipulate web sessions between the user and the web server.</p></li>
 </ul>
-</div>
-<div class="section" id="default-credentials">
+</section>
+<section id="default-credentials">
 <h3>Default Credentials<a class="headerlink" href="#default-credentials" title="Permalink to this headline"></a></h3>
 <p>Attackers can easily identify and access systems that use shared default passwords. It is extremely important to always change default manufacturer passwords and restrict network access to critical systems. A lot of manufacturers now require users to change the default passwords during initial setup, but some don’t <a class="reference external" href="http://www.defaultpassword.com">http://www.defaultpassword.com</a>, <a class="reference external" href="https://www.shodan.io">https://www.shodan.io</a>.</p>
-</div>
-<div class="section" id="insecure-direct-object-reference-vulnerabilities">
+</section>
+<section id="insecure-direct-object-reference-vulnerabilities">
 <h3>Insecure Direct Object Reference Vulnerabilities<a class="headerlink" href="#insecure-direct-object-reference-vulnerabilities" title="Permalink to this headline"></a></h3>
 <p>When web applications allow direct access to objects based on user input. Successful exploitation could allow attackers to bypass authorisation and access resources that should be protected by the system (for example, database records and system files). This vulnerability occurs when an application does not sanitise user input and does not perform appropriate authorisation checks.</p>
 <p>Examples:</p>
@@ -225,9 +226,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">https://store.calebsargeant.com/buy?customerID=12345</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">https://store.calebsargeant.com/changepassword?user=john.doe</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="cross-site-scripting">
+</section>
+</section>
+<section id="cross-site-scripting">
 <h2>Cross-site Scripting<a class="headerlink" href="#cross-site-scripting" title="Permalink to this headline"></a></h2>
 <p>Attackers can use obfuscation techniques in XSS attacks by encoding tags or malicious portions of the script using Unicode so that the link or HTML content is disguised to the end user browsing site <a class="reference external" href="https://github.com/The-Art-of-Hacking/h4cker">https://github.com/The-Art-of-Hacking/h4cker</a>.</p>
 <p>There are 3 types of Cross-site scripting (XSS) vulnerabilities:</p>
@@ -253,20 +254,20 @@ javascript:alert(document.cookie);
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;alert(&quot;XSS Test&quot;)&lt;/script&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="cross-site-request-forgery">
+</section>
+<section id="cross-site-request-forgery">
 <h2>Cross-site Request Forgery<a class="headerlink" href="#cross-site-request-forgery" title="Permalink to this headline"></a></h2>
 <p>Cross-site request forgery (CSRF or XSRF) attacks occur when unauthorized commands are transmitted from a user who is trusted by the application. CSRF attacks are different from XSS attacks because they exploit the trust that an application has in a user’s browser. CSRF vulnerabilities are also referred to as “one-click attacks” or “session riding.” CSRF attacks typically affect applications (or websites) that rely on a user’s identity. Attackers can trick the user’s browser into sending HTTP requests to a target website. An example of a CSRF attack is a user authenticated by the application by a cookie saved in the browser unwittingly sending an HTTP request to a site that trusts the user, subsequently triggering an unwanted action.</p>
-</div>
-<div class="section" id="cookie-manipulation-attacks">
+</section>
+<section id="cookie-manipulation-attacks">
 <h2>Cookie Manipulation Attacks<a class="headerlink" href="#cookie-manipulation-attacks" title="Permalink to this headline"></a></h2>
 <p>Are <strong>stored</strong> DOM-based attacks (or vulnerabilities). Cookie manipulation is possible when vulnerable applications store user input and then embed that input in a response within a part of the DOM. This input is later processed in an unsafe manner by a client-side script. An attacker can use a JavaScript string (or other scripts) to trigger the DOM-based vulnerability. Such scripts can write controllable data into the value of a cookie. An attacker can take advantage of stored DOM-based vulnerabilities to create a URL that sets an arbitrary value in a user’s cookie. The impact of a stored DOM-based vulnerability depends on the role that the cookie plays within the application.</p>
-</div>
-<div class="section" id="race-conditions">
+</section>
+<section id="race-conditions">
 <h2>Race Conditions<a class="headerlink" href="#race-conditions" title="Permalink to this headline"></a></h2>
 <p>Occurs when a system or an application attempts to perform two or more operations at the same time. The operations must be done in the proper sequence in order to be done correctly. There’s a small window of time between when a security control takes effect and when the attack is performed. Race conditions are very difficult to exploit. Also referred to as time of check to time of use (TOCTOU) attacks, for example, a security management system pushing a configuration to a security device where the process rebuilds access control lists and rules from the system. The attacker might have a very small time window in which they can bypass security controls before they are in effect on the managed device.</p>
-</div>
-<div class="section" id="unprotected-apis">
+</section>
+<section id="unprotected-apis">
 <h2>Unprotected APIs<a class="headerlink" href="#unprotected-apis" title="Permalink to this headline"></a></h2>
 <p>Application programming interfaces (APIs) lack the adequate controls and are difficult to monitor. The complexity of APIs make it difficult to automate effective security testing. Technologies behind APIs:</p>
 <ul class="simple">
@@ -281,8 +282,8 @@ javascript:alert(document.cookie);
 <li><p>Web Services Description Language (WSDL) documents: WSDL is an XML-based language that is used to document the functionality of a web service. The WSDL specification can be accessed at <a class="reference external" href="https://www.w3.org/TR/wsdl20-primer">https://www.w3.org/TR/wsdl20-primer</a>.</p></li>
 <li><p>Web Application Description Language (WADL) documents: WADL is an XML-based language for describing web applications. The WADL specification can be obtained from <a class="reference external" href="https://www.w3.org/Submission/wadl">https://www.w3.org/Submission/wadl</a>.</p></li>
 </ul>
-</div>
-<div class="section" id="return-to-libc-attacks-and-buffer-overflows">
+</section>
+<section id="return-to-libc-attacks-and-buffer-overflows">
 <h2>Return-to-LibC Attacks and Buffer Overflows<a class="headerlink" href="#return-to-libc-attacks-and-buffer-overflows" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=1S0aBV-Waeo">https://www.youtube.com/watch?v=1S0aBV-Waeo</a>.</p>
 <p>A “return-to-libc” (or ret2libc) attack typically starts with a buffer overflow. In this type of attack, a subroutine return address on a call stack is replaced by an address of a subroutine that is already present in the executable memory of the process. This is done to potentially bypass the no-execute (NX) bit feature and allow the attacker to inject his or her own code.</p>
@@ -293,12 +294,12 @@ javascript:alert(document.cookie);
 <li><p>ASCII armoring can be used to mitigate ret2libc attacks. When you implement ASCII armoring, the address of every system library (such as libc) contains a NULL byte (0x00) that you insert in the first 0x01010101 bytes of memory. This is typically a few pages more than 16MB and is called the ASCII armor region because every address up to (but not including) this value contains at least one NULL byte. When this methodology is implemented, an attacker cannot place code containing those addresses using string manipulation functions such as strcpy().</p></li>
 <li><p>Of course, this technique doesn’t protect the system if the attacker finds a way to overflow NULL bytes into the stack. A better approach is to use the address space layout randomization (ASLR) technique, which mitigates the attack on 64-bit systems. When you implement ASLR, the memory locations of functions are random. ASLR is not very effective in 32-bit systems, though, because only 16 bits are available for randomization, and an attacker can defeat such a system by using brute-force attacks.</p></li>
 </ul>
-</div>
-<div class="section" id="owasp-top-10">
+</section>
+<section id="owasp-top-10">
 <h2>OWASP Top 10<a class="headerlink" href="#owasp-top-10" title="Permalink to this headline"></a></h2>
 <p>The Open Web Application Security Project (OWASP) is non-profit charitable organization that leads several industry-wide initiatives to promote the security of applications and software. They list the top 10 most common vulnerabilities against applications: <a class="reference external" href="https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project">https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project</a>, <a class="reference external" href="https://www.owasp.org/index.php/OWASP_Chapter">https://www.owasp.org/index.php/OWASP_Chapter</a>.</p>
-</div>
-<div class="section" id="security-vulnerabilities-in-open-source-software">
+</section>
+<section id="security-vulnerabilities-in-open-source-software">
 <h2>Security Vulnerabilities in Open Source Software<a class="headerlink" href="#security-vulnerabilities-in-open-source-software" title="Permalink to this headline"></a></h2>
 <p>Vulnerability patching for commercial &amp; open software is important. Must use:</p>
 <ul class="simple">
@@ -306,8 +307,8 @@ javascript:alert(document.cookie);
 <li><p>Software composition analysis tools, such as BlackDuck Hub, Synopsys Protecode (formerly known as AppCheck), FlexNet Code Insight (formerly known as Palamida),</p></li>
 <li><p>SourceClear, and WhiteSource Security vulnerability feeds, such as MITRE’s CVE list, NIST’s National Vulnerability Database (NVD), VulnDB, and Recorded Future</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

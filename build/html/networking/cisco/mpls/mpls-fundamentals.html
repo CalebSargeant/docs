@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MPLS Fundamentals &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -124,9 +125,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="mpls-fundamentals">
+  <section id="mpls-fundamentals">
 <h1>MPLS Fundamentals<a class="headerlink" href="#mpls-fundamentals" title="Permalink to this headline"></a></h1>
-<div class="section" id="mpls-data-plane">
+<section id="mpls-data-plane">
 <h2>MPLS Data Plane<a class="headerlink" href="#mpls-data-plane" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>LSR uses the <strong>FIB</strong> to forward <strong>unlabeled IP packets</strong></p></li>
@@ -134,8 +135,8 @@
 <li><p>The FIB and LFIB databases are built by various control plane protocols</p></li>
 </ul>
 <img alt="../../../_images/mpls-3.png" src="../../../_images/mpls-3.png" />
-</div>
-<div class="section" id="key-router-databases">
+</section>
+<section id="key-router-databases">
 <h2>Key Router Databases<a class="headerlink" href="#key-router-databases" title="Permalink to this headline"></a></h2>
 <img alt="../../../_images/mpls-4.png" src="../../../_images/mpls-4.png" />
 <ul class="simple">
@@ -144,8 +145,8 @@
 <li><p>LIB (Label Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">mpls</span> <span class="pre">ldp</span> <span class="pre">bindings</span></code> - Label Information Base (store anything to do with label)</p></li>
 <li><p>LFIB (Label Forward Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">mpls</span> <span class="pre">forwarding-table</span></code> - hardware based database, used to forward MPLS packets constructed by LIB, FIB &amp; RIB</p></li>
 </ul>
-</div>
-<div class="section" id="mpls-control-plan">
+</section>
+<section id="mpls-control-plan">
 <h2>MPLS Control Plan<a class="headerlink" href="#mpls-control-plan" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Step 1 - Every LSR generates a local label for every connected, static and IGP prefix</p></li>
@@ -154,14 +155,14 @@
 <li><p>Only the best prefix / label bindings from the LIB get put into LFIB</p></li>
 <li><p>The best path is still chosen by the IGP</p></li>
 </ul>
-</div>
-<div class="section" id="label-distribution-protocol-ldp">
+</section>
+<section id="label-distribution-protocol-ldp">
 <h2>Label Distribution Protocol (LDP)<a class="headerlink" href="#label-distribution-protocol-ldp" title="Permalink to this headline"></a></h2>
-<div class="section" id="ldp-label-exchange">
+<section id="ldp-label-exchange">
 <h3>LDP Label Exchange<a class="headerlink" href="#ldp-label-exchange" title="Permalink to this headline"></a></h3>
 <img alt="../../../_images/mpls-5.png" src="../../../_images/mpls-5.png" />
-</div>
-<div class="section" id="ldp-mechanics">
+</section>
+<section id="ldp-mechanics">
 <h3>LDP Mechanics<a class="headerlink" href="#ldp-mechanics" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>LDP <strong>hello messages</strong> are <strong>multicast</strong> to <strong>224.0.0.2</strong> to discover LDP neighbors</p>
@@ -179,19 +180,19 @@
 </li>
 <li><p>LDP RID is chosen first by <strong>configuration</strong>, then <strong>highest loopback</strong>, then <strong>highest interface</strong> IP assigned</p></li>
 </ul>
-</div>
-<div class="section" id="penultimate-hop-popping">
+</section>
+<section id="penultimate-hop-popping">
 <h3>Penultimate Hop Popping<a class="headerlink" href="#penultimate-hop-popping" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>LSR advertises a <strong>special label</strong> called <strong>implicit null</strong> (label value 3) for any prefixes that it needs to forward packets for using only (outside MPLS)</p></li>
 <li><p>The <strong>implicit null</strong> label tells the upstream neighbor to <strong>pop</strong> the outer most label before sending the packet as an efficiency mechanism</p></li>
 </ul>
 <img alt="../../../_images/mpls-6.png" src="../../../_images/mpls-6.png" />
-</div>
-</div>
-<div class="section" id="mpls-ping-and-traceroute">
+</section>
+</section>
+<section id="mpls-ping-and-traceroute">
 <h2>MPLS Ping and Traceroute<a class="headerlink" href="#mpls-ping-and-traceroute" title="Permalink to this headline"></a></h2>
-<div class="section" id="mpls-ping">
+<section id="mpls-ping">
 <h3>MPLS Ping<a class="headerlink" href="#mpls-ping" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Classic ping works fine in MPLS environments but has some challenges</p>
@@ -220,8 +221,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="mpls-classic-traceroute">
+</section>
+<section id="mpls-classic-traceroute">
 <h3>MPLS Classic Traceroute<a class="headerlink" href="#mpls-classic-traceroute" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Traditional traceroute in an MPLS environment works differently than you might imagine</p></li>
@@ -252,9 +253,9 @@
 <li><p>MPLS traceroute utility was created and MPLS ping is used in the background and is run on LSR only</p></li>
 <li><p>A series MPLS (ping) echo packets are sent fully labelled checking the entire path</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

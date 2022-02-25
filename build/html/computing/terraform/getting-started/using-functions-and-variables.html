@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using Functions and Variables &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -111,9 +112,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="using-functions-and-variables">
+  <section id="using-functions-and-variables">
 <h1>Using Functions and Variables<a class="headerlink" href="#using-functions-and-variables" title="Permalink to this headline"></a></h1>
-<div class="section" id="working-with-variables">
+<section id="working-with-variables">
 <h2>Working with Variables<a class="headerlink" href="#working-with-variables" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Name, type, default</p></li>
@@ -130,7 +131,7 @@
 <li><p>Select values based on environment</p></li>
 <li><p>Split Terraform configuration file</p></li>
 </ul>
-<div class="section" id="variable-examples">
+<section id="variable-examples">
 <h3>Variable Examples<a class="headerlink" href="#variable-examples" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Specify default variable and type
 variable &quot;environment_name&quot; {
@@ -158,14 +159,14 @@ variable &quot;cidr&quot; {
 cidr_block = lookup(var.cidr, var.environment_name)
 </pre></div>
 </div>
-</div>
-<div class="section" id="updating-the-configuration-variables">
+</section>
+<section id="updating-the-configuration-variables">
 <h3>Updating the Configuration Variables<a class="headerlink" href="#updating-the-configuration-variables" title="Permalink to this headline"></a></h3>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m7/variables.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m7/variables.tf</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m7/terraform.tfvars.example"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m7/terraform.tfvars.example</span></code></a></p>
-</div>
-</div>
-<div class="section" id="multiple-environments">
+</section>
+</section>
+<section id="multiple-environments">
 <h2>Multiple Environments<a class="headerlink" href="#multiple-environments" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Commonality and differences</p></li>
@@ -173,7 +174,7 @@ cidr_block = lookup(var.cidr, var.environment_name)
 <li><p>Production access</p></li>
 <li><p>Using workspaces</p></li>
 </ul>
-<div class="section" id="multiple-environment-decisions">
+<section id="multiple-environment-decisions">
 <h3>Multiple Environment Decisions<a class="headerlink" href="#multiple-environment-decisions" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>State management</p></li>
@@ -181,8 +182,8 @@ cidr_block = lookup(var.cidr, var.environment_name)
 <li><p>Credentials management</p></li>
 <li><p>Complexity and overhead</p></li>
 </ul>
-</div>
-<div class="section" id="state-file-example">
+</section>
+<section id="state-file-example">
 <h3>State File Example<a class="headerlink" href="#state-file-example" title="Permalink to this headline"></a></h3>
 <p><strong>Main</strong>
 - main.config.tf
@@ -199,8 +200,8 @@ cidr_block = lookup(var.cidr, var.environment_name)
 - prod.state
 - prod.tfvars
 - <code class="docutils literal notranslate"><span class="pre">terraform</span> <span class="pre">plan</span> <span class="pre">-state=&quot;./prod/prod.state&quot;</span> <span class="pre">-var-file=&quot;common.tfvars&quot;</span> <span class="pre">-var-file=&quot;./prod/prod.tfvars&quot;</span></code></p>
-</div>
-<div class="section" id="workspaces-example">
+</section>
+<section id="workspaces-example">
 <h3>Workspaces Example<a class="headerlink" href="#workspaces-example" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>main.config.tf</p></li>
@@ -211,16 +212,16 @@ cidr_block = lookup(var.cidr, var.environment_name)
 terraform plan
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="managing-secrets">
+</section>
+</section>
+<section id="managing-secrets">
 <h2>Managing Secrets<a class="headerlink" href="#managing-secrets" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Variables file</p></li>
 <li><p>Environment variable</p></li>
 <li><p>Secrets management</p></li>
 </ul>
-<div class="section" id="environment-variables">
+<section id="environment-variables">
 <h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#AWS Environment Variables
 AWS_ACCESSS_KEY_ID
@@ -235,9 +236,9 @@ $env:AWS_ACCESS_KEY_ID=&quot;AASAS9283708FDKJ&quot;
 export AWS_ACCESS_KEY_ID=&quot;AASAS9283708FDKJ&quot;
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

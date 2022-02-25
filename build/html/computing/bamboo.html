@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bamboo &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -96,9 +97,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="bamboo">
+  <section id="bamboo">
 <h1>Bamboo<a class="headerlink" href="#bamboo" title="Permalink to this headline"></a></h1>
-<div class="section" id="setting-up-an-instance">
+<section id="setting-up-an-instance">
 <h2>Setting up an Instance<a class="headerlink" href="#setting-up-an-instance" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-8.0.1.tar.gz
 root@bamboo:~# tar -xvf atlassian-bamboo-8.0.1.tar.gz
@@ -117,15 +118,15 @@ postgres@bamboo:~$ psql
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># grant all privileges on database bamboo to caleb;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="installing-the-remote-agent">
+</section>
+<section id="installing-the-remote-agent">
 <h2>Installing the Remote Agent<a class="headerlink" href="#installing-the-remote-agent" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget http://localhost:8085/agentServer/agentInstaller/atlassian-bamboo-agent-installer-8.0.1.jar
 root@bamboo:~# java -jar atlassian-bamboo-agent-installer-8.0.1.jar http://localhost:8085/agentServer/
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

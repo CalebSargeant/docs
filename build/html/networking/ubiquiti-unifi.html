@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ubiquiti UniFi &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -106,12 +107,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="ubiquiti-unifi">
+  <section id="ubiquiti-unifi">
 <h1>Ubiquiti UniFi<a class="headerlink" href="#ubiquiti-unifi" title="Permalink to this headline"></a></h1>
 <p>It’s a pretty self-explanatory system, but anyway, here’s some stuff on it.</p>
-<div class="section" id="access-point">
+<section id="access-point">
 <h2>Access Point<a class="headerlink" href="#access-point" title="Permalink to this headline"></a></h2>
-<div class="section" id="l3-adopting-ssh">
+<section id="l3-adopting-ssh">
 <h3>L3 Adopting SSH<a class="headerlink" href="#l3-adopting-ssh" title="Permalink to this headline"></a></h3>
 <p>For the Ubiquity white page, please see: <a class="reference external" href="https://help.ubnt.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers">https://help.ubnt.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers</a></p>
 <ol class="arabic simple">
@@ -121,8 +122,8 @@
 <li><p>The AP will now show up for adoption. Click adopt and the device will go offline.</p></li>
 <li><p>Once the device goes offline, repeat step 3. The device will save the inform URL and will start provisioning.</p></li>
 </ol>
-</div>
-<div class="section" id="cisco-switchport-config">
+</section>
+<section id="cisco-switchport-config">
 <h3>Cisco Switchport Config<a class="headerlink" href="#cisco-switchport-config" title="Permalink to this headline"></a></h3>
 <p>Below shows UAP config for switchport, where 10 is the VLAN the AP natively lives in, 20 &amp; 30 being WLANs.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface GigabitEthernet0/5
@@ -133,26 +134,26 @@ switchport trunk allowed vlan 10,20,30
 switchport mode trunk
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="controller">
+</section>
+</section>
+<section id="controller">
 <h2>Controller<a class="headerlink" href="#controller" title="Permalink to this headline"></a></h2>
-<div class="section" id="installation">
+<section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
 <p>Refer to this guide: <a class="reference external" href="https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu">https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu</a></p>
-</div>
-<div class="section" id="backups">
+</section>
+<section id="backups">
 <h3>Backups<a class="headerlink" href="#backups" title="Permalink to this headline"></a></h3>
 <p><strong>Manual Backups</strong></p>
 <p>To manually backup the controller, go to <em>Settings &gt; Maintenance &gt; Backup</em>. Set the <em>Backup Data Retention</em> and click on <em>Download Backup</em>. Manually copy the backup to &lt;LOCATION&gt;.</p>
 <p><strong>Auto Backups</strong></p>
 <img alt="../_images/unifi-backup-1.png" src="../_images/unifi-backup-1.png" />
-</div>
-<div class="section" id="restoring">
+</section>
+<section id="restoring">
 <h3>Restoring<a class="headerlink" href="#restoring" title="Permalink to this headline"></a></h3>
 <p>To restore the controller from a file, go to <em>Settings &gt; Maintenance &gt; Restore</em>. Click on <em>Choose File</em> and select the file to restore.</p>
-</div>
-<div class="section" id="windows-credential-recovery">
+</section>
+<section id="windows-credential-recovery">
 <h3>Windows Credential Recovery<a class="headerlink" href="#windows-credential-recovery" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Open Ubiquiti UniFi Controller.</p></li>
@@ -164,9 +165,9 @@ switchport mode trunk
 <li><p><code class="docutils literal notranslate"><span class="pre">db.admin.find()</span></code></p></li>
 </ol>
 <p>The username and password will be at the bottom</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

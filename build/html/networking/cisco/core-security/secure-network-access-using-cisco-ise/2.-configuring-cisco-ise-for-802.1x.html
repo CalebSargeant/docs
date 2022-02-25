@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring Cisco ISE for 802.1X &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -132,18 +133,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-cisco-ise-for-802-1x">
+  <section id="configuring-cisco-ise-for-802-1x">
 <h1>Configuring Cisco ISE for 802.1X<a class="headerlink" href="#configuring-cisco-ise-for-802-1x" title="Permalink to this headline"></a></h1>
-<div class="section" id="policy-sets-authentication-policies-and-authorization-policies">
+<section id="policy-sets-authentication-policies-and-authorization-policies">
 <h2>Policy Sets, Authentication Policies, and Authorization Policies<a class="headerlink" href="#policy-sets-authentication-policies-and-authorization-policies" title="Permalink to this headline"></a></h2>
-<div class="section" id="policy-sets">
+<section id="policy-sets">
 <h3>Policy Sets<a class="headerlink" href="#policy-sets" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Contain authentication and authorization policies</p></li>
 <li><p>If-then statements</p></li>
 </ul>
-</div>
-<div class="section" id="policy-set-logic">
+</section>
+<section id="policy-set-logic">
 <h3>Policy Set Logic<a class="headerlink" href="#policy-set-logic" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Authorization policy rules are only applied if the device matches the
@@ -155,41 +156,51 @@ policy set</p></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="ise-identity-sources-active-directory-integration">
+</section>
+</section>
+<section id="ise-identity-sources-active-directory-integration">
 <h2>ISE Identity Sources &amp; Active Directory Integration<a class="headerlink" href="#ise-identity-sources-active-directory-integration" title="Permalink to this headline"></a></h2>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="Joining ISE to AD" src="../../../../_images/configuring-cisco-ise-for-802.1x-1.png" />
-<p class="caption"><span class="caption-text">Joining ISE to AD</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
-</div>
-<div class="section" id="adding-network-access-devices-to-ise">
+<figcaption>
+<p><span class="caption-text">Joining ISE to AD</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="adding-network-access-devices-to-ise">
 <h2>Adding Network Access Devices To ISE<a class="headerlink" href="#adding-network-access-devices-to-ise" title="Permalink to this headline"></a></h2>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <img alt="Define a network device" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-2.png" />
-<p class="caption"><span class="caption-text">Define a network device</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</div>
-</div>
-<div class="section" id="creating-authentication-policies-in-ise">
+<figcaption>
+<p><span class="caption-text">Define a network device</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="creating-authentication-policies-in-ise">
 <h2>Creating Authentication Policies In ISE<a class="headerlink" href="#creating-authentication-policies-in-ise" title="Permalink to this headline"></a></h2>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <img alt="Configure Device Admin Policy Sets" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-7.png" />
-<p class="caption"><span class="caption-text">Configure Device Admin Policy Sets</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</div>
-</div>
-<div class="section" id="configuring-dacls-authorization-profiles-and-authorization-policies">
+<figcaption>
+<p><span class="caption-text">Configure Device Admin Policy Sets</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="configuring-dacls-authorization-profiles-and-authorization-policies">
 <h2>Configuring dACLs, Authorization Profiles, and Authorization Policies<a class="headerlink" href="#configuring-dacls-authorization-profiles-and-authorization-policies" title="Permalink to this headline"></a></h2>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <img alt="dACL" src="../../../../_images/configuring-cisco-ise-for-802.1x-2.png" />
-<p class="caption"><span class="caption-text">dACL</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id5">
+<figcaption>
+<p><span class="caption-text">dACL</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
 <img alt="Authorisation Policy" src="../../../../_images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-1.png" />
-<p class="caption"><span class="caption-text">Authorisation Policy</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text">Authorisation Policy</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
 
            </div>

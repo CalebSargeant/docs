@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Objects and Types &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -109,11 +110,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="objects-and-types">
+  <section id="objects-and-types">
 <h1>Objects and Types<a class="headerlink" href="#objects-and-types" title="Permalink to this headline"></a></h1>
-<div class="section" id="passing-arguments-and-returning-values">
+<section id="passing-arguments-and-returning-values">
 <h2>Passing Arguments and Returning Values<a class="headerlink" href="#passing-arguments-and-returning-values" title="Permalink to this headline"></a></h2>
-<div class="section" id="argument-passing">
+<section id="argument-passing">
 <h3>Argument Passing<a class="headerlink" href="#argument-passing" title="Permalink to this headline"></a></h3>
 <p>When we pass an object reference to a function, we’re essentially assigning from an actual argument reference, in this case <code class="docutils literal notranslate"><span class="pre">m</span></code> to the formal argument reference, in this case <code class="docutils literal notranslate"><span class="pre">k</span></code>. Assignment causes the reference being assigned to being referred <strong>to</strong> the same object as the reference being assigned <strong>from</strong>, which is what’s going on here:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; m = [9, 15, 24]
@@ -128,8 +129,8 @@ k = [9, 15, 24, 39]
 </pre></div>
 </div>
 <p>If you want a function to modify the copy of an object, it’s the responsibility of the function to do the copying.</p>
-</div>
-<div class="section" id="replacing-argument-value">
+</section>
+<section id="replacing-argument-value">
 <h3>Replacing Argument Value<a class="headerlink" href="#replacing-argument-value" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">f</span></code> still refers to the unmodified list, this time the function didn’t modify the object it passed in.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f = [14, 23, 37]
@@ -144,8 +145,8 @@ g = [17, 28, 45]
 </pre></div>
 </div>
 <p>The object reference named <code class="docutils literal notranslate"><span class="pre">f</span></code> was assigned to the formal argument named <code class="docutils literal notranslate"><span class="pre">g</span></code>, so <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code> did refer the the same object, just as in previous example. However in the first line in the function we reassigned the reference <code class="docutils literal notranslate"><span class="pre">g</span></code> to point to a newly constructed list. So within the function, the reference to the original list was overwritten, although the orignal list was still pointed to by the <code class="docutils literal notranslate"><span class="pre">f</span></code> reference outside the function.</p>
-</div>
-<div class="section" id="mutable-arguments">
+</section>
+<section id="mutable-arguments">
 <h3>Mutable Arguments<a class="headerlink" href="#mutable-arguments" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def replace_contents(g):
 ...     g[0] = 17
@@ -173,11 +174,11 @@ g = [17, 28, 45]
 True
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="function-arguments">
+</section>
+</section>
+<section id="function-arguments">
 <h2>Function Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline"></a></h2>
-<div class="section" id="default-argument-values">
+<section id="default-argument-values">
 <h3>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline"></a></h3>
 <p>Arguments with default values must come after those without default values.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def banner (message, border=&#39;-&#39;):
@@ -204,8 +205,8 @@ Hello from Earth, we come in peace!
 ...................................
 </pre></div>
 </div>
-</div>
-<div class="section" id="when-are-default-values-evaluated">
+</section>
+<section id="when-are-default-values-evaluated">
 <h3>When Are Default Values Evaluated?<a class="headerlink" href="#when-are-default-values-evaluated" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import time
 &gt;&gt;&gt; time.ctime()
@@ -227,8 +228,8 @@ Fri Feb 12 20:26:35 2021
 <li><p>Immutable default values don’t cause problems</p></li>
 <li><p>Mutable default values can cause confusing effects</p></li>
 </ul>
-</div>
-<div class="section" id="mutable-default-values">
+</section>
+<section id="mutable-default-values">
 <h3>Mutable Default Values<a class="headerlink" href="#mutable-default-values" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=[]):
 ...     menu.append(&quot;spam&quot;)
@@ -252,8 +253,8 @@ Fri Feb 12 20:26:35 2021
 <li><p>The empty list that’s used for the default argument is created once when the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is executed. The first time, spam is added, when adding second time, list still contains spam.</p></li>
 <li><p>So always use immutable objects for default values!</p></li>
 </ul>
-</div>
-<div class="section" id="immutable-default-values">
+</section>
+<section id="immutable-default-values">
 <h3>Immutable Default Values<a class="headerlink" href="#immutable-default-values" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=None):
 ...     if menu is None:
@@ -269,9 +270,9 @@ Fri Feb 12 20:26:35 2021
 [&#39;spam&#39;]
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="python-s-type-system">
+</section>
+</section>
+<section id="python-s-type-system">
 <h2>Python’s Type System<a class="headerlink" href="#python-s-type-system" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add(a, b):
 ...     return a+b
@@ -292,15 +293,15 @@ TypeError: can only concatenate str (not &quot;int&quot;) to str
 </pre></div>
 </div>
 <p>Python will not generally perform implicit conversions between types.</p>
-</div>
-<div class="section" id="scopes">
+</section>
+<section id="scopes">
 <h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Type declarations are unnecessary in Python.</p></li>
 <li><p>Names can be rebound as necessary to objects of any type.</p></li>
 <li><p>Name resolution to objects is managed by scopes and scoping rules.</p></li>
 </ul>
-<div class="section" id="scopes-in-python">
+<section id="scopes-in-python">
 <h3>Scopes in Python<a class="headerlink" href="#scopes-in-python" title="Permalink to this headline"></a></h3>
 <p>(LEGB)</p>
 <ul class="simple">
@@ -310,12 +311,12 @@ TypeError: can only concatenate str (not &quot;int&quot;) to str
 <li><p><strong>B</strong> uilt-in - In the special builtins module</p></li>
 </ul>
 <p>Scopes in python don’t correspond source code blocks</p>
-</div>
-<div class="section" id="rebinding-global-names">
+</section>
+<section id="rebinding-global-names">
 <h3>Rebinding Global Names<a class="headerlink" href="#rebinding-global-names" title="Permalink to this headline"></a></h3>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

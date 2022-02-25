@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring a Resource After Creation &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -111,9 +112,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-a-resource-after-creation">
+  <section id="configuring-a-resource-after-creation">
 <h1>Configuring a Resource After Creation<a class="headerlink" href="#configuring-a-resource-after-creation" title="Permalink to this headline"></a></h1>
-<div class="section" id="terraform-syntax">
+<section id="terraform-syntax">
 <h2>Terraform Syntax<a class="headerlink" href="#terraform-syntax" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>HashiCorp configuration language</p></li>
@@ -122,7 +123,7 @@
 <li><p>Configuration syntax and expressions</p></li>
 <li><p>Conditionals, functions, templates</p></li>
 </ul>
-<div class="section" id="blocks">
+<section id="blocks">
 <h3>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Basic block
 block_type label_one label_two {
@@ -142,8 +143,8 @@ resource &quot;aws_route_table&quot; &quot;route-table&quot; {
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="object-types">
+</section>
+<section id="object-types">
 <h3>Object Types<a class="headerlink" href="#object-types" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Different value types
 string = &quot;taco&quot;
@@ -153,8 +154,8 @@ list = [&quot;bean-taco&quot;, &quot;beef-taco&quot;]
 map = {name = &quot;Caleb&quot;, age = 27, loves_tacos = true}
 </pre></div>
 </div>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h3>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Keyword reference
 var.taco_day
@@ -176,9 +177,9 @@ var.region #returns us-east-1
 data.aws_availability_zones.azs.names[1] #returns 2nd AZ
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="provisioners">
+</section>
+</section>
+<section id="provisioners">
 <h2>Provisioners<a class="headerlink" href="#provisioners" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Last resport</p></li>
@@ -187,7 +188,7 @@ data.aws_availability_zones.azs.names[1] #returns 2nd AZ
 <li><p>Multiple provisioners</p></li>
 <li><p>What if it all goes wrong?</p></li>
 </ul>
-<div class="section" id="provisioner-example">
+<section id="provisioner-example">
 <h3>Provisioner Example<a class="headerlink" href="#provisioner-example" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>provisioner &quot;file&quot; {
   connection {
@@ -209,13 +210,13 @@ provisioner &quot;remote-exec&quot; {
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="variables-and-tags-s3-configuration">
+</section>
+</section>
+<section id="variables-and-tags-s3-configuration">
 <h2>Variables and Tags &amp; S3 Configuration<a class="headerlink" href="#variables-and-tags-s3-configuration" title="Permalink to this headline"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m5/modulefive.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m5/modulefive.tf</span></code></a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Administration &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -122,16 +123,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="administration">
+  <section id="administration">
 <h1>Administration<a class="headerlink" href="#administration" title="Permalink to this headline"></a></h1>
-<div class="section" id="add-email-address-to-user">
+<section id="add-email-address-to-user">
 <h2>Add Email Address to User<a class="headerlink" href="#add-email-address-to-user" title="Permalink to this headline"></a></h2>
 <p>Gives a secondary email address to the user</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">set-mailbox</span> <span class="n">user</span> <span class="n">-emailaddresses</span> <span class="p">@{</span><span class="n">add</span><span class="p">=</span><span class="s1">&#39;email@example.com&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="calendar-permissions">
+</section>
+<section id="calendar-permissions">
 <h2>Calendar Permissions<a class="headerlink" href="#calendar-permissions" title="Permalink to this headline"></a></h2>
 <p>Gives Tracey read only access to Brittany, Lood, Brenda, Janelle, and Hilary’s calendars. Tracey can ask to put an appointment on their calendar, but cannot create or edit without the owner’s consent.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set-mailboxfolderpermission -identity brittany:\calendar -user tracey -accessrights reviewer
@@ -141,7 +142,7 @@ set-mailboxfolderpermission -identity janelle:\calendar -user tracey -accessrigh
 set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessrights reviewer
 </pre></div>
 </div>
-<div class="section" id="exhange-access-rights">
+<section id="exhange-access-rights">
 <h3>Exhange Access Rights<a class="headerlink" href="#exhange-access-rights" title="Permalink to this headline"></a></h3>
 <p>Sourced from <a class="reference external" href="http://umanitoba.ca/computing/ist/email/exchange/exchangecalendarroles.html">http://umanitoba.ca/computing/ist/email/exchange/exchangecalendarroles.html</a></p>
 <p>Exchange offers you the ability to give others varying levels of access rights. The following levels of rights are available, and are explained in terms of calendar rights:</p>
@@ -157,15 +158,15 @@ set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessright
 <li><p><strong>Free/Busy time:</strong> This setting is typically set to the Default user and restricts other Exchange calendars not given permissions to view your calendar except when being scheduled. At that time the only thing people can see is a blue block (busy time) or white (free time).</p></li>
 <li><p><strong>Free/Busy time, subject, location:</strong> This setting is one step up from the default setting. This will allow other Exchange Calendars the ability to see that you are busy, where you are, and the subject of the meeting. All other information is blocked from them and if they double-click on a meeting will be told they do not have sufficient permissions to view the calendar.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="create-a-service-account">
+</section>
+</section>
+<section id="create-a-service-account">
 <h2>Create a Service Account<a class="headerlink" href="#create-a-service-account" title="Permalink to this headline"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">New-Mailbox</span> <span class="n">-Name</span> <span class="s1">&#39;B2B&#39;</span> <span class="n">-Alias</span> <span class="s1">&#39;B2B&#39;</span> <span class="n">-OrganizationalUnit</span> <span class="s1">&#39;example.com/User Accounts/Newlands/IT Service Accounts&#39;</span> <span class="n">-UserPrincipalName</span> <span class="s1">&#39;accountname@example.com&#39;</span> <span class="n">-SamAccountName</span> <span class="s1">&#39;accountname&#39;</span> <span class="n">-FirstName</span> <span class="s1">&#39;accountname&#39;</span> <span class="n">-Initials</span> <span class="s1">&#39;&#39;</span> <span class="n">-LastName</span> <span class="s1">&#39;&#39;</span> <span class="n">-Password</span> <span class="s1">&#39;System.Security.SecureString&#39;</span> <span class="n">-ResetPasswordOnNextLogon</span> <span class="nv">$false</span> <span class="n">-Database</span> <span class="s1">&#39;Example - Services Mailbox&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="delete-a-mailbox">
+</section>
+<section id="delete-a-mailbox">
 <h2>Delete a Mailbox<a class="headerlink" href="#delete-a-mailbox" title="Permalink to this headline"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -174,28 +175,28 @@ set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessright
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Remove-Mailbox</span> <span class="n">-Identity</span> <span class="s2">&quot;name surname&quot;</span> <span class="n">-Permanent</span> <span class="nv">$true</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mailbox-access-permission">
+</section>
+<section id="mailbox-access-permission">
 <h2>Mailbox Access Permission<a class="headerlink" href="#mailbox-access-permission" title="Permalink to this headline"></a></h2>
 <p>Removes Caleb’s access to Bob’s mailbox:</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">remove-mailboxpermission</span> <span class="n">-identity</span> <span class="n">bob</span> <span class="n">-user</span> <span class="n">caleb</span> <span class="n">-accessrights</span> <span class="n">fullaccess</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="send-as-permission">
+</section>
+<section id="send-as-permission">
 <h2>Send As Permission<a class="headerlink" href="#send-as-permission" title="Permalink to this headline"></a></h2>
 <p>Gives Priscilla access to Send As clientservicecentre</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Add-ADPermission</span> <span class="n">-Identity</span> <span class="n">clientservicecentre</span> <span class="n">-User</span> <span class="s2">&quot;priscilla&#39; -ExtendedRights &#39;Send-as&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="out-of-office">
+</section>
+<section id="out-of-office">
 <h2>Out of Office<a class="headerlink" href="#out-of-office" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Set-MailboxAutoReplyConfiguration caleb@example.com –AutoReplyState Enabled –ExternalMessage “EXTERNAL MESSAGE HERE” –InternalMessage “INTERNAL MESSAGE HERE&quot;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

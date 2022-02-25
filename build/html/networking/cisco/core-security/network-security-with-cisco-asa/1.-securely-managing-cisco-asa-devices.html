@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Securely Managing Cisco ASA Devices &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,11 +134,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="securely-managing-cisco-asa-devices">
+  <section id="securely-managing-cisco-asa-devices">
 <h1>Securely Managing Cisco ASA Devices<a class="headerlink" href="#securely-managing-cisco-asa-devices" title="Permalink to this headline"></a></h1>
-<div class="section" id="out-of-band-management">
+<section id="out-of-band-management">
 <h2>Out of Band Management<a class="headerlink" href="#out-of-band-management" title="Permalink to this headline"></a></h2>
-<div class="section" id="out-of-band-management-networks">
+<section id="out-of-band-management-networks">
 <h3>Out of Band Management Networks<a class="headerlink" href="#out-of-band-management-networks" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Network dedicated for the management of network devices</p></li>
@@ -149,11 +150,11 @@
 </li>
 <li><p>Size of management network determined by size of the organization</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="management-interfaces-on-the-asa">
+</section>
+</section>
+<section id="management-interfaces-on-the-asa">
 <h2>Management Interfaces on the ASA<a class="headerlink" href="#management-interfaces-on-the-asa" title="Permalink to this headline"></a></h2>
-<div class="section" id="management-interfaces">
+<section id="management-interfaces">
 <h3>Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Dedicated management interface</p></li>
@@ -183,9 +184,9 @@ C   172.20.1.0 255.255.255.0 is directly connected, MGMT
 L   172.20.1.61 255.255.255.255 is directly connected, MGMT
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="configuring-ssh-and-https-access-on-an-asa">
+</section>
+</section>
+<section id="configuring-ssh-and-https-access-on-an-asa">
 <h2>Configuring SSH and HTTPS Access on an ASA<a class="headerlink" href="#configuring-ssh-and-https-access-on-an-asa" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-ASA(config)# domain-name globomantics.com
 Globo-ASA(config)# crypto key generate rsa Modulus 2048
@@ -198,10 +199,10 @@ Globo-ASA(config)# http server enable
 Globo-ASA(config)# http 172.20.1.0 255.255.255.0 MGMT
 </pre></div>
 </div>
-</div>
-<div class="section" id="cisco-asdm">
+</section>
+<section id="cisco-asdm">
 <h2>Cisco ASDM<a class="headerlink" href="#cisco-asdm" title="Permalink to this headline"></a></h2>
-<div class="section" id="asdm-overview">
+<section id="asdm-overview">
 <h3>ASDM Overview<a class="headerlink" href="#asdm-overview" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Adaptive Security Device Manager</p></li>
@@ -209,13 +210,15 @@ Globo-ASA(config)# http 172.20.1.0 255.255.255.0 MGMT
 <li><p>Requires java</p></li>
 <li><p>Download from Cisco.com or the ASA</p></li>
 </ul>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="ASDM - preview commands before sending to device" src="../../../../_images/securely-managing-cisco-asa-devices-1.png" />
-<p class="caption"><span class="caption-text">ASDM - preview commands before sending to device</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text">ASDM - preview commands before sending to device</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
 
 
            </div>

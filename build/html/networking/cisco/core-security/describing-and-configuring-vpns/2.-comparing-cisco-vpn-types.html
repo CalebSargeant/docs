@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comparing Cisco VPN Types &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,9 +136,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="comparing-cisco-vpn-types">
+  <section id="comparing-cisco-vpn-types">
 <h1>Comparing Cisco VPN Types<a class="headerlink" href="#comparing-cisco-vpn-types" title="Permalink to this headline"></a></h1>
-<div class="section" id="configuring-isakmp-ike-sa-tunnels">
+<section id="configuring-isakmp-ike-sa-tunnels">
 <h2>Configuring ISAKMP &amp; IKE SA Tunnels<a class="headerlink" href="#configuring-isakmp-ike-sa-tunnels" title="Permalink to this headline"></a></h2>
 <p><strong>Configuring IPSec on Cisco IOS</strong></p>
 <p><strong>Configure IKEv1</strong></p>
@@ -180,7 +181,7 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="ikev1-phase-1-configuration-tasks">
+<section id="ikev1-phase-1-configuration-tasks">
 <h3>IKEv1 Phase 1 Configuration Tasks<a class="headerlink" href="#ikev1-phase-1-configuration-tasks" title="Permalink to this headline"></a></h3>
 <p><strong>Configure ISAKMP Policy</strong></p>
 <ul class="simple">
@@ -206,8 +207,8 @@ priority</p></li>
 (config)#crypto isakmp key cisco123 hostname omaha-router.globomantics.com
 </pre></div>
 </div>
-</div>
-<div class="section" id="ikev2-ike-sa-configuration-tasks">
+</section>
+<section id="ikev2-ike-sa-configuration-tasks">
 <h3>IKEV2 IKE_SA Configuration Tasks<a class="headerlink" href="#ikev2-ike-sa-configuration-tasks" title="Permalink to this headline"></a></h3>
 <p><strong>Configure Keyring</strong></p>
 <ul class="simple">
@@ -274,11 +275,11 @@ priority</p></li>
 (config-ikev2-profile)#proposal name_of_ikev2_proposal
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="configuring-the-ipsec-tunnel">
+</section>
+</section>
+<section id="configuring-the-ipsec-tunnel">
 <h2>Configuring the IPsec Tunnel<a class="headerlink" href="#configuring-the-ipsec-tunnel" title="Permalink to this headline"></a></h2>
-<div class="section" id="configuring-the-2nd-tunnel-ikev1-or-ikev2">
+<section id="configuring-the-2nd-tunnel-ikev1-or-ikev2">
 <h3>Configuring the 2nd Tunnel (IKEv1 or IKEv2)<a class="headerlink" href="#configuring-the-2nd-tunnel-ikev1-or-ikev2" title="Permalink to this headline"></a></h3>
 <p><strong>Configure Transform Set</strong></p>
 <ul class="simple">
@@ -302,8 +303,8 @@ priority</p></li>
 (ipsec-profile)#set &lt;ikev2-profile|isakmp-profile&gt; name_of_profile
 </pre></div>
 </div>
-</div>
-<div class="section" id="legacy-configuration-crypto-maps">
+</section>
+<section id="legacy-configuration-crypto-maps">
 <h3>Legacy Configuration (Crypto-Maps)<a class="headerlink" href="#legacy-configuration-crypto-maps" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any
 (config)#crypto map crypto_map_name sequence_number ipsec-isakmp
@@ -316,11 +317,11 @@ priority</p></li>
 (config-if)#crypto map crypto_map_name
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="cisco-tunnel-interface-types">
+</section>
+</section>
+<section id="cisco-tunnel-interface-types">
 <h2>Cisco Tunnel Interface Types<a class="headerlink" href="#cisco-tunnel-interface-types" title="Permalink to this headline"></a></h2>
-<div class="section" id="virtual-tunnel-interface-vti">
+<section id="virtual-tunnel-interface-vti">
 <h3>Virtual Tunnel Interface (VTI)<a class="headerlink" href="#virtual-tunnel-interface-vti" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Allows for easier management</p>
@@ -341,8 +342,8 @@ interface</p></li>
 (config-if)#tunnel protection ipsec profile name_of_profile
 </pre></div>
 </div>
-</div>
-<div class="section" id="dynamic-vti">
+</section>
+<section id="dynamic-vti">
 <h3>Dynamic VTI<a class="headerlink" href="#dynamic-vti" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Used in hub-and-spoke S2S VPNs</p></li>
@@ -361,8 +362,8 @@ tunnel interfaces</p></li>
 (config-ikev2-profile)#virtual-template template_number
 </pre></div>
 </div>
-</div>
-<div class="section" id="gre-tunnel">
+</section>
+<section id="gre-tunnel">
 <h3>GRE Tunnel<a class="headerlink" href="#gre-tunnel" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Generic Routing Encapsulation</p></li>
@@ -380,8 +381,8 @@ address</p></li>
 (config-if)#tunnel protection ipsec profile name_of_profile
 </pre></div>
 </div>
-</div>
-<div class="section" id="mtu-size-and-mss-size">
+</section>
+<section id="mtu-size-and-mss-size">
 <h3>MTU Size and MSS Size<a class="headerlink" href="#mtu-size-and-mss-size" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Ethernet MTU is 1500</p>
@@ -407,8 +408,8 @@ headers are added</p></li>
 (config-if)#ip tcp adjust-mss 1360
 </pre></div>
 </div>
-</div>
-<div class="section" id="gre-multipoint-interface">
+</section>
+<section id="gre-multipoint-interface">
 <h3>GRE Multipoint Interface<a class="headerlink" href="#gre-multipoint-interface" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Allows tunnel interface to create Multiple VPNs with multiple devices</p></li>
@@ -425,9 +426,9 @@ headers are added</p></li>
 (config-if)#ip tcp adjust-mss 1360
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="dmvpn">
+</section>
+</section>
+<section id="dmvpn">
 <h2>DMVPN<a class="headerlink" href="#dmvpn" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>DMVPN doesn’t require each spoke to have a static NBMA</p></li>
@@ -440,7 +441,7 @@ headers are added</p></li>
 </ul>
 </li>
 </ul>
-<div class="section" id="dmvpn-components">
+<section id="dmvpn-components">
 <h3>DMVPN Components<a class="headerlink" href="#dmvpn-components" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Non-Broadcast Multiple Access (NBMA) Address</p>
@@ -469,8 +470,8 @@ next-hop server</p></li>
 <li><p>HQ sends NHRP to R2, R2 sends NBMA address to R1</p></li>
 <li><p>R1 establishes its own tunnel to R2</p></li>
 </ul>
-</div>
-<div class="section" id="dmvpn-phases">
+</section>
+<section id="dmvpn-phases">
 <h3>DMVPN Phases<a class="headerlink" href="#dmvpn-phases" title="Permalink to this headline"></a></h3>
 <p>Hub will always forward NHRP request, even if it knows the NBMA that the
 request initiator is trying to find.</p>
@@ -494,9 +495,9 @@ request initiator is trying to find.</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="flexvpn">
+</section>
+</section>
+<section id="flexvpn">
 <h2>FlexVPN<a class="headerlink" href="#flexvpn" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Framework that encompasses different VPN deployments</p></li>
@@ -518,8 +519,8 @@ used</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="cisco-anyconnect">
+</section>
+<section id="cisco-anyconnect">
 <h2>Cisco AnyConnect<a class="headerlink" href="#cisco-anyconnect" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Client that is installed on user’s device that allows a remote access
@@ -538,16 +539,16 @@ goes through user’s LAN</p></li>
 <li><p>IPv4 or IPv6</p></li>
 <li><p>Allows multiple tunnel endpoints to be configured</p></li>
 </ul>
-<div class="section" id="additional-anyconnect-features">
+<section id="additional-anyconnect-features">
 <h3>Additional AnyConnect Features<a class="headerlink" href="#additional-anyconnect-features" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Integrate with other Cisco products</p></li>
 <li><p>Provide visibility, compliance, malware protection, &amp; web inspection</p></li>
 <li><p>Remote Access VPNs can also be achieved through Clientless VPN</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Building Applications with Freestyle Jobs &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -109,9 +110,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="building-applications-with-freestyle-jobs">
+  <section id="building-applications-with-freestyle-jobs">
 <h1>Building Applications with Freestyle Jobs<a class="headerlink" href="#building-applications-with-freestyle-jobs" title="Permalink to this headline"></a></h1>
-<div class="section" id="anatomy-of-the-build">
+<section id="anatomy-of-the-build">
 <h2>Anatomy of the Build<a class="headerlink" href="#anatomy-of-the-build" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Git repo</p>
@@ -124,8 +125,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="manually-building-with-maven-and-running-app">
+</section>
+<section id="manually-building-with-maven-and-running-app">
 <h2>Manually Building with Maven and Running App<a class="headerlink" href="#manually-building-with-maven-and-running-app" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:CalebSargeant/jgsu-spring-petclinic.git --config core.sshCommand<span class="o">=</span><span class="s2">&quot;ssh -i ~/.ssh/github&quot;</span>
 <span class="nb">cd</span> jgsu-spring-petclinic
@@ -135,51 +136,69 @@
 java -jar target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar
 </pre></div>
 </div>
-</div>
-<div class="section" id="packaging-an-app-in-jenkins">
+</section>
+<section id="packaging-an-app-in-jenkins">
 <h2>Packaging an App in Jenkins<a class="headerlink" href="#packaging-an-app-in-jenkins" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Workspaces are temporary!</p>
 </div>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="../../../_images/jenkins-6.png" src="../../../_images/jenkins-6.png" />
-<p class="caption"><span class="caption-text">Give your item a name</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id2">
+<figcaption>
+<p><span class="caption-text">Give your item a name</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
 <img alt="../../../_images/jenkins-7.png" src="../../../_images/jenkins-7.png" />
-<p class="caption"><span class="caption-text">Input the repo url, ensure branch is correct (main vs master)</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id3">
+<figcaption>
+<p><span class="caption-text">Input the repo url, ensure branch is correct (main vs master)</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
 <img alt="../../../_images/jenkins-8.png" src="../../../_images/jenkins-8.png" />
-<p class="caption"><span class="caption-text">To build a project, click Build now</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id4">
+<figcaption>
+<p><span class="caption-text">To build a project, click Build now</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
 <img alt="../../../_images/jenkins-9.png" src="../../../_images/jenkins-9.png" />
-<p class="caption"><span class="caption-text">You can use <code class="docutils literal notranslate"><span class="pre">mvnw</span></code> commands for building</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id5">
+<figcaption>
+<p><span class="caption-text">You can use <code class="docutils literal notranslate"><span class="pre">mvnw</span></code> commands for building</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
 <img alt="../../../_images/jenkins-10.png" src="../../../_images/jenkins-10.png" />
-<p class="caption"><span class="caption-text">We’ll want to package our app, also exclude <code class="docutils literal notranslate"><span class="pre">*.jar</span></code> from being deleted</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id6">
+<figcaption>
+<p><span class="caption-text">We’ll want to package our app, also exclude <code class="docutils literal notranslate"><span class="pre">*.jar</span></code> from being deleted</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
 <img alt="../../../_images/jenkins-11.png" src="../../../_images/jenkins-11.png" />
-<p class="caption"><span class="caption-text">You can configure test reports from the xml files</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id7">
+<figcaption>
+<p><span class="caption-text">You can configure test reports from the xml files</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
 <img alt="../../../_images/jenkins-12.png" src="../../../_images/jenkins-12.png" />
-<p class="caption"><span class="caption-text">Checking the health status of a build</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id8">
+<figcaption>
+<p><span class="caption-text">Checking the health status of a build</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id8">
 <img alt="../../../_images/jenkins-13.png" src="../../../_images/jenkins-13.png" />
-<p class="caption"><span class="caption-text">Configuring polling git for changes to code to build automatically</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id9">
+<figcaption>
+<p><span class="caption-text">Configuring polling git for changes to code to build automatically</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
 <img alt="../../../_images/jenkins-14.png" src="../../../_images/jenkins-14.png" />
-<p class="caption"><span class="caption-text">You can check the recent changes of a build and drill down into git diffs</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text">You can check the recent changes of a build and drill down into git diffs</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
 
            </div>

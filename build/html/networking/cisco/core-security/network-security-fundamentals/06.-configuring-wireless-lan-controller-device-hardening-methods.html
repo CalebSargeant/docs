@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring Wireless LAN Controller Device Hardening Methods &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,35 +136,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-wireless-lan-controller-device-hardening-methods">
+  <section id="configuring-wireless-lan-controller-device-hardening-methods">
 <h1>Configuring Wireless LAN Controller Device Hardening Methods<a class="headerlink" href="#configuring-wireless-lan-controller-device-hardening-methods" title="Permalink to this headline"></a></h1>
-<div class="section" id="wireless-security-overview">
+<section id="wireless-security-overview">
 <h2>Wireless Security Overview<a class="headerlink" href="#wireless-security-overview" title="Permalink to this headline"></a></h2>
-<div class="section" id="why-wireless-security-is-needed">
+<section id="why-wireless-security-is-needed">
 <h3>Why Wireless Security Is Needed<a class="headerlink" href="#why-wireless-security-is-needed" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Malicious attacker doesn’t need physical access to cable</p></li>
 <li><p>Can listen if they are within distance of wireless signal</p></li>
 <li><p>Additional security measures are needed</p></li>
 </ul>
-</div>
-<div class="section" id="wired-equivalent-privacy-wep">
+</section>
+<section id="wired-equivalent-privacy-wep">
 <h3>Wired Equivalent Privacy (WEP)<a class="headerlink" href="#wired-equivalent-privacy-wep" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Password required before device allowed on network</p></li>
 <li><p>24 bit initialization vector (IV and RC4</p></li>
 <li><p>IV was too short and insecure</p></li>
 </ul>
-</div>
-<div class="section" id="wifi-protected-access-wpa">
+</section>
+<section id="wifi-protected-access-wpa">
 <h3>Wifi Protected Access (WPA)<a class="headerlink" href="#wifi-protected-access-wpa" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>48-bit IV &amp; TKIP</p></li>
 <li><p>Message Integrity Check</p></li>
 <li><p>Sequence counter</p></li>
 </ul>
-</div>
-<div class="section" id="wpa2">
+</section>
+<section id="wpa2">
 <h3>WPA2<a class="headerlink" href="#wpa2" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>IEEE 802.11i</p></li>
@@ -181,102 +182,144 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="adding-encryption-to-wireless-lans">
+</section>
+<section id="adding-encryption-to-wireless-lans">
 <h3>Adding Encryption to Wireless LANS<a class="headerlink" href="#adding-encryption-to-wireless-lans" title="Permalink to this headline"></a></h3>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="WLANs &gt; select profile" src="../../../../_images/securing-the-wireless-lan-controller-1.png" />
-<p class="caption"><span class="caption-text">WLANs &gt; select profile</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id2">
+<figcaption>
+<p><span class="caption-text">WLANs &gt; select profile</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
 <img alt="Security &gt; Layer 2 &gt; WPA+WPA2" src="../../../../_images/securing-the-wireless-lan-controller-2.png" />
-<p class="caption"><span class="caption-text">Security &gt; Layer 2 &gt; WPA+WPA2</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id3">
+<figcaption>
+<p><span class="caption-text">Security &gt; Layer 2 &gt; WPA+WPA2</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
 <img alt="PSK &gt; input password" src="../../../../_images/securing-the-wireless-lan-controller-3.png" />
-<p class="caption"><span class="caption-text">PSK &gt; input password</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</div>
-</div>
-<div class="section" id="configuring-wpa2-enterprise">
+<figcaption>
+<p><span class="caption-text">PSK &gt; input password</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="configuring-wpa2-enterprise">
 <h3>Configuring WPA2 Enterprise<a class="headerlink" href="#configuring-wpa2-enterprise" title="Permalink to this headline"></a></h3>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <img alt="Security &gt; AAA &gt; RADIUS &gt; Authentication" src="../../../../_images/securing-the-wireless-lan-controller-4.png" />
-<p class="caption"><span class="caption-text">Security &gt; AAA &gt; RADIUS &gt; Authentication</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id5">
+<figcaption>
+<p><span class="caption-text">Security &gt; AAA &gt; RADIUS &gt; Authentication</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
 <img alt="Input Server IP and Shared Secret" src="../../../../_images/securing-the-wireless-lan-controller-5.png" />
-<p class="caption"><span class="caption-text">Input Server IP and Shared Secret</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id6">
+<figcaption>
+<p><span class="caption-text">Input Server IP and Shared Secret</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
 <img alt="WLANs &gt; select profile &gt; Security &amp; Layer 2 &gt; 802.1X" src="../../../../_images/securing-the-wireless-lan-controller-6.png" />
-<p class="caption"><span class="caption-text">WLANs &gt; select profile &gt; Security &gt; Layer 2 &gt; 802.1X</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id7">
+<figcaption>
+<p><span class="caption-text">WLANs &gt; select profile &gt; Security &gt; Layer 2 &gt; 802.1X</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
 <img alt="AAA Servers &gt; Server 1" src="../../../../_images/securing-the-wireless-lan-controller-7.png" />
-<p class="caption"><span class="caption-text">AAA Servers &gt; Server 1</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id8">
+<figcaption>
+<p><span class="caption-text">AAA Servers &gt; Server 1</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id8">
 <img alt="Advanced &gt; Allow AAA Override, P2P Blocking Action (Drop), DHCP Addr. Assignment (Reguired)" src="../../../../_images/securing-the-wireless-lan-controller-8.png" />
-<p class="caption"><span class="caption-text">Advanced &gt; Allow AAA Override, P2P Blocking Action (Drop), DHCP Addr. Assignment (Reguired)</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id9">
+<figcaption>
+<p><span class="caption-text">Advanced &gt; Allow AAA Override, P2P Blocking Action (Drop), DHCP Addr. Assignment (Reguired)</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
 <img alt="Advanced &gt; NAC State &gt; ISE NAC" src="../../../../_images/securing-the-wireless-lan-controller-9.png" />
-<p class="caption"><span class="caption-text">Advanced &gt; NAC State &gt; ISE NAC</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id10">
+<figcaption>
+<p><span class="caption-text">Advanced &gt; NAC State &gt; ISE NAC</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id10">
 <img alt="Advanced &gt; Radius Client Profiling (enable all), Local Client Profiling (enable all)" src="../../../../_images/securing-the-wireless-lan-controller-10.png" />
-<p class="caption"><span class="caption-text">Advanced &gt; Radius Client Profiling (enable all), Local Client Profiling (enable all)</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
-</div>
-</div>
-<div class="section" id="securing-the-management-plane-on-a-wireless-lan-controller">
+<figcaption>
+<p><span class="caption-text">Advanced &gt; Radius Client Profiling (enable all), Local Client Profiling (enable all)</span><a class="headerlink" href="#id10" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="securing-the-management-plane-on-a-wireless-lan-controller">
 <h3>Securing the Management Plane on a Wireless LAN Controller<a class="headerlink" href="#securing-the-management-plane-on-a-wireless-lan-controller" title="Permalink to this headline"></a></h3>
-<div class="figure align-default" id="id11">
+<figure class="align-default" id="id11">
 <img alt="Security &gt; Priority Order &gt; Management User &gt; move LOCAL down" src="../../../../_images/securing-the-wireless-lan-controller-11.png" />
-<p class="caption"><span class="caption-text">Security &gt; Priority Order &gt; Management User &gt; move LOCAL down</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id12">
+<figcaption>
+<p><span class="caption-text">Security &gt; Priority Order &gt; Management User &gt; move LOCAL down</span><a class="headerlink" href="#id11" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
 <img alt="HTTP-HTTPS" src="../../../../_images/securing-the-wireless-lan-controller-12.png" />
-<p class="caption"><span class="caption-text">HTTP-HTTPS</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id13">
+<figcaption>
+<p><span class="caption-text">HTTP-HTTPS</span><a class="headerlink" href="#id12" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id13">
 <img alt="Telnet-SSH" src="../../../../_images/securing-the-wireless-lan-controller-13.png" />
-<p class="caption"><span class="caption-text">Telnet-SSH</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id14">
+<figcaption>
+<p><span class="caption-text">Telnet-SSH</span><a class="headerlink" href="#id13" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id14">
 <img alt="Mgmt Via Wireless" src="../../../../_images/securing-the-wireless-lan-controller-14.png" />
-<p class="caption"><span class="caption-text">Mgmt Via Wireless</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id15">
+<figcaption>
+<p><span class="caption-text">Mgmt Via Wireless</span><a class="headerlink" href="#id14" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id15">
 <img alt="SNMP &gt; General" src="../../../../_images/securing-the-wireless-lan-controller-15.png" />
-<p class="caption"><span class="caption-text">SNMP &gt; General</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id16">
+<figcaption>
+<p><span class="caption-text">SNMP &gt; General</span><a class="headerlink" href="#id15" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id16">
 <img alt="SNMP &gt; Create User" src="../../../../_images/securing-the-wireless-lan-controller-16.png" />
-<p class="caption"><span class="caption-text">SNMP &gt; Create User</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id17">
+<figcaption>
+<p><span class="caption-text">SNMP &gt; Create User</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id17">
 <img alt="SNMP &gt; Trap Receivers" src="../../../../_images/securing-the-wireless-lan-controller-17.png" />
-<p class="caption"><span class="caption-text">SNMP &gt; Trap Receivers</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id18">
+<figcaption>
+<p><span class="caption-text">SNMP &gt; Trap Receivers</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id18">
 <img alt="Security &gt; Access Control Lists &gt; Access Control Lists&gt; New …" src="../../../../_images/securing-the-wireless-lan-controller-18.png" />
-<p class="caption"><span class="caption-text">Security &gt; Access Control Lists &gt; Access Control Lists &gt; New</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id19">
+<figcaption>
+<p><span class="caption-text">Security &gt; Access Control Lists &gt; Access Control Lists &gt; New</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id19">
 <img alt="Add new rule" src="../../../../_images/securing-the-wireless-lan-controller-19.png" />
-<p class="caption"><span class="caption-text">Add new rule</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id20">
+<figcaption>
+<p><span class="caption-text">Add new rule</span><a class="headerlink" href="#id19" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id20">
 <img alt="More rules" src="../../../../_images/securing-the-wireless-lan-controller-20.png" />
-<p class="caption"><span class="caption-text">More rules</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
-</div>
-<div class="figure align-default" id="id21">
+<figcaption>
+<p><span class="caption-text">More rules</span><a class="headerlink" href="#id20" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id21">
 <img alt="Apply ACL to CPU" src="../../../../_images/securing-the-wireless-lan-controller-21.png" />
-<p class="caption"><span class="caption-text">Apply ACL to CPU</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
-</div>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-text">Apply ACL to CPU</span><a class="headerlink" href="#id21" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OSPF &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -14,7 +15,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -128,11 +129,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="ospf">
+  <section id="ospf">
 <h1>OSPF<a class="headerlink" href="#ospf" title="Permalink to this headline"></a></h1>
-<div class="section" id="concepts-and-planning">
+<section id="concepts-and-planning">
 <h2>Concepts and Planning<a class="headerlink" href="#concepts-and-planning" title="Permalink to this headline"></a></h2>
-<div class="section" id="link-state-routing-protocols">
+<section id="link-state-routing-protocols">
 <h3>Link State Routing Protocols<a class="headerlink" href="#link-state-routing-protocols" title="Permalink to this headline"></a></h3>
 <ul>
 <li><p>Two types</p>
@@ -156,8 +157,8 @@
 <li><p>Send triggered updates to announce network changes</p></li>
 <li><p>Send periodic updates (LS refresh) on long intervals</p></li>
 </ul>
-</div>
-<div class="section" id="ospf-area-design-and-terms">
+</section>
+<section id="ospf-area-design-and-terms">
 <h3>OSPF Area Design and Terms<a class="headerlink" href="#ospf-area-design-and-terms" title="Permalink to this headline"></a></h3>
 <a class="reference internal image-reference" href="../../../_images/ospf-concepts-and-planning.png"><img alt="../../../_images/ospf-concepts-and-planning.png" class="align-center" src="../../../_images/ospf-concepts-and-planning.png" style="width: 940px; height: 641px;" /></a>
 <ul class="simple">
@@ -166,8 +167,8 @@
 <li><p>Goal: localize updates within an area</p></li>
 <li><p>Requires a hierarchal design</p></li>
 </ul>
-</div>
-<div class="section" id="understanding-ospf-neighbour-relationships">
+</section>
+<section id="understanding-ospf-neighbour-relationships">
 <h3>Understanding OSPF Neighbour Relationships<a class="headerlink" href="#understanding-ospf-neighbour-relationships" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Determine your own Router ID</p></li>
@@ -266,8 +267,8 @@
 <li><p>Now it’s time to run the Dijkstra SPF algorithm to figure out what to do with all this data</p></li>
 </ol>
 </div></blockquote>
-</div>
-<div class="section" id="ospf-s-cost">
+</section>
+<section id="ospf-s-cost">
 <h3>OSPF’s Cost<a class="headerlink" href="#ospf-s-cost" title="Permalink to this headline"></a></h3>
 <div class="math notranslate nohighlight">
 \[Cost = \frac{100}{BandwidthInMbps}\]</div>
@@ -279,8 +280,8 @@
 <li><p>Ethernet = 10</p></li>
 <li><p>Fast Ethernet = 1</p></li>
 </ul>
-</div>
-<div class="section" id="understanding-dr-and-bdr">
+</section>
+<section id="understanding-dr-and-bdr">
 <h3>Understanding DR and BDR<a class="headerlink" href="#understanding-dr-and-bdr" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Designated Router = DR</p></li>
@@ -290,12 +291,12 @@
 <li><p>1 DR and BDR for every shared segment</p></li>
 <li><p>No DR and BDR on point-to-point links (no point)</p></li>
 </ul>
-</div>
-<div class="section" id="dr-and-bdr-election">
+</section>
+<section id="dr-and-bdr-election">
 <h3>DR and BDR Election<a class="headerlink" href="#dr-and-bdr-election" title="Permalink to this headline"></a></h3>
 <p>Elected via Router Priority (which is all 1 by default). The tie is broken by Router-ID. DR is only really important in NMBA networks, otherwise random DR and BDR is okay. All routers connected to DR will be in Full state. Other routers are in 2-way state (which is okay).</p>
-</div>
-<div class="section" id="ospf-packet-types">
+</section>
+<section id="ospf-packet-types">
 <h3>OSPF Packet Types<a class="headerlink" href="#ospf-packet-types" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Hello</p></li>
@@ -318,16 +319,16 @@
 </li>
 <li><p>Link-State Acknowledgment (LSACK)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="basic-configuration">
+</section>
+</section>
+<section id="basic-configuration">
 <h2>Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline"></a></h2>
-<div class="section" id="difference-between-e1-and-e2">
+<section id="difference-between-e1-and-e2">
 <h3>Difference between E1 and E2<a class="headerlink" href="#difference-between-e1-and-e2" title="Permalink to this headline"></a></h3>
 <p>E1 = increment their metric (used if their is more than one way out the network - out of ASBR)
 E2 = do not increment their metric</p>
-</div>
-<div class="section" id="basic-ospf-configuration">
+</section>
+<section id="basic-ospf-configuration">
 <h3>Basic OSPF Configuration<a class="headerlink" href="#basic-ospf-configuration" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/9a2da2483fd81527c9a90909bd274d30/ospf-basic-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-basic-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/ospf-basic-configuration.png"><img alt="../../../_images/ospf-basic-configuration.png" class="align-center" src="../../../_images/ospf-basic-configuration.png" style="width: 738px; height: 332px;" /></a>
@@ -428,11 +429,11 @@ R5(config-router)#auto-cost reference-bandwidth 1000
 R5#wr
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="advanced-configuration">
+</section>
+</section>
+<section id="advanced-configuration">
 <h2>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this headline"></a></h2>
-<div class="section" id="ospf-network-types">
+<section id="ospf-network-types">
 <h3>OSPF Network Types<a class="headerlink" href="#ospf-network-types" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Broadcast, multi-access networks</p>
@@ -464,8 +465,8 @@ R5#wr
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="non-broadcast-mode">
+</section>
+<section id="non-broadcast-mode">
 <h3>Non-Broadcast Mode<a class="headerlink" href="#non-broadcast-mode" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Default mode for x.25, FR, ATM</p></li>
@@ -474,8 +475,8 @@ R5#wr
 <li><p>Acts like a LAN environment</p></li>
 <li><p>DR/BDR elected (must have full connectivity!)</p></li>
 </ul>
-</div>
-<div class="section" id="point-to-multipoint-mode">
+</section>
+<section id="point-to-multipoint-mode">
 <h3>Point-to-Multipoint Mode<a class="headerlink" href="#point-to-multipoint-mode" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Fixes issues with NMBA</p></li>
@@ -483,8 +484,8 @@ R5#wr
 <li><p>No DR/BDR elected</p></li>
 <li><p>Neighbours automatically form (must be able to send pseudo-broadcasts sent over 224.0.0.5)</p></li>
 </ul>
-</div>
-<div class="section" id="point-to-point-mode">
+</section>
+<section id="point-to-point-mode">
 <h3>Point-to-Point Mode<a class="headerlink" href="#point-to-point-mode" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Uses separate sup-interfaces</p></li>
@@ -492,8 +493,8 @@ R5#wr
 <li><p>No DR/BDR elected</p></li>
 <li><p>Neighbours automatically form</p></li>
 </ul>
-</div>
-<div class="section" id="ospf-advanced-configuration">
+</section>
+<section id="ospf-advanced-configuration">
 <h3>OSPF Advanced Configuration<a class="headerlink" href="#ospf-advanced-configuration" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/e58505fc5a06c26a2b31ae50e0819fb9/ospf-advanced-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-advanced-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/ospf-advanced-configuration.png"><img alt="../../../_images/ospf-advanced-configuration.png" class="align-center" src="../../../_images/ospf-advanced-configuration.png" style="width: 776px; height: 526px;" /></a>
@@ -687,11 +688,11 @@ FRS3(config-if)#no shut
 FRS3(config-if)#do wr
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ospf-area-types-and-options">
+</section>
+</section>
+<section id="ospf-area-types-and-options">
 <h2>OSPF Area Types and Options<a class="headerlink" href="#ospf-area-types-and-options" title="Permalink to this headline"></a></h2>
-<div class="section" id="ospf-areas-and-router-types">
+<section id="ospf-areas-and-router-types">
 <h3>OSPF Areas and Router Types<a class="headerlink" href="#ospf-areas-and-router-types" title="Permalink to this headline"></a></h3>
 <p>Link state advertisements (LSAS) are the building blocks of OSPF; many types exist</p>
 <ul class="simple">
@@ -701,8 +702,8 @@ FRS3(config-if)#do wr
 <li><p>LSA type 4: summary LSA (ASBR location)</p></li>
 <li><p>LSA type 5: external LSA (ASBR summary route)</p></li>
 </ul>
-</div>
-<div class="section" id="virtual-links">
+</section>
+<section id="virtual-links">
 <h3>Virtual Links<a class="headerlink" href="#virtual-links" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/240b7d57edcd01bd7fed43815275a592/ospf-virtual-links.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-virtual-links.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/ospf-virtual-links.png"><img alt="../../../_images/ospf-virtual-links.png" class="align-center" src="../../../_images/ospf-virtual-links.png" style="width: 758px; height: 232px;" /></a>
@@ -758,8 +759,8 @@ R4(config-router)#network 10.0.0.0 0.0.0.255 area 0
 R4(config-if)#do wr
 </pre></div>
 </div>
-</div>
-<div class="section" id="stub-and-totally-stubby-areas">
+</section>
+<section id="stub-and-totally-stubby-areas">
 <h3>Stub and Totally Stubby Areas<a class="headerlink" href="#stub-and-totally-stubby-areas" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Stubby Area: blocks type 5 LSA from entering</p></li>
@@ -821,8 +822,8 @@ R5(config-router)#area 1 nssa
 R5#wr
 </pre></div>
 </div>
-</div>
-<div class="section" id="ospf-special-areas">
+</section>
+<section id="ospf-special-areas">
 <h3>OSPF Special Areas<a class="headerlink" href="#ospf-special-areas" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/5556b31914586f92d0ad823cf7421078/ospf-stub-lab.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ospf-stub-lab.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/ospf-stub-lab.png"><img alt="../../../_images/ospf-stub-lab.png" class="align-center" src="../../../_images/ospf-stub-lab.png" style="width: 974px; height: 602px;" /></a>
@@ -974,9 +975,9 @@ R8(config-router)#passive-interface default
 R8(config-router)#no passive-interface s1/0
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

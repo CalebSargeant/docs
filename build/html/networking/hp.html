@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HP Procurve &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -99,20 +100,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hp-procurve">
+  <section id="hp-procurve">
 <h1>HP Procurve<a class="headerlink" href="#hp-procurve" title="Permalink to this headline"></a></h1>
-<div class="section" id="checking-health">
+<section id="checking-health">
 <h2>Checking Health<a class="headerlink" href="#checking-health" title="Permalink to this headline"></a></h2>
 <p>Uptime: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ver</span></code>
 Memory: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">health</span></code>
 CPU: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">system</span> <span class="pre">processes</span> <span class="pre">brief</span></code></p>
-</div>
-<div class="section" id="backing-up-configs">
+</section>
+<section id="backing-up-configs">
 <h2>Backing up Configs<a class="headerlink" href="#backing-up-configs" title="Permalink to this headline"></a></h2>
 <p>Start the TFTP Server.</p>
 <p>Run the command <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">running-config</span> <span class="pre">tftp</span> <span class="pre">10.10.0.81</span> <span class="pre">SWITCH-NAME</span></code></p>
-</div>
-<div class="section" id="upgrading">
+</section>
+<section id="upgrading">
 <h2>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Go to <a class="reference external" href="https://h10145.www1.hpe.com/support/SupportLookUp.aspx">HP Support Lookup:</a></p></li>
@@ -168,8 +169,8 @@ show version
 show flash
 </pre></div>
 </div>
-</div>
-<div class="section" id="stp-configuration">
+</section>
+<section id="stp-configuration">
 <h2>STP Configuration<a class="headerlink" href="#stp-configuration" title="Permalink to this headline"></a></h2>
 <p>Configuring the Root Bridge:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Procurve 4204vl-1# configure
@@ -184,8 +185,8 @@ Procurve 4204vl-2(config)# spanning-tree
 Procurve 4204vl-2(config)# write memory
 </pre></div>
 </div>
-</div>
-<div class="section" id="trunking">
+</section>
+<section id="trunking">
 <h2>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>To show trunks:
 Sh trunk
@@ -227,8 +228,8 @@ Int x
 Name name
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

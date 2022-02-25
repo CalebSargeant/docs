@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring DMVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,9 +136,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-dmvpn">
+  <section id="configuring-dmvpn">
 <h1>Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Permalink to this headline"></a></h1>
-<div class="section" id="configuring-dmvpn-on-the-hub-router">
+<section id="configuring-dmvpn-on-the-hub-router">
 <h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configure interface tunnel 100 on HQ router</p></li>
@@ -157,8 +158,8 @@ Globomantics-HQ(config-if)#ip nhrp redirect
 Globomantics-HQ(config-if)#tunnel key 7178
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuring-dmvpn-on-the-spoke-routers">
+</section>
+<section id="configuring-dmvpn-on-the-spoke-routers">
 <h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-0MA(config)#int tun 100
 Globmantics-0MA(config-if)#ip add 192.168.100.2 255.255.255.0
@@ -175,8 +176,8 @@ Globmantics-OMA(config-if)#ip nhrp map 192.168.100.1 1.1.1.1
 Globmantics-OMA(config-if)#ip nhrp map multicast 1.1.1.1
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuring-dynamic-routing">
+</section>
+<section id="configuring-dynamic-routing">
 <h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Look at NHRP &amp; DMVPN statistics</p></li>
@@ -214,8 +215,8 @@ Globomantics-HQ(config-if)#no ip next-hop-self eigrp 100
 Globomantics-HQ(config-if)#no ip split-horizon eigrp 100
 </pre></div>
 </div>
-</div>
-<div class="section" id="verifying-dmvpn">
+</section>
+<section id="verifying-dmvpn">
 <h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-OMA#traceroute 172.18.3.1 source lo1
 Type escape sequence to abort.
@@ -262,10 +263,10 @@ Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
 1 192.168.100.3 2 msec 5 msec 1 msec
 </pre></div>
 </div>
-</div>
-<div class="section" id="ipsec-config-intro-and-smart-defaults">
+</section>
+<section id="ipsec-config-intro-and-smart-defaults">
 <h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Permalink to this headline"></a></h2>
-<div class="section" id="configuring-ikev2-on-cisco-ios">
+<section id="configuring-ikev2-on-cisco-ios">
 <h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Configure IKE_SA Tunnel</p>
@@ -309,9 +310,9 @@ and IPsec profile</p></li>
 <li><p>Apply IPsec profile to the tunnel interface</p></li>
 <li><p>Configure the rest of the routers with IPsec</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="securing-dmvpn-with-ipsec">
+</section>
+</section>
+<section id="securing-dmvpn-with-ipsec">
 <h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Permalink to this headline"></a></h2>
 <p><strong>HQ Router config</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-Main#conf t
@@ -427,8 +428,8 @@ set ikev2-profile DMVPN-Prof
 tunnel protection ipsec profile DMVPN-IPsec
 </pre></div>
 </div>
-</div>
-<div class="section" id="verifying-and-troubleshooting-ipsec">
+</section>
+<section id="verifying-and-troubleshooting-ipsec">
 <h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#show crypto ikev2 sa
 Globomantics-HQ#show crypto ikev2 sa detail
@@ -437,8 +438,8 @@ GLobomantics-HQ#show crypto engine connections active
 Globomantics-HQ#debug crypto ikev2
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

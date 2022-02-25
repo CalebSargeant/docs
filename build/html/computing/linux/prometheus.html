@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prometheus &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -68,6 +69,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -111,9 +113,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="prometheus">
+  <section id="prometheus">
 <h1>Prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline"></a></h1>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.howtoforge.com/how-to-install-prometheus-on-ubuntu-20-04/</span>
 <span class="c1"># https://linuxhint.com/install_prometheus_ubuntu/</span>
@@ -173,15 +175,15 @@ sudo systemctl <span class="nb">enable</span> prometheus
 sudo systemctl status prometheus
 </pre></div>
 </div>
-</div>
-<div class="section" id="check-if-config-is-valid">
+</section>
+<section id="check-if-config-is-valid">
 <h2>Check if Config is Valid<a class="headerlink" href="#check-if-config-is-valid" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.robustperception.io/how-to-check-your-prometheus-yml-is-valid">https://www.robustperception.io/how-to-check-your-prometheus-yml-is-valid</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./promtool check config prometheus.yml
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

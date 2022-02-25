@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring a Label Switched Network &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -123,9 +124,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-a-label-switched-network">
+  <section id="configuring-a-label-switched-network">
 <h1>Configuring a Label Switched Network<a class="headerlink" href="#configuring-a-label-switched-network" title="Permalink to this headline"></a></h1>
-<div class="section" id="lab-setup">
+<section id="lab-setup">
 <h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline"></a></h2>
 <img alt="../../../_images/mpls-8.png" src="../../../_images/mpls-8.png" />
 <p><a class="reference download internal" download="" href="../../../_downloads/1bf9fd1e8c0846aeef9656ec6f7ab1e2/configure-a-label-switched-network.zip"><code class="xref download docutils literal notranslate"><span class="pre">_files/configure-a-label-switched-network.zip</span></code></a></p>
@@ -261,8 +262,8 @@ R6(config-subif)#encap dot1q 56
 R6(config-subif)#ip add 192.168.56.2 255.255.255.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuring-ospf">
+</section>
+<section id="configuring-ospf">
 <h2>Configuring OSPF<a class="headerlink" href="#configuring-ospf" title="Permalink to this headline"></a></h2>
 <p><strong>R2</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int g0/0.23
@@ -316,8 +317,8 @@ R5(config-router)#network 5.5.5.5 0.0.0.255 area 0
 R5(config-router)#network 10.0.45.0 0.0.0.255 area 0
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuring-mpls">
+</section>
+<section id="configuring-mpls">
 <h2>Configuring MPLS<a class="headerlink" href="#configuring-mpls" title="Permalink to this headline"></a></h2>
 <p><strong>R2</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#mpls ip
@@ -362,8 +363,8 @@ R5(config)#int g0/0.45
 R5(config-subif)#mpls ip
 </pre></div>
 </div>
-</div>
-<div class="section" id="verifying-mpls-forwarding">
+</section>
+<section id="verifying-mpls-forwarding">
 <h2>Verifying MPLS Forwarding<a class="headerlink" href="#verifying-mpls-forwarding" title="Permalink to this headline"></a></h2>
 <p><strong>Show the RIB</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4#sh ip route
@@ -485,8 +486,8 @@ Feb 16 09:19:05.261: MPLS les: Gi0/0.45: rx: Len 122 Stack {401 0 255} - ipv4 da
 Feb 16 09:19:05.261: MPLS les: Gi0/1.34: tx: Len 122 Stack {300 0 254} - ipv4 data s:5.5.5.5 d:2.2.2.2 ttl:255 tos:0 prot:1
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

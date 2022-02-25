@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Implementing Cisco Application Visibility and Control (AVC) &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,18 +134,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="implementing-cisco-application-visibility-and-control-avc">
+  <section id="implementing-cisco-application-visibility-and-control-avc">
 <h1>Implementing Cisco Application Visibility and Control (AVC)<a class="headerlink" href="#implementing-cisco-application-visibility-and-control-avc" title="Permalink to this headline"></a></h1>
-<div class="section" id="introduction-to-ciscos-application-visibility-and-control">
+<section id="introduction-to-ciscos-application-visibility-and-control">
 <h2>Introduction to Cisco’s Application Visibility and Control<a class="headerlink" href="#introduction-to-ciscos-application-visibility-and-control" title="Permalink to this headline"></a></h2>
-<div class="section" id="why-do-we-need-avc">
+<section id="why-do-we-need-avc">
 <h3>Why Do We Need AVC?<a class="headerlink" href="#why-do-we-need-avc" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Traditional networks focus on controlling traffic between layers 2-4</p></li>
 <li><p>QoS also relied on layers 2-4</p></li>
 </ul>
-</div>
-<div class="section" id="application-visibility-and-control">
+</section>
+<section id="application-visibility-and-control">
 <h3>Application Visibility and Control<a class="headerlink" href="#application-visibility-and-control" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Framework of Cisco features</p></li>
@@ -162,11 +163,11 @@
 <li><p>Management and Reporting</p></li>
 <li><p>Control</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="controlling-application-traffic-using-policy-maps">
+</section>
+</section>
+<section id="controlling-application-traffic-using-policy-maps">
 <h2>Controlling Application Traffic Using Policy Maps<a class="headerlink" href="#controlling-application-traffic-using-policy-maps" title="Permalink to this headline"></a></h2>
-<div class="section" id="qos-concepts">
+<section id="qos-concepts">
 <h3>QoS Concepts<a class="headerlink" href="#qos-concepts" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Control traffic with class-maps and policy-maps</p></li>
@@ -201,9 +202,9 @@
 (config-pmap-c)#set dscp 45
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="configuring-a-switch-to-capture-and-send-flows">
+</section>
+</section>
+<section id="configuring-a-switch-to-capture-and-send-flows">
 <h2>Configuring a Switch to Capture and Send Flows<a class="headerlink" href="#configuring-a-switch-to-capture-and-send-flows" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Enable NBAR</p></li>
@@ -267,8 +268,8 @@ Globo-Core-Router(config-if)#ip flow monitor GloboFlow input
 Globo-Core-Router(config-if)#exit
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

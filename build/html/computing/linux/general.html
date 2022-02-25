@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>General &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -56,10 +57,18 @@
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#apt-yum-cheat-sheets">Apt &amp; Yum Cheat Sheets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yum">Yum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#clear-yum-cache">Clear Yum Cache</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#nmap">Nmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rsync">Rsync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rsync">Rsync</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rsync-compare-directories">Rsync Compare Directories</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#while-loop">While Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#for-loop">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-files-with-spaces">Moving Files with Spaces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fstab">Fstab</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#automounting">Automounting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
@@ -70,6 +79,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#disk-usage">Disk Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iso-to-disk">ISO to Disk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-ssl-certificate-expiry-date">Check SSL Certificate Expiry Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inodes">Inodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#grep">Grep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tail">Tail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sftp">SFTP</a><ul>
@@ -87,6 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sudo-without-password">Sudo without Password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compression">Compression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gzip">Gzip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zip">Zip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bunzip">Bunzip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tar">Tar</a></li>
@@ -144,6 +156,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#find-the-pid-using-port">Find the PID Using Port</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unmounting-a-busy-device">Unmounting a Busy Device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ubuntu-resize-logical-volume">Ubuntu Resize Logical Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wget">Wget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#download-a-list-of-files">Download a list of files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cat-tac">Cat &amp; Tac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wc">WC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decrypt-gpg">Decrypt GPG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forget-gpg-invalid-password">Forget GPG Invalid Password</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
@@ -199,17 +219,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="general">
+  <section id="general">
 <h1>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h1>
 <p>General, random and useful Linux-related config and things.</p>
 <p>A good site to browse random commands and things: <a class="reference external" href="https://www.commandlinefu.com/">https://www.commandlinefu.com/</a></p>
-<div class="section" id="apt-yum-cheat-sheets">
+<section id="apt-yum-cheat-sheets">
 <h2>Apt &amp; Yum Cheat Sheets<a class="headerlink" href="#apt-yum-cheat-sheets" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://blog.packagecloud.io">https://blog.packagecloud.io</a>:</p>
 <p><a class="reference download internal" download="" href="../../_downloads/2c165d93f5ab036fed628ab3f4a3fd45/APT%20Cheat%20Sheet%20-%20Packagecloud%20Blog.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Apt</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/d80fb69a6e5996ddfb3a33516bd7aab8/Yum%20Cheat%20Sheet%20-%20Packagecloud%20Blog.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Yum</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
+</section>
+<section id="yum">
+<h2>Yum<a class="headerlink" href="#yum" title="Permalink to this headline"></a></h2>
+<section id="clear-yum-cache">
+<h3>Clear Yum Cache<a class="headerlink" href="#clear-yum-cache" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994">https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum clean all
+</pre></div>
 </div>
-<div class="section" id="nmap">
+</section>
+</section>
+<section id="nmap">
 <h2>Nmap<a class="headerlink" href="#nmap" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://phoenixnap.com/kb/nmap-scan-open-ports">https://phoenixnap.com/kb/nmap-scan-open-ports</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scan a host</span>
@@ -255,8 +285,8 @@ nmap -A <span class="m">192</span>.168.0.1
 nmap -sV <span class="m">192</span>.168.0.1
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsync">
+</section>
+<section id="rsync">
 <h2>Rsync<a class="headerlink" href="#rsync" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://ss64.com/bash/rsync.html">https://ss64.com/bash/rsync.html</a></p>
 <p><a class="reference external" href="https://www.computerhope.com/unix/rsync.htm">https://www.computerhope.com/unix/rsync.htm</a></p>
@@ -288,15 +318,22 @@ rsync -avP --bwlimit<span class="o">=</span><span class="m">1024</span> src/ dst
 rsync -avP /src/one /src/two /src/etcetra /dst
 </pre></div>
 </div>
+<section id="rsync-compare-directories">
+<h3>Rsync Compare Directories<a class="headerlink" href="#rsync-compare-directories" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/57305/rsync-compare-directories">https://unix.stackexchange.com/questions/57305/rsync-compare-directories</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync -nai --delete <span class="nb">source</span> destination <span class="p">|</span> grep <span class="s2">&quot;^deleting &quot;</span>
+</pre></div>
 </div>
-<div class="section" id="while-loop">
+</section>
+</section>
+<section id="while-loop">
 <h2>While Loop<a class="headerlink" href="#while-loop" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-while-loop-in-bash">https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-while-loop-in-bash</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span> foo<span class="p">;</span> sleep <span class="m">2</span><span class="p">;</span> <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="for-loop">
+</section>
+<section id="for-loop">
 <h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/103922">https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/103922</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parellelize a for loop</span>
@@ -305,10 +342,17 @@ rsync -avP /src/one /src/two /src/etcetra /dst
 <span class="k">done</span>
 </pre></div>
 </div>
+</section>
+<section id="moving-files-with-spaces">
+<h2>Moving Files with Spaces<a class="headerlink" href="#moving-files-with-spaces" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/392393/bash-moving-files-with-spaces">https://unix.stackexchange.com/questions/392393/bash-moving-files-with-spaces</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span> <span class="nb">read</span> -r file<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">done</span> &lt; files
+</pre></div>
 </div>
-<div class="section" id="fstab">
+</section>
+<section id="fstab">
 <h2>Fstab<a class="headerlink" href="#fstab" title="Permalink to this headline"></a></h2>
-<div class="section" id="automounting">
+<section id="automounting">
 <h3>Automounting<a class="headerlink" href="#automounting" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all UUIDs of drives</span>
 blkid
@@ -320,8 +364,8 @@ nano /etc/fstab
   <span class="nv">UUID</span><span class="o">=</span>05cdfcb3-90fc-40ec-8ff1-3324e3767b1d   /media/data     ext4    defaults,nofail <span class="m">0</span> <span class="m">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="emergency-mode-bad-fstab">
+</section>
+<section id="emergency-mode-bad-fstab">
 <h3>Emergency Mode Bad Fstab<a class="headerlink" href="#emergency-mode-bad-fstab" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Put SD card / HDD into another PC</span>
 nano /boot/cmdline.txt
@@ -343,9 +387,9 @@ nano /boot/cmdline.txt
 <span class="c1"># Put SD card / HDD back into original machine</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ssh-config">
+</section>
+</section>
+<section id="ssh-config">
 <h2>SSH Config<a class="headerlink" href="#ssh-config" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.ssh.com/ssh/config/">https://www.ssh.com/ssh/config/</a></p>
 <p><a class="reference external" href="https://www.openssh.com/legacy.html">https://www.openssh.com/legacy.html</a></p>
@@ -368,16 +412,16 @@ nano /boot/cmdline.txt
    KexAlgorithms +diffie-hellman-group1-sha1
 </pre></div>
 </div>
-</div>
-<div class="section" id="openssl">
+</section>
+<section id="openssl">
 <h2>OpenSSL<a class="headerlink" href="#openssl" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/5244129/use-rsa-private-key-to-generate-public-key</span>
 <span class="c1"># Generate public key from private</span>
 openssl rsa -in mykey.pem -pubout &gt; mykey.pub
 </pre></div>
 </div>
-</div>
-<div class="section" id="disk-usage">
+</section>
+<section id="disk-usage">
 <h2>Disk Usage<a class="headerlink" href="#disk-usage" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Human readable output</span>
 du -h mydir/
@@ -407,8 +451,8 @@ du -sch dir/
 du -sh --exclude<span class="o">=</span><span class="s1">&#39;*.docx&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="formatting-disk">
+</section>
+<section id="formatting-disk">
 <h2>Formatting Disk<a class="headerlink" href="#formatting-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List disks</span>
 df -h
@@ -423,14 +467,32 @@ sudo mkfs.ntfs /dev/sdc1
 sudo mkfs.ext4 /dev/sdc1
 </pre></div>
 </div>
-</div>
-<div class="section" id="iso-to-disk">
+</section>
+<section id="iso-to-disk">
 <h2>ISO to Disk<a class="headerlink" href="#iso-to-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dd <span class="k">if</span><span class="o">=</span>~/Downloads/ubuntu_something.iso <span class="nv">of</span><span class="o">=</span>/dev/diskN
 </pre></div>
 </div>
+</section>
+<section id="check-ssl-certificate-expiry-date">
+<h2>Check SSL Certificate Expiry Date<a class="headerlink" href="#check-ssl-certificate-expiry-date" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.cyberciti.biz/faq/find-check-tls-ssl-certificate-expiry-date-from-linux-unix/">https://www.cyberciti.biz/faq/find-check-tls-ssl-certificate-expiry-date-from-linux-unix/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="p">|</span> openssl s_client -servername www.calebsargeant.com -connect www.calebsargeant.com:443 <span class="p">|</span> openssl x509 -noout -dates
+</pre></div>
 </div>
-<div class="section" id="grep">
+</section>
+<section id="inodes">
+<h2>Inodes<a class="headerlink" href="#inodes" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/24671621/no-space-left-on-device">https://stackoverflow.com/questions/24671621/no-space-left-on-device</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>df -i
+</pre></div>
+</div>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used">https://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span> find / -xdev -printf <span class="s1">&#39;%h\n&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -k <span class="m">1</span> -n<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
+</pre></div>
+</div>
+</section>
+<section id="grep">
 <h2>Grep<a class="headerlink" href="#grep" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># exclude nologin</span>
 grep -wv nologin /etc/passwd
@@ -439,28 +501,28 @@ grep -wv nologin /etc/passwd
 grep -r <span class="s2">&quot;texthere&quot;</span> .
 </pre></div>
 </div>
-</div>
-<div class="section" id="tail">
+</section>
+<section id="tail">
 <h2>Tail<a class="headerlink" href="#tail" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## https://stackoverflow.com/questions/39615142/bash-get-last-line-from-a-variable</span>
 <span class="c1"># Get last line</span>
 tail -n1
 </pre></div>
 </div>
-</div>
-<div class="section" id="sftp">
+</section>
+<section id="sftp">
 <h2>SFTP<a class="headerlink" href="#sftp" title="Permalink to this headline"></a></h2>
-<div class="section" id="pass-variable-into-sftp">
+<section id="pass-variable-into-sftp">
 <h3>Pass Variable into SFTP<a class="headerlink" href="#pass-variable-into-sftp" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/228859/how-do-i-pass-a-variable-into-sftp">https://unix.stackexchange.com/questions/228859/how-do-i-pass-a-variable-into-sftp</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sftp -i key.pem -b - un@server <span class="o">&lt;&lt;&lt;</span> <span class="s2">&quot;get /some/path/with/</span><span class="nv">$yr</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="curl">
+</section>
+</section>
+<section id="curl">
 <h2>Curl<a class="headerlink" href="#curl" title="Permalink to this headline"></a></h2>
-<div class="section" id="uploading-files">
+<section id="uploading-files">
 <h3>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://ec.haxx.se/usingcurl/usingcurl-uploads">https://ec.haxx.se/usingcurl/usingcurl-uploads</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://EXAMPLE <span class="se">\</span>
@@ -470,24 +532,24 @@ tail -n1
   -F <span class="s1">&#39;doc=@/Users/caleb/Documents/Test.docx; type=application/vnd.openxmlformats-officedocument.wordprocessingml.document&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="curl-to-sftp">
+</section>
+<section id="curl-to-sftp">
 <h3>Curl to SFTP<a class="headerlink" href="#curl-to-sftp" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/31730476/curl-fails-on-sftp-password-authentication">https://stackoverflow.com/questions/31730476/curl-fails-on-sftp-password-authentication</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -v --insecure --user username:urlencodedPassword sftp://somedomain.com
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="tcpdump">
+</section>
+</section>
+<section id="tcpdump">
 <h2>TCPDump<a class="headerlink" href="#tcpdump" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://danielmiessler.com/study/tcpdump/">https://danielmiessler.com/study/tcpdump/</a></p>
 <p>Get all https traffic:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tcpdump -nnSX port <span class="m">443</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="find">
+</section>
+<section id="find">
 <h2>Find<a class="headerlink" href="#find" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name">https://askubuntu.com/questions/123305/how-to-find-a-folder-on-my-server-with-a-certain-name</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find ~ -name foldername -type d
@@ -497,8 +559,12 @@ tail -n1
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find . -name <span class="s2">&quot;foo*&quot;</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://www.howtogeek.com/howto/ubuntu/delete-files-older-than-x-days-on-linux/">https://www.howtogeek.com/howto/ubuntu/delete-files-older-than-x-days-on-linux/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find /path/to/files* -mtime +5 -exec rm <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
 </div>
-<div class="section" id="screen">
+</section>
+<section id="screen">
 <h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://linuxize.com/post/how-to-use-linux-screen/">https://linuxize.com/post/how-to-use-linux-screen/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create screen called caleb</span>
@@ -513,8 +579,12 @@ screen -r -d caleb
 ls -laR /var/run/screen
 </pre></div>
 </div>
+<p><a class="reference external" href="https://stackoverflow.com/questions/1509677/kill-detached-screen-session">https://stackoverflow.com/questions/1509677/kill-detached-screen-session</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -X -S <span class="o">[</span>session <span class="c1"># you want to kill] quit</span>
+</pre></div>
 </div>
-<div class="section" id="generating-ssh-keys">
+</section>
+<section id="generating-ssh-keys">
 <h2>Generating SSH Keys<a class="headerlink" href="#generating-ssh-keys" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/311558/ssh-permission-denied-publickey">https://askubuntu.com/questions/311558/ssh-permission-denied-publickey</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### ON THE CLIENT</span>
@@ -555,33 +625,40 @@ vim ~/.ssh/config
   IdentityFile ./path/to/key
 </pre></div>
 </div>
-</div>
-<div class="section" id="sudo-without-password">
+</section>
+<section id="sudo-without-password">
 <h2>Sudo without Password<a class="headerlink" href="#sudo-without-password" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># DO NOT MAKE A MISTAKE</span>
 visudo
     %sudo   <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
 </pre></div>
 </div>
-</div>
-<div class="section" id="compression">
+</section>
+<section id="compression">
 <h2>Compression<a class="headerlink" href="#compression" title="Permalink to this headline"></a></h2>
-<div class="section" id="zip">
+<section id="gzip">
+<h3>Gzip<a class="headerlink" href="#gzip" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://linuxize.com/post/how-to-unzip-gz-file/">https://linuxize.com/post/how-to-unzip-gz-file/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gzip -d file.gz
+</pre></div>
+</div>
+</section>
+<section id="zip">
 <h3>Zip<a class="headerlink" href="#zip" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum -y install zip unzip
 zip -9 -r &lt;zip file&gt; &lt;folder name&gt;
 unzip file.zip
 </pre></div>
 </div>
-</div>
-<div class="section" id="bunzip">
+</section>
+<section id="bunzip">
 <h3>Bunzip<a class="headerlink" href="#bunzip" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bunzip2 myfile.bz2
 tar xjvf myfile.tar.bz2
 </pre></div>
 </div>
-</div>
-<div class="section" id="tar">
+</section>
+<section id="tar">
 <h3>Tar<a class="headerlink" href="#tar" title="Permalink to this headline"></a></h3>
 <p>A good source for <code class="docutils literal notranslate"><span class="pre">tar</span></code> commands <a class="reference external" href="https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/">https://www.freecodecamp.org/news/tar-in-linux-example-tar-gz-tar-file-and-tar-directory-and-tar-compress-commands/</a>.</p>
 <p><strong>.tar</strong></p>
@@ -614,9 +691,12 @@ tar cfzv backup.tar.gz /etc/zabbix/ backup.sql
 cp backup.tar.gz /mnt/data/
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="pdf-to-csv">
+<p><strong>Tar exclude:</strong></p>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why">https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why</a></p>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994">https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994</a></p>
+</section>
+</section>
+<section id="pdf-to-csv">
 <h2>PDF to CSV<a class="headerlink" href="#pdf-to-csv" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://github.com/tabulapdf/tabula-java/releases">https://github.com/tabulapdf/tabula-java/releases</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TABULARNAME</span><span class="o">=</span>tabula-1.0.3-jar-with-dependencies.jar
@@ -625,20 +705,20 @@ cp backup.tar.gz /mnt/data/
 java -jar ./<span class="nv">$TABULARNAME</span> -b ./<span class="nv">$YEAR</span>/<span class="nv">$MONTH</span> -t -p all
 </pre></div>
 </div>
-</div>
-<div class="section" id="installing-gui-on-centos">
+</section>
+<section id="installing-gui-on-centos">
 <h2>Installing GUI on CentOS<a class="headerlink" href="#installing-gui-on-centos" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">groupinstall</span> <span class="pre">&quot;Desktop&quot;</span> <span class="pre">&quot;Desktop</span> <span class="pre">Platform&quot;</span> <span class="pre">&quot;X</span> <span class="pre">Window</span> <span class="pre">System&quot;</span> <span class="pre">&quot;Fonts&quot;</span></code></p>
-</div>
-<div class="section" id="list-samba-users">
+</section>
+<section id="list-samba-users">
 <h2>List Samba Users<a class="headerlink" href="#list-samba-users" title="Permalink to this headline"></a></h2>
 <p>pbdedit -L</p>
-</div>
-<div class="section" id="open-webpage-on-mac">
+</section>
+<section id="open-webpage-on-mac">
 <h2>Open Webpage on Mac<a class="headerlink" href="#open-webpage-on-mac" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">-a</span> <span class="pre">&quot;Google</span> <span class="pre">Chrome&quot;</span> <span class="pre">index.html</span></code></p>
-</div>
-<div class="section" id="running-fsck-manually">
+</section>
+<section id="running-fsck-manually">
 <h2>Running FSCK Manually<a class="headerlink" href="#running-fsck-manually" title="Permalink to this headline"></a></h2>
 <p>You get a message: (or something similar)
 /dev/mapper/vg_fedora1530-lv-home: UNEXPECTED INCONSISTENCY: RUN fsck MANUALLY (i.e., without -a or -p options)
@@ -647,10 +727,10 @@ Try the following:
 umount /dev/sda*
 fsck /dev/sda1 -f -y -a
 (see <a class="reference external" href="http://www.computerhope.com/unix/fsck.htm">http://www.computerhope.com/unix/fsck.htm</a> for syntax of fsck)</p>
-</div>
-<div class="section" id="xen">
+</section>
+<section id="xen">
 <h2>Xen<a class="headerlink" href="#xen" title="Permalink to this headline"></a></h2>
-<div class="section" id="manually-starting">
+<section id="manually-starting">
 <h3>Manually Starting<a class="headerlink" href="#manually-starting" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xm list
 <span class="nb">cd</span> /etc/xen/
@@ -660,36 +740,36 @@ ping &lt;vm-name&gt;
 xm list
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-xen">
+</section>
+<section id="install-xen">
 <h3>Install Xen<a class="headerlink" href="#install-xen" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install xen virt-manager kernel-xen
 chkconfig xend on
 reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="mount-cd-for-image-of-os">
+</section>
+<section id="mount-cd-for-image-of-os">
 <h3>Mount CD for Image of OS<a class="headerlink" href="#mount-cd-for-image-of-os" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /media/cdrom
 mount -t &lt;name_of_iso&gt; -o ro /dev/cdrom /media/cdrom
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-vm">
+</section>
+<section id="install-vm">
 <h3>Install VM<a class="headerlink" href="#install-vm" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">virt-install</span> <span class="pre">--prompt</span> <span class="pre">(yes</span> <span class="pre">centos</span> <span class="pre">512</span> <span class="pre">/home/vm/centos</span> <span class="pre">/media/cdrom)</span></code></p>
-</div>
-<div class="section" id="launch-vm-to-create-virtual-os">
+</section>
+<section id="launch-vm-to-create-virtual-os">
 <h3>Launch VM to Create Virtual OS<a class="headerlink" href="#launch-vm-to-create-virtual-os" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE to exit startx press ctrl,alt,bkspce</span>
 startx
 virt-manager
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="skel-terminal-colours">
+</section>
+</section>
+<section id="skel-terminal-colours">
 <h2>Skel Terminal Colours<a class="headerlink" href="#skel-terminal-colours" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mv .bashrc .bashrc.bak
 cp /etc/skel/.bashrc .bashrc
@@ -701,39 +781,39 @@ nano .bashrc
 . .bashrc
 </pre></div>
 </div>
-</div>
-<div class="section" id="move-a-file-starting-with-dash">
+</section>
+<section id="move-a-file-starting-with-dash">
 <h2>Move a File Starting with Dash<a class="headerlink" href="#move-a-file-starting-with-dash" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.cyberciti.biz/faq/linuxunix-move-file-starting-with-a-dash/</span>
 mv -- <span class="s1">&#39;--bar.txt&#39;</span> /path/to/dest
 </pre></div>
 </div>
-</div>
-<div class="section" id="lftp">
+</section>
+<section id="lftp">
 <h2>LFTP<a class="headerlink" href="#lftp" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://linuxconfig.org/lftp-tutorial-on-linux-with-examples">https://linuxconfig.org/lftp-tutorial-on-linux-with-examples</a></p>
-</div>
-<div class="section" id="rename-a-file-to-a-filename-with-date">
+</section>
+<section id="rename-a-file-to-a-filename-with-date">
 <h2>Rename a File to a Filename with Date<a class="headerlink" href="#rename-a-file-to-a-filename-with-date" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">&lt;name_of_file&gt;</span> <span class="pre">&lt;new_name_of_file&gt;.`date</span> <span class="pre">-I`</span></code></p>
-</div>
-<div class="section" id="checking-cpu-architecture">
+</section>
+<section id="checking-cpu-architecture">
 <h2>Checking CPU Architecture<a class="headerlink" href="#checking-cpu-architecture" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">uname</span> <span class="pre">-i</span></code></p>
-</div>
-<div class="section" id="checking-uptime">
+</section>
+<section id="checking-uptime">
 <h2>Checking Uptime<a class="headerlink" href="#checking-uptime" title="Permalink to this headline"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">uptime</span></code></p>
-</div>
-<div class="section" id="crontab-different-editor">
+</section>
+<section id="crontab-different-editor">
 <h2>Crontab different editor<a class="headerlink" href="#crontab-different-editor" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.linux.org/threads/set-your-default-editor-for-things-like-crontab-visudo-etc.5046/">https://www.linux.org/threads/set-your-default-editor-for-things-like-crontab-visudo-etc.5046/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="s2">&quot;nano&quot;</span>
 <span class="nb">export</span> <span class="nv">VISUAL</span><span class="o">=</span><span class="s2">&quot;nano&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tigervnc">
+</section>
+<section id="tigervnc">
 <h2>TigerVNC<a class="headerlink" href="#tigervnc" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install vnc vnc-server tigervnc-server xterm
 yum groupinstall Desktop
@@ -756,10 +836,10 @@ service vncserver start
 <span class="c1"># To connect to a Windows machine, install tiger-vnc on the Windows machine and enable Remote Desktop. Allow RDP 3389 through firewall.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="old-school-lamp">
+</section>
+<section id="old-school-lamp">
 <h2>Old School LAMP<a class="headerlink" href="#old-school-lamp" title="Permalink to this headline"></a></h2>
-<div class="section" id="features">
+<section id="features">
 <h3>Features<a class="headerlink" href="#features" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Apache (hosts the website)</p></li>
@@ -767,8 +847,8 @@ service vncserver start
 <li><p>PHP (hypertext processor)</p></li>
 <li><p>Joomla (creates the website. Dependant on PHP and MYSQL)</p></li>
 </ul>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
 <p><strong>My SQL Server 5.0 (server &amp; client)</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install mysql mysql-server
@@ -868,11 +948,11 @@ mysql -u root -p
 CONFIGURATION TEXT TO /var/www/html/configuration.php.
 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/var/www/html/installation/</span></code>
 You can access the server by going to a browser and typing <a class="reference external" href="http://xxx.xxx.xxx/administrator">http://xxx.xxx.xxx/administrator</a>.</p>
-</div>
-</div>
-<div class="section" id="git-server">
+</section>
+</section>
+<section id="git-server">
 <h2>Git Server<a class="headerlink" href="#git-server" title="Permalink to this headline"></a></h2>
-<div class="section" id="on-the-server">
+<section id="on-the-server">
 <h3>On the Server<a class="headerlink" href="#on-the-server" title="Permalink to this headline"></a></h3>
 <p><strong>Installing Git</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install git-core
@@ -913,8 +993,8 @@ chmod +x hooks/post-receive
 chown -R git:git *
 </pre></div>
 </div>
-</div>
-<div class="section" id="on-the-client-s-machine">
+</section>
+<section id="on-the-client-s-machine">
 <h3>On the Client’s Machine<a class="headerlink" href="#on-the-client-s-machine" title="Permalink to this headline"></a></h3>
 <p>Download and install: <a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir /path/to/gits
@@ -934,25 +1014,25 @@ Then in future: git push web</p>
 protected. You can create a Git Hook to expose the bare repository’s files in a different directory (useful for
 web code).
 Use git clone <a class="reference external" href="ssh:/">ssh:/</a>/&lt;hostname&gt;/path/to/gits to clone an existing server repository.</p>
-</div>
-</div>
-<div class="section" id="age-of-system">
+</section>
+</section>
+<section id="age-of-system">
 <h2>Age of System<a class="headerlink" href="#age-of-system" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation">https://serverfault.com/questions/221377/how-to-determine-the-age-of-a-linux-system-since-installation</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@server:~$ sudo tune2fs -l /dev/sda2 <span class="p">|</span> grep created
 Filesystem created:       Mon Sep  <span class="m">7</span> <span class="m">06</span>:49:22 <span class="m">2020</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="list-all-services">
+</section>
+<section id="list-all-services">
 <h2>List all Services<a class="headerlink" href="#list-all-services" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/">https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl list-units --type<span class="o">=</span>service
 systemctl --type<span class="o">=</span>service
 </pre></div>
 </div>
-</div>
-<div class="section" id="temporary-failure-in-name-resolution">
+</section>
+<section id="temporary-failure-in-name-resolution">
 <h2>Temporary Failure in Name Resolution<a class="headerlink" href="#temporary-failure-in-name-resolution" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution">https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl disable systemd-resolved.service
@@ -962,18 +1042,18 @@ sudo rm /etc/resolv.conf
 <span class="nb">echo</span> <span class="s2">&quot;nameserver 1.0.0.3&quot;</span> &gt;&gt; /etc/resolv.conf
 </pre></div>
 </div>
-</div>
-<div class="section" id="change-hosname">
+</section>
+<section id="change-hosname">
 <h2>Change Hosname<a class="headerlink" href="#change-hosname" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/">https://www.cyberciti.biz/faq/ubuntu-20-04-lts-change-hostname-permanently/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo hostnamectl set-hostname SERVERNAME
 nano /etc/hosts
 </pre></div>
 </div>
-</div>
-<div class="section" id="google-authenticator">
+</section>
+<section id="google-authenticator">
 <h2>Google Authenticator<a class="headerlink" href="#google-authenticator" title="Permalink to this headline"></a></h2>
-<div class="section" id="centos-7">
+<section id="centos-7">
 <h3>CentOS 7<a class="headerlink" href="#centos-7" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update and Upgrade</span>
 yum -y update <span class="o">&amp;&amp;</span> yum -y upgrade
@@ -1101,8 +1181,8 @@ firewall-cmd --permanent --zone<span class="o">=</span>public --add-service<span
 firewall-cmd --reload
 </pre></div>
 </div>
-</div>
-<div class="section" id="cisco-anyconnect-connection">
+</section>
+<section id="cisco-anyconnect-connection">
 <h3>Cisco AnyConnect Connection<a class="headerlink" href="#cisco-anyconnect-connection" title="Permalink to this headline"></a></h3>
 <p>The below guide shows one how to connect to the VPN using one’s OTP. The connection is exactly the same as the previous VPN connection.</p>
 <ul class="simple">
@@ -1122,11 +1202,11 @@ firewall-cmd --reload
 <li><p>You will be connected to the VPN as per normal.</p></li>
 </ul>
 <img alt="../../_images/google-authenticator-5.png" src="../../_images/google-authenticator-5.png" />
-</div>
-</div>
-<div class="section" id="ldap-authentication">
+</section>
+</section>
+<section id="ldap-authentication">
 <h2>LDAP Authentication<a class="headerlink" href="#ldap-authentication" title="Permalink to this headline"></a></h2>
-<div class="section" id="public-key-authentication">
+<section id="public-key-authentication">
 <h3>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this headline"></a></h3>
 <p>First, on the host, reset the password of ubuntu &amp; root</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@hostname:~$ sudo su -
@@ -1144,8 +1224,8 @@ root@hostname:~# passwd root
 </pre></div>
 </div>
 <p>You can now log into the host using ubuntu &amp; the key.</p>
-</div>
-<div class="section" id="sssd">
+</section>
+<section id="sssd">
 <h3>SSSD<a class="headerlink" href="#sssd" title="Permalink to this headline"></a></h3>
 <p>Modify the sudoers</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add Infrasturcture Team to Sudoers</span>
@@ -1181,11 +1261,11 @@ nano /etc/sssd/sssd.conf
 </div>
 <p>You can now log in to the host using your domain credentials</p>
 <p>To add Duo Authentication push notifications, see <a class="reference external" href="https://docs.calebsargeant.com/en/latest/computing/cloud/duo.html#unix-ssh">here</a>.</p>
-</div>
-</div>
-<div class="section" id="gcloud">
+</section>
+</section>
+<section id="gcloud">
 <h2>Gcloud<a class="headerlink" href="#gcloud" title="Permalink to this headline"></a></h2>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-installing-google-cloud-sdk">https://stackoverflow.com/questions/31037279/gcloud-command-not-found-while-installing-google-cloud-sdk</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://sdk.cloud.google.com <span class="p">|</span> bash
@@ -1195,9 +1275,9 @@ nano /etc/sssd/sssd.conf
 <span class="nb">source</span> <span class="s1">&#39;[path-to-my-home]/google-cloud-sdk/completion.bash.inc&#39;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="find-the-pid-using-port">
+</section>
+</section>
+<section id="find-the-pid-using-port">
 <h2>Find the PID Using Port<a class="headerlink" href="#find-the-pid-using-port" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/106561/finding-the-pid-of-the-process-using-a-specific-port">https://unix.stackexchange.com/questions/106561/finding-the-pid-of-the-process-using-a-specific-port</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo ss -lptn <span class="s1">&#39;sport = :80&#39;</span>
@@ -1205,16 +1285,16 @@ sudo netstat -nlp <span class="p">|</span> grep :80
 sudo lsof -n -i :80 <span class="p">|</span> grep LISTEN
 </pre></div>
 </div>
-</div>
-<div class="section" id="unmounting-a-busy-device">
+</section>
+<section id="unmounting-a-busy-device">
 <h2>Unmounting a Busy Device<a class="headerlink" href="#unmounting-a-busy-device" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device">https://stackoverflow.com/questions/7878707/how-to-unmount-a-busy-device</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>umount -l /PATH/OF/BUSY-DEVICE
 umount -f /PATH/OF/BUSY-NFS <span class="o">(</span>NETWORK-FILE-SYSTEM<span class="o">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ubuntu-resize-logical-volume">
+</section>
+<section id="ubuntu-resize-logical-volume">
 <h2>Ubuntu Resize Logical Volume<a class="headerlink" href="#ubuntu-resize-logical-volume" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/1269493/ubuntu-server-20-04-1-lts-not-all-disk-space-was-allocated-during-installation">https://askubuntu.com/questions/1269493/ubuntu-server-20-04-1-lts-not-all-disk-space-was-allocated-during-installation</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vgdisplay
@@ -1222,8 +1302,48 @@ lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
 resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 </pre></div>
 </div>
+</section>
+<section id="wget">
+<h2>Wget<a class="headerlink" href="#wget" title="Permalink to this headline"></a></h2>
+<section id="download-a-list-of-files">
+<h3>Download a list of files<a class="headerlink" href="#download-a-list-of-files" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/40986340/how-to-wget-a-list-of-urls-in-a-text-file">https://stackoverflow.com/questions/40986340/how-to-wget-a-list-of-urls-in-a-text-file</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -i text_file.txt
+</pre></div>
 </div>
+</section>
+</section>
+<section id="cat-tac">
+<h2>Cat &amp; Tac<a class="headerlink" href="#cat-tac" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-in-a-file">https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-in-a-file</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flip a file into another</span>
+tac a.txt &gt; b.txt
+</pre></div>
 </div>
+</section>
+<section id="wc">
+<h2>WC<a class="headerlink" href="#wc" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.baeldung.com/linux/bash-count-lines-in-file#:~:text=3.-,wc,the%20name%20of%20the%20file">https://www.baeldung.com/linux/bash-count-lines-in-file#:~:text=3.-,wc,the%20name%20of%20the%20file</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the number of lines in a file</span>
+wc -l file.txt
+</pre></div>
+</div>
+</section>
+<section id="decrypt-gpg">
+<h2>Decrypt GPG<a class="headerlink" href="#decrypt-gpg" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html">https://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpg -d myfinancial.info.txt.gpg
+</pre></div>
+</div>
+</section>
+<section id="forget-gpg-invalid-password">
+<h2>Forget GPG Invalid Password<a class="headerlink" href="#forget-gpg-invalid-password" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-to-forget-wrong-gpg-password">https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-to-forget-wrong-gpg-password</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpgconf --kill gpg-agent
+</pre></div>
+</div>
+</section>
+</section>
 
 
            </div>

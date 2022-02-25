@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VLANs &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -131,11 +132,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="vlans">
+  <section id="vlans">
 <h1>VLANs<a class="headerlink" href="#vlans" title="Permalink to this headline"></a></h1>
-<div class="section" id="configuration-and-verification">
+<section id="configuration-and-verification">
 <h2>Configuration and Verification<a class="headerlink" href="#configuration-and-verification" title="Permalink to this headline"></a></h2>
-<div class="section" id="vlan-foundations">
+<section id="vlan-foundations">
 <h3>VLAN Foundations<a class="headerlink" href="#vlan-foundations" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Logically groups users</p></li>
@@ -144,16 +145,16 @@
 <li><p>Access control</p></li>
 <li><p>Quality of service</p></li>
 </ul>
-</div>
-<div class="section" id="local-vlans">
+</section>
+<section id="local-vlans">
 <h3>Local VLANs<a class="headerlink" href="#local-vlans" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Local VLANs do not extend beyond the distribution layer</p></li>
 <li><p>Local VLAN traffic routed to other destinations</p></li>
 <li><p>Should be created around physical boundries</p></li>
 </ul>
-</div>
-<div class="section" id="configuring-vlans">
+</section>
+<section id="configuring-vlans">
 <h3>Configuring VLANs<a class="headerlink" href="#configuring-vlans" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conf t
 vlan 200
@@ -163,26 +164,26 @@ switchport mode access
 switchport access vlan 100
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-vlan-database">
+</section>
+<section id="deleting-vlan-database">
 <h3>Deleting VLAN Database<a class="headerlink" href="#deleting-vlan-database" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wr e
 del flash:vlan.dat
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="in-depth-trunking">
+</section>
+</section>
+<section id="in-depth-trunking">
 <h2>In-Depth Trunking<a class="headerlink" href="#in-depth-trunking" title="Permalink to this headline"></a></h2>
-<div class="section" id="trunking">
+<section id="trunking">
 <h3>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Trunking (aka tagging) passes multi-vlan information between switches</p></li>
 <li><p>Places VLAN information into each frame</p></li>
 <li><p>Layer 2 feature</p></li>
 </ul>
-</div>
-<div class="section" id="the-two-tagging-flavours">
+</section>
+<section id="the-two-tagging-flavours">
 <h3>The Two Tagging Flavours<a class="headerlink" href="#the-two-tagging-flavours" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Inter-Switch Link (ISL)</p>
@@ -199,8 +200,8 @@ del flash:vlan.dat
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="digging-deeper-into-the-trunk">
+</section>
+<section id="digging-deeper-into-the-trunk">
 <h3>Digging Deeper Into the Trunk<a class="headerlink" href="#digging-deeper-into-the-trunk" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>ISL</p>
@@ -220,8 +221,8 @@ del flash:vlan.dat
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="negotiating-trunking">
+</section>
+<section id="negotiating-trunking">
 <h3>Negotiating Trunking<a class="headerlink" href="#negotiating-trunking" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Switches can auto-negotiate trunk connections using Dynamic Trunking Protocol (DTP)</p></li>
@@ -236,8 +237,8 @@ del flash:vlan.dat
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="configuring-trunk-ports">
+</section>
+<section id="configuring-trunk-ports">
 <h3>Configuring Trunk Ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int fa0/15
 switchport trunk encap dot1q
@@ -248,11 +249,11 @@ switchport trunk native vlan 10
 switchport trunk allowed vlan x y z
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="vlan-trunking-protocol">
+</section>
+</section>
+<section id="vlan-trunking-protocol">
 <h2>VLAN Trunking Protocol<a class="headerlink" href="#vlan-trunking-protocol" title="Permalink to this headline"></a></h2>
-<div class="section" id="vtp-modes">
+<section id="vtp-modes">
 <h3>VTP Modes<a class="headerlink" href="#vtp-modes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Server (default)</p>
@@ -278,15 +279,15 @@ switchport trunk allowed vlan x y z
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="vtp-pruning">
+</section>
+<section id="vtp-pruning">
 <h3>VTP Pruning<a class="headerlink" href="#vtp-pruning" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Keeps unnecessary broadcast traffic from crossing trunk links</p></li>
 <li><p>Only works on vtp servers</p></li>
 </ul>
-</div>
-<div class="section" id="configuring-vtp">
+</section>
+<section id="configuring-vtp">
 <h3>Configuring VTP<a class="headerlink" href="#configuring-vtp" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Verify current VTP status</p></li>
@@ -301,8 +302,8 @@ vtp mode
 vtp version 2
 </pre></div>
 </div>
-</div>
-<div class="section" id="common-vlan-problems">
+</section>
+<section id="common-vlan-problems">
 <h3>Common VLAN problems<a class="headerlink" href="#common-vlan-problems" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Native VLAN mismatch</p></li>
@@ -321,9 +322,9 @@ vtp version 2
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

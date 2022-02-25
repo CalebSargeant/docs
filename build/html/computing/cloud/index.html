@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cloud &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,7 +18,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Azure" href="azure.html" />
+    <link rel="next" title="AWS" href="aws.html" />
     <link rel="prev" title="Bamboo" href="../bamboo.html" /> 
 </head>
 
@@ -39,6 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
@@ -50,6 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Cloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure.html">Azure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudflare.html">Cloudflare</a></li>
 <li class="toctree-l2"><a class="reference internal" href="digicert.html">DigiCert</a></li>
@@ -99,10 +102,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="cloud">
+  <section id="cloud">
 <h1>Cloud<a class="headerlink" href="#cloud" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="aws.html">AWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aws.html#recover-lost-ssh-key">Recover Lost SSH Key</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="azure.html">Azure</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="azure.html#sftp-server-using-storage-account">SFTP Server using Storage Account</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure.html#sentinal">Sentinal</a></li>
@@ -183,14 +190,14 @@
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../bamboo.html" class="btn btn-neutral float-left" title="Bamboo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="azure.html" class="btn btn-neutral float-right" title="Azure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="aws.html" class="btn btn-neutral float-right" title="AWS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hyper-V &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -59,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Hyper-V</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-snapshot">Creating a Snapshot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replication">Replication</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#vm-failover">VM Failover</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#certificate-installation">Certificate Installation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#enabling-replication">Enabling Replication</a></li>
@@ -115,17 +117,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="hyper-v">
+  <section id="hyper-v">
 <h1>Hyper-V<a class="headerlink" href="#hyper-v" title="Permalink to this headline"></a></h1>
-<div class="section" id="creating-a-snapshot">
+<section id="creating-a-snapshot">
 <h2>Creating a Snapshot<a class="headerlink" href="#creating-a-snapshot" title="Permalink to this headline"></a></h2>
 <p>A very duh thing to add, but anyway:</p>
 <p>Go to <em>Hyper-V Manager</em>, right click on the VM, click on <em>Checkpoint</em>.</p>
 <img alt="../../_images/hyperv-checkpoint-1.png" src="../../_images/hyperv-checkpoint-1.png" />
+</section>
+<section id="replication">
+<h2>Replication<a class="headerlink" href="#replication" title="Permalink to this headline"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># On the Primary</span>
+<span class="nb">New-SelfSignedCertificate</span> <span class="n">-DnsName</span> <span class="s2">&quot;HV01&quot;</span> <span class="n">-CertStoreLocation</span> <span class="s2">&quot;cert:\LocalMachine\My&quot;</span> <span class="n">-TestRoot</span>
+<span class="nb">New-SelfSignedCertificate</span> <span class="n">-DnsName</span> <span class="s2">&quot;HV02&quot;</span> <span class="n">-CertStoreLocation</span> <span class="s2">&quot;cert:\LocalMachine\My&quot;</span> <span class="n">-TestRoot</span>
+
+<span class="c"># There will be a cert in Intermediate, copy this to Root certs</span>
+<span class="c"># Copy the certs to the secondary, import into Personal and Root</span>
+
+<span class="c"># On the Replica:</span>
+<span class="n">reg</span> <span class="n">add</span> <span class="s2">&quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Replication&quot;</span> <span class="p">/</span><span class="n">v</span> <span class="n">DisableCertRevocationCheck</span> <span class="p">/</span><span class="n">d</span> <span class="n">1</span> <span class="p">/</span><span class="n">t</span> <span class="n">REG_DWORD</span> <span class="p">/</span><span class="n">f</span>
+</pre></div>
 </div>
-<div class="section" id="vm-failover">
+</section>
+<section id="vm-failover">
 <h2>VM Failover<a class="headerlink" href="#vm-failover" title="Permalink to this headline"></a></h2>
-<div class="section" id="certificate-installation">
+<section id="certificate-installation">
 <h3>Certificate Installation<a class="headerlink" href="#certificate-installation" title="Permalink to this headline"></a></h3>
 <p>This should already be in place, however, if you are receiving errors, you can set up the connection between the hypervisors again. In the below code, we are creating certificates for HYPERVISOR-02 and HYPERVISOR-01, so that we can enable replication between the two. The below certificates are computer-based certificates.</p>
 <p>Generating the Root Certificate</p>
@@ -146,8 +162,8 @@
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>REG ADD <span class="s2">&quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Replication&quot;</span> /v DisableCertRevocationCheck /d 1 /t REG_DWORD /f
 </pre></div>
 </div>
-</div>
-<div class="section" id="enabling-replication">
+</section>
+<section id="enabling-replication">
 <h3>Enabling Replication<a class="headerlink" href="#enabling-replication" title="Permalink to this headline"></a></h3>
 <p id="id1">Right click on the Virtual Machine and click on <em>Enable Replication…</em></p>
 <img alt="../../_images/hyperv-replication-1.png" src="../../_images/hyperv-replication-1.png" />
@@ -157,8 +173,8 @@
 <img alt="../../_images/hyperv-replication-3.png" src="../../_images/hyperv-replication-3.png" />
 <p>Accept the defaults and Finish</p>
 <img alt="../../_images/hyperv-replication-4.png" src="../../_images/hyperv-replication-4.png" />
-</div>
-<div class="section" id="failing-over">
+</section>
+<section id="failing-over">
 <h3>Failing Over<a class="headerlink" href="#failing-over" title="Permalink to this headline"></a></h3>
 <p>There are two types of Failovers, as described below.</p>
 <p><strong>Planned Failover</strong></p>
@@ -184,9 +200,9 @@
 <img alt="../../_images/hyperv-replication-11.png" src="../../_images/hyperv-replication-11.png" />
 <p><strong>Post Failover Steps</strong></p>
 <p>When the VM has been moved to the secondary host, you will need to change its IP Address (if static) and change the DNS record accordingly.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

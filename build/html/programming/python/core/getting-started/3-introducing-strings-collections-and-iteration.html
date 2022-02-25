@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introducing Strings, Collections, and Iteration &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -109,9 +110,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="introducing-strings-collections-and-iteration">
+  <section id="introducing-strings-collections-and-iteration">
 <h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Permalink to this headline"></a></h1>
-<div class="section" id="string">
+<section id="string">
 <h2>String<a class="headerlink" href="#string" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>str</p>
@@ -129,14 +130,14 @@
 <span class="s1">&#39;&quot;Yes!&quot;, he said, &quot;I agree!&quot;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="string-literals">
+</section>
+<section id="string-literals">
 <h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline"></a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;first&quot;</span> <span class="s2">&quot;second&quot;</span>
 <span class="go">&#39;firstsecond&#39;</span>
 </pre></div>
 </div>
-<div class="section" id="strings-with-newlines">
+<section id="strings-with-newlines">
 <h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Multiline strings</p>
@@ -258,8 +259,8 @@ A \ in a string
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="string-features">
+</section>
+<section id="string-features">
 <h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; path = r&#39;C:\Users\Merlin\Documents\Spells&#39;
 &gt;&gt;&gt; path
@@ -277,9 +278,9 @@ C:\Users\Merlin\Documents\Spells
 &lt;class &#39;str&#39;&gt;
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="bytes">
+</section>
+</section>
+<section id="bytes">
 <h2>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline"></a></h2>
 <p>docs.python.org/3/library/codecs.html#standard-encodings</p>
 <ul class="simple">
@@ -302,8 +303,8 @@ b&#39;data&#39;
 [b&#39;some&#39;, b&#39;bytes&#39;]
 </pre></div>
 </div>
-</div>
-<div class="section" id="list">
+</section>
+<section id="list">
 <h2>List<a class="headerlink" href="#list" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>list</p>
@@ -339,8 +340,8 @@ b&#39;data&#39;
 [&#39;bear&#39;, &#39;giraffe&#39;, &#39;elephant&#39;, &#39;caterpillar&#39;]
 </pre></div>
 </div>
-</div>
-<div class="section" id="dict">
+</section>
+<section id="dict">
 <h2>Dict<a class="headerlink" href="#dict" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>dict</p>
@@ -362,8 +363,8 @@ b&#39;data&#39;
 {&#39;alice&#39;: &#39;323-3123-156&#39;, &#39;bob&#39;: &#39;256-4532-523&#39;, &#39;eve&#39;: &#39;123-3432-342&#39;, &#39;charles&#39;: &#39;123-5232-125&#39;}
 </pre></div>
 </div>
-</div>
-<div class="section" id="for-loop">
+</section>
+<section id="for-loop">
 <h2>For-loop<a class="headerlink" href="#for-loop" title="Permalink to this headline"></a></h2>
 <ul>
 <li><p>for-loop</p>
@@ -394,8 +395,8 @@ coral 16744272
 teal 32896
 </pre></div>
 </div>
-</div>
-<div class="section" id="putting-it-all-together">
+</section>
+<section id="putting-it-all-together">
 <h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from urllib.request import urlopen
 &gt;&gt;&gt; story = urlopen(&#39;http://sixty-north.com/c/t.txt&#39;)
@@ -411,7 +412,7 @@ teal 32896
 [b&#39;It&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;best&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;worst&#39;, b&#39;of&#39;, b&#39;times&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;wisdom&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;age&#39;, b&#39;of&#39;, b&#39;foolishness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;belief&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;epoch&#39;, b&#39;of&#39;, b&#39;incredulity&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Light&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;season&#39;, b&#39;of&#39;, b&#39;Darkness&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;spring&#39;, b&#39;of&#39;, b&#39;hope&#39;, b&#39;it&#39;, b&#39;was&#39;, b&#39;the&#39;, b&#39;winter&#39;, b&#39;of&#39;, b&#39;despair&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;everything&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;had&#39;, b&#39;nothing&#39;, b&#39;before&#39;, b&#39;us&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;to&#39;, b&#39;Heaven&#39;, b&#39;we&#39;, b&#39;were&#39;, b&#39;all&#39;, b&#39;going&#39;, b&#39;direct&#39;, b&#39;the&#39;, b&#39;other&#39;, b&#39;way&#39;, b&#39;in&#39;, b&#39;short&#39;, b&#39;the&#39;, b&#39;period&#39;, b&#39;was&#39;, b&#39;so&#39;, b&#39;far&#39;, b&#39;like&#39;, b&#39;the&#39;, b&#39;present&#39;, b&#39;period&#39;, b&#39;that&#39;, b&#39;some&#39;, b&#39;of&#39;, b&#39;its&#39;, b&#39;noisiest&#39;, b&#39;authorities&#39;, b&#39;insisted&#39;, b&#39;on&#39;, b&#39;its&#39;, b&#39;being&#39;, b&#39;received&#39;, b&#39;for&#39;, b&#39;good&#39;, b&#39;or&#39;, b&#39;for&#39;, b&#39;evil&#39;, b&#39;in&#39;, b&#39;the&#39;, b&#39;superlative&#39;, b&#39;degree&#39;, b&#39;of&#39;, b&#39;comparison&#39;, b&#39;only&#39;]
 </pre></div>
 </div>
-<div class="section" id="recall-bytes">
+<section id="recall-bytes">
 <h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Bytes literals prefixed with lowercase ‘b’</p></li>
@@ -430,9 +431,9 @@ teal 32896
 [&#39;It&#39;, &#39;was&#39;, &#39;the&#39;, &#39;best&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;worst&#39;, &#39;of&#39;, &#39;times&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;wisdom&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;foolishness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;belief&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;epoch&#39;, &#39;of&#39;, &#39;incredulity&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Light&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;season&#39;, &#39;of&#39;, &#39;Darkness&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;spring&#39;, &#39;of&#39;, &#39;hope&#39;, &#39;it&#39;, &#39;was&#39;, &#39;the&#39;, &#39;winter&#39;, &#39;of&#39;, &#39;despair&#39;, &#39;we&#39;, &#39;had&#39;, &#39;everything&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;had&#39;, &#39;nothing&#39;, &#39;before&#39;, &#39;us&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;to&#39;, &#39;Heaven&#39;, &#39;we&#39;, &#39;were&#39;, &#39;all&#39;, &#39;going&#39;, &#39;direct&#39;, &#39;the&#39;, &#39;other&#39;, &#39;way&#39;, &#39;in&#39;, &#39;short&#39;, &#39;the&#39;, &#39;period&#39;, &#39;was&#39;, &#39;so&#39;, &#39;far&#39;, &#39;like&#39;, &#39;the&#39;, &#39;present&#39;, &#39;period&#39;, &#39;that&#39;, &#39;some&#39;, &#39;of&#39;, &#39;its&#39;, &#39;noisiest&#39;, &#39;authorities&#39;, &#39;insisted&#39;, &#39;on&#39;, &#39;its&#39;, &#39;being&#39;, &#39;received&#39;, &#39;for&#39;, &#39;good&#39;, &#39;or&#39;, &#39;for&#39;, &#39;evil&#39;, &#39;in&#39;, &#39;the&#39;, &#39;superlative&#39;, &#39;degree&#39;, &#39;of&#39;, &#39;comparison&#39;, &#39;only&#39;]
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

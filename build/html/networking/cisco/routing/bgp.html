@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BGP &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -125,18 +126,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="bgp">
+  <section id="bgp">
 <h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this headline"></a></h1>
-<div class="section" id="bgp-concepts-and-configuration">
+<section id="bgp-concepts-and-configuration">
 <h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this headline"></a></h2>
-<div class="section" id="bgp-routing-algorithms">
+<section id="bgp-routing-algorithms">
 <h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>BGP is technically a distance vector, but most call it a “Path Vector” protocol.</p></li>
 <li><p>Without tuning, BGP behaves just like RIP!</p></li>
 </ul>
-</div>
-<div class="section" id="bgp-packets-and-tables">
+</section>
+<section id="bgp-packets-and-tables">
 <h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Packets</p>
@@ -155,12 +156,12 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="understanding-ibgp-vs-ebgp">
+</section>
+<section id="understanding-ibgp-vs-ebgp">
 <h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this headline"></a></h3>
 <a class="reference internal image-reference" href="../../../_images/bgp-understanding-ibgp-vs-ebgp.png"><img alt="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" class="align-center" src="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" style="width: 663px; height: 424px;" /></a>
-</div>
-<div class="section" id="bgp-neighbour-configuration">
+</section>
+<section id="bgp-neighbour-configuration">
 <h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Two ways to get networks in BGP:</p>
@@ -170,19 +171,19 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="bgp-synchronisation">
+</section>
+<section id="bgp-synchronisation">
 <h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this headline"></a></h3>
 <p>Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.</p>
-</div>
-<div class="section" id="bgp-next-hop-processing">
+</section>
+<section id="bgp-next-hop-processing">
 <h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>For EBGP peers: change next hop address on advertised routes</p></li>
 <li><p>For IBGP peers: do not change next hop address on advertised routes</p></li>
 </ul>
-</div>
-<div class="section" id="bgp-configuration">
+</section>
+<section id="bgp-configuration">
 <h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/296be02849132d38a2692f584c4de6a1/bgp-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/bgp-configuration.png"><img alt="../../../_images/bgp-configuration.png" class="align-center" src="../../../_images/bgp-configuration.png" style="width: 553px; height: 337px;" /></a>
@@ -298,11 +299,11 @@ R5(config-route-map)#router bgp 6500
 R5(config-router)#redist con route-map FILTER
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="bgp-tuning-attributes">
+</section>
+</section>
+<section id="bgp-tuning-attributes">
 <h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this headline"></a></h2>
-<div class="section" id="what-are-bgp-attributes">
+<section id="what-are-bgp-attributes">
 <h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>The BGP metric is not simple</p></li>
@@ -311,8 +312,8 @@ R5(config-router)#redist con route-map FILTER
 <li><p>Some attributes are MANDITORY (must be in the update), while others are DISCRETIONARY</p></li>
 <li><p>Some attributes are TRANSITIVE (travel from router to router), while others are NON-TRANSITIVE</p></li>
 </ul>
-</div>
-<div class="section" id="understanding-the-bgp-attribute-lineup">
+</section>
+<section id="understanding-the-bgp-attribute-lineup">
 <h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Well-Known Attributes</p>
@@ -331,8 +332,8 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="how-bgp-finds-the-best-path">
+</section>
+<section id="how-bgp-finds-the-best-path">
 <h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Ignore routes with an inaccessible next hop address</p></li>
@@ -350,8 +351,8 @@ R5(config-router)#redist con route-map FILTER
 <li><p>If the originator or router ID is the same for multiple paths, prefer the path with the minimum clister list length</p></li>
 <li><p>Prefer the path that comes from the lowest neighbour address.</p></li>
 </ol>
-</div>
-<div class="section" id="tuning-bgp-attributes">
+</section>
+<section id="tuning-bgp-attributes">
 <h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Weight (<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">x.x.x.x</span> <span class="pre">weight</span> <span class="pre">500</span></code>)</p></li>
@@ -361,8 +362,8 @@ R5(config-router)#redist con route-map FILTER
 <li><p>Local Preference (<code class="docutils literal notranslate"><span class="pre">bgp</span> <span class="pre">default</span> <span class="pre">local-preference</span> <span class="pre">700</span></code>)</p></li>
 <li><p>Metric (<code class="docutils literal notranslate"><span class="pre">default-metric</span> <span class="pre">200</span></code>)</p></li>
 </ul>
-</div>
-<div class="section" id="configuring-bgp-and-tuning">
+</section>
+<section id="configuring-bgp-and-tuning">
 <h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/e2c2cb8e61fd5fbbba293cc448d75478/bgp-configuration-and-tuning.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration-and-tuning.zip</span></code></a></p>
 <p><strong>Router R1</strong></p>
@@ -514,9 +515,9 @@ R7(config-router)#network 200.50.2.0 mask 255.255.255.0
 R7(config-router)#network 200.60.2.0 mask 255.255.255.0
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

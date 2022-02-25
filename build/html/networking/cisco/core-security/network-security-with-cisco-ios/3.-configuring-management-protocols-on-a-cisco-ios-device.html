@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring Management Protocols on a Cisco IOS Device &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,11 +134,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-management-protocols-on-a-cisco-ios-device">
+  <section id="configuring-management-protocols-on-a-cisco-ios-device">
 <h1>Configuring Management Protocols on a Cisco IOS Device<a class="headerlink" href="#configuring-management-protocols-on-a-cisco-ios-device" title="Permalink to this headline"></a></h1>
-<div class="section" id="configuring-snmpv3-users-on-a-cisco-router-or-switch">
+<section id="configuring-snmpv3-users-on-a-cisco-router-or-switch">
 <h2>Configuring SNMPv3 Users on a Cisco Router or Switch<a class="headerlink" href="#configuring-snmpv3-users-on-a-cisco-router-or-switch" title="Permalink to this headline"></a></h2>
-<div class="section" id="snmpv3">
+<section id="snmpv3">
 <h3>SNMPv3<a class="headerlink" href="#snmpv3" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>SNMP Users</p></li>
@@ -162,22 +163,26 @@ are included with OIDs above it</p></li>
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="SNMP Configuration on Cisco Prime" src="../../../../_images/configuring-management-protocols-on-a-cisco-ios-device-1.png" />
-<p class="caption"><span class="caption-text">SNMP Configuration on Cisco Prime</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">SNMP Configuration on Cisco Prime</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HO(confia)#snmp-server view EVERTHING iso included
 Globo-HQ(config)#snmp-server group Write-EVERYTHING v3 priv read EVERYTHING write EVERYTHING
 Globo-HQ(config)#snmp-server user SNMP-Write Write-EVERYTHING v3 auth sha Globo123 priv aes 256 Globo123
 </pre></div>
 </div>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <img alt="Syncronization Complete" src="../../../../_images/configuring-management-protocols-on-a-cisco-ios-device-2.png" />
-<p class="caption"><span class="caption-text">Syncronization Complete</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</div>
-</div>
-</div>
-<div class="section" id="configuring-ntp-authentication">
+<figcaption>
+<p><span class="caption-text">Syncronization Complete</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="configuring-ntp-authentication">
 <h2>Configuring NTP Authentication<a class="headerlink" href="#configuring-ntp-authentication" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ(config)#ntp server vrf Mgmt-intf 172.20.1.51
 Globo-HQ(config)#ntp authentication-key 1 md5 Globo123
@@ -187,8 +192,8 @@ Globo-HQ(config)#ntp server vrf Mgmt-intf 172.20.1.51 key 1
 Globo-HQ(config)#do show ntp associations detail
 </pre></div>
 </div>
-</div>
-<div class="section" id="securing-cdp-on-a-cisco-router-or-switch">
+</section>
+<section id="securing-cdp-on-a-cisco-router-or-switch">
 <h2>Securing CDP on a Cisco Router or Switch<a class="headerlink" href="#securing-cdp-on-a-cisco-router-or-switch" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core#show cdp neigh
 Globo-Core#show cdp neigh gi 0/1 detail
@@ -234,15 +239,15 @@ Management address(es):
 Total cdp entries displayed 1
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-scp-to-transfer-files">
+</section>
+<section id="using-scp-to-transfer-files">
 <h2>Using SCP to Transfer Files<a class="headerlink" href="#using-scp-to-transfer-files" title="Permalink to this headline"></a></h2>
 <p>Globo-HQ(config)#ip ssh source-interface gig 0/1 Globo-HQ(config)#exit
 Globo-HQ#dir Globo-HQ#copy startup-config scp: Address or name of remote
 host []? 172.20.1.15 Destination username [caleb]? Destination filename
 [globo-hq-confg]? Writing globo-hq-confg Password:</p>
-</div>
-<div class="section" id="configuring-dhcp-and-dns-on-an-ios-device">
+</section>
+<section id="configuring-dhcp-and-dns-on-an-ios-device">
 <h2>Configuring DHCP and DNS on an IOS Device<a class="headerlink" href="#configuring-dhcp-and-dns-on-an-ios-device" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core(config)#int vlan 172
 Globo-Core(config-if)#ip add 172.20.1.189 255.255.255.0
@@ -264,8 +269,8 @@ Globo-HQ(config)#ip name-server 8.8.8.8
 Globo-HQ(config)#ip host Globo-ISE 172.20.1.55
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Describing the Benefits of Network Telemetry &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,11 +134,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="describing-the-benefits-of-network-telemetry">
+  <section id="describing-the-benefits-of-network-telemetry">
 <h1>Describing the Benefits of Network Telemetry<a class="headerlink" href="#describing-the-benefits-of-network-telemetry" title="Permalink to this headline"></a></h1>
-<div class="section" id="introduction-to-network-telemetry">
+<section id="introduction-to-network-telemetry">
 <h2>Introduction to Network Telemetry<a class="headerlink" href="#introduction-to-network-telemetry" title="Permalink to this headline"></a></h2>
-<div class="section" id="network-telemetry">
+<section id="network-telemetry">
 <h3>Network Telemetry<a class="headerlink" href="#network-telemetry" title="Permalink to this headline"></a></h3>
 <p>The technologies that are used in order to collection information from
 devices and then consume that information.</p>
@@ -161,11 +162,11 @@ information.</p>
 <li><p>Storage, analysis and querying</p></li>
 <li><p>Data configuration and subscription</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="information-that-makes-up-network-telemetry">
+</section>
+</section>
+<section id="information-that-makes-up-network-telemetry">
 <h2>Information That Makes up Network Telemetry<a class="headerlink" href="#information-that-makes-up-network-telemetry" title="Permalink to this headline"></a></h2>
-<div class="section" id="management-plane-protocols">
+<section id="management-plane-protocols">
 <h3>Management Plane Protocols<a class="headerlink" href="#management-plane-protocols" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Traditional protocols not sufficient</p>
@@ -177,28 +178,28 @@ information.</p>
 <li><p>NETCONF/RESTCONF using YANG</p></li>
 <li><p>gNMI</p></li>
 </ul>
-</div>
-<div class="section" id="control-plane-protocols">
+</section>
+<section id="control-plane-protocols">
 <h3>Control Plane Protocols<a class="headerlink" href="#control-plane-protocols" title="Permalink to this headline"></a></h3>
 <p>BGP Monitoring Protocol (BMP)</p>
-</div>
-<div class="section" id="data-plane-protocols">
+</section>
+<section id="data-plane-protocols">
 <h3>Data Plane Protocols<a class="headerlink" href="#data-plane-protocols" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>NetFlow</p></li>
 <li><p>Advanced Visibility and Control (AVC)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="intro-to-data-models-and-yang">
+</section>
+</section>
+<section id="intro-to-data-models-and-yang">
 <h2>Intro to Data Models and YANG<a class="headerlink" href="#intro-to-data-models-and-yang" title="Permalink to this headline"></a></h2>
-<div class="section" id="data-model">
+<section id="data-model">
 <h3>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline"></a></h3>
 <p>The explicit instructions of the structure, syntax or semantics of the
 data. Other systems will use the model in order to properly access the
 data.</p>
-</div>
-<div class="section" id="attributes-of-a-good-data-model">
+</section>
+<section id="attributes-of-a-good-data-model">
 <h3>Attributes of a Good Data Model<a class="headerlink" href="#attributes-of-a-good-data-model" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Accurate</p></li>
@@ -207,8 +208,8 @@ data.</p>
 <li><p>Simple</p></li>
 <li><p>Limited in scope</p></li>
 </ul>
-</div>
-<div class="section" id="yang">
+</section>
+<section id="yang">
 <h3>YANG<a class="headerlink" href="#yang" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Is made up of different modules that are used for a specific purpose</p></li>
@@ -258,11 +259,11 @@ supplicant</p></li>
 the password</p></li>
 <li><p>expecting a string data type as the value</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="intro-to-netconf-restconf-and-grpc">
+</section>
+</section>
+<section id="intro-to-netconf-restconf-and-grpc">
 <h2>Intro to NETCONF, RESTCONF, and gRPC<a class="headerlink" href="#intro-to-netconf-restconf-and-grpc" title="Permalink to this headline"></a></h2>
-<div class="section" id="netconf">
+<section id="netconf">
 <h3>NETCONF<a class="headerlink" href="#netconf" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>NETCONF uses SSH protocol, usually port 830</p></li>
@@ -289,8 +290,8 @@ the password</p></li>
 &lt;/rpc-reply&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="restconf">
+</section>
+<section id="restconf">
 <h3>RESTCONF<a class="headerlink" href="#restconf" title="Permalink to this headline"></a></h3>
 <p>RESTCONF uses REST principles and HTTP methods: GET, PUT, POST, PATCH &amp;
 DELETE</p>
@@ -309,15 +310,15 @@ DELETE</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HTTP 201 CREATED
 </pre></div>
 </div>
-</div>
-<div class="section" id="grpc-and-gnmi">
+</section>
+<section id="grpc-and-gnmi">
 <h3>gRPC and gNMI<a class="headerlink" href="#grpc-and-gnmi" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>gNMI is a subset of Google’s gRPC to transfer YANG modeled data.</p></li>
 <li><p>Can use JSON or protobuf to encode the data</p></li>
 </ul>
-</div>
-<div class="section" id="dial-in-vs-dial-out">
+</section>
+<section id="dial-in-vs-dial-out">
 <h3>Dial-In vs Dial-Out<a class="headerlink" href="#dial-in-vs-dial-out" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Doesn’t describe how the subscription information flows</p></li>
@@ -334,9 +335,9 @@ DELETE</p>
 <li><p>Method is dynamic for the networking device, no config needed</p></li>
 <li><p>Management server would be responsible for reestablishing connection</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

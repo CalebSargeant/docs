@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Securing the Control Plane and Data Plane on Cisco Routers &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,14 +136,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="securing-the-control-plane-and-data-plane-on-cisco-routers">
+  <section id="securing-the-control-plane-and-data-plane-on-cisco-routers">
 <h1>Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this headline"></a></h1>
-<div class="section" id="lab-setup">
+<section id="lab-setup">
 <h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline"></a></h2>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <img alt="Lab topology" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers.png" />
-<p class="caption"><span class="caption-text">Lab topology</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Lab topology</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <p><a class="reference external" href="https://github.com/CalebSargeant/docs2/blob/master/.gitbook/assets/securing-control-plane-and-data-plane-on-cisco-routers.gns3project?raw=true">Download Lab
 File</a></p>
 <p><strong>Router1:</strong></p>
@@ -185,10 +188,10 @@ Router3(config-if)#no shut
 Router3(config-if)#do wr
 </pre></div>
 </div>
-</div>
-<div class="section" id="securing-eigrp">
+</section>
+<section id="securing-eigrp">
 <h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this headline"></a></h2>
-<div class="section" id="securing-the-control-plane">
+<section id="securing-the-control-plane">
 <h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Use MD5 hash of a passcode/key</p></li>
@@ -197,8 +200,8 @@ Router3(config-if)#do wr
 <li><p>Authentication Create passcode inside of keychain</p></li>
 <li><p>Reference keychain on interfaces participating in EIGRP</p></li>
 </ul>
-</div>
-<div class="section" id="other-routing-protocols">
+</section>
+<section id="other-routing-protocols">
 <h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>RIP</p>
@@ -217,8 +220,8 @@ Router3(config-if)#do wr
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="configuration-steps">
+</section>
+<section id="configuration-steps">
 <h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Configure EIGRP</p></li>
@@ -331,9 +334,9 @@ Packet sent with a source address of 3.3.3.3
 Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/8 ms
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="securing-rip">
+</section>
+</section>
+<section id="securing-rip">
 <h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Use the keychain</p></li>
@@ -425,8 +428,8 @@ C        23.23.23.0/24 is directly connected, GigabitEthernet0/1
 L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 </pre></div>
 </div>
-</div>
-<div class="section" id="securing-ospf">
+</section>
+<section id="securing-ospf">
 <h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configure authentication without a hash</p></li>
@@ -504,19 +507,23 @@ Router1(config-if)#ip ospf authentication-key Globo123
 Router1(config-if)#ip ospf authentication
 </pre></div>
 </div>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <img alt="Packet capture showing OSPF authentication in plain-text" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf1.png" />
-<p class="caption"><span class="caption-text">Packet capture showing OSPF authentication in plain-text</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Packet capture showing OSPF authentication in plain-text</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>### OSPF with hashing:
 Router1(config-if)#ip ospf authentication message-digest
 Router1(config-if)#ip ospf message-digest-key 1 md5 Globo123
 </pre></div>
 </div>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <img alt="Packet capture showing OSPF Auth Type as Cryptographic" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers-ospf2.png" />
-<p class="caption"><span class="caption-text">Packet capture showing OSPF Auth Type as Cryptographic</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
-</div>
+<figcaption>
+<p><span class="caption-text">Packet capture showing OSPF Auth Type as Cryptographic</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Router3(config-if)#do sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
@@ -548,8 +555,8 @@ L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 * Configure authentication
 </pre></div>
 </div>
-</div>
-<div class="section" id="securing-bgp">
+</section>
+<section id="securing-bgp">
 <h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configure TTL Security command</p></li>
@@ -597,11 +604,11 @@ Router3(config-router)#neighbor 12.12.12.1 password Globo123
 Router3(config-router)#do clear ip bgp *
 </pre></div>
 </div>
-</div>
-<div class="section" id="access-control-lists">
+</section>
+<section id="access-control-lists">
 <h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline"></a></h2>
 <p>All ACLs have an implicit deny statement at the bottom of the list</p>
-<div class="section" id="standard-acl">
+<section id="standard-acl">
 <h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Matches the source IP address</p></li>
@@ -630,8 +637,8 @@ Router3(config-router)#do clear ip bgp *
 (config-std-nacl)#deny any
 </pre></div>
 </div>
-</div>
-<div class="section" id="extended-acl">
+</section>
+<section id="extended-acl">
 <h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Source &amp; destination IP addresses</p></li>
@@ -653,18 +660,18 @@ Router3(config-router)#do clear ip bgp *
 (config-ext-nacl)#permit ip 192.168.1.0 0.0.0.255 any
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="applying-acls-and-other-acl-types">
+</section>
+</section>
+<section id="applying-acls-and-other-acl-types">
 <h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this headline"></a></h2>
-<div class="section" id="acl-placement">
+<section id="acl-placement">
 <h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Apply the ACL inbound or outbound on an interface</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(config-if)#ip</span> <span class="pre">access-group</span> <span class="pre">nameOrNumber</span> <span class="pre">{inlout}</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="other-acl-usage">
+</section>
+<section id="other-acl-usage">
 <h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>permit host 1.1.5.25
 permit host 1.1.5.26 deny any
@@ -678,8 +685,8 @@ permit host 1.1.5.26 deny any
 <li><p>dACls</p></li>
 <li><p>Policy-maps</p></li>
 </ul>
-</div>
-<div class="section" id="time-based-acl">
+</section>
+<section id="time-based-acl">
 <h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#time-range Friday
 (config-time-range)#periodic Friday 08:00 to 16:59
@@ -690,8 +697,8 @@ permit host 1.1.5.26 deny any
 (config)#access-list 2050 permit ip 172.20.1.0 0.0.0.255 any time-range Jan2020
 </pre></div>
 </div>
-</div>
-<div class="section" id="reflexive-acls">
+</section>
+<section id="reflexive-acls">
 <h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Keep track of IP sessions</p></li>
@@ -707,18 +714,18 @@ permit host 1.1.5.26 deny any
 (config-ext-nacl)#exit
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="policy-maps-nbar-urpf-tcp-intercept">
+</section>
+</section>
+<section id="policy-maps-nbar-urpf-tcp-intercept">
 <h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this headline"></a></h2>
-<div class="section" id="policy-maps-and-class-maps">
+<section id="policy-maps-and-class-maps">
 <h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this headline"></a></h3>
 <p><strong>Policy Maps</strong> Can apply policy such as policing bandwidth, priority,
 or drop the traffic.</p>
 <p><strong>Class Maps</strong> Matches traffic based on ACLs, VLANs, protocols, QoS
 attributes</p>
-</div>
-<div class="section" id="network-based-application-recognition">
+</section>
+<section id="network-based-application-recognition">
 <h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this headline"></a></h3>
 <p>NBAR:</p>
 <ul class="simple">
@@ -747,8 +754,8 @@ attributes</p>
 (config-if)#service-policy {inputloutput} drop-p2p
 </pre></div>
 </div>
-</div>
-<div class="section" id="unicast-reverse-path-forwarding">
+</section>
+<section id="unicast-reverse-path-forwarding">
 <h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this headline"></a></h3>
 <p>URPF:</p>
 <ul class="simple">
@@ -760,8 +767,8 @@ attributes</p>
 (config-if)#ip verify unicast reachable-via rx
 </pre></div>
 </div>
-</div>
-<div class="section" id="tcp-intercept">
+</section>
+<section id="tcp-intercept">
 <h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Intervenes and protects servers from SYN-Flood Attacks</p></li>
@@ -787,11 +794,11 @@ attributes</p>
 (config)#ip tcp intercept list Important_Servers
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="control-plane-policing">
+</section>
+</section>
+<section id="control-plane-policing">
 <h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this headline"></a></h2>
-<div class="section" id="copp">
+<section id="copp">
 <h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Utilizes ACLs and policy maps</p></li>
@@ -824,9 +831,9 @@ policy map Copp-Policy-Map not configured
 Router1(config-cp)#service-policy input CoPP-Policy-Map
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

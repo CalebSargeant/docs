@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ASAv &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -121,11 +122,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="asav">
+  <section id="asav">
 <h1>ASAv<a class="headerlink" href="#asav" title="Permalink to this headline"></a></h1>
-<div class="section" id="aws">
+<section id="aws">
 <h2>AWS<a class="headerlink" href="#aws" title="Permalink to this headline"></a></h2>
-<div class="section" id="important-caveats">
+<section id="important-caveats">
 <h3>Important Caveats<a class="headerlink" href="#important-caveats" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Launching through the AWS Marketplace does not allow you to input the <em>Day 0 Configuration</em>, which means you will not be able to contact the device. Ensure that you create the ASAv via <em>EC2 &gt; Launch Instance</em>.</p></li>
@@ -135,15 +136,15 @@
 <li><p>You need to license the ASAv before the ASA allows AnyConnect configuration.</p></li>
 <li><p>ASAv AnyConnect can only be done via Smart Licensing. The ASAv License can be done via the BYOL or Standard AWS license models.</p></li>
 </ul>
-</div>
-<div class="section" id="useful-links">
+</section>
+<section id="useful-links">
 <h3>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa95/asav/quick-start/asav-quick/asav-aws.html">https://www.cisco.com/c/en/us/td/docs/security/asa/asa95/asav/quick-start/asav-quick/asav-aws.html</a></p></li>
 <li><p><a class="reference external" href="https://aws.amazon.com/marketplace/pp/B00WRGASUC?qid=1593698881714&amp;sr=0-2&amp;ref_=srh_res_product_title">https://aws.amazon.com/marketplace/pp/B00WRGASUC?qid=1593698881714&amp;sr=0-2&amp;ref_=srh_res_product_title</a></p></li>
 </ul>
-</div>
-<div class="section" id="launch-steps">
+</section>
+<section id="launch-steps">
 <h3>Launch Steps<a class="headerlink" href="#launch-steps" title="Permalink to this headline"></a></h3>
 <p>The process to launch a BYOL ASAv as opposed to the Standard AWS ASAv is the same:</p>
 <img alt="../../_images/asav-aws-1.png" src="../../_images/asav-aws-1.png" />
@@ -164,8 +165,8 @@
 <img alt="../../_images/asav-aws-7.png" src="../../_images/asav-aws-7.png" />
 <p>Associate the created Elastic IP to your public (outside) interface:</p>
 <img alt="../../_images/asav-aws-8.png" src="../../_images/asav-aws-8.png" />
-</div>
-<div class="section" id="day-0-configuration">
+</section>
+<section id="day-0-configuration">
 <h3>Day 0 Configuration<a class="headerlink" href="#day-0-configuration" title="Permalink to this headline"></a></h3>
 <p>In the below day 0 configuration, we will be disabling the management interface to have only 2 interfaces (outside, inside). Management will be done via outside, as per standard with physical ASAs in offices.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface management0/0
@@ -207,8 +208,8 @@ name-server 1.1.1.1
 ntp server 169.254.169.123
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-s3-as-software-storage-location">
+</section>
+<section id="using-s3-as-software-storage-location">
 <h3>Using S3 as Software Storage Location<a class="headerlink" href="#using-s3-as-software-storage-location" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/s3-aws-ip-addresses-access/">https://aws.amazon.com/premiumsupport/knowledge-center/s3-aws-ip-addresses-access/</a></p></li>
@@ -224,27 +225,27 @@ ntp server 169.254.169.123
 <p>Create the Bucket Policy:</p>
 <img alt="../../_images/asav-aws-s3-6.png" src="../../_images/asav-aws-s3-6.png" />
 <p>The below bucket policy allows only x.x.x.x/32 and y.y.y.y/32 access.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;Id&quot;</span><span class="p">:</span> <span class="s2">&quot;S3PolicyId1&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-          <span class="nt">&quot;Sid&quot;</span><span class="p">:</span> <span class="s2">&quot;IPAllow&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;Principal&quot;</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:s3:::bucketname/*&quot;</span><span class="p">,</span>
-          <span class="nt">&quot;Condition&quot;</span><span class="p">:</span> <span class="p">{</span>
-              <span class="nt">&quot;IpAddress&quot;</span><span class="p">:</span> <span class="p">{</span>
-                  <span class="nt">&quot;aws:SourceIp&quot;</span><span class="p">:</span> <span class="p">[</span>
-                      <span class="s2">&quot;x.x.x.x/32&quot;</span><span class="p">,</span>
-                      <span class="s2">&quot;y.y.y.y/32&quot;</span>
-                  <span class="p">]</span>
-              <span class="p">}</span>
-          <span class="p">}</span>
-      <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;S3PolicyId1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IPAllow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::bucketname/*&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nt">&quot;IpAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">&quot;aws:SourceIp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;x.x.x.x/32&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="s2">&quot;y.y.y.y/32&quot;</span><span class="w"></span>
+<span class="w">                  </span><span class="p">]</span><span class="w"></span>
+<span class="w">              </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can now copy files directly from the S3 bucket onto the ASA:</p>
@@ -262,9 +263,9 @@ Writing file disk0:/anyconnect-linux64-4.8.02042-webdeploy-k9.zip...
 40004376 bytes copied in 2.90 secs (20002188 bytes/sec)
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IPTables &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -120,23 +121,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="iptables">
+  <section id="iptables">
 <h1>IPTables<a class="headerlink" href="#iptables" title="Permalink to this headline"></a></h1>
-<div class="section" id="multiple-ports">
+<section id="multiple-ports">
 <h2>Multiple Ports<a class="headerlink" href="#multiple-ports" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/353130/iptables-and-multiple-ports">https://serverfault.com/questions/353130/iptables-and-multiple-ports</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --match multiport --dports <span class="m">110</span>,143,993,995 -j ACCEPT
 </pre></div>
 </div>
-</div>
-<div class="section" id="adding-a-rule">
+</section>
+<section id="adding-a-rule">
 <h2>Adding a Rule<a class="headerlink" href="#adding-a-rule" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address">https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp -s <span class="m">192</span>.168.0.0/24 --dport <span class="m">22</span> -j ACCEPT
 </pre></div>
 </div>
-</div>
-<div class="section" id="comments">
+</section>
+<section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command">https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --dport <span class="m">22</span> -m comment --comment <span class="s2">&quot;allow ssh&quot;</span>
@@ -144,16 +145,16 @@ iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
 iptables -A OUTPUT -p udp --dport <span class="m">53</span> -j ACCEPT
 </pre></div>
 </div>
-</div>
-<div class="section" id="allowing-incoming-traffic-after-changing-default-policy">
+</section>
+<section id="allowing-incoming-traffic-after-changing-default-policy">
 <h2>Allowing Incoming Traffic after Changing Default Policy<a class="headerlink" href="#allowing-incoming-traffic-after-changing-default-policy" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules">https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules</a>
 <a class="reference external" href="https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/">https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-a-rule">
+</section>
+<section id="deleting-a-rule">
 <h2>Deleting a Rule<a class="headerlink" href="#deleting-a-rule" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables">https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace -A with -D</span>
@@ -163,8 +164,8 @@ iptables -A
 iptables -D
 </pre></div>
 </div>
-</div>
-<div class="section" id="port-forwarding">
+</section>
+<section id="port-forwarding">
 <h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;1&#39;</span> <span class="p">|</span> sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
 iptables -t nat -A PREROUTING -p tcp --dport <span class="m">20443</span> -j DNAT --to-destination <span class="m">10</span>.8.8.188:443
@@ -172,8 +173,8 @@ iptables -A FORWARD -p tcp -s <span class="m">10</span>.8.8.188 —dport <span c
 iptables -t nat -A POSTROUTING -j MASQUERADE
 </pre></div>
 </div>
-</div>
-<div class="section" id="persistent-rules">
+</section>
+<section id="persistent-rules">
 <h2>Persistent Rules<a class="headerlink" href="#persistent-rules" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule">https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netfilter-persistent save
@@ -184,15 +185,15 @@ netfilter-persistent reload
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables-save &gt; /etc/iptables/rules.v4
 </pre></div>
 </div>
-</div>
-<div class="section" id="listing-rules">
+</section>
+<section id="listing-rules">
 <h2>Listing Rules<a class="headerlink" href="#listing-rules" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher">https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -v -L
 </pre></div>
 </div>
-</div>
-<div class="section" id="allow-only-certain-ip-ranges">
+</section>
+<section id="allow-only-certain-ip-ranges">
 <h2>Allow Only Certain IP Ranges<a class="headerlink" href="#allow-only-certain-ip-ranges" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables">https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -204,15 +205,15 @@ iptables -P INPUT DROP
 iptables -P FORWARD DROP
 </pre></div>
 </div>
-</div>
-<div class="section" id="logging">
+</section>
+<section id="logging">
 <h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A INPUT -j LOG --log-prefix <span class="s2">&quot;Dropped INPUT Packet: &quot;</span>
 -A FORWARD -j LOG --log-prefix <span class="s2">&quot;Dropped FORWARD Packet: &quot;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

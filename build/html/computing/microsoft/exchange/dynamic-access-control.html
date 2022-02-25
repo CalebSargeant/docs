@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Access Control &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -117,11 +118,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="dynamic-access-control">
+  <section id="dynamic-access-control">
 <h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Permalink to this headline"></a></h1>
 <p>Prepare the Dynamic Access Control Deployment Based on the Security and Business Requirements
 Prepare ADDS to support Dynamic Access Control</p>
-<div class="section" id="on-the-domain-controller">
+<section id="on-the-domain-controller">
 <h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Open AD Users and Computers</p></li>
@@ -139,10 +140,10 @@ Prepare ADDS to support Dynamic Access Control</p>
 <li><p>Move the target client Computer Objects into the &lt;OU_name_here&gt;container</p></li>
 <li><p>Make the client Computer Objects a member of &lt;name_WKS&gt;</p></li>
 </ol>
-</div>
-<div class="section" id="configuring-user-and-device-claims">
+</section>
+<section id="configuring-user-and-device-claims">
 <h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Permalink to this headline"></a></h2>
-<div class="section" id="review-claim-types">
+<section id="review-claim-types">
 <h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Permalink to this headline"></a></h3>
 <p>On the Domain Controller:</p>
 <ol class="arabic simple">
@@ -151,16 +152,16 @@ Prepare ADDS to support Dynamic Access Control</p>
 <li><p>Resource Properties &gt; Properties, and review</p></li>
 <li><p>New Claim Type &gt; description &gt; untick user, tick computer</p></li>
 </ol>
-</div>
-<div class="section" id="configuring-resource-properties-and-file-classifications">
+</section>
+<section id="configuring-resource-properties-and-file-classifications">
 <h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>In Resource Property enable Confidentiality, Department</p></li>
 <li><p>Go to Suggested Values of Department &gt; click add &gt; Value/Display name: &lt;OU_name_here&gt;</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

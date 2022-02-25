@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adding a New Provider to Your Configuration &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -114,9 +115,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="adding-a-new-provider-to-your-configuration">
+  <section id="adding-a-new-provider-to-your-configuration">
 <h1>Adding a New Provider to Your Configuration<a class="headerlink" href="#adding-a-new-provider-to-your-configuration" title="Permalink to this headline"></a></h1>
-<div class="section" id="terraform-functions">
+<section id="terraform-functions">
 <h2>Terraform Functions<a class="headerlink" href="#terraform-functions" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Built-in to Terraform</p></li>
@@ -124,7 +125,7 @@
 <li><p>Test in terrafrom console</p></li>
 <li><p>Several broad categories</p></li>
 </ul>
-<div class="section" id="common-function-categories">
+<section id="common-function-categories">
 <h3>Common Function Categories<a class="headerlink" href="#common-function-categories" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Numeric</p>
@@ -158,8 +159,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="function-examples">
+</section>
+<section id="function-examples">
 <h3>Function Examples<a class="headerlink" href="#function-examples" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Configure networking
 variable network_info {
@@ -183,14 +184,14 @@ variable &quot;amis&quot; {
 ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="terraform-commands">
+</section>
+</section>
+<section id="terraform-commands">
 <h2>Terraform Commands<a class="headerlink" href="#terraform-commands" title="Permalink to this headline"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
-</div>
-<div class="section" id="terraform-providers">
+</section>
+<section id="terraform-providers">
 <h2>Terraform Providers<a class="headerlink" href="#terraform-providers" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Iaas, Paas, Saas</p></li>
@@ -199,7 +200,7 @@ ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 <li><p>Resources and data sources</p></li>
 <li><p>Multiple instances</p></li>
 </ul>
-<div class="section" id="provider-example">
+<section id="provider-example">
 <h3>Provider Example<a class="headerlink" href="#provider-example" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>provider &quot;azurerm&quot; {
   subscription_id = &quot;subscription-id&quot;
@@ -215,13 +216,13 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="adding-the-azurerm-provider">
+</section>
+</section>
+<section id="adding-the-azurerm-provider">
 <h2>Adding the AzureRM Provider<a class="headerlink" href="#adding-the-azurerm-provider" title="Permalink to this headline"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
-</div>
-<div class="section" id="resource-arguments">
+</section>
+<section id="resource-arguments">
 <h2>Resource Arguments<a class="headerlink" href="#resource-arguments" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>depends_on</p></li>
@@ -229,7 +230,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 <li><p>for_each</p></li>
 <li><p>provider</p></li>
 </ul>
-<div class="section" id="depends-on-and-count">
+<section id="depends-on-and-count">
 <h3>Depends_on and Count<a class="headerlink" href="#depends-on-and-count" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_instance&quot; &quot;taco_servers&quot; {
   count = 2
@@ -240,8 +241,8 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="for-each">
+</section>
+<section id="for-each">
 <h3>For_each<a class="headerlink" href="#for-each" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_s3_bucket&quot; &quot;taco_toppings&quot; {
   for_each = {
@@ -253,13 +254,13 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="using-the-count-argument">
+</section>
+</section>
+<section id="using-the-count-argument">
 <h2>Using the Count Argument<a class="headerlink" href="#using-the-count-argument" title="Permalink to this headline"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

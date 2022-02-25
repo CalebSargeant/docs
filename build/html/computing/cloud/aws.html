@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Azure" href="azure.html" />
+    <link rel="prev" title="Cloud" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recover-lost-ssh-key">Recover Lost SSH Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="azure.html">Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflare.html">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digicert.html">DigiCert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="duo.html">Duo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Cloud</a> &raquo;</li>
+      <li>AWS</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/cloud/aws.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aws">
+<h1>AWS<a class="headerlink" href="#aws" title="Permalink to this headline"></a></h1>
+<section id="recover-lost-ssh-key">
+<h2>Recover Lost SSH Key<a class="headerlink" href="#recover-lost-ssh-key" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://github.com/miztiik/AWS-Demos/tree/master/How-To/setup-ssh-key-recovery-using-userdata">https://github.com/miztiik/AWS-Demos/tree/master/How-To/setup-ssh-key-recovery-using-userdata</a></p>
+<ol class="arabic simple">
+<li><p>Create a new instance with an SSH key</p></li>
+<li><p>SSH into the instance and copy the authorized_keys entry</p></li>
+<li><p>Stop the instance that you lost the key for</p></li>
+<li><p>Edit the user data of the instance:</p></li>
+</ol>
+<img alt="../../_images/aws-1.png" src="../../_images/aws-1.png" />
+<ol class="arabic simple" start="5">
+<li><p>Paste the below in the user data of the instance and start it:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Content-Type: multipart/mixed<span class="p">;</span> <span class="nv">boundary</span><span class="o">=</span><span class="s2">&quot;//&quot;</span>
+MIME-Version: <span class="m">1</span>.0
+
+--//
+Content-Type: text/cloud-config<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span><span class="s2">&quot;us-ascii&quot;</span>
+MIME-Version: <span class="m">1</span>.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment<span class="p">;</span> <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;cloud-config.txt&quot;</span>
+
+<span class="c1">#cloud-config</span>
+cloud_final_modules:
+- <span class="o">[</span>scripts-user, always<span class="o">]</span>
+
+--//
+Content-Type: text/x-shellscript<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span><span class="s2">&quot;us-ascii&quot;</span>
+MIME-Version: <span class="m">1</span>.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment<span class="p">;</span> <span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;userdata.txt&quot;</span>
+<span class="c1">#!/bin/bash</span>
+/bin/echo -e <span class="s2">&quot;ssh-rsa AAUvoqDuvCKFrVzeq/O68JgAo0zSSD3KMYwO1RSZ8/2FwMEYZP7jAh3GOYJhIS</span>
+<span class="s2">AzFsDcN/jgtluZIwEn7MXym21EDLk1aFdI20WtbQJH79as9+nV9jtzf9BiQnM/fe18Frb94A1DUALcEyPesl</span>
+<span class="s2">oYvcOxyCCaqAKS6v1g1me4Up+IbHNfVgE+GtLdh+oohR8SRc3xL9tvQu0kzFSRVsfymhu5l2WBpf9STvm3rt</span>
+<span class="s2">MbNKzjmKAqPlMSuShn72pTwqScGoPG+3ofZ36nLdh+oo&quot;</span> &gt;&gt; /home/ec2-user/.ssh/authorized_keys
+--//
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Login to the server with the new key</p></li>
+<li><p>Remember to stop the recovery instance you created if not using it</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="azure.html" class="btn btn-neutral float-right" title="Azure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

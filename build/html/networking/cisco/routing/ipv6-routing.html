@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IPv6 Routing &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -126,11 +127,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="ipv6-routing">
+  <section id="ipv6-routing">
 <h1>IPv6 Routing<a class="headerlink" href="#ipv6-routing" title="Permalink to this headline"></a></h1>
-<div class="section" id="understanding-and-implementing-ipv6-addressing">
+<section id="understanding-and-implementing-ipv6-addressing">
 <h2>Understanding and Implementing IPv6 Addressing<a class="headerlink" href="#understanding-and-implementing-ipv6-addressing" title="Permalink to this headline"></a></h2>
-<div class="section" id="rationale-for-ipv6">
+<section id="rationale-for-ipv6">
 <h3>Rationale for IPv6<a class="headerlink" href="#rationale-for-ipv6" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Yes there IS an IP Address shortage!</p>
@@ -149,8 +150,8 @@
 <li><p>NAT (our current solution) is now seen as a hinderence to innovation</p></li>
 <li><p>Potential future features: IPSec everywhere, mobility, simpler header</p></li>
 </ul>
-</div>
-<div class="section" id="ipv6-addressing">
+</section>
+<section id="ipv6-addressing">
 <h3>IPv6 Addressing<a class="headerlink" href="#ipv6-addressing" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Address size moved from 32-bit (IPv4) to 128-bit (IPv6)</p></li>
@@ -159,12 +160,12 @@
 <li><p>Rule 1: eliminate groups of consecutive zeros <code class="docutils literal notranslate"><span class="pre">2001:0050::0AB4:1E2B:98AA</span></code></p></li>
 <li><p>Rule 2: Drop leading zeros: <code class="docutils literal notranslate"><span class="pre">2001:50::AB4:1E2B:98AA</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="simplified-ipv6-headers">
+</section>
+<section id="simplified-ipv6-headers">
 <h3>Simplified IPv6 Headers<a class="headerlink" href="#simplified-ipv6-headers" title="Permalink to this headline"></a></h3>
 <img alt="../../../_images/ipv6-routing-1.png" src="../../../_images/ipv6-routing-1.png" />
-</div>
-<div class="section" id="types-of-communication-and-addresses">
+</section>
+<section id="types-of-communication-and-addresses">
 <h3>Types of Communication and Addresses<a class="headerlink" href="#types-of-communication-and-addresses" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Unicast: one-to-one</p></li>
@@ -175,8 +176,8 @@
 <li><p>Global scope address: internet</p></li>
 </ul>
 <img alt="../../../_images/ipv6-routing-2.png" src="../../../_images/ipv6-routing-2.png" />
-</div>
-<div class="section" id="link-local-addresses">
+</section>
+<section id="link-local-addresses">
 <h3>Link Local Addresses<a class="headerlink" href="#link-local-addresses" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Assigned automatically as an IPv6 host comes online</p></li>
@@ -184,8 +185,8 @@
 <li><p>Always begins with <code class="docutils literal notranslate"><span class="pre">fe80</span></code> (first 10 bits: <code class="docutils literal notranslate"><span class="pre">1111</span> <span class="pre">1110</span> <span class="pre">10</span></code>) followed by 54 bits of zeros</p></li>
 <li><p>Last 64 bits is the 48-bit mac address with <code class="docutils literal notranslate"><span class="pre">FFFE</span></code> squeezed in the middle</p></li>
 </ul>
-</div>
-<div class="section" id="global-addresses">
+</section>
+<section id="global-addresses">
 <h3>Global Addresses<a class="headerlink" href="#global-addresses" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Have their high-level 3 bits set to <code class="docutils literal notranslate"><span class="pre">0001</span></code> (<code class="docutils literal notranslate"><span class="pre">2000::/3</span></code>)</p></li>
@@ -193,11 +194,11 @@
 <li><p>Subnet ID is comprised of whatever bits are left over after global routing prefix</p></li>
 <li><p>The primary addresses expected to comprise the ipv6 internet are from the <code class="docutils literal notranslate"><span class="pre">2001::/16</span></code> subnet</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="implementing-ipv6-routing-and-routing-protocols">
+</section>
+</section>
+<section id="implementing-ipv6-routing-and-routing-protocols">
 <h2>Implementing IPv6 Routing and Routing Protocols<a class="headerlink" href="#implementing-ipv6-routing-and-routing-protocols" title="Permalink to this headline"></a></h2>
-<div class="section" id="configuring-ipv6-addressing">
+<section id="configuring-ipv6-addressing">
 <h3>Configuring IPv6 Addressing<a class="headerlink" href="#configuring-ipv6-addressing" title="Permalink to this headline"></a></h3>
 <img alt="../../../_images/ipv6-routing-3.png" src="../../../_images/ipv6-routing-3.png" />
 <p><a class="reference download internal" download="" href="../../../_downloads/158054c27372e1eaa0e2b977535d5b26/ipv6-routing.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing.zip</span></code></a></p>
@@ -295,8 +296,8 @@ Feb 23 06:19:54.193: ICMPv6-ND: (GigabitEthernet0/1,2001:33AA::2) REACH -&gt; ST
 Feb 23 06:20:04.264: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) REACH -&gt; STALE
 </pre></div>
 </div>
-</div>
-<div class="section" id="ipv6-static-routes">
+</section>
+<section id="ipv6-static-routes">
 <h3>IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/1499018240d594a04f2d88c6c5655552/ipv6-routing-static.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-static.zip</span></code></a></p>
 <p><strong>R1</strong></p>
@@ -327,8 +328,8 @@ Tracing the route to 2001:11AA::2
 3 2001:11AA::2 5 msec 4 msec 4 msec
 </pre></div>
 </div>
-</div>
-<div class="section" id="ipv6-rip">
+</section>
+<section id="ipv6-rip">
 <h3>IPv6 RIP<a class="headerlink" href="#ipv6-rip" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/108604edfc1ea0f434a286e42c0a36f6/ipv6-routing-rip.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-rip.zip</span></code></a></p>
 <p><strong>R1</strong></p>
@@ -399,8 +400,8 @@ R4(config-rtr)#?
   timers           Adjust routing timers
 </pre></div>
 </div>
-</div>
-<div class="section" id="ospfv3">
+</section>
+<section id="ospfv3">
 <h3>OSPFv3<a class="headerlink" href="#ospfv3" title="Permalink to this headline"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/23cdd9199f0116302cb539c2801a36b7/ipv6-routing-ospfv3.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-ospfv3.zip</span></code></a></p>
 <p><strong>R1</strong></p>
@@ -460,11 +461,11 @@ L   FF00::/8 [0/0]
      via Null0, receive
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="transitioning-to-ipv6">
+</section>
+</section>
+<section id="transitioning-to-ipv6">
 <h2>Transitioning to IPv6<a class="headerlink" href="#transitioning-to-ipv6" title="Permalink to this headline"></a></h2>
-<div class="section" id="the-migration-to-ipv6">
+<section id="the-migration-to-ipv6">
 <h3>The Migration to IPv6<a class="headerlink" href="#the-migration-to-ipv6" title="Permalink to this headline"></a></h3>
 <p>Technology exists to provide a smooth, non-pressured transition:</p>
 <ul class="simple">
@@ -472,9 +473,9 @@ L   FF00::/8 [0/0]
 <li><p>Tunneling (6to4 and 4to6)</p></li>
 <li><p>NAT protocol translation (NAT-PT)</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

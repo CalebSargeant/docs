@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring FlexVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,9 +136,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="configuring-flexvpn">
+  <section id="configuring-flexvpn">
 <h1>Configuring FlexVPN<a class="headerlink" href="#configuring-flexvpn" title="Permalink to this headline"></a></h1>
-<div class="section" id="ikev2-authorization-policies">
+<section id="ikev2-authorization-policies">
 <h2>IKEv2 Authorization Policies<a class="headerlink" href="#ikev2-authorization-policies" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Configurations sent during VPN setup</p></li>
@@ -182,10 +183,10 @@ Globomantics-0MA(config)#crypto ikev2 profile FlexIKEv2Profile
 Globomantics-0MA(config-ikev2-profile)#faaa authorization group cert list FlexAuthList FlexAuthPolicy
 </pre></div>
 </div>
-</div>
-<div class="section" id="creating-a-dynamic-vti">
+</section>
+<section id="creating-a-dynamic-vti">
 <h2>Creating a Dynamic VTI<a class="headerlink" href="#creating-a-dynamic-vti" title="Permalink to this headline"></a></h2>
-<div class="section" id="dynamic-vtis">
+<section id="dynamic-vtis">
 <h3>Dynamic VTIs<a class="headerlink" href="#dynamic-vtis" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Allow VPN interfaces to be automatically created</p>
@@ -208,9 +209,9 @@ Globomantics-HQ(config-ikev2-profile)#virtual-template 6
 Globomantics-HQ(config-ikev2-profile)#exit
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="enrolling-in-globomantics-pki">
+</section>
+</section>
+<section id="enrolling-in-globomantics-pki">
 <h2>Enrolling in Globomantics’ PKI<a class="headerlink" href="#enrolling-in-globomantics-pki" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Still need to configure authentication</p></li>
@@ -249,8 +250,8 @@ Globomantics-HQ(config)#crypto pki enroll Globo-CA
 Globomantics-HQ(config)#do show crypto pki certificates
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-digital-certificates-for-authentication">
+</section>
+<section id="using-digital-certificates-for-authentication">
 <h2>Using Digital Certificates for Authentication<a class="headerlink" href="#using-digital-certificates-for-authentication" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ(config)#crypto pki certificate map FlexCerts 1
 Globomantics-HQ(ca-certificate-map)#issuer-name co globomantics
@@ -267,10 +268,10 @@ Globomantics-HQ(config-ikev2-profile)#lifetime 86400
 Globomantics-HQ(Config-ikev2-profile)#exit
 </pre></div>
 </div>
-</div>
-<div class="section" id="configuring-a-flexvpn-client">
+</section>
+<section id="configuring-a-flexvpn-client">
 <h2>Configuring a FlexVPN Client<a class="headerlink" href="#configuring-a-flexvpn-client" title="Permalink to this headline"></a></h2>
-<div class="section" id="flexvpn-clients">
+<section id="flexvpn-clients">
 <h3>FlexVPN Clients<a class="headerlink" href="#flexvpn-clients" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Previously configured static tunnels</p></li>
@@ -296,9 +297,9 @@ Globomantics-OMA(config-if)#tunnel destination dynamic
 Globomantics-0MA(config-if)#
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

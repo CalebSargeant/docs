@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explaining Exfiltration Techniques &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,11 +134,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="explaining-exfiltration-techniques">
+  <section id="explaining-exfiltration-techniques">
 <h1>Explaining Exfiltration Techniques<a class="headerlink" href="#explaining-exfiltration-techniques" title="Permalink to this headline"></a></h1>
-<div class="section" id="exfiltrating-data-using-dns-ntp-icmp-or-irc">
+<section id="exfiltrating-data-using-dns-ntp-icmp-or-irc">
 <h2>Exfiltrating Data Using DNS, NTP, ICMP, or IRC<a class="headerlink" href="#exfiltrating-data-using-dns-ntp-icmp-or-irc" title="Permalink to this headline"></a></h2>
-<div class="section" id="dns-tunneling">
+<section id="dns-tunneling">
 <h3>DNS Tunneling<a class="headerlink" href="#dns-tunneling" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>DNS resolves hostnames to IP addresses</p></li>
@@ -153,8 +154,8 @@
 NGIPS to detect * 200 billion daily DNS requests * Large data set of
 malicious DNS servers * Organizations would forward DNS requests to
 Umbrella * Malicious queries won’t be forwarded</p>
-</div>
-<div class="section" id="ntp-covert-channels">
+</section>
+<section id="ntp-covert-channels">
 <h3>NTP Covert Channels<a class="headerlink" href="#ntp-covert-channels" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Initiation pattern known by malicious server and client</p>
@@ -184,8 +185,8 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="icmp-echo-manipulation">
+</section>
+<section id="icmp-echo-manipulation">
 <h3>ICMP Echo Manipulation<a class="headerlink" href="#icmp-echo-manipulation" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Input data into payload of ICMP echo requests</p></li>
@@ -201,8 +202,8 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </li>
 <li><p>Inspect ICMP payload using deep packet inspection</p></li>
 </ul>
-</div>
-<div class="section" id="internet-relay-chat">
+</section>
+<section id="internet-relay-chat">
 <h3>Internet Relay Chat<a class="headerlink" href="#internet-relay-chat" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Client will authenticate with malicious server</p></li>
@@ -210,18 +211,18 @@ Umbrella * Malicious queries won’t be forwarded</p>
 <li><p>Block all IRC traffic or:</p></li>
 <li><p>Whitelist only specific IRC servers</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="exfiltrating-data-using-https-ftp-sftp-ssh-or-scp">
+</section>
+</section>
+<section id="exfiltrating-data-using-https-ftp-sftp-ssh-or-scp">
 <h2>Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP<a class="headerlink" href="#exfiltrating-data-using-https-ftp-sftp-ssh-or-scp" title="Permalink to this headline"></a></h2>
-<div class="section" id="https">
+<section id="https">
 <h3>HTTPs<a class="headerlink" href="#https" title="Permalink to this headline"></a></h3>
 <p><strong>Problems</strong> * Exfiltrate data over encrypted TLS session * Send data
 to cloud file hosting</p>
 <p><strong>Solutions</strong> * Decrypt the data and implement DLP * Use Cognitive
 Threat Analytics</p>
-</div>
-<div class="section" id="ftp-sftp-scp">
+</section>
+<section id="ftp-sftp-scp">
 <h3>FTP SFTP SCP<a class="headerlink" href="#ftp-sftp-scp" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Designed to transfer files</p></li>
@@ -235,9 +236,9 @@ Threat Analytics</p>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="exfiltrating-data-using-email">
+</section>
+</section>
+<section id="exfiltrating-data-using-email">
 <h2>Exfiltrating Data Using Email<a class="headerlink" href="#exfiltrating-data-using-email" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Disgruntled employee</p></li>
@@ -249,15 +250,15 @@ Threat Analytics</p>
 </ul>
 </li>
 </ul>
-<div class="section" id="email-security">
+<section id="email-security">
 <h3>Email Security<a class="headerlink" href="#email-security" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Email Security Appliance (ESA)</p></li>
 <li><p>Cisco Email Security (CES)</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

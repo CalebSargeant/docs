@@ -10,6 +10,22 @@ Go to *Hyper-V Manager*, right click on the VM, click on *Checkpoint*.
 
 .. image:: _images/hyperv-checkpoint-1.png
 
+Replication
+-----------
+
+.. code-block:: powershell
+
+  # On the Primary
+  New-SelfSignedCertificate -DnsName "HV01" -CertStoreLocation "cert:\LocalMachine\My" -TestRoot
+  New-SelfSignedCertificate -DnsName "HV02" -CertStoreLocation "cert:\LocalMachine\My" -TestRoot
+
+  # There will be a cert in Intermediate, copy this to Root certs
+  # Copy the certs to the secondary, import into Personal and Root
+
+  # On the Replica:
+  reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Replication" /v DisableCertRevocationCheck /d 1 /t REG_DWORD /f
+
+
 VM Failover
 -----------
 

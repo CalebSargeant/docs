@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Describing Components, Capabilities, &amp; Benefits of NetFlow &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,18 +136,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="describing-components-capabilities-benefits-of-netflow">
+  <section id="describing-components-capabilities-benefits-of-netflow">
 <h1>Describing Components, Capabilities, &amp; Benefits of NetFlow<a class="headerlink" href="#describing-components-capabilities-benefits-of-netflow" title="Permalink to this headline"></a></h1>
-<div class="section" id="netflow-introduction">
+<section id="netflow-introduction">
 <h2>NetFlow Introduction<a class="headerlink" href="#netflow-introduction" title="Permalink to this headline"></a></h2>
-<div class="section" id="what-is-flow">
+<section id="what-is-flow">
 <h3>What is Flow?<a class="headerlink" href="#what-is-flow" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Information about the packets that traverse a router</p></li>
 <li><p>Source and destination, ports, and the protocol being used</p></li>
 </ul>
-</div>
-<div class="section" id="netflow">
+</section>
+<section id="netflow">
 <h3>NetFlow<a class="headerlink" href="#netflow" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Created by Cisco</p></li>
@@ -165,9 +166,9 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="netflow-benefits">
+</section>
+</section>
+<section id="netflow-benefits">
 <h2>Netflow Benefits<a class="headerlink" href="#netflow-benefits" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Use existing hardware</p>
@@ -182,7 +183,7 @@
 </ul>
 </li>
 </ul>
-<div class="section" id="aditional-netflow-benefits">
+<section id="aditional-netflow-benefits">
 <h3>Aditional NetFlow Benefits<a class="headerlink" href="#aditional-netflow-benefits" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Use NetFlow information to make design changes</p></li>
@@ -190,8 +191,8 @@
 you want to</p></li>
 <li><p>Use NetFlow to troubleshoot issues and find root cause</p></li>
 </ul>
-</div>
-<div class="section" id="netflow-secuirty-benefits">
+</section>
+<section id="netflow-secuirty-benefits">
 <h3>NetFlow Secuirty Benefits<a class="headerlink" href="#netflow-secuirty-benefits" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Quickly identify suspicious traffic</p></li>
@@ -201,19 +202,19 @@ doesnt do buisness with)</p></li>
 <li><p>Embargoed Countries (Traffic leaves the country your org resides in
 destined to an embargoed country)</p></li>
 </ul>
-</div>
-<div class="section" id="network-as-an-enforcer">
+</section>
+<section id="network-as-an-enforcer">
 <h3>Network as an Enforcer<a class="headerlink" href="#network-as-an-enforcer" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Integrate with different Cisco tools</p></li>
 <li><p>Segment traffic</p></li>
 <li><p>Switch can apply ACLs dynamically</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="netflow-versions-flow-standards">
+</section>
+</section>
+<section id="netflow-versions-flow-standards">
 <h2>NetFlow Versions &amp; Flow Standards<a class="headerlink" href="#netflow-versions-flow-standards" title="Permalink to this headline"></a></h2>
-<div class="section" id="netflow-versions">
+<section id="netflow-versions">
 <h3>NetFlow Versions<a class="headerlink" href="#netflow-versions" title="Permalink to this headline"></a></h3>
 <p><strong>Netflow v1:</strong></p>
 <ul class="simple">
@@ -232,8 +233,8 @@ destined to an embargoed country)</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="netflow-v9">
+</section>
+<section id="netflow-v9">
 <h3>NetFlow v9<a class="headerlink" href="#netflow-v9" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Template is included in NetFlow packet</p></li>
@@ -241,24 +242,24 @@ destined to an embargoed country)</p></li>
 <li><p>UDP 2055</p></li>
 <li><p>127 different field types</p></li>
 </ul>
-</div>
-<div class="section" id="flexible-netflow">
+</section>
+<section id="flexible-netflow">
 <h3>Flexible NetFlow<a class="headerlink" href="#flexible-netflow" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Different cache buckets</p></li>
 <li><p>Can have different data stored in different caches</p></li>
 <li><p>Allow for users to create their own fields of what to collect on</p></li>
 </ul>
-</div>
-<div class="section" id="ipfix">
+</section>
+<section id="ipfix">
 <h3>IPFIX<a class="headerlink" href="#ipfix" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>IETF standard based on NetFlow v9</p></li>
 <li><p>Supports templates</p></li>
 <li><p>UDP 4739</p></li>
 </ul>
-</div>
-<div class="section" id="configuring-netflow">
+</section>
+<section id="configuring-netflow">
 <h3>Configuring NetFlow<a class="headerlink" href="#configuring-netflow" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Create flow record</p></li>
@@ -266,11 +267,11 @@ destined to an embargoed country)</p></li>
 <li><p>Create flow monitor</p></li>
 <li><p>Apply flow monitor to interface</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="cisco-stealthwatch">
+</section>
+</section>
+<section id="cisco-stealthwatch">
 <h2>Cisco Stealthwatch<a class="headerlink" href="#cisco-stealthwatch" title="Permalink to this headline"></a></h2>
-<div class="section" id="stealthwatch">
+<section id="stealthwatch">
 <h3>Stealthwatch<a class="headerlink" href="#stealthwatch" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Normalize traffic and find anomalies</p>
@@ -291,8 +292,8 @@ destined to an embargoed country)</p></li>
 <li><p>Forensics</p></li>
 <li><p>Generate reports</p></li>
 </ul>
-</div>
-<div class="section" id="stealthwatch-components">
+</section>
+<section id="stealthwatch-components">
 <h3>Stealthwatch Components<a class="headerlink" href="#stealthwatch-components" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>SMC</p>
@@ -308,8 +309,8 @@ destined to an embargoed country)</p></li>
 </li>
 <li><p>Both flow collector and SMC are required for Stealthwatch</p></li>
 </ul>
-</div>
-<div class="section" id="aditional-stealthwatch-benefits">
+</section>
+<section id="aditional-stealthwatch-benefits">
 <h3>Aditional Stealthwatch Benefits<a class="headerlink" href="#aditional-stealthwatch-benefits" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Flow sensor</p>
@@ -325,9 +326,9 @@ destined to an embargoed country)</p></li>
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

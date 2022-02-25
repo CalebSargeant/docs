@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Updating Your Configuration with More Resources &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -111,9 +112,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="updating-your-configuration-with-more-resources">
+  <section id="updating-your-configuration-with-more-resources">
 <h1>Updating Your Configuration with More Resources<a class="headerlink" href="#updating-your-configuration-with-more-resources" title="Permalink to this headline"></a></h1>
-<div class="section" id="terraform-state">
+<section id="terraform-state">
 <h2>Terraform State<a class="headerlink" href="#terraform-state" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>JSON format (Do not touch!)</p></li>
@@ -127,27 +128,27 @@
 </li>
 <li><p>Workspaces</p></li>
 </ul>
-<div class="section" id="state-file">
+<section id="state-file">
 <h3>State File<a class="headerlink" href="#state-file" title="Permalink to this headline"></a></h3>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="nt">&quot;terraform_version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.12.5&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nt">&quot;lineage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;outputs&quot;</span><span class="p">:</span> <span class="p">{},</span>
-  <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">[]</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;terraform_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.12.5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;serial&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;lineage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>First rule of Terraform? Make all changes in Terraform.</p>
 </div>
-</div>
-</div>
-<div class="section" id="terraform-plan">
+</section>
+</section>
+<section id="terraform-plan">
 <h2>Terraform Plan<a class="headerlink" href="#terraform-plan" title="Permalink to this headline"></a></h2>
-<div class="section" id="terraform-planning">
+<section id="terraform-planning">
 <h3>Terraform Planning<a class="headerlink" href="#terraform-planning" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Inspect state</p></li>
@@ -156,9 +157,9 @@
 <li><p>Parallel execution</p></li>
 <li><p>Save the plan</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="adding-a-vpc">
+</section>
+</section>
+<section id="adding-a-vpc">
 <h2>Adding a VPC<a class="headerlink" href="#adding-a-vpc" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_vpc&quot; &quot;vpc&quot; {}
 resource &quot;aws_internet_gateway&quot; &quot;igw&quot; {}
@@ -167,14 +168,14 @@ resource &quot;aws_route_table&quot; &quot;rtb&quot; {}
 resource &quot;aws_route_table_association&quot; &quot;rta-subnet1&quot; {}
 </pre></div>
 </div>
-<div class="section" id="deploying-a-vpc">
+<section id="deploying-a-vpc">
 <h3>Deploying a VPC<a class="headerlink" href="#deploying-a-vpc" title="Permalink to this headline"></a></h3>
 <p>The below also includes an ELB and different availability zone for blue and red team deployment</p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/modulefour-update.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/modulefour-update.tf</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/m4_commands.txt"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/m4_commands.txt</span></code></a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

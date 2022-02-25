@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PowerShell &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -110,9 +111,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="powershell">
+  <section id="powershell">
 <h1>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline"></a></h1>
-<div class="section" id="random">
+<section id="random">
 <h2>Random<a class="headerlink" href="#random" title="Permalink to this headline"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># If error?</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$error</span><span class="p">.</span><span class="n">count</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
@@ -127,8 +128,8 @@
 <span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="multipart-form-data">
+</section>
+<section id="multipart-form-data">
 <h2>Multipart/form-data<a class="headerlink" href="#multipart-form-data" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html">https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Initiate multipartContent</span>
@@ -169,8 +170,8 @@
 <span class="nb">Invoke-RestMethod</span> <span class="n">-Uri</span> <span class="nv">$uri</span> <span class="n">-Body</span> <span class="nv">$multipartContent</span> <span class="n">-Method</span> <span class="s1">&#39;POST&#39;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

@@ -15,6 +15,18 @@ https://blog.packagecloud.io:
 
 :download:`Yum Cheat Sheet <_docs/Yum Cheat Sheet - Packagecloud Blog.pdf>`
 
+Yum
+---
+
+Clear Yum Cache
+^^^^^^^^^^^^^^^
+
+https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994
+
+.. code-block:: bash
+
+  yum clean all
+
 Nmap
 ----
 
@@ -100,6 +112,15 @@ https://www.computerhope.com/unix/rsync.htm
   # rsync specify multiple source dirs (https://unix.stackexchange.com/questions/368210/how-to-rsync-multiple-source-folders)
   rsync -avP /src/one /src/two /src/etcetra /dst
 
+Rsync Compare Directories
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://unix.stackexchange.com/questions/57305/rsync-compare-directories
+
+.. code-block:: bash
+
+  rsync -nai --delete source destination | grep "^deleting "
+
 While Loop
 ----------
 
@@ -120,6 +141,15 @@ https://unix.stackexchange.com/questions/103920/parallelize-a-bash-for-loop/1039
   for thing in a b c d e f g; do 
     task "$thing" &
   done
+
+Moving Files with Spaces
+------------------------
+
+https://unix.stackexchange.com/questions/392393/bash-moving-files-with-spaces
+
+.. code-block:: bash
+
+  while IFS= read -r file; do echo "$file"; done < files 
 
 Fstab
 -----
@@ -255,6 +285,31 @@ ISO to Disk
 
   sudo dd if=~/Downloads/ubuntu_something.iso of=/dev/diskN
 
+Check SSL Certificate Expiry Date
+---------------------------------
+
+https://www.cyberciti.biz/faq/find-check-tls-ssl-certificate-expiry-date-from-linux-unix/
+
+.. code-block:: bash
+
+  echo | openssl s_client -servername www.calebsargeant.com -connect www.calebsargeant.com:443 | openssl x509 -noout -dates
+
+Inodes
+------
+
+https://stackoverflow.com/questions/24671621/no-space-left-on-device
+
+.. code-block:: bash
+
+  df -i
+
+https://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used
+
+.. code-block:: bash
+  
+  { find / -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n; } 2>/dev/null
+
+
 Grep
 ----
 
@@ -338,6 +393,12 @@ https://stackoverflow.com/questions/5905054/how-can-i-recursively-find-all-files
 
   find . -name "foo*"
 
+https://www.howtogeek.com/howto/ubuntu/delete-files-older-than-x-days-on-linux/
+
+.. code-block:: bash
+
+  find /path/to/files* -mtime +5 -exec rm {} \;
+
 Screen
 ------
 
@@ -357,6 +418,12 @@ https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions
 
   screen -ls
   ls -laR /var/run/screen
+
+https://stackoverflow.com/questions/1509677/kill-detached-screen-session
+
+.. code-block:: bash
+
+  screen -X -S [session # you want to kill] quit
 
 Generating SSH Keys
 -------------------
@@ -413,6 +480,15 @@ Sudo without Password
 
 Compression
 -----------
+
+Gzip
+^^^^
+
+https://linuxize.com/post/how-to-unzip-gz-file/
+
+.. code-block:: bash
+
+  gzip -d file.gz
 
 Zip
 ^^^
@@ -471,6 +547,17 @@ A good source for ``tar`` commands https://www.freecodecamp.org/news/tar-in-linu
 
   # Copy to share
   cp backup.tar.gz /mnt/data/
+
+**Tar exclude:**
+
+https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why
+
+https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994
+
+.. code-block:: bash
+  
+  tar --exclude='./folder' --exclude='./upload/folder2' \
+    -zcvf /backup/filename.tgz .
 
 PDF to CSV
 ----------
@@ -1172,3 +1259,52 @@ https://askubuntu.com/questions/1269493/ubuntu-server-20-04-1-lts-not-all-disk-s
   lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
   resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
+Wget
+----
+
+Download a list of files
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/40986340/how-to-wget-a-list-of-urls-in-a-text-file
+
+.. code-block:: bash
+
+  wget -i text_file.txt
+
+Cat & Tac
+---------
+
+https://stackoverflow.com/questions/742466/how-can-i-reverse-the-order-of-lines-in-a-file
+
+.. code-block:: bash
+
+  # Flip a file into another
+  tac a.txt > b.txt
+
+WC
+---
+
+https://www.baeldung.com/linux/bash-count-lines-in-file#:~:text=3.-,wc,the%20name%20of%20the%20file.
+
+.. code-block:: bash
+
+  # Get the number of lines in a file
+  wc -l file.txt
+
+Decrypt GPG
+-----------
+
+https://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html
+
+.. code-block:: bash
+
+  gpg -d myfinancial.info.txt.gpg
+
+Forget GPG Invalid Password
+---------------------------
+
+https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-to-forget-wrong-gpg-password
+
+.. code-block:: bash
+
+  gpgconf --kill gpg-agent

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nagios &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -69,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -112,12 +114,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="nagios">
+  <section id="nagios">
 <h1>Nagios<a class="headerlink" href="#nagios" title="Permalink to this headline"></a></h1>
-</div>
-<div class="section" id="adding-linux-hosts">
+</section>
+<section id="adding-linux-hosts">
 <h1>Adding Linux Hosts<a class="headerlink" href="#adding-linux-hosts" title="Permalink to this headline"></a></h1>
-<div class="section" id="on-the-nagios-box">
+<section id="on-the-nagios-box">
 <h2>On the Nagios Box<a class="headerlink" href="#on-the-nagios-box" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the host in config (see below example config file)</span>
 nano /etc/nagios3/conf.d/server.fqdn.com.cfg
@@ -233,8 +235,8 @@ define service <span class="o">{</span>
 <p><strong>In the GUI:</strong></p>
 <p>After adding the host and reloading the Nagios service, quickly go to the Nagios GUI and mute the notifications. You can also schedule a check to re-check the host’s service statuses (almost) immediately, view the status detail for the host (list of items Nagios is monitoring), etc.</p>
 <img alt="../../_images/nagios-1.png" src="../../_images/nagios-1.png" />
-</div>
-<div class="section" id="on-the-host-to-monitor">
+</section>
+<section id="on-the-host-to-monitor">
 <h2>On the host to monitor<a class="headerlink" href="#on-the-host-to-monitor" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># See if Nagios is already installed</span>
 dpkg -l <span class="p">|</span> grep nagios
@@ -426,8 +428,8 @@ command<span class="o">[</span>check_mysql<span class="o">]=</span>/usr/lib/nagi
 <span class="k">fi</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="troubleshooting">
+</section>
+<section id="troubleshooting">
 <h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### On the Nagios Box</span>
 <span class="c1"># Check the log, grepping a part of the server name you what to see a log for</span>
@@ -454,8 +456,8 @@ tail -f /var/log/nagios3/nagios.log <span class="p">|</span> grep netflow
 /usr/lib/nagios/plugins/check_procs -w <span class="m">5</span> -c <span class="m">10</span> -s Z
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

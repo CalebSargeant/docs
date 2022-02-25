@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Databases &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -75,11 +76,17 @@
 <li class="toctree-l4"><a class="reference internal" href="#resetting-user-password">Resetting User Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-database-size">Checking Database Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-to-database-remotely">Connect to Database Remotely</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#import-database-with-progress-bar">Import Database with Progress Bar</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reinstall-mysql-after-deleting-var-lib-mysql">Reinstall Mysql after Deleting /var/lib/mysql</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#could-not-open-mysql-plugin-table">Could not open mysql.plugin table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysql-refuses-remote-connections">Mysql Refuses Remote Connections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-denied-for-user-root-at-localhost">Access Denied for User Root at Localhost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication-plugin-caching-sha2-password-cannot-be-loaded">Authentication Plugin Caching Sha2 Password Cannot be Loaded</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-mysql-temp-folder">Change MySQL Temp Folder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-mysql">Installing MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-like-query">Json Like Query</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#converting-epoch-to-human-readable-date">Converting Epoch to Human Readable Date</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a><ul>
@@ -89,6 +96,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#show-tables">Show Tables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-to-database">Connect to Database</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#backup-database">Backup Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-pager">Disable Pager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extracting-json">Extracting JSON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reducing-disk-usage">Reducing Disk Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-running-queries">Show Running Queries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
 </ul>
 </li>
 </ul>
@@ -147,39 +159,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="databases">
+  <section id="databases">
 <h1>Databases<a class="headerlink" href="#databases" title="Permalink to this headline"></a></h1>
-<div class="section" id="mysql">
+<section id="mysql">
 <h2>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline"></a></h2>
-<div class="section" id="creating-a-user">
+<section id="creating-a-user">
 <h3>Creating a User<a class="headerlink" href="#creating-a-user" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 create user <span class="s1">&#39;myuser&#39;</span>@<span class="s1">&#39;localhost&#39;</span> identified by <span class="s1">&#39;password&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-a-user">
+</section>
+<section id="deleting-a-user">
 <h3>Deleting a User<a class="headerlink" href="#deleting-a-user" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 drop user <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="showing-users">
+</section>
+<section id="showing-users">
 <h3>Showing Users<a class="headerlink" href="#showing-users" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> user from mysql.user<span class="p">;</span>
 <span class="k">select</span> user,host from mysql.user<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="logging-in-remotely">
+</section>
+<section id="logging-in-remotely">
 <h3>Logging in Remotely<a class="headerlink" href="#logging-in-remotely" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can -p&#39;mypassword&#39; as well</span>
 mysql -u myuser -p -h mydbhostname.com -D mydatabase
 </pre></div>
 </div>
-</div>
-<div class="section" id="privileges">
+</section>
+<section id="privileges">
 <h3>Privileges<a class="headerlink" href="#privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ALL PRIVILEGES- as we saw previously, this would allow a MySQL user full access to a designated database <span class="o">(</span>or <span class="k">if</span> no database is selected, global access across the system<span class="o">)</span>
 CREATE- allows them to create new tables or databases
@@ -191,74 +203,74 @@ UPDATE- allow them to update table rows
 GRANT OPTION- allows them to grant or remove other users’ privileges
 </pre></div>
 </div>
-</div>
-<div class="section" id="granting-privileges">
+</section>
+<section id="granting-privileges">
 <h3>Granting Privileges<a class="headerlink" href="#granting-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 grant all privileges on mydb.* to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 flush privileges<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="revoking-privileges">
+</section>
+<section id="revoking-privileges">
 <h3>Revoking Privileges<a class="headerlink" href="#revoking-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 revoke DROP on databasename.tablename from <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 flush privileges<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="showing-privileges">
+</section>
+<section id="showing-privileges">
 <h3>Showing Privileges<a class="headerlink" href="#showing-privileges" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show grants <span class="k">for</span> <span class="s1">&#39;username&#39;</span>@<span class="s1">&#39;host&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="updating-data">
+</section>
+<section id="updating-data">
 <h3>Updating Data<a class="headerlink" href="#updating-data" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>newvalue1, <span class="nv">column2</span><span class="o">=</span>newvalue2, where condition<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-data">
+</section>
+<section id="deleting-data">
 <h3>Deleting Data<a class="headerlink" href="#deleting-data" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from table_name where condition<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="checking-mysql-status">
+</section>
+<section id="checking-mysql-status">
 <h3>Checking MySQL Status<a class="headerlink" href="#checking-mysql-status" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service mysqld status
 ps aux <span class="p">|</span> grep mysql
 </pre></div>
 </div>
-</div>
-<div class="section" id="backup">
+</section>
+<section id="backup">
 <h3>Backup<a class="headerlink" href="#backup" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Backup directly to a remote host (zabbix is the DB name)</span>
 <span class="c1"># That pipes the mysqldump command through gzip, then to through and SSH connection. SSH on the remote side runs the ‘cat’ command to read the stdin, then redirects that to the actual file where I want it saved.</span>
 mysqldump -u root -p zabbix <span class="p">|</span> gzip -c <span class="p">|</span> ssh caleb.sargeant@server.example.com <span class="s2">&quot;cat &gt; zabbix.sql.gz&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="restore">
+</section>
+<section id="restore">
 <h3>Restore<a class="headerlink" href="#restore" title="Permalink to this headline"></a></h3>
 <p>The file must be in .sql format. It can not be compressed in a .zip or .tar.gz file.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-p</span> <span class="pre">-u</span> <span class="pre">username</span> <span class="pre">database_name</span> <span class="pre">&lt;</span> <span class="pre">file.sql</span></code></p>
-</div>
-<div class="section" id="use">
+</section>
+<section id="use">
 <h3>Use<a class="headerlink" href="#use" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.tutorialspoint.com/mysql/mysql-select-database.htm">https://www.tutorialspoint.com/mysql/mysql-select-database.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>show databases<span class="p">;</span>
 use database<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="setting-up-replication">
+</section>
+<section id="setting-up-replication">
 <h3>Setting up Replication<a class="headerlink" href="#setting-up-replication" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql">https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql</a></p>
-</div>
-<div class="section" id="size-of-db">
+</section>
+<section id="size-of-db">
 <h3>Size of DB<a class="headerlink" href="#size-of-db" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;zabbix&quot;</span>,
         ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
@@ -266,8 +278,8 @@ FROM information_schema.tables
 GROUP BY table_schema<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="resetting-root-password">
+</section>
+<section id="resetting-root-password">
 <h3>Resetting Root Password<a class="headerlink" href="#resetting-root-password" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/init.d/mysqld stop
 mysqld_safe --skip-grant-tables <span class="p">&amp;</span>
@@ -280,8 +292,8 @@ mysql&gt; quit
 /etc/init.d/mysqld start
 </pre></div>
 </div>
-</div>
-<div class="section" id="resetting-user-password">
+</section>
+<section id="resetting-user-password">
 <h3>Resetting User Password<a class="headerlink" href="#resetting-user-password" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://linuxize.com/post/how-to-change-mysql-user-password/">https://linuxize.com/post/how-to-change-mysql-user-password/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># MySQL v5.7.6 or later / MariaDB 10.1.20 or later</span>
@@ -297,15 +309,15 @@ SET PASSWORD FOR <span class="s1">&#39;user-name&#39;</span>@<span class="s1">&#
 FLUSH PRIVILEGES<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="checking-the-version">
+</section>
+<section id="checking-the-version">
 <h3>Checking the Version<a class="headerlink" href="#checking-the-version" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/8987679/how-to-retrieve-the-current-version-of-a-mysql-database-management-system-dbms</span>
 <span class="k">select</span> @@version<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="checking-database-size">
+</section>
+<section id="checking-database-size">
 <h3>Checking Database Size<a class="headerlink" href="#checking-database-size" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database">https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT table_schema <span class="s2">&quot;DB Name&quot;</span>,
@@ -314,8 +326,15 @@ FROM information_schema.tables
 GROUP BY table_schema<span class="p">;</span>
 </pre></div>
 </div>
+</section>
+<section id="connect-to-database-remotely">
+<h3>Connect to Database Remotely<a class="headerlink" href="#connect-to-database-remotely" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://docs.rackspace.com/support/how-to/mysql-connect-to-your-database-remotely/">https://docs.rackspace.com/support/how-to/mysql-connect-to-your-database-remotely/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u fooUser -p -h <span class="m">44</span>.55.66.77
+</pre></div>
 </div>
-<div class="section" id="import-database-with-progress-bar">
+</section>
+<section id="import-database-with-progress-bar">
 <h3>Import Database with Progress Bar<a class="headerlink" href="#import-database-with-progress-bar" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://gist.github.com/infusion/492418723b6736784af1">https://gist.github.com/infusion/492418723b6736784af1</a></p>
 <p><a class="reference external" href="https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file">https://dba.stackexchange.com/questions/17367/how-can-i-monitor-the-progress-of-an-import-of-a-large-sql-file</a></p>
@@ -324,8 +343,8 @@ GROUP BY table_schema<span class="p">;</span>
 pv sqlfile.sql <span class="p">|</span> mysql -u root -p database
 </pre></div>
 </div>
-</div>
-<div class="section" id="reinstall-mysql-after-deleting-var-lib-mysql">
+</section>
+<section id="reinstall-mysql-after-deleting-var-lib-mysql">
 <h3>Reinstall Mysql after Deleting /var/lib/mysql<a class="headerlink" href="#reinstall-mysql-after-deleting-var-lib-mysql" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files">https://dba.stackexchange.com/questions/103625/how-to-reinitialise-var-lib-mysql-files</a></p>
 <p><a class="reference external" href="https://mariadb.com/kb/en/mysql_secure_installation/">https://mariadb.com/kb/en/mysql_secure_installation/</a></p>
@@ -335,8 +354,8 @@ chown -R mysql:mysql /var/lib/mysql
 mysql_secure_installation
 </pre></div>
 </div>
-</div>
-<div class="section" id="could-not-open-mysql-plugin-table">
+</section>
+<section id="could-not-open-mysql-plugin-table">
 <h3>Could not open mysql.plugin table<a class="headerlink" href="#could-not-open-mysql-plugin-table" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-some-plugins-may-be-not-loaded/46147066">https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-some-plugins-may-be-not-loaded/46147066</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop mariadb
@@ -346,8 +365,28 @@ mysql_install_db --user<span class="o">=</span>mysql --basedir<span class="o">=<
 systemctl start mariadb
 </pre></div>
 </div>
+</section>
+<section id="mysql-refuses-remote-connections">
+<h3>Mysql Refuses Remote Connections<a class="headerlink" href="#mysql-refuses-remote-connections" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://serverfault.com/questions/586651/mysql-refuses-to-accept-remote-connections">https://serverfault.com/questions/586651/mysql-refuses-to-accept-remote-connections</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># my.cnf</span>
+<span class="o">[</span>mysqld<span class="o">]</span>
+bind-address <span class="o">=</span> <span class="m">0</span>.0.0.0
+</pre></div>
 </div>
-<div class="section" id="change-mysql-temp-folder">
+</section>
+<section id="access-denied-for-user-root-at-localhost">
+<h3>Access Denied for User Root at Localhost<a class="headerlink" href="#access-denied-for-user-root-at-localhost" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost">https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost</a></p>
+</section>
+<section id="authentication-plugin-caching-sha2-password-cannot-be-loaded">
+<h3>Authentication Plugin Caching Sha2 Password Cannot be Loaded<a class="headerlink" href="#authentication-plugin-caching-sha2-password-cannot-be-loaded" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/49194719/authentication-plugin-caching-sha2-password-cannot-be-loaded">https://stackoverflow.com/questions/49194719/authentication-plugin-caching-sha2-password-cannot-be-loaded</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ALTER USER <span class="s1">&#39;yourusername&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED WITH mysql_native_password BY <span class="s1">&#39;youpassword&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="change-mysql-temp-folder">
 <h3>Change MySQL Temp Folder<a class="headerlink" href="#change-mysql-temp-folder" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/49899160/change-mysql-tmp-to-somedrive-mysqltmp-in-centos-7-for-error-code-28">https://stackoverflow.com/questions/49899160/change-mysql-tmp-to-somedrive-mysqltmp-in-centos-7-for-error-code-28</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/mysqld.cnf
@@ -356,61 +395,123 @@ systemctl start mariadb
 mysqld --verbose --help <span class="p">|</span> grep tmp
 </pre></div>
 </div>
-</div>
-<div class="section" id="installing-mysql">
+</section>
+<section id="installing-mysql">
 <h3>Installing MySQL<a class="headerlink" href="#installing-mysql" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install mysql-server
 mysql_secure_installation
 </pre></div>
 </div>
+</section>
+<section id="json-like-query">
+<h3>Json Like Query<a class="headerlink" href="#json-like-query" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/42918348/postgresql-json-like-query">https://stackoverflow.com/questions/42918348/postgresql-json-like-query</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> * from module_data where data::json-&gt;&gt;<span class="s1">&#39;title&#39;</span> like <span class="s1">&#39;%Board%&#39;</span>
+<span class="k">select</span> * from module_data where data-&gt;&gt;<span class="s1">&#39;title&#39;</span> like <span class="s1">&#39;%Board%&#39;</span>
+</pre></div>
 </div>
+</section>
+<section id="converting-epoch-to-human-readable-date">
+<h3>Converting Epoch to Human Readable Date<a class="headerlink" href="#converting-epoch-to-human-readable-date" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-readable-date-in-mysql">https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-readable-date-in-mysql</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> from_unixtime<span class="o">()</span><span class="p">;</span>
+</pre></div>
 </div>
-<div class="section" id="postgresql">
+</section>
+</section>
+<section id="postgresql">
 <h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline"></a></h2>
-<div class="section" id="deleting-rows">
+<section id="deleting-rows">
 <h3>Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="selecting-rows">
+</section>
+<section id="selecting-rows">
 <h3>Selecting Rows<a class="headerlink" href="#selecting-rows" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields">https://stackoverflow.com/questions/924729/how-to-best-display-in-terminal-a-mysql-select-returning-too-many-fields</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># remember to use \G to display it nicely</span>
 <span class="k">select</span> * from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="updating-data-in-table">
+</section>
+<section id="updating-data-in-table">
 <h3>Updating Data in Table<a class="headerlink" href="#updating-data-in-table" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table_name <span class="nb">set</span> <span class="nv">column1</span><span class="o">=</span>value1 where condition<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="show-tables">
+</section>
+<section id="show-tables">
 <h3>Show Tables<a class="headerlink" href="#show-tables" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://www.postgresqltutorial.com/postgresql-show-tables/">https://www.postgresqltutorial.com/postgresql-show-tables/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\d</span>t
 </pre></div>
 </div>
-</div>
-<div class="section" id="connect-to-database">
+</section>
+<section id="connect-to-database">
 <h3>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline"></a></h3>
 <p>Same as use in mysql <a class="reference external" href="https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm">https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\c</span> database<span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="backup-database">
+</section>
+<section id="backup-database">
 <h3>Backup Database<a class="headerlink" href="#backup-database" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-postgresql-db-backup-and-test">https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-postgresql-db-backup-and-test</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pg_dumpall -U postgres -h localhost --clean --file<span class="o">=</span>dump.sql
 </pre></div>
 </div>
+</section>
+<section id="disable-pager">
+<h3>Disable Pager<a class="headerlink" href="#disable-pager" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/39850860/disable-wrapping-in-psql-output">https://stackoverflow.com/questions/39850860/disable-wrapping-in-psql-output</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PAGER</span><span class="o">=</span><span class="s2">&quot;less -S&quot;</span> psql
+</pre></div>
 </div>
+</section>
+<section id="extracting-json">
+<h3>Extracting JSON<a class="headerlink" href="#extracting-json" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/42918348/postgresql-json-like-query">https://stackoverflow.com/questions/42918348/postgresql-json-like-query</a>
+<a class="reference external" href="https://popsql.com/learn-sql/postgresql/how-to-query-a-json-column-in-postgresql">https://popsql.com/learn-sql/postgresql/how-to-query-a-json-column-in-postgresql</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> event_time,detail-&gt;&gt;<span class="s1">&#39;msisdn&#39;</span>,detail-&gt;&gt;<span class="s1">&#39;attachment&#39;</span> from table where <span class="nv">whatever</span><span class="o">=</span>whatever and event_time &gt; <span class="s1">&#39;2021-12-22 00:00:01&#39;</span> and event_time &lt;<span class="o">=</span> <span class="s1">&#39;2022-01-07 23:59:59&#39;</span> and detail-&gt;&gt;<span class="s1">&#39;attachment&#39;</span> like <span class="s1">&#39;%this%&#39;</span> order by id desc<span class="p">;</span>
+</pre></div>
 </div>
+</section>
+<section id="reducing-disk-usage">
+<h3>Reducing Disk Usage<a class="headerlink" href="#reducing-disk-usage" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/39198380/delete-temporary-files-in-postgresql#:~:text=1%20Answer&amp;text=The%20temporary%20files%20that%20get,not%20delete%20them%20by%20hand">https://stackoverflow.com/questions/39198380/delete-temporary-files-in-postgresql#:~:text=1%20Answer&amp;text=The%20temporary%20files%20that%20get,not%20delete%20them%20by%20hand</a>.</p>
+<p>Temporary files are created in <cite>base/pgsql_tmp</cite>. Rebooting psql forces the clearing of tmp files by restarting the cleanup query.</p>
+</section>
+<section id="show-running-queries">
+<h3>Show Running Queries<a class="headerlink" href="#show-running-queries" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://gist.github.com/rgreenjr/3637525">https://gist.github.com/rgreenjr/3637525</a>
+<a class="reference external" href="https://stackoverflow.com/questions/11291456/terminate-hung-query-idle-in-transaction#:~:text=Long%2Dlasting%20%22idle%20in%20transaction%22%20should%20be%20avoided%2C,can%20cause%20major%20performance%20problems">https://stackoverflow.com/questions/11291456/terminate-hung-query-idle-in-transaction#:~:text=Long%2Dlasting%20%22idle%20in%20transaction%22%20should%20be%20avoided%2C,can%20cause%20major%20performance%20problems</a>.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">clock_timestamp</span><span class="p">(),</span><span class="w"> </span><span class="n">query_start</span><span class="p">),</span><span class="w"> </span><span class="n">usename</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;&lt;IDLE&gt;&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">ILIKE</span><span class="w"> </span><span class="s1">&#39;%pg_stat_activity%&#39;</span><span class="w"></span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">query_start</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="p">;</span><span class="w"></span>
+</pre></div>
 </div>
+</section>
+<section id="connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">
+<h3>Connect to PostgreSQL server FATAL no pg_hba.conf entry for host<a class="headerlink" href="#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># postgresql.conf</span>
+<span class="nv">listen_addresses</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+
+<span class="c1"># pg_hba.conf</span>
+<span class="c1"># TYPE DATABASE USER CIDR-ADDRESS  METHOD</span>
+host  all  all <span class="m">0</span>.0.0.0/0 md5
+
+service postgresql restart
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 
 
            </div>

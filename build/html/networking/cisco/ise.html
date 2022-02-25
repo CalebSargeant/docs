@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ISE &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -140,33 +141,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="ise">
+  <section id="ise">
 <h1>ISE<a class="headerlink" href="#ise" title="Permalink to this headline"></a></h1>
 <p>Identity Services Engine (ISE)</p>
-<div class="section" id="adding-radius-clients">
+<section id="adding-radius-clients">
 <h2>Adding RADIUS Clients<a class="headerlink" href="#adding-radius-clients" title="Permalink to this headline"></a></h2>
-<div class="section" id="creating-locations">
+<section id="creating-locations">
 <h3>Creating Locations<a class="headerlink" href="#creating-locations" title="Permalink to this headline"></a></h3>
 <p>Go to <em>Administration &gt; Network Device Groups</em></p>
 <img alt="../../_images/ise-radius-1.png" src="../../_images/ise-radius-1.png" />
 <p>Add a group, for example:</p>
 <img alt="../../_images/ise-radius-2.png" src="../../_images/ise-radius-2.png" />
-</div>
-<div class="section" id="adding-devices-to-ise">
+</section>
+<section id="adding-devices-to-ise">
 <h3>Adding Devices to ISE<a class="headerlink" href="#adding-devices-to-ise" title="Permalink to this headline"></a></h3>
 <p>Go to <em>Administration &gt; Network Devices</em></p>
 <img alt="../../_images/ise-radius-3.png" src="../../_images/ise-radius-3.png" />
 <p>Fill in all the details</p>
 <img alt="../../_images/ise-radius-4.png" src="../../_images/ise-radius-4.png" />
-</div>
-<div class="section" id="authenticator-configuration">
+</section>
+<section id="authenticator-configuration">
 <h3>Authenticator Configuration<a class="headerlink" href="#authenticator-configuration" title="Permalink to this headline"></a></h3>
 <p>See <a class="reference external" href="https://docs.calebsargeant.com/en/latest/networking/cisco/switching/aaa.html#RADIUS">https://docs.calebsargeant.com/en/latest/networking/cisco/switching/aaa.html#RADIUS</a></p>
-</div>
-</div>
-<div class="section" id="ise-and-ad">
+</section>
+</section>
+<section id="ise-and-ad">
 <h2>ISE and AD<a class="headerlink" href="#ise-and-ad" title="Permalink to this headline"></a></h2>
-<div class="section" id="joining-ise-to-ad">
+<section id="joining-ise-to-ad">
 <h3>Joining ISE to AD<a class="headerlink" href="#joining-ise-to-ad" title="Permalink to this headline"></a></h3>
 <p>Go to <em>Administration &gt; External Identity Sources</em></p>
 <img alt="../../_images/ise-ad-1.png" src="../../_images/ise-ad-1.png" />
@@ -180,8 +181,8 @@
 <img alt="../../_images/ise-ad-5.png" src="../../_images/ise-ad-5.png" />
 <p>You will see the Computer object in AD</p>
 <img alt="../../_images/ise-ad-6.png" src="../../_images/ise-ad-6.png" />
-</div>
-<div class="section" id="identity-sources">
+</section>
+<section id="identity-sources">
 <h3>Identity Sources<a class="headerlink" href="#identity-sources" title="Permalink to this headline"></a></h3>
 <p>Go to <em>Administration &gt;  Identity Source Sequences</em></p>
 <img alt="../../_images/ise-ad-7.png" src="../../_images/ise-ad-7.png" />
@@ -189,11 +190,11 @@
 <img alt="../../_images/ise-ad-8.png" src="../../_images/ise-ad-8.png" />
 <p>Modify the <em>Identity Source Sequence</em> accordingly</p>
 <img alt="../../_images/ise-ad-9.png" src="../../_images/ise-ad-9.png" />
-</div>
-</div>
-<div class="section" id="wired-dot1x-switch-config">
+</section>
+</section>
+<section id="wired-dot1x-switch-config">
 <h2>Wired Dot1x Switch Config<a class="headerlink" href="#wired-dot1x-switch-config" title="Permalink to this headline"></a></h2>
-<div class="section" id="global-config">
+<section id="global-config">
 <h3>Global Config<a class="headerlink" href="#global-config" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># use the radius server for dot1x authentication
 aaa authentication dot1x default group radius
@@ -211,8 +212,8 @@ radius-server attribute 8 include-in-access-req
 dot1x system-auth-control
 </pre></div>
 </div>
-</div>
-<div class="section" id="switchport-config">
+</section>
+<section id="switchport-config">
 <h3>Switchport Config<a class="headerlink" href="#switchport-config" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int g0/xx
 switchport host
@@ -239,8 +240,8 @@ dot1x timeout tx-period 10
 authentication port-control auto
 </pre></div>
 </div>
-</div>
-<div class="section" id="verification">
+</section>
+<section id="verification">
 <h3>Verification<a class="headerlink" href="#verification" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CT-SW-99#sh dot1x all
 Sysauthcontrol             Disabled
@@ -269,9 +270,9 @@ sh authen session int g/30
 debug radius authentication
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ise-ca-certificates">
+</section>
+</section>
+<section id="ise-ca-certificates">
 <h2>ISE CA Certificates<a class="headerlink" href="#ise-ca-certificates" title="Permalink to this headline"></a></h2>
 <p>Due to installing a PKI integrated into AD, ISE will automatically receive a certificate from AD, upon joining the domain. If this does not happen, add the ROOT CA Certificate by going to <em>Administration &gt; System &gt; Certificates &gt; Trusted Certificates</em> and click on <em>Import</em></p>
 <img alt="../../_images/ise-cert-1.png" src="../../_images/ise-cert-1.png" />
@@ -280,10 +281,10 @@ debug radius authentication
 <p>To generate a CSR, go to <em>Certificate Signing Requests</em> and click on <em>Add</em>, fill in the details and click on <em>Generate</em>.</p>
 <img alt="../../_images/ise-cert-3.png" src="../../_images/ise-cert-3.png" />
 <img alt="../../_images/ise-cert-4.png" src="../../_images/ise-cert-4.png" />
-</div>
-<div class="section" id="x-mab-mac-address-bypass">
+</section>
+<section id="x-mab-mac-address-bypass">
 <h2>802.1x MAB (Mac Address Bypass)<a class="headerlink" href="#x-mab-mac-address-bypass" title="Permalink to this headline"></a></h2>
-<div class="section" id="switch-config">
+<section id="switch-config">
 <h3>Switch Config<a class="headerlink" href="#switch-config" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CT-SW-99#conf t
 
@@ -297,8 +298,8 @@ CT-SW-99(config-if)#mab
 CT-SW-99(config-if)#authentication order mab dot1x
 </pre></div>
 </div>
-</div>
-<div class="section" id="ise-config">
+</section>
+<section id="ise-config">
 <h3>ISE Config<a class="headerlink" href="#ise-config" title="Permalink to this headline"></a></h3>
 <p><strong>Checking Authentication Logs</strong></p>
 <p>To check the authentication logs go to <em>Operations &gt; RADIUS &gt; Live Logs</em></p>
@@ -308,11 +309,11 @@ CT-SW-99(config-if)#authentication order mab dot1x
 <img alt="../../_images/ise-mab-2.png" src="../../_images/ise-mab-2.png" />
 <p>Fill in the details and click <em>Save</em></p>
 <img alt="../../_images/ise-mab-3.png" src="../../_images/ise-mab-3.png" />
-</div>
-</div>
-<div class="section" id="posture-assessment">
+</section>
+</section>
+<section id="posture-assessment">
 <h2>Posture Assessment<a class="headerlink" href="#posture-assessment" title="Permalink to this headline"></a></h2>
-<div class="section" id="nac-provisioning">
+<section id="nac-provisioning">
 <h3>NAC Provisioning<a class="headerlink" href="#nac-provisioning" title="Permalink to this headline"></a></h3>
 <p>Download the latest updates for ISE to check devices via NAC</p>
 <img alt="../../_images/ise-posture-1.png" src="../../_images/ise-posture-1.png" />
@@ -320,9 +321,9 @@ CT-SW-99(config-if)#authentication order mab dot1x
 <img alt="../../_images/ise-posture-2.png" src="../../_images/ise-posture-2.png" />
 <p>Download one of each of the latest one</p>
 <img alt="../../_images/ise-posture-3.png" src="../../_images/ise-posture-3.png" />
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

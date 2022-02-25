@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Module Examples &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -100,48 +101,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-examples">
+  <section id="module-examples">
 <h1>Module Examples<a class="headerlink" href="#module-examples" title="Permalink to this headline"></a></h1>
-<div class="section" id="lineinfile">
+<section id="lineinfile">
 <h2>lineinfile<a class="headerlink" href="#lineinfile" title="Permalink to this headline"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create ANAME records for all safe search</span>
-  <span class="nt">lineinfile</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/test.txt</span>
-    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.line</span><span class="nv"> </span><span class="s">}}&quot;</span>
-  <span class="nt">with_items</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;host-record=forcesafesearch.google.com,216.239.38.120&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;host-record=safe.duckduckgo.com,54.241.17.246&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;host-record=restrict.youtube.com,216.239.38.120&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;host-record=strict.bing.com,204.79.197.220&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;host-record=safesearch.pixabay.com,176.9.158.70&#39;</span> <span class="p p-Indicator">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create ANAME records for all safe search</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lineinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/test.txt</span><span class="w"></span>
+<span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.line</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">with_items</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;host-record=forcesafesearch.google.com,216.239.38.120&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;host-record=safe.duckduckgo.com,54.241.17.246&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;host-record=restrict.youtube.com,216.239.38.120&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;host-record=strict.bing.com,204.79.197.220&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;host-record=safesearch.pixabay.com,176.9.158.70&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create CNAME records for various search engines</span>
-  <span class="nt">lineinfile</span><span class="p">:</span>
-    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/test.txt</span>
-    <span class="nt">line</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.line</span><span class="nv"> </span><span class="s">}}&quot;</span>
-  <span class="nt">with_items</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=www.youtube.com,restrict.youtube.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=m.youtube.com,restrict.youtube.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=youtubei.googleapis.com,restrict.youtube.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=youtube.googleapis.com,restrict.youtube.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=www.youtube-nocookie.com,restrict.youtube.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=duckduckgo.com,www.duckduckgo.com,start.duckduckgo.com,safe.duckduckgo.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=duck.com,www.duck.com,safe.duckduckgo.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=bing.com,www.bing.com,strict.bing.com&#39;</span> <span class="p p-Indicator">}</span>
-    <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span> <span class="s">&#39;cname=pixabay.com,safesearch.pixabay.com&#39;</span> <span class="p p-Indicator">}</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create CNAME records for various search engines</span><span class="w"></span>
+<span class="w">  </span><span class="nt">lineinfile</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/test.txt</span><span class="w"></span>
+<span class="w">    </span><span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.line</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">with_items</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=www.youtube.com,restrict.youtube.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=m.youtube.com,restrict.youtube.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=youtubei.googleapis.com,restrict.youtube.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=youtube.googleapis.com,restrict.youtube.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=www.youtube-nocookie.com,restrict.youtube.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=duckduckgo.com,www.duckduckgo.com,start.duckduckgo.com,safe.duckduckgo.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=duck.com,www.duck.com,safe.duckduckgo.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=bing.com,www.bing.com,strict.bing.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> line</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;cname=pixabay.com,safesearch.pixabay.com&#39;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="shell">
+</section>
+<section id="shell">
 <h2>shell<a class="headerlink" href="#shell" title="Permalink to this headline"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Google test</span>
-  <span class="nt">shell</span><span class="p">:</span> <span class="s">&quot;echo</span><span class="nv"> </span><span class="s">cname={{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}},www.{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}},forcesafesearch.google.com</span><span class="nv"> </span><span class="s">&gt;&gt;</span><span class="nv"> </span><span class="s">/tmp/test.txt&quot;</span>
-  <span class="nt">with_items</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">my_items.stdout_lines</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Google test</span><span class="w"></span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;echo</span><span class="nv"> </span><span class="s">cname={{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}},www.{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}},forcesafesearch.google.com</span><span class="nv"> </span><span class="s">&gt;&gt;</span><span class="nv"> </span><span class="s">/tmp/test.txt&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">with_items</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">my_items.stdout_lines</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

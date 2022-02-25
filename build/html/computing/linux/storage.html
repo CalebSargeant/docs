@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Storage &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,7 +18,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Network Management" href="network-management/index.html" />
+    <link rel="next" title="UFW" href="ufw.html" />
     <link rel="prev" title="Raspberry Pi" href="raspberry.html" /> 
 </head>
 
@@ -82,6 +83,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#mdadm">MDADM</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
@@ -125,9 +127,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="storage">
+  <section id="storage">
 <h1>Storage<a class="headerlink" href="#storage" title="Permalink to this headline"></a></h1>
-<div class="section" id="resizing-disk">
+<section id="resizing-disk">
 <h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># df -h</span>
 Filesystem      Size  Used Avail Use% Mounted on
@@ -167,8 +169,8 @@ tmpfs           <span class="m">1</span>.6G     <span class="m">0</span>  <span 
 <span class="o">[</span>root@host ~<span class="o">]</span><span class="c1">#</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="file-system-check-loop">
+</section>
+<section id="file-system-check-loop">
 <h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this headline"></a></h2>
 <p>You start up CentOS and it wants to do a File System check. You do the check, reboot and it happens again.
 Try the following:</p>
@@ -184,8 +186,8 @@ vi /etc/fstab
   comment out /dev/sdax before booting the server again
 </pre></div>
 </div>
-</div>
-<div class="section" id="formatting-usb-flash-drive">
+</section>
+<section id="formatting-usb-flash-drive">
 <h2>Formatting USB Flash Drive<a class="headerlink" href="#formatting-usb-flash-drive" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>vFAT (FAT32): <code class="docutils literal notranslate"><span class="pre">mkfs.vfat</span></code></p></li>
@@ -202,8 +204,8 @@ parted /dev/sdx print
 mount -t ext4 /dev/sdx1 /mnt/CALEB
 </pre></div>
 </div>
-</div>
-<div class="section" id="repairing-grub">
+</section>
+<section id="repairing-grub">
 <h2>Repairing Grub<a class="headerlink" href="#repairing-grub" title="Permalink to this headline"></a></h2>
 <p>You boot up Linux machine (CentOS) and only “grub _” displays on the screen. You can try:</p>
 <ol class="arabic simple">
@@ -217,8 +219,8 @@ mount
 reboot
 </pre></div>
 </div>
-</div>
-<div class="section" id="mount">
+</section>
+<section id="mount">
 <h2>Mount<a class="headerlink" href="#mount" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install cifs-utils</span>
 apt-get install cifs-utils
@@ -229,8 +231,8 @@ apt-get install cifs-utils
 mount -a
 </pre></div>
 </div>
-</div>
-<div class="section" id="mount-usb-flash-disk">
+</section>
+<section id="mount-usb-flash-disk">
 <h2>Mount USB Flash Disk<a class="headerlink" href="#mount-usb-flash-disk" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create folder for mounting</span>
 mkdir -p /media/USB
@@ -247,15 +249,15 @@ mount -t vfat /dev/sdb1 /media/USB
 umount /media/USB
 </pre></div>
 </div>
-</div>
-<div class="section" id="iostat">
+</section>
+<section id="iostat">
 <h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install sysstat
 iostat -d <span class="m">2</span> /dev/sda
 </pre></div>
 </div>
-</div>
-<div class="section" id="drbd">
+</section>
+<section id="drbd">
 <h2>DRBD<a class="headerlink" href="#drbd" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### CONFIGURATION</span>
 <span class="c1"># After deploying DRBD through Ansible:</span>
@@ -295,8 +297,8 @@ sudo docker-compose up -d
 sudo docker restart deluge
 </pre></div>
 </div>
-</div>
-<div class="section" id="zfs">
+</section>
+<section id="zfs">
 <h2>ZFS<a class="headerlink" href="#zfs" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install ZFS</span>
 sudo apt install zfsutils-linux
@@ -314,8 +316,8 @@ sudo zpool status
 sudo zfs create -V 3486gb tank/vol
 </pre></div>
 </div>
-</div>
-<div class="section" id="glusterfs">
+</section>
+<section id="glusterfs">
 <h2>GlusterFS<a class="headerlink" href="#glusterfs" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install GlusterFS</span>
 apt install glusterfs-server -y
@@ -330,8 +332,8 @@ gluster volume create gv0 server:/data server2:/data force
 gluster volume start gv0
 </pre></div>
 </div>
-</div>
-<div class="section" id="badblocks">
+</section>
+<section id="badblocks">
 <h2>Badblocks<a class="headerlink" href="#badblocks" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>You can use a Linux boot CD to repair a Windows NTFS disk fault.</p></li>
@@ -343,7 +345,7 @@ gluster volume start gv0
 <li><p>Run an extended offline test with <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">smartctl</span> <span class="pre">--test=long</span> <span class="pre">/dev/sda</span></code></p></li>
 <li><p>To see a nice overall view of system health: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">smartctl</span> <span class="pre">-a</span> <span class="pre">/dev/sda</span></code></p></li>
 </ul>
-<div class="section" id="linux-harddrive">
+<section id="linux-harddrive">
 <h3>Linux Harddrive<a class="headerlink" href="#linux-harddrive" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Put a CentOS disk into the DVD-Rom</p></li>
@@ -359,8 +361,8 @@ badblocks -sv /dev/sdax -o &lt;file_name_here&gt;
 e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/sdax
 </pre></div>
 </div>
-</div>
-<div class="section" id="windows-harddrive">
+</section>
+<section id="windows-harddrive">
 <h3>Windows Harddrive<a class="headerlink" href="#windows-harddrive" title="Permalink to this headline"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -383,9 +385,9 @@ badblocks -sv /dev/hdbx -o &lt;file_name_here&gt;
 e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/hdbx
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="mdadm">
+</section>
+</section>
+<section id="mdadm">
 <h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add entry to fstab to automount</span>
 nano /etc/fstab
@@ -404,15 +406,15 @@ mount /dev/md0 /media/data
 mount -a
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="raspberry.html" class="btn btn-neutral float-left" title="Raspberry Pi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="network-management/index.html" class="btn btn-neutral float-right" title="Network Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ufw.html" class="btn btn-neutral float-right" title="UFW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

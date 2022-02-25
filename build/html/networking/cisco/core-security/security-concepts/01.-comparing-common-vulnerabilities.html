@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comparing Common Vulnerabilities &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -133,25 +134,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="comparing-common-vulnerabilities">
+  <section id="comparing-common-vulnerabilities">
 <h1>Comparing Common Vulnerabilities<a class="headerlink" href="#comparing-common-vulnerabilities" title="Permalink to this headline"></a></h1>
-<div class="section" id="software-bugs-buffer-overflow">
+<section id="software-bugs-buffer-overflow">
 <h2>Software Bugs &amp; Buffer Overflow<a class="headerlink" href="#software-bugs-buffer-overflow" title="Permalink to this headline"></a></h2>
 <p>An attacker can write over data and can also obtain unauthorised data.</p>
-<div class="section" id="software-bug">
+<section id="software-bug">
 <h3>Software Bug<a class="headerlink" href="#software-bug" title="Permalink to this headline"></a></h3>
 <p>Flaw in computer program that causes the program to behave in a way that
 was not intended.</p>
-</div>
-<div class="section" id="buffer-overflow">
+</section>
+<section id="buffer-overflow">
 <h3>Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="Permalink to this headline"></a></h3>
 <p>A Buffer is a reservation of memory for a specific size. An Overflow is
 when the size of data is greater than the reservation.</p>
-</div>
-</div>
-<div class="section" id="weak-passwords-hard-coded-passwords">
+</section>
+</section>
+<section id="weak-passwords-hard-coded-passwords">
 <h2>Weak Passwords &amp; Hard Coded Passwords<a class="headerlink" href="#weak-passwords-hard-coded-passwords" title="Permalink to this headline"></a></h2>
-<div class="section" id="strong-passwords">
+<section id="strong-passwords">
 <h3>Strong Passwords<a class="headerlink" href="#strong-passwords" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Complex and long</p></li>
@@ -165,8 +166,8 @@ when the size of data is greater than the reservation.</p>
 much security</p></li>
 <li><p>Change passwords</p></li>
 </ul>
-</div>
-<div class="section" id="hard-coded-passwords">
+</section>
+<section id="hard-coded-passwords">
 <h3>Hard Coded Passwords<a class="headerlink" href="#hard-coded-passwords" title="Permalink to this headline"></a></h3>
 <p>Passwords embedded in software code. Once attacker knows the password,
 they can compromise any system that uses the program.</p>
@@ -178,11 +179,11 @@ they can compromise any system that uses the program.</p>
 </ul>
 <p><strong>Inbound HCP:</strong> Credentials used for access to program</p>
 <p><strong>Outbound HCP:</strong> Application uses password to access other application</p>
-</div>
-</div>
-<div class="section" id="missing-encryption">
+</section>
+</section>
+<section id="missing-encryption">
 <h2>Missing Encryption<a class="headerlink" href="#missing-encryption" title="Permalink to this headline"></a></h2>
-<div class="section" id="encryption">
+<section id="encryption">
 <h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Provides confidentiality and integrity</p></li>
@@ -195,9 +196,9 @@ they can compromise any system that uses the program.</p>
 </li>
 </ul>
 <p>If data is missing encryption, it leaves the data exposed</p>
-</div>
-</div>
-<div class="section" id="path-traversal">
+</section>
+</section>
+<section id="path-traversal">
 <h2>Path Traversal<a class="headerlink" href="#path-traversal" title="Permalink to this headline"></a></h2>
 <p>Allows attacker to navigate outside of original directory
 (www.test.com/../../etc/password.file). Attacker can use error messages
@@ -213,8 +214,8 @@ to figure out the structure.</p>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="sql-injection">
+</section>
+<section id="sql-injection">
 <h2>SQL Injection<a class="headerlink" href="#sql-injection" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Use a tool to inject malicious code into legitimate code.</p></li>
@@ -239,10 +240,10 @@ sensitive corporate info.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="cross-site-scripting-cross-site-forgery-request">
+</section>
+<section id="cross-site-scripting-cross-site-forgery-request">
 <h2>Cross Site Scripting &amp; Cross Site Forgery Request<a class="headerlink" href="#cross-site-scripting-cross-site-forgery-request" title="Permalink to this headline"></a></h2>
-<div class="section" id="cross-site-scripting">
+<section id="cross-site-scripting">
 <h3>Cross Site Scripting<a class="headerlink" href="#cross-site-scripting" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Inject malicious code in order to control behavior of the site</p></li>
@@ -264,8 +265,8 @@ sensitive corporate info.</p></li>
 <li><p>Use a security encoding library</p></li>
 <li><p>Don’t allow untrusted data in vulnerable areas of website code</p></li>
 </ul>
-</div>
-<div class="section" id="cross-site-forgery-request">
+</section>
+<section id="cross-site-forgery-request">
 <h3>Cross Site Forgery Request<a class="headerlink" href="#cross-site-forgery-request" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Takes advantage of legitimate Cross Site Requests</p>
@@ -282,9 +283,9 @@ sensitive corporate info.</p></li>
 <li><p>Secure random tokens</p></li>
 <li><p>Have users utilise a browser that supports SameSite cookie attributes</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

@@ -25,3 +25,8 @@ https://en.wikiversity.org/wiki/Cisco_IOS/Configure_public_RSA_key_authenticatio
   ROUTER(conf-ssh-pubkey-user)#exi
   ROUTER(conf-ssh-pubkey)#exi
   ROUTER(config)#do wr
+
+Next Generation Encryption
+--------------------------
+
+https://tools.cisco.com/security/center/resources/next_generation_cryptography

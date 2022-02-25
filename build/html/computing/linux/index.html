@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linux &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -39,6 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
@@ -107,7 +109,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="linux">
+  <section id="linux">
 <h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
@@ -133,11 +135,17 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#resetting-user-password">Resetting User Password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#checking-database-size">Checking Database Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-database-remotely">Connect to Database Remotely</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#import-database-with-progress-bar">Import Database with Progress Bar</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#reinstall-mysql-after-deleting-var-lib-mysql">Reinstall Mysql after Deleting /var/lib/mysql</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#could-not-open-mysql-plugin-table">Could not open mysql.plugin table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#mysql-refuses-remote-connections">Mysql Refuses Remote Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#access-denied-for-user-root-at-localhost">Access Denied for User Root at Localhost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#authentication-plugin-caching-sha2-password-cannot-be-loaded">Authentication Plugin Caching Sha2 Password Cannot be Loaded</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#change-mysql-temp-folder">Change MySQL Temp Folder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#installing-mysql">Installing MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#json-like-query">Json Like Query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#converting-epoch-to-human-readable-date">Converting Epoch to Human Readable Date</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html#postgresql">PostgreSQL</a><ul>
@@ -147,16 +155,29 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#show-tables">Show Tables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-database">Connect to Database</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#backup-database">Backup Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#disable-pager">Disable Pager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#extracting-json">Extracting JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#reducing-disk-usage">Reducing Disk Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#show-running-queries">Show Running Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="general.html#apt-yum-cheat-sheets">Apt &amp; Yum Cheat Sheets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#yum">Yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#clear-yum-cache">Clear Yum Cache</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#nmap">Nmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#rsync">Rsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#rsync">Rsync</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#rsync-compare-directories">Rsync Compare Directories</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#while-loop">While Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#for-loop">For Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#moving-files-with-spaces">Moving Files with Spaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#fstab">Fstab</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#automounting">Automounting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
@@ -167,6 +188,8 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#disk-usage">Disk Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#iso-to-disk">ISO to Disk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#check-ssl-certificate-expiry-date">Check SSL Certificate Expiry Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#inodes">Inodes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#grep">Grep</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#tail">Tail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#sftp">SFTP</a><ul>
@@ -184,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#generating-ssh-keys">Generating SSH Keys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#sudo-without-password">Sudo without Password</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#compression">Compression</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#gzip">Gzip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#zip">Zip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#bunzip">Bunzip</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#tar">Tar</a></li>
@@ -241,6 +265,14 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#find-the-pid-using-port">Find the PID Using Port</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#unmounting-a-busy-device">Unmounting a Busy Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#ubuntu-resize-logical-volume">Ubuntu Resize Logical Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#wget">Wget</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#download-a-list-of-files">Download a list of files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#cat-tac">Cat &amp; Tac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#wc">WC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#decrypt-gpg">Decrypt GPG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#forget-gpg-invalid-password">Forget GPG Invalid Password</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="iptables.html">IPTables</a><ul>
@@ -337,7 +369,7 @@
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>

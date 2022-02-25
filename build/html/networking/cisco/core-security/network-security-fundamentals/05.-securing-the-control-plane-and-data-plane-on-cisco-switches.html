@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Securing the Control Plane and Data Plane on Cisco Switches &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -135,16 +136,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="securing-the-control-plane-and-data-plane-on-cisco-switches">
+  <section id="securing-the-control-plane-and-data-plane-on-cisco-switches">
 <h1>Securing the Control Plane and Data Plane on Cisco Switches<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-switches" title="Permalink to this headline"></a></h1>
-<div class="section" id="securing-spanning-tree-protocol">
+<section id="securing-spanning-tree-protocol">
 <h2>Securing Spanning Tree Protocol<a class="headerlink" href="#securing-spanning-tree-protocol" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Frames to not contain a TTL</p></li>
 <li><p>Switches will broadcast frames they don’t know the destination to</p></li>
 <li><p>Can cause the original frame to be recreated millions of times</p></li>
 </ul>
-<div class="section" id="spanning-tree-overview">
+<section id="spanning-tree-overview">
 <h3>Spanning Tree Overview<a class="headerlink" href="#spanning-tree-overview" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><strong>Creates a tree of the network</strong></p>
@@ -166,8 +167,8 @@
 </li>
 </ul>
 <p>End of convergence, there will be no loops</p>
-</div>
-<div class="section" id="how-can-malicious-attackers-leverage-stp">
+</section>
+<section id="how-can-malicious-attackers-leverage-stp">
 <h3>How Can Malicious Attackers Leverage STP?<a class="headerlink" href="#how-can-malicious-attackers-leverage-stp" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Attacker sends BPDUs, switches must go into convergence, no switches
@@ -179,8 +180,8 @@ forward frames, causing DoS.</p></li>
 attacker, attacker becoming MiTM, attacker can see all info.</p></li>
 </ol>
 <p>image of root</p>
-</div>
-<div class="section" id="mitigating-attacks-against-stp">
+</section>
+<section id="mitigating-attacks-against-stp">
 <h3>Mitigating Attacks Against STP<a class="headerlink" href="#mitigating-attacks-against-stp" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Shutdown any interfaces not in use</p></li>
@@ -190,8 +191,8 @@ attacker, attacker becoming MiTM, attacker can see all info.</p></li>
 <li><p>Enabling DTP and manually configuring access ports significantly
 protects network</p></li>
 </ul>
-</div>
-<div class="section" id="enabling-bpdu-guard">
+</section>
+<section id="enabling-bpdu-guard">
 <h3>Enabling BPDU Guard<a class="headerlink" href="#enabling-bpdu-guard" title="Permalink to this headline"></a></h3>
 <p><strong>Global Configuration:</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#spanning-tree portfast edge {bpduguard]bpdufilter} default
@@ -203,8 +204,8 @@ protects network</p></li>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#spanning-tree {bpduguard]bpdufilter} enable
 </pre></div>
 </div>
-</div>
-<div class="section" id="additional-mitigations">
+</section>
+<section id="additional-mitigations">
 <h3>Additional Mitigations<a class="headerlink" href="#additional-mitigations" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Manually configure bridge priority</p>
@@ -238,11 +239,11 @@ lower than current root</p></li>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#spanning-tree guard root
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="securing-virtual-trunking-protocol">
+</section>
+</section>
+<section id="securing-virtual-trunking-protocol">
 <h2>Securing Virtual Trunking Protocol<a class="headerlink" href="#securing-virtual-trunking-protocol" title="Permalink to this headline"></a></h2>
-<div class="section" id="virtual-trunking-protocol">
+<section id="virtual-trunking-protocol">
 <h3>Virtual Trunking Protocol<a class="headerlink" href="#virtual-trunking-protocol" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Quickly propagate VLANs across switches without having to manually
@@ -278,8 +279,8 @@ switches</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="mistake-waiting-to-happen">
+</section>
+<section id="mistake-waiting-to-happen">
 <h3>Mistake Waiting to Happen<a class="headerlink" href="#mistake-waiting-to-happen" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Switch has different VLANs</p></li>
@@ -287,8 +288,8 @@ switches</p></li>
 <li><p>Still configured as VTP server</p></li>
 <li><p>All switches would erase valid VLANs and add bogus VLANs</p></li>
 </ul>
-</div>
-<div class="section" id="vtp-version-3">
+</section>
+<section id="vtp-version-3">
 <h3>VTP Version 3<a class="headerlink" href="#vtp-version-3" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Primary VTP server</p></li>
@@ -307,11 +308,11 @@ GloboSwitch1(config-if-range)#switchport nonegotiate
 GloboSwitch1#vtp primary
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="port-security">
+</section>
+</section>
+<section id="port-security">
 <h2>Port Security<a class="headerlink" href="#port-security" title="Permalink to this headline"></a></h2>
-<div class="section" id="cam-table">
+<section id="cam-table">
 <h3>CAM Table<a class="headerlink" href="#cam-table" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Associates MAC address, switch interface, &amp; VLAN</p></li>
@@ -319,8 +320,8 @@ GloboSwitch1#vtp primary
 <li><p>Broadcasts frame in order to find port MAC address resides on</p></li>
 <li><p>Updates table once port and MAC address are found</p></li>
 </ul>
-</div>
-<div class="section" id="mac-spoofing-attack">
+</section>
+<section id="mac-spoofing-attack">
 <h3>MAC Spoofing Attack<a class="headerlink" href="#mac-spoofing-attack" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Attacker could spoof MAC</p>
@@ -337,14 +338,14 @@ keep the switch forwarding it frames</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="cam-flooding-attack">
+</section>
+<section id="cam-flooding-attack">
 <h3>CAM Flooding Attack<a class="headerlink" href="#cam-flooding-attack" title="Permalink to this headline"></a></h3>
 <p>When attacker sends so many frames with spoofed MAC addresses, that the
 CAM table is filled up and isn’t able to process frames in an efficient
 manner.</p>
-</div>
-<div class="section" id="port-security-1">
+</section>
+<section id="port-security-1">
 <span id="id1"></span><h3>Port Security<a class="headerlink" href="#port-security-1" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Configures the interface to only allow certain MAC addresses</p></li>
@@ -375,11 +376,11 @@ creates a syslog and SNMP message:
 (config-if)#switchport port-security aging type {inactivitylabsolute}
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="dhcp-snooping">
+</section>
+</section>
+<section id="dhcp-snooping">
 <h2>DHCP Snooping<a class="headerlink" href="#dhcp-snooping" title="Permalink to this headline"></a></h2>
-<div class="section" id="dhcp-security-risks">
+<section id="dhcp-security-risks">
 <h3>DHCP Security Risks<a class="headerlink" href="#dhcp-security-risks" title="Permalink to this headline"></a></h3>
 <p><strong>* Rogue DHCP server could start issuing IPs</strong></p>
 <ul class="simple">
@@ -396,8 +397,8 @@ creates a syslog and SNMP message:
 </li>
 </ul>
 <p>Clients will only receive offer from the Rogue DHCP server</p>
-</div>
-<div class="section" id="dhcp-snooping-1">
+</section>
+<section id="dhcp-snooping-1">
 <span id="id2"></span><h3>DHCP Snooping<a class="headerlink" href="#dhcp-snooping-1" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Define interfaces connected to trusted DHCP servers</p></li>
@@ -417,19 +418,19 @@ GloboAccess(config-if-range)#exit
 GloboAccess(config)#ip dhcp snooping
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="dynamic-arp-inspection">
+</section>
+</section>
+<section id="dynamic-arp-inspection">
 <h2>Dynamic ARP Inspection<a class="headerlink" href="#dynamic-arp-inspection" title="Permalink to this headline"></a></h2>
-<div class="section" id="arp-poisoning">
+<section id="arp-poisoning">
 <h3>ARP Poisoning<a class="headerlink" href="#arp-poisoning" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Change ARP entry to point to their MAC for the victim’s IP address</p></li>
 <li><p>Respond to a legitimate ARP request</p></li>
 <li><p>Send a Gratuitous ARP packet</p></li>
 </ul>
-</div>
-<div class="section" id="dynamic-arp-inspection-1">
+</section>
+<section id="dynamic-arp-inspection-1">
 <span id="id3"></span><h3>Dynamic ARP Inspection<a class="headerlink" href="#dynamic-arp-inspection-1" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Can leverage the DHCP snooping database</p>
@@ -440,8 +441,8 @@ GloboAccess(config)#ip dhcp snooping
 <li><p>If they ARP packets aren’t correct, they are dropped</p></li>
 <li><p>All untrusted interfaces would be checked</p></li>
 </ul>
-</div>
-<div class="section" id="configuring-dynamic-arp-inspection">
+</section>
+<section id="configuring-dynamic-arp-inspection">
 <h3>Configuring Dynamic ARP Inspection<a class="headerlink" href="#configuring-dynamic-arp-inspection" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#ip arp inspection vlan 90-100,200
 (config)#arp access-list ARP-ACL
@@ -452,11 +453,11 @@ GloboAccess(config)#ip dhcp snooping
 (config-ip)#ip arp inspection trust
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="segmentation-and-private-vlans">
+</section>
+</section>
+<section id="segmentation-and-private-vlans">
 <h2>Segmentation and Private VLANs<a class="headerlink" href="#segmentation-and-private-vlans" title="Permalink to this headline"></a></h2>
-<div class="section" id="segmentation">
+<section id="segmentation">
 <h3>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Better network performance</p></li>
@@ -470,8 +471,8 @@ GloboAccess(config)#ip dhcp snooping
 </li>
 <li><p>May want to segment VLAN even further</p></li>
 </ul>
-</div>
-<div class="section" id="private-vlans">
+</section>
+<section id="private-vlans">
 <h3>Private VLANs<a class="headerlink" href="#private-vlans" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Use traditional VLANs as Primary VLANs</p></li>
@@ -545,11 +546,11 @@ GloboAccess(config-if-range)#switchport mode private-vlan host
 GloboAccess(config-if-range)#switchport private-vlan host-association 100 600
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="protecting-against-segmentation-attacks-traffic-filtering-at-layer-2">
+</section>
+</section>
+<section id="protecting-against-segmentation-attacks-traffic-filtering-at-layer-2">
 <h2>Protecting Against Segmentation Attacks &amp; Traffic Filtering at Layer 2<a class="headerlink" href="#protecting-against-segmentation-attacks-traffic-filtering-at-layer-2" title="Permalink to this headline"></a></h2>
-<div class="section" id="attacks-against-segmentation">
+<section id="attacks-against-segmentation">
 <h3>Attacks Against Segmentation<a class="headerlink" href="#attacks-against-segmentation" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>VLAN Hopping Attack</p>
@@ -566,8 +567,8 @@ GloboAccess(config-if-range)#switchport private-vlan host-association 100 600
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="acls">
+</section>
+<section id="acls">
 <h3>ACLs<a class="headerlink" href="#acls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Use L3 and L4 ACLs on L2 ports</p></li>
@@ -610,9 +611,9 @@ matches any permit statements</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#vlan filter VLAN-MAP vlan-list 10,20-50,100
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="storm-control">
+</section>
+</section>
+<section id="storm-control">
 <h2>Storm Control<a class="headerlink" href="#storm-control" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Broadcast storms can wreak havoc on a network</p></li>
@@ -621,16 +622,16 @@ matches any permit statements</p>
 <li><p>Hardware storm control will drop any future broadcast traffic</p></li>
 <li><p>Software storm control will drop any future traffic</p></li>
 </ul>
-<div class="section" id="configuring-storm-control">
+<section id="configuring-storm-control">
 <h3>Configuring Storm Control<a class="headerlink" href="#configuring-storm-control" title="Permalink to this headline"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config-if)#storm-control broadcast level 60 [lower level]
 (config-if)#storm-control action shutdown
 (config-if)#storm-control broadcast include multicast
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

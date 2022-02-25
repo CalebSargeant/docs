@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Campus Security &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -132,11 +133,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="campus-security">
+  <section id="campus-security">
 <h1>Campus Security<a class="headerlink" href="#campus-security" title="Permalink to this headline"></a></h1>
-<div class="section" id="basic-port-security-and-802-1x">
+<section id="basic-port-security-and-802-1x">
 <h2>Basic Port Security and 802.1x<a class="headerlink" href="#basic-port-security-and-802-1x" title="Permalink to this headline"></a></h2>
-<div class="section" id="port-security-on-catalyst-switches">
+<section id="port-security-on-catalyst-switches">
 <h3>Port Security on Catalyst Switches<a class="headerlink" href="#port-security-on-catalyst-switches" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Prevents many layer 2 attacks</p></li>
@@ -158,8 +159,8 @@ errdisable recovery cause security-violation
 switchport port-security mac-address sticky x
 </pre></div>
 </div>
-</div>
-<div class="section" id="identity-based-network-services-ibns">
+</section>
+<section id="identity-based-network-services-ibns">
 <h3>Identity-Based Network Services (IBNS)<a class="headerlink" href="#identity-based-network-services-ibns" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aaa new-model
 aaa authentication dot1x default group radius
@@ -168,11 +169,11 @@ int f0/1
 dot1x port-control auto
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="vlan-and-spoofing-attacks">
+</section>
+</section>
+<section id="vlan-and-spoofing-attacks">
 <h2>VLAN and Spoofing Attacks<a class="headerlink" href="#vlan-and-spoofing-attacks" title="Permalink to this headline"></a></h2>
-<div class="section" id="preventing-vlan-hopping-attacks">
+<section id="preventing-vlan-hopping-attacks">
 <h3>Preventing VLAN Hopping Attacks<a class="headerlink" href="#preventing-vlan-hopping-attacks" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>VLAN Hopping: Hacker negotiates a trunk connection with a switch, moves between vlans</p></li>
@@ -181,16 +182,16 @@ dot1x port-control auto
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switchport mode access
 </pre></div>
 </div>
-</div>
-<div class="section" id="private-vlans">
+</section>
+<section id="private-vlans">
 <h3>Private VLANs<a class="headerlink" href="#private-vlans" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Promiscuous</p></li>
 <li><p>Isolated</p></li>
 <li><p>Community</p></li>
 </ul>
-</div>
-<div class="section" id="setting-up-private-vlans">
+</section>
+<section id="setting-up-private-vlans">
 <h3>Setting up Private VLANs<a class="headerlink" href="#setting-up-private-vlans" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>vtp mode transparent
 vlan 200
@@ -214,8 +215,8 @@ switchport private-vlan mapping 200 205,210
 sh vlan private-vlan
 </pre></div>
 </div>
-</div>
-<div class="section" id="man-in-the-middle-attacks">
+</section>
+<section id="man-in-the-middle-attacks">
 <h3>Man in the Middle Attacks<a class="headerlink" href="#man-in-the-middle-attacks" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip dhcp snooping
 int f0/23
@@ -223,11 +224,11 @@ ip dhcp snooping trust
 sh ip dhcp snoop bind
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="stp-attacks-and-other-security-considerations">
+</section>
+</section>
+<section id="stp-attacks-and-other-security-considerations">
 <h2>STP Attacks and Other Security Considerations<a class="headerlink" href="#stp-attacks-and-other-security-considerations" title="Permalink to this headline"></a></h2>
-<div class="section" id="spanning-tree-manipulation">
+<section id="spanning-tree-manipulation">
 <h3>Spanning Tree Manipulation<a class="headerlink" href="#spanning-tree-manipulation" title="Permalink to this headline"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int f0/1
 spanning-tree bpduguard enable
@@ -236,8 +237,8 @@ do sh int f0/1
 spanning-tree guard root
 </pre></div>
 </div>
-</div>
-<div class="section" id="cisco-switches-best-practices">
+</section>
+<section id="cisco-switches-best-practices">
 <h3>Cisco Switches Best Practices<a class="headerlink" href="#cisco-switches-best-practices" title="Permalink to this headline"></a></h3>
 <ol class="arabic simple">
 <li><p>Disable CDP wherever possible (<code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">cdp</span> <span class="pre">enable</span></code>)</p></li>
@@ -247,11 +248,11 @@ spanning-tree guard root
 <li><p>Place unused ports in a black-hole vlan (<code class="docutils literal notranslate"><span class="pre">lin</span> <span class="pre">vty</span> <span class="pre">0</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">trans</span> <span class="pre">in</span> <span class="pre">ssh</span></code>)</p></li>
 <li><p>Use SSH when possible</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="vacls">
+</section>
+</section>
+<section id="vacls">
 <h2>VACLs<a class="headerlink" href="#vacls" title="Permalink to this headline"></a></h2>
-<div class="section" id="the-switch-acl-vacls">
+<section id="the-switch-acl-vacls">
 <h3>The Switch ACL: VACLs<a class="headerlink" href="#the-switch-acl-vacls" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Allows you to filter traffic on VLAN</p></li>
@@ -283,9 +284,9 @@ ip access-group 1 in
 mac access-group adsf in
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

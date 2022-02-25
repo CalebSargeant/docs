@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Openstack &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -50,6 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cloud</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aws.html">AWS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="azure.html">Azure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudflare.html">Cloudflare</a></li>
 <li class="toctree-l2"><a class="reference internal" href="digicert.html">DigiCert</a></li>
@@ -110,9 +112,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="openstack">
+  <section id="openstack">
 <h1>Openstack<a class="headerlink" href="#openstack" title="Permalink to this headline"></a></h1>
-<div class="section" id="installing-openstack-on-ubuntu">
+<section id="installing-openstack-on-ubuntu">
 <h2>Installing Openstack on Ubuntu<a class="headerlink" href="#installing-openstack-on-ubuntu" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://computingforgeeks.com/openstack-deployment-on-ubuntu-with-devstack/">https://computingforgeeks.com/openstack-deployment-on-ubuntu-with-devstack/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update &amp;&amp; Upgrade</span>
@@ -145,8 +147,8 @@ sudo apt install git -y
 ./stack.sh
 </pre></div>
 </div>
-</div>
-<div class="section" id="openstack-cli">
+</section>
+<section id="openstack-cli">
 <h2>Openstack CLI<a class="headerlink" href="#openstack-cli" title="Permalink to this headline"></a></h2>
 <p>Download the OpenStack RC File from the GUI:</p>
 <img alt="../../_images/openstack-1.png" src="../../_images/openstack-1.png" />
@@ -194,31 +196,31 @@ sudo apt install git -y
 </div>
 <p><a class="reference external" href="https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html">Install openstack CLI here</a>.</p>
 <p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-list.html">See openstack cli docs here</a>.</p>
-<div class="section" id="image">
+<section id="image">
 <h3>Image<a class="headerlink" href="#image" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/image.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/image.html</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image Create</span>
 openstack image create --container-format ova --disk-format vdi --min-disk <span class="m">8</span> --min-ram <span class="m">1024</span> --file ~/Downloads/VirtualCanary_334d99a4.ova VirtualCanary
 </pre></div>
 </div>
-</div>
-<div class="section" id="flavor">
+</section>
+<section id="flavor">
 <h3>Flavor<a class="headerlink" href="#flavor" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/flavor.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/flavor.html</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openstack flavor create --id canary --ram <span class="m">1024</span> --disk <span class="m">8</span> --vcpus <span class="m">1</span> canary
 </pre></div>
 </div>
-</div>
-<div class="section" id="server">
+</section>
+<section id="server">
 <h3>Server<a class="headerlink" href="#server" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/server.html">https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/server.html</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Server Create</span>
 openstack server create --image VirtualCanary --flavor ds1G --network private canary
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="random-scriptjies">
+</section>
+</section>
+<section id="random-scriptjies">
 <h2>Random Scriptjies<a class="headerlink" href="#random-scriptjies" title="Permalink to this headline"></a></h2>
 <p>List all SG rules of grepped SG names:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">read</span> -p <span class="s1">&#39;Enter substring of SG: &#39;</span> PX
@@ -277,8 +279,8 @@ openstack security group rule list PX <span class="p">|</span> grep -w <span cla
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openstack security group rule list PX <span class="p">|</span> grep -w <span class="s2">&quot;10.&quot;</span>* <span class="p">|</span> awk <span class="s1">&#39;{print $4,$6,$8}&#39;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

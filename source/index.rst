@@ -49,6 +49,7 @@ Table of Contents
   :caption: Networking
 
   networking/cisco/index
+  networking/mikrotik
   networking/fortigate
   networking/hp
   networking/juniper

@@ -193,6 +193,16 @@ https://stackoverflow.com/questions/1733507/how-to-get-size-of-mysql-database
   FROM information_schema.tables 
   GROUP BY table_schema; 
 
+Connect to Database Remotely
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://docs.rackspace.com/support/how-to/mysql-connect-to-your-database-remotely/
+
+.. code-block:: bash
+
+  mysql -u fooUser -p -h 44.55.66.77
+
+
 Import Database with Progress Bar
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -233,6 +243,31 @@ https://stackoverflow.com/questions/34198735/could-not-open-mysql-plugin-table-s
   mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
   systemctl start mariadb
 
+Mysql Refuses Remote Connections
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://serverfault.com/questions/586651/mysql-refuses-to-accept-remote-connections
+
+.. code-block:: bash
+  
+  # my.cnf
+  [mysqld]
+  bind-address = 0.0.0.0
+
+Access Denied for User Root at Localhost
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost
+
+Authentication Plugin Caching Sha2 Password Cannot be Loaded
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/49194719/authentication-plugin-caching-sha2-password-cannot-be-loaded
+
+.. code-block:: bash
+
+  ALTER USER 'yourusername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';
+
 Change MySQL Temp Folder
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -254,6 +289,25 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-
 
   apt install mysql-server
   mysql_secure_installation
+
+Json Like Query
+^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/42918348/postgresql-json-like-query
+
+.. code-block:: bash
+
+  select * from module_data where data::json->>'title' like '%Board%'
+  select * from module_data where data->>'title' like '%Board%'
+
+Converting Epoch to Human Readable Date
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-readable-date-in-mysql
+
+.. code-block:: bash
+
+  select from_unixtime();
 
 PostgreSQL
 ----------
@@ -308,3 +362,60 @@ https://dba.stackexchange.com/questions/17740/how-to-get-a-working-and-complete-
 .. code-block:: bash
 
   pg_dumpall -U postgres -h localhost --clean --file=dump.sql
+
+Disable Pager
+^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/39850860/disable-wrapping-in-psql-output
+
+.. code-block:: bash
+
+  PAGER="less -S" psql
+
+Extracting JSON
+^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/42918348/postgresql-json-like-query
+https://popsql.com/learn-sql/postgresql/how-to-query-a-json-column-in-postgresql
+
+.. code-block:: bash
+
+  select event_time,detail->>'msisdn',detail->>'attachment' from table where whatever=whatever and event_time > '2021-12-22 00:00:01' and event_time <= '2022-01-07 23:59:59' and detail->>'attachment' like '%this%' order by id desc;
+
+Reducing Disk Usage
+^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/39198380/delete-temporary-files-in-postgresql#:~:text=1%20Answer&text=The%20temporary%20files%20that%20get,not%20delete%20them%20by%20hand.
+
+Temporary files are created in `base/pgsql_tmp`. Rebooting psql forces the clearing of tmp files by restarting the cleanup query.
+
+Show Running Queries
+^^^^^^^^^^^^^^^^^^^^
+
+https://gist.github.com/rgreenjr/3637525
+https://stackoverflow.com/questions/11291456/terminate-hung-query-idle-in-transaction#:~:text=Long%2Dlasting%20%22idle%20in%20transaction%22%20should%20be%20avoided%2C,can%20cause%20major%20performance%20problems.
+
+.. code-block:: sql
+
+  SELECT pid, age(clock_timestamp(), query_start), usename, query 
+  FROM pg_stat_activity 
+  WHERE query != '<IDLE>' AND query NOT ILIKE '%pg_stat_activity%' 
+  ORDER BY query_start desc;
+
+  select * from pg_stat_activity;
+
+Connect to PostgreSQL server FATAL no pg_hba.conf entry for host
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host
+
+.. code-block:: bash
+
+  # postgresql.conf
+  listen_addresses = '*'
+
+  # pg_hba.conf
+  # TYPE DATABASE USER CIDR-ADDRESS  METHOD
+  host  all  all 0.0.0.0/0 md5
+
+  service postgresql restart

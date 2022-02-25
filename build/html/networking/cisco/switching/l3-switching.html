@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L3 Switching &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -134,11 +135,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="l3-switching">
+  <section id="l3-switching">
 <h1>L3 Switching<a class="headerlink" href="#l3-switching" title="Permalink to this headline"></a></h1>
 <p>The Problem:</p>
 <p>Clients need routing between VLANs</p>
-<div class="section" id="router-on-a-stick-802-1q-isl">
+<section id="router-on-a-stick-802-1q-isl">
 <h2>Router on a stick (802.1Q/ISL)<a class="headerlink" href="#router-on-a-stick-802-1q-isl" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Advantages:</p>
@@ -172,8 +173,8 @@ encap dot1q 20
 ip add 10.1.20.1 255.255.255.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="multi-layer-switching">
+</section>
+<section id="multi-layer-switching">
 <h2>Multi-Layer Switching<a class="headerlink" href="#multi-layer-switching" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Advantages:</p>
@@ -208,8 +209,8 @@ no switchport
 ip add 10.1.24.1 255.255.255.252
 </pre></div>
 </div>
-</div>
-<div class="section" id="understanding-layer-3-vs-multilayer-switching">
+</section>
+<section id="understanding-layer-3-vs-multilayer-switching">
 <h2>Understanding Layer 3 vs Multilayer Switching<a class="headerlink" href="#understanding-layer-3-vs-multilayer-switching" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>First packet hits router, all future packets go through CEF/ASIC</p></li>
@@ -218,16 +219,16 @@ ip add 10.1.24.1 255.255.255.252
 <li><p>All L3 switches are multilayer switches</p></li>
 <li><p>But not all multilayer switches are L3</p></li>
 </ul>
-</div>
-<div class="section" id="layer-3-routing-vs-layer-3-switching">
+</section>
+<section id="layer-3-routing-vs-layer-3-switching">
 <h2>Layer 3 Routing vs Layer 3 Switching<a class="headerlink" href="#layer-3-routing-vs-layer-3-switching" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Router and L3 switch both have IOS software routing</p></li>
 <li><p>Software routing is relatively slow compared to ASICs</p></li>
 <li><p>L3 switches can play a little software - hardware trick</p></li>
 </ul>
-</div>
-<div class="section" id="exceptions-to-cef">
+</section>
+<section id="exceptions-to-cef">
 <h2>Exceptions to CEF<a class="headerlink" href="#exceptions-to-cef" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Packet with header options</p></li>
@@ -236,8 +237,8 @@ ip add 10.1.24.1 255.255.255.252
 <li><p>Packets with unsupported encapsulations</p></li>
 <li><p>Packets requiring fragmentation (MTU exceeded)</p></li>
 </ul>
-</div>
-<div class="section" id="verifying-cef-processing">
+</section>
+<section id="verifying-cef-processing">
 <h2>Verifying CEF Processing<a class="headerlink" href="#verifying-cef-processing" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip cef
 show ip cef summary
@@ -245,8 +246,8 @@ show ip cef vlan 200
 sh ip arp 172.30.100.11
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

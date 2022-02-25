@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction to MPLS &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -122,9 +123,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="introduction-to-mpls">
+  <section id="introduction-to-mpls">
 <h1>Introduction to MPLS<a class="headerlink" href="#introduction-to-mpls" title="Permalink to this headline"></a></h1>
-<div class="section" id="what-is-mpls">
+<section id="what-is-mpls">
 <h2>What is MPLS?<a class="headerlink" href="#what-is-mpls" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Multi-Protocol Label Switching is a new paradigm in the way routers make forwarding decisions.</p></li>
@@ -132,8 +133,8 @@
 <li><p>Label Switching: Packets are <strong>switched</strong> based on <strong>labels</strong>, not destination IP!</p></li>
 <li><p>Labels - Ultimately determine the destiny of a packet through an MPLS network</p></li>
 </ul>
-</div>
-<div class="section" id="why-mpls">
+</section>
+<section id="why-mpls">
 <h2>Why MPLS?<a class="headerlink" href="#why-mpls" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Unified network infrastructure</p></li>
@@ -143,10 +144,10 @@
 <li><p>Traffic engineering capabilities</p></li>
 <li><p>WAN Quality of Service (QoS) requirements</p></li>
 </ul>
-</div>
-<div class="section" id="mpls-key-terms">
+</section>
+<section id="mpls-key-terms">
 <h2>MPLS Key Terms<a class="headerlink" href="#mpls-key-terms" title="Permalink to this headline"></a></h2>
-<div class="section" id="mpls-labels">
+<section id="mpls-labels">
 <h3>MPLS Labels<a class="headerlink" href="#mpls-labels" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>MPLS is often described as a <strong>shim</strong> or <strong>layer 2.5 protocol</strong></p></li>
@@ -163,8 +164,8 @@
 - The <strong>swap</strong> operation means that the top label in the label stack is replaced with another
 - The <strong>push</strong> operation means that the top label is replaced with another and then one or more additional labels are pushed onto the label stack
 - The <strong>pop</strong> operation means that the top label is removed</p>
-</div>
-<div class="section" id="label-switched-routers">
+</section>
+<section id="label-switched-routers">
 <h3>Label Switched Routers<a class="headerlink" href="#label-switched-routers" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>A <strong>label switched router</strong> (LSR) is a router running MPLS</p></li>
@@ -172,17 +173,17 @@
 <li><p>A Label Switched Path (LSP) is the series of LSRs that switch a labeled packet</p></li>
 </ul>
 <img alt="../../../_images/mpls-2.png" src="../../../_images/mpls-2.png" />
-</div>
-<div class="section" id="forwarding-equivalency-class-fec">
+</section>
+<section id="forwarding-equivalency-class-fec">
 <h3>Forwarding Equivalency Class (FEC)<a class="headerlink" href="#forwarding-equivalency-class-fec" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Group of packets that are forwarded the same way through the MPLS network</p></li>
 <li><p>Every packet in the same FEC enters the MPLS network with the same label</p></li>
 <li><p>FEC can theoretically be based on many different things L3 destination prefix, QoS, L2 PVC, BGP next-hop, TE tunnel, link color, etc…</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
