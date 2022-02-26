@@ -402,6 +402,9 @@ https://www.howtogeek.com/howto/ubuntu/delete-files-older-than-x-days-on-linux/
 Screen
 ------
 
+Using Screen
+^^^^^^^^^^^^
+
 https://linuxize.com/post/how-to-use-linux-screen/
 
 .. code-block:: bash
@@ -412,6 +415,9 @@ https://linuxize.com/post/how-to-use-linux-screen/
   # Go into screen called caleb
   screen -r -d caleb
 
+List Running Sessions
+^^^^^^^^^^^^^^^^^^^^^
+
 https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions
 
 .. code-block:: bash
@@ -419,11 +425,21 @@ https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions
   screen -ls
   ls -laR /var/run/screen
 
+Kill a Detached Session
+^^^^^^^^^^^^^^^^^^^^^^^
+
 https://stackoverflow.com/questions/1509677/kill-detached-screen-session
 
 .. code-block:: bash
 
   screen -X -S [session # you want to kill] quit
+
+Detatch Session
+^^^^^^^^^^^^^^^
+
+https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/#:~:text=Leaving%20Screen%20Terminal%20Session,K%E2%80%9D%20to%20kill%20the%20screen.
+
+Ctrl-A d
 
 Generating SSH Keys
 -------------------
@@ -555,7 +571,7 @@ https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why
 https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994
 
 .. code-block:: bash
-  
+
   tar --exclude='./folder' --exclude='./upload/folder2' \
     -zcvf /backup/filename.tgz .
 

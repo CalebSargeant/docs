@@ -40,6 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
@@ -94,7 +95,13 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#tcpdump">TCPDump</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#find">Find</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#screen">Screen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-screen">Using Screen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-running-sessions">List Running Sessions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kill-a-detached-session">Kill a Detached Session</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detatch-session">Detatch Session</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#generating-ssh-keys">Generating SSH Keys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sudo-without-password">Sudo without Password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compression">Compression</a><ul>
@@ -566,6 +573,8 @@ tail -n1
 </section>
 <section id="screen">
 <h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline"></a></h2>
+<section id="using-screen">
+<h3>Using Screen<a class="headerlink" href="#using-screen" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://linuxize.com/post/how-to-use-linux-screen/">https://linuxize.com/post/how-to-use-linux-screen/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create screen called caleb</span>
 screen -S caleb
@@ -574,15 +583,27 @@ screen -S caleb
 screen -r -d caleb
 </pre></div>
 </div>
+</section>
+<section id="list-running-sessions">
+<h3>List Running Sessions<a class="headerlink" href="#list-running-sessions" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions">https://stackoverflow.com/questions/537942/how-to-list-running-screen-sessions</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -ls
 ls -laR /var/run/screen
 </pre></div>
 </div>
+</section>
+<section id="kill-a-detached-session">
+<h3>Kill a Detached Session<a class="headerlink" href="#kill-a-detached-session" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1509677/kill-detached-screen-session">https://stackoverflow.com/questions/1509677/kill-detached-screen-session</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>screen -X -S <span class="o">[</span>session <span class="c1"># you want to kill] quit</span>
 </pre></div>
 </div>
+</section>
+<section id="detatch-session">
+<h3>Detatch Session<a class="headerlink" href="#detatch-session" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/#:~:text=Leaving%20Screen%20Terminal%20Session,K%E2%80%9D%20to%20kill%20the%20screen">https://www.tecmint.com/screen-command-examples-to-manage-linux-terminals/#:~:text=Leaving%20Screen%20Terminal%20Session,K%E2%80%9D%20to%20kill%20the%20screen</a>.</p>
+<p>Ctrl-A d</p>
+</section>
 </section>
 <section id="generating-ssh-keys">
 <h2>Generating SSH Keys<a class="headerlink" href="#generating-ssh-keys" title="Permalink to this headline"></a></h2>
@@ -694,6 +715,10 @@ cp backup.tar.gz /mnt/data/
 <p><strong>Tar exclude:</strong></p>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why">https://unix.stackexchange.com/questions/32845/tar-exclude-doesnt-exclude-why</a></p>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994">https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories/481994</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar --exclude<span class="o">=</span><span class="s1">&#39;./folder&#39;</span> --exclude<span class="o">=</span><span class="s1">&#39;./upload/folder2&#39;</span> <span class="se">\</span>
+  -zcvf /backup/filename.tgz .
+</pre></div>
+</div>
 </section>
 </section>
 <section id="pdf-to-csv">

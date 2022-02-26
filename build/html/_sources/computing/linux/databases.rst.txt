@@ -173,6 +173,19 @@ https://linuxize.com/post/how-to-change-mysql-user-password/
   SET PASSWORD FOR 'user-name'@'localhost' = PASSWORD('NEW_USER_PASSWORD');
   FLUSH PRIVILEGES;
 
+Allow Root Access without Password as Root
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://serverfault.com/questions/563714/allow-linux-root-user-mysql-root-access-without-password
+
+In ~/.my.cnf file as root user:
+
+.. code-block:: bash
+
+  [client]
+  user=root
+  password=somepassword
+
 Checking the Version
 ^^^^^^^^^^^^^^^^^^^^
 

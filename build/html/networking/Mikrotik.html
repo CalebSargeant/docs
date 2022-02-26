@@ -41,7 +41,36 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="cisco/index.html">Cisco</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Mikrotik</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#l2tp-ports-and-protocols">L2TP Ports and Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-time-setup">First Time Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#securing-the-router">Securing the Router</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-bridge">Configuring the Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-outside-interface">Configuring the Outside Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-dhcp-server-for-clients">Configuring DHCP Server for Clients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-nat">Configure NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deny-catch-all-firewall-rules">Deny Catch all Firewall Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrading-the-router">Upgrading the Router</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrading-the-firmware">Upgrading the Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-the-identity">Setting the Identity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#users-groups-ssh-keys">Users &amp; Groups &amp; SSH Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#https-access-to-router">HTTPS Access to Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-restore">Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resetting-router">Resetting Router</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#netinstall">Netinstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#licensing">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dhcp">DHCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arp">ARP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bridging">Bridging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#station-mode">Station Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#routing">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tunneling-vpn">Tunneling / VPN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-vpn">What is VPN?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l2tp-ports-and-protocols">L2TP Ports and Protocols</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fortigate.html">FortiGate</a></li>
@@ -99,13 +128,238 @@
              
   <section id="mikrotik">
 <h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Permalink to this headline"></a></h1>
+<section id="first-time-setup">
+<h2>First Time Setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline"></a></h2>
+<section id="securing-the-router">
+<h3>Securing the Router<a class="headerlink" href="#securing-the-router" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Disable wireless if not using it</p></li>
+<li><p>IP &gt; Services (disable telnet and stuff, only allow certain addresses)</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip service print
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>System &gt; Password (change the password)</p></li>
+<li><p>System &gt; Users &gt; double click on the user and set the allowed addresses</p></li>
+</ul>
+<img alt="../_images/mikrotik-securing-1.png" src="../_images/mikrotik-securing-1.png" />
+</section>
+<section id="configuring-the-bridge">
+<h3>Configuring the Bridge<a class="headerlink" href="#configuring-the-bridge" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP &gt; Addresses (giving the bridge an address that will be used as gateway)</p></li>
+</ul>
+<img alt="../_images/mikrotik-bridge-1.png" src="../_images/mikrotik-bridge-1.png" />
+</section>
+<section id="configuring-the-outside-interface">
+<h3>Configuring the Outside Interface<a class="headerlink" href="#configuring-the-outside-interface" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Disable ether1 in Bridge</p></li>
+<li><p>IP &gt; DHCP Client</p></li>
+</ul>
+<img alt="../_images/mikrotik-dhcp-client-1.png" src="../_images/mikrotik-dhcp-client-1.png" />
+</section>
+<section id="configuring-dhcp-server-for-clients">
+<h3>Configuring DHCP Server for Clients<a class="headerlink" href="#configuring-dhcp-server-for-clients" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP &gt; DHCP Server &gt; DHCP Setup</p></li>
+<li><p>DHCP Server Interface: bridgeLocal</p></li>
+<li><p>DHCP Address Space: 172.16.0.0/24</p></li>
+<li><p>Gateway for DHCP Network &gt; 172.16.0.1</p></li>
+<li><p>DHCP Relay &gt; delete this</p></li>
+</ul>
+</section>
+<section id="configure-nat">
+<h3>Configure NAT<a class="headerlink" href="#configure-nat" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP &gt; Firewall &gt; NAT</p></li>
+<li><p>Chain: srcnat</p></li>
+<li><p>Action: masquerade</p></li>
+</ul>
+</section>
+<section id="deny-catch-all-firewall-rules">
+<h3>Deny Catch all Firewall Rules<a class="headerlink" href="#deny-catch-all-firewall-rules" title="Permalink to this headline"></a></h3>
+<img alt="../_images/mikrotik-firewall-1.png" src="../_images/mikrotik-firewall-1.png" />
+</section>
+<section id="upgrading-the-router">
+<h3>Upgrading the Router<a class="headerlink" href="#upgrading-the-router" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>System &gt; Packages &gt; Check For Updates &gt; Download&amp;install</p></li>
+</ul>
+</section>
+<section id="upgrading-the-firmware">
+<h3>Upgrading the Firmware<a class="headerlink" href="#upgrading-the-firmware" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>System &gt; RouterBOARD &gt; Upgrade</p></li>
+<li><p>System &gt; Reboot</p></li>
+</ul>
+</section>
+<section id="setting-the-identity">
+<h3>Setting the Identity<a class="headerlink" href="#setting-the-identity" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>System &gt; Identity</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>system identity <span class="nb">set</span> <span class="nv">name</span><span class="o">=</span>Caleb
+</pre></div>
+</div>
+</section>
+</section>
+<section id="users-groups-ssh-keys">
+<h2>Users &amp; Groups &amp; SSH Keys<a class="headerlink" href="#users-groups-ssh-keys" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>System &gt; Users (here you can admin all your users nad groups, give read only access, etc.)</p></li>
+<li><p>For SSH keys upload your private key file that you generated</p></li>
+<li><p>Allow/Deny SSH password Login to disable/enable ssh key login only</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip ssh <span class="nb">set</span> always-allow-password-login<span class="o">=</span>no
+ip ssh print
+</pre></div>
+</div>
+</section>
+<section id="https-access-to-router">
+<h2>HTTPS Access to Router<a class="headerlink" href="#https-access-to-router" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>System &gt; Certificates</p></li>
+<li><p>Country: ZA</p></li>
+<li><p>Key Size: 2048</p></li>
+<li><p>Days Valid: 365</p></li>
+<li><p>Key Usage: tls server</p></li>
+<li><p>Sign</p></li>
+<li><p>IP &gt; Services &gt; enable www-ssl and select the certificate</p></li>
+</ul>
+</section>
+<section id="backup-and-restore">
+<h2>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Files &gt; Backup</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>system backup save <span class="nv">encryption</span><span class="o">=</span>aes-sha256 <span class="nv">name</span><span class="o">=</span>backup
+
+<span class="c1"># or (takes a lot of load)</span>
+<span class="nb">export</span>
+<span class="nb">export</span> <span class="nv">file</span><span class="o">=</span><span class="nb">export</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Files &gt; Restore</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import file-name<span class="o">=</span>export.rsc
+
+<span class="c1"># or open the file with text editor and copy paste</span>
+</pre></div>
+</div>
+</section>
+<section id="resetting-router">
+<h2>Resetting Router<a class="headerlink" href="#resetting-router" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Press the reset button until the light stops flashing by unplugging the power, holding the button and powering on</p></li>
+<li><p>System &gt; Reset Configuration</p></li>
+</ul>
+</section>
+<section id="netinstall">
+<h2>Netinstall<a class="headerlink" href="#netinstall" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Only works on ether1</p></li>
+<li><p>Formats the drive, keeps license key and RouterBOOT settings</p></li>
+<li><p>Download Netinstall from Mikrotik site and open it</p></li>
+<li><p>Click Net booting &gt; boot server enabled &gt; put in IP Address of router</p></li>
+</ul>
+</section>
+<section id="licensing">
+<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>System &gt; License</p></li>
+<li><p><a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:License">https://wiki.mikrotik.com/wiki/Manual:License</a></p></li>
+</ul>
+</section>
+<section id="dhcp">
+<h2>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Discover: broadcast takes place over network</p></li>
+<li><p>Offer: the server offers the client a lease</p></li>
+<li><p>Request: client requests the lease from the server</p></li>
+<li><p>Acknowledge: server sends client ack for the lease</p></li>
+</ul>
+<p>IP &gt; DHCP Server &gt; DHCP Setup</p>
+</section>
+<section id="arp">
+<h2>ARP<a class="headerlink" href="#arp" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>ARP Request: gets broadcast to find out who the ip address of the mac address is of the ip address</p></li>
+<li><p>Server puts the clients mac address and ip address in its arp table and replies to client</p></li>
+<li><p>Mikrotik recommends setting your interface arp to reply-only so that it doesnt learn new arps from anywhere else</p></li>
+</ul>
+<p>IP &gt; ARP</p>
+</section>
+<section id="bridging">
+<h2>Bridging<a class="headerlink" href="#bridging" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Ports in a bridge behave as a switch at layer 2</p></li>
+</ul>
+<p>Bridge</p>
+<section id="station-mode">
+<h3>Station Mode<a class="headerlink" href="#station-mode" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Interfaces &gt; wlan1 &gt; mode: station bridge</p></li>
+<li><p>Scan and select the WLAN you want to connect to</p></li>
+<li><p>this will allow one router to connect to the other one wirelessly: ISP &lt;-&gt; R1 &lt;-&gt; wifi &lt;-&gt; R2 &lt;-&gt; PC</p></li>
+</ul>
+</section>
+</section>
+<section id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p>Exterior Gateway Protocol (EGP):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>BGP</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Interior Gateway Protocols (IGP):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RIP</p></li>
+<li><p>IGRP (Cisco)</p></li>
+<li><p>EIGRP (Cisco)</p></li>
+<li><p>OSPF</p></li>
+<li><p>IS-IS</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>IP &gt; Routes</p>
+</section>
+<section id="tunneling-vpn">
+<h2>Tunneling / VPN<a class="headerlink" href="#tunneling-vpn" title="Permalink to this headline"></a></h2>
+<section id="what-is-vpn">
+<h3>What is VPN?<a class="headerlink" href="#what-is-vpn" title="Permalink to this headline"></a></h3>
+<p><strong>Private WAN:</strong></p>
+<ul class="simple">
+<li><p>Secure</p></li>
+<li><p>Confidential</p></li>
+<li><p>But expensive</p></li>
+</ul>
+<p>Alternative to private WAN is the internet. However, the internet is unsecure and we need a VPN protocol to run to have a secure data transfer from A to B</p>
+<p><strong>VPN Features:</strong></p>
+<ul class="simple">
+<li><p>Confidentiality: preventing anyone from reading your data using encryption protocols</p></li>
+<li><p>Authentication: verifying that the router/firewall or remote user that is sending VPN traffic is a legitimate device or router</p></li>
+<li><p>Integrity: verifying that the VPN packet wasn’t changed during transit</p></li>
+<li><p>Anty-replay: preventing someone from capturing traffic and resending it, trying to appear as a legitimate device/user</p></li>
+</ul>
+</section>
 <section id="l2tp-ports-and-protocols">
-<h2>L2TP Ports and Protocols<a class="headerlink" href="#l2tp-ports-and-protocols" title="Permalink to this headline"></a></h2>
+<h3>L2TP Ports and Protocols<a class="headerlink" href="#l2tp-ports-and-protocols" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p">https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p</a></p>
-<p>Protocol: UDP, port 500 (for IKE, to manage encryption keys)
-Protocol: UDP, port 4500 (for IPSEC NAT-Traversal mode)
-Protocol: ESP, value 50 (for IPSEC)
-Protocol: AH, value 51 (for IPSEC)</p>
+<ul class="simple">
+<li><p>Protocol: UDP, port 500 (for IKE, to manage encryption keys)</p></li>
+<li><p>Protocol: UDP, port 4500 (for IPSEC NAT-Traversal mode)</p></li>
+<li><p>Protocol: ESP, value 50 (for IPSEC)</p></li>
+<li><p>Protocol: AH, value 51 (for IPSEC)</p></li>
+</ul>
+</section>
 </section>
 </section>
 

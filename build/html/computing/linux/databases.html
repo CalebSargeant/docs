@@ -40,6 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
@@ -74,6 +75,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-user-password">Resetting User Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#allow-root-access-without-password-as-root">Allow Root Access without Password as Root</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-database-size">Checking Database Size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-to-database-remotely">Connect to Database Remotely</a></li>
@@ -307,6 +309,16 @@ FLUSH PRIVILEGES<span class="p">;</span>
 <span class="c1"># MySQL v5.7.5 or earlier / MariaDB 10.1.20 or earlier</span>
 SET PASSWORD FOR <span class="s1">&#39;user-name&#39;</span>@<span class="s1">&#39;localhost&#39;</span> <span class="o">=</span> PASSWORD<span class="o">(</span><span class="s1">&#39;NEW_USER_PASSWORD&#39;</span><span class="o">)</span><span class="p">;</span>
 FLUSH PRIVILEGES<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="allow-root-access-without-password-as-root">
+<h3>Allow Root Access without Password as Root<a class="headerlink" href="#allow-root-access-without-password-as-root" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://serverfault.com/questions/563714/allow-linux-root-user-mysql-root-access-without-password">https://serverfault.com/questions/563714/allow-linux-root-user-mysql-root-access-without-password</a></p>
+<p>In ~/.my.cnf file as root user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>client<span class="o">]</span>
+<span class="nv">user</span><span class="o">=</span>root
+<span class="nv">password</span><span class="o">=</span>somepassword
 </pre></div>
 </div>
 </section>

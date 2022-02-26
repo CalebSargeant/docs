@@ -40,6 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
@@ -80,6 +81,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#git">Git</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#undo-last-commit">Undo Last Commit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cloning">Cloning</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#storing-credentials">Storing Credentials</a></li>
@@ -291,6 +293,13 @@ ansible-playbook -i ./hosts.yml playbookname.yml
 </section>
 <section id="git">
 <h2>Git<a class="headerlink" href="#git" title="Permalink to this headline"></a></h2>
+<section id="undo-last-commit">
+<h3>Undo Last Commit<a class="headerlink" href="#undo-last-commit" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://devconnected.com/how-to-undo-last-git-commit/#:~:text=The%20easiest%20way%20to%20undo,removed%20from%20your%20Git%20history">https://devconnected.com/how-to-undo-last-git-commit/#:~:text=The%20easiest%20way%20to%20undo,removed%20from%20your%20Git%20history</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git reset --soft HEAD~1
+</pre></div>
+</div>
+</section>
 <section id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano ~/repos/reponame/.git/config
