@@ -4,19 +4,18 @@ Azure
 SFTP Server using Storage Account
 ---------------------------------
 
-* Create Storage Account
-* Deploy template https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/
+- Create Storage Account
+- Deploy template https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/
 
 Sentinal
 --------
 
-* https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog
+- https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog
+- https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format
 
-* https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format
-
-    * https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog
-    * https://docs.microsoft.com/en-us/azure/sentinel/connect-cef-solution-config
-    * https://docs.microsoft.com/en-us/azure/sentinel/connect-cef-verify
+    - https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog
+    - https://docs.microsoft.com/en-us/azure/sentinel/connect-cef-solution-config
+    - https://docs.microsoft.com/en-us/azure/sentinel/connect-cef-verify
 
 Az-CLI
 ------
@@ -377,11 +376,11 @@ Go to Home > `Network Watcher - Packet capture <https://portal.azure.com/#blade/
 
 Select the following from the dropdowns:
 
-* Resource group: (your RSG)
-* Target Virtual Machine: (the VM that you want to run the capture on)
-* Packet capture name: (give it something unique)
-* Storage account: (your storage account )
-* Maximum bytes per session: 10485760 (10MB, instead of the default 1GB)
+- Resource group: (your RSG)
+- Target Virtual Machine: (the VM that you want to run the capture on)
+- Packet capture name: (give it something unique)
+- Storage account: (your storage account )
+- Maximum bytes per session: 10485760 (10MB, instead of the default 1GB)
 
 .. image:: _images/azure-connection-troubleshooting-1.png
 

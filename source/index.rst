@@ -13,11 +13,11 @@ About
 
 I've been working in the IT Industry since 2012 and have a passion for network security & open-source solutions. I work well in a team and independently, am tenaciously dedicated, determined, devoted and solve problems.
 
-* Website: |website|
-* GitHub: |github|
-* LinkedIn: |linkedin|
-* Download |cv|
-* Download |jd|
+- Website: |website|
+- GitHub: |github|
+- LinkedIn: |linkedin|
+- Download |cv|
+- Download |jd|
 
 .. image:: _images/profile-pic.jpg
 
@@ -87,6 +87,6 @@ Table of Contents
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+- :ref:`genindex`
+- :ref:`modindex`
+- :ref:`search`
