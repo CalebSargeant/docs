@@ -68,7 +68,48 @@
 <li class="toctree-l2"><a class="reference internal" href="#routing">Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tunneling-vpn">Tunneling / VPN</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-vpn">What is VPN?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ikev2-ipsec">IKEv2 IPSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pptp">PPTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sstp">SSTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pppoe">PPPoE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#l2tp-ports-and-protocols">L2TP Ports and Protocols</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#firewall">Firewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layer-3-chains">Layer 3 Chains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-states">Connection States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules">Rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redirect-dns-to-router-s-dns">Redirect DNS to Router’s DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#destination-nat">Destination NAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fasttrack">FastTrack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#qos">QoS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simple-queue">Simple Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#burst">Burst</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#per-connection-queue-pcq">Per Connection Queue (PCQ)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tools">Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ping">Ping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traceroute">Traceroute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile">Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#emails">Emails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#netwatch">Netwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring">Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#torch">Torch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphing">Graphing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-dude">The Dude</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wireless">Wireless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#station">Station</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-filtering">Mac Filtering</a></li>
 </ul>
 </li>
 </ul>
@@ -350,6 +391,249 @@ ip ssh print
 <li><p>Anty-replay: preventing someone from capturing traffic and resending it, trying to appear as a legitimate device/user</p></li>
 </ul>
 </section>
+<section id="ikev2-ipsec">
+<h3>IKEv2 IPSec<a class="headerlink" href="#ikev2-ipsec" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>All configuration is done under IP &gt; IPsec</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Note, according to this Cisco document (<a class="reference external" href="https://tools.cisco.com/security/center/resources/next_generation_cryptography">https://tools.cisco.com/security/center/resources/next_generation_cryptography</a>), the following algorithms are acceptable:</p></li>
+<li><p>Authentication: sha384 (384 wasnt available in the below example)</p></li>
+<li><p>Encryption: aes-256 cbc</p></li>
+<li><p>Hashing: sha384</p></li>
+<li><p>DH group: modp3084</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Proposal</strong></p>
+<p>Select the auth. Algorithm and encr. Algorithm thats NGE acceptable.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-1.png" src="../_images/mikrotik-ikev2-ipsec-1.png" />
+<p><strong>Profile</strong></p>
+<p>Select the Hash Algorithm, Encryption Algorithm and DH group thats NGE acceptable.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-2.png" src="../_images/mikrotik-ikev2-ipsec-2.png" />
+<p><strong>Peer</strong></p>
+<p>Enter the peer address, select the profile you created and set the exchange mode to IKEv2</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-3.png" src="../_images/mikrotik-ikev2-ipsec-3.png" />
+<p><strong>Identities</strong></p>
+<p>Set a PSK and select the correct peer you created.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-4.png" src="../_images/mikrotik-ikev2-ipsec-4.png" />
+<p><strong>Policy</strong></p>
+<p>Select the peer you created, set the source and dest addresses, check tunnel.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-5.png" src="../_images/mikrotik-ikev2-ipsec-5.png" />
+<p>Action encrypt:</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-6.png" src="../_images/mikrotik-ikev2-ipsec-6.png" />
+<p><strong>Firewall &amp; NAT</strong></p>
+<p>Create a srcnat rule with action accept to no-nat the traffic. Put this rule on top.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-7.png" src="../_images/mikrotik-ikev2-ipsec-7.png" />
+<p>Create a firewall rule to allow the traffic. Action accept, chain forward.</p>
+<img alt="../_images/mikrotik-ikev2-ipsec-8.png" src="../_images/mikrotik-ikev2-ipsec-8.png" />
+</section>
+<section id="pptp">
+<h3>PPTP<a class="headerlink" href="#pptp" title="Permalink to this headline"></a></h3>
+<p><strong>What is PPTP:</strong></p>
+<ul class="simple">
+<li><p>PPTP means Point-to-Point Tunneling Protocol</p></li>
+<li><p>PPTP was introduced in 1995</p></li>
+<li><p>PPTP is considered a weak VPN protocol in terms of security</p></li>
+<li><p>PPTP uses port 1723 to establish a peer connection and uses port 47 (GRE)</p></li>
+<li><p>On Mikrotik, PPTP supports site to site and client to site VPN tunneling</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p>Easy configuration</p></li>
+<li><p>Very fast VPN protocol</p></li>
+<li><p>Available on most platforms</p></li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul class="simple">
+<li><p>PPTP encryption is weak</p></li>
+<li><p>A PPTP connection can be exploited by cybercriminals with malicious attacks</p></li>
+<li><p>A PPTP connetion can be blocked quite easily by firewalls</p></li>
+<li><p>A router with PPTP passthrough is usually required since PPTP doesn’t natively work with NAT</p></li>
+</ul>
+<p><strong>Site to Site Configuration:</strong></p>
+<ul>
+<li><p>On the main router:</p></li>
+<li><p>PPP &gt; Interface &gt; PPTP Server</p></li>
+<li><p>PPP &gt; Secrets &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: put a name here</p></li>
+<li><p>Password: put a password here</p></li>
+<li><p>Profile: select the default-encryption profile or a profile you created</p></li>
+<li><p>Local address: the local address of your router</p></li>
+<li><p>Remote address: the local address of the other router</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>On the branch router:</p></li>
+<li><p>PPP &gt; Interface &gt; + &gt; PPTP Client &gt; Dial Out</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect to: public IP of main router</p></li>
+<li><p>User: the username</p></li>
+<li><p>Password: the password</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Add a route to the local network on each router (IP &gt; Route)</p></li>
+</ul>
+</section>
+<section id="sstp">
+<h3>SSTP<a class="headerlink" href="#sstp" title="Permalink to this headline"></a></h3>
+<p><strong>What is SSTP:</strong></p>
+<ul class="simple">
+<li><p>SSTP means Secure Socket Tunneling Protocol</p></li>
+<li><p>SSTP is a VPN protocol developed my Microsoft and introduced by them with Windows Vista</p></li>
+<li><p>SSTP is considered a safe VPN Protocol</p></li>
+<li><p>SSTP uses TCP port 443 - the same port used by HTTPS traiffic</p></li>
+<li><p>SSTP can bypass NAT firewalls</p></li>
+<li><p>On Mikrotik, SSTP supports site to site and client to site VPN tunneling</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p>SSTP encryption offers a decent level of security</p></li>
+<li><p>Easy configuration</p></li>
+<li><p>Very difficult to block SSTP because it uses TCP port 443 (same as HTTPS)</p></li>
+<li><p>Very stable</p></li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul class="simple">
+<li><p>SSTP protocol clients are available on limited number of platforms (Windows, Android, etc.)</p></li>
+<li><p>Possible TCP meltdown problem</p></li>
+</ul>
+<p><strong>Site to Site Configuration:</strong></p>
+<ul>
+<li><p>On the main router:</p></li>
+<li><p>PPP &gt; Interface &gt; SSTP Server</p></li>
+<li><p>PPP &gt; Secrets &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: put a name here</p></li>
+<li><p>Password: put a password here</p></li>
+<li><p>Profile: select the default-encryption profile or a profile you created</p></li>
+<li><p>Local address: the local address of your router</p></li>
+<li><p>Remote address: the local address of the other router</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: CA-Template</p></li>
+<li><p>Common Name: public IP of the router</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Server-Template</p></li>
+<li><p>Common Name: server</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Client-Template</p></li>
+<li><p>Common Name: client</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>certificate sign CA-Template ca-crl-host<span class="o">=</span><span class="m">192</span>.16.12.1 <span class="nv">name</span><span class="o">=</span>myca
+certificate sign Server-Template <span class="nv">ca</span><span class="o">=</span>myca <span class="nv">name</span><span class="o">=</span>server
+certificate sign Client-Template <span class="nv">ca</span><span class="o">=</span>myca <span class="nv">name</span><span class="o">=</span>client
+certicicate <span class="nb">set</span> server <span class="nv">trusted</span><span class="o">=</span>yes
+certificate <span class="nb">set</span> client <span class="nv">trusted</span><span class="o">=</span>yes
+certificate export-certificate myca export-passphrase<span class="o">=</span><span class="m">12345678</span>
+certificate export-certificate client export-passphrase<span class="o">=</span><span class="m">12345678</span>
+</pre></div>
+</div>
+<ul>
+<li><p>PPP &gt; Interface &gt; SSTP Server &gt; Certificate: server</p></li>
+<li><p>On the branch router:</p></li>
+<li><p>PPP &gt; Interface &gt; + &gt; SSTP Client &gt; Dial Out</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect to: public IP of main router</p></li>
+<li><p>User: the username</p></li>
+<li><p>Password: the password</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; Import &gt; myca.crt</p></li>
+<li><p>System &gt; Certificates &gt; Import &gt; myca.key</p></li>
+<li><p>System &gt; Certificates &gt; Import &gt; client.crt</p></li>
+<li><p>System &gt; Certifiicates &gt; Imports &gt; client.key</p></li>
+<li><p>PPP &gt; Interface &gt; SSTP &gt; certificate: client</p></li>
+<li><p>Add a route to the local network on each router (IP &gt; Route)</p></li>
+</ul>
+<p><strong>Client to Site Configuration:</strong></p>
+<ul>
+<li><p>PPP &gt; Interface &gt; SSTP Server</p></li>
+<li><p>PPP &gt; Secrets &gt; +</p></li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: CA-Template</p></li>
+<li><p>Common Name: public IP of the router</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Server-Template</p></li>
+<li><p>Common Name: server</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>System &gt; Certificates &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: Client-Template</p></li>
+<li><p>Common Name: client</p></li>
+<li><p>SAN: IP</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>certificate sign CA-Template ca-crl-host<span class="o">=</span><span class="m">192</span>.16.12.1 <span class="nv">name</span><span class="o">=</span>myca
+certificate sign Server-Template <span class="nv">ca</span><span class="o">=</span>myca <span class="nv">name</span><span class="o">=</span>server
+certificate sign Client-Template <span class="nv">ca</span><span class="o">=</span>myca <span class="nv">name</span><span class="o">=</span>client
+certicicate <span class="nb">set</span> server <span class="nv">trusted</span><span class="o">=</span>yes
+certificate <span class="nb">set</span> client <span class="nv">trusted</span><span class="o">=</span>yes
+certificate export-certificate myca export-passphrase<span class="o">=</span><span class="m">12345678</span>
+certificate export-certificate client export-passphrase<span class="o">=</span><span class="m">12345678</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Import the client and server certificates to the Windows PC into Trusted Root Certification Authorities</p></li>
+</ul>
+</section>
+<section id="pppoe">
+<h3>PPPoE<a class="headerlink" href="#pppoe" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Point-to-point over Ethernet is a layer 2 protocol</p></li>
+<li><p>It is often used by ISPs to control access to their networks</p></li>
+<li><p>It can be used as a method of access on any layer 2 technology, such as 802.11 or Ethernet</p></li>
+<li><p>You cannot reach a PPPoE server through routers. Since its layer 2 protocol, the server can only be reached through the same Ethernet broadcast domain on which the clients are</p></li>
+<li><p>IP &gt; Pool</p></li>
+<li><p>PPP &gt; Profiles &gt; + &gt; change tcp mss yes</p></li>
+<li><p>PPP &gt; Secret</p></li>
+<li><p>PPP &gt; PPoE Servers</p></li>
+<li><p>On the other router &gt; PPP &gt; PPoE Scan</p></li>
+<li><p>On the other router &gt; PPP &gt; Interface &gt; PPPoE client</p></li>
+</ul>
+</section>
 <section id="l2tp-ports-and-protocols">
 <h3>L2TP Ports and Protocols<a class="headerlink" href="#l2tp-ports-and-protocols" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p">https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p</a></p>
@@ -359,6 +643,342 @@ ip ssh print
 <li><p>Protocol: ESP, value 50 (for IPSEC)</p></li>
 <li><p>Protocol: AH, value 51 (for IPSEC)</p></li>
 </ul>
+</section>
+</section>
+<section id="firewall">
+<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline"></a></h2>
+<section id="basics">
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Stop unauthorized access</p></li>
+<li><p>Block unwanted ports</p></li>
+<li><p>Classify and mark connections and packets for QOS or Routing policy</p></li>
+</ul>
+<p><strong>Firewall functions:</strong></p>
+<ul class="simple">
+<li><p>Filter packets using filter rules</p></li>
+<li><p>NAT: SRCNAT and DSTNAT to translate source and destination addresses</p></li>
+<li><p>Mangle: to mark connections and/or packets</p></li>
+<li><p>RAW: drop or bypass packets before reaching the connection tracking</p></li>
+<li><p>Service ports: using NAT helpers</p></li>
+</ul>
+<p><strong>Chains:</strong></p>
+<ul class="simple">
+<li><p>Input = to the router</p></li>
+<li><p>Output = from the router</p></li>
+<li><p>Forward = via the router</p></li>
+</ul>
+<p><strong>Firewall Basics:</strong></p>
+<ul class="simple">
+<li><p>Rules processed in order</p></li>
+<li><p>If … then</p></li>
+<li><p>If not matched, then packet is accepted</p></li>
+</ul>
+<p><strong>Firewall Actions:</strong></p>
+<ul>
+<li><p>Passthrough = count packets/bytes</p></li>
+<li><p>Drop = discard a packet</p></li>
+<li><p>Reject = discard a packet but send ICMP message or TCP reset</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>TCP reset kills a TCP connection instantly</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Tarpit = send ACK flag but dont open the connection</p></li>
+</ul>
+</section>
+<section id="layer-3-chains">
+<h3>Layer 3 Chains<a class="headerlink" href="#layer-3-chains" title="Permalink to this headline"></a></h3>
+<img alt="../_images/mikrotik-l3-chains.png" src="../_images/mikrotik-l3-chains.png" />
+</section>
+<section id="connection-states">
+<h3>Connection States<a class="headerlink" href="#connection-states" title="Permalink to this headline"></a></h3>
+<img alt="../_images/mikrotik-connection-states.png" src="../_images/mikrotik-connection-states.png" />
+<ul class="simple">
+<li><p><strong>New:</strong> The 1st packet observed by the firewall will be new. The firewall will check the packet and if allow then the next packet going to the other direction of that stream will create an established connection</p></li>
+<li><p><strong>Established:</strong> a stream of packetstaht successfully pass both directions of the firewall. Established backets will not be evaluated by the firewall.</p></li>
+<li><p><strong>Related:</strong> they are not considered part of the connection itself but related to it.</p></li>
+<li><p><strong>Invalid:</strong> packets arrived out-of-order to the router or with invalid sequence number. Advise to drop them always.</p></li>
+</ul>
+</section>
+<section id="rules">
+<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP &gt; Firewall &gt; +</p></li>
+<li><p>Forward rule &gt; Established, Related, accept</p></li>
+<li><p>Input rule &gt; Established, Related, accept</p></li>
+<li><p>Forward rule &gt; Invalid &gt; drop</p></li>
+<li><p>Input rule &gt; Invalid &gt; drop</p></li>
+<li><p>Forward rule &gt; allow local lan</p></li>
+<li><p>Input rule &gt; local lan accept</p></li>
+<li><p>Forward rule &gt; drop anything else</p></li>
+<li><p>Input rule &gt; drop anything else</p></li>
+</ul>
+</section>
+<section id="redirect-dns-to-router-s-dns">
+<h3>Redirect DNS to Router’s DNS<a class="headerlink" href="#redirect-dns-to-router-s-dns" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP &gt; DNS &gt; Allow Remote Requests</p></li>
+<li><p>IP &gt; Firewall &gt; dstnat &gt; protocol tcp&amp;udp 53 &gt; action redrirect 53</p></li>
+<li><p>IP &gt; DNS &gt; cache</p></li>
+</ul>
+</section>
+<section id="destination-nat">
+<h3>Destination NAT<a class="headerlink" href="#destination-nat" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>IP &gt; Firewall</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>chain: dstnat</p></li>
+<li><p>Protocol: 6 (tcp)</p></li>
+<li><p>Dst port: 80</p></li>
+<li><p>Action: dst-nat</p></li>
+<li><p>To Address: 172.16.1.254</p></li>
+<li><p>To Ports: 80</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="fasttrack">
+<h3>FastTrack<a class="headerlink" href="#fasttrack" title="Permalink to this headline"></a></h3>
+<p>FastTracked packets bypass firewall, connection traffic, simple queues, queue tree with parent=global, ip traffic-flow (restriction removed in 6.33), IP accounting, IPSec, hotspot, universal client, VRF assignment, so it is up to admin to make sure FastTrack doesnt interfere with other config</p>
+<ul>
+<li><p>Queues &gt; 1M / 1M (on all IPs - so all PCs connected get only 1Mbps)</p></li>
+<li><p>IP &gt; Firewall &gt; Mangle</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Chain: forward</p></li>
+<li><p>Src Address: 192.168.88.2</p></li>
+<li><p>Action: mark connection</p></li>
+<li><p>New Connection Mark: PC-conn</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>IP &gt; Firewall &gt; General</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Chain: forward</p></li>
+<li><p>Connection Mark: pc-conn</p></li>
+<li><p>Action: fasttrack connection</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="qos">
+<h2>QoS<a class="headerlink" href="#qos" title="Permalink to this headline"></a></h2>
+<section id="simple-queue">
+<h3>Simple Queue<a class="headerlink" href="#simple-queue" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Simple queues limit bandwidth to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>client upload</p></li>
+<li><p>client download</p></li>
+<li><p>client aggregate (download and upload)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Simple queue is applied to a target (mandatory) which can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>An IP Address</p></li>
+<li><p>A network subnet</p></li>
+<li><p>an interface</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Simple queues work in sequence which means that each packet must go through every simple queue until a match occurs</p></li>
+<li><p>Destination is where the target’s traffic is aimed and it is not compulsory as the target</p></li>
+<li><p>Queue &gt; Simple Queue &gt; +</p></li>
+<li><p>Tools &gt; Bandwidth Test</p></li>
+</ul>
+</section>
+<section id="burst">
+<h3>Burst<a class="headerlink" href="#burst" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Burst is important to give extra bandwidth limited time</p></li>
+<li><p>Burst Limit = 512K</p></li>
+<li><p>Threshold = 192K</p></li>
+<li><p>Time = 8s</p></li>
+<li><p>First client gets 512Kbps for 3 seconds because:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 sec = 64K (less than threshold then burst is possible)</p></li>
+<li><p>2 sec = 128K (less than threshold then burst is possible)</p></li>
+<li><p>3 sec = 192K (equal to the threshold then burst end)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-burst.png" src="../_images/mikrotik-burst.png" />
+<ul>
+<li><p>Queue &gt; Simple queue &gt; General &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Max Limit: 3M</p></li>
+<li><p>Burst Limit: 5M</p></li>
+<li><p>Burst Threshold: 2M</p></li>
+<li><p>Burst time: 10s</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Bandwidth limit divided by time. On the first second you’ll get 500Kbps extra, etc. until the Burst Limit is reached. Then the speed will go back to normal.</p>
+</section>
+<section id="per-connection-queue-pcq">
+<h3>Per Connection Queue (PCQ)<a class="headerlink" href="#per-connection-queue-pcq" title="Permalink to this headline"></a></h3>
+<img alt="../_images/mikrotik-pcq-1.png" src="../_images/mikrotik-pcq-1.png" />
+<img alt="../_images/mikrotik-pcq-2.png" src="../_images/mikrotik-pcq-2.png" />
+<ul>
+<li><p>Queues &gt; Queue Types &gt; copy pcq upload</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type Name: PCQ Upload</p></li>
+<li><p>Rate: 0</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Queues &gt; Queue Types &gt; copy pcq download</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Type Name: PCQ Download</p></li>
+<li><p>Rate: 0</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Queues &gt; General &gt; Simple queue &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Queue Type: PCQ Upload/Download</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline"></a></h2>
+<section id="ping">
+<h3>Ping<a class="headerlink" href="#ping" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tools &gt; Ping</p></li>
+</ul>
+</section>
+<section id="traceroute">
+<h3>Traceroute<a class="headerlink" href="#traceroute" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tools &gt; Traceroute</p></li>
+</ul>
+</section>
+<section id="profile">
+<h3>Profile<a class="headerlink" href="#profile" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tools &gt; Profile</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tool profile
+</pre></div>
+</div>
+</section>
+</section>
+<section id="emails">
+<h2>Emails<a class="headerlink" href="#emails" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Tools &gt; Email</p></li>
+</ul>
+</section>
+<section id="netwatch">
+<h2>Netwatch<a class="headerlink" href="#netwatch" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p>Tools &gt; Netwatch &gt; +</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Up: /tool e-mail send <a class="reference external" href="mailto:to=calebsargeant&#37;&#52;&#48;gmail&#46;com">to=calebsargeant<span>&#64;</span>gmail<span>&#46;</span>com</a> subject=”Router is up” body=”Router is up on $[/system clock get time]”</p></li>
+<li><p>Down: /tool e-mail send <a class="reference external" href="mailto:to=calebsargeant&#37;&#52;&#48;gmail&#46;com">to=calebsargeant<span>&#64;</span>gmail<span>&#46;</span>com</a> subject=”Router is down” body=”Router is up on $[/system clock get time]”</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="monitoring">
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline"></a></h2>
+<section id="torch">
+<h3>Torch<a class="headerlink" href="#torch" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tools &gt; Torch</p></li>
+</ul>
+</section>
+<section id="graphing">
+<h3>Graphing<a class="headerlink" href="#graphing" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Tools &gt; Graphing &gt; Interface rules</p></li>
+<li><p>Tools &gt; Graphing &gt; Resource rules</p></li>
+<li><p><a class="reference external" href="http://ip">http://ip</a> of mikrotik/graphs</p></li>
+</ul>
+</section>
+<section id="the-dude">
+<h3>The Dude<a class="headerlink" href="#the-dude" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Dude &gt; Settings</p></li>
+<li><p>Install the dude on your PC</p></li>
+<li><p>Open it up and click discover, put in your subnet</p></li>
+</ul>
+</section>
+</section>
+<section id="wireless">
+<h2>Wireless<a class="headerlink" href="#wireless" title="Permalink to this headline"></a></h2>
+<section id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h3>
+<p><strong>What is wireless?</strong></p>
+<ul class="simple">
+<li><p>RouterOS supports various radio modules that allow comminication over the air (2.4GHz and 5GHz)</p></li>
+<li><p>MikroTik RouterOS provides a complete support for IEEE 802.11a, 802.11b, 802.11g, 802.11n and 802.11ac wireless networking standards</p></li>
+</ul>
+<p><strong>Wireless standards</strong></p>
+<ul class="simple">
+<li><p>IEEE 802.11b - 2.4GHz frequencies, 11Mbps</p></li>
+<li><p>IEEE 802.11g - 2.4GHz frequencies, 54Mbps</p></li>
+<li><p>IEEE 802.11a - 5GHz frequencies, 54Mbps</p></li>
+<li><p>IEEE 802.11n - 2.4GHz - 5GHz 150Mbps (300Mbps)</p></li>
+<li><p>IEEE 802.11ac - 5GHz frequencies 1Gbps</p></li>
+</ul>
+<img alt="../_images/mikrotik-wireless-1.png" src="../_images/mikrotik-wireless-1.png" />
+<ul class="simple">
+<li><p>802.11b,g frequency range</p></li>
+<li><p>Channels 1,6 and 11 non-overlapping</p></li>
+</ul>
+<img alt="../_images/mikrotik-wireless-2.png" src="../_images/mikrotik-wireless-2.png" />
+<img alt="../_images/mikrotik-wireless-3.png" src="../_images/mikrotik-wireless-3.png" />
+<p><strong>Supported Frequencies</strong></p>
+<p>Depending on your country regulations wireless card might support</p>
+<ul class="simple">
+<li><p>2.4GHz: 2312 - 2499 MHz</p></li>
+<li><p>5GHz: 4920 - 6100 MHz</p></li>
+</ul>
+</section>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Wireless &gt; Security Profiles &gt; +</p></li>
+<li><p>Wireless &gt; WiFi Interface &gt; enable and configure, select the Security Profile</p></li>
+<li><p>you can use freq usage to check which frequency has little usage</p></li>
+<li><p>you can use Snooper to see what’s connecting via wifi</p></li>
+</ul>
+</section>
+<section id="station">
+<h3>Station<a class="headerlink" href="#station" title="Permalink to this headline"></a></h3>
+<p>Make the router a client (nobody connected to that router can get internet)</p>
+<ul class="simple">
+<li><p>Wireless &gt; mode station</p></li>
+</ul>
+</section>
+<section id="mac-filtering">
+<h3>Mac Filtering<a class="headerlink" href="#mac-filtering" title="Permalink to this headline"></a></h3>
+<p>Default Authenticate allows clients to authenticate. Turning it off you must use Wireless &gt; Access list to allow certain clients to access your wifi.</p>
+<p>Default forward disabled prevents wifi clients from communicating to each other in the wifi.</p>
 </section>
 </section>
 </section>
