@@ -3,6 +3,15 @@ General
 
 Check which DC authenticated with: ``echo %logonserver%``
 
+Check the Size of a Folder from CLI
+-----------------------------------
+
+https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line
+
+.. code-block:: powershell
+
+  dir /a/s
+
 Download Firefox from CLI
 -------------------------
 
@@ -119,3 +128,25 @@ Updates
 ^^^^^^^
 
 ``wuapp.exe`` > install updates
+
+Disable Windows Server Updates
+------------------------------
+
+https://www.netzen.co.uk/2019/07/17/disable-windows-server-updates-active-hours/
+
+1. Open Windows Powershell by right click > run as administrator
+2. Type: SCONFIG and hit enter
+3. Press 5 (Windows Update Settings)
+4. Press D (Download Only mode)
+5. Close Powershell
+
+Fixing Windows Corruption
+-------------------------
+
+https://answers.microsoft.com/en-us/windows/forum/all/exception-processing-message-0xc0000005-parameters/71c3eb40-7aab-4340-b2b0-9ef73961665d
+
+* DISM.exe /Online /Cleanup-image /Scanhealth
+* DISM.exe /Online /Cleanup-image /Restorehealth
+* DISM.exe /online /cleanup-image /startcomponentcleanup
+* sfc /scannow
+* chkdsk /f /r

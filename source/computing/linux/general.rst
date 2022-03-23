@@ -1,6 +1,5 @@
-#######
 General
-#######
+=======
 
 General, random and useful Linux-related config and things.
 
@@ -1324,3 +1323,13 @@ https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-t
 .. code-block:: bash
 
   gpgconf --kill gpg-agent
+
+List DNS Servers Ubuntu
+-----------------------
+
+https://askubuntu.com/questions/152593/command-line-to-list-dns-servers-used-by-my-system
+
+.. code-block:: bash
+
+  nmcli device show <interfacename> | grep IP4.DNS
+  systemd-resolve --status
