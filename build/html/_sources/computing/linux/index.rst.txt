@@ -6,4 +6,3 @@ Linux
   :glob:
 
   *
-  network-management/index

@@ -75,6 +75,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#size-of-db">Size of DB</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-root-password">Resetting Root Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#resetting-user-password">Resetting User Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-encrypted-password">Update Encrypted Password</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#allow-root-access-without-password-as-root">Allow Root Access without Password as Root</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#checking-database-size">Checking Database Size</a></li>
@@ -103,6 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#reducing-disk-usage">Reducing Disk Usage</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#show-running-queries">Show Running Queries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vacuum">Vacuum</a></li>
 </ul>
 </li>
 </ul>
@@ -117,8 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -309,6 +311,13 @@ FLUSH PRIVILEGES<span class="p">;</span>
 <span class="c1"># MySQL v5.7.5 or earlier / MariaDB 10.1.20 or earlier</span>
 SET PASSWORD FOR <span class="s1">&#39;user-name&#39;</span>@<span class="s1">&#39;localhost&#39;</span> <span class="o">=</span> PASSWORD<span class="o">(</span><span class="s1">&#39;NEW_USER_PASSWORD&#39;</span><span class="o">)</span><span class="p">;</span>
 FLUSH PRIVILEGES<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="update-encrypted-password">
+<h3>Update Encrypted Password<a class="headerlink" href="#update-encrypted-password" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/56527343/update-encrypted-password-in-mysql-database">https://stackoverflow.com/questions/56527343/update-encrypted-password-in-mysql-database</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>update table <span class="nb">set</span> <span class="nv">password</span><span class="o">=</span>encrypt<span class="o">(</span>password<span class="o">)</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -519,6 +528,14 @@ mysql_secure_installation
 host  all  all <span class="m">0</span>.0.0.0/0 md5
 
 service postgresql restart
+</pre></div>
+</div>
+</section>
+<section id="vacuum">
+<h3>Vacuum<a class="headerlink" href="#vacuum" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/4759503/how-can-i-perform-the-vacuum-using-the-postgresql#:~:text=Connect%20to%20the%20database%20and,which%20will%20also%20update%20statistics">https://stackoverflow.com/questions/4759503/how-can-i-perform-the-vacuum-using-the-postgresql#:~:text=Connect%20to%20the%20database%20and,which%20will%20also%20update%20statistics</a>.</p>
+<p>Vacuuming your postgres db must be done once in a while.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VACUUM<span class="p">;</span>
 </pre></div>
 </div>
 </section>

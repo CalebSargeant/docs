@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="UFW" href="ufw.html" />
+    <link rel="prev" title="Storage" href="storage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-linux">What is Linux?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unix-vs-linux">Unix vs Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#download-install-and-configure">Download, Install and Configure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux-distributions">Linux Distributions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centos-vs-centos-stream">CentOS vs CentOS Stream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-vs-windows">Linux vs Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-users">Linux Users</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#system-access-and-file-system">System Access and File System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#network-commands">Network Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#important-things">Important Things</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-file-system">Linux File System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-system-structure">File System Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-system-structure-and-its-description">File System Structure and its Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-system-navigation">File System Navigation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-root">What is Root?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-system-paths">File System Paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#directory-listing-attributes">Directory Listing Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-files-and-directories">Creating Files and Directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copying-directories">Copying Directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-file-types">Linux File Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finding-files-and-directories">Finding Files and Directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#difference-between-find-and-locate">Difference Between find and locate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-password">Changing Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wildcards">Wildcards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#soft-and-hard-links">Soft and Hard Links</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commands-syntax">Commands Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-permissions">File Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-permissions-using-numeric-mode">File Permissions using Numeric Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-ownership">File Ownership</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-control-list">Access Control List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#help-commands">Help Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tab-completion-and-up-arrow">Tab Completion and Up Arrow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-text-to-files-redirects">Adding Text to Files (Redirects)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-and-output-redirects">Input and Output Redirects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standard-output-to-a-file-tee">Standard Output to a File (tee)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipes">Pipes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-maintenance-commands">File Maintenance Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-display-commands">File Display Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filters-text-processors-commands">Filters / Text Processors Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cut">Cut</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#awk">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grep-egrep">Grep/Egrep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sort-uniq">Sort/Uniq</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wc">Wc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compare-files">Compare Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compress-and-un-compress-files">Compress and un-Compress Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#truncate-file-size">Truncate File Size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#combining-and-splitting-files">Combining and Splitting Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-vs-windows-commands">Linux vs Windows Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-system-administration">Linux System Administration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux-file-editor-vi">Linux File Editor (vi)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#difference-between-vi-and-vim-editor">Difference Between vi and vim Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sed-command">Sed Command</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Linux</a> &raquo;</li>
+      <li>Training</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/linux/training.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="training">
+<h1>Training<a class="headerlink" href="#training" title="Permalink to this headline"></a></h1>
+<section id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline"></a></h2>
+<section id="what-is-linux">
+<h3>What is Linux?<a class="headerlink" href="#what-is-linux" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Operating System which sites in the middle of your hardware and users</p></li>
+</ul>
+</section>
+<section id="unix-vs-linux">
+<h3>Unix vs Linux<a class="headerlink" href="#unix-vs-linux" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Unix was first developed for multi-user and multi-tasking in mid 1970 in Bell Labs by ATT. GE and MIT</p></li>
+<li><p>Then linux was born in 1991 by Linus Torvalds</p></li>
+<li><p>Linux is mostly free</p></li>
+<li><p>Linux is open source</p></li>
+<li><p>Unix is mostly used by Sun as Solaris, HP-UX, AIX etc.</p></li>
+<li><p>Linux is used by developer communuty or companies (Redhat, CentOs, Debian) etc.</p></li>
+<li><p>Unix comparitively supports very few File systems</p></li>
+<li><p>Linux can be installed on a wide variety of computer hardware, ranging from mobile phones, tablets, video game consoles, to mainframes and supercomputers</p></li>
+</ul>
+</section>
+</section>
+<section id="download-install-and-configure">
+<h2>Download, Install and Configure<a class="headerlink" href="#download-install-and-configure" title="Permalink to this headline"></a></h2>
+<section id="linux-distributions">
+<h3>Linux Distributions<a class="headerlink" href="#linux-distributions" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Redhat</p></li>
+<li><p>CentOS</p></li>
+<li><p>Fedora</p></li>
+<li><p>Suse</p></li>
+<li><p>Debian</p></li>
+<li><p>Ubuntu</p></li>
+</ul>
+</section>
+<section id="centos-vs-centos-stream">
+<h3>CentOS vs CentOS Stream<a class="headerlink" href="#centos-vs-centos-stream" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Brief history of CentOS</p></li>
+<li><p>2004 - Greg Kurtzer forked RHEL to CentOS</p></li>
+<li><p>2014 - RH took over CentOS</p></li>
+<li><p>Community Enterprise Operating System</p></li>
+<li><p>Before Feb 2021:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fedora &gt; RHEL &gt; CentOS</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>After Feb 2021:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fedora &gt; CentOS Stream &gt; RHEL</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="linux-vs-windows">
+<h3>Linux vs Windows<a class="headerlink" href="#linux-vs-windows" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 36%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Linux</p></th>
+<th class="head"><p>Windows</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Price
+Ease
+Reliability
+Software
+Multitasking
+Security
+Opensource</p></td>
+<td><p>Free
+Not user-friendly
+Very reliable, often runs for months or years
+Mostly enterprise level softwares
+Best for multi-tasking
+Very secure
+Open to public</p></td>
+<td><p>$$$
+User friendly
+Often requires reboot
+Much larger selection of softwares eg office, games, utilities, etc.
+Multi-tasking is available but with very high cpu or memory resources
+Somewhat secure
+Not an open source OS</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="linux-users">
+<h3>Linux Users<a class="headerlink" href="#linux-users" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>US Government Agencies (National, State, Federal, and International)</p></li>
+<li><p>NASA</p></li>
+<li><p>Health Care</p></li>
+<li><p>Bullet trains in Japan runs at the soeed of 150-215m/h</p></li>
+<li><p>Traffic Control</p></li>
+<li><p>Financial Institutes eg NYSE</p></li>
+<li><p>Entertainment industries (cinemas, production houses, etc.)</p></li>
+<li><p>World e-commerce leaders, including Amazon, eBay, PayPal, and Walmart</p></li>
+<li><p>Other fortune 500 companies eg Google, IBM, McDonalds, Facebook etc.</p></li>
+</ul>
+</section>
+</section>
+<section id="system-access-and-file-system">
+<h2>System Access and File System<a class="headerlink" href="#system-access-and-file-system" title="Permalink to this headline"></a></h2>
+<section id="network-commands">
+<h3>Network Commands<a class="headerlink" href="#network-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Centos/RHEL 5 or 6 was <cite>ifconfig</cite></p></li>
+<li><p>Centos/RHEL 7 is <cite>ip</cite></p></li>
+<li><p>Centos/RHEL 7.5 and up <cite>ifconfig</cite> has been deprecated</p></li>
+<li><p>To use ifconfig in 7.5 use <cite>yum install net-tools</cite></p></li>
+</ul>
+</section>
+<section id="important-things">
+<h3>Important Things<a class="headerlink" href="#important-things" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Linux has super user account called root</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>root is the most powerful account that can create, modify, delete accounts and make changes to system configuration files</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Linux is case-sensitive</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ABC is not the same as abc</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Avoid using spaces when creating files and directories</p></li>
+<li><p>Linux kernal is not an OS. It’s a small software within linux OS that takes commands from users and pass them to system hardware or peripherals</p></li>
+<li><p>Linux is mostly CLI not GUI</p></li>
+<li><p>Linux is very flexible as compared to other OSs</p></li>
+</ul>
+</section>
+<section id="linux-file-system">
+<h3>Linux File System<a class="headerlink" href="#linux-file-system" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>OS store data on disk drives using a structure called filesystem, consisting of files, directories, and the information needed to access and locate them</p></li>
+<li><p>There are many different types of filesystems. In general improvements have been made to filesystems with new releases of OS and each new FS has been given a different name. Eg. ext3, ext4, XFS, NTFS, FAT etc.</p></li>
+<li><p>Linux filesystems store info in a hierarchy of dirs and fiels.</p></li>
+</ul>
+</section>
+<section id="file-system-structure">
+<h3>File System Structure<a class="headerlink" href="#file-system-structure" title="Permalink to this headline"></a></h3>
+<img alt="../../_images/linux-file-system-structure.png" src="../../_images/linux-file-system-structure.png" />
+</section>
+<section id="file-system-structure-and-its-description">
+<h3>File System Structure and its Description<a class="headerlink" href="#file-system-structure-and-its-description" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>/boot - contains file that is used by the boot loader (grub.cfg)</p></li>
+<li><p>/root - root user home directory. It is not the same as /</p></li>
+<li><p>/dev - system devices (eg. disk cdrom speakers flash drive keyboard)</p></li>
+<li><p>/etc - configuration files</p></li>
+<li><p>/bin &gt; / usr/bin - everyday user commands</p></li>
+<li><p>/sbin &gt; /usr/sbin - system/filesystem commands</p></li>
+<li><p>/opt - optional addon applications (not part of OS apps)</p></li>
+<li><p>/proc - running processes (only exist in memory)</p></li>
+<li><p>/lib &gt; usr/lib - C programming library needed by commands and apps (<cite>strace -e open pwd</cite>)</p></li>
+<li><p>/tmp - dir for temp files</p></li>
+<li><p>/home - dir for users</p></li>
+<li><p>/var - system logs</p></li>
+<li><p>/run - system daemons that start very early (eg. systemd and udev) to store runtime files like PID files</p></li>
+<li><p>/mnt - to mount external filesystem (eg. NFS)</p></li>
+<li><p>/media - for cdrom mounts</p></li>
+</ul>
+</section>
+<section id="file-system-navigation">
+<h3>File System Navigation<a class="headerlink" href="#file-system-navigation" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>When navigating a UNIX filesystem, there are a few important commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>cd</cite> - stands for change directory. It is the primary command for moving you arount the filesystem</p></li>
+<li><p><cite>pwd</cite> - stands for print working directory. It tells you where you current location is.</p></li>
+<li><p><cite>ls</cite> - stands for list. It lists all the directories/files within a current working dir</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="what-is-root">
+<h3>What is Root?<a class="headerlink" href="#what-is-root" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>There are 3 types of root on a Linux system</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Root account: root is an account or username on Linux machine and is the most powerful account which has access to all commands and files</p></li>
+<li><p>Root as /: the very first dir of Linux also referred as root directory</p></li>
+<li><p>Root home directory: the root user account also has a dir located in /root which is called root home dir</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="file-system-paths">
+<h3>File System Paths<a class="headerlink" href="#file-system-paths" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>There are two paths to navigate to a filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Absolute path</p></li>
+<li><p>Relative path</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>An absolute path always begins with a <cite>/</cite>. This indicates that the path starts at the root directory. An example of an absolute path is <cite>cd /var/log/samba</cite></p></li>
+<li><p>A relative path does not begin with a <cite>/</cite>. It identifies a location relative to your current position. An example of a relative path is <cite>cd /var</cite> and <cite>cd log</cite> <cite>cd samba</cite></p></li>
+</ul>
+</section>
+<section id="directory-listing-attributes">
+<h3>Directory Listing Attributes<a class="headerlink" href="#directory-listing-attributes" title="Permalink to this headline"></a></h3>
+<img alt="../../_images/linux-directory-listing-attributes.png" src="../../_images/linux-directory-listing-attributes.png" />
+</section>
+<section id="creating-files-and-directories">
+<h3>Creating Files and Directories<a class="headerlink" href="#creating-files-and-directories" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Creating files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>touch</p></li>
+<li><p>cp</p></li>
+<li><p>vi</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Creating directories</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mkdir</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="copying-directories">
+<h3>Copying Directories<a class="headerlink" href="#copying-directories" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Command to copy a directory</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>cp</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To copy a directory on Linux, you have to execute the <cite>cp</cite> command with the <cite>-R</cite> option for recursive and specify the source and destination directories to be copied</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>cp -R &lt;source_folder&gt; &lt;destination_folder&gt;</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="linux-file-types">
+<h3>Linux File Types<a class="headerlink" href="#linux-file-types" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dash
+d
+l
+c
+s
+p
+b</p></td>
+<td><p>Regular file
+Directory
+link
+Special file or device file
+socket
+Named pipe
+Block device</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="finding-files-and-directories">
+<h3>Finding Files and Directories<a class="headerlink" href="#finding-files-and-directories" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Two main commands are useful to find files/directories</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>find</cite> (<cite>find . -name “test”</cite>)</p></li>
+<li><p><cite>locate</cite> (<cite>locate test</cite>)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If <cite>locate</cite> command doesnt output any result, then as rute run <cite>updatedb</cite></p></li>
+<li><p>Also make sure you have <cite>mlocate</cite> package installed</p></li>
+<li><p>To check run <cite>rpm -qa | grep mlocate</cite></p></li>
+<li><p>To install run <cite>yum install mlocate</cite></p></li>
+</ul>
+</section>
+<section id="difference-between-find-and-locate">
+<h3>Difference Between find and locate<a class="headerlink" href="#difference-between-find-and-locate" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>locate</cite> uses a prebuilt database, which should be regularly updated, while <cite>find</cite> iterates over a filesystem to locate files. Thus, locate is much faster than find, but can be inaccurate if the database (can be seen as a cache) is not updated</p></li>
+<li><p>To update the locate database run <cite>updatedb</cite></p></li>
+</ul>
+</section>
+<section id="changing-password">
+<h3>Changing Password<a class="headerlink" href="#changing-password" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>You should change your initial password as soon as you login</p></li>
+<li><p>Command = <cite>passwd userid</cite></p></li>
+</ul>
+</section>
+<section id="wildcards">
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline"></a></h3>
+<p>A wildcard is a character that can be used as a substitute for any of a class of characters in a search</p>
+<ul class="simple">
+<li><p><cite>*</cite> represents zero or more characters</p></li>
+<li><p><cite>?</cite> represents a single character</p></li>
+<li><p><cite>[]</cite> represents a range of characters (<cite>ls -ltr *[cd]*</cite>)</p></li>
+<li><p><cite>{}</cite> range of fiels to create</p></li>
+<li><p>backslash as an escape character</p></li>
+<li><p><cite>^</cite> the beginning of a line</p></li>
+<li><p><cite>$</cite> the end of a line</p></li>
+</ul>
+</section>
+<section id="soft-and-hard-links">
+<h3>Soft and Hard Links<a class="headerlink" href="#soft-and-hard-links" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>inode = Pointer or number of a file on the hard disk</p></li>
+<li><p>Soft Link = Link will be removed if file is removed or renamed</p></li>
+<li><p>Hard Link = Deleting renaming or moving the original file will not affect the hard link</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>ln</cite> (hard link)</p></li>
+<li><p><cite>ln -s</cite> (soft link)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-soft-and-hard-links.png" src="../../_images/linux-soft-and-hard-links.png" />
+<ul class="simple">
+<li><p>Note: you cannot create a soft or hard link within the same directory with the smae name.</p></li>
+<li><p>Hard links only work within the same partition</p></li>
+</ul>
+</section>
+</section>
+<section id="fundamentals">
+<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline"></a></h2>
+<section id="commands-syntax">
+<h3>Commands Syntax<a class="headerlink" href="#commands-syntax" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Command options and arguments</p>
+<blockquote>
+<div><ul>
+<li><p>Commands typically have the syntax:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>command options arguments</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Options</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Modify the way that a command works</p></li>
+<li><p>Usually oly consist of a hyphen or dash followed by a single letter</p></li>
+<li><p>Some commands accept multiple options which can usually be grouoped together after a single hypghen</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Most commands are used together with one or more arguments</p></li>
+<li><p>Some commands assume a default argument if none is supplied</p></li>
+<li><p>Arguments are optional for some commands and required by others</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="file-permissions">
+<h3>File Permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>UNIX is a multi-user system. Every file and directory in your account can be protected from or made accessible to other users by changing its access permissions. Every user has responsibility for controlling access to their files.</p></li>
+<li><p>Permissions for a file or directory may be restricted to by types</p></li>
+<li><p>There are 3 types of permissions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>r - read</p></li>
+<li><p>w - write</p></li>
+<li><p>x - execute (running a program)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Each permission (rwx) can be controlled at three levels</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>u - user (yourself)</p></li>
+<li><p>g - group (can be people in the same project)</p></li>
+<li><p>o - other (everyone in the system)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>File or Directory permission can be displayed by running <cite>ls -l</cite> command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>-rwxrwxrwx</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command to change permission</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chmod</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Remove read rights from group: <cite>chmod g-r file</cite></p></li>
+<li><p>Remove read rights from all (other): <cite>chmod a-r file</cite></p></li>
+<li><p>Remove write rights from user: <cite>chmod u-w file</cite></p></li>
+<li><p>Add read and write rights to user on file: <cite>chmod u+rw file</cite></p></li>
+</ul>
+</section>
+<section id="file-permissions-using-numeric-mode">
+<h3>File Permissions using Numeric Mode<a class="headerlink" href="#file-permissions-using-numeric-mode" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Permission to a file and directory can be assigned numerically</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chmod ugo+r file</cite></p></li>
+<li><p>or <cite>chmod 444 file</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-file-system-permissions.png" src="../../_images/linux-file-system-permissions.png" />
+<ul class="simple">
+<li><p>The table below assigns numbers to permissions types</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 57%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Number</p></th>
+<th class="head"><p>Permission Type</p></th>
+<th class="head"><p>Symbol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0
+1
+2
+3
+4
+5
+6
+7</p></td>
+<td><p>No Permission
+Execute
+Write
+Execute + Write
+Read
+Read + Execute
+Read + Write
+Read +Write + Execute</p></td>
+<td><p>—
+–x
+-w-
+-wx
+r–
+r-x
+rw-
+rwx</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><cite>chmod 764 file</cite>:</p></li>
+</ul>
+<img alt="../../_images/linux-file-system-permissions-2.png" src="../../_images/linux-file-system-permissions-2.png" />
+</section>
+<section id="file-ownership">
+<h3>File Ownership<a class="headerlink" href="#file-ownership" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>There are 2 owners of a file or directory</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>User and group</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command to change file ownership</p>
+<blockquote>
+<div><ul>
+<li><p>chown and chgrp</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>chown changes the ownership of a file</p></li>
+<li><p>chgrp changes the group ownership of a file</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Recursive ownership change option (cascade)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>-R</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="access-control-list">
+<h3>Access Control List<a class="headerlink" href="#access-control-list" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is ACL?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Access control list (ACL) provides an additional, more flexible permission mechanism for file systems. It is designed to assist with UNIX file permissions. ACL allows you to give permissions for any user or group to any disc resource.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use of ACL:</p>
+<blockquote>
+<div><ul>
+<li><p>Think of a scenario in which a particular user is not a member of a group created by you but you still want to give some read or write access, how can you do it without making user a member of a group, here comes in picture ACL, CAL helps us to do this trick.</p></li>
+<li><p>Basically, ACLs are used to make a flexible permission mechanism in Linux.</p></li>
+<li><p>From Linux man pages, ACLs are used to define more fine-granied discretionary access rights for files and directories</p></li>
+<li><p>Commands to assign and remove ACL permissions are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>setfacl</cite> and <cite>getfacl</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>List of commands for setting up ACL:</p>
+<blockquote>
+<div><ul>
+<li><p>to add permission for a user (<cite>setfacl -m u:user:rwx /path/to/file</cite>)</p></li>
+<li><p>to add permissions for a group (<cite>setfacl -m g:group:rw /path/to/file</cite>)</p></li>
+<li><p>to allow all files or directories to inherit ACL entries from the directory it is within (<cite>setfacl -Rm “entry” /’path/to/dir’</cite>)</p></li>
+<li><p>To remove a specific entry (<cite>setfacl -x u:user /path/to/file</cite> (for a specific user))</p></li>
+<li><p>To remove all entries (<cite>setfacl -b path/to/file</cite> (for all users))</p></li>
+<li><p>Note:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>As you assign the ACL permission to a file/directory it adds + sign at the end of the permission</p></li>
+<li><p>Setting w permission with ACL does not allow to remove a file</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="help-commands">
+<h3>Help Commands<a class="headerlink" href="#help-commands" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>There are 3 types of help commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>whatis</cite> command</p></li>
+<li><p>command <cite>–help</cite></p></li>
+<li><p><cite>man</cite> command</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="tab-completion-and-up-arrow">
+<h3>Tab Completion and Up Arrow<a class="headerlink" href="#tab-completion-and-up-arrow" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Hitting TAB key completes the available commands, files, or directories</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chm TAB</cite></p></li>
+<li><p><cite>ls j&lt;TAB&gt;</cite></p></li>
+<li><p><cite>cd Des&lt;TAB&gt;</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Hitting up arrow key on the keyboard returns the last command run</p></li>
+</ul>
+</section>
+<section id="adding-text-to-files-redirects">
+<h3>Adding Text to Files (Redirects)<a class="headerlink" href="#adding-text-to-files-redirects" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>3 Simple ways to add text to a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>vi</p></li>
+<li><p>Redirect command output &gt; or &gt;&gt;</p></li>
+<li><p>echo &gt; or &gt;&gt;</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="input-and-output-redirects">
+<h3>Input and Output Redirects<a class="headerlink" href="#input-and-output-redirects" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>There are 3 redirects in Linux</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Standard input (stdin) and it has file descriptor number as 0</p></li>
+<li><p>Standard output (stdout) and it has file descriptor number 1</p></li>
+<li><p>Standard error (stderr) and it has file descriptor number as 2</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Output (stdout) -1</p>
+<blockquote>
+<div><ul>
+<li><p>By default when running a command its output goes to the terminal</p></li>
+<li><p>The output of a command can be routed to a file using &gt; symbol</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eg. <cite>ls -l &gt; listings</cite></p></li>
+<li><p><cite>pwd &gt; findpath</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If using the same file for additional output or to append to the same file then use &gt;&gt;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eg. <cite>ls -la &gt;&gt; listings</cite></p></li>
+<li><p><cite>echo “Hello World” &gt;&gt; findpath</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Input (stdin) -0</p>
+<blockquote>
+<div><ul>
+<li><p>Input is used when feeding file contents to a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eg. <cite>cat &lt; listings</cite></p></li>
+<li><p><cite>mail -s “office memo” contact&#64;calebsargeant.com &lt; momoletter</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Error (stderr) - 2</p>
+<blockquote>
+<div><ul>
+<li><p>When a command is executed we use a keyboard and that is also considered (stdin -0)</p></li>
+<li><p>That command output goes on the monitor that outpit is (stdout -1)</p></li>
+<li><p>If the command produced any error on the screen then it is considered (stderr -2)</p>
+<blockquote>
+<div><ul>
+<li><p>We cna use redirects to route errors from the screen</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eg. <cite>ls -l /root 2&gt; errorfile</cite></p></li>
+<li><p><cite>telnet localhost 2&gt; errorfile</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="standard-output-to-a-file-tee">
+<h3>Standard Output to a File (tee)<a class="headerlink" href="#standard-output-to-a-file-tee" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>tee</cite> command is used to store and view (both at the same time) the output of any command</p></li>
+<li><p>The command is named after the T-splitter used in plumbing. It basically breaks the output of a program so that it can be both displated and saved in a file. It does both the tasks simultaneously, copies the result into the specified file or variables and also displays the result.</p></li>
+<li><p>Remember <cite>-a</cite> appends</p></li>
+</ul>
+</section>
+<section id="pipes">
+<h3>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>A pipe is used by the shell to connec the output of one command directly to the inout of another file</p></li>
+<li><p>The symbol for a pipe is the vertical bar (<cite>|</cite>). The command syntax is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>command 1 [arguments] | command2 [arguments]</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="file-maintenance-commands">
+<h3>File Maintenance Commands<a class="headerlink" href="#file-maintenance-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>cp</cite></p></li>
+<li><p><cite>rm</cite></p></li>
+<li><p><cite>mv</cite></p></li>
+<li><p><cite>mkdir</cite></p></li>
+<li><p><cite>rmdir</cite> or <cite>rm -r</cite></p></li>
+<li><p><cite>chgrp</cite></p></li>
+<li><p><cite>chown</cite></p></li>
+</ul>
+</section>
+<section id="file-display-commands">
+<h3>File Display Commands<a class="headerlink" href="#file-display-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>cat</cite></p></li>
+<li><p><cite>more</cite></p></li>
+<li><p><cite>less</cite></p></li>
+<li><p><cite>head</cite></p></li>
+<li><p><cite>tail</cite></p></li>
+</ul>
+</section>
+<section id="filters-text-processors-commands">
+<h3>Filters / Text Processors Commands<a class="headerlink" href="#filters-text-processors-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>cut</cite></p></li>
+<li><p><cite>awk</cite></p></li>
+<li><p><cite>grep</cite> and <cite>egrep</cite></p></li>
+<li><p><cite>sort</cite></p></li>
+<li><p><cite>uniq</cite></p></li>
+<li><p><cite>wc</cite></p></li>
+</ul>
+</section>
+<section id="cut">
+<h3>Cut<a class="headerlink" href="#cut" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Cut is a comman d line utility that allows you to cut parts of lines from specified files or piped data and print the result to standard output. It can be used to cut parts of a line by delimiter, byte position, and character</p></li>
+<li><p><cite>cut filename</cite> does not work</p></li>
+<li><p><cite>cut –version</cite></p></li>
+<li><p><cite>cut -c1 file</cite> - gets the first character from each line</p></li>
+<li><p><cite>cut -c1,2,4 file</cite> - pick and choose character</p></li>
+<li><p><cite>cut -c1-3 file</cite> - list range of characters</p></li>
+<li><p><cite>cut -c1-3,6-8 file</cite> - list specific range of characters</p></li>
+<li><p><cite>cut -b1-3 file</cite> - list byte size</p></li>
+<li><p><cite>cut -d: -f 6 /etc/passwd</cite> - list first 6th column seperated by :</p></li>
+<li><p><cite>cut -d: -f 6-7 /etc/passwd</cite> - list first 6th and 7th column sperated by :</p></li>
+<li><p><cite>ls -l | cut -c-4</cite> - only print user permissions of files/dir</p></li>
+</ul>
+</section>
+<section id="awk">
+<h3>Awk<a class="headerlink" href="#awk" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>awk is a utility/language designed for data extraction. Most of the time it is used to extract fields from a file or from an output.</p></li>
+<li><p><cite>awk –version</cite> - check version</p></li>
+<li><p><cite>awk ‘{print $1}’ file</cite> - list 1st field from a file</p></li>
+<li><p><cite>ls -l | awk ‘{print $1,$3}’</cite> - list 1st and 3rd field of ls -l output</p></li>
+<li><p><cite>ls -l | awk ‘{print $NF}’</cite> - last filed of the output</p></li>
+<li><p><cite>awk ‘/Jerry/ {print}’ file</cite> - search for a specific word</p></li>
+<li><p><cite>awk -F: ‘{print $1}’ /etc/passwd</cite> - output only 1st field of /etc/passwd</p></li>
+<li><p><cite>echo “Hello Tom” | awk ‘{$2=”Adam”; print $0}’</cite> - replace words field words</p></li>
+<li><p><cite>cat file | awk ‘{$2=”Caleb”; print $0}’</cite> - replace words field words</p></li>
+<li><p><cite>awk ‘length($0) &gt; 15’ file</cite> - get lines that more that 15 byte size</p></li>
+<li><p><cite>ls -l | awk ‘{if($9 == “caleb”) print $0;}’</cite> - get the field matching caleb in /home/caleb</p></li>
+<li><p><cite>ls -l | awk ‘{print NF}’</cite></p></li>
+</ul>
+</section>
+<section id="grep-egrep">
+<h3>Grep/Egrep<a class="headerlink" href="#grep-egrep" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is grep?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the grep command which stands for “global regular expression print”, processes text line by line and prints any lines which match a specified pattern</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>grep –version</cite> or <cite>grep –help</cite></p></li>
+<li><p><cite>grep keyword file</cite> - search for a keyword from a file</p></li>
+<li><p><cite>grep -c keyword file</cite> - search for a keyword and count</p></li>
+<li><p><cite>grep -i keyword file</cite> - search for a keyword ignore case-sensitive</p></li>
+<li><p><cite>grep -n keyword file</cite> - display the matched lines and their line numbers</p></li>
+<li><p><cite>grep -v keyword file</cite> - display everything but keyword</p></li>
+<li><p><cite>grep keyword file | awk ‘{print $1}’</cite> - search for a keyword and then only give 1st field</p></li>
+<li><p><cite>ls -l | grep Desktop</cite> - search for a keyword and then only give 1st field</p></li>
+<li><p><cite>egrep -i “keyword|keyword2” file</cite> - search for 2 keywords</p></li>
+</ul>
+</section>
+<section id="sort-uniq">
+<h3>Sort/Uniq<a class="headerlink" href="#sort-uniq" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What are sort and uniq commands?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sort command sorts in alphabetical order</p></li>
+<li><p>Uniq command filters out the repeated or duplicate lines</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>sort –version</cite> or <cite>sort –help</cite> - check version or help</p></li>
+<li><p><cite>sort file</cite> - sorts in alphabetical order</p></li>
+<li><p><cite>sort -r file</cite> - sorts in reverse alphabetical order</p></li>
+<li><p><cite>sort -k2 file</cite> - sort by field number</p></li>
+<li><p><cite>uniq file</cite> - removes duplicates</p></li>
+<li><p><cite>sort file | uniq</cite> - always sort first before using uniq their line numbers</p></li>
+<li><p><cite>sort file | uniq -c</cite> - sort first then uniq and list count</p></li>
+<li><p><cite>sort file | uniq -d</cite> - only show repeated lines</p></li>
+</ul>
+</section>
+<section id="wc">
+<h3>Wc<a class="headerlink" href="#wc" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is wc command?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The command reads either standard input or a list of files and generates: newline count, word count, and byte count</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>wc –version</cite> or <cite>wc –help</cite> - check version or help</p></li>
+<li><p><cite>wc file</cite> - check file line count, word count and byte count</p></li>
+<li><p><cite>wc -l file</cite> - get the number of lines in a file</p></li>
+<li><p><cite>wc -w file</cite> - get the number of words in a file</p></li>
+<li><p><cite>wc -b file</cite> - get the number of bytes in a file</p></li>
+<li><p><cite>wc DIRECTORY</cite> - not allowed</p></li>
+<li><p><cite>ls -l | wc -l</cite> - number of files</p></li>
+<li><p><cite>grep keyword | wc -l</cite> - number of keyword lines</p></li>
+</ul>
+</section>
+<section id="compare-files">
+<h3>Compare Files<a class="headerlink" href="#compare-files" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>diff</cite> (line by line)</p></li>
+<li><p><cite>cmp</cite> (byte by byte)</p></li>
+</ul>
+</section>
+<section id="compress-and-un-compress-files">
+<h3>Compress and un-Compress Files<a class="headerlink" href="#compress-and-un-compress-files" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><cite>tar</cite></p></li>
+<li><p><cite>gzip</cite></p></li>
+<li><p><cite>gzip -d</cite> or <cite>gunzip</cite></p></li>
+</ul>
+</section>
+<section id="truncate-file-size">
+<h3>Truncate File Size<a class="headerlink" href="#truncate-file-size" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>The linux <cite>truncate</cite> command is often used to shrink or extend the size of a file to the specified size</p></li>
+<li><p>Command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>truncate -s 10 filename</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="combining-and-splitting-files">
+<h3>Combining and Splitting Files<a class="headerlink" href="#combining-and-splitting-files" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Multiple files can be combined into one and</p></li>
+<li><p>One file can be split into multiple files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>cat file1 file2 file3 &gt; file4</cite></p></li>
+<li><p><cite>split file4</cite></p></li>
+<li><p>e.g. <cite>split -l 300 file.txt childfile</cite> - split file.txt into 300 lines per file and output to childfileaa, childfileab, and childfileac</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="linux-vs-windows-commands">
+<h3>Linux vs Windows Commands<a class="headerlink" href="#linux-vs-windows-commands" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 18%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command Description</p></th>
+<th class="head"><p>Windows</p></th>
+<th class="head"><p>Linux</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Listing of a directory
+Rename a file
+Copy a file
+Move a file
+Clear screen
+Delete file
+Compare contents of files
+Search for a word/string in a file
+Display command help
+Displays your location in the file system
+Displays the time</p></td>
+<td><p>dir
+ren
+copy
+move
+cls
+del
+fc
+find
+command /?
+chdir
+time</p></td>
+<td><p>ls -l
+mv
+cp
+mv
+clear
+rm
+diff
+grep
+man command
+pwd
+date</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="linux-system-administration">
+<h2>Linux System Administration<a class="headerlink" href="#linux-system-administration" title="Permalink to this headline"></a></h2>
+<section id="linux-file-editor-vi">
+<h3>Linux File Editor (vi)<a class="headerlink" href="#linux-file-editor-vi" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>A text editor is a program which enables you to create and manipulate data (text) in a Linux file</p></li>
+<li><p>There are several standard text editors available on most Linux systems</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>vi</cite> - Visual editor</p></li>
+<li><p><cite>ed</cite> - Standard line editor</p></li>
+<li><p><cite>ex</cite> - Extended line editor</p></li>
+<li><p><cite>emacs</cite> - A full screen editor</p></li>
+<li><p><cite>pico</cite> - Begginers editor</p></li>
+<li><p><cite>vim</cite> - Advanced version of vi</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Our editor = vi (available in almost every Linux distribution)</p></li>
+<li><p>vi supplies commands for:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>inserting and deleting text</p></li>
+<li><p>replacing text</p></li>
+<li><p>moving around the file</p></li>
+<li><p>finding and substituting strings</p></li>
+<li><p>cutting and pasting text</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Most common keys:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>i - insert</p></li>
+<li><p>Esc - escape out of any mode</p></li>
+<li><p>r - replace</p></li>
+<li><p>d - delete</p></li>
+<li><p>:q! - quit without savinbg</p></li>
+<li><p>:wq! - quit and save</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="difference-between-vi-and-vim-editor">
+<h3>Difference Between vi and vim Editor<a class="headerlink" href="#difference-between-vi-and-vim-editor" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>As far as functionality is concerned, both editors work in the same manner. Which editor you choose is a matter of personal choice. Some people recommend learningh the vim editor instead of the vi editor. Due to added features, learning and using vim editor is much easier than the vi editor.</p></li>
+<li><p>Since vim is based on the vi, when you will learn how to use the vim editor, you will automaticall learn how to use the vi editor</p></li>
+<li><p>vim has all the features as vi with some excellent addition</p></li>
+<li><p>There’s also a comprehensive help system and lots of customization options available.</p></li>
+</ul>
+<img alt="../../_images/linux-vi-vs-vim.png" src="../../_images/linux-vi-vs-vim.png" />
+<ul>
+<li><p>There are many websites taht offer free vim interactive training</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.openvim.com">https://www.openvim.com</a></p></li>
+<li><p><a class="reference external" href="http://www.vimgenius.com">http://www.vimgenius.com</a></p></li>
+<li><p><a class="reference external" href="https://vim-adventures.com">https://vim-adventures.com</a> (games)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sed-command">
+<h3>Sed Command<a class="headerlink" href="#sed-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Replace a string in a file with a newstring</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed ‘s/Kenny/Lenny/g’ file</cite> - output to console</p></li>
+<li><p><cite>sed -i “s/Kenny/Lenny/g” file</cite> - make changes to file</p></li>
+<li><p><cite>sed ‘s/Costanza//g’</cite> - remove the word Costanza</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Find and delete a line</p></li>
+<li><p>Remove empty lines</p></li>
+<li><p>Remove the first or n lines in a file</p></li>
+<li><p>To replace tabs with spaces</p></li>
+<li><p>Show defined lines from a file</p></li>
+<li><p>Substitute wining vi editor</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="storage.html" class="btn btn-neutral float-left" title="Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ufw.html" class="btn btn-neutral float-right" title="UFW" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

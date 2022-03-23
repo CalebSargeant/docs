@@ -70,6 +70,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#what-is-vpn">What is VPN?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ikev2-ipsec">IKEv2 IPSec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pptp">PPTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l2tp-site-to-site">L2TP Site-to-Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#l2tp-client-to-site">L2TP Client-to-Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gre-ipsec">GRE IPSec</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sstp">SSTP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pppoe">PPPoE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#l2tp-ports-and-protocols">L2TP Ports and Protocols</a></li>
@@ -479,6 +482,150 @@ ip ssh print
 </li>
 <li><p>Add a route to the local network on each router (IP &gt; Route)</p></li>
 </ul>
+</section>
+<section id="l2tp-site-to-site">
+<h3>L2TP Site-to-Site<a class="headerlink" href="#l2tp-site-to-site" title="Permalink to this headline"></a></h3>
+<p><strong>On your main router:</strong></p>
+<ul>
+<li><p>Create the PPP Profile</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PPP &gt; Profiles</p></li>
+<li><p>Name: Put the name of the ppp profile</p></li>
+<li><p>Protocols tab &gt; Use Encryption: yes</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-3.png" src="../_images/mikrotik-l2tp-l2l-3.png" />
+<img alt="../_images/mikrotik-l2tp-l2l-4.png" src="../_images/mikrotik-l2tp-l2l-4.png" />
+<ul>
+<li><p>Enabling L2TP Server with IPSec</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PPP &gt; Interface &gt; L2TP Server</p></li>
+<li><p>Click enabled</p></li>
+<li><p>Use IPsec: yes</p></li>
+<li><p>Enter IPsec Secret (this is the PSK that will be for client-to site and site-to-site connections, because we must use one profile for both configurations)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-1.png" src="../_images/mikrotik-l2tp-l2l-1.png" />
+<ul>
+<li><p>PPP User Configuration</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PPP &gt; Secrets</p></li>
+<li><p>User: username</p></li>
+<li><p>Password (put in password that will be used by the client - not the same as the PSK we setup above)</p></li>
+<li><p>Local Address: 172.16.19.1 (or any local IP address)</p></li>
+<li><p>Remote Address: 172.16.19.2 (or any local address that can reach local address)</p></li>
+<li><p>Routes: put in static route, for example: 192.168.100.0/23 172.16.19.2</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-2.png" src="../_images/mikrotik-l2tp-l2l-2.png" />
+<p><strong>On your other router:</strong></p>
+<ul>
+<li><p>Create the PPP Profile</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PPP &gt; Profiles</p></li>
+<li><p>Name: Put the name of the ppp profile</p></li>
+<li><p>Protocols tab &gt; Use Encryption: yes</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-5.png" src="../_images/mikrotik-l2tp-l2l-5.png" />
+<img alt="../_images/mikrotik-l2tp-l2l-6.png" src="../_images/mikrotik-l2tp-l2l-6.png" />
+<ul>
+<li><p>L2TP Client Configuration</p>
+<blockquote>
+<div><ul>
+<li><p>Interfaces &gt; + &gt; L2TP Client</p></li>
+<li><p>General:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: enter name of interface</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Dialout:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Connect To: public IP Address of main router</p></li>
+<li><p>User: user</p></li>
+<li><p>Password: put in your users password</p></li>
+<li><p>Profile: select the profile you created</p></li>
+<li><p>Use IPsec</p></li>
+<li><p>IPSec secret: enter your ipsec secret</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-7.png" src="../_images/mikrotik-l2tp-l2l-7.png" />
+<img alt="../_images/mikrotik-l2tp-l2l-8.png" src="../_images/mikrotik-l2tp-l2l-8.png" />
+<ul>
+<li><p>Static Router Configuration</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>IP &gt; Routes</p></li>
+<li><p>DST Address: remote subnet</p></li>
+<li><p>Gateway: name of your L2TP interface</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-l2l-9.png" src="../_images/mikrotik-l2tp-l2l-9.png" />
+</section>
+<section id="l2tp-client-to-site">
+<h3>L2TP Client-to-Site<a class="headerlink" href="#l2tp-client-to-site" title="Permalink to this headline"></a></h3>
+<p><strong>Pool</strong></p>
+<ul class="simple">
+<li><p>IP &gt; Pools &gt; create IP pool</p></li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-c2s-1.png" src="../_images/mikrotik-l2tp-c2s-1.png" />
+<p><strong>L2TP Profile</strong></p>
+<ul>
+<li><p>PPP &gt; Profiles:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: L2TP Client-to-Site</p></li>
+<li><p>Local Address: the local address of your router</p></li>
+<li><p>Remote Address: l2tppool</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-c2s-2.png" src="../_images/mikrotik-l2tp-c2s-2.png" />
+<img alt="../_images/mikrotik-l2tp-c2s-3.png" src="../_images/mikrotik-l2tp-c2s-3.png" />
+<p><strong>L2TP Server</strong></p>
+<ul class="simple">
+<li><p>PPP &gt; Interface &gt; L2TP Server</p></li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-c2s-4.png" src="../_images/mikrotik-l2tp-c2s-4.png" />
+<p><strong>IPSec Proposal</strong></p>
+<ul class="simple">
+<li><p>IP &gt; IPsec &gt; Proposals</p></li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-c2s-6.png" src="../_images/mikrotik-l2tp-c2s-6.png" />
+<p><strong>IPSec Profile</strong></p>
+<ul class="simple">
+<li><p>IP &gt; IPsec &gt; Profiles</p></li>
+</ul>
+<img alt="../_images/mikrotik-l2tp-c2s-7.png" src="../_images/mikrotik-l2tp-c2s-7.png" />
+</section>
+<section id="gre-ipsec">
+<h3>GRE IPSec<a class="headerlink" href="#gre-ipsec" title="Permalink to this headline"></a></h3>
+<img alt="../_images/mikrotik-gre-1.png" src="../_images/mikrotik-gre-1.png" />
+<img alt="../_images/mikrotik-gre-2.png" src="../_images/mikrotik-gre-2.png" />
+<img alt="../_images/mikrotik-gre-3.png" src="../_images/mikrotik-gre-3.png" />
 </section>
 <section id="sstp">
 <h3>SSTP<a class="headerlink" href="#sstp" title="Permalink to this headline"></a></h3>

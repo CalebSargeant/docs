@@ -64,6 +64,7 @@ Table of Contents
   computing/bamboo
   computing/cloud/index
   computing/containerisation/index
+  computing/dns
   computing/jenkins/index
   computing/linux/index
   computing/terraform/index

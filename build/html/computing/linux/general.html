@@ -171,6 +171,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#wc">WC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#decrypt-gpg">Decrypt GPG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#forget-gpg-invalid-password">Forget GPG Invalid Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-dns-servers-ubuntu">List DNS Servers Ubuntu</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html">IPTables</a></li>
@@ -182,8 +183,8 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -1365,6 +1366,14 @@ wc -l file.txt
 <h2>Forget GPG Invalid Password<a class="headerlink" href="#forget-gpg-invalid-password" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-to-forget-wrong-gpg-password">https://emacs.stackexchange.com/questions/52837/how-to-force-emacs-or-pinentry-to-forget-wrong-gpg-password</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gpgconf --kill gpg-agent
+</pre></div>
+</div>
+</section>
+<section id="list-dns-servers-ubuntu">
+<h2>List DNS Servers Ubuntu<a class="headerlink" href="#list-dns-servers-ubuntu" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://askubuntu.com/questions/152593/command-line-to-list-dns-servers-used-by-my-system">https://askubuntu.com/questions/152593/command-line-to-list-dns-servers-used-by-my-system</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nmcli device show &lt;interfacename&gt; <span class="p">|</span> grep IP4.DNS
+systemd-resolve --status
 </pre></div>
 </div>
 </section>

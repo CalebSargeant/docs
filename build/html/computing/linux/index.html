@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -66,8 +67,8 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -133,6 +134,7 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#size-of-db">Size of DB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#resetting-root-password">Resetting Root Password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#resetting-user-password">Resetting User Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#update-encrypted-password">Update Encrypted Password</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#allow-root-access-without-password-as-root">Allow Root Access without Password as Root</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#checking-the-version">Checking the Version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#checking-database-size">Checking Database Size</a></li>
@@ -161,6 +163,7 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#reducing-disk-usage">Reducing Disk Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#show-running-queries">Show Running Queries</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#vacuum">Vacuum</a></li>
 </ul>
 </li>
 </ul>
@@ -280,19 +283,25 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#wc">WC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#decrypt-gpg">Decrypt GPG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#forget-gpg-invalid-password">Forget GPG Invalid Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#list-dns-servers-ubuntu">List DNS Servers Ubuntu</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="iptables.html">IPTables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#multiple-ports">Multiple Ports</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iptables.html#adding-a-rule">Adding a Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html#adding-a-rule">Adding a Rule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iptables.html#specific-position">Specific Position</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#comments">Comments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#allowing-incoming-traffic-after-changing-default-policy">Allowing Incoming Traffic after Changing Default Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#deleting-a-rule">Deleting a Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html#dns-resolve-issues">DNS Resolve Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#port-forwarding">Port Forwarding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#persistent-rules">Persistent Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#listing-rules">Listing Rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#allow-only-certain-ip-ranges">Allow Only Certain IP Ranges</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iptables.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iptables.html#docker">Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -364,14 +373,78 @@
 <li class="toctree-l2"><a class="reference internal" href="storage.html#mdadm">MDADM</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#concepts">Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#what-is-linux">What is Linux?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#unix-vs-linux">Unix vs Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#download-install-and-configure">Download, Install and Configure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-distributions">Linux Distributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#centos-vs-centos-stream">CentOS vs CentOS Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-vs-windows">Linux vs Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-users">Linux Users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#system-access-and-file-system">System Access and File System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#network-commands">Network Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#important-things">Important Things</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-file-system">Linux File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-system-structure">File System Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-system-structure-and-its-description">File System Structure and its Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-system-navigation">File System Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#what-is-root">What is Root?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-system-paths">File System Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#directory-listing-attributes">Directory Listing Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#creating-files-and-directories">Creating Files and Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#copying-directories">Copying Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-file-types">Linux File Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#finding-files-and-directories">Finding Files and Directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#difference-between-find-and-locate">Difference Between find and locate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#changing-password">Changing Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#wildcards">Wildcards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#soft-and-hard-links">Soft and Hard Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#commands-syntax">Commands Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-permissions">File Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-permissions-using-numeric-mode">File Permissions using Numeric Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-ownership">File Ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#access-control-list">Access Control List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#help-commands">Help Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#tab-completion-and-up-arrow">Tab Completion and Up Arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#adding-text-to-files-redirects">Adding Text to Files (Redirects)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#input-and-output-redirects">Input and Output Redirects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#standard-output-to-a-file-tee">Standard Output to a File (tee)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#pipes">Pipes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-maintenance-commands">File Maintenance Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-display-commands">File Display Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#filters-text-processors-commands">Filters / Text Processors Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#cut">Cut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#awk">Awk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#grep-egrep">Grep/Egrep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#sort-uniq">Sort/Uniq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#wc">Wc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#compare-files">Compare Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#compress-and-un-compress-files">Compress and un-Compress Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#truncate-file-size">Truncate File Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#combining-and-splitting-files">Combining and Splitting Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-vs-windows-commands">Linux vs Windows Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#linux-system-administration">Linux System Administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-file-editor-vi">Linux File Editor (vi)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#difference-between-vi-and-vim-editor">Difference Between vi and vim Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#sed-command">Sed Command</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ufw.html">UFW</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html#port-forwarding">Port Forwarding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html#disable-ufw">Disable UFW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html#status">Status</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="network-management/index.html">Network Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="network-management/ip-vs-ifconfig.html">IP vs. IFCONFIG</a></li>
 </ul>
 </li>
 </ul>

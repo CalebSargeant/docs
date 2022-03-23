@@ -1,6 +1,14 @@
 Hyper-V
 =======
 
+Folder Locations
+----------------
+
+.. code-block:: powershell
+
+  Configuration files: C:\ProgramData\Microsoft\Windows\Hyper-V
+  Virtual Hard Disk (VHD) Files: C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks 
+
 Creating a Snapshot
 -------------------
 

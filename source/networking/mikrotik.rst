@@ -310,6 +310,129 @@ PPTP
 
 - Add a route to the local network on each router (IP > Route)
 
+L2TP Site-to-Site
+^^^^^^^^^^^^^^^^^
+
+**On your main router:**
+
+* Create the PPP Profile
+
+    * PPP > Profiles
+    * Name: Put the name of the ppp profile
+    * Protocols tab > Use Encryption: yes
+
+.. image:: _images/mikrotik-l2tp-l2l-3.png
+
+.. image:: _images/mikrotik-l2tp-l2l-4.png
+
+* Enabling L2TP Server with IPSec
+
+    * PPP > Interface > L2TP Server
+    * Click enabled
+    * Use IPsec: yes
+    * Enter IPsec Secret (this is the PSK that will be for client-to site and site-to-site connections, because we must use one profile for both configurations)
+
+.. image:: _images/mikrotik-l2tp-l2l-1.png
+
+* PPP User Configuration
+
+    * PPP > Secrets
+    * User: username
+    * Password (put in password that will be used by the client - not the same as the PSK we setup above)
+    * Local Address: 172.16.19.1 (or any local IP address)
+    * Remote Address: 172.16.19.2 (or any local address that can reach local address)
+    * Routes: put in static route, for example: 192.168.100.0/23 172.16.19.2
+
+.. image:: _images/mikrotik-l2tp-l2l-2.png
+
+**On your other router:**
+
+* Create the PPP Profile
+
+    * PPP > Profiles
+    * Name: Put the name of the ppp profile
+    * Protocols tab > Use Encryption: yes
+
+.. image:: _images/mikrotik-l2tp-l2l-5.png
+
+.. image:: _images/mikrotik-l2tp-l2l-6.png
+
+* L2TP Client Configuration
+
+    * Interfaces > + > L2TP Client
+    * General:
+    
+        * Name: enter name of interface
+    
+    * Dialout:
+
+        * Connect To: public IP Address of main router
+        * User: user
+        * Password: put in your users password
+        * Profile: select the profile you created
+        * Use IPsec
+        * IPSec secret: enter your ipsec secret
+
+.. image:: _images/mikrotik-l2tp-l2l-7.png
+
+.. image:: _images/mikrotik-l2tp-l2l-8.png
+
+* Static Router Configuration
+
+    * IP > Routes
+    * DST Address: remote subnet
+    * Gateway: name of your L2TP interface
+
+.. image:: _images/mikrotik-l2tp-l2l-9.png
+
+L2TP Client-to-Site
+^^^^^^^^^^^^^^^^^^^
+
+**Pool**
+
+- IP > Pools > create IP pool
+
+.. image:: _images/mikrotik-l2tp-c2s-1.png
+
+**L2TP Profile**
+
+- PPP > Profiles:
+
+    - Name: L2TP Client-to-Site
+    - Local Address: the local address of your router
+    - Remote Address: l2tppool
+
+.. image:: _images/mikrotik-l2tp-c2s-2.png
+
+.. image:: _images/mikrotik-l2tp-c2s-3.png
+
+**L2TP Server**
+
+- PPP > Interface > L2TP Server
+
+.. image:: _images/mikrotik-l2tp-c2s-4.png
+
+**IPSec Proposal**
+
+- IP > IPsec > Proposals
+
+.. image:: _images/mikrotik-l2tp-c2s-6.png
+
+**IPSec Profile**
+
+- IP > IPsec > Profiles
+
+.. image:: _images/mikrotik-l2tp-c2s-7.png
+
+GRE IPSec
+^^^^^^^^^
+
+.. image:: _images/mikrotik-gre-1.png
+
+.. image:: _images/mikrotik-gre-2.png
+
+.. image:: _images/mikrotik-gre-3.png
+
 SSTP
 ^^^^
 

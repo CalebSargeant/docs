@@ -59,15 +59,20 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IPTables</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#multiple-ports">Multiple Ports</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-a-rule">Adding a Rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-rule">Adding a Rule</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specific-position">Specific Position</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#allowing-incoming-traffic-after-changing-default-policy">Allowing Incoming Traffic after Changing Default Policy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deleting-a-rule">Deleting a Rule</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dns-resolve-issues">DNS Resolve Issues</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#port-forwarding">Port Forwarding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#persistent-rules">Persistent Rules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#listing-rules">Listing Rules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#allow-only-certain-ip-ranges">Allow Only Certain IP Ranges</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
@@ -78,8 +83,8 @@
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -137,6 +142,13 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp -s <span class="m">192</span>.168.0.0/24 --dport <span class="m">22</span> -j ACCEPT
 </pre></div>
 </div>
+<section id="specific-position">
+<h3>Specific Position<a class="headerlink" href="#specific-position" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://www.osetc.com/en/linux-iptables-insert-rule-at-a-specific-position-prepend-firewall-rule.html">https://www.osetc.com/en/linux-iptables-insert-rule-at-a-specific-position-prepend-firewall-rule.html</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -I INPUT <span class="m">1</span> -i eth2 -d <span class="m">10</span>.147.88.2 -j ACCEPT
+</pre></div>
+</div>
+</section>
 </section>
 <section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline"></a></h2>
@@ -166,6 +178,14 @@ iptables -D
 </pre></div>
 </div>
 </section>
+<section id="dns-resolve-issues">
+<h2>DNS Resolve Issues<a class="headerlink" href="#dns-resolve-issues" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/">https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p udp --sport <span class="m">53</span> -j ACCEPT
+iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
+</pre></div>
+</div>
+</section>
 <section id="port-forwarding">
 <h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;1&#39;</span> <span class="p">|</span> sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
@@ -184,6 +204,10 @@ netfilter-persistent reload
 </div>
 <p><a class="reference external" href="https://upcloud.com/community/tutorials/configure-iptables-ubuntu/">https://upcloud.com/community/tutorials/configure-iptables-ubuntu/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables-save &gt; /etc/iptables/rules.v4
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.cyberciti.biz/faq/how-to-save-iptables-firewall-rules-permanently-on-linux/">https://www.cyberciti.biz/faq/how-to-save-iptables-firewall-rules-permanently-on-linux/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install iptables-persistent
 </pre></div>
 </div>
 </section>
@@ -211,6 +235,17 @@ iptables -P FORWARD DROP
 <h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A INPUT -j LOG --log-prefix <span class="s2">&quot;Dropped INPUT Packet: &quot;</span>
 -A FORWARD -j LOG --log-prefix <span class="s2">&quot;Dropped FORWARD Packet: &quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/66766036/iptables-with-docker-blocking-incoming-traffic-allowing-outgoing-traffic">https://stackoverflow.com/questions/66766036/iptables-with-docker-blocking-incoming-traffic-allowing-outgoing-traffic</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/42932064/restrict-docker-exposed-port-from-only-specific-ip-adresses">https://stackoverflow.com/questions/42932064/restrict-docker-exposed-port-from-only-specific-ip-adresses</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A DOCKER-USER -s <span class="m">172</span>.0.0.0/8 -m comment --comment <span class="s2">&quot;Allow docker to talk to itself&quot;</span> -j ACCEPT
+-A DOCKER-USER -s <span class="m">34</span>.107.59.86/32 -m comment --comment <span class="s2">&quot;whitelist a specific IP Address&quot;</span> -j ACCEPT
+-A DOCKER-USER -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A DOCKER-USER -j DROP
 </pre></div>
 </div>
 </section>

@@ -68,7 +68,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#sed">sed</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#awk">awk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#date">date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cut">cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cut">cut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remove-first-character">Remove First Character</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-for-input">Prompt for Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#output-formatting">Output Formatting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#while-true-loop">While True Loop</a></li>
@@ -269,6 +272,13 @@ date +%Y%m%d
 <span class="nv">name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> cut -f <span class="m">1</span> -d <span class="s1">&#39;.&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
+<section id="remove-first-character">
+<h3>Remove First Character<a class="headerlink" href="#remove-first-character" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/6594085/remove-first-character-of-a-string-in-bash">https://stackoverflow.com/questions/6594085/remove-first-character-of-a-string-in-bash</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cut -c2-
+</pre></div>
+</div>
+</section>
 </section>
 <section id="prompt-for-input">
 <h2>Prompt for Input<a class="headerlink" href="#prompt-for-input" title="Permalink to this headline"></a></h2>

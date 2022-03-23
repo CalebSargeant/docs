@@ -19,6 +19,15 @@ https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-o
 
   iptables -A INPUT -p tcp -s 192.168.0.0/24 --dport 22 -j ACCEPT
 
+Specific Position
+^^^^^^^^^^^^^^^^^
+
+https://www.osetc.com/en/linux-iptables-insert-rule-at-a-specific-position-prepend-firewall-rule.html
+
+.. code-block:: bash
+
+  iptables -I INPUT 1 -i eth2 -d 10.147.88.2 -j ACCEPT
+
 Comments
 --------
 
@@ -54,6 +63,16 @@ https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-fro
   # becomes
   iptables -D
 
+DNS Resolve Issues
+------------------
+
+https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/
+
+.. code-block:: bash
+
+  iptables -A INPUT -p udp --sport 53 -j ACCEPT
+  iptables -A INPUT -p udp --dport 53 -j ACCEPT
+
 Port Forwarding
 ---------------
 
@@ -79,6 +98,12 @@ https://upcloud.com/community/tutorials/configure-iptables-ubuntu/
 .. code-block:: bash
 
   iptables-save > /etc/iptables/rules.v4
+
+https://www.cyberciti.biz/faq/how-to-save-iptables-firewall-rules-permanently-on-linux/
+
+.. code-block:: bash
+
+  sudo apt install iptables-persistent
 
 Listing Rules
 -------------
@@ -111,4 +136,17 @@ Logging
 
   -A INPUT -j LOG --log-prefix "Dropped INPUT Packet: "
   -A FORWARD -j LOG --log-prefix "Dropped FORWARD Packet: "
-  
+
+Docker
+------
+
+https://stackoverflow.com/questions/66766036/iptables-with-docker-blocking-incoming-traffic-allowing-outgoing-traffic
+
+https://stackoverflow.com/questions/42932064/restrict-docker-exposed-port-from-only-specific-ip-adresses
+
+.. code-block:: bash
+
+  -A DOCKER-USER -s 172.0.0.0/8 -m comment --comment "Allow docker to talk to itself" -j ACCEPT
+  -A DOCKER-USER -s 34.107.59.86/32 -m comment --comment "whitelist a specific IP Address" -j ACCEPT
+  -A DOCKER-USER -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+  -A DOCKER-USER -j DROP

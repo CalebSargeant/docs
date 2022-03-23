@@ -173,6 +173,15 @@ https://linuxize.com/post/how-to-change-mysql-user-password/
   SET PASSWORD FOR 'user-name'@'localhost' = PASSWORD('NEW_USER_PASSWORD');
   FLUSH PRIVILEGES;
 
+Update Encrypted Password
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/56527343/update-encrypted-password-in-mysql-database
+
+.. code-block:: bash
+
+  update table set password=encrypt(password);
+
 Allow Root Access without Password as Root
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -432,3 +441,14 @@ https://dba.stackexchange.com/questions/83984/connect-to-postgresql-server-fatal
   host  all  all 0.0.0.0/0 md5
 
   service postgresql restart
+
+Vacuum
+^^^^^^
+
+https://stackoverflow.com/questions/4759503/how-can-i-perform-the-vacuum-using-the-postgresql#:~:text=Connect%20to%20the%20database%20and,which%20will%20also%20update%20statistics.
+
+Vacuuming your postgres db must be done once in a while.
+
+.. code-block:: bash
+
+  VACUUM;

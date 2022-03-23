@@ -58,6 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-the-size-of-a-folder-from-cli">Check the Size of a Folder from CLI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-firefox-from-cli">Download Firefox from CLI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operations-masters">Operations Masters</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#forest">Forest</a></li>
@@ -79,6 +80,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#updates">Updates</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-windows-server-updates">Disable Windows Server Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixing-windows-corruption">Fixing Windows Corruption</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
@@ -134,6 +137,13 @@
   <section id="general">
 <h1>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h1>
 <p>Check which DC authenticated with: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">%logonserver%</span></code></p>
+<section id="check-the-size-of-a-folder-from-cli">
+<h2>Check the Size of a Folder from CLI<a class="headerlink" href="#check-the-size-of-a-folder-from-cli" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line">https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">dir </span><span class="p">/</span><span class="n">a</span><span class="p">/</span><span class="n">s</span>
+</pre></div>
+</div>
+</section>
 <section id="download-firefox-from-cli">
 <h2>Download Firefox from CLI<a class="headerlink" href="#download-firefox-from-cli" title="Permalink to this headline"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># In PowerShell:</span>
@@ -233,6 +243,28 @@ Software Raid - diskmgmt.msc</p>
 <h3>Updates<a class="headerlink" href="#updates" title="Permalink to this headline"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wuapp.exe</span></code> &gt; install updates</p>
 </section>
+</section>
+<section id="disable-windows-server-updates">
+<h2>Disable Windows Server Updates<a class="headerlink" href="#disable-windows-server-updates" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.netzen.co.uk/2019/07/17/disable-windows-server-updates-active-hours/">https://www.netzen.co.uk/2019/07/17/disable-windows-server-updates-active-hours/</a></p>
+<ol class="arabic simple">
+<li><p>Open Windows Powershell by right click &gt; run as administrator</p></li>
+<li><p>Type: SCONFIG and hit enter</p></li>
+<li><p>Press 5 (Windows Update Settings)</p></li>
+<li><p>Press D (Download Only mode)</p></li>
+<li><p>Close Powershell</p></li>
+</ol>
+</section>
+<section id="fixing-windows-corruption">
+<h2>Fixing Windows Corruption<a class="headerlink" href="#fixing-windows-corruption" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://answers.microsoft.com/en-us/windows/forum/all/exception-processing-message-0xc0000005-parameters/71c3eb40-7aab-4340-b2b0-9ef73961665d">https://answers.microsoft.com/en-us/windows/forum/all/exception-processing-message-0xc0000005-parameters/71c3eb40-7aab-4340-b2b0-9ef73961665d</a></p>
+<ul class="simple">
+<li><p>DISM.exe /Online /Cleanup-image /Scanhealth</p></li>
+<li><p>DISM.exe /Online /Cleanup-image /Restorehealth</p></li>
+<li><p>DISM.exe /online /cleanup-image /startcomponentcleanup</p></li>
+<li><p>sfc /scannow</p></li>
+<li><p>chkdsk /f /r</p></li>
+</ul>
 </section>
 </section>
 

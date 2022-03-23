@@ -147,6 +147,15 @@ cut
   # Remove the filename extension (eg. ".exe")
   name=$(echo "$filename" | cut -f 1 -d '.')
 
+Remove First Character
+^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/6594085/remove-first-character-of-a-string-in-bash
+
+.. code-block:: bash
+
+  cut -c2-
+
 Prompt for Input
 ----------------
 
