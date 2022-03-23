@@ -696,9 +696,29 @@ Sed Command
     - `sed 's/Costanza//g'` - remove the word Costanza
 
 - Find and delete a line
+
+    - `sed '/Caleb/d' file`
+
 - Remove empty lines
+
+    - `sed '/^$/d'` 
+
 - Remove the first or n lines in a file
+
+    - `sed '1d' file` - delete first line
+    - `sed '1,2d' file` - delete first 2 lines
+
 - To replace tabs with spaces
+
+    - `sed 's/\t/ /g'`
+
 - Show defined lines from a file
+
+    - `sed -n 12,18p file` - show only lines 12 to 18
+    - `sed 12,18d file` - show all but lines 12 to 18
+    - `sed G file` - add a linebreak to every line
+    - `sed '8!s/Caleb/C/g' file` - change all lines except line 8
+
 - Substitute wining vi editor
 
+    - `:%s/Caleb/Peter/`

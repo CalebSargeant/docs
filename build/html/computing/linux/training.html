@@ -1202,12 +1202,52 @@ date</p></td>
 </ul>
 </div></blockquote>
 </li>
-<li><p>Find and delete a line</p></li>
-<li><p>Remove empty lines</p></li>
-<li><p>Remove the first or n lines in a file</p></li>
-<li><p>To replace tabs with spaces</p></li>
-<li><p>Show defined lines from a file</p></li>
-<li><p>Substitute wining vi editor</p></li>
+<li><p>Find and delete a line</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed ‘/Caleb/d’ file</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Remove empty lines</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed ‘/^$/d’</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Remove the first or n lines in a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed ‘1d’ file</cite> - delete first line</p></li>
+<li><p><cite>sed ‘1,2d’ file</cite> - delete first 2 lines</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To replace tabs with spaces</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed ‘s/t/ /g’</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Show defined lines from a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sed -n 12,18p file</cite> - show only lines 12 to 18</p></li>
+<li><p><cite>sed 12,18d file</cite> - show all but lines 12 to 18</p></li>
+<li><p><cite>sed G file</cite> - add a linebreak to every line</p></li>
+<li><p><cite>sed ‘8!s/Caleb/C/g’ file</cite> - change all lines except line 8</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Substitute wining vi editor</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>:%s/Caleb/Peter/</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </section>
 </section>
