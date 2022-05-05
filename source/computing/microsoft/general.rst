@@ -1,6 +1,46 @@
 General
 =======
 
+Find What is Using File
+-----------------------
+
+https://superuser.com/questions/117902/find-out-which-process-is-locking-a-file-or-folder-in-windows/643312#643312
+
+Mapping Drive CLI
+-----------------
+
+.. code-block:: powershell
+  
+  # Create Mapped drive
+  net use z: \\server\share /user:administrator mysecurepassword /persistent:Yes
+ 
+  # Delete mapped drive           
+  net use * /delete
+
+Changing Network Type
+---------------------
+
+http://woshub.com/how-to-change-a-network-type-from-public-to-private-in-windows/
+
+.. code-block:: powershell
+
+  Get-NetConnectionProfile
+  Set-NetConnectionProfile -InterfaceIndex 8 -NetworkCategory Private
+  Get-NetConnectionProfile -InterfaceIndex 8
+
+7-zip CLI
+---------
+
+https://www.dotnetperls.com/7-zip-examples
+
+.. code-block:: powershell
+
+  # a means archive, mx9 means best compression
+  7zip.exe a -t7z -mx9 z:\dest-compressed-file.7z z:\source-folder
+
+DC Authenticated With
+---------------------
+
 Check which DC authenticated with: ``echo %logonserver%``
 
 Check the Size of a Folder from CLI

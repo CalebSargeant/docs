@@ -1,6 +1,77 @@
 PowerShell
 ==========
 
+For Loop
+--------
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.2
+
+.. code-block:: powershell
+
+  $letterArray = "a","b","c","d"
+  foreach ($letter in $letterArray)
+  {
+    Write-Host $letter
+  }
+
+Removing Files
+--------------
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2
+
+.. code-block:: powershell
+
+  Remove-Item C:\Test\*.*
+
+Renaming Files
+--------------
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2
+
+.. code-block:: powershell
+
+  Rename-Item -Path "c:\logfiles\daily_file.txt" -NewName "monday_file.txt"
+
+Get Date
+--------
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.2
+
+.. code-block:: powershell
+
+  $date = get-date -format yyyymmdd
+
+Send Email
+----------
+
+Save the PSCredential in a file:
+
+https://stackoverflow.com/questions/40029235/save-pscredential-in-the-file
+
+.. code-block:: powershell
+
+  $credential = Get-Credential
+  $credential | Export-CliXml -Path 'C:\My\Path\cred.xml'
+  $credential = Import-CliXml -Path 'C:\My\Path\cred.xml'
+
+https://www.pdq.com/blog/powershell-send-mailmessage-gmail/
+
+.. code-block:: powershell
+
+  ##############################################################################
+  $From = "YourEmail@gmail.com"
+  $To = "AnotherEmail@YourDomain.com"
+  $Cc = "YourBoss@YourDomain.com"
+  $Attachment = "C:\temp\Some random file.txt"
+  $Subject = "Email Subject"
+  $Body = "Insert body text here"
+  $SMTPServer = "smtp.gmail.com"
+  $SMTPPort = "587"
+  Send-MailMessage -From $From -to $To -Cc $Cc -Subject $Subject `
+  -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl `
+  -Credential (Get-Credential) -Attachments $Attachment
+  ##############################################################################
+
 Random
 ------
 

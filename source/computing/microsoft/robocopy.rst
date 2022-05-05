@@ -2,6 +2,7 @@ Robocopy
 ========
 
 https://adamtheautomator.com/robocopy/
+https://stackoverflow.com/questions/3898127/how-can-i-make-robocopy-silent-in-the-command-line-except-for-progress
 
 .. code-block:: bat
 
@@ -18,4 +19,7 @@ https://adamtheautomator.com/robocopy/
   :: ( robocopy C:\ D:\ /w:1 /r:1 )
 
   robocopy c:\users\username z:\Backups\username /E /XC /XN /XO /XD
+
+  robocopy e:\WindowsImageBackup\C2BHV03 \\10.0.0.104\Z\C2BHV03 /MIR /np | tee-object -filepath $backuplog
+
 

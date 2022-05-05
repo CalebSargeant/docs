@@ -150,6 +150,22 @@ https://unix.stackexchange.com/questions/392393/bash-moving-files-with-spaces
 
   while IFS= read -r file; do echo "$file"; done < files 
 
+IPv6
+----
+
+Disabling IPv6
+^^^^^^^^^^^^^^
+
+https://itsfoss.com/disable-ipv6-ubuntu-linux/
+
+.. code-block:: bash
+
+  nano /etc/sysctl.conf
+    net.ipv6.conf.all.disable_ipv6=1
+    net.ipv6.conf.default.disable_ipv6=1
+    net.ipv6.conf.lo.disable_ipv6=1
+  sudo sysctl -p
+
 Fstab
 -----
 
@@ -260,6 +276,15 @@ Disk Usage
   # Exclude:
   du -sh --exclude='*.docx'
 
+Order by Size
+^^^^^^^^^^^^^
+
+https://www.studytonight.com/forum/how-can-i-sort-du-h-output-by-size
+
+.. code-block:: bash
+
+  du | sort -nr | cut -f2- | xargs du -hs
+
 Formatting Disk
 ---------------
 
@@ -308,6 +333,11 @@ https://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used
   
   { find / -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n; } 2>/dev/null
 
+
+Mail
+----
+
+https://askubuntu.com/questions/12917/how-to-send-mail-from-the-command-line
 
 Grep
 ----
@@ -611,6 +641,15 @@ Try the following:
 umount /dev/sda*
 fsck /dev/sda1 -f -y -a
 (see http://www.computerhope.com/unix/fsck.htm for syntax of fsck)
+
+Nginx
+-----
+
+https://stackoverflow.com/questions/18587638/how-do-i-restart-nginx-only-after-the-configuration-test-was-successful-on-ubunt
+
+.. code-block:: bash
+
+  sudo nginx -t && sudo nginx -s reload
 
 Xen
 ---

@@ -34,6 +34,56 @@ https://elinux.org/R-Pi_Troubleshooting#Updating_firmware
   sudo rpi-update
   sudo reboot
 
+Swap File Size
+--------------
+
+https://pimylifeup.com/raspberry-pi-swap-file/
+
+.. code-block:: bash
+
+  sudo dphys-swapfile swapoff
+  sudo nano /etc/dphys-swapfile
+    CONF_SWAPSIZE=1024
+  sudo dphys-swapfile setup
+  sudo dphys-swapfile swapon
+
+Web Server
+----------
+
+https://pimylifeup.com/raspberry-pi-apache/
+
+Apache
+^^^^^^
+
+.. code-block:: bash
+
+  sudo apt install apache2 -y
+  sudo usermod -a -G www-data pi
+  sudo chown -R -f www-data:www-data /var/www/html
+  nano /var/www/html/index.html
+
+PHP
+^^^
+
+.. code-block:: bash
+
+  sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mbstring php7.4-mysql php7.4-curl php7.4-gd php7.4-zip -y
+  sudo nano /var/www/html/example.php
+    <?php
+    echo "Today's date is ".date('Y-m-d H:i:s');
+  sudo nano /etc/apache2/sites-available/example.com.conf
+    <VirtualHost *:80>
+      ServerName example.com
+      ServerAlias www.example.com
+      DocumentRoot /var/www/example.com/public_html
+      ErrorLog ${APACHE_LOG_DIR}/example.com_error.log
+      CustomLog ${APACHE_LOG_DIR}/example.com_access.log combined
+    </VirtualHost>
+  sudo mkdir -p /var/www/example.com/public_html
+  sudo chown -R www-data:www-data /var/www/example.com/public_html
+  sudo a2ensite example.com.conf
+  sudo systemctl reload apache2
+
 Bluetooth Speaker
 -----------------
 
