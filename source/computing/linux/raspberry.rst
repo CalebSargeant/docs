@@ -34,6 +34,47 @@ https://elinux.org/R-Pi_Troubleshooting#Updating_firmware
   sudo rpi-update
   sudo reboot
 
+Parsec
+------
+
+https://forums.raspberrypi.com/viewtopic.php?t=326828
+
+.. code-block:: bash
+
+  # Make sure to set the resolution and graphics memory
+  sudo raspi-config
+  # advanced options
+  # GL Driver
+  # Disable
+
+  # Download & install https://github.com/hitesh83/pwomxplayer-support/archive/refs/heads/main.zip to get rid of the lib error
+  # Download https://builds.parsecgaming.com/channel/release/appdata/rpi/latest and move to ~/.parsec/appdata.json
+  # Download https://builds.parsecgaming.com/channel/release/binary/rpi/gz/parsecd-150-47.so and copy to ~/parsec/
+
+  # Or download the below and copy to ~/parsec
+
+:download:`Parsec Files <_docs/parsecfiles.7z>`
+
+Mail
+----
+
+.. code-block:: bash
+
+  apt install mailutils
+
+  # mail command will use exim4 by default, so change exim4 config to be on internet instead of local
+  nano /etc/exim4/update-exim4.conf.conf
+    dc_eximconfig_configtype='internet'
+  
+  # restart exim4
+  systemctl restart exim4
+
+  # Check the log of sending maik
+  tail -f /var/log/exim4/mainlog 
+
+  # Sending a mail
+  echo "my body" | mail -s "mysubject" contact@calebsargeant.com
+
 Swap File Size
 --------------
 
