@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -61,12 +62,19 @@
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#writing-sd-card">Writing SD Card</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#firmware-update">Firmware Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsec">Parsec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mail">Mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swap-file-size">Swap File Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-server">Web Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#apache">Apache</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#php">PHP</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#bluetooth-speaker">Bluetooth Speaker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#audio-config">Audio Config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#spotify-connect">Spotify Connect</a></li>
@@ -76,8 +84,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="training.html">Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-management/index.html">Network Management</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
@@ -148,6 +156,88 @@ sudo diskutil eject /dev/rdiskN
 sudo reboot
 </pre></div>
 </div>
+</section>
+<section id="parsec">
+<h2>Parsec<a class="headerlink" href="#parsec" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://forums.raspberrypi.com/viewtopic.php?t=326828">https://forums.raspberrypi.com/viewtopic.php?t=326828</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure to set the resolution and graphics memory</span>
+sudo raspi-config
+<span class="c1"># advanced options</span>
+<span class="c1"># GL Driver</span>
+<span class="c1"># Disable</span>
+
+<span class="c1"># Download &amp; install https://github.com/hitesh83/pwomxplayer-support/archive/refs/heads/main.zip to get rid of the lib error</span>
+<span class="c1"># Download https://builds.parsecgaming.com/channel/release/appdata/rpi/latest and move to ~/.parsec/appdata.json</span>
+<span class="c1"># Download https://builds.parsecgaming.com/channel/release/binary/rpi/gz/parsecd-150-47.so and copy to ~/parsec/</span>
+
+<span class="c1"># Or download the below and copy to ~/parsec</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../_downloads/8a179a147a7f415fe31dfb62e62d8665/parsecfiles.7z"><code class="xref download docutils literal notranslate"><span class="pre">Parsec</span> <span class="pre">Files</span></code></a></p>
+</section>
+<section id="mail">
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install mailutils
+
+<span class="c1"># mail command will use exim4 by default, so change exim4 config to be on internet instead of local</span>
+nano /etc/exim4/update-exim4.conf.conf
+  <span class="nv">dc_eximconfig_configtype</span><span class="o">=</span><span class="s1">&#39;internet&#39;</span>
+
+<span class="c1"># restart exim4</span>
+systemctl restart exim4
+
+<span class="c1"># Check the log of sending maik</span>
+tail -f /var/log/exim4/mainlog
+
+<span class="c1"># Sending a mail</span>
+<span class="nb">echo</span> <span class="s2">&quot;my body&quot;</span> <span class="p">|</span> mail -s <span class="s2">&quot;mysubject&quot;</span> contact@calebsargeant.com
+</pre></div>
+</div>
+</section>
+<section id="swap-file-size">
+<h2>Swap File Size<a class="headerlink" href="#swap-file-size" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-swap-file/">https://pimylifeup.com/raspberry-pi-swap-file/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dphys-swapfile swapoff
+sudo nano /etc/dphys-swapfile
+  <span class="nv">CONF_SWAPSIZE</span><span class="o">=</span><span class="m">1024</span>
+sudo dphys-swapfile setup
+sudo dphys-swapfile swapon
+</pre></div>
+</div>
+</section>
+<section id="web-server">
+<h2>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-apache/">https://pimylifeup.com/raspberry-pi-apache/</a></p>
+<section id="apache">
+<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2 -y
+sudo usermod -a -G www-data pi
+sudo chown -R -f www-data:www-data /var/www/html
+nano /var/www/html/index.html
+</pre></div>
+</div>
+</section>
+<section id="php">
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mbstring php7.4-mysql php7.4-curl php7.4-gd php7.4-zip -y
+sudo nano /var/www/html/example.php
+  &lt;?php
+  <span class="nb">echo</span> <span class="s2">&quot;Today&#39;s date is &quot;</span>.date<span class="o">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="o">)</span><span class="p">;</span>
+sudo nano /etc/apache2/sites-available/example.com.conf
+  &lt;VirtualHost *:80&gt;
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /var/www/example.com/public_html
+    ErrorLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_error.log
+    CustomLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_access.log combined
+  &lt;/VirtualHost&gt;
+sudo mkdir -p /var/www/example.com/public_html
+sudo chown -R www-data:www-data /var/www/example.com/public_html
+sudo a2ensite example.com.conf
+sudo systemctl reload apache2
+</pre></div>
+</div>
+</section>
 </section>
 <section id="bluetooth-speaker">
 <h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this headline"></a></h2>

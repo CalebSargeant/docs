@@ -1,5 +1,119 @@
 Nagios
+======
+
+Installing NRPE
+---------------
+
+https://support.nagios.com/kb/article/nrpe-how-to-install-nrpe-8.html
+
+.. code-block:: bash
+
+    cd /tmp
+    wget http://assets.nagios.com/downloads/nagiosxi/agents/linux-nrpe-agent.tar.gz
+    tar xzf linux-nrpe-agent.tar.gz
+    cd linux-nrpe-agent
+    ./fullinstall
+
+Uninstalling NRPE
+-----------------
+
+https://support.nagios.com/kb/article/nrpe-how-to-uninstall-nrpe-741.html#Ubuntu
+
+.. code-block:: bash
+
+    # Remove XINETD daemon
+    sudo rm -f /etc/xinetd.d/nrpe
+    sudo systemctl restart xinetd
+
+    # Stop and remove dedicated daemon
+    sudo systemctl stop nrpe.service
+    sudo systemctl disable nrpe.service
+    sudo rm -f /lib/systemd/system/nrpe.service
+    sudo systemctl daemon-reload
+
+    # Delete NRPE Files
+    sudo rm -f /usr/local/nagios/bin/nrpe*
+    sudo rm -f /usr/local/nagios/etc/nrpe*
+    sudo rm -f /usr/local/nagios/libexec/*nrpe*
+
+Install Nagios Core
+-------------------
+
+https://linuxhint.com/install_nagios_ubuntu/
+
+.. code-block:: bash
+
+    # Install prerequisites
+    sudo apt install -y build-essential apache2 php openssl perl make php-gd libgd-dev libapache2-mod-php libperl-dev libssl-dev daemon wget apache2-utils unzip
+    
+    # User account
+    sudo useradd nagios
+    sudo groupadd nagios
+    sudo usermod -a -G nagios nagios
+    sudo usermod -a -G nagios www-data
+
+    # Download Nagios
+    cd /tmp
+    wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.5.tar.gz
+    tar -zxvf /tmp/nagios-4.4.5.tar.gz
+    cd /tmp/nagios-4.4.5/
+
+    # Compile Nagios
+    sudo ./configure --with-nagios-group=nagios --with-command-group=nagios --with-httpd_conf=/etc/apache2/sites-enabled/
+    sudo make all
+    sudo make install
+    sudo make install-init
+    sudo make install-config
+    sudo make install-commandmode
+    sudo make install-webconf
+    cd /tmp/nagios-4.4.5$ sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users
+    sudo a2enmod cgi
+    sudo systemctl restart apache2
+
+    # Nagios Plugins
+    cd /tmp
+    wget https://nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz
+    tar -zxvf /tmp/nagios-plugins-2.3.3.tar.gz
+    cd /tmp/nagios-plugins-2.3.3/
+    sudo ./configure --with-nagios-user=nagios --with-nagios-group=nagios
+    sudo make
+    sudo make install
+
+    # Using Nagios
+    sudo /usr/local/nagios/bin/nagios -v
+    cd /usr/local/nagios/etc/nagios.cfg
+    sudo systemctl enable nagios
+    sudo systemctl start nagios
+
+Uninstall Nagios
+----------------
+
+https://serverfault.com/questions/584518/uninstall-nagios-that-has-been-manually-installed-through-source
+
+https://support.nagios.com/forum/viewtopic.php?t=34007
+
+.. code-block:: bash
+
+    Stop the Nagios daemon
+    Remove the web conf, if you installed it
+    Remove the user and group that you added for Nagios
+    Remove the init script
+    Remove /usr/local/nagios directory
+    find / -iname '*nagios*'
+    delete everything
+
+Errors
 ------
+
+(No output on stdout) stderr:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://askubuntu.com/questions/817827/no-output-on-stdout-stderr-execvp-usr-local-nagios-libexec-check-ping-in-ub
+
+.. code-block:: bash
+
+    sudo apt-get install nagios-plugins
+
 
 Adding Linux Hosts
 ------------------

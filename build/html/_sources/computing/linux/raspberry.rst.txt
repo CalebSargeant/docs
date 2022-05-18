@@ -34,6 +34,97 @@ https://elinux.org/R-Pi_Troubleshooting#Updating_firmware
   sudo rpi-update
   sudo reboot
 
+Parsec
+------
+
+https://forums.raspberrypi.com/viewtopic.php?t=326828
+
+.. code-block:: bash
+
+  # Make sure to set the resolution and graphics memory
+  sudo raspi-config
+  # advanced options
+  # GL Driver
+  # Disable
+
+  # Download & install https://github.com/hitesh83/pwomxplayer-support/archive/refs/heads/main.zip to get rid of the lib error
+  # Download https://builds.parsecgaming.com/channel/release/appdata/rpi/latest and move to ~/.parsec/appdata.json
+  # Download https://builds.parsecgaming.com/channel/release/binary/rpi/gz/parsecd-150-47.so and copy to ~/parsec/
+
+  # Or download the below and copy to ~/parsec
+
+:download:`Parsec Files <_docs/parsecfiles.7z>`
+
+Mail
+----
+
+.. code-block:: bash
+
+  apt install mailutils
+
+  # mail command will use exim4 by default, so change exim4 config to be on internet instead of local
+  nano /etc/exim4/update-exim4.conf.conf
+    dc_eximconfig_configtype='internet'
+  
+  # restart exim4
+  systemctl restart exim4
+
+  # Check the log of sending maik
+  tail -f /var/log/exim4/mainlog 
+
+  # Sending a mail
+  echo "my body" | mail -s "mysubject" contact@calebsargeant.com
+
+Swap File Size
+--------------
+
+https://pimylifeup.com/raspberry-pi-swap-file/
+
+.. code-block:: bash
+
+  sudo dphys-swapfile swapoff
+  sudo nano /etc/dphys-swapfile
+    CONF_SWAPSIZE=1024
+  sudo dphys-swapfile setup
+  sudo dphys-swapfile swapon
+
+Web Server
+----------
+
+https://pimylifeup.com/raspberry-pi-apache/
+
+Apache
+^^^^^^
+
+.. code-block:: bash
+
+  sudo apt install apache2 -y
+  sudo usermod -a -G www-data pi
+  sudo chown -R -f www-data:www-data /var/www/html
+  nano /var/www/html/index.html
+
+PHP
+^^^
+
+.. code-block:: bash
+
+  sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mbstring php7.4-mysql php7.4-curl php7.4-gd php7.4-zip -y
+  sudo nano /var/www/html/example.php
+    <?php
+    echo "Today's date is ".date('Y-m-d H:i:s');
+  sudo nano /etc/apache2/sites-available/example.com.conf
+    <VirtualHost *:80>
+      ServerName example.com
+      ServerAlias www.example.com
+      DocumentRoot /var/www/example.com/public_html
+      ErrorLog ${APACHE_LOG_DIR}/example.com_error.log
+      CustomLog ${APACHE_LOG_DIR}/example.com_access.log combined
+    </VirtualHost>
+  sudo mkdir -p /var/www/example.com/public_html
+  sudo chown -R www-data:www-data /var/www/example.com/public_html
+  sudo a2ensite example.com.conf
+  sudo systemctl reload apache2
+
 Bluetooth Speaker
 -----------------
 

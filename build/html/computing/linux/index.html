@@ -62,7 +62,6 @@
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
@@ -149,6 +148,7 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#installing-mysql">Installing MySQL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#json-like-query">Json Like Query</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#converting-epoch-to-human-readable-date">Converting Epoch to Human Readable Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#find-columns-in-tables">Find Columns in Tables</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html#postgresql">PostgreSQL</a><ul>
@@ -182,6 +182,10 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#while-loop">While Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#for-loop">For Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#moving-files-with-spaces">Moving Files with Spaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#ipv6">IPv6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#disabling-ipv6">Disabling IPv6</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#fstab">Fstab</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#automounting">Automounting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
@@ -189,11 +193,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#ssh-config">SSH Config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#openssl">OpenSSL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general.html#disk-usage">Disk Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#disk-usage">Disk Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general.html#order-by-size">Order by Size</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#iso-to-disk">ISO to Disk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#check-ssl-certificate-expiry-date">Check SSL Certificate Expiry Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#inodes">Inodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#mail">Mail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#grep">Grep</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#tail">Tail</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#sftp">SFTP</a><ul>
@@ -228,6 +236,7 @@
 <li class="toctree-l2"><a class="reference internal" href="general.html#list-samba-users">List Samba Users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#open-webpage-on-mac">Open Webpage on Mac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#running-fsck-manually">Running FSCK Manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#nginx">Nginx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#xen">Xen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="general.html#manually-starting">Manually Starting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="general.html#install-xen">Install Xen</a></li>
@@ -316,11 +325,21 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#on-the-nagios-box">On the Nagios Box</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#on-the-host-to-monitor">On the host to monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nagios.html">Nagios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#installing-nrpe">Installing NRPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#uninstalling-nrpe">Uninstalling NRPE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#install-nagios-core">Install Nagios Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#uninstall-nagios">Uninstall Nagios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#errors">Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nagios.html#no-output-on-stdout-stderr">(No output on stdout) stderr:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="nagios.html#on-the-nagios-box">On the Nagios Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nagios.html#on-the-host-to-monitor">On the host to monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nagios.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a><ul>
@@ -346,6 +365,14 @@
 <li class="toctree-l1"><a class="reference internal" href="raspberry.html">Raspberry Pi</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html#writing-sd-card">Writing SD Card</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html#firmware-update">Firmware Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html#parsec">Parsec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html#mail">Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html#swap-file-size">Swap File Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry.html#web-server">Web Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="raspberry.html#apache">Apache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raspberry.html#php">PHP</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html#bluetooth-speaker">Bluetooth Speaker</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="raspberry.html#audio-config">Audio Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="raspberry.html#spotify-connect">Spotify Connect</a></li>

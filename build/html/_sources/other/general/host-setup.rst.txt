@@ -9,6 +9,16 @@ Developer tools in Chrome:
 Mac
 ---
 
+Wake on LAN Client
+^^^^^^^^^^^^^^^^^^
+
+https://apple.stackexchange.com/questions/95246/wake-other-computers-from-mac-osx
+
+.. code-block:: bash
+
+  brew install wakeonlan
+  wakeonlan -i 192.168.1.255 -p 1234 01:02:03:04:05:06
+
 List of Stuff
 ^^^^^^^^^^^^^
 

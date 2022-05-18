@@ -53,10 +53,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperv.html">Hyper-V</a></li>
@@ -110,7 +112,8 @@
              
   <section id="robocopy">
 <h1>Robocopy<a class="headerlink" href="#robocopy" title="Permalink to this headline"></a></h1>
-<p><a class="reference external" href="https://adamtheautomator.com/robocopy/">https://adamtheautomator.com/robocopy/</a></p>
+<p><a class="reference external" href="https://adamtheautomator.com/robocopy/">https://adamtheautomator.com/robocopy/</a>
+<a class="reference external" href="https://stackoverflow.com/questions/3898127/how-can-i-make-robocopy-silent-in-the-command-line-except-for-progress">https://stackoverflow.com/questions/3898127/how-can-i-make-robocopy-silent-in-the-command-line-except-for-progress</a></p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>robocopy c:\Sourcepath c:\Destpath /E /XC /XN /XO /XD c:\sourcepath\excludeme
 
 <span class="p">:</span><span class="c1">: /E makes Robocopy recursively copy subdirectories, including empty ones.</span>
@@ -124,6 +127,8 @@
 <span class="p">:</span><span class="c1">: ( robocopy C:\ D:\ /w:1 /r:1 )</span>
 
 robocopy c:\users\username z:\Backups\username /E /XC /XN /XO /XD
+
+robocopy e:\WindowsImageBackup\C2BHV03 \\10.0.0.104\Z\C2BHV03 /MIR /np <span class="p">|</span> tee-object -filepath $backuplog
 </pre></div>
 </div>
 </section>

@@ -71,6 +71,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#while-loop">While Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#for-loop">For Loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#moving-files-with-spaces">Moving Files with Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipv6">IPv6</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#disabling-ipv6">Disabling IPv6</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#fstab">Fstab</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#automounting">Automounting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#emergency-mode-bad-fstab">Emergency Mode Bad Fstab</a></li>
@@ -78,11 +82,15 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-config">SSH Config</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#openssl">OpenSSL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#disk-usage">Disk Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disk-usage">Disk Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#order-by-size">Order by Size</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#formatting-disk">Formatting Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#iso-to-disk">ISO to Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#check-ssl-certificate-expiry-date">Check SSL Certificate Expiry Date</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#inodes">Inodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mail">Mail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#grep">Grep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tail">Tail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sftp">SFTP</a><ul>
@@ -117,6 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#list-samba-users">List Samba Users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#open-webpage-on-mac">Open Webpage on Mac</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-fsck-manually">Running FSCK Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nginx">Nginx</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#xen">Xen</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#manually-starting">Manually Starting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#install-xen">Install Xen</a></li>
@@ -179,7 +188,6 @@
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
@@ -359,6 +367,20 @@ rsync -avP /src/one /src/two /src/etcetra /dst
 </pre></div>
 </div>
 </section>
+<section id="ipv6">
+<h2>IPv6<a class="headerlink" href="#ipv6" title="Permalink to this headline"></a></h2>
+<section id="disabling-ipv6">
+<h3>Disabling IPv6<a class="headerlink" href="#disabling-ipv6" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://itsfoss.com/disable-ipv6-ubuntu-linux/">https://itsfoss.com/disable-ipv6-ubuntu-linux/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/sysctl.conf
+  net.ipv6.conf.all.disable_ipv6<span class="o">=</span><span class="m">1</span>
+  net.ipv6.conf.default.disable_ipv6<span class="o">=</span><span class="m">1</span>
+  net.ipv6.conf.lo.disable_ipv6<span class="o">=</span><span class="m">1</span>
+sudo sysctl -p
+</pre></div>
+</div>
+</section>
+</section>
 <section id="fstab">
 <h2>Fstab<a class="headerlink" href="#fstab" title="Permalink to this headline"></a></h2>
 <section id="automounting">
@@ -460,6 +482,13 @@ du -sch dir/
 du -sh --exclude<span class="o">=</span><span class="s1">&#39;*.docx&#39;</span>
 </pre></div>
 </div>
+<section id="order-by-size">
+<h3>Order by Size<a class="headerlink" href="#order-by-size" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://www.studytonight.com/forum/how-can-i-sort-du-h-output-by-size">https://www.studytonight.com/forum/how-can-i-sort-du-h-output-by-size</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>du <span class="p">|</span> sort -nr <span class="p">|</span> cut -f2- <span class="p">|</span> xargs du -hs
+</pre></div>
+</div>
+</section>
 </section>
 <section id="formatting-disk">
 <h2>Formatting Disk<a class="headerlink" href="#formatting-disk" title="Permalink to this headline"></a></h2>
@@ -500,6 +529,10 @@ sudo mkfs.ext4 /dev/sdc1
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span> find / -xdev -printf <span class="s1">&#39;%h\n&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort -k <span class="m">1</span> -n<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
 </pre></div>
 </div>
+</section>
+<section id="mail">
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://askubuntu.com/questions/12917/how-to-send-mail-from-the-command-line">https://askubuntu.com/questions/12917/how-to-send-mail-from-the-command-line</a></p>
 </section>
 <section id="grep">
 <h2>Grep<a class="headerlink" href="#grep" title="Permalink to this headline"></a></h2>
@@ -754,6 +787,13 @@ Try the following:
 umount /dev/sda*
 fsck /dev/sda1 -f -y -a
 (see <a class="reference external" href="http://www.computerhope.com/unix/fsck.htm">http://www.computerhope.com/unix/fsck.htm</a> for syntax of fsck)</p>
+</section>
+<section id="nginx">
+<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/18587638/how-do-i-restart-nginx-only-after-the-configuration-test-was-successful-on-ubunt">https://stackoverflow.com/questions/18587638/how-do-i-restart-nginx-only-after-the-configuration-test-was-successful-on-ubunt</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nginx -t <span class="o">&amp;&amp;</span> sudo nginx -s reload
+</pre></div>
+</div>
 </section>
 <section id="xen">
 <h2>Xen<a class="headerlink" href="#xen" title="Permalink to this headline"></a></h2>

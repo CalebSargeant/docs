@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/terraform/index.html">Terraform</a></li>
@@ -71,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="download-videos.html">Download Videos</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Host Setup</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wake-on-lan-client">Wake on LAN Client</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#list-of-stuff">List of Stuff</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#updating-bash">Updating Bash</a></li>
 </ul>
@@ -131,6 +133,14 @@
 </ul>
 <section id="mac">
 <h2>Mac<a class="headerlink" href="#mac" title="Permalink to this headline"></a></h2>
+<section id="wake-on-lan-client">
+<h3>Wake on LAN Client<a class="headerlink" href="#wake-on-lan-client" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://apple.stackexchange.com/questions/95246/wake-other-computers-from-mac-osx">https://apple.stackexchange.com/questions/95246/wake-other-computers-from-mac-osx</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install wakeonlan
+wakeonlan -i <span class="m">192</span>.168.1.255 -p <span class="m">1234</span> <span class="m">01</span>:02:03:04:05:06
+</pre></div>
+</div>
+</section>
 <section id="list-of-stuff">
 <h3>List of Stuff<a class="headerlink" href="#list-of-stuff" title="Permalink to this headline"></a></h3>
 <p>List of stuff to install on a (new) Mac:</p>

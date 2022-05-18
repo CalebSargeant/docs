@@ -67,6 +67,7 @@ Table of Contents
   computing/dns
   computing/jenkins/index
   computing/linux/index
+  computing/pentesting/index
   computing/terraform/index
   computing/microsoft/index
 

@@ -331,6 +331,18 @@ https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-re
 
   select from_unixtime();
 
+Find Columns in Tables
+^^^^^^^^^^^^^^^^^^^^^^
+
+https://stackoverflow.com/questions/193780/how-can-i-find-all-the-tables-in-mysql-with-specific-column-names-in-them
+
+.. code-block:: bash
+
+  SELECT DISTINCT TABLE_NAME 
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE COLUMN_NAME IN ('columnA','ColumnB')
+        AND TABLE_SCHEMA='YourDatabase';
+
 PostgreSQL
 ----------
 

@@ -53,14 +53,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="group-policy.html">Group Policy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperv.html">Hyper-V</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PowerShell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for-loop">For Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-files">Removing Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#renaming-files">Renaming Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-date">Get Date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-email">Send Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#random">Random</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multipart-form-data">Multipart/form-data</a></li>
 </ul>
@@ -114,6 +121,64 @@
              
   <section id="powershell">
 <h1>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline"></a></h1>
+<section id="for-loop">
+<h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.2</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$letterArray</span> <span class="p">=</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$letter</span> <span class="k">in</span> <span class="nv">$letterArray</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nb">Write-Host</span> <span class="nv">$letter</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="removing-files">
+<h2>Removing Files<a class="headerlink" href="#removing-files" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Remove-Item</span> <span class="n">C</span><span class="p">:\</span><span class="n">Test</span><span class="p">\*.*</span>
+</pre></div>
+</div>
+</section>
+<section id="renaming-files">
+<h2>Renaming Files<a class="headerlink" href="#renaming-files" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Rename-Item</span> <span class="n">-Path</span> <span class="s2">&quot;c:\logfiles\daily_file.txt&quot;</span> <span class="n">-NewName</span> <span class="s2">&quot;monday_file.txt&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="get-date">
+<h2>Get Date<a class="headerlink" href="#get-date" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.2</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$date</span> <span class="p">=</span> <span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyymmdd</span>
+</pre></div>
+</div>
+</section>
+<section id="send-email">
+<h2>Send Email<a class="headerlink" href="#send-email" title="Permalink to this headline"></a></h2>
+<p>Save the PSCredential in a file:</p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/40029235/save-pscredential-in-the-file">https://stackoverflow.com/questions/40029235/save-pscredential-in-the-file</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$credential</span> <span class="p">=</span> <span class="nb">Get-Credential</span>
+<span class="nv">$credential</span> <span class="p">|</span> <span class="nb">Export-CliXml</span> <span class="n">-Path</span> <span class="s1">&#39;C:\My\Path\cred.xml&#39;</span>
+<span class="nv">$credential</span> <span class="p">=</span> <span class="nb">Import-CliXml</span> <span class="n">-Path</span> <span class="s1">&#39;C:\My\Path\cred.xml&#39;</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://www.pdq.com/blog/powershell-send-mailmessage-gmail/">https://www.pdq.com/blog/powershell-send-mailmessage-gmail/</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c">##############################################################################</span>
+<span class="nv">$From</span> <span class="p">=</span> <span class="s2">&quot;YourEmail@gmail.com&quot;</span>
+<span class="nv">$To</span> <span class="p">=</span> <span class="s2">&quot;AnotherEmail@YourDomain.com&quot;</span>
+<span class="nv">$Cc</span> <span class="p">=</span> <span class="s2">&quot;YourBoss@YourDomain.com&quot;</span>
+<span class="nv">$Attachment</span> <span class="p">=</span> <span class="s2">&quot;C:\temp\Some random file.txt&quot;</span>
+<span class="nv">$Subject</span> <span class="p">=</span> <span class="s2">&quot;Email Subject&quot;</span>
+<span class="nv">$Body</span> <span class="p">=</span> <span class="s2">&quot;Insert body text here&quot;</span>
+<span class="nv">$SMTPServer</span> <span class="p">=</span> <span class="s2">&quot;smtp.gmail.com&quot;</span>
+<span class="nv">$SMTPPort</span> <span class="p">=</span> <span class="s2">&quot;587&quot;</span>
+<span class="nb">Send-MailMessage</span> <span class="n">-From</span> <span class="nv">$From</span> <span class="n">-to</span> <span class="nv">$To</span> <span class="n">-Cc</span> <span class="nv">$Cc</span> <span class="n">-Subject</span> <span class="nv">$Subject</span> <span class="p">`</span>
+<span class="n">-Body</span> <span class="nv">$Body</span> <span class="n">-SmtpServer</span> <span class="nv">$SMTPServer</span> <span class="n">-port</span> <span class="nv">$SMTPPort</span> <span class="n">-UseSsl</span> <span class="p">`</span>
+<span class="n">-Credential</span> <span class="p">(</span><span class="nb">Get-Credential</span><span class="p">)</span> <span class="n">-Attachments</span> <span class="nv">$Attachment</span>
+<span class="c">##############################################################################</span>
+</pre></div>
+</div>
+</section>
 <section id="random">
 <h2>Random<a class="headerlink" href="#random" title="Permalink to this headline"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># If error?</span>

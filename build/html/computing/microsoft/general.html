@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Group Policy" href="group-policy.html" />
-    <link rel="prev" title="Microsoft" href="index.html" /> 
+    <link rel="prev" title="Backups" href="backups.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,7 +58,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Microsoft</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#find-what-is-using-file">Find What is Using File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapping-drive-cli">Mapping Drive CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-network-type">Changing Network Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zip-cli">7-zip CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dc-authenticated-with">DC Authenticated With</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#check-the-size-of-a-folder-from-cli">Check the Size of a Folder from CLI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-firefox-from-cli">Download Firefox from CLI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operations-masters">Operations Masters</a><ul>
@@ -137,7 +143,41 @@
              
   <section id="general">
 <h1>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h1>
+<section id="find-what-is-using-file">
+<h2>Find What is Using File<a class="headerlink" href="#find-what-is-using-file" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://superuser.com/questions/117902/find-out-which-process-is-locking-a-file-or-folder-in-windows/643312#643312">https://superuser.com/questions/117902/find-out-which-process-is-locking-a-file-or-folder-in-windows/643312#643312</a></p>
+</section>
+<section id="mapping-drive-cli">
+<h2>Mapping Drive CLI<a class="headerlink" href="#mapping-drive-cli" title="Permalink to this headline"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Create Mapped drive</span>
+<span class="n">net</span> <span class="n">use</span> <span class="n">z</span><span class="p">:</span> <span class="p">\\</span><span class="n">server</span><span class="p">\</span><span class="n">share</span> <span class="p">/</span><span class="n">user</span><span class="p">:</span><span class="n">administrator</span> <span class="n">mysecurepassword</span> <span class="p">/</span><span class="n">persistent</span><span class="p">:</span><span class="n">Yes</span>
+
+<span class="c"># Delete mapped drive</span>
+<span class="n">net</span> <span class="n">use</span> <span class="p">*</span> <span class="p">/</span><span class="n">delete</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-network-type">
+<h2>Changing Network Type<a class="headerlink" href="#changing-network-type" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="http://woshub.com/how-to-change-a-network-type-from-public-to-private-in-windows/">http://woshub.com/how-to-change-a-network-type-from-public-to-private-in-windows/</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-NetConnectionProfile</span>
+<span class="nb">Set-NetConnectionProfile</span> <span class="n">-InterfaceIndex</span> <span class="n">8</span> <span class="n">-NetworkCategory</span> <span class="n">Private</span>
+<span class="nb">Get-NetConnectionProfile</span> <span class="n">-InterfaceIndex</span> <span class="n">8</span>
+</pre></div>
+</div>
+</section>
+<section id="zip-cli">
+<h2>7-zip CLI<a class="headerlink" href="#zip-cli" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.dotnetperls.com/7-zip-examples">https://www.dotnetperls.com/7-zip-examples</a></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># a means archive, mx9 means best compression</span>
+<span class="n">7zip</span><span class="p">.</span><span class="n">exe</span> <span class="n">a</span> <span class="n">-t7z</span> <span class="n">-mx9</span> <span class="n">z</span><span class="p">:\</span><span class="n">dest-compressed</span><span class="o">-file</span><span class="p">.</span><span class="n">7z</span> <span class="n">z</span><span class="p">:\</span><span class="n">source-folder</span>
+</pre></div>
+</div>
+</section>
+<section id="dc-authenticated-with">
+<h2>DC Authenticated With<a class="headerlink" href="#dc-authenticated-with" title="Permalink to this headline"></a></h2>
 <p>Check which DC authenticated with: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">%logonserver%</span></code></p>
+</section>
 <section id="check-the-size-of-a-folder-from-cli">
 <h2>Check the Size of a Folder from CLI<a class="headerlink" href="#check-the-size-of-a-folder-from-cli" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line">https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line</a></p>
@@ -273,7 +313,7 @@ Software Raid - diskmgmt.msc</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Microsoft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="backups.html" class="btn btn-neutral float-left" title="Backups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="group-policy.html" class="btn btn-neutral float-right" title="Group Policy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

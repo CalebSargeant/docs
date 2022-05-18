@@ -79,6 +79,42 @@ A docker image is like a template. A docker container is a running instance of t
   snap stop docker
   snap start docker
 
+Backup
+------
+
+https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes
+
+.. code-block:: bash
+
+  #!/bin/bash
+
+  DATE=$(date +%Y%m%d)
+  filelist="prometheus blackbox pushgateway grafana alertmanager"
+
+  # Create /root/backups where containers will be saved to
+  /usr/bin/mkdir /root/backups
+
+  # Stop docker containers and export
+  for line in $filelist ; do
+      /usr/bin/docker stop "$line"
+      /usr/bin/docker export -o "/root/backups/docker-container-$line" "$line"
+  done
+
+  # Make tarball of all volumes, containers and config
+  /usr/bin/tar -czvf "/root/$DATE-backup-weekly.tar.gz" /usr/local/bin /var/lib/docker/volumes /var/spool/cron /etc /root/backups
+
+  # Start docker containers
+  for line in $filelist ; do
+      /usr/bin/docker start "$line"
+  done
+
+  # Copy to backups
+  /usr/bin/scp "/root/$DATE-backup-weekly.tar.gz" serveradmin@backups.chatinc.com:/mnt/data/monitor/weekly
+
+  # Remove backups locally
+  /usr/bin/rm -f "/root/$DATE-backup-weekly.tar.gz"
+  /usr/bin/rm -rf "/root/backups/"
+
 Docker Swarm
 ------------
 

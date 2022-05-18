@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Databases</a><ul>
@@ -90,6 +91,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#installing-mysql">Installing MySQL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#json-like-query">Json Like Query</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#converting-epoch-to-human-readable-date">Converting Epoch to Human Readable Date</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-columns-in-tables">Find Columns in Tables</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a><ul>
@@ -114,7 +116,6 @@
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
@@ -437,6 +438,16 @@ mysql_secure_installation
 <h3>Converting Epoch to Human Readable Date<a class="headerlink" href="#converting-epoch-to-human-readable-date" title="Permalink to this headline"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-readable-date-in-mysql">https://stackoverflow.com/questions/23994889/converting-epoch-number-to-human-readable-date-in-mysql</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> from_unixtime<span class="o">()</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="find-columns-in-tables">
+<h3>Find Columns in Tables<a class="headerlink" href="#find-columns-in-tables" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://stackoverflow.com/questions/193780/how-can-i-find-all-the-tables-in-mysql-with-specific-column-names-in-them">https://stackoverflow.com/questions/193780/how-can-i-find-all-the-tables-in-mysql-with-specific-column-names-in-them</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT DISTINCT TABLE_NAME
+  FROM INFORMATION_SCHEMA.COLUMNS
+  WHERE COLUMN_NAME IN <span class="o">(</span><span class="s1">&#39;columnA&#39;</span>,<span class="s1">&#39;ColumnB&#39;</span><span class="o">)</span>
+      AND <span class="nv">TABLE_SCHEMA</span><span class="o">=</span><span class="s1">&#39;YourDatabase&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
