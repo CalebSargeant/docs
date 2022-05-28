@@ -59,6 +59,9 @@ Granting Privileges
   grant all privileges on mydb.* to 'user'@'localhost';
   flush privileges;
 
+  # Granting one privilege:
+  grant select privilege on *.* to user@host;
+
 Revoking Privileges
 ^^^^^^^^^^^^^^^^^^^
 
@@ -346,6 +349,15 @@ https://stackoverflow.com/questions/193780/how-can-i-find-all-the-tables-in-mysq
 PostgreSQL
 ----------
 
+Showing Users
+^^^^^^^^^^^^^
+
+https://ubiq.co/database-blog/how-to-list-all-users-in-postgresql/#:~:text=Using%20psql%20command,-Log%20into%20PostgreSQL&text=Enter%20password%20to%20log%20into%20PostgreSQL.&text=Enter%20%5Cdu%20command%20to%20list%20all%20users%20in%20PostrgeSQL.&text=You%20will%20see%20the%20list,user%2C%20enter%20%5Cdu%2B%20command.
+
+.. code-block:: none
+
+  \du+
+
 Deleting Rows
 ^^^^^^^^^^^^^
 
@@ -464,3 +476,13 @@ Vacuuming your postgres db must be done once in a while.
 .. code-block:: bash
 
   VACUUM;
+
+Database Sizes
+^^^^^^^^^^^^^^
+
+https://makandracards.com/makandra/37935-postgresql-show-size-of-all-databases
+
+.. code-block:: bash
+
+  SELECT pg_database.datname as "database_name", pg_database_size(pg_database.datname)/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC;
+
