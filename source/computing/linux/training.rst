@@ -722,3 +722,412 @@ Sed Command
 - Substitute wining vi editor
 
     - `:%s/Caleb/Peter/`
+
+User Account Management
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Commands:
+
+* useradd
+* groupadd
+* userdel
+* groupdel
+* usermod
+
+Files:
+
+* /etc/passwd
+* /etc/group
+* /etc/shadow
+
+Example:
+
+.. code-block:: bash
+
+    useradd -g superheros -s /bin/bash -c "user description" -m -d /home/spiderman spiderman
+
+Enable Password Aging
+^^^^^^^^^^^^^^^^^^^^^
+
+* chage [-m mindags] [-M maxdays] [-d lastday] [-I inactive] [-E expiredate] [-W warndays] user
+* File = /etc/login.def
+
+    * PASS_MAX_DAYS 99999
+    * PASS_MIN_DAYS 0
+    * PASS_MIN_LEN 5
+    * PASS_WARN_AGE 7
+
+Check /etc/shadow for the position:
+
+* -d = 3. Last password change (lastchanged): Days since Jan 1, 1970 that password was last changed
+* -m = 4. Minimum: the minimum number of days requred between password changes i.e. the number of days left before the user is allowed to change his/her password
+* -M = 5. Maximum: the maximum number of days the password is valid (after that the user is forced to change the password)
+* -W = 6. Warn: The number of days before password is set to expire that the user is warned that the password must be changed
+* -I = 7. Inactive: The number of days after password expires that the account is disabled
+* -E = 8. Expire: days since Jan 1, 1970 that account is disabled i.e. an absolute date specifying when the login may no longer be used
+
+Switch Users and Sudo Access
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Commands: 
+
+* su - username
+* sudo command
+* visudo
+
+File
+
+* /etc/sudoers
+
+Monitor Users
+^^^^^^^^^^^^^
+
+* who
+* last
+* w
+* finger
+* id.
+
+Talking to Users
+^^^^^^^^^^^^^^^^
+
+* users
+* wall
+* write
+
+Linux Account Authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Type of Accounts
+
+    * Local accounts
+    * Domain/Directory accounts
+
+* Windows = active directory
+
+Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Active Directory = Microsoft
+* IDM = Identity Manager (Redhat)
+* WinBIND = Used in Linux to communicate with Windows (samba)
+* OpenLDAP (open source)
+* IBM Directory Server
+* JumpCloud
+* LDAP = Lightweight Directory Access Protocol (not a package, but a protocol)
+
+System Utility Commands
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* date
+* uptime
+* hostname
+* uname
+* which
+* cal
+* bc
+
+Processes and Jobs
+^^^^^^^^^^^^^^^^^^
+
+* Application = Service
+* Script
+* Process
+* Daemon
+* Threads
+* Job
+
+* systemctl or service
+* ps
+* top
+* kill
+* crontab
+* at
+
+Systemctl Command
+^^^^^^^^^^^^^^^^^
+
+* systemctl command is a new tool to control system services
+* It's available in version 7 and later it replaces the service command
+* Usage example:
+
+    * `systemctl start|stop|status servicename.service`
+    * `systemctl enable servicename.service`
+    * `systemctl restart|reload servicename.service`
+    * `systemctl list-units --all`
+
+        * The output has the following columns:
+
+            * **UNIT**: the systemd unit name
+            * **LOAD**: Whether the unit's configuration has been parsed by systemd. The configuration of loaded units is kept in memory
+            * **ACTIVE**: A summary state about whether the unit is active. This usually a fairly basic way to tell if the unit has started successfully or not.
+            * **SUB**: this is a lower-level state that indicates more detailed information about the unit. THis often varies by unit type, state, and the actual method in which the unit runs.
+            * **DESCRIPTION**: A short textual description of what the unit is/does.
+
+* To add a service under systemctl management:
+
+    * Create a unit file in /etc/systemd/system/servicename.service
+
+* To control system with systemctl
+
+    * `systemctl poweroff`
+    * `systemctl halt`
+    * `systemctl reboot`
+
+ps Command
+^^^^^^^^^^
+
+* ps command stands for process status and it displays all the currently running processes in the Linux system
+* Usage examples:
+
+    * ps = shows the processes of the current shell
+
+        * **PID** = the unique process ID
+        * **TTY** = terminal type that the user logged in to
+        * **TIME** = amount of CPU in mins and secs that the prcess has been running
+        * **CMD** = name of the command
+
+* `ps -e` = shows all running processes
+* `ps aux` = shows all running processes in BSD format
+* `ps -ef` = shows all running processes in full format listing (most commonly used)
+
+top Command
+^^^^^^^^^^^
+
+* top command is used to show the Linux process and it provides a real-time view of the running system
+* This command shows the summary information of the system and the list of process or threads that are currently managed by the Linux Kernal
+* When the top command is executed then it goes into interactive mode and you can exit using q
+* Usage: top
+
+    * **PID**: shows task's unique process ID
+    * **USER**: usertname of owner of task
+    * **PR**: The PR field shows the scheduling priority of the process from the perspective of the kernel
+    * **NI**: Represents a Nice Value of task. A negative nice value implies higher priority, and positive Nice value means lower priority.
+    * **VIRT**: Total virtual memory used by the task
+    * **RES**: Memory consumed by the process in RAM
+    * **SHR**: Represents the amount of shared memory used by a task
+    * **S**: This field shows the process state in the single-letter form
+    * **%CPU**: represents the CPU usage
+    * **%Mem**: shows the memory usage of task
+    * **TIME+**: CPU Time, the smae as TIME, but reflecting more granualarity through hundredths of a second
+
+* top -u caleb = shows tasks/processes by user owned
+* top then press c = shows commands absolute path
+* top then press k = kill a process by PID within top session
+* top the M and P = to sort all linux running processes by Memory usage
+
+kill Command
+^^^^^^^^^^^^
+
+* kill command is used to terminate process manually
+* It sends a signal which ultimately terminates or kills a particular process or group of processes
+* Usage: `kill [OPTION] [PID]`
+* kill -l = to get a list of all signal names or signal numbers
+* Most used signals are:
+
+    * kill PID = kill a process with default signal
+    * kill -1 = restart
+    * kill -2 = interupt from the keyboard just like ctrl C
+    * kill -9  = forcefully kill the process
+    * kill -15 = kill a process gracefully
+
+* Other similar kill commands are:
+
+    * killall
+    * pkill
+
+crontab Command
+^^^^^^^^^^^^^^^
+
+* Crontab command is used to schedule tasks
+* Usage:
+
+    * crontab -e = edit the crontab
+    * crontab -l = list the crontab entries
+    * crontab -r = remove the crontab
+    * crond = crontab daemon/service that manages scheduling
+    * systemctl status crond = manage the crond service
+
+.. image:: _images/linux-crontab-1.png
+
+at Command
+^^^^^^^^^^
+
+* at command is like crontab which allows you to schedule jobs only once
+* When the command command is run it will enter interactive mode and you can get out by pressing ctrl d
+* Usage:
+
+    * `at HH:MM PM` = schedule a job
+    * `atq` = list the at entries
+    * `atrm #` = remove at entry
+    * `atd` = at daemon/service that manages scheduling
+    * `systemctl` status atd = to manage the atd service
+
+* Other future scheduling format:
+
+    * at 2:45 am 101621
+    * at 4pm + 4 days
+    * at now + 5 hours
+    * at 80:00 am sun
+    * at 10:00 am next month
+
+Additional Cron Jobs
+^^^^^^^^^^^^^^^^^^^^
+
+* By default there are 4 different types of cronjobs
+
+    * Hourly
+    * Daily
+    * Weekly
+    * Monthly
+
+* All the above crons are setup in
+
+    * /etc/cron._ (directory)
+
+* The timing for each are set in
+
+    * /etc/anacrontab -- except hourly
+
+* For hourly
+
+    * /etc/cron.d/0hourly
+
+Process Management
+^^^^^^^^^^^^^^^^^^
+
+* Background = `ctrl-z, jobs and bg`
+* Foreground = `fg`
+* Run process even after exit = `nohup process &`
+
+    * OR = `nohub process > /dev/null 2>&1 &`
+
+* Kill a process by name = `pkill`
+* Process priority = nice (e.g. `nice -n 5 process`)
+
+    * the niceness scale goes from -20 to 19. The lower the number more priority that task gets
+
+* Process monitoring = `top`
+* List process = `ps`
+
+System Monitoring
+^^^^^^^^^^^^^^^^^
+
+* top
+* df
+* dmesg
+* iostat 1
+* netstat (netstat -rnv)
+* free
+* cat /proc/cpuinfo
+* cat /proc/meminfo
+
+Log Monitoring
+^^^^^^^^^^^^^^
+
+* Another and most important way of system administration is log monitor
+* Log Directory = /var/log
+
+    * boot
+    * chronyd = NTP
+    * cron
+    * maillog
+    * secure
+    * messages
+    * httpd
+
+System Maintenance Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* shutdown
+* init
+* reboot
+* halt
+
+Changing System Hostname
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* hostnamectl - set-hostname newhostname
+* Version 7 = edit /etc/hostname
+* version 6 = edit /etc/sysconfig/network
+
+Finding System Information
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* cat /etc/redhat-release
+* uname -a
+* dmidecode
+
+System Architecture
+^^^^^^^^^^^^^^^^^^^
+
+* Differences between a 32-bit and 64-bit CPU
+
+A big difference between 32-bit processors and 64-bit processors is the number of calculations per second they can perform, which affects the speed at which they can complete tasks. 64-bit processors can come in dual core, quad core, six core, and eight core versions for home computing. Multiple cores allow for an increased number of calculations per second that can be performed, which can increase the processing power and help make a computer run faster. Software programs that require many calculations to function smoothly can operate faster and more efficiently on the multi-core 64-bit processors.
+
+* Linux = arch
+* Windows = My Computer -> Properties
+
+Terminal Control Keys
+^^^^^^^^^^^^^^^^^^^^^
+
+* Several key combinations on your keyboard usually have a special effect on the terminal
+* These "control" (CTRL) keys are accomplished by holding the CTRL key while typing the second key
+* For example, CTRL-c means to hold the CTRL key while typing the letter "c"
+* The most common control keys are listed below:
+
+    * CTRL-u = erase everything you've typed on the command line
+    * CTRL-c = stop/kill a command
+    * CTRL-z = suspend a command
+    * CTRL-d = exit from an interactive program (signals end of data)
+
+Terminal Commands
+^^^^^^^^^^^^^^^^^
+
+* clear (clears your screen)
+* exit (exit out of the shell, terminal or user session)
+* script (the script command stores terminal activites in a log file that can be named by a user, when a name is not provided by a user, the default file name, typescript is used)
+
+Recover Root Password
+^^^^^^^^^^^^^^^^^^^^^
+
+* restart your computer
+* edit grub
+* change password
+* reboot
+
+* look for "ro" at the bottom and replace with:
+* rw init=/systoot/bin/sh
+* ctrl x
+* chroot /sysroot
+* passwd root
+* exit
+* reboot
+
+SOS Report
+^^^^^^^^^^
+
+* What is SOS Report?
+
+    * Collect and package diagnostic and support data
+
+* Package name
+
+    * sos-version
+
+* Command
+
+    * `sosreport`
+
+Environment Variables
+^^^^^^^^^^^^^^^^^^^^^
+
+* What are environment variables?
+
+    * AN environment variable is a dynamic-named value that can affect the way running processes will behave on a computer. THey are part of the environment in which a process runs
+    * In simple words, a set of defined rules and values to build an environment
+
+* To view all environment variables
+
+    * `printenv` or `env`
+    
