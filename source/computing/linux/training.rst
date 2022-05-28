@@ -1130,4 +1130,132 @@ Environment Variables
 * To view all environment variables
 
     * `printenv` or `env`
-    
+
+* To view all environment variables
+
+    * `echo $SHELL`
+
+* To set the environment variables
+
+    * `export TEST=1`
+    * `echo $TEST`
+
+* To set environment variable permanently
+
+    * `vi .bashrc`
+    * `TEST=123`
+    * `export TEST`
+
+* To set global environment variable permanently
+
+    * `vi /etc/profile`` or `/etc/bashrc`
+    * `Test=123`
+    * `export TEST`
+
+Special Permissions
+^^^^^^^^^^^^^^^^^^^
+
+* All permissions on a file or directory are referred as bits
+
+.. image:: _images/linux-special-permissions.png
+
+* There are additional permissions in Linux:
+
+    * **setuid**: bit tells Linux to run a program with the effective user id of the owner instead of the executor (eg `passwd` command) -> /etc/shadow
+    * **setgid**: bit tells LInux to run a program with the effective group id of the owner instead of the executor (eg `locate` or `wall` command). Please note that this bit is present for only files which have executable permissions
+    * **sticky bit**: a bit set on files/directories that allows only the owner or root to delete those files
+
+* To assign special permissions at the user level:
+
+    * `chmod u+s xyz.sh`
+
+* To assign special permissions at the group level
+
+    * `chmod g+s xyz.sh`
+
+* To remove special permissions at the user or group level
+
+    * `chmod u-s xyz.sh`
+    * `chmod g-s xyz.sh`
+
+* To find all executables in Linux with setuid and setgid permissions
+
+    * `find / -perm /6000 -type f`
+
+* Sticky Bit - it is assigned to the last bit of permissions
+
+    * -rwx rwx rwt
+
+* Please note that these bits work on c programming executables not on bash shell scripts
+
+Shell Scripting
+---------------
+
+Linux Kernal
+^^^^^^^^^^^^
+
+* What is a Kernel?
+
+    * interface between hardware and software
+
+.. image:: _images/linux-kernel.png
+
+Introduction to Shell
+^^^^^^^^^^^^^^^^^^^^^
+
+* What is a Shell?
+
+    * it's like a container
+    * Interface between users and Kernel/OS
+    * CLI is a Shell
+
+* FInd your Shell
+
+    * echo $0
+    * Available Shells "cat /etc/shells"
+    * Your Shell? /etc/passwd
+
+* Windows GUI is a shell
+* Linux KDE GUI is a shell
+* Linux sh, bash etc. is a shell
+
+Types of Shells
+^^^^^^^^^^^^^^^
+
+* Gnome
+* KDE
+* sh
+* bash
+* csh and tcsh
+* ksh
+
+Shell Scripting
+^^^^^^^^^^^^^^^
+
+* What is a Shell Script?
+
+    * A shell script is an executable file containing multiple shell commands that are executed sequentially. THe file can contain:
+
+        * Shell (#!/bin/bash)
+        * Comments (# comments)
+        * Commands (echo, cp, grep, etc.)
+        * Statements (if, while, for, etc.)
+
+* Shell script should have executable permissions (eg. -rwx r-x r-x)
+* Shell script has to be called from absolute path (eg. /home/userdir/script.bash)
+* If called from current location then ./script.bash
+
+Basic Shell Scripts
+^^^^^^^^^^^^^^^^^^^
+
+* Output to screen using "echo"
+* Creating tasks
+
+    * Telling your id, current location, your files/directories, system info
+    * Creating directories and files
+    * Output to a file ">"
+
+* FIlters/Text processors through scripts (cut, awk, grep, sort, uniq, wc)
+
+
+
