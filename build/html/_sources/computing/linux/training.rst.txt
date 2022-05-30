@@ -2546,6 +2546,16 @@ DHCP
 Module 8 - Disk Management and Run Levels
 -----------------------------------------
 
+:download:`Overview of Systemd RHEL7 <_docs/training/module8/7-Overview-of-systemd-for-RHEL-7.pdf>`
+
+:download:`Storage Admin Guide <_docs/training/module8/10-Red_Hat_Enterprise_Linux-7-Storage_Administration_Guide-en-US.pdf>`
+
+:download:`System Admin Guide <_docs/training/module8/11-RedHat_Enterprise_Linux-7-System_Administrators_Guide.pdf>`
+
+:download:`RHEL8 Basic System Settings <_docs/training/module8/15-Red_Hat_Enterprise_Linux-8-Configuring_basic_system_settings-en-US.pdf>`
+
+:download:`Linux Boot Sequence <_docs/training/module8/Linux+Boot+Sequence.pdf>`
+
 System Run Level
 ^^^^^^^^^^^^^^^^
 
@@ -2562,6 +2572,8 @@ Other Run levels
     * 2 = Multiuser mode without networking
     * 3 = Multiuser mode with networking
     * 5 = Multiuser mode with networking and GUI.
+
+:download:`notes <_docs/training/module8/1-System+Run+Level.pdf>`
 
 Linux Boot Process
 ^^^^^^^^^^^^^^^^^^
@@ -2596,6 +2608,8 @@ Message of the Day
 
         * systemctl restart sshd.service
 
+:download:`notes <_docs/training/module8/8-Customizing-MOTD.pdf>`
+
 Disk Partition
 ^^^^^^^^^^^^^^
 
@@ -2605,6 +2619,11 @@ Disk Partition
     * fdisk
 
 * Purpose? = Out of Space, Additional Apps etc.
+
+:download:`notes <_docs/training/module8/2-Partitioning+a+Disk.pdf>`
+
+:download:`more notes <_docs/training/module8/3-Mount+Disk+Partitions.pdf>`
+
 
 Computer Storage
 ^^^^^^^^^^^^^^^^
@@ -2635,6 +2654,9 @@ Logical Volume Management (LVM)
 
 .. image:: _images/linux-lvm-2.png
 
+:download:`notes <_docs/training/module8/4-Adding+Disk+and+Create+LVM+Partition.pdf>`
+
+:download:`more notes <_docs/training/module8/5-Extend+LVM.pdf>`
 
 Add/Extend Swap Space
 ^^^^^^^^^^^^^^^^^^^^^
@@ -2654,6 +2676,8 @@ Add/Extend Swap Space
     * dd
     * mkswap
     * swapon or swapoff
+
+:download:`notes <_docs/training/module8/6-Add+Swap+Space.pdf>`
 
 Advanced Storage Features
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2825,6 +2849,8 @@ Network File System (NFS)
         
         * # umount /mnt/kramer
 
+:download:`notes <_docs/training/module8/9-Steps-for-NFS-Configuration.pdf>`
+
 Samba
 ^^^^^
 
@@ -2849,6 +2875,8 @@ Samba
 * Once the packages are installed, enable and start Samba services (smb and nmb) * Mount Samba share on Windows client
 * Mount Samba share on Linux client
 * Additional instructions on creating secure Samba share.
+
+:download:`notes <_docs/training/module8/14-Samba+Installation+and+Configuration.pdf>`
 
 NAS Device for NFS or Samba
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
