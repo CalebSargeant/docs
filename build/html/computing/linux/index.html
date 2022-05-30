@@ -70,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
@@ -152,6 +153,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="databases.html#postgresql">PostgreSQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#id1">Showing Users</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#deleting-rows">Deleting Rows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#selecting-rows">Selecting Rows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#updating-data-in-table">Updating Data in Table</a></li>
@@ -164,6 +166,7 @@
 <li class="toctree-l3"><a class="reference internal" href="databases.html#show-running-queries">Show Running Queries</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
 <li class="toctree-l3"><a class="reference internal" href="databases.html#vacuum">Vacuum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html#database-sizes">Database Sizes</a></li>
 </ul>
 </li>
 </ul>
@@ -179,6 +182,7 @@
 <li class="toctree-l3"><a class="reference internal" href="general.html#rsync-compare-directories">Rsync Compare Directories</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#smartcl">Smartcl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#while-loop">While Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#for-loop">For Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html#moving-files-with-spaces">Moving Files with Spaces</a></li>
@@ -401,19 +405,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="training.html">Training</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="training.html#concepts">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-1-concepts">Module 1 - Concepts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="training.html#what-is-linux">What is Linux?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#unix-vs-linux">Unix vs Linux</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="training.html#download-install-and-configure">Download, Install and Configure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-2-download-install-and-configure">Module 2 - Download, Install and Configure</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-distributions">Linux Distributions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#centos-vs-centos-stream">CentOS vs CentOS Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-vs-windows">Linux vs Windows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-users">Linux Users</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="training.html#system-access-and-file-system">System Access and File System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-3-system-access-and-file-system">Module 3 - System Access and File System</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="training.html#network-commands">Network Commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#important-things">Important Things</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-file-system">Linux File System</a></li>
@@ -433,7 +437,7 @@
 <li class="toctree-l3"><a class="reference internal" href="training.html#soft-and-hard-links">Soft and Hard Links</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="training.html#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-4-fundamentals">Module 4 - Fundamentals</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="training.html#commands-syntax">Commands Syntax</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#file-permissions">File Permissions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#file-permissions-using-numeric-mode">File Permissions using Numeric Mode</a></li>
@@ -460,10 +464,129 @@
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-vs-windows-commands">Linux vs Windows Commands</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="training.html#linux-system-administration">Linux System Administration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-5-system-administration">Module 5 - System Administration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="training.html#linux-file-editor-vi">Linux File Editor (vi)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#difference-between-vi-and-vim-editor">Difference Between vi and vim Editor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="training.html#sed-command">Sed Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#user-account-management">User Account Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#enable-password-aging">Enable Password Aging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#switch-users-and-sudo-access">Switch Users and Sudo Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#monitor-users">Monitor Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#talking-to-users">Talking to Users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-account-authentication">Linux Account Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#difference-between-ad-ldap-idm-winbind-openldap-etc">Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-utility-commands">System Utility Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#processes-and-jobs">Processes and Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#systemctl-command">Systemctl Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ps-command">ps Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#top-command">top Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#kill-command">kill Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#crontab-command">crontab Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#at-command">at Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#additional-cron-jobs">Additional Cron Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#process-management">Process Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-monitoring">System Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#log-monitoring">Log Monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-maintenance-commands">System Maintenance Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#changing-system-hostname">Changing System Hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#finding-system-information">Finding System Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-architecture">System Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#terminal-control-keys">Terminal Control Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#terminal-commands">Terminal Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#recover-root-password">Recover Root Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#sos-report">SOS Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#special-permissions">Special Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-6-shell-scripting">Module 6 - Shell Scripting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-kernal">Linux Kernal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#introduction-to-shell">Introduction to Shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#types-of-shells">Types of Shells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#shell-scripting">Shell Scripting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#basic-shell-scripts">Basic Shell Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#input-output">Input/Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#if-then-scripts">if-then Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#for-loop-scripts">For Loop Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#do-while-scripts">do-while Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#case-statement-scripts">Case Statement Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#check-remote-servers-connectivity">Check Remote Servers Connectivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#aliases">Aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#creating-user-or-global-aliases">Creating User or Global Aliases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#shell-history">Shell History</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-7-networking-services-and-system-updates">Module 7 - Networking, Services and System Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#internet-access-to-vm">Internet Access to VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#network-components">Network Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#network-files-and-commands">Network Files and Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#nic-information">NIC Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#nic-bonding">NIC Bonding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#nic-bonding-procedure">NIC Bonding Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#net-network-utilities">Net Network Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-updates-and-repos">System Updates and Repos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#advanced-package-management">Advanced Package Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#download-files-or-apps">Download Files or Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#curl-and-ping-commands">curl and ping Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ftp-file-transfer-protocol">FTP - File Transfer Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#scp-secure-copy-protocol">SCP - Secure Copy Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#rsync-remote-synchronization">rsync - Remote Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-upgrade-patch-management">System Upgrade/Patch Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#create-local-repository">Create Local Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ssh-and-telnet">SSH and Telnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ssh-without-a-password">SSH Without a Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#dns-domain-name-system">DNS - Domain Name System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#download-install-and-configure-dns">Download, Install and Configure DNS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#hostname-ip-lookup">Hostname/IP Lookup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ntp">NTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#chronyd">chronyd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#new-system-utility-command-timedatectl">New System Utility Command (timedatectl)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#sendmail">Sendmail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#web-server">Web Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#central-logger-rsyslog">Central Logger (rsyslog)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#network-file-system">Network File System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-os-hardening">Linux OS Hardening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#openldap-installation">OpenLDAP Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#trace-network-traffic-traceroute">Trace Network Traffic (traceroute)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#cockpit">Cockpit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#firewall">Firewall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#tune-system-performance">Tune System Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#containers">Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#kickstart">Kickstart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#dhcp">DHCP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#module-8-disk-management-and-run-levels">Module 8 - Disk Management and Run Levels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-run-level">System Run Level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#linux-boot-process">Linux Boot Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#message-of-the-day">Message of the Day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#disk-partition">Disk Partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#computer-storage">Computer Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#logical-volume-management-lvm">Logical Volume Management (LVM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#add-extend-swap-space">Add/Extend Swap Space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#advanced-storage-features">Advanced Storage Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#raid">RAID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#file-system-check-fsck-and-xfs-repair">File System Check (fsck and xfs_repair)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-backup">System Backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#network-file-system-nfs">Network File System (NFS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#samba">Samba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#nas-device-for-nfs-or-samba">NAS Device for NFS or Samba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#sata-and-sas">SATA and SAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#difference-between-centos-rhel7-and-8">Difference Between CentOS/RHEL7 and 8</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="training.html#additional-resources">Additional Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="training.html#change-file-creation-permission">Change File Creation Permission</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#filesystem-color-definition">Filesystem Color Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#troubleshoot-file-issues">Troubleshoot File Issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#cannot-cd-into-a-directory">Cannot CD Into a Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#filesystem-is-corrupted">Filesystem is Corrupted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#system-is-running-slow">System is Running Slow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#ip-address-assigned-but-not-reachable">IP Address Assigned but not Reachable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#remove-unnecessary-or-orphan-packages">Remove Unnecessary or Orphan Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#selinux-security-enhanced-linux">SELinux (Security Enhanced Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html#types-of-security-threats">Types of Security Threats</a></li>
 </ul>
 </li>
 </ul>

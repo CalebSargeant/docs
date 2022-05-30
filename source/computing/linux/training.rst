@@ -1,8 +1,24 @@
 Training
 ========
 
-Concepts
---------
+:download:`Syllabus <_docs/training/Complete+Linux+Training+Syllabus.pdf>`
+
+:download:`Commands Recap <_docs/training/Commands-Recap.pdf>`
+
+Module 1 - Concepts
+-------------------
+
+:download:`Hard Disk and Disk Cache <_docs/training/module1/Hard+Disk+and+Disk+Cache.pdf>`
+
+:download:`History of Unix <_docs/training/module1/History+of+Unix.pdf>`
+
+:download:`Inside Linux <_docs/training/module1/Inside+Linux.pdf>`
+
+:download:`Operating System <_docs/training/module1/Operating+system.pdf>`
+
+:download:`Parts of an OS <_docs/training/module1/Parts+of+OS.pdf>`
+
+:download:`Virtual Memory <_docs/training/module1/Virtual+memory.pdf>`
 
 What is Linux?
 ^^^^^^^^^^^^^^
@@ -21,8 +37,16 @@ Unix vs Linux
 - Unix comparitively supports very few File systems
 - Linux can be installed on a wide variety of computer hardware, ranging from mobile phones, tablets, video game consoles, to mainframes and supercomputers
 
-Download, Install and Configure
--------------------------------
+Module 2 - Download, Install and Configure
+------------------------------------------
+
+:download:`Oracle VirtualBox User Manual <_docs/training/module2/Oracle+Virtual+Box+User+Manual.pdf>`
+
+:download:`Changing from 32 to 64bit <_docs/training/module2/Changing-from-32-to-64bit.pdf>`
+
+:download:`CentOS Installation Guide <_docs/training/module2/CentOS+Installation+Guide.pdf>`
+
+:download:`RedHat 7 Install Guide <_docs/training/module2/Red_Hat_Enterprise_Linux-7-Installation_Guide-en-US.pdf>`
 
 Linux Distributions
 ^^^^^^^^^^^^^^^^^^^
@@ -77,8 +101,14 @@ Linux Users
 - World e-commerce leaders, including Amazon, eBay, PayPal, and Walmart
 - Other fortune 500 companies eg Google, IBM, McDonalds, Facebook etc.
 
-System Access and File System
------------------------------
+Module 3 - System Access and File System
+----------------------------------------
+
+:download:`Logging onto System <_docs/training/module3/4-Logging+On+To+System.pdf>`
+
+:download:`File Names <_docs/training/module3/7-File+Names.pdf>`
+
+:download:`Password Standards <_docs/training/module3/8-Passwords+Standards.pdf>`
 
 Network Commands
 ^^^^^^^^^^^^^^^^
@@ -104,6 +134,8 @@ Important Things
 - Linux is mostly CLI not GUI
 - Linux is very flexible as compared to other OSs
 
+:download:`notes <_docs/training/module3/3-Linux+vs+Windows.pdf>`
+
 Linux File System
 ^^^^^^^^^^^^^^^^^
 
@@ -111,10 +143,16 @@ Linux File System
 - There are many different types of filesystems. In general improvements have been made to filesystems with new releases of OS and each new FS has been given a different name. Eg. ext3, ext4, XFS, NTFS, FAT etc.
 - Linux filesystems store info in a hierarchy of dirs and fiels.
 
+:download:`notes <_docs/training/module3/1-Linux+Structure.pdf>`
+
+:download:`more notes <_docs/training/module3/5-Linux+File+System.pdf>`
+
 File System Structure
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: _images/linux-file-system-structure.png
+
+:download:`notes <_docs/training/module3/6-File+System+Detail.pdf>`
 
 File System Structure and its Description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,6 +206,8 @@ Directory Listing Attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: _images/linux-directory-listing-attributes.png
+
+:download:`notes <_docs/training/module3/13-List+files+and+directories.pdf>`
 
 Creating Files and Directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -227,11 +267,15 @@ Difference Between find and locate
 - `locate` uses a prebuilt database, which should be regularly updated, while `find` iterates over a filesystem to locate files. Thus, locate is much faster than find, but can be inaccurate if the database (can be seen as a cache) is not updated
 - To update the locate database run `updatedb`
 
+:download:`notes <_docs/training/module3/10-Difference-between-locate-and-find-command-in-Linux.pdf>`
+
 Changing Password
 ^^^^^^^^^^^^^^^^^
 
 - You should change your initial password as soon as you login
 - Command = `passwd userid`
+
+:download:`notes <_docs/training/module3/9-Change+Password+in+Linux.pdf>`
 
 Wildcards
 ^^^^^^^^^
@@ -245,6 +289,8 @@ A wildcard is a character that can be used as a substitute for any of a class of
 - backslash as an escape character
 - `^` the beginning of a line
 - `$` the end of a line
+
+:download:`notes <_docs/training/module3/11-Wildcards.pdf>`
 
 Soft and Hard Links
 ^^^^^^^^^^^^^^^^^^^
@@ -261,8 +307,10 @@ Soft and Hard Links
 - Note: you cannot create a soft or hard link within the same directory with the smae name.
 - Hard links only work within the same partition
 
-Fundamentals
-------------
+:download:`notes <_docs/training/module3/12-Soft+Link+and+Hard+Links.pdf>`
+
+Module 4 - Fundamentals
+-----------------------
 
 Commands Syntax
 ^^^^^^^^^^^^^^^
@@ -284,6 +332,8 @@ Commands Syntax
     - Most commands are used together with one or more arguments
     - Some commands assume a default argument if none is supplied
     - Arguments are optional for some commands and required by others
+
+:download:`notes <_docs/training/module4/1-Command+Syntax.pdf>`
 
 File Permissions
 ^^^^^^^^^^^^^^^^
@@ -315,6 +365,8 @@ File Permissions
 - Remove write rights from user: `chmod u-w file`
 - Add read and write rights to user on file: `chmod u+rw file`
 
+:download:`notes <_docs/training/module4/2-File+Permissions+and+Ownership.pdf>`
+
 File Permissions using Numeric Mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -343,6 +395,8 @@ File Permissions using Numeric Mode
 - `chmod 764 file`:
 
 .. image:: _images/linux-file-system-permissions-2.png
+
+:download:`notes <_docs/training/module4/11-File+Permissions+Cheat+Sheet.pdf>`
 
 File Ownership
 ^^^^^^^^^^^^^^
@@ -390,6 +444,8 @@ Access Control List
         - As you assign the ACL permission to a file/directory it adds + sign at the end of the permission
         - Setting w permission with ACL does not allow to remove a file
 
+:download:`notes <_docs/training/module4/12-Access+Control+Lists.pdf>`
+
 Help Commands
 ^^^^^^^^^^^^^
 
@@ -398,6 +454,8 @@ Help Commands
     - `whatis` command
     - command `--help`
     - `man` command
+
+:download:`notes <_docs/training/module4/3-Getting+Help.pdf>`
 
 Tab Completion and Up Arrow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -410,6 +468,8 @@ Tab Completion and Up Arrow
 
 - Hitting up arrow key on the keyboard returns the last command run
 
+:download:`notes <_docs/training/module4/4-TAB+Completion.pdf>`
+
 Adding Text to Files (Redirects)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -418,6 +478,8 @@ Adding Text to Files (Redirects)
     - vi
     - Redirect command output > or >>
     - echo > or >>
+
+:download:`notes <_docs/training/module4/5-Adding+Text+to+Files.pdf>`
 
 Input and Output Redirects
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -474,6 +536,8 @@ Pipes
 
     - command 1 [arguments] | command2 [arguments]
 
+:download:`notes <_docs/training/module4/6-Pipes.pdf>`
+
 File Maintenance Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -485,6 +549,8 @@ File Maintenance Commands
 - `chgrp`
 - `chown`
 
+:download:`notes <_docs/training/module4/7-File+Maintenance+Commands.pdf>`
+
 File Display Commands
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -493,6 +559,8 @@ File Display Commands
 - `less`
 - `head`
 - `tail`
+
+:download:`notes <_docs/training/module4/8-File+Display+Commands.pdf>`
 
 Filters / Text Processors Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -503,6 +571,8 @@ Filters / Text Processors Commands
 - `sort`
 - `uniq`
 - `wc`
+
+:download:`notes <_docs/training/module4/9-Filters-Text+Processing+Commands.pdf>`
 
 Cut
 ^^^
@@ -551,6 +621,8 @@ Grep/Egrep
 - `grep keyword file | awk '{print $1}'` - search for a keyword and then only give 1st field
 - `ls -l | grep Desktop` - search for a keyword and then only give 1st field
 - `egrep -i "keyword|keyword2" file` - search for 2 keywords
+
+:download:`notes <_docs/training/module4/10-Finding+System+Information.pdf>`
 
 Sort/Uniq
 ^^^^^^^^^
@@ -636,8 +708,8 @@ Linux vs Windows Commands
 | Displays the time                          | time        | date         |
 +--------------------------------------------+-------------+--------------+
 
-Linux System Administration
----------------------------
+Module 5 - System Administration
+--------------------------------
 
 Linux File Editor (vi)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -669,6 +741,10 @@ Linux File Editor (vi)
     - d - delete
     - :q! - quit without savinbg
     - :wq! - quit and save
+
+:download:`notes <_docs/training/module5/1-vi+Commands.pdf>`
+
+:download:`more notes <_docs/training/module5/5-Unix+Editors.pdf>`
 
 Difference Between vi and vim Editor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -746,6 +822,10 @@ Example:
 
     useradd -g superheros -s /bin/bash -c "user description" -m -d /home/spiderman spiderman
 
+:download:`notes <_docs/training/module5/2-User+Account+Management.pdf>`
+
+:download:`more notes <_docs/training/module5/3-User+Accounts+in+Linux.pdf>`
+
 Enable Password Aging
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -779,6 +859,8 @@ File
 
 * /etc/sudoers
 
+:download:`notes <_docs/training/module5/4-Switch+users+and+Sudo+Access.pdf>`
+
 Monitor Users
 ^^^^^^^^^^^^^
 
@@ -787,6 +869,8 @@ Monitor Users
 * w
 * finger
 * id.
+
+:download:`notes <_docs/training/module5/6-Monitor+User+Commands.pdf>`
 
 Talking to Users
 ^^^^^^^^^^^^^^^^
@@ -827,6 +911,10 @@ System Utility Commands
 * cal
 * bc
 
+.. image:: _docs/training/module5/15-uptime.jpg
+
+:download:`notes <_docs/training/module5/7-System+Utility+Commands.pdf>`
+
 Processes and Jobs
 ^^^^^^^^^^^^^^^^^^
 
@@ -843,6 +931,10 @@ Processes and Jobs
 * kill
 * crontab
 * at
+
+:download:`notes <_docs/training/module5/8-Processes.pdf>`
+
+:download:`more notes <_docs/training/module5/9-Unix+Programs.pdf>`
 
 Systemctl Command
 ^^^^^^^^^^^^^^^^^
@@ -916,6 +1008,8 @@ top Command
 * top then press k = kill a process by PID within top session
 * top the M and P = to sort all linux running processes by Memory usage
 
+:download:`notes <_docs/training/module5/13-top+command.pdf>`
+
 kill Command
 ^^^^^^^^^^^^
 
@@ -949,6 +1043,8 @@ crontab Command
     * systemctl status crond = manage the crond service
 
 .. image:: _images/linux-crontab-1.png
+
+:download:`notes <_docs/training/module5/10-crontab.pdf>`
 
 at Command
 ^^^^^^^^^^
@@ -1022,6 +1118,8 @@ System Monitoring
 * cat /proc/cpuinfo
 * cat /proc/meminfo
 
+:download:`notes <_docs/training/module5/11-System+Resource+Commands.pdf>`
+
 Log Monitoring
 ^^^^^^^^^^^^^^
 
@@ -1081,6 +1179,8 @@ Terminal Control Keys
     * CTRL-z = suspend a command
     * CTRL-d = exit from an interactive program (signals end of data)
 
+:download:`notes <_docs/training/module5/12-Terminal+Control+Keys.pdf>`
+
 Terminal Commands
 ^^^^^^^^^^^^^^^^^
 
@@ -1103,6 +1203,8 @@ Recover Root Password
 * passwd root
 * exit
 * reboot
+
+:download:`notes <_docs/training/module5/14-Recover+Root+Password.pdf>`
 
 SOS Report
 ^^^^^^^^^^
@@ -1188,8 +1290,8 @@ Special Permissions
 
 * Please note that these bits work on c programming executables not on bash shell scripts
 
-Shell Scripting
----------------
+Module 6 - Shell Scripting
+--------------------------
 
 Linux Kernal
 ^^^^^^^^^^^^
@@ -1199,6 +1301,8 @@ Linux Kernal
     * interface between hardware and software
 
 .. image:: _images/linux-kernel.png
+
+:download:`notes <_docs/training/module6/1-Linux+Kernel.pdf>`
 
 Introduction to Shell
 ^^^^^^^^^^^^^^^^^^^^^
@@ -1218,6 +1322,8 @@ Introduction to Shell
 * Windows GUI is a shell
 * Linux KDE GUI is a shell
 * Linux sh, bash etc. is a shell
+
+:download:`notes <_docs/training/module6/2-What+is+a+Shell.pdf>`
 
 Types of Shells
 ^^^^^^^^^^^^^^^
@@ -1245,6 +1351,8 @@ Shell Scripting
 * Shell script has to be called from absolute path (eg. /home/userdir/script.bash)
 * If called from current location then ./script.bash
 
+:download:`notes <_docs/training/module6/3-Unix+Shell+Scripting.pdf>`
+
 Basic Shell Scripts
 ^^^^^^^^^^^^^^^^^^^
 
@@ -1257,5 +1365,1895 @@ Basic Shell Scripts
 
 * FIlters/Text processors through scripts (cut, awk, grep, sort, uniq, wc)
 
+:download:`notes <_docs/training/module6/4-Basic+Shell+Scripts.pdf>`
 
+Input/Output
+^^^^^^^^^^^^
+
+* Create script to take input from the user
+
+    * read
+    * echo
+
+if-then Scripts
+^^^^^^^^^^^^^^^
+
+* If then statement
+
+    * If this happens = do this
+    * Otherwise = do that
+
+:download:`notes <_docs/training/module6/7-if-then+Scripts.pdf>`
+
+For Loop Scripts
+^^^^^^^^^^^^^^^^
+
+* For loops
+
+    * Keep running until specified number variable
+    * Variable = blue, red, green (then run the script 3 times for each color)
+
+:download:`notes <_docs/training/module6/5-for+loop+Scripts.pdf>`
+
+do-while Scripts
+^^^^^^^^^^^^^^^^
+
+* do while
+
+    * the while statement continually executes a block of statements while a particular condition is true or met
+    * eg. run a script untl 2pm
+
+:download:`notes <_docs/training/module6/6-do-while+Scripts.pdf>`
+
+Case Statement Scripts
+^^^^^^^^^^^^^^^^^^^^^^
+
+* case
+
+    * If option a is selected = do this
+    * If option b is selected = do this
+    * etc.
+
+:download:`notes <_docs/training/module6/8-case+Scripts.pdf>`
+
+Check Remote Servers Connectivity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+    ping -c1 192.168.1.1
+            if [ $? -eq 0 ]
+            then
+            echo OK
+            else
+            echo NOT OK
+            fi
+
+    ###Change the IP to 192.168.1.235
+
+    ###Don't show the output
+    ping -c1 192.168.1.1 &> /dev/null
+            if [ $? -eq 0 ]
+            then
+            echo OK
+            else
+            echo NOT OK
+            fi
+
+    ###Define variable
+    #!/bin/bash
+
+    hosts="192.168.1.1"
+    ping -c1 $hosts &> /dev/null
+            if [ $? -eq 0 ]
+            then
+            echo $hosts OK
+            else
+            echo $hosts NOT OK
+            fi
+
+    ###Change the IP to 192.168.1.235
+
+    ###Multiple IPs
+    #!/bin/bash
+
+    IPLIST="path_to_the_Ip_list_file"
+
+
+    for ip in $(cat $IPLIST)
+
+    do
+    ping -c1 $ip &> /dev/null
+    if [ $? -eq 0 ]
+    then
+    echo $ip ping passed
+    else
+    echo $ip ping failed
+    fi
+    done
+
+
+Aliases
+^^^^^^^
+
+* Aliases is a very popular command that is used to cut down on lengthy and repetitive commands
+
+    * `alias ls="ls -al"`
+    * `alias pl="pwd; ls"`
+    * `alias tell="whoami; hostname; pwd"`
+    * `alias dir="ls -l | grep ^d"`
+    * `alias lmar="ls -l | grep Mar"`
+    * `alias wpa="chmod a+w"`
+    * `alias d="df -h | awk '{print \$6}' | cut -c1-4"`
+
+:download:`notes <_docs/training/module6/9-Aliases.pdf>`
+
+Creating User or Global Aliases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* User = Applies only to a specific user profile
+* Global = Applies to everyone who has account on the system
+* User = /home/user/.bashrc
+* Global = /etc/bashrc
+
+Shell History
+^^^^^^^^^^^^^
+
+* command `history`
+* The file where history of your shell commands saved = /home/yourname/.bash_history
+
+Module 7 - Networking, Services and System Updates
+--------------------------------------------------
+
+.. image:: _docs/training/module7/Depreciated+Linux+commands+and+replacement.JPG
+
+:download:`Storage Administration Guide <_docs/training/module7/15-Red-Hat-Enterprise-Linux-7-Storage-Administration-Guide-en-US.pdf>`
+
+:download:`Yum Cheat Sheet <_docs/training/module7/yum+command+cheatsheet.pdf>`
+
+Internet Access to VM
+^^^^^^^^^^^^^^^^^^^^^
+
+* Open Virtualbox Manager
+* Select the machine you cannot get internet on in the left pane
+* Click the Settings button in the top menu
+* Click Network in the left pane in the settings window
+* Switched to Bridged Adaptor in the Attached to drop-down menu * Hit OK to save your changes
+* Start your VM
+
+Network Components
+^^^^^^^^^^^^^^^^^^
+
+* IP
+* Subnet mask
+* Gateway
+* Static vs. DHCP
+* Interface
+* Interface MAC.
+
+Network Files and Commands
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Interface Detection
+* Assigning an IP address
+* Interface configuration files
+
+    * /etc/nsswitch.conf
+    * /etc/hostname
+    * /etc/sysconfig/network
+    * /etc/sysconfig/network-scripts/ifcfg-nic 
+    * /etc/resolv.conf
+
+* Network Commands
+
+    * `ping`
+    * `ifconfig`
+    * `ifup` or `ifdown` 
+    * `netstat`
+    * `tcpdump`
+
+:download:`notes <_docs/training/module7/1-Networking.pdf>`
+
+:download:`notes <_docs/training/module7/2-Network+Related+Utilities.pdf>`
+
+NIC Information
+^^^^^^^^^^^^^^^
+
+NIC = Network Interface Card
+
+Example: `ethtool enp0s3`
+
+Other NICs
+
+* lo = The loopback device is a special interface that your computer uses to communicate with itself. It is used mainly for diagnostics and troubleshooting, and to connect to servers running on the local machine
+* virb0 = The virbr0, or "Virtual Bridge 0" interface is used for NAT (Network Address Translation). Virtual environments sometimes use it to connect to the outside network
+
+NIC Bonding
+^^^^^^^^^^^
+
+* NIC(Network Interface Card) bonding is also known as Network bonding. It can be defined as the aggregation or combination of multiple NIC into a single bond interface.
+* Its main purpose is to provide high availability and redundancy
+
+:download:`notes <_docs/training/module7/6-Creating+NIC+Bonding.pdf>`
+
+NIC Bonding Procedure
+^^^^^^^^^^^^^^^^^^^^^
+
+* modprobe bonding
+* modinfo bonding
+* Create /etc/sysconfig/network-scripts/ifcfg-bond0 
+* Edit /etc/sysconfig/network-scripts/ethernet1
+* Edit /etc/sysconfig/network-scripts/ethernet2
+* Restart network = systemctl restart network
+
+Net Network Utilities
+^^^^^^^^^^^^^^^^^^^^^
+
+* Getting started with NetworkManager
+* Network configuration methods 
+
+    * nmtui
+    * nmcli
+    * nm-connection-editor
+    * GNOME Settings.
+
+* Getting started with NetworkManager
+
+    * NetworkManager is a service that provides set of tools designed specifically to make it easier to manage the networking configuration on Linux systems and is the default network management service on RHEL 8
+    * It makes network management easier
+    * It provides easy setup of connection to the user
+    * NetworkManager offers management through different tools such as GUI, nmtui, and nmcli.
+
+* Network configuration methods
+
+    * nmcli - Short for network manager command line interface. This tool is useful when access to a graphical environment is not available and can also be used within scripts to make network configuration changes
+    * nmtui - Short for network manager text user interface. This tool can be run within any terminal window and allows changes to be made by making menu selections and entering data
+    * nm-connection-editor - A full graphical management tool providing access to most of the NetworkManager configuration options. It can only be accessed through the desktop or console
+    * GNOME Settings - The network screen of the GNOME desktop settings application allows basic network management tasks to be performed
+
+System Updates and Repos
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* yum (CentOS), apt-get (other Linux) 
+* rpm (Redhat Package Manager)
+
+:download:`notes <_docs/training/module7/7-Linux_yum_command_cheatsheet.pdf>`
+
+Advanced Package Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Installing packages
+* Upgrading
+* Deleting
+* View package details information
+* Identify source or location information
+* Packages configuration files
+
+Download Files or Apps
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Linux = wget
+* Example in Linux:
+
+    * wget http://website.com/filename
+
+* Why??? Most of the servers in corporate environment do NOT have internet access
+
+curl and ping Commands
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Linux = curl
+* Linux = ping
+* Example in Linux:
+
+    * curl http://website.com/filename
+    * curl -O http://website.com/filename
+    * ping www.google.com
+
+FTP - File Transfer Protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* The File Transfer Protocol is a standard network protocol used for the transfer of computer files between a client and server on a computer network. FTP is built on a client-server model architecture using separate control and data connections between the client and the server. (Wikipedia)
+* Protocol = Set of rules used by computers to communicate
+* Default FTP Port = 21
+
+* Install and Configure FTP on the remote server
+
+.. code-block:: bash
+
+    # Become root
+    #rpm–qa|grepftp
+    # ping www.google.com
+    # yum install vsftpd
+    # vi /etc/vsftpd/vsftpd.conf (make a copy first)
+
+    ## Find the following lines and make the changes as shown below:
+    ## Disable anonymous login ##
+    anonymous_enable=NO
+
+    ## Uncomment ##
+    ascii_upload_enable=YES
+    ascii_download_enable=YES
+
+    ## Uncomment - Enter your Welcome message - This is optional ## 
+    ftpd_banner=Welcome to UNIXMEN FTP service.
+
+    ##Addattheendofthis file##
+    use_localtime=YES
+
+    # systemctl start vsftpd
+    # systemctl enable vsftpd
+    # systemctl stop firewalld
+    # systemctl disable firewalld
+    # useradd caleb (if the user does not exist).
+
+* Install FTP client on the client server
+
+.. code-block:: bash
+
+    # Become root
+    # yum install ftp 
+    # su – caleb
+    touch caleb
+    
+* Commands to transfer file to the FTP server:
+
+.. code-block:: bash
+
+    ftp 192.168.1.x
+    Enter username and password
+    bi
+    hash
+    put caleb 
+    bye.
+
+SCP - Secure Copy Protocol
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* The Secure Copy Protocol or “SCP” helps to transfer computer files securely from a local to a remote host. It is somewhat similar to the File Transfer Protocol “FTP”, but it adds security and authentication
+* Protocol = Set of rules used by computers to communicate
+* Default SCP Port = 22 (same as SSH)
+
+* SCP commands to transfer file to the remote server:
+
+  * Login as yourself (caleb)
+  * touch jack
+  * scp jack caleb@192.168.1.x:/home/caleb * Enter username and password
+
+:download:`notes <_docs/training/module7/16-SCP+examples.pdf>`
+
+rsync - Remote Synchronization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* rsync is a utility for efficiently transferring and synchronizing files within the same computer or to a remote computer by comparing the modification times and sizes of files
+* rsync is a lot faster than ftp or scp
+* This utility is mostly used to backup the files and directories from one server to another
+* Default rsync Port = 22 (same as SSH)
+
+* Basic syntax of rsync command
+
+    * # rsync options source destination
+
+* Install rsync in your Linux machine (check if it already exists)
+
+    * # yum install rsync (On CentOS/Redhat based systems)
+    * # apt-get install rsync (On Ubuntu/Debian based systems)
+
+* rsync a file on a local machine
+
+    * $ tar cvf backup.tar . (tar the entire home directory (/home/caleb)
+    * $ mkdir /tmp/backups
+    * $ rsync -zvh backup.tar /tmp/backups/
+
+* rsync a directory on a local machine
+
+    * $ rsync -azvh /home/caleb /tmp/backups/
+
+* rsync a file to a remote machine
+
+    * $ mkdir /tmp/backups (create /tmp/backups dir on remote server)
+    * $ rsync -avz backup.tar caleb@192.168.1.x:/tmp/backups
+
+* rsync a file from a remote machine
+
+    * $ touch serverfile
+    * $ rsync -avzh caleb@192.168.1.x:/home/caleb/serverfile /tmp/backups
+
+System Upgrade/Patch Management
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Two type of upgrades
+
+    * Major version = 5,6,7
+    * Minor version = 7.3, 7.4
+
+* example: `yum update -y`
+
+Create Local Repository
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* Command: `createrepo`
+
+:download:`notes <_docs/training/module7/12-Create+local+repository-old.pdf>`
+
+:download:`more notes <_docs/training/module7/13-Creating+Local+Yum+Repo.pdf>`
+
+SSH and Telnet
+^^^^^^^^^^^^^^
+
+* Telnet = Un-secured connection between computers
+* SSH = Secured
+
+* Two type of packages for most of the services 
+
+    * Client package
+    * Server package
+
+SSH Without a Password
+^^^^^^^^^^^^^^^^^^^^^^
+
+* SSH is a secure way to login from host A to host B 
+* Repetitive tasks require login without a password
+
+:download:`notes <_docs/training/module7/14-SSH+without+a+Password.pdf>`
+
+DNS - Domain Name System
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Purpose?
+
+    * Hostname to IP (A Record)
+    * IP to Hostname (PTR Record)
+    * Hostname to Hostname (CNAME Record)
+
+* Files
+
+    * /etc/named.conf
+    * /var/named
+
+* Service
+
+    * systemctl restart named
+
+:download:`notes <_docs/training/module7/3-DNS.pdf>`
+
+Download, Install and Configure DNS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Create a snapshot of your virtual machine
+* Setup:
+
+    * Master DNS
+    * Secondary or Slave DNS
+    * Client
+
+* Domain Name = lab.local
+* IP address = My local IP address on enp0s3
+
+
+* Install DNS package
+
+    * yum install bind bind-utils –y
+
+* ConfigureDNS(Summary)
+
+    * Modify /etc/named.conf
+    * Create two zone files (forward.lab and reverse.lab) 
+    * Modify DNS file permissions and start the service
+
+* Revert back to snapshot
+
+Hostname/IP Lookup
+^^^^^^^^^^^^^^^^^^
+
+* Commands used for DNS lookup
+
+    * `nslookup`
+    * `dig`
+
+NTP
+^^^
+
+* Purpose? Time synchronization
+* File = /etc/ntp.conf
+* Service = systemctl restart ntpd
+* Command = `ntpq`
+
+:download:`notes <_docs/training/module7/4-NTP.pdf>`
+
+chronyd
+^^^^^^^
+
+* Purpose? = Time synchronization
+* Package name = chronyd
+* Configuration file = /etc/chronyd.conf
+* Log file = /var/log/chrony
+* Service = systemctl start/restart chronyd 
+* Program command = chronyd.
+
+New System Utility Command (timedatectl)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* The timedatectl command is a new utility for RHEL/CentOS 7/8 based distributions, which comes as a part of the systemd system and service manager
+* It is a replacement for old traditional date command
+* Thetimedatectl command shows/change date, time, and timezone
+* It synchronizes the time with NTP server as well
+
+    * You can either use chronyd or ntpd and make the ntp setting in timedatectl as yes
+    * Or you can use systemd-timesyncd daemon to synchronize time which is a replacement for ntpd and chronyd
+
+* Please note:
+
+    * Redhat/CentOS does not provide this daemon in its standard repo. You will have to download it separately.
+
+* To check time status 
+
+    * timedatectl
+    
+* To view all available time zones
+
+    * timedatectl list-timezones
+
+* To set the time zone
+
+    * timedatectl set-timezone “America/New_York“
+
+* To set date
+
+    * timedatectl set-time YYYY-MM-DD
+
+* To set date and time
+
+    * timedatectl set-time '2015-11-20 16:14:50'
+
+* To start automatic time synchronization with a remote NTP server 
+
+    * timedatectl set-ntp true.
+
+Sendmail
+^^^^^^^^
+
+* Purpose? Send and receive emails
+* Files
+
+    * /etc/mail/sendmail.mc
+    * /etc/mail/sendmail.cf
+    * /etc/mail
+
+* Service
+
+    * systemctl restart sendmail
+
+* Command
+
+    * mail –s “subject line” email@mydomain.com
+
+* Sendmail is a program in Linux operating systems that allows systems administrator to send email from the Linux system
+* It uses SMTP (Simple Mail Transfer Protocol) 
+* SMTP port = 25
+* It attempts to deliver the mail to the intended recipient immediately and, if the recipient is not present, it queues messages for later delivery.
+
+* Sendmail installation and configuration
+
+    * # su – (Login as root)
+    * # rpm –qa | grep sendmail (verify if it is already installed) * # yum install sendmail sendmail-cf
+    * # vi /etc/mail/sendmail.mc
+    * # systemctl start sendmail
+    * # systemctl enable sendmail
+    * # systemctl stop firewalld
+    * # systemctl disable firewalld
+
+Web Server
+^^^^^^^^^^
+
+* Purpose= Serve web pages
+* Service or Package name = httpd
+* Files
+
+    * /etc/httpd/conf
+    * /httpd.conf
+    * /var/www/html/index.html
+
+* Service
+
+    * systemctl restart httpd
+    * systemctl enable httpd
+
+* Log Files = /var/log/httpd/
+
+Central Logger (rsyslog)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Purpose = Generate logs or collect logs from other servers
+* Service or package name = rsyslog
+* Configuration file = /etc/syslog.conf 
+* Service
+
+    * systemctl restart rsyslog
+    * systemctl enable rsyslog
+
+Network File System
+^^^^^^^^^^^^^^^^^^^
+
+* Purpose = Share files or directories (filesystem)
+* Service or package name = nfs-utils 
+* Configuration file
+
+    * /etc/fstab
+    * /etc/exports
+    * /etc/sysconfig/nfs
+
+* Service
+
+    * systemctl restart nfs-server
+    * systemctl enable nfs-server
+
+Linux OS Hardening
+^^^^^^^^^^^^^^^^^^
+
+* User Account
+* Remove un-wanted packages
+* Stop un-used Services
+* Check on Listening Ports
+* Secure SSH Configuration
+* Enable Firewall (iptables/firewalld)
+* Enable SELinux
+* Change Listening Services Port Numbers
+* Keep your OS up to date (security patching)
+
+:download:`Security Guide <_docs/training/module7/8-RHEL-7-Security_Guide-en-US.pdf>`
+
+:download:`SELinux Users and Administrators Guide <_docs/training/module7/9-RHEL-7-SELinux_Users_and_Administrators_Guide-en-US.pdf>`
+
+:download:`Networking Guide <_docs/training/module7/10-Red_Hat_Enterprise_Linux-7-Networking_Guide-en-US.pdf>`
+
+:download:`OS Hardening <_docs/training/module7/11-OS+Hardening.pdf>`
+
+OpenLDAP Installation
+^^^^^^^^^^^^^^^^^^^^^
+
+* What is OpenLDAP? 
+* OpenLDAP Service
+
+    * slapd
+
+* Start or stop the service 
+
+    * systemctl start slapd
+    * systemctl enable slapd
+
+* Configuration Files 
+
+    * /etc/openldap/slapd.d
+
+Trace Network Traffic (traceroute)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* The traceroute command is used in Linux to map the journey that a packet of information undertakes from its source to its destination. One use for traceroute is to locate when data loss occurs throughout a network, which could signify a node that's down.
+* Because each hop in the record reflects a new server or router between the originating PC and the intended target, reviewing the results of a traceroute scan also lets you identify slow points that may adversely affect your network traffic.
+* Example
+
+    * # traceroute www.google.com
+
+SSH Keys
+^^^^^^^^
+
+* Two reasons to access a remote machine
+
+    * Repetitive logins
+    * Automation through scripts
+
+* Keys are generated at user level
+* Step 1 — Generate the Key
+
+    * # ssh-keygen
+
+* Step 2 — Copy the Key to the server
+
+    * # ssh-copy-id root@192.168.1.x
+
+* Step 3 — Login from client to server # ssh root@192.168.1.x
+
+    * # ssh –l root 192.168.1.x
+
+Cockpit
+^^^^^^^
+
+* Cockpit is a server administration tool sponsored by Red Hat, focused on providing a modern-looking and user-friendly interface to manage and administer servers
+* Cockpit is the easy-to-use, integrated, glanceable, and open web-based interface for your servers
+* The application is available in most of the Linux distributions such as, CentOS, Redhat, Ubuntu and Fedora
+* It is installed in Redhat 8 by default and it is optional in version 7
+* It can monitor system resources, add or remove accounts, monitor system usage, shut down the system and perform quite a few other tasks all through a very accessible web connection
+
+* Check for network connectivity 
+    * ping www.google.com
+
+* Install cockpit package as root
+    * yum/dnf install cockpit –y (For RH or CentOS)
+    * apt-get install cockpit (For Ubuntu)
+
+* Start and enable the service
+
+    * systemctl start|enable cockpit
+
+* Check the status of the service
+
+    * systemctl status cockpit
+
+* Access the web-interface
+
+    * https://192.168.1.x:9090
+
+:download:`Managing systems using the RHEL 8 web console <_docs/training/module7/Red_Hat_Enterprise_Linux-8-Managing_systems_using_the_RHEL_8_web_console-en-US.pdf>`
+
+Firewall
+^^^^^^^^
+
+* What is Firewall
+
+    * A wall that prevents the spread of fire
+    * When data moves in and out of a server its packet information is tested against the firewall rules to see if it should be allowed or not
+    * In simple words, a firewall is like a watchman, a bouncer, or a shield that has a set of rules given and based on that rule they decide who can enter and leave
+    * There are 2 type of firewalls in IT
+    * Software = Runs on operating system
+    * Hardware = A dedicated appliance with firewall software
+
+.. image:: _images/linux-firewall.png
+
+* Firewalld works the same way as iptables but of course it has it own commands 
+
+    * firewall-cmd
+
+* It has a few pre-defined service rules that are very easy to turn on and off
+
+    * Services such as: NFS, NTP, HTTPD etc.
+
+* Firewalld also has the following:
+
+    * Table
+    * Chains
+    * Rules
+    * Targets
+
+* You can run one or the other 
+
+    * iptables or firewalld
+
+* Make sure iptables is stopped, disabled and mask
+
+    * systemctl stop iptables
+    * systemctl disable iptables
+    * systemctl mask iptables
+
+* Now check if filewalld package is installed 
+
+    * rpm –qa | grep firewalld
+
+* Start firewalld
+
+    * systemctl start/enable firewalld
+
+* Check the rule of firewalld
+
+    * firewall-cmd --list-all
+
+* Get the listing of all services firewalld is aware of: 
+
+    * firewall-cmd --get-services
+
+* To make firewalld re-read the configuration added
+
+    * firewall-cmd --reload
+
+* The firewalld has multiple zone, to get a list of all zones 
+
+    * firewall-cmd --get-zones
+
+* To get a list of active zones
+
+    * firewall-cmd --get-active-zones
+
+* To get firewall rules for public zone
+
+    * firewall-cmd --zone=public --list-all
+    * firewall-cmd --list-all
+
+* All services are pre-defined by firewalld. What if you want to add a 3rd party service 
+
+    * /usr/lib/firewalld/services/allservices.xml
+    * Simply cp any .xml file and change the service and port number
+
+.. image:: _images/linux-firewall-2.png
+
+* To add a service (http)
+
+    * firewall-cmd --add-service=http
+
+* To remove a service
+
+    * firewall-cmd --remove-service=http
+
+* To reload the firewalld configuration 
+
+    * firewall-cmd --reload
+
+* To add or remove a service permanently
+
+    * firewall-cmd --add-service=http --permanent
+    * firewall-cmd --remove-service=http --permanent
+
+* To add a service that is not pre-defined by firewalld
+
+    * /usr/lib/firewalld/services/allservices.xml
+    * Simply cp any .xml file sap.xml and change the service and port number (32)
+    * systemctl restart firewalld
+    * firewall-cmd --get-services (to verify new service)
+    * Firewall-cmd --add-service=sap
+
+* To add a port
+
+    * firewall-cmd --add-port=1110/tcp
+
+* To remove a port
+
+    * firewall-cmd --remove-port=1110/tcp
+
+* To reject incoming traffic from an IP address
+
+    * firewall-cmd --add-rich-rule='rule family="ipv4" source address=“192.168.0.25" reject'
+
+* To block and unblock ICMP incoming traffic
+
+    * firewall-cmd --add-icmp-block-inversion
+    * firewall-cmd --remove-icmp-block-inversion
+
+* To block outgoing traffic to a specific website/IP address
+
+    * host -t a www.facebook.com = find IP address
+    * firewall-cmd --direct --add-rule ipv4 filter OUTPUT 0 -d 31.13.71.36 -j DROP
+
+Tune System Performance
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Linux system comes fined tunned by default when you install, however there are a few tweaks that can be done based on system performance and application requirements
+
+* Optimize system performance by selecting a tuning profile managed by the tuned daemon
+* Prioritize or de-prioritize specific processes with the nice and renice commands
+
+* What is tuned?
+
+    * Tuned pronounced as tune-d
+    * Tune is for system tuning and d is for daemon
+    * It is systemd service that is used to tune Linux system performance
+    * It is installed in CentOS/Redhat version 7 and 8 by default
+    * tuned package name is tuned
+    * The tuned service comes with pre-defined profiles and settings (List of profile will be discussed in the next page)
+    * Based on selected profile the tuned service automictically adjust system to get the best performance. E.g. tuned will adjust networking if you are downloading a large file or it will adjust IO settings if it detects high storage read/write
+    * The tuned daemon applies system settings when the service starts or upon selection of a new tuning profile.
+
+.. image:: _images/linux-tuned.png
+
+* Check if tuned package has been installed 
+
+    * rpm –qa | grep tuned
+
+* Install tuned package if NOT installed already 
+
+    * yum install tuned
+
+* Check tuned service status
+
+    * systemctl status|enable|start tuned
+    * systemctl enable tuned (To enable at boot time)
+
+* Command to change setting for tuned daemon
+
+    * tuned-adm
+
+* To check which profile is active 
+
+    * tuned-adm active
+
+* To list available profiles 
+
+    * tuned-adm list.
+
+* To change to desired profile
+
+  * tuned-adm profile profile-name
+
+* Check for tuned recommendation tuned-adm recommend
+* Turn off tuned setting daemon tuned-adm off
+* Change profile through web console
+
+    * Login to https://192.168.1.x:9090
+    * Overview → Configuration → Performance profile
+
+* Another way of keeping your system fine-tuned is by prioritizing processes through nice and renice command
+* If a server has 1 CPU then it can execute 1 computation/process at a time as they come in (first come first served) while other processes must wait
+* With nice and renice commands we can make the system to give preference to certain processes than others
+* This priority can be set at 40 different levels
+* The nice level values range from -20 (highest priority) to 19 (lowest priority) and by default, processes inherit their nice level from their parent, which is usually 0.
+* To check process priority = top
+
+.. image:: _images/linux-tuned-2.png
+
+Nice value is a user-space and priority PR is the process's actual priority that use by Linux kernel. In Linux system priorities are 0 to 139 in which 0 to 99 for real time and 100 to 139 for users
+
+* Process priority can be viewed through ps command as well with the right options $ ps axo pid,comm,nice,cls --sort=-nice
+* To set the process priority
+
+    * nice –n # process-name
+    * e.g. nice –n -15 top
+
+* To change the process priority renice –n # process-name
+
+    * e.g. renice –n 12 PID.
+
+:download:`notes <_docs/training/module7/5-rpm+command.pdf>`
+
+Containers
+^^^^^^^^^^
+
+**What is a Container?**
+
+* The term container and the concept came from the shipping container
+* These containers are shipped from city to city and country to country
+* No matter which part of the world you go to, you will find these containers with the exact same measurements
+* Because around the world all docks, trucks, ships and warehouses are built to easily transport and store them
+* Then came the container technology which allowed developers or programmer to test and build applications on any computer just by putting it in a container (bundled in with the software code, libraries and configuration files) and then run on another computer regardless of its architecture
+* You can move the application anywhere without moving its OS just like moving the actual physical container anywhere that would fit on any dockyard, truck, ship or warehouse
+* An OS can run single or multiple containers at the same time
+
+**What are the Container Software?**
+
+* Docker is the software used to create and manage containers
+* Just like any other package, docker can be installed on your Linux system and its service or daemon can be controlled through native Linux service management tool
+* Podman is an alternative to docker
+* Docker is not supported in RHEL 8
+* It is daemon less, open source, Linux-native tool designed to develop, manage, and run containers.
+
+**Getting Familiar with Redhat Container Technology**
+
+Red Hat provides a set of command-line tools that can operate without a container engine, these include:
+
+* podman - for directly managing pods and container images (run, stop, start, ps, attach, etc.)
+* buildah - for building, pushing, and signing container images
+* skopeo - for copying, inspecting, deleting, and signing images
+* runc - for providing container run and build features to podman and buildah
+* crun - an optional runtime that can be configured and gives greater flexibility, control, and security for rootless containers.
+
+**Getting Familiar with podman Container Technology**
+
+When you hear about containers then you should know the following terms as well
+
+* images – containers can be created through images and containers can be converted to images
+* pods – Group of containers deployed together on the host. In the podman logo there are 3 seals grouped together as a pod.
+
+**Building, Running, and Managing Containers**
+
+* To install podman
+
+    * yum/dnf install podman –y
+    * yum install docker –y (For dockers)
+
+* Creating alias to docker
+
+* alias docker=podman Check podman version
+
+    * podman –v 
+
+* Getting help
+
+    * podman -–help or man podman
+
+* Check podman environment and registry/repository information
+
+    * podman info (If you are trying to load a container image, then it will look at the local machine and then go through each registry by the order listed)
+
+* To search a specific image in repository.
+
+    * podman search httpd
+
+* To list any previously downloaded podman images
+
+    * podman images
+
+* To download available images
+
+    * podman pull docker.io/library/httpd
+    * podman images (Check downloaded image status)
+
+* To list podman running containers
+
+    * podman ps
+
+* To run a downloaded httpd containers
+
+    * podman run -dt -p 8080:80/tcp docker.io/library/httpd (d=detach, t=get the tty shell, p=port)
+    * podman ps or Check httpd through web browser
+
+* To view podman logs.
+
+    * podman logs –l
+
+* To stop a running container
+
+    * podman stop con-name (con-name from podman ps command) 
+    * podman ps (To list running containers)
+
+* To run a multiple containers of httpd by changing the port #
+
+    * podman run -dt -p 8081:80/tcp docker.io/library/httpd
+    * podman run -dt -p 8082:80/tcp docker.io/library/httpd
+    * podman ps
+
+* To stop and start a previously running container
+
+    * podman stop|start con-name
+
+* To create a new container from the downloaded image
+
+    * podman create –-name httpd-con docker.io/library/httpd
+
+* To start the newly created container.
+
+    * podman start httpd-con
+
+Manage containers through systemd
+
+    * First you have to generate a unit file
+
+        * podman generate systemd –-new –-files –-name httpd-con
+
+* Copy it systemd directory
+
+    * cp /root/container-httpd.service /etc/systemd/system
+
+* Enable the service
+
+    * systemctl enable container-httpd-con.service
+
+* Start the service.
+
+    * systemctl start container-httpd-con.service
+
+Kickstart
+^^^^^^^^^
+
+* Kickstart is a method to automate the Linux installation without the need for any intervention from the user
+* With the help of kickstart you can automate questions that are asked during the installation. e.g.
+
+    * Language and time zone
+    * How the drives should be partitioned
+    * Which packages should be installed etc.
+
+* To use Kickstart, you must:
+
+    1. Choose a Kickstart server and create/edit a Kickstart file
+    2. Make the Kickstart file available on a network location
+    3. Make the installation source available
+    4. Make boot media available for client which will be used to begin the installation
+    5. Start the Kickstart installation
+
+* CentOS/Redhat 7
+
+    * Kickstart program can be downloaded which allows you to define parameters through the GUI
+
+          * yum install system-config-kickstart
+
+    * Or you can use the installation kickstart file which was created during the first installation (anaconda-ks.cfg)
+
+* CentOS/Redhat 8
+
+    * There is no GUI available to edit the file
+
+* Why changed?
+
+    * Most systems are virtual and templates can be used
+    * Automation software are in used such as Anisble.
+
+* Step by step procedure for Kickstart
+
+    1. Identify the server
+    2. Takeasnapshotoftheserver
+    3. Installkickstartconfigurator(forversion7)
+
+          * yum install system-config-kickstart
+
+    4. Start the kickstart file configurator and define parameters OR use the /root/anaconda-ks.cfg
+
+          * system-config-kickstart (To start the configurator)
+          * We will use anaconda installation kickstart file andc hange the hostname only
+
+    5. Make sure httpd package is installed, if not then install the package and start the httpd service
+
+          * rpm –qa | grep http
+          * yum/dnf install httpd
+          * systemctl start httpd
+          * systemctl enable httpd.
+
+    6. Copy kickstart file to httpd directory and change the permissions
+
+          * cp /root/anaconda-ks.cfg /var/www/html
+          * chmod a+r /var/www/html/anaconda-ks.cfg
+          * systemctl stop|disable firewalld
+          * Check file through browser on another PC http://192.168.1.x/anaconda-ks.cfg
+
+    7. Create a new VM and attach the CentOS iso image
+    8. Change the network adapter to Bridged adapter
+    9. Hit Esc
+    10. boot: linux ks=http://192.168.1.x/anaconda-ks.cfg
+
+           * For NFS → boot: linux inst.ks=nfs:192.168.1.x:/rhel8
+
+    11.  Wait and enjoy the automated installation
+
+**Kickstart for clients with static IP**
+
+boot: linux ks=http://server.example.com/ks.cfg ksdevice=eth0 IP:192.168.1.50 netmask=255.255.255.0 gateway=192.168.1.1
+
+* Where:
+
+    * ksdevice = is the network adapter of the client 
+    * IP = IP you are assigning to the client 
+    * netmask =Subnetmaskfortheclient 
+    * gateway = Gateway IP address for the client
+
+DHCP
+^^^^
+
+* DHCP stands for Dynamic Host Configuration Protocol
+* In order to communicate over the network, a computer needs to have an IP address
+* DHCP server is responsible to automatically assign IP addresses to servers, laptops, desktops, and other devices on the network
+
+* Step by steps instructions
+
+    * Assign a static IP to the DHCP server
+    * vi /etc/sysconfig/network/enp0s3
+    * Or simply run nmtui command to use GUI based network tool
+
+* Install dhcp server package
+
+    * yum install dhcp (version 7)
+    * dnf install dhcp-server (version 8)
+
+* Edit the configuration file with desired parameters
+
+    * vi /etc/dhcp/dhcp.conf
+    * cp /usr/share/doc/dhcp-x.x.x/dhcpd.conf.example /etc/dhcp/dhcpd.conf
+
+.. image:: _images/linux-dhcp.png
+
+* Start dhcpd service
+
+    * systemctl start dhcpd
+    * systemctl enable dhcp
+
+* Disable firewalld or allow dhcp port over firewall
+
+    * systemctl stop firewalld
+    * OR
+    * firewall-cmd --add-service=dhcp –permanent
+    * firewall-cmd –reload
+
+* Switch DHCP service from your router/modem to your new DHCP server
+* Login to your ISP provided router
+* Disable dhcp and enable forwarding to the new dhcp server.
+
+Module 8 - Disk Management and Run Levels
+-----------------------------------------
+
+System Run Level
+^^^^^^^^^^^^^^^^
+
+* System Run Levels 
+
+Main Run level
+
+    * 0 = Shut down (or halt) the system 
+    * 1 = Single-user mode; usually aliased as s or S
+    * 6 =Reboot the system
+
+Other Run levels
+
+    * 2 = Multiuser mode without networking
+    * 3 = Multiuser mode with networking
+    * 5 = Multiuser mode with networking and GUI.
+
+Linux Boot Process
+^^^^^^^^^^^^^^^^^^
+
+.. image:: _images/linux-boot-process.png
+
+* The boot sequence changes in CentOS/Redhat 7 and above
+* systemd is the new service manager in CentOS/RHEL 7 that manages the boot sequence
+* It is backward compatible with SysV init scripts used by previous versions of RedHat Linux including RHEL 6
+* Every system administrator needs to understand the boot process of an OS in order to troubleshoot effectively
+
+.. image:: _images/linux-boot-process-2.png
+
+Message of the Day
+^^^^^^^^^^^^^^^^^^
+
+* File location:
+
+    * /etc/motd
+
+* Once again, message of the day is the first message users will see when they login to the Linux machine
+
+* Steps:
+
+    * Create a new file in /etc/profile.d/motd.sh 
+    * Add desired commands in motd.sh file
+    * Modify the /etc/ssh/sshd_config file to edit
+
+        * #PrintMotd yes to PrintMotd no
+
+    * Restart sshd service
+
+        * systemctl restart sshd.service
+
+Disk Partition
+^^^^^^^^^^^^^^
+
+* Commands for disk partition
+
+    * df
+    * fdisk
+
+* Purpose? = Out of Space, Additional Apps etc.
+
+Computer Storage
+^^^^^^^^^^^^^^^^
+
+* LocalStorage
+
+    * RAM,HDD,SSD,etc.
+
+* DAS(DirectAttachedStorage)
+
+    * CD/DVD, USB flash drive, external disk directly attached with USB or other cables
+
+* SAN(StorageAreaNetwork)
+
+    * Storage attached through iSCSI or fiber cable
+
+* NAS(NetworkAttachedStorage)
+
+    * Storage attached over network (TCP/IP) 
+    * E.g.Samba,NFSetc.
+
+Logical Volume Management (LVM)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* LVM allows disks to be combined together
+
+.. image:: _images/linux-lvm.png
+
+.. image:: _images/linux-lvm-2.png
+
+
+Add/Extend Swap Space
+^^^^^^^^^^^^^^^^^^^^^
+
+* What is swap? – CentOS.org
+
+    * Swap space in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space. While swap space can help machines with a small amount of RAM, it should not be considered a replacement for more RAM. Swap space is located on hard drives, which have a slower access time than physical memory
+
+* Recommended swap size = Twice the size of RAM M = Amount of RAM in GB, and S = Amount of swap in GB, then
+
+    * If M < 2
+    * then S = M * 2 
+    * Else S = M + 2
+
+* Commands 
+
+    * dd
+    * mkswap
+    * swapon or swapoff
+
+Advanced Storage Features
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Red Hat 8 introduces the next generation volume management solution called Stratis
+* It uses thin provisioning by default
+* It combines the process of creating logical volume management (LVM) and creation of filesystems into one management
+* In LVM if a filesystem system gets full you will have to extend it manually whereas stratis extends the filesystem automatically if it has available space in its pool
+
+.. image:: _images/linux-stratis.png
+
+* Install Statris package
+
+    * yum/dnf install stratis-cli stratisd
+
+* Enable and start Statris service
+
+    * systemctl enable|start stratisd
+
+* Add 2 x 5G new disks from virtualization software and verify at the OS level 
+
+    * Oracle virtualbox storage setting
+    * lsblk
+
+* Create a new stratis pool and verify
+
+    * stratis pool create pool1 /dev/sdb 
+    * stratis pool list
+
+* Extend the pool
+
+    * stratis pool add-data pool1 /dev/sdc 
+    * stratis pool list
+
+* Create a new filesystem using stratis
+
+    * stratis filesystem create pool1 fs1
+    * stratis filesystem list (Filesystem will start with 546 MB)
+
+* Create a directory for mount point and mount filesystem 
+
+    * mkdir /bigdata
+    * mount /dev/stratis/pool1/fs1 /bigdata 
+    * lsblk
+
+* Create a snapshot of your filesystem
+
+    * startis filesystem snapshot pool1 fs1 fs1-snap 
+    * stratis filesystem list
+
+* Add the entry to /etc/fstab to mount at boot 
+
+    * UUID=“asf-0887afgdja-” /fs1 xfs defaults,x- 
+    * systemd.requires=stratisd.service 0 0
+
+RAID
+^^^^
+
+* RAID (Redundant Array of Independent Disks)
+
+* Type of RAID 
+
+    * RAID0
+    * RAID1 
+    * RAID5
+
+.. image:: _images/linux-raid.png
+
+File System Check (fsck and xfs_repair)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Linux fsck utility is used to check and repair Linux filesystems (ext2, ext3, ext4, etc.)
+* Linux xfs_repair utility is used to check and repair Linux filesystems for xfs filesystem type
+* Depending on when was the last time a file system was checked, the system runs the fsck during boot time to check whether the filesystem is in consistent state
+* System administrator could also run it manually when there is a problem with the filesystems
+* Make sure to execute the fsck on an unmounted file systems to avoid any data corruption issues.
+* Force a filesystem check even if it’s clean using option –f
+* Attempt to fix detected problems automatically using option -y
+* The xfs_repair utility is highly scalable and is designed to repair even very large file systems with many inodes efficiently. Unlike other Linux file systems, xfs_repair does not run at boot time
+* The following are the possible exit codes for fsck command
+
+    * 0 - No errors
+    * 1 - Filesystem errors corrected
+    * 2 - System should be rebooted
+    * 4 - Filesystem errors left uncorrected
+    * 8 - Operational error
+    * 16 - usage or syntax error
+    * 32 - fsck cancelled by user request
+    * 128 - shared-library error
+
+System Backup
+^^^^^^^^^^^^^
+
+* 5 Different Types of Backups
+
+    1. System backup (entire image using tools such as acronis, Veeam, Commvault etc.)
+    2. Application backup (3rd party application backup solution)
+    3. Database backup (Oracle dataguard, SQL backup etc.)
+    4. Filesystem backup (tar, gzip directoris etc.)
+    5. Disk backup or disk cloning (dd command)
+
+* dd is a command-line utility for Unix and Unix-like operating systems whose primary purpose is to convert and copy files
+* As a result, dd can be used for tasks such as backing up the boot sector of a hard drive, and obtaining a fixed amount of random data
+* Please note the source and destination disk should be the same size
+* To backup or clone an entire hard disk to another hard disk connected to the same system, execute the dd command as shown
+
+    * # dd if=<source file name> of=<target file name> [Options] # dd if=/dev/sda of=/dev/sdb
+
+* To backup/copy the disk partition
+
+    * # dd if =/dev/sda1 of=/root/sda1.img
+
+* Restoring this image file to other machine after copying the .img
+
+    * # dd if=/root/sda1.img of=/dev/sdb3
+
+Network File System (NFS)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* NFS stands for Network File System, a file system developed by Sun Microsystems, Inc.
+* It is a client/server system that allows users to access files across a network and treat them as if they resided in a local file directory
+* For example, if you were using a computer linked to a second computer via NFS, you could access files on the second computer as if they resided in a directory on the first computer. This is accomplished through the processes of exporting (the process by which an NFS server provides remote clients with access to its files) and mounting (the process by which client map NFS shared filesystem)
+* Steps for NFS Server Configuration
+
+    * Install NFS packages
+
+        * # yum install nfs-utils libnfsidmap (most likely they are installed)
+
+    * Once the packages are installed, enable and start NFS services
+
+        * # systemctl enable rpcbind
+        * # systemctl enable nfs-server
+        * # systemctl start rpcbind, nfs-server, rpc-statd, nfs-idmapd
+
+    * Create NFS share directory and assign permissions
+
+.. image:: _images/linux-nfs.png
+
+* Steps for NFS Client Configuration
+
+    * Install NFS packages
+        
+        # yum install nfs-utils rpcbind
+
+    * Once the packages are installed enable and start rpcbind service
+        
+        * # systemctl rpcbind start
+
+    * Make sure firewalld or iptables stopped (if running)
+        * # ps –ef | egrep “firewall|iptable”
+
+    * Show mount from the NFS server
+        
+        * # showmount -e 192.168.1.5 (NFS Server IP)
+
+    * Create a mount point
+        
+        * # mkdir /mnt/kramer
+
+    * Mount the NFS filesystem
+
+        * # mount 192.168.1.5:/mypretzels /mnt/kramer
+
+    * Verify mounted filesystem
+
+        * # df –h
+
+    * To unmount
+        
+        * # umount /mnt/kramer
+
+Samba
+^^^^^
+
+* Samba is a Linux tool or utility that allows sharing for Linux resources such as files and printers to with other operating systems
+* It works exactly like NFS but the difference is NFS shares within Linux or Unix like system whereas Samba shares with other OS (e.g. Windows, MAC etc.)
+* For example, computer “A” shares its filesystem with computer “B” using Samba then computer “B” will see that shared filesystem as if it is mounted as the local filesystem
+* Samba shares its filesystem through a protocol called SMB (Server Message Block) which was invented by IBM
+* Another protocol used to share Samba is through CIFS (Common Internet File System) invented by Microsoft and NMB (NetBios Named Server)
+* CIFS became the extension of SMB and now Microsoft has introduced newer version of SMB v2 and v3 that are mostly used in the industry
+* In simple term, most people, when they use either SMB or CIFS, are talking about the same exact thing
+
+**Installation and Configuration**
+
+* Take snapshot of your VM
+* Install samba packages
+* Enable samba to be allowed through firewall (Only if you have firewall running) * Disable firewall
+* Create Samba share directory and assign permissions
+* Also change the SELinux security context for the samba shared directory
+* Or disable SELinux
+* Modify /etc/samba/smb.conf file to add new shared filesystem
+* Verify the setting
+* Once the packages are installed, enable and start Samba services (smb and nmb) * Mount Samba share on Windows client
+* Mount Samba share on Linux client
+* Additional instructions on creating secure Samba share.
+
+NAS Device for NFS or Samba
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* A storage can be carved on a Linux server, and it can be shared with another Linux machine through NFS or to a Windows machine through Samba service
+* NFS/Samba or any NAS service can be setup through a dedicated NAS device
+
+SATA and SAS
+^^^^^^^^^^^^
+
+* SATA Stands for Serial Advanced Technology Attachment and SAS stands for Serial Attached SCSI (SCSI Stands for Small Computer System Interface, typically pronounced as “scuzzy”)
+* Both SAS and SATA utilize serial communication. Serial communication means that the highway has both lanes
+* The main difference between them is that SAS drives are faster and more reliable than SATA drives
+* SAS is generally more expensive, and it’s better suited for use in servers or in processing-heavy computer workstations. SATA is less expensive, and it’s better suited for desktop file storage
+* In a SATA cable, all 4 wires are placed within the same cable. In a SAS cable, the 4 wires are separated into 2 different cables
+
+**Why divide the wires between 2 cables?**
+
+* So you can connect more devices to one another. With a SATA cable, you can only link the motherboard and the storage drive. You could hook up an expansion device, but that takes up valuable room inside your computer.
+* With a SAS cable, you can hook up the motherboard to both a storage drive and another piece of hardware that has SAS connectors.
+
+Difference Between CentOS/RHEL7 and 8
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Red Hat Enterprise Linux 8 (RHEL 8) is now available for production use with lots of developer- friendly capabilities
+* RHEL 8 official release by Red Hat Inc, was announced on May 7, 2019
+
++----------------------------------------------------+----------------------------------------------------------------+-------------------------------------------------------------------+
+|                                                    | RHEL 8                                                         | RHEL 7                                                            |
++====================================================+================================================================+===================================================================+
+| General Availability Date                          | 14-Nov-18                                                      | 10-Jun-14                                                         |
+| Code Name                                          | Ootpa                                                          | Maipo                                                             |
+| Kernel Version                                     | 4.18                                                           | 3.10.0-123                                                        |
+| End of Support                                     | May-2029                                                       | 30-Jun-2024                                                       |
+| Last Minor Release                                 | 8.x                                                            | 7.7                                                               |
+| Network Time Synchronization                       | Only Chrony                                                    | Chrony and ntpd                                                   |
+| GUI Interface (Desktop)                            | Gnome 3.28                                                     | Gnome 3                                                           |
+| Default Database                                   | MySQL 8.0, MariaDB 10.3, PostgreSQL 10 and 9.6, and Redis 5.0  | MariaDB                                                           |
+| Default Firewall                                   | Firewalld, it uses nftables framework in the backend           | Firewalld, it uses Iptables framework in the backend              |
+| Max Supported (Individual) File & Filesystem Size  | XFS= 1024TB                                                    | XFS= 500TB                                                        |
+| Package Management                                 | By default both are installed, YUM symbolic link to DNF        | By default only YUM and DNF can be installed from the Extra repo  |
+| Max. RAM Supported                                 | 24 TB on x86_64 architecture                                   | 12 TB on x86_64 architecture                                      |
++----------------------------------------------------+----------------------------------------------------------------+-------------------------------------------------------------------+
+
+Additional Resources
+--------------------
+
+Change File Creation Permission
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+umask is a command to set default permission any newly created file/directory
+
+eg. `umask u+rw,g+r,o-rwx`
+
+Filesystem Color Definition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Blue = directory
+* Green = executable or recognized data file
+* Sky Blue = Symbolic link file
+* Yellow with black background = device
+* pink = graphic image file
+* Red = archive file
+* Red with black background = broken link
+
+Troubleshoot File Issues
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+* File does not exist
+* Absolute vs relative paths
+* File type
+* Permissions
+* Parent directory permissions
+* Hidden file
+* Command syntax (source and then target)
+
+Cannot CD Into a Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Directory does not exist
+* Absolute vs relative paths
+* Permissions
+* File type
+* Parent directory permissions
+* Hidden directories
+
+Filesystem is Corrupted
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* Filesystem
+* Types of a filesystem
+
+    * ext3, ext4, xfs, NTFS, etc.
+
+* Filesystem Layout and Partitions
+
+    * /var, /etc, /root, /home, etc.
+
+* Checking filesystem
+
+    * df, fdisk -l
+
+* Troubleshooting steps
+
+    * Check /var/log/messages or /var/log/syslog
+    * Run fsck on the block device (/dev/sda) NOT the mount point
+    * Unmount filesystem and run fsck
+
+System is Running Slow
+^^^^^^^^^^^^^^^^^^^^^^
+
+* Understanding the problem
+
+    * Processing
+    * Disk writing
+    * Networking
+    * Hardware
+
+* Troubleshooting steps
+
+    * Check if the right system is reported or you are on the right system
+    * Check disk space (df -h, du)
+    * Check processing (top, free, lsmem, /proc/meminfo, vmstat, pmap <PID>, dmidecode, lscpu or /proc/cpuinfo)
+    * Check disk issues (iostat -y 5, lsof)
+    * Check networking (tcpdump -i enps03, lsof -i -P -n | grep -i listen, netstat -plnt or ss -plnt, iftop)
+    * Check system uptime (uptime)
+    * Check logs
+    * Check hardware status by logging into system console
+    * OTher tools (htop, iotop, iptraf, psacct)
+
+IP Address Assigned but not Reachable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Troubleshooting steps
+
+    * Check if you are on the correct network interface (ifconfig)
+    * Check to see if you got the right subnet mask or gateway
+    * Ping the gateway
+    * Check if the gateway is assigned (netstat -rnv)
+    * Check with network team if the correct VLAN is assigned on the switch side
+    * Run ethtool or mii-tool to check the NIC status
+    * Run ifup <interface> command to bring the NIC port up
+    * Restart network systemctl restart network
+    * Check on the status of the NIC by running ifconfig or ip addr command
+    * Check to see if the IP Is assigned to some other device (IP conflict)
+    * Turn off firewall
+
+Remove Unnecessary or Orphan Packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Keep your server lean and mean. Install only those packages you really need. IF there are unwanted packages delete them. The fewer the packages the less chance of unpached code.
+
+Guidelines:
+
+    * Do not install packages you do not need during the initial installation
+    * Pay close attention to the add-on packages
+
+To get a list of packages:
+
+    * rpm -qa (CentOS)
+    * apt list -installed (Ubuntu)
+
+Remove packages:
+
+    * rpm -e package_name
+    * apt-get remove package_name
+
+Orphaned Packages:
+
+The objective is to remove all orphaned packages from Centos Linux. By orphaned packages we mean all packages which no longer serve a purpose of package dependencies.
+
+Fore example, package A is dependent on package B, thus, in order to install package A the package B must be installed. Once the package A is removed, the package B might still be installed, hence package B is now orphaned package.
+
+* A built-in utility which allows you to check for orphaned packages
+
+    * yum-utils
+
+* Check if that exist in your system
+
+    * rpm -qa | grep yum-utils
+
+* If not then install
+
+    * yum install yum-utils
+
+* Get a list of all orphaned packages
+
+    * package-cleanup -leaves
+
+* Remove
+
+    * yum remove 'package-cleanup -leaves'
+    * apt-get autoremove
+
+SELinux (Security Enhanced Linux)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* What is SELinux?
+
+    * SELinux is a Linux kernal security module that provides a mechanism for supporting access control security policies including mandatory access controls
+    * It is a project of the United States Security Agency (NSA) and the SELinux Community
+
+* SELinux options?
+
+    * Enforcing = enabled (enabled by default in Redhat, CentOS, and Fedora)
+    * Permissive = Disabled but logs the activity
+    * Disable = disabled and not activity logs
+
+* To check SELinux status
+
+    * sestatus or getenforce
+
+* SELinux setting
+
+    * setenforce 0 = permissive/disable
+    * setenforce 1 = enable
+
+* Modify SELinux config for permanent setting
+
+    * /etc/selinux/config
+    * SELINUX=enforcing
+    * SELINUX=disabled
+
+* Before modifying selinux config file
+
+    * Create a snapshot of your VM
+
+* Before rebooting create a file
+
+    * /.autorelabel
+
+* Two main conceptes of SELinux
+
+    * Labeling
+    * Type enforcement
+
+* To list the label of a file
+
+    * ls -lZ /usr/sbin/httpd
+
+* To list the label of a directory
+
+    * ls -dZ /etc/httpd
+
+* As the webserver runs its process its labeled in memory as httpd_t
+
+    * ps axZ | grep httpd
+
+* The SELinux assigns the label at the socket level
+
+    * netstat -tnlpZ | grep httpd
+
+* Command to manage SELinux setting:
+
+    * semanage -> to label
+
+        * login
+        * user
+        * port
+        * interface
+        * module
+        * node
+        * file context
+        * boolean
+        * permissive state
+        * dontaudit
+
+* Boolean
+
+    * ON / OFF switch
+    * There are pre-defined out of the box Booleans that come with SELinux
+
+        * eg. do we allow ftp server to access home directories
+        * can httpd talk to ldap
+        * etc.
+
+    * To list all booleans
+    
+        * getsebool -a
+        * OR semanage boolean -l
+
+    * To enable or turn on a booleans
+
+        * setsebool -P boolean_name on
+
+    * Check error messages related to SELinux
+
+        * journalctl
+
+    * To change the type in a label
+
+        * chcon -t httpd_sys_content_t FILENAME
+        * semanage -t httpd_sys_content_t FILENAME
+
+Types of Security Threats
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Distributed denial-of-service (DDoS) attack
+
+    * When a hacker put a network of zombie computers (other peoples computers) to attack or destroy a specific website or server. That increase in volume or traffic overloads the website or server causing it to be slow or server shuts down completely
+
+* Hacking
+
+    * When someone gains unauthorized access to a computer
+
+* Malware
+
+    * Malicious software that infects your computer, such as computer virus, worms, trojan horses, spyware, and adware
+    * Consequences
+
+        * Intimidate you with scareware, which is usually a pop-up message that tells you your computer has a security problem or other false information
+        * Reformat the hard drive of your computer causing you to lose all your information
+        * Alter or delete files
+        * Steal sensitive information
+        * Send emails on your behalf
+        * Take control of your computer and all the software running on it
+
+* Pharming
+
+    * It points you to a malicious and illegitimate website by reditrecting the legitimate URL. Even if the URL is entered correctly, it can still be reditrected to a fake website.
+    * Consequences
+
+        * Convince you that the site is real and legitimate by spoofing or looking almost identical to the actual site down to the smallest details. You may enter your personal information and unknowingly give it to someone with malicious intent.
+
+* Phishing
+
+    * Fake emails, text messages and webistes created to look like theyre from authentic companies. THeyre sent by criminals to steal personal or financial information from you.
+    * Consequences
+
+        * Trick you into giving them information by asking you to update, validate or confirm your account. It is often presented in a manner than seems official and intimidating, to encourage you to take action.
+        * Provides cyber criminals with your username and passwords so that they can access your accounts (your online bank account, shopping accounts, etc.) and steal your credit card numbers.
+
+* Ransomware
+
+    * Ransomware is a type of malware that restricts access to your computer or files and displays a messsage that demands payment in order for the restriction to be removed. The most common means of infection appear to be phishin emails that contain malicious attachments and website pop-up advertisements
+    * Consequences
+
+        * There are two common types of ransomware.
+
+            * Lockscreen ransomware, displays an image that prevents you from accessing your computer
+            * Encryption ransomware, encrypts files on your systems hard drive and sometimes on shared network drives. USB drives, external hard drives and even some cloud storage drives, preventing you from opening them.
+
+* Spam
+
+    * SPam is one of the more common methods of both sending information out and collecting it from unsuspecing people
+    * Consequences
+
+        * Annoy you with unwanted junk email
+        * Create a burden for communications service providers and business to filter electronic messages.
+        * Phish for your information by tricking you into following links or entering details with offers and promotions
+
+* Spoofing
+
+    * THis technique is often used in conjunction with phishin in an attempt to steal your information. A website or email address that is created to look like it comes from a legitimate source. AN email address may even include your own name, the name of someone you know, making it difficult to discern whether or not the sender is real.
+    * Consequences
+
+        * Spends spam using your email address, or a variation of your email address to your contact list.
+        * Recreates websites that closely resemble the authentic site. This could be a financial institution or other site that requires login or other personal information.
+
+* Spyware
+
+    * Software that collects personal information about you without you knowing. They often com in the form of a free download and are installed automatically with or without your consent. THese are difficult to remove and can infect your computer with viruses.
+    * Consequences
+
+        * Collect informatiuon about you without you knowing about it and give it to third parties
+        * Send your usernames, passwords, surfing habits, list of applications youve downloaded, settings, and even the version of your OS to third parties.
+        * Change the way your computer runs without your knowledge
+        * Take you to unwanted sites or inundate you with uncontrollable pop-up ads.
+
+* Trojan Horses
+
+    * Trojan horse is a malicious program that is disguised as, or embeded with, legitimate software. It is an executable file that will install itself and run automatically once its downloaded.
+    * Consequences
+
+        * Delete your files
+        * Use your computer to hack other ocmputers
+        * Watch you through your web cam
+        * Log your key strokes
+        * Record usernames, passwords, and other personal information
+
+* Viruses
+
+    * Malicious computer programs that are ogften sent as an email attachment or a download with the intent of infecting your computer, as well as computers of everyone in your contact list. Just visiting a site can start an automatic download of a virus.
+    * Consequences
+
+        * Send spam
+        * Provide criminals with acccess to your computer and contact list
+        * Scan and find personal information like passwords on your computer.
+        * Hijack your web browser
+        * Disable your security settings
+        * Display unwanted ads
+
+* Wi-Fi Eavesdropping
+
+    * Virtual listening in on information thats shared over unsecure wifi network
+    * Consequences
+
+        * Potentially access your computer with the right equipment
+        * Steal your personal information including logins and passwords
+    
+* Worms
+
+    * A worm, unlike a virus, goes to work on its own without attaching itself to files or programs. It lives in your computers memory, doesnt damage or alter the hard drive and propegates itself to other computers in a network, whether within a company or the internet itself.
+    * Consequences
+
+        * Spread to everyone in your contact list
+        * Cause a tremendous amount of damage by shutting down parts of the internet. Wreaking havok on an internal network and costing companies enourmous amounts of lost revenue
 

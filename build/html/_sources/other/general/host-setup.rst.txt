@@ -9,6 +9,11 @@ Developer tools in Chrome:
 Mac
 ---
 
+M1 Mac VM
+^^^^^^^^^
+
+https://forums.macrumors.com/threads/success-virtualize-windows-10-for-arm-on-m1-with-alexander-grafs-qemu-hypervisor-patch.2272354/
+
 Wake on LAN Client
 ^^^^^^^^^^^^^^^^^^
 

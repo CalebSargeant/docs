@@ -62,25 +62,24 @@
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">KVM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nagios.html#adding-linux-hosts">Adding Linux Hosts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Training</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#concepts">Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-1-concepts">Module 1 - Concepts</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#what-is-linux">What is Linux?</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#unix-vs-linux">Unix vs Linux</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#download-install-and-configure">Download, Install and Configure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-2-download-install-and-configure">Module 2 - Download, Install and Configure</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linux-distributions">Linux Distributions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#centos-vs-centos-stream">CentOS vs CentOS Stream</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#linux-vs-windows">Linux vs Windows</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#linux-users">Linux Users</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#system-access-and-file-system">System Access and File System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-3-system-access-and-file-system">Module 3 - System Access and File System</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#network-commands">Network Commands</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#important-things">Important Things</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#linux-file-system">Linux File System</a></li>
@@ -100,7 +99,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#soft-and-hard-links">Soft and Hard Links</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#fundamentals">Fundamentals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-4-fundamentals">Module 4 - Fundamentals</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#commands-syntax">Commands Syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#file-permissions">File Permissions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#file-permissions-using-numeric-mode">File Permissions using Numeric Mode</a></li>
@@ -127,10 +126,129 @@
 <li class="toctree-l4"><a class="reference internal" href="#linux-vs-windows-commands">Linux vs Windows Commands</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#linux-system-administration">Linux System Administration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-5-system-administration">Module 5 - System Administration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linux-file-editor-vi">Linux File Editor (vi)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#difference-between-vi-and-vim-editor">Difference Between vi and vim Editor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sed-command">Sed Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-account-management">User Account Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-password-aging">Enable Password Aging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch-users-and-sudo-access">Switch Users and Sudo Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monitor-users">Monitor Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#talking-to-users">Talking to Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-account-authentication">Linux Account Authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#difference-between-ad-ldap-idm-winbind-openldap-etc">Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-utility-commands">System Utility Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#processes-and-jobs">Processes and Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#systemctl-command">Systemctl Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ps-command">ps Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#top-command">top Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kill-command">kill Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crontab-command">crontab Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#at-command">at Command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-cron-jobs">Additional Cron Jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#process-management">Process Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-monitoring">System Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-monitoring">Log Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-maintenance-commands">System Maintenance Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-system-hostname">Changing System Hostname</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finding-system-information">Finding System Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-architecture">System Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminal-control-keys">Terminal Control Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminal-commands">Terminal Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recover-root-password">Recover Root Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sos-report">SOS Report</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-permissions">Special Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-6-shell-scripting">Module 6 - Shell Scripting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux-kernal">Linux Kernal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#introduction-to-shell">Introduction to Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#types-of-shells">Types of Shells</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell-scripting">Shell Scripting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-shell-scripts">Basic Shell Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-output">Input/Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#if-then-scripts">if-then Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#for-loop-scripts">For Loop Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#do-while-scripts">do-while Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#case-statement-scripts">Case Statement Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-remote-servers-connectivity">Check Remote Servers Connectivity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aliases">Aliases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-user-or-global-aliases">Creating User or Global Aliases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell-history">Shell History</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-7-networking-services-and-system-updates">Module 7 - Networking, Services and System Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#internet-access-to-vm">Internet Access to VM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-components">Network Components</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-files-and-commands">Network Files and Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nic-information">NIC Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nic-bonding">NIC Bonding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nic-bonding-procedure">NIC Bonding Procedure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#net-network-utilities">Net Network Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-updates-and-repos">System Updates and Repos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-package-management">Advanced Package Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-files-or-apps">Download Files or Apps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#curl-and-ping-commands">curl and ping Commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ftp-file-transfer-protocol">FTP - File Transfer Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scp-secure-copy-protocol">SCP - Secure Copy Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsync-remote-synchronization">rsync - Remote Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-upgrade-patch-management">System Upgrade/Patch Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-local-repository">Create Local Repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-and-telnet">SSH and Telnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-without-a-password">SSH Without a Password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dns-domain-name-system">DNS - Domain Name System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-install-and-configure-dns">Download, Install and Configure DNS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hostname-ip-lookup">Hostname/IP Lookup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ntp">NTP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chronyd">chronyd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-system-utility-command-timedatectl">New System Utility Command (timedatectl)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sendmail">Sendmail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#web-server">Web Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#central-logger-rsyslog">Central Logger (rsyslog)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-file-system">Network File System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-os-hardening">Linux OS Hardening</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openldap-installation">OpenLDAP Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trace-network-traffic-traceroute">Trace Network Traffic (traceroute)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssh-keys">SSH Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cockpit">Cockpit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#firewall">Firewall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tune-system-performance">Tune System Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#containers">Containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kickstart">Kickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dhcp">DHCP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-8-disk-management-and-run-levels">Module 8 - Disk Management and Run Levels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-run-level">System Run Level</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-boot-process">Linux Boot Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-of-the-day">Message of the Day</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disk-partition">Disk Partition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computer-storage">Computer Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logical-volume-management-lvm">Logical Volume Management (LVM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-extend-swap-space">Add/Extend Swap Space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-storage-features">Advanced Storage Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raid">RAID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-system-check-fsck-and-xfs-repair">File System Check (fsck and xfs_repair)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-backup">System Backup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-file-system-nfs">Network File System (NFS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#samba">Samba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nas-device-for-nfs-or-samba">NAS Device for NFS or Samba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sata-and-sas">SATA and SAS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#difference-between-centos-rhel7-and-8">Difference Between CentOS/RHEL7 and 8</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-resources">Additional Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#change-file-creation-permission">Change File Creation Permission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filesystem-color-definition">Filesystem Color Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshoot-file-issues">Troubleshoot File Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cannot-cd-into-a-directory">Cannot CD Into a Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filesystem-is-corrupted">Filesystem is Corrupted</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-is-running-slow">System is Running Slow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ip-address-assigned-but-not-reachable">IP Address Assigned but not Reachable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-unnecessary-or-orphan-packages">Remove Unnecessary or Orphan Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selinux-security-enhanced-linux">SELinux (Security Enhanced Linux)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#types-of-security-threats">Types of Security Threats</a></li>
 </ul>
 </li>
 </ul>
@@ -138,6 +256,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
@@ -180,8 +299,16 @@
              
   <section id="training">
 <h1>Training<a class="headerlink" href="#training" title="Permalink to this headline"></a></h1>
-<section id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/cf70dc5756ea99d03c4120e9adaebf0c/Complete%2BLinux%2BTraining%2BSyllabus.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Syllabus</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/2688fa29b9f53f7cae21c27668efb5ac/Commands-Recap.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Commands</span> <span class="pre">Recap</span></code></a></p>
+<section id="module-1-concepts">
+<h2>Module 1 - Concepts<a class="headerlink" href="#module-1-concepts" title="Permalink to this headline"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/24f2157730d9f65feed6809fcf248a00/Hard%2BDisk%2Band%2BDisk%2BCache.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Hard</span> <span class="pre">Disk</span> <span class="pre">and</span> <span class="pre">Disk</span> <span class="pre">Cache</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/232840a7c44e0c963b8d99ab4ebe2787/History%2Bof%2BUnix.pdf"><code class="xref download docutils literal notranslate"><span class="pre">History</span> <span class="pre">of</span> <span class="pre">Unix</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/282674f724e4119f452c91f18fa8eb07/Inside%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Inside</span> <span class="pre">Linux</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/3ed58ea398ef6a8b9862dcc964368cd0/Operating%2Bsystem.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Operating</span> <span class="pre">System</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/7eedda03866ac546bd1f79860b5f3c44/Parts%2Bof%2BOS.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Parts</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">OS</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/405361156d9240998d88a6d811f658ee/Virtual%2Bmemory.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">Memory</span></code></a></p>
 <section id="what-is-linux">
 <h3>What is Linux?<a class="headerlink" href="#what-is-linux" title="Permalink to this headline"></a></h3>
 <ul class="simple">
@@ -202,8 +329,12 @@
 </ul>
 </section>
 </section>
-<section id="download-install-and-configure">
-<h2>Download, Install and Configure<a class="headerlink" href="#download-install-and-configure" title="Permalink to this headline"></a></h2>
+<section id="module-2-download-install-and-configure">
+<h2>Module 2 - Download, Install and Configure<a class="headerlink" href="#module-2-download-install-and-configure" title="Permalink to this headline"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/e2404963c90218fbbe1ffc5dc7cb5eaa/Oracle%2BVirtual%2BBox%2BUser%2BManual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Oracle</span> <span class="pre">VirtualBox</span> <span class="pre">User</span> <span class="pre">Manual</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/4ff6ebd206c76c8283881855b56b99e0/Changing-from-32-to-64bit.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Changing</span> <span class="pre">from</span> <span class="pre">32</span> <span class="pre">to</span> <span class="pre">64bit</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/012351e4431227bd5950cd7bfdd1926f/CentOS%2BInstallation%2BGuide.pdf"><code class="xref download docutils literal notranslate"><span class="pre">CentOS</span> <span class="pre">Installation</span> <span class="pre">Guide</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/309f0514e58683feebeda00aceb2869d/Red_Hat_Enterprise_Linux-7-Installation_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">RedHat</span> <span class="pre">7</span> <span class="pre">Install</span> <span class="pre">Guide</span></code></a></p>
 <section id="linux-distributions">
 <h3>Linux Distributions<a class="headerlink" href="#linux-distributions" title="Permalink to this headline"></a></h3>
 <ul class="simple">
@@ -293,8 +424,11 @@ Not an open source OS</p></td>
 </ul>
 </section>
 </section>
-<section id="system-access-and-file-system">
-<h2>System Access and File System<a class="headerlink" href="#system-access-and-file-system" title="Permalink to this headline"></a></h2>
+<section id="module-3-system-access-and-file-system">
+<h2>Module 3 - System Access and File System<a class="headerlink" href="#module-3-system-access-and-file-system" title="Permalink to this headline"></a></h2>
+<p><a class="reference download internal" download="" href="../../_downloads/83f96e776a7bf7deffb5357fd5910a7a/4-Logging%2BOn%2BTo%2BSystem.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Logging</span> <span class="pre">onto</span> <span class="pre">System</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/0610336ca1b4b13692025acb0f78398e/7-File%2BNames.pdf"><code class="xref download docutils literal notranslate"><span class="pre">File</span> <span class="pre">Names</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/61e8a6e6855c00b7c9bdb72f7219f725/8-Passwords%2BStandards.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Password</span> <span class="pre">Standards</span></code></a></p>
 <section id="network-commands">
 <h3>Network Commands<a class="headerlink" href="#network-commands" title="Permalink to this headline"></a></h3>
 <ul class="simple">
@@ -326,6 +460,7 @@ Not an open source OS</p></td>
 <li><p>Linux is mostly CLI not GUI</p></li>
 <li><p>Linux is very flexible as compared to other OSs</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/7f171ff89d61cd66891c4bddf4c30456/3-Linux%2Bvs%2BWindows.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="linux-file-system">
 <h3>Linux File System<a class="headerlink" href="#linux-file-system" title="Permalink to this headline"></a></h3>
@@ -334,10 +469,13 @@ Not an open source OS</p></td>
 <li><p>There are many different types of filesystems. In general improvements have been made to filesystems with new releases of OS and each new FS has been given a different name. Eg. ext3, ext4, XFS, NTFS, FAT etc.</p></li>
 <li><p>Linux filesystems store info in a hierarchy of dirs and fiels.</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/c60c9b6fc829c59169ed347e5008ae8a/1-Linux%2BStructure.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/8a9d86583fb0fe7d587c4c3f1b88bef5/5-Linux%2BFile%2BSystem.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-system-structure">
 <h3>File System Structure<a class="headerlink" href="#file-system-structure" title="Permalink to this headline"></a></h3>
 <img alt="../../_images/linux-file-system-structure.png" src="../../_images/linux-file-system-structure.png" />
+<p><a class="reference download internal" download="" href="../../_downloads/2ea998f1de4c4fe60414e6fe1203f036/6-File%2BSystem%2BDetail.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-system-structure-and-its-description">
 <h3>File System Structure and its Description<a class="headerlink" href="#file-system-structure-and-its-description" title="Permalink to this headline"></a></h3>
@@ -405,6 +543,7 @@ Not an open source OS</p></td>
 <section id="directory-listing-attributes">
 <h3>Directory Listing Attributes<a class="headerlink" href="#directory-listing-attributes" title="Permalink to this headline"></a></h3>
 <img alt="../../_images/linux-directory-listing-attributes.png" src="../../_images/linux-directory-listing-attributes.png" />
+<p><a class="reference download internal" download="" href="../../_downloads/0cd9b9df7da81ea0b040338e2667eb66/13-List%2Bfiles%2Band%2Bdirectories.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="creating-files-and-directories">
 <h3>Creating Files and Directories<a class="headerlink" href="#creating-files-and-directories" title="Permalink to this headline"></a></h3>
@@ -500,6 +639,7 @@ Block device</p></td>
 <li><p><cite>locate</cite> uses a prebuilt database, which should be regularly updated, while <cite>find</cite> iterates over a filesystem to locate files. Thus, locate is much faster than find, but can be inaccurate if the database (can be seen as a cache) is not updated</p></li>
 <li><p>To update the locate database run <cite>updatedb</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/57ed9fbbc1616a161e5f31fda9cd8adb/10-Difference-between-locate-and-find-command-in-Linux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="changing-password">
 <h3>Changing Password<a class="headerlink" href="#changing-password" title="Permalink to this headline"></a></h3>
@@ -507,6 +647,7 @@ Block device</p></td>
 <li><p>You should change your initial password as soon as you login</p></li>
 <li><p>Command = <cite>passwd userid</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1be1d4e47d2122be57d624164e98e77a/9-Change%2BPassword%2Bin%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="wildcards">
 <h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline"></a></h3>
@@ -520,6 +661,7 @@ Block device</p></td>
 <li><p><cite>^</cite> the beginning of a line</p></li>
 <li><p><cite>$</cite> the end of a line</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/d8d9034ef2de1b9c16fda51a3abf4d6e/11-Wildcards.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="soft-and-hard-links">
 <h3>Soft and Hard Links<a class="headerlink" href="#soft-and-hard-links" title="Permalink to this headline"></a></h3>
@@ -540,10 +682,11 @@ Block device</p></td>
 <li><p>Note: you cannot create a soft or hard link within the same directory with the smae name.</p></li>
 <li><p>Hard links only work within the same partition</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1cbded85abe209ad7f69070f96a001fa/12-Soft%2BLink%2Band%2BHard%2BLinks.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 </section>
-<section id="fundamentals">
-<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline"></a></h2>
+<section id="module-4-fundamentals">
+<h2>Module 4 - Fundamentals<a class="headerlink" href="#module-4-fundamentals" title="Permalink to this headline"></a></h2>
 <section id="commands-syntax">
 <h3>Commands Syntax<a class="headerlink" href="#commands-syntax" title="Permalink to this headline"></a></h3>
 <ul>
@@ -579,6 +722,7 @@ Block device</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/0bcb43c2e67a76bfe19301c6086eb037/1-Command%2BSyntax.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-permissions">
 <h3>File Permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline"></a></h3>
@@ -622,6 +766,7 @@ Block device</p></td>
 <li><p>Remove write rights from user: <cite>chmod u-w file</cite></p></li>
 <li><p>Add read and write rights to user on file: <cite>chmod u+rw file</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/29f5857eec7cb75da2c809d0836c3a96/2-File%2BPermissions%2Band%2BOwnership.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-permissions-using-numeric-mode">
 <h3>File Permissions using Numeric Mode<a class="headerlink" href="#file-permissions-using-numeric-mode" title="Permalink to this headline"></a></h3>
@@ -683,6 +828,7 @@ rwx</p></td>
 <li><p><cite>chmod 764 file</cite>:</p></li>
 </ul>
 <img alt="../../_images/linux-file-system-permissions-2.png" src="../../_images/linux-file-system-permissions-2.png" />
+<p><a class="reference download internal" download="" href="../../_downloads/d49524046ec549571deae012513a3036/11-File%2BPermissions%2BCheat%2BSheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-ownership">
 <h3>File Ownership<a class="headerlink" href="#file-ownership" title="Permalink to this headline"></a></h3>
@@ -763,6 +909,7 @@ rwx</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1cc51de1b279e8aa089a5f33d1a7c45b/12-Access%2BControl%2BLists.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="help-commands">
 <h3>Help Commands<a class="headerlink" href="#help-commands" title="Permalink to this headline"></a></h3>
@@ -777,6 +924,7 @@ rwx</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/7d607bbcf8f6c0df1155bc09ff9fb6c2/3-Getting%2BHelp.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="tab-completion-and-up-arrow">
 <h3>Tab Completion and Up Arrow<a class="headerlink" href="#tab-completion-and-up-arrow" title="Permalink to this headline"></a></h3>
@@ -792,6 +940,7 @@ rwx</p></td>
 </li>
 <li><p>Hitting up arrow key on the keyboard returns the last command run</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/67b94975f1d8fe5539275627950b8390/4-TAB%2BCompletion.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="adding-text-to-files-redirects">
 <h3>Adding Text to Files (Redirects)<a class="headerlink" href="#adding-text-to-files-redirects" title="Permalink to this headline"></a></h3>
@@ -806,6 +955,7 @@ rwx</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/2b63c9290b9a4cb79f2483f9e1ddc94c/5-Adding%2BText%2Bto%2BFiles.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="input-and-output-redirects">
 <h3>Input and Output Redirects<a class="headerlink" href="#input-and-output-redirects" title="Permalink to this headline"></a></h3>
@@ -900,6 +1050,7 @@ rwx</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/c24ad65e97bb5b8d63fc4c721c5dc0d7/6-Pipes.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-maintenance-commands">
 <h3>File Maintenance Commands<a class="headerlink" href="#file-maintenance-commands" title="Permalink to this headline"></a></h3>
@@ -912,6 +1063,7 @@ rwx</p></td>
 <li><p><cite>chgrp</cite></p></li>
 <li><p><cite>chown</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/ebc01587a3ab21dfe6ed7623c4029bcb/7-File%2BMaintenance%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-display-commands">
 <h3>File Display Commands<a class="headerlink" href="#file-display-commands" title="Permalink to this headline"></a></h3>
@@ -922,6 +1074,7 @@ rwx</p></td>
 <li><p><cite>head</cite></p></li>
 <li><p><cite>tail</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/eae4aaf4f5b70b7dd28993592e50d4a5/8-File%2BDisplay%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="filters-text-processors-commands">
 <h3>Filters / Text Processors Commands<a class="headerlink" href="#filters-text-processors-commands" title="Permalink to this headline"></a></h3>
@@ -933,6 +1086,7 @@ rwx</p></td>
 <li><p><cite>uniq</cite></p></li>
 <li><p><cite>wc</cite></p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/e0c5b323b926c80a66ec243b3bd60327/9-Filters-Text%2BProcessing%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="cut">
 <h3>Cut<a class="headerlink" href="#cut" title="Permalink to this headline"></a></h3>
@@ -987,6 +1141,7 @@ rwx</p></td>
 <li><p><cite>ls -l | grep Desktop</cite> - search for a keyword and then only give 1st field</p></li>
 <li><p><cite>egrep -i “keyword|keyword2” file</cite> - search for 2 keywords</p></li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/717c559ef44211d347ebd96963e2e1f4/10-Finding%2BSystem%2BInformation.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="sort-uniq">
 <h3>Sort/Uniq<a class="headerlink" href="#sort-uniq" title="Permalink to this headline"></a></h3>
@@ -1125,8 +1280,8 @@ date</p></td>
 </table>
 </section>
 </section>
-<section id="linux-system-administration">
-<h2>Linux System Administration<a class="headerlink" href="#linux-system-administration" title="Permalink to this headline"></a></h2>
+<section id="module-5-system-administration">
+<h2>Module 5 - System Administration<a class="headerlink" href="#module-5-system-administration" title="Permalink to this headline"></a></h2>
 <section id="linux-file-editor-vi">
 <h3>Linux File Editor (vi)<a class="headerlink" href="#linux-file-editor-vi" title="Permalink to this headline"></a></h3>
 <ul>
@@ -1168,6 +1323,8 @@ date</p></td>
 </div></blockquote>
 </li>
 </ul>
+<p><a class="reference download internal" download="" href="../../_downloads/5ee41a27bbb31c15581d5c1c8d1e608e/1-vi%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/467c27b299ba189e18ae830c45ad3a38/5-Unix%2BEditors.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="difference-between-vi-and-vim-editor">
 <h3>Difference Between vi and vim Editor<a class="headerlink" href="#difference-between-vi-and-vim-editor" title="Permalink to this headline"></a></h3>
@@ -1245,6 +1402,3423 @@ date</p></td>
 <blockquote>
 <div><ul class="simple">
 <li><p><cite>:%s/Caleb/Peter/</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="user-account-management">
+<h3>User Account Management<a class="headerlink" href="#user-account-management" title="Permalink to this headline"></a></h3>
+<p>Commands:</p>
+<ul class="simple">
+<li><p>useradd</p></li>
+<li><p>groupadd</p></li>
+<li><p>userdel</p></li>
+<li><p>groupdel</p></li>
+<li><p>usermod</p></li>
+</ul>
+<p>Files:</p>
+<ul class="simple">
+<li><p>/etc/passwd</p></li>
+<li><p>/etc/group</p></li>
+<li><p>/etc/shadow</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>useradd -g superheros -s /bin/bash -c <span class="s2">&quot;user description&quot;</span> -m -d /home/spiderman spiderman
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../_downloads/d3fb0b6b1de6976dba186e1bf011af04/2-User%2BAccount%2BManagement.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/e47f561cd0d8f2969967fca5a62cc70b/3-User%2BAccounts%2Bin%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
+</section>
+<section id="enable-password-aging">
+<h3>Enable Password Aging<a class="headerlink" href="#enable-password-aging" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>chage [-m mindags] [-M maxdays] [-d lastday] [-I inactive] [-E expiredate] [-W warndays] user</p></li>
+<li><p>File = /etc/login.def</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PASS_MAX_DAYS 99999</p></li>
+<li><p>PASS_MIN_DAYS 0</p></li>
+<li><p>PASS_MIN_LEN 5</p></li>
+<li><p>PASS_WARN_AGE 7</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Check /etc/shadow for the position:</p>
+<ul class="simple">
+<li><p>-d = 3. Last password change (lastchanged): Days since Jan 1, 1970 that password was last changed</p></li>
+<li><p>-m = 4. Minimum: the minimum number of days requred between password changes i.e. the number of days left before the user is allowed to change his/her password</p></li>
+<li><p>-M = 5. Maximum: the maximum number of days the password is valid (after that the user is forced to change the password)</p></li>
+<li><p>-W = 6. Warn: The number of days before password is set to expire that the user is warned that the password must be changed</p></li>
+<li><p>-I = 7. Inactive: The number of days after password expires that the account is disabled</p></li>
+<li><p>-E = 8. Expire: days since Jan 1, 1970 that account is disabled i.e. an absolute date specifying when the login may no longer be used</p></li>
+</ul>
+</section>
+<section id="switch-users-and-sudo-access">
+<h3>Switch Users and Sudo Access<a class="headerlink" href="#switch-users-and-sudo-access" title="Permalink to this headline"></a></h3>
+<p>Commands:</p>
+<ul class="simple">
+<li><p>su - username</p></li>
+<li><p>sudo command</p></li>
+<li><p>visudo</p></li>
+</ul>
+<p>File</p>
+<ul class="simple">
+<li><p>/etc/sudoers</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/b7b75c41266480ff7088a5c02f886f40/4-Switch%2Busers%2Band%2BSudo%2BAccess.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="monitor-users">
+<h3>Monitor Users<a class="headerlink" href="#monitor-users" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>who</p></li>
+<li><p>last</p></li>
+<li><p>w</p></li>
+<li><p>finger</p></li>
+<li><p>id.</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/d655f705f013da5b7a6f74ebf96ef7a9/6-Monitor%2BUser%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="talking-to-users">
+<h3>Talking to Users<a class="headerlink" href="#talking-to-users" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>users</p></li>
+<li><p>wall</p></li>
+<li><p>write</p></li>
+</ul>
+</section>
+<section id="linux-account-authentication">
+<h3>Linux Account Authentication<a class="headerlink" href="#linux-account-authentication" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Type of Accounts</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Local accounts</p></li>
+<li><p>Domain/Directory accounts</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Windows = active directory</p></li>
+</ul>
+</section>
+<section id="difference-between-ad-ldap-idm-winbind-openldap-etc">
+<h3>Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.<a class="headerlink" href="#difference-between-ad-ldap-idm-winbind-openldap-etc" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Active Directory = Microsoft</p></li>
+<li><p>IDM = Identity Manager (Redhat)</p></li>
+<li><p>WinBIND = Used in Linux to communicate with Windows (samba)</p></li>
+<li><p>OpenLDAP (open source)</p></li>
+<li><p>IBM Directory Server</p></li>
+<li><p>JumpCloud</p></li>
+<li><p>LDAP = Lightweight Directory Access Protocol (not a package, but a protocol)</p></li>
+</ul>
+</section>
+<section id="system-utility-commands">
+<h3>System Utility Commands<a class="headerlink" href="#system-utility-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>date</p></li>
+<li><p>uptime</p></li>
+<li><p>hostname</p></li>
+<li><p>uname</p></li>
+<li><p>which</p></li>
+<li><p>cal</p></li>
+<li><p>bc</p></li>
+</ul>
+<img alt="../../_images/15-uptime.jpg" src="../../_images/15-uptime.jpg" />
+<p><a class="reference download internal" download="" href="../../_downloads/bbb58bd73a1bb343c7e68bc5337f9ca2/7-System%2BUtility%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="processes-and-jobs">
+<h3>Processes and Jobs<a class="headerlink" href="#processes-and-jobs" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Application = Service</p></li>
+<li><p>Script</p></li>
+<li><p>Process</p></li>
+<li><p>Daemon</p></li>
+<li><p>Threads</p></li>
+<li><p>Job</p></li>
+<li><p>systemctl or service</p></li>
+<li><p>ps</p></li>
+<li><p>top</p></li>
+<li><p>kill</p></li>
+<li><p>crontab</p></li>
+<li><p>at</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1db8b92b267711873919dfb59b73edd0/8-Processes.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/67151ad52ee0091898829b45db6c5456/9-Unix%2BPrograms.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
+</section>
+<section id="systemctl-command">
+<h3>Systemctl Command<a class="headerlink" href="#systemctl-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>systemctl command is a new tool to control system services</p></li>
+<li><p>It’s available in version 7 and later it replaces the service command</p></li>
+<li><p>Usage example:</p>
+<blockquote>
+<div><ul>
+<li><p><cite>systemctl start|stop|status servicename.service</cite></p></li>
+<li><p><cite>systemctl enable servicename.service</cite></p></li>
+<li><p><cite>systemctl restart|reload servicename.service</cite></p></li>
+<li><p><cite>systemctl list-units –all</cite></p>
+<blockquote>
+<div><ul>
+<li><p>The output has the following columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>UNIT</strong>: the systemd unit name</p></li>
+<li><p><strong>LOAD</strong>: Whether the unit’s configuration has been parsed by systemd. The configuration of loaded units is kept in memory</p></li>
+<li><p><strong>ACTIVE</strong>: A summary state about whether the unit is active. This usually a fairly basic way to tell if the unit has started successfully or not.</p></li>
+<li><p><strong>SUB</strong>: this is a lower-level state that indicates more detailed information about the unit. THis often varies by unit type, state, and the actual method in which the unit runs.</p></li>
+<li><p><strong>DESCRIPTION</strong>: A short textual description of what the unit is/does.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To add a service under systemctl management:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create a unit file in /etc/systemd/system/servicename.service</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To control system with systemctl</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>systemctl poweroff</cite></p></li>
+<li><p><cite>systemctl halt</cite></p></li>
+<li><p><cite>systemctl reboot</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ps-command">
+<h3>ps Command<a class="headerlink" href="#ps-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>ps command stands for process status and it displays all the currently running processes in the Linux system</p></li>
+<li><p>Usage examples:</p>
+<blockquote>
+<div><ul>
+<li><p>ps = shows the processes of the current shell</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>PID</strong> = the unique process ID</p></li>
+<li><p><strong>TTY</strong> = terminal type that the user logged in to</p></li>
+<li><p><strong>TIME</strong> = amount of CPU in mins and secs that the prcess has been running</p></li>
+<li><p><strong>CMD</strong> = name of the command</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>ps -e</cite> = shows all running processes</p></li>
+<li><p><cite>ps aux</cite> = shows all running processes in BSD format</p></li>
+<li><p><cite>ps -ef</cite> = shows all running processes in full format listing (most commonly used)</p></li>
+</ul>
+</section>
+<section id="top-command">
+<h3>top Command<a class="headerlink" href="#top-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>top command is used to show the Linux process and it provides a real-time view of the running system</p></li>
+<li><p>This command shows the summary information of the system and the list of process or threads that are currently managed by the Linux Kernal</p></li>
+<li><p>When the top command is executed then it goes into interactive mode and you can exit using q</p></li>
+<li><p>Usage: top</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>PID</strong>: shows task’s unique process ID</p></li>
+<li><p><strong>USER</strong>: usertname of owner of task</p></li>
+<li><p><strong>PR</strong>: The PR field shows the scheduling priority of the process from the perspective of the kernel</p></li>
+<li><p><strong>NI</strong>: Represents a Nice Value of task. A negative nice value implies higher priority, and positive Nice value means lower priority.</p></li>
+<li><p><strong>VIRT</strong>: Total virtual memory used by the task</p></li>
+<li><p><strong>RES</strong>: Memory consumed by the process in RAM</p></li>
+<li><p><strong>SHR</strong>: Represents the amount of shared memory used by a task</p></li>
+<li><p><strong>S</strong>: This field shows the process state in the single-letter form</p></li>
+<li><p><strong>%CPU</strong>: represents the CPU usage</p></li>
+<li><p><strong>%Mem</strong>: shows the memory usage of task</p></li>
+<li><p><strong>TIME+</strong>: CPU Time, the smae as TIME, but reflecting more granualarity through hundredths of a second</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>top -u caleb = shows tasks/processes by user owned</p></li>
+<li><p>top then press c = shows commands absolute path</p></li>
+<li><p>top then press k = kill a process by PID within top session</p></li>
+<li><p>top the M and P = to sort all linux running processes by Memory usage</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/4cac4ab1f178b789992656822823b2d2/13-top%2Bcommand.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="kill-command">
+<h3>kill Command<a class="headerlink" href="#kill-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>kill command is used to terminate process manually</p></li>
+<li><p>It sends a signal which ultimately terminates or kills a particular process or group of processes</p></li>
+<li><p>Usage: <cite>kill [OPTION] [PID]</cite></p></li>
+<li><p>kill -l = to get a list of all signal names or signal numbers</p></li>
+<li><p>Most used signals are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>kill PID = kill a process with default signal</p></li>
+<li><p>kill -1 = restart</p></li>
+<li><p>kill -2 = interupt from the keyboard just like ctrl C</p></li>
+<li><p>kill -9  = forcefully kill the process</p></li>
+<li><p>kill -15 = kill a process gracefully</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Other similar kill commands are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>killall</p></li>
+<li><p>pkill</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="crontab-command">
+<h3>crontab Command<a class="headerlink" href="#crontab-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Crontab command is used to schedule tasks</p></li>
+<li><p>Usage:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>crontab -e = edit the crontab</p></li>
+<li><p>crontab -l = list the crontab entries</p></li>
+<li><p>crontab -r = remove the crontab</p></li>
+<li><p>crond = crontab daemon/service that manages scheduling</p></li>
+<li><p>systemctl status crond = manage the crond service</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-crontab-1.png" src="../../_images/linux-crontab-1.png" />
+<p><a class="reference download internal" download="" href="../../_downloads/44a55cbce016d8a413a235917ab79303/10-crontab.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="at-command">
+<h3>at Command<a class="headerlink" href="#at-command" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>at command is like crontab which allows you to schedule jobs only once</p></li>
+<li><p>When the command command is run it will enter interactive mode and you can get out by pressing ctrl d</p></li>
+<li><p>Usage:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>at HH:MM PM</cite> = schedule a job</p></li>
+<li><p><cite>atq</cite> = list the at entries</p></li>
+<li><p><cite>atrm #</cite> = remove at entry</p></li>
+<li><p><cite>atd</cite> = at daemon/service that manages scheduling</p></li>
+<li><p><cite>systemctl</cite> status atd = to manage the atd service</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Other future scheduling format:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>at 2:45 am 101621</p></li>
+<li><p>at 4pm + 4 days</p></li>
+<li><p>at now + 5 hours</p></li>
+<li><p>at 80:00 am sun</p></li>
+<li><p>at 10:00 am next month</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="additional-cron-jobs">
+<h3>Additional Cron Jobs<a class="headerlink" href="#additional-cron-jobs" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>By default there are 4 different types of cronjobs</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Hourly</p></li>
+<li><p>Daily</p></li>
+<li><p>Weekly</p></li>
+<li><p>Monthly</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>All the above crons are setup in</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/cron._ (directory)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The timing for each are set in</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/anacrontab – except hourly</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>For hourly</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/cron.d/0hourly</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="process-management">
+<h3>Process Management<a class="headerlink" href="#process-management" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Background = <cite>ctrl-z, jobs and bg</cite></p></li>
+<li><p>Foreground = <cite>fg</cite></p></li>
+<li><p>Run process even after exit = <cite>nohup process &amp;</cite></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>OR = <cite>nohub process &gt; /dev/null 2&gt;&amp;1 &amp;</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Kill a process by name = <cite>pkill</cite></p></li>
+<li><p>Process priority = nice (e.g. <cite>nice -n 5 process</cite>)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the niceness scale goes from -20 to 19. The lower the number more priority that task gets</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Process monitoring = <cite>top</cite></p></li>
+<li><p>List process = <cite>ps</cite></p></li>
+</ul>
+</section>
+<section id="system-monitoring">
+<h3>System Monitoring<a class="headerlink" href="#system-monitoring" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>top</p></li>
+<li><p>df</p></li>
+<li><p>dmesg</p></li>
+<li><p>iostat 1</p></li>
+<li><p>netstat (netstat -rnv)</p></li>
+<li><p>free</p></li>
+<li><p>cat /proc/cpuinfo</p></li>
+<li><p>cat /proc/meminfo</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/7a79711872858162007e0799ef0203cb/11-System%2BResource%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="log-monitoring">
+<h3>Log Monitoring<a class="headerlink" href="#log-monitoring" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Another and most important way of system administration is log monitor</p></li>
+<li><p>Log Directory = /var/log</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>boot</p></li>
+<li><p>chronyd = NTP</p></li>
+<li><p>cron</p></li>
+<li><p>maillog</p></li>
+<li><p>secure</p></li>
+<li><p>messages</p></li>
+<li><p>httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="system-maintenance-commands">
+<h3>System Maintenance Commands<a class="headerlink" href="#system-maintenance-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>shutdown</p></li>
+<li><p>init</p></li>
+<li><p>reboot</p></li>
+<li><p>halt</p></li>
+</ul>
+</section>
+<section id="changing-system-hostname">
+<h3>Changing System Hostname<a class="headerlink" href="#changing-system-hostname" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>hostnamectl - set-hostname newhostname</p></li>
+<li><p>Version 7 = edit /etc/hostname</p></li>
+<li><p>version 6 = edit /etc/sysconfig/network</p></li>
+</ul>
+</section>
+<section id="finding-system-information">
+<h3>Finding System Information<a class="headerlink" href="#finding-system-information" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>cat /etc/redhat-release</p></li>
+<li><p>uname -a</p></li>
+<li><p>dmidecode</p></li>
+</ul>
+</section>
+<section id="system-architecture">
+<h3>System Architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Differences between a 32-bit and 64-bit CPU</p></li>
+</ul>
+<p>A big difference between 32-bit processors and 64-bit processors is the number of calculations per second they can perform, which affects the speed at which they can complete tasks. 64-bit processors can come in dual core, quad core, six core, and eight core versions for home computing. Multiple cores allow for an increased number of calculations per second that can be performed, which can increase the processing power and help make a computer run faster. Software programs that require many calculations to function smoothly can operate faster and more efficiently on the multi-core 64-bit processors.</p>
+<ul class="simple">
+<li><p>Linux = arch</p></li>
+<li><p>Windows = My Computer -&gt; Properties</p></li>
+</ul>
+</section>
+<section id="terminal-control-keys">
+<h3>Terminal Control Keys<a class="headerlink" href="#terminal-control-keys" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Several key combinations on your keyboard usually have a special effect on the terminal</p></li>
+<li><p>These “control” (CTRL) keys are accomplished by holding the CTRL key while typing the second key</p></li>
+<li><p>For example, CTRL-c means to hold the CTRL key while typing the letter “c”</p></li>
+<li><p>The most common control keys are listed below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CTRL-u = erase everything you’ve typed on the command line</p></li>
+<li><p>CTRL-c = stop/kill a command</p></li>
+<li><p>CTRL-z = suspend a command</p></li>
+<li><p>CTRL-d = exit from an interactive program (signals end of data)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/3ce2fa7f1af5c96b8ac16c6e3128c429/12-Terminal%2BControl%2BKeys.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="terminal-commands">
+<h3>Terminal Commands<a class="headerlink" href="#terminal-commands" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>clear (clears your screen)</p></li>
+<li><p>exit (exit out of the shell, terminal or user session)</p></li>
+<li><p>script (the script command stores terminal activites in a log file that can be named by a user, when a name is not provided by a user, the default file name, typescript is used)</p></li>
+</ul>
+</section>
+<section id="recover-root-password">
+<h3>Recover Root Password<a class="headerlink" href="#recover-root-password" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>restart your computer</p></li>
+<li><p>edit grub</p></li>
+<li><p>change password</p></li>
+<li><p>reboot</p></li>
+<li><p>look for “ro” at the bottom and replace with:</p></li>
+<li><p>rw init=/systoot/bin/sh</p></li>
+<li><p>ctrl x</p></li>
+<li><p>chroot /sysroot</p></li>
+<li><p>passwd root</p></li>
+<li><p>exit</p></li>
+<li><p>reboot</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/fb863030ea20995e5e36f0fc71278531/14-Recover%2BRoot%2BPassword.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="sos-report">
+<h3>SOS Report<a class="headerlink" href="#sos-report" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is SOS Report?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Collect and package diagnostic and support data</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Package name</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sos-version</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>sosreport</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What are environment variables?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AN environment variable is a dynamic-named value that can affect the way running processes will behave on a computer. THey are part of the environment in which a process runs</p></li>
+<li><p>In simple words, a set of defined rules and values to build an environment</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To view all environment variables</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>printenv</cite> or <cite>env</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To view all environment variables</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>echo $SHELL</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set the environment variables</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>export TEST=1</cite></p></li>
+<li><p><cite>echo $TEST</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set environment variable permanently</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>vi .bashrc</cite></p></li>
+<li><p><cite>TEST=123</cite></p></li>
+<li><p><cite>export TEST</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set global environment variable permanently</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>vi /etc/profile`</cite> or <cite>/etc/bashrc</cite></p></li>
+<li><p><cite>Test=123</cite></p></li>
+<li><p><cite>export TEST</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="special-permissions">
+<h3>Special Permissions<a class="headerlink" href="#special-permissions" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>All permissions on a file or directory are referred as bits</p></li>
+</ul>
+<img alt="../../_images/linux-special-permissions.png" src="../../_images/linux-special-permissions.png" />
+<ul>
+<li><p>There are additional permissions in Linux:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>setuid</strong>: bit tells Linux to run a program with the effective user id of the owner instead of the executor (eg <cite>passwd</cite> command) -&gt; /etc/shadow</p></li>
+<li><p><strong>setgid</strong>: bit tells LInux to run a program with the effective group id of the owner instead of the executor (eg <cite>locate</cite> or <cite>wall</cite> command). Please note that this bit is present for only files which have executable permissions</p></li>
+<li><p><strong>sticky bit</strong>: a bit set on files/directories that allows only the owner or root to delete those files</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To assign special permissions at the user level:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chmod u+s xyz.sh</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To assign special permissions at the group level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chmod g+s xyz.sh</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To remove special permissions at the user or group level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>chmod u-s xyz.sh</cite></p></li>
+<li><p><cite>chmod g-s xyz.sh</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To find all executables in Linux with setuid and setgid permissions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>find / -perm /6000 -type f</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sticky Bit - it is assigned to the last bit of permissions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>-rwx rwx rwt</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Please note that these bits work on c programming executables not on bash shell scripts</p></li>
+</ul>
+</section>
+</section>
+<section id="module-6-shell-scripting">
+<h2>Module 6 - Shell Scripting<a class="headerlink" href="#module-6-shell-scripting" title="Permalink to this headline"></a></h2>
+<section id="linux-kernal">
+<h3>Linux Kernal<a class="headerlink" href="#linux-kernal" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is a Kernel?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>interface between hardware and software</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-kernel.png" src="../../_images/linux-kernel.png" />
+<p><a class="reference download internal" download="" href="../../_downloads/c247475a75699d0ecd07a6d76f317e56/1-Linux%2BKernel.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="introduction-to-shell">
+<h3>Introduction to Shell<a class="headerlink" href="#introduction-to-shell" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is a Shell?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>it’s like a container</p></li>
+<li><p>Interface between users and Kernel/OS</p></li>
+<li><p>CLI is a Shell</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>FInd your Shell</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>echo $0</p></li>
+<li><p>Available Shells “cat /etc/shells”</p></li>
+<li><p>Your Shell? /etc/passwd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Windows GUI is a shell</p></li>
+<li><p>Linux KDE GUI is a shell</p></li>
+<li><p>Linux sh, bash etc. is a shell</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/7c56fe41ed31e5d413b787d187b6ade4/2-What%2Bis%2Ba%2BShell.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="types-of-shells">
+<h3>Types of Shells<a class="headerlink" href="#types-of-shells" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Gnome</p></li>
+<li><p>KDE</p></li>
+<li><p>sh</p></li>
+<li><p>bash</p></li>
+<li><p>csh and tcsh</p></li>
+<li><p>ksh</p></li>
+</ul>
+</section>
+<section id="shell-scripting">
+<h3>Shell Scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is a Shell Script?</p>
+<blockquote>
+<div><ul>
+<li><p>A shell script is an executable file containing multiple shell commands that are executed sequentially. THe file can contain:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Shell (#!/bin/bash)</p></li>
+<li><p>Comments (# comments)</p></li>
+<li><p>Commands (echo, cp, grep, etc.)</p></li>
+<li><p>Statements (if, while, for, etc.)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Shell script should have executable permissions (eg. -rwx r-x r-x)</p></li>
+<li><p>Shell script has to be called from absolute path (eg. /home/userdir/script.bash)</p></li>
+<li><p>If called from current location then ./script.bash</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/34bbe826e6174d39ac3bde900c74b595/3-Unix%2BShell%2BScripting.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="basic-shell-scripts">
+<h3>Basic Shell Scripts<a class="headerlink" href="#basic-shell-scripts" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Output to screen using “echo”</p></li>
+<li><p>Creating tasks</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Telling your id, current location, your files/directories, system info</p></li>
+<li><p>Creating directories and files</p></li>
+<li><p>Output to a file “&gt;”</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>FIlters/Text processors through scripts (cut, awk, grep, sort, uniq, wc)</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1d35a8cfe87f1c602e300e4b7779977e/4-Basic%2BShell%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="input-output">
+<h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Create script to take input from the user</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>read</p></li>
+<li><p>echo</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="if-then-scripts">
+<h3>if-then Scripts<a class="headerlink" href="#if-then-scripts" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>If then statement</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If this happens = do this</p></li>
+<li><p>Otherwise = do that</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/f323d5095630e6ef0013a16f6c9d1b29/7-if-then%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="for-loop-scripts">
+<h3>For Loop Scripts<a class="headerlink" href="#for-loop-scripts" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>For loops</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Keep running until specified number variable</p></li>
+<li><p>Variable = blue, red, green (then run the script 3 times for each color)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/77d4946b28e26513bda509f9b6076e7a/5-for%2Bloop%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="do-while-scripts">
+<h3>do-while Scripts<a class="headerlink" href="#do-while-scripts" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>do while</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the while statement continually executes a block of statements while a particular condition is true or met</p></li>
+<li><p>eg. run a script untl 2pm</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/f1da187703ca648fa89d25fab801b59f/6-do-while%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="case-statement-scripts">
+<h3>Case Statement Scripts<a class="headerlink" href="#case-statement-scripts" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>case</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If option a is selected = do this</p></li>
+<li><p>If option b is selected = do this</p></li>
+<li><p>etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/95eb491432bdbf1284ec8bd9d07fe319/8-case%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="check-remote-servers-connectivity">
+<h3>Check Remote Servers Connectivity<a class="headerlink" href="#check-remote-servers-connectivity" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+ping -c1 <span class="m">192</span>.168.1.1
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
+        <span class="k">then</span>
+        <span class="nb">echo</span> OK
+        <span class="k">else</span>
+        <span class="nb">echo</span> NOT OK
+        <span class="k">fi</span>
+
+<span class="c1">###Change the IP to 192.168.1.235</span>
+
+<span class="c1">###Don&#39;t show the output</span>
+ping -c1 <span class="m">192</span>.168.1.1 <span class="p">&amp;</span>&gt; /dev/null
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
+        <span class="k">then</span>
+        <span class="nb">echo</span> OK
+        <span class="k">else</span>
+        <span class="nb">echo</span> NOT OK
+        <span class="k">fi</span>
+
+<span class="c1">###Define variable</span>
+<span class="c1">#!/bin/bash</span>
+
+<span class="nv">hosts</span><span class="o">=</span><span class="s2">&quot;192.168.1.1&quot;</span>
+ping -c1 <span class="nv">$hosts</span> <span class="p">&amp;</span>&gt; /dev/null
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
+        <span class="k">then</span>
+        <span class="nb">echo</span> <span class="nv">$hosts</span> OK
+        <span class="k">else</span>
+        <span class="nb">echo</span> <span class="nv">$hosts</span> NOT OK
+        <span class="k">fi</span>
+
+<span class="c1">###Change the IP to 192.168.1.235</span>
+
+<span class="c1">###Multiple IPs</span>
+<span class="c1">#!/bin/bash</span>
+
+<span class="nv">IPLIST</span><span class="o">=</span><span class="s2">&quot;path_to_the_Ip_list_file&quot;</span>
+
+
+<span class="k">for</span> ip <span class="k">in</span> <span class="k">$(</span>cat <span class="nv">$IPLIST</span><span class="k">)</span>
+
+<span class="k">do</span>
+ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
+<span class="k">then</span>
+<span class="nb">echo</span> <span class="nv">$ip</span> ping passed
+<span class="k">else</span>
+<span class="nb">echo</span> <span class="nv">$ip</span> ping failed
+<span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+<section id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Aliases is a very popular command that is used to cut down on lengthy and repetitive commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>alias ls=”ls -al”</cite></p></li>
+<li><p><cite>alias pl=”pwd; ls”</cite></p></li>
+<li><p><cite>alias tell=”whoami; hostname; pwd”</cite></p></li>
+<li><p><cite>alias dir=”ls -l | grep ^d”</cite></p></li>
+<li><p><cite>alias lmar=”ls -l | grep Mar”</cite></p></li>
+<li><p><cite>alias wpa=”chmod a+w”</cite></p></li>
+<li><p><cite>alias d=”df -h | awk ‘{print $6}’ | cut -c1-4”</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/08adaad20c84c2e6caf9a5e498f284dd/9-Aliases.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="creating-user-or-global-aliases">
+<h3>Creating User or Global Aliases<a class="headerlink" href="#creating-user-or-global-aliases" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>User = Applies only to a specific user profile</p></li>
+<li><p>Global = Applies to everyone who has account on the system</p></li>
+<li><p>User = /home/user/.bashrc</p></li>
+<li><p>Global = /etc/bashrc</p></li>
+</ul>
+</section>
+<section id="shell-history">
+<h3>Shell History<a class="headerlink" href="#shell-history" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>command <cite>history</cite></p></li>
+<li><p>The file where history of your shell commands saved = /home/yourname/.bash_history</p></li>
+</ul>
+</section>
+</section>
+<section id="module-7-networking-services-and-system-updates">
+<h2>Module 7 - Networking, Services and System Updates<a class="headerlink" href="#module-7-networking-services-and-system-updates" title="Permalink to this headline"></a></h2>
+<img alt="../../_images/Depreciated+Linux+commands+and+replacement.JPG" src="../../_images/Depreciated+Linux+commands+and+replacement.JPG" />
+<p><a class="reference download internal" download="" href="../../_downloads/6df30f288e13f1e4c2be81167a0c9730/15-Red-Hat-Enterprise-Linux-7-Storage-Administration-Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Storage</span> <span class="pre">Administration</span> <span class="pre">Guide</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/77a4c53090bc06bbcb83548ac8e94511/yum%2Bcommand%2Bcheatsheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Yum</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
+<section id="internet-access-to-vm">
+<h3>Internet Access to VM<a class="headerlink" href="#internet-access-to-vm" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Open Virtualbox Manager</p></li>
+<li><p>Select the machine you cannot get internet on in the left pane</p></li>
+<li><p>Click the Settings button in the top menu</p></li>
+<li><p>Click Network in the left pane in the settings window</p></li>
+<li><p>Switched to Bridged Adaptor in the Attached to drop-down menu * Hit OK to save your changes</p></li>
+<li><p>Start your VM</p></li>
+</ul>
+</section>
+<section id="network-components">
+<h3>Network Components<a class="headerlink" href="#network-components" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>IP</p></li>
+<li><p>Subnet mask</p></li>
+<li><p>Gateway</p></li>
+<li><p>Static vs. DHCP</p></li>
+<li><p>Interface</p></li>
+<li><p>Interface MAC.</p></li>
+</ul>
+</section>
+<section id="network-files-and-commands">
+<h3>Network Files and Commands<a class="headerlink" href="#network-files-and-commands" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Interface Detection</p></li>
+<li><p>Assigning an IP address</p></li>
+<li><p>Interface configuration files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/nsswitch.conf</p></li>
+<li><p>/etc/hostname</p></li>
+<li><p>/etc/sysconfig/network</p></li>
+<li><p>/etc/sysconfig/network-scripts/ifcfg-nic</p></li>
+<li><p>/etc/resolv.conf</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Network Commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>ping</cite></p></li>
+<li><p><cite>ifconfig</cite></p></li>
+<li><p><cite>ifup</cite> or <cite>ifdown</cite></p></li>
+<li><p><cite>netstat</cite></p></li>
+<li><p><cite>tcpdump</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/325cf4db18d46a4781ca31a960da81a0/1-Networking.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c6bebc58e70acb35cfd300bc26f57b53/2-Network%2BRelated%2BUtilities.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="nic-information">
+<h3>NIC Information<a class="headerlink" href="#nic-information" title="Permalink to this headline"></a></h3>
+<p>NIC = Network Interface Card</p>
+<p>Example: <cite>ethtool enp0s3</cite></p>
+<p>Other NICs</p>
+<ul class="simple">
+<li><p>lo = The loopback device is a special interface that your computer uses to communicate with itself. It is used mainly for diagnostics and troubleshooting, and to connect to servers running on the local machine</p></li>
+<li><p>virb0 = The virbr0, or “Virtual Bridge 0” interface is used for NAT (Network Address Translation). Virtual environments sometimes use it to connect to the outside network</p></li>
+</ul>
+</section>
+<section id="nic-bonding">
+<h3>NIC Bonding<a class="headerlink" href="#nic-bonding" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>NIC(Network Interface Card) bonding is also known as Network bonding. It can be defined as the aggregation or combination of multiple NIC into a single bond interface.</p></li>
+<li><p>Its main purpose is to provide high availability and redundancy</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/add0d14883bb1207e2923316ffec0c3b/6-Creating%2BNIC%2BBonding.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="nic-bonding-procedure">
+<h3>NIC Bonding Procedure<a class="headerlink" href="#nic-bonding-procedure" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>modprobe bonding</p></li>
+<li><p>modinfo bonding</p></li>
+<li><p>Create /etc/sysconfig/network-scripts/ifcfg-bond0</p></li>
+<li><p>Edit /etc/sysconfig/network-scripts/ethernet1</p></li>
+<li><p>Edit /etc/sysconfig/network-scripts/ethernet2</p></li>
+<li><p>Restart network = systemctl restart network</p></li>
+</ul>
+</section>
+<section id="net-network-utilities">
+<h3>Net Network Utilities<a class="headerlink" href="#net-network-utilities" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Getting started with NetworkManager</p></li>
+<li><p>Network configuration methods</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>nmtui</p></li>
+<li><p>nmcli</p></li>
+<li><p>nm-connection-editor</p></li>
+<li><p>GNOME Settings.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Getting started with NetworkManager</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NetworkManager is a service that provides set of tools designed specifically to make it easier to manage the networking configuration on Linux systems and is the default network management service on RHEL 8</p></li>
+<li><p>It makes network management easier</p></li>
+<li><p>It provides easy setup of connection to the user</p></li>
+<li><p>NetworkManager offers management through different tools such as GUI, nmtui, and nmcli.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Network configuration methods</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>nmcli - Short for network manager command line interface. This tool is useful when access to a graphical environment is not available and can also be used within scripts to make network configuration changes</p></li>
+<li><p>nmtui - Short for network manager text user interface. This tool can be run within any terminal window and allows changes to be made by making menu selections and entering data</p></li>
+<li><p>nm-connection-editor - A full graphical management tool providing access to most of the NetworkManager configuration options. It can only be accessed through the desktop or console</p></li>
+<li><p>GNOME Settings - The network screen of the GNOME desktop settings application allows basic network management tasks to be performed</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="system-updates-and-repos">
+<h3>System Updates and Repos<a class="headerlink" href="#system-updates-and-repos" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>yum (CentOS), apt-get (other Linux)</p></li>
+<li><p>rpm (Redhat Package Manager)</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/a05f1d5765916b84c78c42f1287c60f0/7-Linux_yum_command_cheatsheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="advanced-package-management">
+<h3>Advanced Package Management<a class="headerlink" href="#advanced-package-management" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Installing packages</p></li>
+<li><p>Upgrading</p></li>
+<li><p>Deleting</p></li>
+<li><p>View package details information</p></li>
+<li><p>Identify source or location information</p></li>
+<li><p>Packages configuration files</p></li>
+</ul>
+</section>
+<section id="download-files-or-apps">
+<h3>Download Files or Apps<a class="headerlink" href="#download-files-or-apps" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Linux = wget</p></li>
+<li><p>Example in Linux:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>wget <a class="reference external" href="http://website.com/filename">http://website.com/filename</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Why??? Most of the servers in corporate environment do NOT have internet access</p></li>
+</ul>
+</section>
+<section id="curl-and-ping-commands">
+<h3>curl and ping Commands<a class="headerlink" href="#curl-and-ping-commands" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Linux = curl</p></li>
+<li><p>Linux = ping</p></li>
+<li><p>Example in Linux:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>curl <a class="reference external" href="http://website.com/filename">http://website.com/filename</a></p></li>
+<li><p>curl -O <a class="reference external" href="http://website.com/filename">http://website.com/filename</a></p></li>
+<li><p>ping www.google.com</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ftp-file-transfer-protocol">
+<h3>FTP - File Transfer Protocol<a class="headerlink" href="#ftp-file-transfer-protocol" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The File Transfer Protocol is a standard network protocol used for the transfer of computer files between a client and server on a computer network. FTP is built on a client-server model architecture using separate control and data connections between the client and the server. (Wikipedia)</p></li>
+<li><p>Protocol = Set of rules used by computers to communicate</p></li>
+<li><p>Default FTP Port = 21</p></li>
+<li><p>Install and Configure FTP on the remote server</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Become root</span>
+<span class="c1">#rpm–qa|grepftp</span>
+<span class="c1"># ping www.google.com</span>
+<span class="c1"># yum install vsftpd</span>
+<span class="c1"># vi /etc/vsftpd/vsftpd.conf (make a copy first)</span>
+
+<span class="c1">## Find the following lines and make the changes as shown below:</span>
+<span class="c1">## Disable anonymous login ##</span>
+<span class="nv">anonymous_enable</span><span class="o">=</span>NO
+
+<span class="c1">## Uncomment ##</span>
+<span class="nv">ascii_upload_enable</span><span class="o">=</span>YES
+<span class="nv">ascii_download_enable</span><span class="o">=</span>YES
+
+<span class="c1">## Uncomment - Enter your Welcome message - This is optional ##</span>
+<span class="nv">ftpd_banner</span><span class="o">=</span>Welcome to UNIXMEN FTP service.
+
+<span class="c1">##Addattheendofthis file##</span>
+<span class="nv">use_localtime</span><span class="o">=</span>YES
+
+<span class="c1"># systemctl start vsftpd</span>
+<span class="c1"># systemctl enable vsftpd</span>
+<span class="c1"># systemctl stop firewalld</span>
+<span class="c1"># systemctl disable firewalld</span>
+<span class="c1"># useradd caleb (if the user does not exist).</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Install FTP client on the client server</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Become root</span>
+<span class="c1"># yum install ftp</span>
+<span class="c1"># su – caleb</span>
+touch caleb
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Commands to transfer file to the FTP server:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ftp <span class="m">192</span>.168.1.x
+Enter username and password
+bi
+<span class="nb">hash</span>
+put caleb
+bye.
+</pre></div>
+</div>
+</section>
+<section id="scp-secure-copy-protocol">
+<h3>SCP - Secure Copy Protocol<a class="headerlink" href="#scp-secure-copy-protocol" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The Secure Copy Protocol or “SCP” helps to transfer computer files securely from a local to a remote host. It is somewhat similar to the File Transfer Protocol “FTP”, but it adds security and authentication</p></li>
+<li><p>Protocol = Set of rules used by computers to communicate</p></li>
+<li><p>Default SCP Port = 22 (same as SSH)</p></li>
+<li><p>SCP commands to transfer file to the remote server:</p>
+<ul>
+<li><p>Login as yourself (caleb)</p></li>
+<li><p>touch jack</p></li>
+<li><p>scp jack <a class="reference external" href="mailto:caleb&#37;&#52;&#48;192&#46;168&#46;1&#46;x">caleb<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>x</a>:/home/caleb * Enter username and password</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/78571545a07899605d156053f921098e/16-SCP%2Bexamples.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="rsync-remote-synchronization">
+<h3>rsync - Remote Synchronization<a class="headerlink" href="#rsync-remote-synchronization" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>rsync is a utility for efficiently transferring and synchronizing files within the same computer or to a remote computer by comparing the modification times and sizes of files</p></li>
+<li><p>rsync is a lot faster than ftp or scp</p></li>
+<li><p>This utility is mostly used to backup the files and directories from one server to another</p></li>
+<li><p>Default rsync Port = 22 (same as SSH)</p></li>
+<li><p>Basic syntax of rsync command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># rsync options source destination</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Install rsync in your Linux machine (check if it already exists)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># yum install rsync (On CentOS/Redhat based systems)</p></li>
+<li><p># apt-get install rsync (On Ubuntu/Debian based systems)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>rsync a file on a local machine</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>$ tar cvf backup.tar . (tar the entire home directory (/home/caleb)</p></li>
+<li><p>$ mkdir /tmp/backups</p></li>
+<li><p>$ rsync -zvh backup.tar /tmp/backups/</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>rsync a directory on a local machine</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>$ rsync -azvh /home/caleb /tmp/backups/</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>rsync a file to a remote machine</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>$ mkdir /tmp/backups (create /tmp/backups dir on remote server)</p></li>
+<li><p>$ rsync -avz backup.tar <a class="reference external" href="mailto:caleb&#37;&#52;&#48;192&#46;168&#46;1&#46;x">caleb<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>x</a>:/tmp/backups</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>rsync a file from a remote machine</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>$ touch serverfile</p></li>
+<li><p>$ rsync -avzh <a class="reference external" href="mailto:caleb&#37;&#52;&#48;192&#46;168&#46;1&#46;x">caleb<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>x</a>:/home/caleb/serverfile /tmp/backups</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="system-upgrade-patch-management">
+<h3>System Upgrade/Patch Management<a class="headerlink" href="#system-upgrade-patch-management" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Two type of upgrades</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Major version = 5,6,7</p></li>
+<li><p>Minor version = 7.3, 7.4</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>example: <cite>yum update -y</cite></p></li>
+</ul>
+</section>
+<section id="create-local-repository">
+<h3>Create Local Repository<a class="headerlink" href="#create-local-repository" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Command: <cite>createrepo</cite></p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/aa776dc0a098d8f126b932b4e1fac3e3/12-Create%2Blocal%2Brepository-old.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/d6969e2b206de08ffb462e20fec6241a/13-Creating%2BLocal%2BYum%2BRepo.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
+</section>
+<section id="ssh-and-telnet">
+<h3>SSH and Telnet<a class="headerlink" href="#ssh-and-telnet" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Telnet = Un-secured connection between computers</p></li>
+<li><p>SSH = Secured</p></li>
+<li><p>Two type of packages for most of the services</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Client package</p></li>
+<li><p>Server package</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ssh-without-a-password">
+<h3>SSH Without a Password<a class="headerlink" href="#ssh-without-a-password" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>SSH is a secure way to login from host A to host B</p></li>
+<li><p>Repetitive tasks require login without a password</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/1597f5c901379abfc01b2e8c0ec64a1f/14-SSH%2Bwithout%2Ba%2BPassword.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="dns-domain-name-system">
+<h3>DNS - Domain Name System<a class="headerlink" href="#dns-domain-name-system" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Purpose?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Hostname to IP (A Record)</p></li>
+<li><p>IP to Hostname (PTR Record)</p></li>
+<li><p>Hostname to Hostname (CNAME Record)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/named.conf</p></li>
+<li><p>/var/named</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart named</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/232bd2109dc865b9a2c6d143aa3a84c0/3-DNS.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="download-install-and-configure-dns">
+<h3>Download, Install and Configure DNS<a class="headerlink" href="#download-install-and-configure-dns" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Create a snapshot of your virtual machine</p></li>
+<li><p>Setup:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Master DNS</p></li>
+<li><p>Secondary or Slave DNS</p></li>
+<li><p>Client</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Domain Name = lab.local</p></li>
+<li><p>IP address = My local IP address on enp0s3</p></li>
+<li><p>Install DNS package</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install bind bind-utils –y</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ConfigureDNS(Summary)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Modify /etc/named.conf</p></li>
+<li><p>Create two zone files (forward.lab and reverse.lab)</p></li>
+<li><p>Modify DNS file permissions and start the service</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Revert back to snapshot</p></li>
+</ul>
+</section>
+<section id="hostname-ip-lookup">
+<h3>Hostname/IP Lookup<a class="headerlink" href="#hostname-ip-lookup" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Commands used for DNS lookup</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>nslookup</cite></p></li>
+<li><p><cite>dig</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ntp">
+<h3>NTP<a class="headerlink" href="#ntp" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Purpose? Time synchronization</p></li>
+<li><p>File = /etc/ntp.conf</p></li>
+<li><p>Service = systemctl restart ntpd</p></li>
+<li><p>Command = <cite>ntpq</cite></p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/5ef136f67d215be8c48aaa6fec43391b/4-NTP.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="chronyd">
+<h3>chronyd<a class="headerlink" href="#chronyd" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Purpose? = Time synchronization</p></li>
+<li><p>Package name = chronyd</p></li>
+<li><p>Configuration file = /etc/chronyd.conf</p></li>
+<li><p>Log file = /var/log/chrony</p></li>
+<li><p>Service = systemctl start/restart chronyd</p></li>
+<li><p>Program command = chronyd.</p></li>
+</ul>
+</section>
+<section id="new-system-utility-command-timedatectl">
+<h3>New System Utility Command (timedatectl)<a class="headerlink" href="#new-system-utility-command-timedatectl" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>The timedatectl command is a new utility for RHEL/CentOS 7/8 based distributions, which comes as a part of the systemd system and service manager</p></li>
+<li><p>It is a replacement for old traditional date command</p></li>
+<li><p>Thetimedatectl command shows/change date, time, and timezone</p></li>
+<li><p>It synchronizes the time with NTP server as well</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>You can either use chronyd or ntpd and make the ntp setting in timedatectl as yes</p></li>
+<li><p>Or you can use systemd-timesyncd daemon to synchronize time which is a replacement for ntpd and chronyd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Please note:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Redhat/CentOS does not provide this daemon in its standard repo. You will have to download it separately.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To check time status</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To view all available time zones</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl list-timezones</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set the time zone</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl set-timezone “America/New_York“</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set date</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl set-time YYYY-MM-DD</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To set date and time</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl set-time ‘2015-11-20 16:14:50’</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To start automatic time synchronization with a remote NTP server</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>timedatectl set-ntp true.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sendmail">
+<h3>Sendmail<a class="headerlink" href="#sendmail" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Purpose? Send and receive emails</p></li>
+<li><p>Files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/mail/sendmail.mc</p></li>
+<li><p>/etc/mail/sendmail.cf</p></li>
+<li><p>/etc/mail</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart sendmail</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mail –s “subject line” <a class="reference external" href="mailto:email&#37;&#52;&#48;mydomain&#46;com">email<span>&#64;</span>mydomain<span>&#46;</span>com</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sendmail is a program in Linux operating systems that allows systems administrator to send email from the Linux system</p></li>
+<li><p>It uses SMTP (Simple Mail Transfer Protocol)</p></li>
+<li><p>SMTP port = 25</p></li>
+<li><p>It attempts to deliver the mail to the intended recipient immediately and, if the recipient is not present, it queues messages for later delivery.</p></li>
+<li><p>Sendmail installation and configuration</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># su – (Login as root)</p></li>
+<li><p># rpm –qa | grep sendmail (verify if it is already installed) * # yum install sendmail sendmail-cf</p></li>
+<li><p># vi /etc/mail/sendmail.mc</p></li>
+<li><p># systemctl start sendmail</p></li>
+<li><p># systemctl enable sendmail</p></li>
+<li><p># systemctl stop firewalld</p></li>
+<li><p># systemctl disable firewalld</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="web-server">
+<h3>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Purpose= Serve web pages</p></li>
+<li><p>Service or Package name = httpd</p></li>
+<li><p>Files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/httpd/conf</p></li>
+<li><p>/httpd.conf</p></li>
+<li><p>/var/www/html/index.html</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart httpd</p></li>
+<li><p>systemctl enable httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Log Files = /var/log/httpd/</p></li>
+</ul>
+</section>
+<section id="central-logger-rsyslog">
+<h3>Central Logger (rsyslog)<a class="headerlink" href="#central-logger-rsyslog" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Purpose = Generate logs or collect logs from other servers</p></li>
+<li><p>Service or package name = rsyslog</p></li>
+<li><p>Configuration file = /etc/syslog.conf</p></li>
+<li><p>Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart rsyslog</p></li>
+<li><p>systemctl enable rsyslog</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="network-file-system">
+<h3>Network File System<a class="headerlink" href="#network-file-system" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Purpose = Share files or directories (filesystem)</p></li>
+<li><p>Service or package name = nfs-utils</p></li>
+<li><p>Configuration file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/fstab</p></li>
+<li><p>/etc/exports</p></li>
+<li><p>/etc/sysconfig/nfs</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart nfs-server</p></li>
+<li><p>systemctl enable nfs-server</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="linux-os-hardening">
+<h3>Linux OS Hardening<a class="headerlink" href="#linux-os-hardening" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>User Account</p></li>
+<li><p>Remove un-wanted packages</p></li>
+<li><p>Stop un-used Services</p></li>
+<li><p>Check on Listening Ports</p></li>
+<li><p>Secure SSH Configuration</p></li>
+<li><p>Enable Firewall (iptables/firewalld)</p></li>
+<li><p>Enable SELinux</p></li>
+<li><p>Change Listening Services Port Numbers</p></li>
+<li><p>Keep your OS up to date (security patching)</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/c87e8fb87d270780739abf2764a7748e/8-RHEL-7-Security_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Guide</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/124b7af020483db62a244215e001afd6/9-RHEL-7-SELinux_Users_and_Administrators_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">SELinux</span> <span class="pre">Users</span> <span class="pre">and</span> <span class="pre">Administrators</span> <span class="pre">Guide</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/e1da421a4c3ed71186dbe0edd5bd9b50/10-Red_Hat_Enterprise_Linux-7-Networking_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Networking</span> <span class="pre">Guide</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/983336861304e26963f9fe0028d7dddf/11-OS%2BHardening.pdf"><code class="xref download docutils literal notranslate"><span class="pre">OS</span> <span class="pre">Hardening</span></code></a></p>
+</section>
+<section id="openldap-installation">
+<h3>OpenLDAP Installation<a class="headerlink" href="#openldap-installation" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is OpenLDAP?</p></li>
+<li><p>OpenLDAP Service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>slapd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Start or stop the service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start slapd</p></li>
+<li><p>systemctl enable slapd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Configuration Files</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/openldap/slapd.d</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="trace-network-traffic-traceroute">
+<h3>Trace Network Traffic (traceroute)<a class="headerlink" href="#trace-network-traffic-traceroute" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>The traceroute command is used in Linux to map the journey that a packet of information undertakes from its source to its destination. One use for traceroute is to locate when data loss occurs throughout a network, which could signify a node that’s down.</p></li>
+<li><p>Because each hop in the record reflects a new server or router between the originating PC and the intended target, reviewing the results of a traceroute scan also lets you identify slow points that may adversely affect your network traffic.</p></li>
+<li><p>Example</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># traceroute www.google.com</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ssh-keys">
+<h3>SSH Keys<a class="headerlink" href="#ssh-keys" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Two reasons to access a remote machine</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Repetitive logins</p></li>
+<li><p>Automation through scripts</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Keys are generated at user level</p></li>
+<li><p>Step 1 — Generate the Key</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># ssh-keygen</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Step 2 — Copy the Key to the server</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># ssh-copy-id <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;1&#46;x">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>x</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Step 3 — Login from client to server # ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;192&#46;168&#46;1&#46;x">root<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>1<span>&#46;</span>x</a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p># ssh –l root 192.168.1.x</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="cockpit">
+<h3>Cockpit<a class="headerlink" href="#cockpit" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Cockpit is a server administration tool sponsored by Red Hat, focused on providing a modern-looking and user-friendly interface to manage and administer servers</p></li>
+<li><p>Cockpit is the easy-to-use, integrated, glanceable, and open web-based interface for your servers</p></li>
+<li><p>The application is available in most of the Linux distributions such as, CentOS, Redhat, Ubuntu and Fedora</p></li>
+<li><p>It is installed in Redhat 8 by default and it is optional in version 7</p></li>
+<li><p>It can monitor system resources, add or remove accounts, monitor system usage, shut down the system and perform quite a few other tasks all through a very accessible web connection</p></li>
+<li><dl class="simple">
+<dt>Check for network connectivity</dt><dd><ul class="simple">
+<li><p>ping www.google.com</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Install cockpit package as root</dt><dd><ul class="simple">
+<li><p>yum/dnf install cockpit –y (For RH or CentOS)</p></li>
+<li><p>apt-get install cockpit (For Ubuntu)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Start and enable the service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start|enable cockpit</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check the status of the service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl status cockpit</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Access the web-interface</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://192.168.1.x:9090">https://192.168.1.x:9090</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/b491bcc53e74466f86228951d9a93a25/Red_Hat_Enterprise_Linux-8-Managing_systems_using_the_RHEL_8_web_console-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Managing</span> <span class="pre">systems</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">RHEL</span> <span class="pre">8</span> <span class="pre">web</span> <span class="pre">console</span></code></a></p>
+</section>
+<section id="firewall">
+<h3>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is Firewall</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A wall that prevents the spread of fire</p></li>
+<li><p>When data moves in and out of a server its packet information is tested against the firewall rules to see if it should be allowed or not</p></li>
+<li><p>In simple words, a firewall is like a watchman, a bouncer, or a shield that has a set of rules given and based on that rule they decide who can enter and leave</p></li>
+<li><p>There are 2 type of firewalls in IT</p></li>
+<li><p>Software = Runs on operating system</p></li>
+<li><p>Hardware = A dedicated appliance with firewall software</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-firewall.png" src="../../_images/linux-firewall.png" />
+<ul>
+<li><p>Firewalld works the same way as iptables but of course it has it own commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>It has a few pre-defined service rules that are very easy to turn on and off</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Services such as: NFS, NTP, HTTPD etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Firewalld also has the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Table</p></li>
+<li><p>Chains</p></li>
+<li><p>Rules</p></li>
+<li><p>Targets</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>You can run one or the other</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>iptables or firewalld</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Make sure iptables is stopped, disabled and mask</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl stop iptables</p></li>
+<li><p>systemctl disable iptables</p></li>
+<li><p>systemctl mask iptables</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Now check if filewalld package is installed</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm –qa | grep firewalld</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Start firewalld</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start/enable firewalld</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check the rule of firewalld</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –list-all</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Get the listing of all services firewalld is aware of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –get-services</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To make firewalld re-read the configuration added</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –reload</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The firewalld has multiple zone, to get a list of all zones</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –get-zones</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To get a list of active zones</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –get-active-zones</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To get firewall rules for public zone</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –zone=public –list-all</p></li>
+<li><p>firewall-cmd –list-all</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>All services are pre-defined by firewalld. What if you want to add a 3rd party service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/usr/lib/firewalld/services/allservices.xml</p></li>
+<li><p>Simply cp any .xml file and change the service and port number</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-firewall-2.png" src="../../_images/linux-firewall-2.png" />
+<ul>
+<li><p>To add a service (http)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –add-service=http</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To remove a service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –remove-service=http</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To reload the firewalld configuration</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –reload</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To add or remove a service permanently</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –add-service=http –permanent</p></li>
+<li><p>firewall-cmd –remove-service=http –permanent</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To add a service that is not pre-defined by firewalld</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/usr/lib/firewalld/services/allservices.xml</p></li>
+<li><p>Simply cp any .xml file sap.xml and change the service and port number (32)</p></li>
+<li><p>systemctl restart firewalld</p></li>
+<li><p>firewall-cmd –get-services (to verify new service)</p></li>
+<li><p>Firewall-cmd –add-service=sap</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To add a port</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –add-port=1110/tcp</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To remove a port</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –remove-port=1110/tcp</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To reject incoming traffic from an IP address</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –add-rich-rule=’rule family=”ipv4” source address=“192.168.0.25” reject’</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To block and unblock ICMP incoming traffic</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>firewall-cmd –add-icmp-block-inversion</p></li>
+<li><p>firewall-cmd –remove-icmp-block-inversion</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To block outgoing traffic to a specific website/IP address</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>host -t a www.facebook.com = find IP address</p></li>
+<li><p>firewall-cmd –direct –add-rule ipv4 filter OUTPUT 0 -d 31.13.71.36 -j DROP</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="tune-system-performance">
+<h3>Tune System Performance<a class="headerlink" href="#tune-system-performance" title="Permalink to this headline"></a></h3>
+<p>Linux system comes fined tunned by default when you install, however there are a few tweaks that can be done based on system performance and application requirements</p>
+<ul>
+<li><p>Optimize system performance by selecting a tuning profile managed by the tuned daemon</p></li>
+<li><p>Prioritize or de-prioritize specific processes with the nice and renice commands</p></li>
+<li><p>What is tuned?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tuned pronounced as tune-d</p></li>
+<li><p>Tune is for system tuning and d is for daemon</p></li>
+<li><p>It is systemd service that is used to tune Linux system performance</p></li>
+<li><p>It is installed in CentOS/Redhat version 7 and 8 by default</p></li>
+<li><p>tuned package name is tuned</p></li>
+<li><p>The tuned service comes with pre-defined profiles and settings (List of profile will be discussed in the next page)</p></li>
+<li><p>Based on selected profile the tuned service automictically adjust system to get the best performance. E.g. tuned will adjust networking if you are downloading a large file or it will adjust IO settings if it detects high storage read/write</p></li>
+<li><p>The tuned daemon applies system settings when the service starts or upon selection of a new tuning profile.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-tuned.png" src="../../_images/linux-tuned.png" />
+<ul>
+<li><p>Check if tuned package has been installed</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm –qa | grep tuned</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Install tuned package if NOT installed already</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install tuned</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check tuned service status</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl status|enable|start tuned</p></li>
+<li><p>systemctl enable tuned (To enable at boot time)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command to change setting for tuned daemon</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>tuned-adm</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To check which profile is active</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>tuned-adm active</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list available profiles</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>tuned-adm list.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To change to desired profile</p>
+<ul class="simple">
+<li><p>tuned-adm profile profile-name</p></li>
+</ul>
+</li>
+<li><p>Check for tuned recommendation tuned-adm recommend</p></li>
+<li><p>Turn off tuned setting daemon tuned-adm off</p></li>
+<li><p>Change profile through web console</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Login to <a class="reference external" href="https://192.168.1.x:9090">https://192.168.1.x:9090</a></p></li>
+<li><p>Overview → Configuration → Performance profile</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Another way of keeping your system fine-tuned is by prioritizing processes through nice and renice command</p></li>
+<li><p>If a server has 1 CPU then it can execute 1 computation/process at a time as they come in (first come first served) while other processes must wait</p></li>
+<li><p>With nice and renice commands we can make the system to give preference to certain processes than others</p></li>
+<li><p>This priority can be set at 40 different levels</p></li>
+<li><p>The nice level values range from -20 (highest priority) to 19 (lowest priority) and by default, processes inherit their nice level from their parent, which is usually 0.</p></li>
+<li><p>To check process priority = top</p></li>
+</ul>
+<img alt="../../_images/linux-tuned-2.png" src="../../_images/linux-tuned-2.png" />
+<p>Nice value is a user-space and priority PR is the process’s actual priority that use by Linux kernel. In Linux system priorities are 0 to 139 in which 0 to 99 for real time and 100 to 139 for users</p>
+<ul>
+<li><p>Process priority can be viewed through ps command as well with the right options $ ps axo pid,comm,nice,cls –sort=-nice</p></li>
+<li><p>To set the process priority</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>nice –n # process-name</p></li>
+<li><p>e.g. nice –n -15 top</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To change the process priority renice –n # process-name</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>e.g. renice –n 12 PID.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><a class="reference download internal" download="" href="../../_downloads/3f68638e2f773aebec7c61c84a84b562/5-rpm%2Bcommand.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
+</section>
+<section id="containers">
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline"></a></h3>
+<p><strong>What is a Container?</strong></p>
+<ul class="simple">
+<li><p>The term container and the concept came from the shipping container</p></li>
+<li><p>These containers are shipped from city to city and country to country</p></li>
+<li><p>No matter which part of the world you go to, you will find these containers with the exact same measurements</p></li>
+<li><p>Because around the world all docks, trucks, ships and warehouses are built to easily transport and store them</p></li>
+<li><p>Then came the container technology which allowed developers or programmer to test and build applications on any computer just by putting it in a container (bundled in with the software code, libraries and configuration files) and then run on another computer regardless of its architecture</p></li>
+<li><p>You can move the application anywhere without moving its OS just like moving the actual physical container anywhere that would fit on any dockyard, truck, ship or warehouse</p></li>
+<li><p>An OS can run single or multiple containers at the same time</p></li>
+</ul>
+<p><strong>What are the Container Software?</strong></p>
+<ul class="simple">
+<li><p>Docker is the software used to create and manage containers</p></li>
+<li><p>Just like any other package, docker can be installed on your Linux system and its service or daemon can be controlled through native Linux service management tool</p></li>
+<li><p>Podman is an alternative to docker</p></li>
+<li><p>Docker is not supported in RHEL 8</p></li>
+<li><p>It is daemon less, open source, Linux-native tool designed to develop, manage, and run containers.</p></li>
+</ul>
+<p><strong>Getting Familiar with Redhat Container Technology</strong></p>
+<p>Red Hat provides a set of command-line tools that can operate without a container engine, these include:</p>
+<ul class="simple">
+<li><p>podman - for directly managing pods and container images (run, stop, start, ps, attach, etc.)</p></li>
+<li><p>buildah - for building, pushing, and signing container images</p></li>
+<li><p>skopeo - for copying, inspecting, deleting, and signing images</p></li>
+<li><p>runc - for providing container run and build features to podman and buildah</p></li>
+<li><p>crun - an optional runtime that can be configured and gives greater flexibility, control, and security for rootless containers.</p></li>
+</ul>
+<p><strong>Getting Familiar with podman Container Technology</strong></p>
+<p>When you hear about containers then you should know the following terms as well</p>
+<ul class="simple">
+<li><p>images – containers can be created through images and containers can be converted to images</p></li>
+<li><p>pods – Group of containers deployed together on the host. In the podman logo there are 3 seals grouped together as a pod.</p></li>
+</ul>
+<p><strong>Building, Running, and Managing Containers</strong></p>
+<ul>
+<li><p>To install podman</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum/dnf install podman –y</p></li>
+<li><p>yum install docker –y (For dockers)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Creating alias to docker</p></li>
+<li><p>alias docker=podman Check podman version</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman –v</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Getting help</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman -–help or man podman</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check podman environment and registry/repository information</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman info (If you are trying to load a container image, then it will look at the local machine and then go through each registry by the order listed)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To search a specific image in repository.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman search httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list any previously downloaded podman images</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman images</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To download available images</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman pull docker.io/library/httpd</p></li>
+<li><p>podman images (Check downloaded image status)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list podman running containers</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman ps</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To run a downloaded httpd containers</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman run -dt -p 8080:80/tcp docker.io/library/httpd (d=detach, t=get the tty shell, p=port)</p></li>
+<li><p>podman ps or Check httpd through web browser</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To view podman logs.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman logs –l</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To stop a running container</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman stop con-name (con-name from podman ps command)</p></li>
+<li><p>podman ps (To list running containers)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To run a multiple containers of httpd by changing the port #</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman run -dt -p 8081:80/tcp docker.io/library/httpd</p></li>
+<li><p>podman run -dt -p 8082:80/tcp docker.io/library/httpd</p></li>
+<li><p>podman ps</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To stop and start a previously running container</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman stop|start con-name</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To create a new container from the downloaded image</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman create –-name httpd-con docker.io/library/httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To start the newly created container.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman start httpd-con</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Manage containers through systemd</p>
+<blockquote>
+<div><ul>
+<li><p>First you have to generate a unit file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>podman generate systemd –-new –-files –-name httpd-con</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>Copy it systemd directory</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>cp /root/container-httpd.service /etc/systemd/system</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Enable the service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl enable container-httpd-con.service</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Start the service.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start container-httpd-con.service</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="kickstart">
+<h3>Kickstart<a class="headerlink" href="#kickstart" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Kickstart is a method to automate the Linux installation without the need for any intervention from the user</p></li>
+<li><p>With the help of kickstart you can automate questions that are asked during the installation. e.g.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Language and time zone</p></li>
+<li><p>How the drives should be partitioned</p></li>
+<li><p>Which packages should be installed etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To use Kickstart, you must:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Choose a Kickstart server and create/edit a Kickstart file</p></li>
+<li><p>Make the Kickstart file available on a network location</p></li>
+<li><p>Make the installation source available</p></li>
+<li><p>Make boot media available for client which will be used to begin the installation</p></li>
+<li><p>Start the Kickstart installation</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>CentOS/Redhat 7</p>
+<blockquote>
+<div><ul>
+<li><p>Kickstart program can be downloaded which allows you to define parameters through the GUI</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install system-config-kickstart</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Or you can use the installation kickstart file which was created during the first installation (anaconda-ks.cfg)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>CentOS/Redhat 8</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>There is no GUI available to edit the file</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Why changed?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Most systems are virtual and templates can be used</p></li>
+<li><p>Automation software are in used such as Anisble.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Step by step procedure for Kickstart</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Identify the server</p></li>
+<li><p>Takeasnapshotoftheserver</p></li>
+<li><p>Installkickstartconfigurator(forversion7)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install system-config-kickstart</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Start the kickstart file configurator and define parameters OR use the /root/anaconda-ks.cfg</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>system-config-kickstart (To start the configurator)</p></li>
+<li><p>We will use anaconda installation kickstart file andc hange the hostname only</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Make sure httpd package is installed, if not then install the package and start the httpd service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm –qa | grep http</p></li>
+<li><p>yum/dnf install httpd</p></li>
+<li><p>systemctl start httpd</p></li>
+<li><p>systemctl enable httpd.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Copy kickstart file to httpd directory and change the permissions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>cp /root/anaconda-ks.cfg /var/www/html</p></li>
+<li><p>chmod a+r /var/www/html/anaconda-ks.cfg</p></li>
+<li><p>systemctl stop|disable firewalld</p></li>
+<li><p>Check file through browser on another PC <a class="reference external" href="http://192.168.1.x/anaconda-ks.cfg">http://192.168.1.x/anaconda-ks.cfg</a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a new VM and attach the CentOS iso image</p></li>
+<li><p>Change the network adapter to Bridged adapter</p></li>
+<li><p>Hit Esc</p></li>
+<li><p>boot: linux ks=http://192.168.1.x/anaconda-ks.cfg</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For NFS → boot: linux inst.ks=nfs:192.168.1.x:/rhel8</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Wait and enjoy the automated installation</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Kickstart for clients with static IP</strong></p>
+<p>boot: linux ks=http://server.example.com/ks.cfg ksdevice=eth0 IP:192.168.1.50 netmask=255.255.255.0 gateway=192.168.1.1</p>
+<ul>
+<li><p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ksdevice = is the network adapter of the client</p></li>
+<li><p>IP = IP you are assigning to the client</p></li>
+<li><p>netmask =Subnetmaskfortheclient</p></li>
+<li><p>gateway = Gateway IP address for the client</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="dhcp">
+<h3>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>DHCP stands for Dynamic Host Configuration Protocol</p></li>
+<li><p>In order to communicate over the network, a computer needs to have an IP address</p></li>
+<li><p>DHCP server is responsible to automatically assign IP addresses to servers, laptops, desktops, and other devices on the network</p></li>
+<li><p>Step by steps instructions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Assign a static IP to the DHCP server</p></li>
+<li><p>vi /etc/sysconfig/network/enp0s3</p></li>
+<li><p>Or simply run nmtui command to use GUI based network tool</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Install dhcp server package</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install dhcp (version 7)</p></li>
+<li><p>dnf install dhcp-server (version 8)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Edit the configuration file with desired parameters</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>vi /etc/dhcp/dhcp.conf</p></li>
+<li><p>cp /usr/share/doc/dhcp-x.x.x/dhcpd.conf.example /etc/dhcp/dhcpd.conf</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-dhcp.png" src="../../_images/linux-dhcp.png" />
+<ul>
+<li><p>Start dhcpd service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start dhcpd</p></li>
+<li><p>systemctl enable dhcp</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Disable firewalld or allow dhcp port over firewall</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl stop firewalld</p></li>
+<li><p>OR</p></li>
+<li><p>firewall-cmd –add-service=dhcp –permanent</p></li>
+<li><p>firewall-cmd –reload</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Switch DHCP service from your router/modem to your new DHCP server</p></li>
+<li><p>Login to your ISP provided router</p></li>
+<li><p>Disable dhcp and enable forwarding to the new dhcp server.</p></li>
+</ul>
+</section>
+</section>
+<section id="module-8-disk-management-and-run-levels">
+<h2>Module 8 - Disk Management and Run Levels<a class="headerlink" href="#module-8-disk-management-and-run-levels" title="Permalink to this headline"></a></h2>
+<section id="system-run-level">
+<h3>System Run Level<a class="headerlink" href="#system-run-level" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>System Run Levels</p></li>
+</ul>
+<p>Main Run level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0 = Shut down (or halt) the system</p></li>
+<li><p>1 = Single-user mode; usually aliased as s or S</p></li>
+<li><p>6 =Reboot the system</p></li>
+</ul>
+</div></blockquote>
+<p>Other Run levels</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>2 = Multiuser mode without networking</p></li>
+<li><p>3 = Multiuser mode with networking</p></li>
+<li><p>5 = Multiuser mode with networking and GUI.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="linux-boot-process">
+<h3>Linux Boot Process<a class="headerlink" href="#linux-boot-process" title="Permalink to this headline"></a></h3>
+<img alt="../../_images/linux-boot-process.png" src="../../_images/linux-boot-process.png" />
+<ul class="simple">
+<li><p>The boot sequence changes in CentOS/Redhat 7 and above</p></li>
+<li><p>systemd is the new service manager in CentOS/RHEL 7 that manages the boot sequence</p></li>
+<li><p>It is backward compatible with SysV init scripts used by previous versions of RedHat Linux including RHEL 6</p></li>
+<li><p>Every system administrator needs to understand the boot process of an OS in order to troubleshoot effectively</p></li>
+</ul>
+<img alt="../../_images/linux-boot-process-2.png" src="../../_images/linux-boot-process-2.png" />
+</section>
+<section id="message-of-the-day">
+<h3>Message of the Day<a class="headerlink" href="#message-of-the-day" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>File location:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/motd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Once again, message of the day is the first message users will see when they login to the Linux machine</p></li>
+<li><p>Steps:</p>
+<blockquote>
+<div><ul>
+<li><p>Create a new file in /etc/profile.d/motd.sh</p></li>
+<li><p>Add desired commands in motd.sh file</p></li>
+<li><p>Modify the /etc/ssh/sshd_config file to edit</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>#PrintMotd yes to PrintMotd no</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Restart sshd service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl restart sshd.service</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="disk-partition">
+<h3>Disk Partition<a class="headerlink" href="#disk-partition" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Commands for disk partition</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>df</p></li>
+<li><p>fdisk</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Purpose? = Out of Space, Additional Apps etc.</p></li>
+</ul>
+</section>
+<section id="computer-storage">
+<h3>Computer Storage<a class="headerlink" href="#computer-storage" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>LocalStorage</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RAM,HDD,SSD,etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>DAS(DirectAttachedStorage)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CD/DVD, USB flash drive, external disk directly attached with USB or other cables</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SAN(StorageAreaNetwork)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Storage attached through iSCSI or fiber cable</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>NAS(NetworkAttachedStorage)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Storage attached over network (TCP/IP)</p></li>
+<li><p>E.g.Samba,NFSetc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="logical-volume-management-lvm">
+<h3>Logical Volume Management (LVM)<a class="headerlink" href="#logical-volume-management-lvm" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>LVM allows disks to be combined together</p></li>
+</ul>
+<img alt="../../_images/linux-lvm.png" src="../../_images/linux-lvm.png" />
+<img alt="../../_images/linux-lvm-2.png" src="../../_images/linux-lvm-2.png" />
+</section>
+<section id="add-extend-swap-space">
+<h3>Add/Extend Swap Space<a class="headerlink" href="#add-extend-swap-space" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is swap? – CentOS.org</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Swap space in Linux is used when the amount of physical memory (RAM) is full. If the system needs more memory resources and the RAM is full, inactive pages in memory are moved to the swap space. While swap space can help machines with a small amount of RAM, it should not be considered a replacement for more RAM. Swap space is located on hard drives, which have a slower access time than physical memory</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Recommended swap size = Twice the size of RAM M = Amount of RAM in GB, and S = Amount of swap in GB, then</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If M &lt; 2</p></li>
+<li><p>then S = M * 2</p></li>
+<li><p>Else S = M + 2</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Commands</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>dd</p></li>
+<li><p>mkswap</p></li>
+<li><p>swapon or swapoff</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="advanced-storage-features">
+<h3>Advanced Storage Features<a class="headerlink" href="#advanced-storage-features" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Red Hat 8 introduces the next generation volume management solution called Stratis</p></li>
+<li><p>It uses thin provisioning by default</p></li>
+<li><p>It combines the process of creating logical volume management (LVM) and creation of filesystems into one management</p></li>
+<li><p>In LVM if a filesystem system gets full you will have to extend it manually whereas stratis extends the filesystem automatically if it has available space in its pool</p></li>
+</ul>
+<img alt="../../_images/linux-stratis.png" src="../../_images/linux-stratis.png" />
+<ul>
+<li><p>Install Statris package</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum/dnf install stratis-cli stratisd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Enable and start Statris service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl enable|start stratisd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Add 2 x 5G new disks from virtualization software and verify at the OS level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Oracle virtualbox storage setting</p></li>
+<li><p>lsblk</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a new stratis pool and verify</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>stratis pool create pool1 /dev/sdb</p></li>
+<li><p>stratis pool list</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Extend the pool</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>stratis pool add-data pool1 /dev/sdc</p></li>
+<li><p>stratis pool list</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a new filesystem using stratis</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>stratis filesystem create pool1 fs1</p></li>
+<li><p>stratis filesystem list (Filesystem will start with 546 MB)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a directory for mount point and mount filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mkdir /bigdata</p></li>
+<li><p>mount /dev/stratis/pool1/fs1 /bigdata</p></li>
+<li><p>lsblk</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a snapshot of your filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>startis filesystem snapshot pool1 fs1 fs1-snap</p></li>
+<li><p>stratis filesystem list</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Add the entry to /etc/fstab to mount at boot</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>UUID=“asf-0887afgdja-” /fs1 xfs defaults,x-</p></li>
+<li><p>systemd.requires=stratisd.service 0 0</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="raid">
+<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>RAID (Redundant Array of Independent Disks)</p></li>
+<li><p>Type of RAID</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RAID0</p></li>
+<li><p>RAID1</p></li>
+<li><p>RAID5</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-raid.png" src="../../_images/linux-raid.png" />
+</section>
+<section id="file-system-check-fsck-and-xfs-repair">
+<h3>File System Check (fsck and xfs_repair)<a class="headerlink" href="#file-system-check-fsck-and-xfs-repair" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Linux fsck utility is used to check and repair Linux filesystems (ext2, ext3, ext4, etc.)</p></li>
+<li><p>Linux xfs_repair utility is used to check and repair Linux filesystems for xfs filesystem type</p></li>
+<li><p>Depending on when was the last time a file system was checked, the system runs the fsck during boot time to check whether the filesystem is in consistent state</p></li>
+<li><p>System administrator could also run it manually when there is a problem with the filesystems</p></li>
+<li><p>Make sure to execute the fsck on an unmounted file systems to avoid any data corruption issues.</p></li>
+<li><p>Force a filesystem check even if it’s clean using option –f</p></li>
+<li><p>Attempt to fix detected problems automatically using option -y</p></li>
+<li><p>The xfs_repair utility is highly scalable and is designed to repair even very large file systems with many inodes efficiently. Unlike other Linux file systems, xfs_repair does not run at boot time</p></li>
+<li><p>The following are the possible exit codes for fsck command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0 - No errors</p></li>
+<li><p>1 - Filesystem errors corrected</p></li>
+<li><p>2 - System should be rebooted</p></li>
+<li><p>4 - Filesystem errors left uncorrected</p></li>
+<li><p>8 - Operational error</p></li>
+<li><p>16 - usage or syntax error</p></li>
+<li><p>32 - fsck cancelled by user request</p></li>
+<li><p>128 - shared-library error</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="system-backup">
+<h3>System Backup<a class="headerlink" href="#system-backup" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>5 Different Types of Backups</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>System backup (entire image using tools such as acronis, Veeam, Commvault etc.)</p></li>
+<li><p>Application backup (3rd party application backup solution)</p></li>
+<li><p>Database backup (Oracle dataguard, SQL backup etc.)</p></li>
+<li><p>Filesystem backup (tar, gzip directoris etc.)</p></li>
+<li><p>Disk backup or disk cloning (dd command)</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>dd is a command-line utility for Unix and Unix-like operating systems whose primary purpose is to convert and copy files</p></li>
+<li><p>As a result, dd can be used for tasks such as backing up the boot sector of a hard drive, and obtaining a fixed amount of random data</p></li>
+<li><p>Please note the source and destination disk should be the same size</p></li>
+<li><p>To backup or clone an entire hard disk to another hard disk connected to the same system, execute the dd command as shown</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># dd if=&lt;source file name&gt; of=&lt;target file name&gt; [Options] # dd if=/dev/sda of=/dev/sdb</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To backup/copy the disk partition</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># dd if =/dev/sda1 of=/root/sda1.img</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Restoring this image file to other machine after copying the .img</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># dd if=/root/sda1.img of=/dev/sdb3</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="network-file-system-nfs">
+<h3>Network File System (NFS)<a class="headerlink" href="#network-file-system-nfs" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>NFS stands for Network File System, a file system developed by Sun Microsystems, Inc.</p></li>
+<li><p>It is a client/server system that allows users to access files across a network and treat them as if they resided in a local file directory</p></li>
+<li><p>For example, if you were using a computer linked to a second computer via NFS, you could access files on the second computer as if they resided in a directory on the first computer. This is accomplished through the processes of exporting (the process by which an NFS server provides remote clients with access to its files) and mounting (the process by which client map NFS shared filesystem)</p></li>
+<li><p>Steps for NFS Server Configuration</p>
+<blockquote>
+<div><ul>
+<li><p>Install NFS packages</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># yum install nfs-utils libnfsidmap (most likely they are installed)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Once the packages are installed, enable and start NFS services</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># systemctl enable rpcbind</p></li>
+<li><p># systemctl enable nfs-server</p></li>
+<li><p># systemctl start rpcbind, nfs-server, rpc-statd, nfs-idmapd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create NFS share directory and assign permissions</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/linux-nfs.png" src="../../_images/linux-nfs.png" />
+<ul>
+<li><p>Steps for NFS Client Configuration</p>
+<blockquote>
+<div><ul>
+<li><p>Install NFS packages</p>
+<blockquote>
+<div><p># yum install nfs-utils rpcbind</p>
+</div></blockquote>
+</li>
+<li><p>Once the packages are installed enable and start rpcbind service</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># systemctl rpcbind start</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt>Make sure firewalld or iptables stopped (if running)</dt><dd><ul class="simple">
+<li><p># ps –ef | egrep “firewall|iptable”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Show mount from the NFS server</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># showmount -e 192.168.1.5 (NFS Server IP)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Create a mount point</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># mkdir /mnt/kramer</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Mount the NFS filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># mount 192.168.1.5:/mypretzels /mnt/kramer</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Verify mounted filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># df –h</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To unmount</p>
+<blockquote>
+<div><ul class="simple">
+<li><p># umount /mnt/kramer</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="samba">
+<h3>Samba<a class="headerlink" href="#samba" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Samba is a Linux tool or utility that allows sharing for Linux resources such as files and printers to with other operating systems</p></li>
+<li><p>It works exactly like NFS but the difference is NFS shares within Linux or Unix like system whereas Samba shares with other OS (e.g. Windows, MAC etc.)</p></li>
+<li><p>For example, computer “A” shares its filesystem with computer “B” using Samba then computer “B” will see that shared filesystem as if it is mounted as the local filesystem</p></li>
+<li><p>Samba shares its filesystem through a protocol called SMB (Server Message Block) which was invented by IBM</p></li>
+<li><p>Another protocol used to share Samba is through CIFS (Common Internet File System) invented by Microsoft and NMB (NetBios Named Server)</p></li>
+<li><p>CIFS became the extension of SMB and now Microsoft has introduced newer version of SMB v2 and v3 that are mostly used in the industry</p></li>
+<li><p>In simple term, most people, when they use either SMB or CIFS, are talking about the same exact thing</p></li>
+</ul>
+<p><strong>Installation and Configuration</strong></p>
+<ul class="simple">
+<li><p>Take snapshot of your VM</p></li>
+<li><p>Install samba packages</p></li>
+<li><p>Enable samba to be allowed through firewall (Only if you have firewall running) * Disable firewall</p></li>
+<li><p>Create Samba share directory and assign permissions</p></li>
+<li><p>Also change the SELinux security context for the samba shared directory</p></li>
+<li><p>Or disable SELinux</p></li>
+<li><p>Modify /etc/samba/smb.conf file to add new shared filesystem</p></li>
+<li><p>Verify the setting</p></li>
+<li><p>Once the packages are installed, enable and start Samba services (smb and nmb) * Mount Samba share on Windows client</p></li>
+<li><p>Mount Samba share on Linux client</p></li>
+<li><p>Additional instructions on creating secure Samba share.</p></li>
+</ul>
+</section>
+<section id="nas-device-for-nfs-or-samba">
+<h3>NAS Device for NFS or Samba<a class="headerlink" href="#nas-device-for-nfs-or-samba" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>A storage can be carved on a Linux server, and it can be shared with another Linux machine through NFS or to a Windows machine through Samba service</p></li>
+<li><p>NFS/Samba or any NAS service can be setup through a dedicated NAS device</p></li>
+</ul>
+</section>
+<section id="sata-and-sas">
+<h3>SATA and SAS<a class="headerlink" href="#sata-and-sas" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>SATA Stands for Serial Advanced Technology Attachment and SAS stands for Serial Attached SCSI (SCSI Stands for Small Computer System Interface, typically pronounced as “scuzzy”)</p></li>
+<li><p>Both SAS and SATA utilize serial communication. Serial communication means that the highway has both lanes</p></li>
+<li><p>The main difference between them is that SAS drives are faster and more reliable than SATA drives</p></li>
+<li><p>SAS is generally more expensive, and it’s better suited for use in servers or in processing-heavy computer workstations. SATA is less expensive, and it’s better suited for desktop file storage</p></li>
+<li><p>In a SATA cable, all 4 wires are placed within the same cable. In a SAS cable, the 4 wires are separated into 2 different cables</p></li>
+</ul>
+<p><strong>Why divide the wires between 2 cables?</strong></p>
+<ul class="simple">
+<li><p>So you can connect more devices to one another. With a SATA cable, you can only link the motherboard and the storage drive. You could hook up an expansion device, but that takes up valuable room inside your computer.</p></li>
+<li><p>With a SAS cable, you can hook up the motherboard to both a storage drive and another piece of hardware that has SAS connectors.</p></li>
+</ul>
+</section>
+<section id="difference-between-centos-rhel7-and-8">
+<h3>Difference Between CentOS/RHEL7 and 8<a class="headerlink" href="#difference-between-centos-rhel7-and-8" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Red Hat Enterprise Linux 8 (RHEL 8) is now available for production use with lots of developer- friendly capabilities</p></li>
+<li><p>RHEL 8 official release by Red Hat Inc, was announced on May 7, 2019</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 35%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>RHEL 8</p></th>
+<th class="head"><p>RHEL 7</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>General Availability Date
+Code Name
+Kernel Version
+End of Support
+Last Minor Release
+Network Time Synchronization
+GUI Interface (Desktop)
+Default Database
+Default Firewall
+Max Supported (Individual) File &amp; Filesystem Size
+Package Management
+Max. RAM Supported</p></td>
+<td><p>14-Nov-18
+Ootpa
+4.18
+May-2029
+8.x
+Only Chrony
+Gnome 3.28
+MySQL 8.0, MariaDB 10.3, PostgreSQL 10 and 9.6, and Redis 5.0
+Firewalld, it uses nftables framework in the backend
+XFS= 1024TB
+By default both are installed, YUM symbolic link to DNF
+24 TB on x86_64 architecture</p></td>
+<td><p>10-Jun-14
+Maipo
+3.10.0-123
+30-Jun-2024
+7.7
+Chrony and ntpd
+Gnome 3
+MariaDB
+Firewalld, it uses Iptables framework in the backend
+XFS= 500TB
+By default only YUM and DNF can be installed from the Extra repo
+12 TB on x86_64 architecture</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="additional-resources">
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline"></a></h2>
+<section id="change-file-creation-permission">
+<h3>Change File Creation Permission<a class="headerlink" href="#change-file-creation-permission" title="Permalink to this headline"></a></h3>
+<p>umask is a command to set default permission any newly created file/directory</p>
+<p>eg. <cite>umask u+rw,g+r,o-rwx</cite></p>
+</section>
+<section id="filesystem-color-definition">
+<h3>Filesystem Color Definition<a class="headerlink" href="#filesystem-color-definition" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Blue = directory</p></li>
+<li><p>Green = executable or recognized data file</p></li>
+<li><p>Sky Blue = Symbolic link file</p></li>
+<li><p>Yellow with black background = device</p></li>
+<li><p>pink = graphic image file</p></li>
+<li><p>Red = archive file</p></li>
+<li><p>Red with black background = broken link</p></li>
+</ul>
+</section>
+<section id="troubleshoot-file-issues">
+<h3>Troubleshoot File Issues<a class="headerlink" href="#troubleshoot-file-issues" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>File does not exist</p></li>
+<li><p>Absolute vs relative paths</p></li>
+<li><p>File type</p></li>
+<li><p>Permissions</p></li>
+<li><p>Parent directory permissions</p></li>
+<li><p>Hidden file</p></li>
+<li><p>Command syntax (source and then target)</p></li>
+</ul>
+</section>
+<section id="cannot-cd-into-a-directory">
+<h3>Cannot CD Into a Directory<a class="headerlink" href="#cannot-cd-into-a-directory" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Directory does not exist</p></li>
+<li><p>Absolute vs relative paths</p></li>
+<li><p>Permissions</p></li>
+<li><p>File type</p></li>
+<li><p>Parent directory permissions</p></li>
+<li><p>Hidden directories</p></li>
+</ul>
+</section>
+<section id="filesystem-is-corrupted">
+<h3>Filesystem is Corrupted<a class="headerlink" href="#filesystem-is-corrupted" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Filesystem</p></li>
+<li><p>Types of a filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ext3, ext4, xfs, NTFS, etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Filesystem Layout and Partitions</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/var, /etc, /root, /home, etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Checking filesystem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>df, fdisk -l</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Troubleshooting steps</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Check /var/log/messages or /var/log/syslog</p></li>
+<li><p>Run fsck on the block device (/dev/sda) NOT the mount point</p></li>
+<li><p>Unmount filesystem and run fsck</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="system-is-running-slow">
+<h3>System is Running Slow<a class="headerlink" href="#system-is-running-slow" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Understanding the problem</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Processing</p></li>
+<li><p>Disk writing</p></li>
+<li><p>Networking</p></li>
+<li><p>Hardware</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Troubleshooting steps</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Check if the right system is reported or you are on the right system</p></li>
+<li><p>Check disk space (df -h, du)</p></li>
+<li><p>Check processing (top, free, lsmem, /proc/meminfo, vmstat, pmap &lt;PID&gt;, dmidecode, lscpu or /proc/cpuinfo)</p></li>
+<li><p>Check disk issues (iostat -y 5, lsof)</p></li>
+<li><p>Check networking (tcpdump -i enps03, lsof -i -P -n | grep -i listen, netstat -plnt or ss -plnt, iftop)</p></li>
+<li><p>Check system uptime (uptime)</p></li>
+<li><p>Check logs</p></li>
+<li><p>Check hardware status by logging into system console</p></li>
+<li><p>OTher tools (htop, iotop, iptraf, psacct)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="ip-address-assigned-but-not-reachable">
+<h3>IP Address Assigned but not Reachable<a class="headerlink" href="#ip-address-assigned-but-not-reachable" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Troubleshooting steps</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Check if you are on the correct network interface (ifconfig)</p></li>
+<li><p>Check to see if you got the right subnet mask or gateway</p></li>
+<li><p>Ping the gateway</p></li>
+<li><p>Check if the gateway is assigned (netstat -rnv)</p></li>
+<li><p>Check with network team if the correct VLAN is assigned on the switch side</p></li>
+<li><p>Run ethtool or mii-tool to check the NIC status</p></li>
+<li><p>Run ifup &lt;interface&gt; command to bring the NIC port up</p></li>
+<li><p>Restart network systemctl restart network</p></li>
+<li><p>Check on the status of the NIC by running ifconfig or ip addr command</p></li>
+<li><p>Check to see if the IP Is assigned to some other device (IP conflict)</p></li>
+<li><p>Turn off firewall</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="remove-unnecessary-or-orphan-packages">
+<h3>Remove Unnecessary or Orphan Packages<a class="headerlink" href="#remove-unnecessary-or-orphan-packages" title="Permalink to this headline"></a></h3>
+<p>Keep your server lean and mean. Install only those packages you really need. IF there are unwanted packages delete them. The fewer the packages the less chance of unpached code.</p>
+<p>Guidelines:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Do not install packages you do not need during the initial installation</p></li>
+<li><p>Pay close attention to the add-on packages</p></li>
+</ul>
+</div></blockquote>
+<p>To get a list of packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm -qa (CentOS)</p></li>
+<li><p>apt list -installed (Ubuntu)</p></li>
+</ul>
+</div></blockquote>
+<p>Remove packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm -e package_name</p></li>
+<li><p>apt-get remove package_name</p></li>
+</ul>
+</div></blockquote>
+<p>Orphaned Packages:</p>
+<p>The objective is to remove all orphaned packages from Centos Linux. By orphaned packages we mean all packages which no longer serve a purpose of package dependencies.</p>
+<p>Fore example, package A is dependent on package B, thus, in order to install package A the package B must be installed. Once the package A is removed, the package B might still be installed, hence package B is now orphaned package.</p>
+<ul>
+<li><p>A built-in utility which allows you to check for orphaned packages</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum-utils</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check if that exist in your system</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>rpm -qa | grep yum-utils</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If not then install</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum install yum-utils</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Get a list of all orphaned packages</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>package-cleanup -leaves</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Remove</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>yum remove ‘package-cleanup -leaves’</p></li>
+<li><p>apt-get autoremove</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="selinux-security-enhanced-linux">
+<h3>SELinux (Security Enhanced Linux)<a class="headerlink" href="#selinux-security-enhanced-linux" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>What is SELinux?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SELinux is a Linux kernal security module that provides a mechanism for supporting access control security policies including mandatory access controls</p></li>
+<li><p>It is a project of the United States Security Agency (NSA) and the SELinux Community</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SELinux options?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Enforcing = enabled (enabled by default in Redhat, CentOS, and Fedora)</p></li>
+<li><p>Permissive = Disabled but logs the activity</p></li>
+<li><p>Disable = disabled and not activity logs</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To check SELinux status</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sestatus or getenforce</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SELinux setting</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>setenforce 0 = permissive/disable</p></li>
+<li><p>setenforce 1 = enable</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Modify SELinux config for permanent setting</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/etc/selinux/config</p></li>
+<li><p>SELINUX=enforcing</p></li>
+<li><p>SELINUX=disabled</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Before modifying selinux config file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create a snapshot of your VM</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Before rebooting create a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/.autorelabel</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Two main conceptes of SELinux</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Labeling</p></li>
+<li><p>Type enforcement</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list the label of a file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ls -lZ /usr/sbin/httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list the label of a directory</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ls -dZ /etc/httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>As the webserver runs its process its labeled in memory as httpd_t</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ps axZ | grep httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The SELinux assigns the label at the socket level</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>netstat -tnlpZ | grep httpd</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Command to manage SELinux setting:</p>
+<blockquote>
+<div><ul>
+<li><p>semanage -&gt; to label</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>login</p></li>
+<li><p>user</p></li>
+<li><p>port</p></li>
+<li><p>interface</p></li>
+<li><p>module</p></li>
+<li><p>node</p></li>
+<li><p>file context</p></li>
+<li><p>boolean</p></li>
+<li><p>permissive state</p></li>
+<li><p>dontaudit</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Boolean</p>
+<blockquote>
+<div><ul>
+<li><p>ON / OFF switch</p></li>
+<li><p>There are pre-defined out of the box Booleans that come with SELinux</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>eg. do we allow ftp server to access home directories</p></li>
+<li><p>can httpd talk to ldap</p></li>
+<li><p>etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list all booleans</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>getsebool -a</p></li>
+<li><p>OR semanage boolean -l</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To enable or turn on a booleans</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>setsebool -P boolean_name on</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Check error messages related to SELinux</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>journalctl</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To change the type in a label</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>chcon -t httpd_sys_content_t FILENAME</p></li>
+<li><p>semanage -t httpd_sys_content_t FILENAME</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="types-of-security-threats">
+<h3>Types of Security Threats<a class="headerlink" href="#types-of-security-threats" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>Distributed denial-of-service (DDoS) attack</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When a hacker put a network of zombie computers (other peoples computers) to attack or destroy a specific website or server. That increase in volume or traffic overloads the website or server causing it to be slow or server shuts down completely</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Hacking</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>When someone gains unauthorized access to a computer</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Malware</p>
+<blockquote>
+<div><ul>
+<li><p>Malicious software that infects your computer, such as computer virus, worms, trojan horses, spyware, and adware</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Intimidate you with scareware, which is usually a pop-up message that tells you your computer has a security problem or other false information</p></li>
+<li><p>Reformat the hard drive of your computer causing you to lose all your information</p></li>
+<li><p>Alter or delete files</p></li>
+<li><p>Steal sensitive information</p></li>
+<li><p>Send emails on your behalf</p></li>
+<li><p>Take control of your computer and all the software running on it</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Pharming</p>
+<blockquote>
+<div><ul>
+<li><p>It points you to a malicious and illegitimate website by reditrecting the legitimate URL. Even if the URL is entered correctly, it can still be reditrected to a fake website.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Convince you that the site is real and legitimate by spoofing or looking almost identical to the actual site down to the smallest details. You may enter your personal information and unknowingly give it to someone with malicious intent.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Phishing</p>
+<blockquote>
+<div><ul>
+<li><p>Fake emails, text messages and webistes created to look like theyre from authentic companies. THeyre sent by criminals to steal personal or financial information from you.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Trick you into giving them information by asking you to update, validate or confirm your account. It is often presented in a manner than seems official and intimidating, to encourage you to take action.</p></li>
+<li><p>Provides cyber criminals with your username and passwords so that they can access your accounts (your online bank account, shopping accounts, etc.) and steal your credit card numbers.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Ransomware</p>
+<blockquote>
+<div><ul>
+<li><p>Ransomware is a type of malware that restricts access to your computer or files and displays a messsage that demands payment in order for the restriction to be removed. The most common means of infection appear to be phishin emails that contain malicious attachments and website pop-up advertisements</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul>
+<li><p>There are two common types of ransomware.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Lockscreen ransomware, displays an image that prevents you from accessing your computer</p></li>
+<li><p>Encryption ransomware, encrypts files on your systems hard drive and sometimes on shared network drives. USB drives, external hard drives and even some cloud storage drives, preventing you from opening them.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Spam</p>
+<blockquote>
+<div><ul>
+<li><p>SPam is one of the more common methods of both sending information out and collecting it from unsuspecing people</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Annoy you with unwanted junk email</p></li>
+<li><p>Create a burden for communications service providers and business to filter electronic messages.</p></li>
+<li><p>Phish for your information by tricking you into following links or entering details with offers and promotions</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Spoofing</p>
+<blockquote>
+<div><ul>
+<li><p>THis technique is often used in conjunction with phishin in an attempt to steal your information. A website or email address that is created to look like it comes from a legitimate source. AN email address may even include your own name, the name of someone you know, making it difficult to discern whether or not the sender is real.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Spends spam using your email address, or a variation of your email address to your contact list.</p></li>
+<li><p>Recreates websites that closely resemble the authentic site. This could be a financial institution or other site that requires login or other personal information.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Spyware</p>
+<blockquote>
+<div><ul>
+<li><p>Software that collects personal information about you without you knowing. They often com in the form of a free download and are installed automatically with or without your consent. THese are difficult to remove and can infect your computer with viruses.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Collect informatiuon about you without you knowing about it and give it to third parties</p></li>
+<li><p>Send your usernames, passwords, surfing habits, list of applications youve downloaded, settings, and even the version of your OS to third parties.</p></li>
+<li><p>Change the way your computer runs without your knowledge</p></li>
+<li><p>Take you to unwanted sites or inundate you with uncontrollable pop-up ads.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Trojan Horses</p>
+<blockquote>
+<div><ul>
+<li><p>Trojan horse is a malicious program that is disguised as, or embeded with, legitimate software. It is an executable file that will install itself and run automatically once its downloaded.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Delete your files</p></li>
+<li><p>Use your computer to hack other ocmputers</p></li>
+<li><p>Watch you through your web cam</p></li>
+<li><p>Log your key strokes</p></li>
+<li><p>Record usernames, passwords, and other personal information</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Viruses</p>
+<blockquote>
+<div><ul>
+<li><p>Malicious computer programs that are ogften sent as an email attachment or a download with the intent of infecting your computer, as well as computers of everyone in your contact list. Just visiting a site can start an automatic download of a virus.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Send spam</p></li>
+<li><p>Provide criminals with acccess to your computer and contact list</p></li>
+<li><p>Scan and find personal information like passwords on your computer.</p></li>
+<li><p>Hijack your web browser</p></li>
+<li><p>Disable your security settings</p></li>
+<li><p>Display unwanted ads</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Wi-Fi Eavesdropping</p>
+<blockquote>
+<div><ul>
+<li><p>Virtual listening in on information thats shared over unsecure wifi network</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Potentially access your computer with the right equipment</p></li>
+<li><p>Steal your personal information including logins and passwords</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Worms</p>
+<blockquote>
+<div><ul>
+<li><p>A worm, unlike a virus, goes to work on its own without attaching itself to files or programs. It lives in your computers memory, doesnt damage or alter the hard drive and propegates itself to other computers in a network, whether within a company or the internet itself.</p></li>
+<li><p>Consequences</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Spread to everyone in your contact list</p></li>
+<li><p>Cause a tremendous amount of damage by shutting down parts of the internet. Wreaking havok on an internal network and costing companies enourmous amounts of lost revenue</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ul>
 </div></blockquote>
 </li>

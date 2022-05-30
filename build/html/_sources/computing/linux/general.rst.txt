@@ -120,6 +120,15 @@ https://unix.stackexchange.com/questions/57305/rsync-compare-directories
 
   rsync -nai --delete source destination | grep "^deleting "
 
+Smartcl
+-------
+
+https://unix.stackexchange.com/questions/39064/smartctl-on-external-hdd-inside-ide-to-usb-enclosure
+
+.. code-block:: bash
+
+  smartctl -H -d sat /dev/sda
+
 While Loop
 ----------
 

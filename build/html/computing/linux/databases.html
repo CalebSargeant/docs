@@ -95,6 +95,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql">PostgreSQL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Showing Users</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#deleting-rows">Deleting Rows</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#selecting-rows">Selecting Rows</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#updating-data-in-table">Updating Data in Table</a></li>
@@ -107,6 +108,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#show-running-queries">Show Running Queries</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connect-to-postgresql-server-fatal-no-pg-hba-conf-entry-for-host">Connect to PostgreSQL server FATAL no pg_hba.conf entry for host</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#vacuum">Vacuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-sizes">Database Sizes</a></li>
 </ul>
 </li>
 </ul>
@@ -124,6 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ufw.html">UFW</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
 </ul>
@@ -214,6 +217,9 @@ GRANT OPTION- allows them to grant or remove other users’ privileges
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that localhost could be a location somewhere else, like a source IP Address of machine connecting to mysql</span>
 grant all privileges on mydb.* to <span class="s1">&#39;user&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 flush privileges<span class="p">;</span>
+
+<span class="c1"># Granting one privilege:</span>
+grant <span class="k">select</span> privilege on *.* to user@host<span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -454,6 +460,13 @@ mysql_secure_installation
 </section>
 <section id="postgresql">
 <h2>PostgreSQL<a class="headerlink" href="#postgresql" title="Permalink to this headline"></a></h2>
+<section id="id1">
+<h3>Showing Users<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://ubiq.co/database-blog/how-to-list-all-users-in-postgresql/#:~:text=Using%20psql%20command,-Log%20into%20PostgreSQL&amp;text=Enter%20password%20to%20log%20into%20PostgreSQL.&amp;text=Enter%20%5Cdu%20command%20to%20list%20all%20users%20in%20PostrgeSQL.&amp;text=You%20will%20see%20the%20list,user%2C%20enter%20%5Cdu%2B%20command">https://ubiq.co/database-blog/how-to-list-all-users-in-postgresql/#:~:text=Using%20psql%20command,-Log%20into%20PostgreSQL&amp;text=Enter%20password%20to%20log%20into%20PostgreSQL.&amp;text=Enter%20%5Cdu%20command%20to%20list%20all%20users%20in%20PostrgeSQL.&amp;text=You%20will%20see%20the%20list,user%2C%20enter%20%5Cdu%2B%20command</a>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>\du+
+</pre></div>
+</div>
+</section>
 <section id="deleting-rows">
 <h3>Deleting Rows<a class="headerlink" href="#deleting-rows" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delete from msisdn_seen where msisdn like <span class="s1">&#39;27234843223&#39;</span><span class="p">;</span>
@@ -547,6 +560,13 @@ service postgresql restart
 <p><a class="reference external" href="https://stackoverflow.com/questions/4759503/how-can-i-perform-the-vacuum-using-the-postgresql#:~:text=Connect%20to%20the%20database%20and,which%20will%20also%20update%20statistics">https://stackoverflow.com/questions/4759503/how-can-i-perform-the-vacuum-using-the-postgresql#:~:text=Connect%20to%20the%20database%20and,which%20will%20also%20update%20statistics</a>.</p>
 <p>Vacuuming your postgres db must be done once in a while.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VACUUM<span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="database-sizes">
+<h3>Database Sizes<a class="headerlink" href="#database-sizes" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://makandracards.com/makandra/37935-postgresql-show-size-of-all-databases">https://makandracards.com/makandra/37935-postgresql-show-size-of-all-databases</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SELECT pg_database.datname as <span class="s2">&quot;database_name&quot;</span>, pg_database_size<span class="o">(</span>pg_database.datname<span class="o">)</span>/1024/1024 AS size_in_mb FROM pg_database ORDER by size_in_mb DESC<span class="p">;</span>
 </pre></div>
 </div>
 </section>
