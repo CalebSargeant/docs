@@ -65,6 +65,7 @@ Table of Contents
   computing/cloud/index
   computing/containerisation/index
   computing/dns
+  computing/elk-stack/index
   computing/jenkins/index
   computing/linux/index
   computing/pentesting/index
