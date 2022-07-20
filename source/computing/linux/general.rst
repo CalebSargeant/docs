@@ -613,6 +613,12 @@ https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multip
   tar --exclude='./folder' --exclude='./upload/folder2' \
     -zcvf /backup/filename.tgz .
 
+https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories
+
+.. code-block:: bash
+
+  tar -czvf /location/my.tar.gz --exclude='/dir1' --exclude='/dir2' /dir/to/tar
+
 PDF to CSV
 ----------
 
