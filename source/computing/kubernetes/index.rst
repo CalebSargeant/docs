@@ -8,3 +8,4 @@ Kubernetes
   install
   exposing-ports
   management-techniques
+  declarative-yaml
