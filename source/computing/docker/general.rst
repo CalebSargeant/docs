@@ -1,5 +1,5 @@
-Docker
-======
+General
+=======
 
 A docker image is like a template. A docker container is a running instance of the template. Each micro-service, or application, is placed in their own container.
 

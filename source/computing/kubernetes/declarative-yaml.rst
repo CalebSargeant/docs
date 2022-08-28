@@ -57,12 +57,62 @@ Building your YAML Files
 * **metadata:** only name is required
 * **spec:** Where all the action is at!
 
-Building your YAML spec
------------------------
+Buildng your YAML Spec
+----------------------
 
 * We can get all the keys each **kind** supports
 
     * `kubectl explain services --recursive`
     * `kubectl explain services.spec`
+
+* We can walk through the spec this way
+
     * `kubectl explain services.spec.type`
-    
+
+* spec: can have sub spect: of other resources
+
+    * `kubectl explain deployment.spec.template.spec.volumes.nfs.server`
+
+* We can also use docs
+
+    * kubernetes.io/docs/reference/#api-reference
+
+Dry Runs and Diffs
+------------------
+
+* dry-run a create (client side only)
+
+    * `kubectl apply -f app.yml --dry-run`
+
+* dry-run a create/update on server
+
+    * `kubectl apply -f app.yml --server-dry-run`
+
+* see a diff visually 
+
+    * `kubectl diff -f app.yml`
+
+Labels and Annotations
+----------------------
+
+* Labels goes under **metadata:** in your YAML
+* Simple list of **key: value** for identifying your resource later by selecting, grouping, or filtering for it
+* Common examples include **tier: frontend, app: api, env: prod, customer: acme.co**
+* Not meant to hold complex, large, or non-identifying info, which is what **annotations** are for
+* filter a get command
+
+    * `kubectl get pods -l app=nginx`
+
+* apply only matching labels
+
+    * `kubectl apply -f myfile.yaml -l app=nginx`
+
+Label Selectors
+---------------
+
+* The "glue" telling Services and Deployments which pods are theirs
+* Many resources use Label Selectors to "link" resource dependancies
+* You'll see these match up in the Service and Deployment YAML
+* Use Labels and Selectors to control which pods go to which nodes
+* Taints and Tolerations also control node placement
+

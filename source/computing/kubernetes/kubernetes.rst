@@ -1,7 +1,5 @@
-Kubernetes
-==========
-
-
+General
+=======
 
 A Kubernetes deployment is a tier/micro-service of an application. The deployment isn't a container. A Kubernetes pod is an atomic unit of work and everything it takes to run a deployment. It could be one or more containers per pod.
 
