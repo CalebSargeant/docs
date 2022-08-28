@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -139,11 +142,11 @@
            <div itemprop="articleBody">
              
   <section id="l3-switching">
-<h1>L3 Switching<a class="headerlink" href="#l3-switching" title="Permalink to this headline"></a></h1>
+<h1>L3 Switching<a class="headerlink" href="#l3-switching" title="Permalink to this heading"></a></h1>
 <p>The Problem:</p>
 <p>Clients need routing between VLANs</p>
 <section id="router-on-a-stick-802-1q-isl">
-<h2>Router on a stick (802.1Q/ISL)<a class="headerlink" href="#router-on-a-stick-802-1q-isl" title="Permalink to this headline"></a></h2>
+<h2>Router on a stick (802.1Q/ISL)<a class="headerlink" href="#router-on-a-stick-802-1q-isl" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Advantages:</p>
 <ul>
@@ -178,7 +181,7 @@ ip add 10.1.20.1 255.255.255.0
 </div>
 </section>
 <section id="multi-layer-switching">
-<h2>Multi-Layer Switching<a class="headerlink" href="#multi-layer-switching" title="Permalink to this headline"></a></h2>
+<h2>Multi-Layer Switching<a class="headerlink" href="#multi-layer-switching" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Advantages:</p>
 <ul>
@@ -214,7 +217,7 @@ ip add 10.1.24.1 255.255.255.252
 </div>
 </section>
 <section id="understanding-layer-3-vs-multilayer-switching">
-<h2>Understanding Layer 3 vs Multilayer Switching<a class="headerlink" href="#understanding-layer-3-vs-multilayer-switching" title="Permalink to this headline"></a></h2>
+<h2>Understanding Layer 3 vs Multilayer Switching<a class="headerlink" href="#understanding-layer-3-vs-multilayer-switching" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>First packet hits router, all future packets go through CEF/ASIC</p></li>
 <li><p>L3 Switch is a switch with router inside</p></li>
@@ -224,7 +227,7 @@ ip add 10.1.24.1 255.255.255.252
 </ul>
 </section>
 <section id="layer-3-routing-vs-layer-3-switching">
-<h2>Layer 3 Routing vs Layer 3 Switching<a class="headerlink" href="#layer-3-routing-vs-layer-3-switching" title="Permalink to this headline"></a></h2>
+<h2>Layer 3 Routing vs Layer 3 Switching<a class="headerlink" href="#layer-3-routing-vs-layer-3-switching" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Router and L3 switch both have IOS software routing</p></li>
 <li><p>Software routing is relatively slow compared to ASICs</p></li>
@@ -232,7 +235,7 @@ ip add 10.1.24.1 255.255.255.252
 </ul>
 </section>
 <section id="exceptions-to-cef">
-<h2>Exceptions to CEF<a class="headerlink" href="#exceptions-to-cef" title="Permalink to this headline"></a></h2>
+<h2>Exceptions to CEF<a class="headerlink" href="#exceptions-to-cef" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Packet with header options</p></li>
 <li><p>Packet with TTL expired</p></li>
@@ -242,7 +245,7 @@ ip add 10.1.24.1 255.255.255.252
 </ul>
 </section>
 <section id="verifying-cef-processing">
-<h2>Verifying CEF Processing<a class="headerlink" href="#verifying-cef-processing" title="Permalink to this headline"></a></h2>
+<h2>Verifying CEF Processing<a class="headerlink" href="#verifying-cef-processing" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip cef
 show ip cef summary
 show ip cef vlan 200

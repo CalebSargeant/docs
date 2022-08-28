@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker Compose &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Swarm" href="swarm.html" />
+    <link rel="prev" title="Container Lifetime &amp; Persistent Data" href="container-lifetime.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Docker</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-compose-yml">docker-compose.yml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-compose-cli">docker-compose CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-compose-to-build">Use Compose to Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html">Swarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Docker</a> &raquo;</li>
+      <li>Docker Compose</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/compose.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker-compose">
+<h1>Docker Compose<a class="headerlink" href="#docker-compose" title="Permalink to this heading"></a></h1>
+<ul>
+<li><p>Why: configure relationships between containes</p></li>
+<li><p>Why: save our docker container run settings in easy-to-read file</p></li>
+<li><p>Why: create one-liner developer environment startups</p></li>
+<li><p>Comprised of 2 seperate but related things</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>YAML-formatted file that describes our solution options for:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>containers</p></li>
+<li><p>networks</p></li>
+<li><p>volumes</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>A CLI tool <cite>docker-compose</cite> used for local dev/test automation with those YAML files</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<section id="docker-compose-yml">
+<h2>docker-compose.yml<a class="headerlink" href="#docker-compose-yml" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Compose YAML format has it’s own versions: 1, 2, 2.1, 3, 3.1</p></li>
+<li><p>YAML file can be used with <cite>docker-compose</cite> command for local docker automation or…</p></li>
+<li><p>With <cite>docker</cite> directly in production with Swarm (as of v1.13)</p></li>
+<li><p><cite>docker-compose –help</cite></p></li>
+<li><p><cite>docker-compose.yml</cite> is default filename, but any can be used with <cite>docker-compose -f</cite></p></li>
+</ul>
+</section>
+<section id="docker-compose-cli">
+<h2>docker-compose CLI<a class="headerlink" href="#docker-compose-cli" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>CLI tool comes with Docker for WIndows/Mac, but separate download for Linux</p></li>
+<li><p>Not a production-grade tool but ideal for local development and test</p></li>
+<li><p>Two most common commands are</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>docker-compose up</cite> - setup volumes/networks and start all containers</p></li>
+<li><p><cite>docker-compose down</cite> - stop all containers and remove cont/vol/net</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If all your projects had a <cite>Dockerfile</cite> and <cite>docker-compose.yml</cite> then “new developer onboarding” would be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>git clone github.com/some/software</cite></p></li>
+<li><p><cite>docker-compose up</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="use-compose-to-build">
+<h2>Use Compose to Build<a class="headerlink" href="#use-compose-to-build" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Compose can also build your custom images</p></li>
+<li><p>WIll build them with <cite>docker-compose up</cite> if not found in cache</p></li>
+<li><p>Also rebuild with <cite>docker-compose build</cite></p></li>
+<li><p>Great for complex builds that have lots of vars or build args</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="container-lifetime.html" class="btn btn-neutral float-left" title="Container Lifetime &amp; Persistent Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="swarm.html" class="btn btn-neutral float-right" title="Swarm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

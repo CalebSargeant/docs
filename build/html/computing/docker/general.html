@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Creating and Using Containers" href="creating-and-using-containers.html" />
+    <link rel="prev" title="Docker" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Docker</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-swarm">Docker Swarm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html">Swarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Docker</a> &raquo;</li>
+      <li>General</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/general.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h1>
+<p>A docker image is like a template. A docker container is a running instance of the template. Each micro-service, or application, is placed in their own container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Manually installing docker</span>
+<span class="c1"># https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script</span>
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+
+<span class="c1"># log out and back in</span>
+
+<span class="c1"># Show docker processes running</span>
+docker ps
+
+<span class="c1"># Install docker</span>
+apt install docker.io
+
+<span class="c1"># Create Ubuntu docker container (with custom name, not generated)</span>
+docker run -it --name my-linux-container ubuntu bash
+
+<span class="c1"># List all downloaded docker images</span>
+docker images
+
+<span class="c1"># Show all running docker processes</span>
+docker ps -a
+
+<span class="c1"># Delete all exited containers</span>
+docker rm <span class="k">$(</span>docker ps -a -f <span class="nv">status</span><span class="o">=</span>exited -q<span class="k">)</span>
+
+<span class="c1"># Create Ubuntu docker container, mounting local data as a docker volume (add --rm to delete container once exited)</span>
+docker run -it --name my-linux-container -v /local/data/location:/remote/data/location ubuntu bash
+
+<span class="c1"># Build your own container (. referrs to Dockerfile in current location)</span>
+nano Dockerfile
+  FROM ubuntu
+  CMD <span class="nb">echo</span> <span class="s2">&quot;hello world&quot;</span>
+  RUN apt-get update <span class="o">&amp;&amp;</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y python3
+docker build -t my-ubuntu-image .
+
+<span class="c1"># List images again</span>
+docker images
+
+<span class="c1"># Run newly created docker image</span>
+docker run -it my-ubuntu-image
+
+<span class="c1"># Delete everything docker (be extremely careful you can loose all data!)</span>
+docker system prune -f --all
+
+<span class="c1"># Good guide to start/stop/delete/list docker stuff</span>
+https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
+
+<span class="c1"># Go into bash</span>
+sudo docker <span class="nb">exec</span> -it 5dc64253e9b0 bash
+
+<span class="c1"># Restart container</span>
+sudo docker container restart 5dc64253e9b0
+
+<span class="c1"># Re-compose</span>
+<span class="nb">cd</span> /etc/docker/owncloud/
+sudo docker-compose up -d
+
+<span class="c1"># STOP AND DELETE EVERYTHING - BE EXTTEMELY CAREFUL</span>
+docker container stop <span class="k">$(</span>docker container ls -aq<span class="k">)</span>
+docker container rm <span class="k">$(</span>docker container ls -aq<span class="k">)</span>
+
+<span class="c1"># Updating Images</span>
+docker stop containername
+docker rm containername
+docker pull image/name
+<span class="c1"># deploy container again via compose/ansible/whatever</span>
+
+<span class="c1"># https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker</span>
+<span class="c1"># Cannot connect to the Docker daemon at unix:/var/run/docker.sock. Is the docker daemon running?</span>
+rm /var/snap/docker/&lt;your-version-number&gt;/run/docker.pid
+snap stop docker
+snap start docker
+</pre></div>
+</div>
+<section id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes">https://stackoverflow.com/questions/26331651/how-can-i-backup-a-docker-container-with-its-data-volumes</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date +%Y%m%d<span class="k">)</span>
+<span class="nv">filelist</span><span class="o">=</span><span class="s2">&quot;prometheus blackbox pushgateway grafana alertmanager&quot;</span>
+
+<span class="c1"># Create /root/backups where containers will be saved to</span>
+/usr/bin/mkdir /root/backups
+
+<span class="c1"># Stop docker containers and export</span>
+<span class="k">for</span> line <span class="k">in</span> <span class="nv">$filelist</span> <span class="p">;</span> <span class="k">do</span>
+    /usr/bin/docker stop <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span>
+    /usr/bin/docker <span class="nb">export</span> -o <span class="s2">&quot;/root/backups/docker-container-</span><span class="nv">$line</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># Make tarball of all volumes, containers and config</span>
+/usr/bin/tar -czvf <span class="s2">&quot;/root/</span><span class="nv">$DATE</span><span class="s2">-backup-weekly.tar.gz&quot;</span> /usr/local/bin /var/lib/docker/volumes /var/spool/cron /etc /root/backups
+
+<span class="c1"># Start docker containers</span>
+<span class="k">for</span> line <span class="k">in</span> <span class="nv">$filelist</span> <span class="p">;</span> <span class="k">do</span>
+    /usr/bin/docker start <span class="s2">&quot;</span><span class="nv">$line</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+<span class="c1"># Copy to backups</span>
+/usr/bin/scp <span class="s2">&quot;/root/</span><span class="nv">$DATE</span><span class="s2">-backup-weekly.tar.gz&quot;</span> serveradmin@backups.chatinc.com:/mnt/data/monitor/weekly
+
+<span class="c1"># Remove backups locally</span>
+/usr/bin/rm -f <span class="s2">&quot;/root/</span><span class="nv">$DATE</span><span class="s2">-backup-weekly.tar.gz&quot;</span>
+/usr/bin/rm -rf <span class="s2">&quot;/root/backups/&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="docker-swarm">
+<h2>Docker Swarm<a class="headerlink" href="#docker-swarm" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### Manager</span>
+<span class="c1"># Initialise docker swarm</span>
+docker swarm init --advertise-addr <span class="m">10</span>.0.2.11
+
+<span class="c1"># List all nodes in swarm</span>
+docker node ls
+
+<span class="c1"># Create docker service (--mode global makes service available across swarm)</span>
+docker service create --name helloworld --mode global alpine ping docker.com
+
+<span class="c1"># List all docker services</span>
+docker service ls
+
+<span class="c1"># List docker containers</span>
+docker ps
+
+<span class="c1">### Worker</span>
+<span class="c1"># Join the docker swarm (token generated from swarm init on manager)</span>
+docker swarm join --token
+
+<span class="c1"># To leave a swarm</span>
+docker swarm leave --force
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="creating-and-using-containers.html" class="btn btn-neutral float-right" title="Creating and Using Containers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

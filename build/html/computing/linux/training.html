@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -63,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -298,11 +302,11 @@
            <div itemprop="articleBody">
              
   <section id="training">
-<h1>Training<a class="headerlink" href="#training" title="Permalink to this headline"></a></h1>
+<h1>Training<a class="headerlink" href="#training" title="Permalink to this heading"></a></h1>
 <p><a class="reference download internal" download="" href="../../_downloads/cf70dc5756ea99d03c4120e9adaebf0c/Complete%2BLinux%2BTraining%2BSyllabus.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Syllabus</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/2688fa29b9f53f7cae21c27668efb5ac/Commands-Recap.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Commands</span> <span class="pre">Recap</span></code></a></p>
 <section id="module-1-concepts">
-<h2>Module 1 - Concepts<a class="headerlink" href="#module-1-concepts" title="Permalink to this headline"></a></h2>
+<h2>Module 1 - Concepts<a class="headerlink" href="#module-1-concepts" title="Permalink to this heading"></a></h2>
 <p><a class="reference download internal" download="" href="../../_downloads/24f2157730d9f65feed6809fcf248a00/Hard%2BDisk%2Band%2BDisk%2BCache.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Hard</span> <span class="pre">Disk</span> <span class="pre">and</span> <span class="pre">Disk</span> <span class="pre">Cache</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/232840a7c44e0c963b8d99ab4ebe2787/History%2Bof%2BUnix.pdf"><code class="xref download docutils literal notranslate"><span class="pre">History</span> <span class="pre">of</span> <span class="pre">Unix</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/282674f724e4119f452c91f18fa8eb07/Inside%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Inside</span> <span class="pre">Linux</span></code></a></p>
@@ -310,13 +314,13 @@
 <p><a class="reference download internal" download="" href="../../_downloads/7eedda03866ac546bd1f79860b5f3c44/Parts%2Bof%2BOS.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Parts</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">OS</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/405361156d9240998d88a6d811f658ee/Virtual%2Bmemory.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Virtual</span> <span class="pre">Memory</span></code></a></p>
 <section id="what-is-linux">
-<h3>What is Linux?<a class="headerlink" href="#what-is-linux" title="Permalink to this headline"></a></h3>
+<h3>What is Linux?<a class="headerlink" href="#what-is-linux" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Operating System which sites in the middle of your hardware and users</p></li>
 </ul>
 </section>
 <section id="unix-vs-linux">
-<h3>Unix vs Linux<a class="headerlink" href="#unix-vs-linux" title="Permalink to this headline"></a></h3>
+<h3>Unix vs Linux<a class="headerlink" href="#unix-vs-linux" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Unix was first developed for multi-user and multi-tasking in mid 1970 in Bell Labs by ATT. GE and MIT</p></li>
 <li><p>Then linux was born in 1991 by Linus Torvalds</p></li>
@@ -330,13 +334,13 @@
 </section>
 </section>
 <section id="module-2-download-install-and-configure">
-<h2>Module 2 - Download, Install and Configure<a class="headerlink" href="#module-2-download-install-and-configure" title="Permalink to this headline"></a></h2>
+<h2>Module 2 - Download, Install and Configure<a class="headerlink" href="#module-2-download-install-and-configure" title="Permalink to this heading"></a></h2>
 <p><a class="reference download internal" download="" href="../../_downloads/e2404963c90218fbbe1ffc5dc7cb5eaa/Oracle%2BVirtual%2BBox%2BUser%2BManual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Oracle</span> <span class="pre">VirtualBox</span> <span class="pre">User</span> <span class="pre">Manual</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/4ff6ebd206c76c8283881855b56b99e0/Changing-from-32-to-64bit.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Changing</span> <span class="pre">from</span> <span class="pre">32</span> <span class="pre">to</span> <span class="pre">64bit</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/012351e4431227bd5950cd7bfdd1926f/CentOS%2BInstallation%2BGuide.pdf"><code class="xref download docutils literal notranslate"><span class="pre">CentOS</span> <span class="pre">Installation</span> <span class="pre">Guide</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/309f0514e58683feebeda00aceb2869d/Red_Hat_Enterprise_Linux-7-Installation_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">RedHat</span> <span class="pre">7</span> <span class="pre">Install</span> <span class="pre">Guide</span></code></a></p>
 <section id="linux-distributions">
-<h3>Linux Distributions<a class="headerlink" href="#linux-distributions" title="Permalink to this headline"></a></h3>
+<h3>Linux Distributions<a class="headerlink" href="#linux-distributions" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Redhat</p></li>
 <li><p>CentOS</p></li>
@@ -347,7 +351,7 @@
 </ul>
 </section>
 <section id="centos-vs-centos-stream">
-<h3>CentOS vs CentOS Stream<a class="headerlink" href="#centos-vs-centos-stream" title="Permalink to this headline"></a></h3>
+<h3>CentOS vs CentOS Stream<a class="headerlink" href="#centos-vs-centos-stream" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Brief history of CentOS</p></li>
 <li><p>2004 - Greg Kurtzer forked RHEL to CentOS</p></li>
@@ -370,7 +374,7 @@
 </ul>
 </section>
 <section id="linux-vs-windows">
-<h3>Linux vs Windows<a class="headerlink" href="#linux-vs-windows" title="Permalink to this headline"></a></h3>
+<h3>Linux vs Windows<a class="headerlink" href="#linux-vs-windows" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 11%" />
@@ -410,7 +414,7 @@ Not an open source OS</p></td>
 </table>
 </section>
 <section id="linux-users">
-<h3>Linux Users<a class="headerlink" href="#linux-users" title="Permalink to this headline"></a></h3>
+<h3>Linux Users<a class="headerlink" href="#linux-users" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>US Government Agencies (National, State, Federal, and International)</p></li>
 <li><p>NASA</p></li>
@@ -425,12 +429,12 @@ Not an open source OS</p></td>
 </section>
 </section>
 <section id="module-3-system-access-and-file-system">
-<h2>Module 3 - System Access and File System<a class="headerlink" href="#module-3-system-access-and-file-system" title="Permalink to this headline"></a></h2>
+<h2>Module 3 - System Access and File System<a class="headerlink" href="#module-3-system-access-and-file-system" title="Permalink to this heading"></a></h2>
 <p><a class="reference download internal" download="" href="../../_downloads/83f96e776a7bf7deffb5357fd5910a7a/4-Logging%2BOn%2BTo%2BSystem.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Logging</span> <span class="pre">onto</span> <span class="pre">System</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/0610336ca1b4b13692025acb0f78398e/7-File%2BNames.pdf"><code class="xref download docutils literal notranslate"><span class="pre">File</span> <span class="pre">Names</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/61e8a6e6855c00b7c9bdb72f7219f725/8-Passwords%2BStandards.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Password</span> <span class="pre">Standards</span></code></a></p>
 <section id="network-commands">
-<h3>Network Commands<a class="headerlink" href="#network-commands" title="Permalink to this headline"></a></h3>
+<h3>Network Commands<a class="headerlink" href="#network-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Centos/RHEL 5 or 6 was <cite>ifconfig</cite></p></li>
 <li><p>Centos/RHEL 7 is <cite>ip</cite></p></li>
@@ -439,7 +443,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="important-things">
-<h3>Important Things<a class="headerlink" href="#important-things" title="Permalink to this headline"></a></h3>
+<h3>Important Things<a class="headerlink" href="#important-things" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Linux has super user account called root</p>
 <blockquote>
@@ -463,7 +467,7 @@ Not an open source OS</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/7f171ff89d61cd66891c4bddf4c30456/3-Linux%2Bvs%2BWindows.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="linux-file-system">
-<h3>Linux File System<a class="headerlink" href="#linux-file-system" title="Permalink to this headline"></a></h3>
+<h3>Linux File System<a class="headerlink" href="#linux-file-system" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>OS store data on disk drives using a structure called filesystem, consisting of files, directories, and the information needed to access and locate them</p></li>
 <li><p>There are many different types of filesystems. In general improvements have been made to filesystems with new releases of OS and each new FS has been given a different name. Eg. ext3, ext4, XFS, NTFS, FAT etc.</p></li>
@@ -473,12 +477,12 @@ Not an open source OS</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/8a9d86583fb0fe7d587c4c3f1b88bef5/5-Linux%2BFile%2BSystem.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-system-structure">
-<h3>File System Structure<a class="headerlink" href="#file-system-structure" title="Permalink to this headline"></a></h3>
+<h3>File System Structure<a class="headerlink" href="#file-system-structure" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/linux-file-system-structure.png" src="../../_images/linux-file-system-structure.png" />
 <p><a class="reference download internal" download="" href="../../_downloads/2ea998f1de4c4fe60414e6fe1203f036/6-File%2BSystem%2BDetail.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-system-structure-and-its-description">
-<h3>File System Structure and its Description<a class="headerlink" href="#file-system-structure-and-its-description" title="Permalink to this headline"></a></h3>
+<h3>File System Structure and its Description<a class="headerlink" href="#file-system-structure-and-its-description" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>/boot - contains file that is used by the boot loader (grub.cfg)</p></li>
 <li><p>/root - root user home directory. It is not the same as /</p></li>
@@ -498,7 +502,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="file-system-navigation">
-<h3>File System Navigation<a class="headerlink" href="#file-system-navigation" title="Permalink to this headline"></a></h3>
+<h3>File System Navigation<a class="headerlink" href="#file-system-navigation" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>When navigating a UNIX filesystem, there are a few important commands</p>
 <blockquote>
@@ -512,7 +516,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="what-is-root">
-<h3>What is Root?<a class="headerlink" href="#what-is-root" title="Permalink to this headline"></a></h3>
+<h3>What is Root?<a class="headerlink" href="#what-is-root" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>There are 3 types of root on a Linux system</p>
 <blockquote>
@@ -526,7 +530,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="file-system-paths">
-<h3>File System Paths<a class="headerlink" href="#file-system-paths" title="Permalink to this headline"></a></h3>
+<h3>File System Paths<a class="headerlink" href="#file-system-paths" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>There are two paths to navigate to a filesystem</p>
 <blockquote>
@@ -541,12 +545,12 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="directory-listing-attributes">
-<h3>Directory Listing Attributes<a class="headerlink" href="#directory-listing-attributes" title="Permalink to this headline"></a></h3>
+<h3>Directory Listing Attributes<a class="headerlink" href="#directory-listing-attributes" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/linux-directory-listing-attributes.png" src="../../_images/linux-directory-listing-attributes.png" />
 <p><a class="reference download internal" download="" href="../../_downloads/0cd9b9df7da81ea0b040338e2667eb66/13-List%2Bfiles%2Band%2Bdirectories.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="creating-files-and-directories">
-<h3>Creating Files and Directories<a class="headerlink" href="#creating-files-and-directories" title="Permalink to this headline"></a></h3>
+<h3>Creating Files and Directories<a class="headerlink" href="#creating-files-and-directories" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Creating files</p>
 <blockquote>
@@ -567,7 +571,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="copying-directories">
-<h3>Copying Directories<a class="headerlink" href="#copying-directories" title="Permalink to this headline"></a></h3>
+<h3>Copying Directories<a class="headerlink" href="#copying-directories" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Command to copy a directory</p>
 <blockquote>
@@ -586,7 +590,7 @@ Not an open source OS</p></td>
 </ul>
 </section>
 <section id="linux-file-types">
-<h3>Linux File Types<a class="headerlink" href="#linux-file-types" title="Permalink to this headline"></a></h3>
+<h3>Linux File Types<a class="headerlink" href="#linux-file-types" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 32%" />
@@ -617,7 +621,7 @@ Block device</p></td>
 </table>
 </section>
 <section id="finding-files-and-directories">
-<h3>Finding Files and Directories<a class="headerlink" href="#finding-files-and-directories" title="Permalink to this headline"></a></h3>
+<h3>Finding Files and Directories<a class="headerlink" href="#finding-files-and-directories" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Two main commands are useful to find files/directories</p>
 <blockquote>
@@ -634,7 +638,7 @@ Block device</p></td>
 </ul>
 </section>
 <section id="difference-between-find-and-locate">
-<h3>Difference Between find and locate<a class="headerlink" href="#difference-between-find-and-locate" title="Permalink to this headline"></a></h3>
+<h3>Difference Between find and locate<a class="headerlink" href="#difference-between-find-and-locate" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>locate</cite> uses a prebuilt database, which should be regularly updated, while <cite>find</cite> iterates over a filesystem to locate files. Thus, locate is much faster than find, but can be inaccurate if the database (can be seen as a cache) is not updated</p></li>
 <li><p>To update the locate database run <cite>updatedb</cite></p></li>
@@ -642,7 +646,7 @@ Block device</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/57ed9fbbc1616a161e5f31fda9cd8adb/10-Difference-between-locate-and-find-command-in-Linux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="changing-password">
-<h3>Changing Password<a class="headerlink" href="#changing-password" title="Permalink to this headline"></a></h3>
+<h3>Changing Password<a class="headerlink" href="#changing-password" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>You should change your initial password as soon as you login</p></li>
 <li><p>Command = <cite>passwd userid</cite></p></li>
@@ -650,7 +654,7 @@ Block device</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/1be1d4e47d2122be57d624164e98e77a/9-Change%2BPassword%2Bin%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="wildcards">
-<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline"></a></h3>
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this heading"></a></h3>
 <p>A wildcard is a character that can be used as a substitute for any of a class of characters in a search</p>
 <ul class="simple">
 <li><p><cite>*</cite> represents zero or more characters</p></li>
@@ -664,7 +668,7 @@ Block device</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/d8d9034ef2de1b9c16fda51a3abf4d6e/11-Wildcards.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="soft-and-hard-links">
-<h3>Soft and Hard Links<a class="headerlink" href="#soft-and-hard-links" title="Permalink to this headline"></a></h3>
+<h3>Soft and Hard Links<a class="headerlink" href="#soft-and-hard-links" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>inode = Pointer or number of a file on the hard disk</p></li>
 <li><p>Soft Link = Link will be removed if file is removed or renamed</p></li>
@@ -686,9 +690,9 @@ Block device</p></td>
 </section>
 </section>
 <section id="module-4-fundamentals">
-<h2>Module 4 - Fundamentals<a class="headerlink" href="#module-4-fundamentals" title="Permalink to this headline"></a></h2>
+<h2>Module 4 - Fundamentals<a class="headerlink" href="#module-4-fundamentals" title="Permalink to this heading"></a></h2>
 <section id="commands-syntax">
-<h3>Commands Syntax<a class="headerlink" href="#commands-syntax" title="Permalink to this headline"></a></h3>
+<h3>Commands Syntax<a class="headerlink" href="#commands-syntax" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Command options and arguments</p>
 <blockquote>
@@ -725,7 +729,7 @@ Block device</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/0bcb43c2e67a76bfe19301c6086eb037/1-Command%2BSyntax.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-permissions">
-<h3>File Permissions<a class="headerlink" href="#file-permissions" title="Permalink to this headline"></a></h3>
+<h3>File Permissions<a class="headerlink" href="#file-permissions" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>UNIX is a multi-user system. Every file and directory in your account can be protected from or made accessible to other users by changing its access permissions. Every user has responsibility for controlling access to their files.</p></li>
 <li><p>Permissions for a file or directory may be restricted to by types</p></li>
@@ -769,7 +773,7 @@ Block device</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/29f5857eec7cb75da2c809d0836c3a96/2-File%2BPermissions%2Band%2BOwnership.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-permissions-using-numeric-mode">
-<h3>File Permissions using Numeric Mode<a class="headerlink" href="#file-permissions-using-numeric-mode" title="Permalink to this headline"></a></h3>
+<h3>File Permissions using Numeric Mode<a class="headerlink" href="#file-permissions-using-numeric-mode" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Permission to a file and directory can be assigned numerically</p>
 <blockquote>
@@ -831,7 +835,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/d49524046ec549571deae012513a3036/11-File%2BPermissions%2BCheat%2BSheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-ownership">
-<h3>File Ownership<a class="headerlink" href="#file-ownership" title="Permalink to this headline"></a></h3>
+<h3>File Ownership<a class="headerlink" href="#file-ownership" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>There are 2 owners of a file or directory</p>
 <blockquote>
@@ -864,7 +868,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="access-control-list">
-<h3>Access Control List<a class="headerlink" href="#access-control-list" title="Permalink to this headline"></a></h3>
+<h3>Access Control List<a class="headerlink" href="#access-control-list" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is ACL?</p>
 <blockquote>
@@ -912,7 +916,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/1cc51de1b279e8aa089a5f33d1a7c45b/12-Access%2BControl%2BLists.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="help-commands">
-<h3>Help Commands<a class="headerlink" href="#help-commands" title="Permalink to this headline"></a></h3>
+<h3>Help Commands<a class="headerlink" href="#help-commands" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>There are 3 types of help commands</p>
 <blockquote>
@@ -927,7 +931,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/7d607bbcf8f6c0df1155bc09ff9fb6c2/3-Getting%2BHelp.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="tab-completion-and-up-arrow">
-<h3>Tab Completion and Up Arrow<a class="headerlink" href="#tab-completion-and-up-arrow" title="Permalink to this headline"></a></h3>
+<h3>Tab Completion and Up Arrow<a class="headerlink" href="#tab-completion-and-up-arrow" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Hitting TAB key completes the available commands, files, or directories</p>
 <blockquote>
@@ -943,7 +947,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/67b94975f1d8fe5539275627950b8390/4-TAB%2BCompletion.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="adding-text-to-files-redirects">
-<h3>Adding Text to Files (Redirects)<a class="headerlink" href="#adding-text-to-files-redirects" title="Permalink to this headline"></a></h3>
+<h3>Adding Text to Files (Redirects)<a class="headerlink" href="#adding-text-to-files-redirects" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>3 Simple ways to add text to a file</p>
 <blockquote>
@@ -958,7 +962,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/2b63c9290b9a4cb79f2483f9e1ddc94c/5-Adding%2BText%2Bto%2BFiles.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="input-and-output-redirects">
-<h3>Input and Output Redirects<a class="headerlink" href="#input-and-output-redirects" title="Permalink to this headline"></a></h3>
+<h3>Input and Output Redirects<a class="headerlink" href="#input-and-output-redirects" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>There are 3 redirects in Linux</p>
 <blockquote>
@@ -1031,7 +1035,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="standard-output-to-a-file-tee">
-<h3>Standard Output to a File (tee)<a class="headerlink" href="#standard-output-to-a-file-tee" title="Permalink to this headline"></a></h3>
+<h3>Standard Output to a File (tee)<a class="headerlink" href="#standard-output-to-a-file-tee" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>tee</cite> command is used to store and view (both at the same time) the output of any command</p></li>
 <li><p>The command is named after the T-splitter used in plumbing. It basically breaks the output of a program so that it can be both displated and saved in a file. It does both the tasks simultaneously, copies the result into the specified file or variables and also displays the result.</p></li>
@@ -1039,7 +1043,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="pipes">
-<h3>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline"></a></h3>
+<h3>Pipes<a class="headerlink" href="#pipes" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>A pipe is used by the shell to connec the output of one command directly to the inout of another file</p></li>
 <li><p>The symbol for a pipe is the vertical bar (<cite>|</cite>). The command syntax is:</p>
@@ -1053,7 +1057,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/c24ad65e97bb5b8d63fc4c721c5dc0d7/6-Pipes.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-maintenance-commands">
-<h3>File Maintenance Commands<a class="headerlink" href="#file-maintenance-commands" title="Permalink to this headline"></a></h3>
+<h3>File Maintenance Commands<a class="headerlink" href="#file-maintenance-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>cp</cite></p></li>
 <li><p><cite>rm</cite></p></li>
@@ -1066,7 +1070,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/ebc01587a3ab21dfe6ed7623c4029bcb/7-File%2BMaintenance%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="file-display-commands">
-<h3>File Display Commands<a class="headerlink" href="#file-display-commands" title="Permalink to this headline"></a></h3>
+<h3>File Display Commands<a class="headerlink" href="#file-display-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>cat</cite></p></li>
 <li><p><cite>more</cite></p></li>
@@ -1077,7 +1081,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/eae4aaf4f5b70b7dd28993592e50d4a5/8-File%2BDisplay%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="filters-text-processors-commands">
-<h3>Filters / Text Processors Commands<a class="headerlink" href="#filters-text-processors-commands" title="Permalink to this headline"></a></h3>
+<h3>Filters / Text Processors Commands<a class="headerlink" href="#filters-text-processors-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>cut</cite></p></li>
 <li><p><cite>awk</cite></p></li>
@@ -1089,7 +1093,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/e0c5b323b926c80a66ec243b3bd60327/9-Filters-Text%2BProcessing%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="cut">
-<h3>Cut<a class="headerlink" href="#cut" title="Permalink to this headline"></a></h3>
+<h3>Cut<a class="headerlink" href="#cut" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Cut is a comman d line utility that allows you to cut parts of lines from specified files or piped data and print the result to standard output. It can be used to cut parts of a line by delimiter, byte position, and character</p></li>
 <li><p><cite>cut filename</cite> does not work</p></li>
@@ -1105,7 +1109,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="awk">
-<h3>Awk<a class="headerlink" href="#awk" title="Permalink to this headline"></a></h3>
+<h3>Awk<a class="headerlink" href="#awk" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>awk is a utility/language designed for data extraction. Most of the time it is used to extract fields from a file or from an output.</p></li>
 <li><p><cite>awk –version</cite> - check version</p></li>
@@ -1122,7 +1126,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="grep-egrep">
-<h3>Grep/Egrep<a class="headerlink" href="#grep-egrep" title="Permalink to this headline"></a></h3>
+<h3>Grep/Egrep<a class="headerlink" href="#grep-egrep" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is grep?</p>
 <blockquote>
@@ -1144,7 +1148,7 @@ rwx</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/717c559ef44211d347ebd96963e2e1f4/10-Finding%2BSystem%2BInformation.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="sort-uniq">
-<h3>Sort/Uniq<a class="headerlink" href="#sort-uniq" title="Permalink to this headline"></a></h3>
+<h3>Sort/Uniq<a class="headerlink" href="#sort-uniq" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What are sort and uniq commands?</p>
 <blockquote>
@@ -1165,7 +1169,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="wc">
-<h3>Wc<a class="headerlink" href="#wc" title="Permalink to this headline"></a></h3>
+<h3>Wc<a class="headerlink" href="#wc" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is wc command?</p>
 <blockquote>
@@ -1185,14 +1189,14 @@ rwx</p></td>
 </ul>
 </section>
 <section id="compare-files">
-<h3>Compare Files<a class="headerlink" href="#compare-files" title="Permalink to this headline"></a></h3>
+<h3>Compare Files<a class="headerlink" href="#compare-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>diff</cite> (line by line)</p></li>
 <li><p><cite>cmp</cite> (byte by byte)</p></li>
 </ul>
 </section>
 <section id="compress-and-un-compress-files">
-<h3>Compress and un-Compress Files<a class="headerlink" href="#compress-and-un-compress-files" title="Permalink to this headline"></a></h3>
+<h3>Compress and un-Compress Files<a class="headerlink" href="#compress-and-un-compress-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>tar</cite></p></li>
 <li><p><cite>gzip</cite></p></li>
@@ -1200,7 +1204,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="truncate-file-size">
-<h3>Truncate File Size<a class="headerlink" href="#truncate-file-size" title="Permalink to this headline"></a></h3>
+<h3>Truncate File Size<a class="headerlink" href="#truncate-file-size" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>The linux <cite>truncate</cite> command is often used to shrink or extend the size of a file to the specified size</p></li>
 <li><p>Command</p>
@@ -1213,7 +1217,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="combining-and-splitting-files">
-<h3>Combining and Splitting Files<a class="headerlink" href="#combining-and-splitting-files" title="Permalink to this headline"></a></h3>
+<h3>Combining and Splitting Files<a class="headerlink" href="#combining-and-splitting-files" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Multiple files can be combined into one and</p></li>
 <li><p>One file can be split into multiple files</p>
@@ -1228,7 +1232,7 @@ rwx</p></td>
 </ul>
 </section>
 <section id="linux-vs-windows-commands">
-<h3>Linux vs Windows Commands<a class="headerlink" href="#linux-vs-windows-commands" title="Permalink to this headline"></a></h3>
+<h3>Linux vs Windows Commands<a class="headerlink" href="#linux-vs-windows-commands" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 62%" />
@@ -1281,9 +1285,9 @@ date</p></td>
 </section>
 </section>
 <section id="module-5-system-administration">
-<h2>Module 5 - System Administration<a class="headerlink" href="#module-5-system-administration" title="Permalink to this headline"></a></h2>
+<h2>Module 5 - System Administration<a class="headerlink" href="#module-5-system-administration" title="Permalink to this heading"></a></h2>
 <section id="linux-file-editor-vi">
-<h3>Linux File Editor (vi)<a class="headerlink" href="#linux-file-editor-vi" title="Permalink to this headline"></a></h3>
+<h3>Linux File Editor (vi)<a class="headerlink" href="#linux-file-editor-vi" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>A text editor is a program which enables you to create and manipulate data (text) in a Linux file</p></li>
 <li><p>There are several standard text editors available on most Linux systems</p>
@@ -1327,7 +1331,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/467c27b299ba189e18ae830c45ad3a38/5-Unix%2BEditors.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="difference-between-vi-and-vim-editor">
-<h3>Difference Between vi and vim Editor<a class="headerlink" href="#difference-between-vi-and-vim-editor" title="Permalink to this headline"></a></h3>
+<h3>Difference Between vi and vim Editor<a class="headerlink" href="#difference-between-vi-and-vim-editor" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>As far as functionality is concerned, both editors work in the same manner. Which editor you choose is a matter of personal choice. Some people recommend learningh the vim editor instead of the vi editor. Due to added features, learning and using vim editor is much easier than the vi editor.</p></li>
 <li><p>Since vim is based on the vi, when you will learn how to use the vim editor, you will automaticall learn how to use the vi editor</p></li>
@@ -1348,7 +1352,7 @@ date</p></td>
 </ul>
 </section>
 <section id="sed-command">
-<h3>Sed Command<a class="headerlink" href="#sed-command" title="Permalink to this headline"></a></h3>
+<h3>Sed Command<a class="headerlink" href="#sed-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Replace a string in a file with a newstring</p>
 <blockquote>
@@ -1408,7 +1412,7 @@ date</p></td>
 </ul>
 </section>
 <section id="user-account-management">
-<h3>User Account Management<a class="headerlink" href="#user-account-management" title="Permalink to this headline"></a></h3>
+<h3>User Account Management<a class="headerlink" href="#user-account-management" title="Permalink to this heading"></a></h3>
 <p>Commands:</p>
 <ul class="simple">
 <li><p>useradd</p></li>
@@ -1431,7 +1435,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/e47f561cd0d8f2969967fca5a62cc70b/3-User%2BAccounts%2Bin%2BLinux.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="enable-password-aging">
-<h3>Enable Password Aging<a class="headerlink" href="#enable-password-aging" title="Permalink to this headline"></a></h3>
+<h3>Enable Password Aging<a class="headerlink" href="#enable-password-aging" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>chage [-m mindags] [-M maxdays] [-d lastday] [-I inactive] [-E expiredate] [-W warndays] user</p></li>
 <li><p>File = /etc/login.def</p>
@@ -1456,7 +1460,7 @@ date</p></td>
 </ul>
 </section>
 <section id="switch-users-and-sudo-access">
-<h3>Switch Users and Sudo Access<a class="headerlink" href="#switch-users-and-sudo-access" title="Permalink to this headline"></a></h3>
+<h3>Switch Users and Sudo Access<a class="headerlink" href="#switch-users-and-sudo-access" title="Permalink to this heading"></a></h3>
 <p>Commands:</p>
 <ul class="simple">
 <li><p>su - username</p></li>
@@ -1470,7 +1474,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/b7b75c41266480ff7088a5c02f886f40/4-Switch%2Busers%2Band%2BSudo%2BAccess.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="monitor-users">
-<h3>Monitor Users<a class="headerlink" href="#monitor-users" title="Permalink to this headline"></a></h3>
+<h3>Monitor Users<a class="headerlink" href="#monitor-users" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>who</p></li>
 <li><p>last</p></li>
@@ -1481,7 +1485,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/d655f705f013da5b7a6f74ebf96ef7a9/6-Monitor%2BUser%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="talking-to-users">
-<h3>Talking to Users<a class="headerlink" href="#talking-to-users" title="Permalink to this headline"></a></h3>
+<h3>Talking to Users<a class="headerlink" href="#talking-to-users" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>users</p></li>
 <li><p>wall</p></li>
@@ -1489,7 +1493,7 @@ date</p></td>
 </ul>
 </section>
 <section id="linux-account-authentication">
-<h3>Linux Account Authentication<a class="headerlink" href="#linux-account-authentication" title="Permalink to this headline"></a></h3>
+<h3>Linux Account Authentication<a class="headerlink" href="#linux-account-authentication" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Type of Accounts</p>
 <blockquote>
@@ -1503,7 +1507,7 @@ date</p></td>
 </ul>
 </section>
 <section id="difference-between-ad-ldap-idm-winbind-openldap-etc">
-<h3>Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.<a class="headerlink" href="#difference-between-ad-ldap-idm-winbind-openldap-etc" title="Permalink to this headline"></a></h3>
+<h3>Difference between AD, LDAP, IDM, WinBIND, OpenLDAP, etc.<a class="headerlink" href="#difference-between-ad-ldap-idm-winbind-openldap-etc" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Active Directory = Microsoft</p></li>
 <li><p>IDM = Identity Manager (Redhat)</p></li>
@@ -1515,7 +1519,7 @@ date</p></td>
 </ul>
 </section>
 <section id="system-utility-commands">
-<h3>System Utility Commands<a class="headerlink" href="#system-utility-commands" title="Permalink to this headline"></a></h3>
+<h3>System Utility Commands<a class="headerlink" href="#system-utility-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>date</p></li>
 <li><p>uptime</p></li>
@@ -1529,7 +1533,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/bbb58bd73a1bb343c7e68bc5337f9ca2/7-System%2BUtility%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="processes-and-jobs">
-<h3>Processes and Jobs<a class="headerlink" href="#processes-and-jobs" title="Permalink to this headline"></a></h3>
+<h3>Processes and Jobs<a class="headerlink" href="#processes-and-jobs" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Application = Service</p></li>
 <li><p>Script</p></li>
@@ -1548,7 +1552,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/67151ad52ee0091898829b45db6c5456/9-Unix%2BPrograms.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="systemctl-command">
-<h3>Systemctl Command<a class="headerlink" href="#systemctl-command" title="Permalink to this headline"></a></h3>
+<h3>Systemctl Command<a class="headerlink" href="#systemctl-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>systemctl command is a new tool to control system services</p></li>
 <li><p>It’s available in version 7 and later it replaces the service command</p></li>
@@ -1597,7 +1601,7 @@ date</p></td>
 </ul>
 </section>
 <section id="ps-command">
-<h3>ps Command<a class="headerlink" href="#ps-command" title="Permalink to this headline"></a></h3>
+<h3>ps Command<a class="headerlink" href="#ps-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>ps command stands for process status and it displays all the currently running processes in the Linux system</p></li>
 <li><p>Usage examples:</p>
@@ -1622,7 +1626,7 @@ date</p></td>
 </ul>
 </section>
 <section id="top-command">
-<h3>top Command<a class="headerlink" href="#top-command" title="Permalink to this headline"></a></h3>
+<h3>top Command<a class="headerlink" href="#top-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>top command is used to show the Linux process and it provides a real-time view of the running system</p></li>
 <li><p>This command shows the summary information of the system and the list of process or threads that are currently managed by the Linux Kernal</p></li>
@@ -1652,7 +1656,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/4cac4ab1f178b789992656822823b2d2/13-top%2Bcommand.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="kill-command">
-<h3>kill Command<a class="headerlink" href="#kill-command" title="Permalink to this headline"></a></h3>
+<h3>kill Command<a class="headerlink" href="#kill-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>kill command is used to terminate process manually</p></li>
 <li><p>It sends a signal which ultimately terminates or kills a particular process or group of processes</p></li>
@@ -1680,7 +1684,7 @@ date</p></td>
 </ul>
 </section>
 <section id="crontab-command">
-<h3>crontab Command<a class="headerlink" href="#crontab-command" title="Permalink to this headline"></a></h3>
+<h3>crontab Command<a class="headerlink" href="#crontab-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Crontab command is used to schedule tasks</p></li>
 <li><p>Usage:</p>
@@ -1699,7 +1703,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/44a55cbce016d8a413a235917ab79303/10-crontab.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="at-command">
-<h3>at Command<a class="headerlink" href="#at-command" title="Permalink to this headline"></a></h3>
+<h3>at Command<a class="headerlink" href="#at-command" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>at command is like crontab which allows you to schedule jobs only once</p></li>
 <li><p>When the command command is run it will enter interactive mode and you can get out by pressing ctrl d</p></li>
@@ -1728,7 +1732,7 @@ date</p></td>
 </ul>
 </section>
 <section id="additional-cron-jobs">
-<h3>Additional Cron Jobs<a class="headerlink" href="#additional-cron-jobs" title="Permalink to this headline"></a></h3>
+<h3>Additional Cron Jobs<a class="headerlink" href="#additional-cron-jobs" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>By default there are 4 different types of cronjobs</p>
 <blockquote>
@@ -1764,7 +1768,7 @@ date</p></td>
 </ul>
 </section>
 <section id="process-management">
-<h3>Process Management<a class="headerlink" href="#process-management" title="Permalink to this headline"></a></h3>
+<h3>Process Management<a class="headerlink" href="#process-management" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Background = <cite>ctrl-z, jobs and bg</cite></p></li>
 <li><p>Foreground = <cite>fg</cite></p></li>
@@ -1788,7 +1792,7 @@ date</p></td>
 </ul>
 </section>
 <section id="system-monitoring">
-<h3>System Monitoring<a class="headerlink" href="#system-monitoring" title="Permalink to this headline"></a></h3>
+<h3>System Monitoring<a class="headerlink" href="#system-monitoring" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>top</p></li>
 <li><p>df</p></li>
@@ -1802,7 +1806,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/7a79711872858162007e0799ef0203cb/11-System%2BResource%2BCommands.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="log-monitoring">
-<h3>Log Monitoring<a class="headerlink" href="#log-monitoring" title="Permalink to this headline"></a></h3>
+<h3>Log Monitoring<a class="headerlink" href="#log-monitoring" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Another and most important way of system administration is log monitor</p></li>
 <li><p>Log Directory = /var/log</p>
@@ -1821,7 +1825,7 @@ date</p></td>
 </ul>
 </section>
 <section id="system-maintenance-commands">
-<h3>System Maintenance Commands<a class="headerlink" href="#system-maintenance-commands" title="Permalink to this headline"></a></h3>
+<h3>System Maintenance Commands<a class="headerlink" href="#system-maintenance-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>shutdown</p></li>
 <li><p>init</p></li>
@@ -1830,7 +1834,7 @@ date</p></td>
 </ul>
 </section>
 <section id="changing-system-hostname">
-<h3>Changing System Hostname<a class="headerlink" href="#changing-system-hostname" title="Permalink to this headline"></a></h3>
+<h3>Changing System Hostname<a class="headerlink" href="#changing-system-hostname" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>hostnamectl - set-hostname newhostname</p></li>
 <li><p>Version 7 = edit /etc/hostname</p></li>
@@ -1838,7 +1842,7 @@ date</p></td>
 </ul>
 </section>
 <section id="finding-system-information">
-<h3>Finding System Information<a class="headerlink" href="#finding-system-information" title="Permalink to this headline"></a></h3>
+<h3>Finding System Information<a class="headerlink" href="#finding-system-information" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>cat /etc/redhat-release</p></li>
 <li><p>uname -a</p></li>
@@ -1846,7 +1850,7 @@ date</p></td>
 </ul>
 </section>
 <section id="system-architecture">
-<h3>System Architecture<a class="headerlink" href="#system-architecture" title="Permalink to this headline"></a></h3>
+<h3>System Architecture<a class="headerlink" href="#system-architecture" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Differences between a 32-bit and 64-bit CPU</p></li>
 </ul>
@@ -1857,7 +1861,7 @@ date</p></td>
 </ul>
 </section>
 <section id="terminal-control-keys">
-<h3>Terminal Control Keys<a class="headerlink" href="#terminal-control-keys" title="Permalink to this headline"></a></h3>
+<h3>Terminal Control Keys<a class="headerlink" href="#terminal-control-keys" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Several key combinations on your keyboard usually have a special effect on the terminal</p></li>
 <li><p>These “control” (CTRL) keys are accomplished by holding the CTRL key while typing the second key</p></li>
@@ -1876,7 +1880,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/3ce2fa7f1af5c96b8ac16c6e3128c429/12-Terminal%2BControl%2BKeys.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="terminal-commands">
-<h3>Terminal Commands<a class="headerlink" href="#terminal-commands" title="Permalink to this headline"></a></h3>
+<h3>Terminal Commands<a class="headerlink" href="#terminal-commands" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>clear (clears your screen)</p></li>
 <li><p>exit (exit out of the shell, terminal or user session)</p></li>
@@ -1884,7 +1888,7 @@ date</p></td>
 </ul>
 </section>
 <section id="recover-root-password">
-<h3>Recover Root Password<a class="headerlink" href="#recover-root-password" title="Permalink to this headline"></a></h3>
+<h3>Recover Root Password<a class="headerlink" href="#recover-root-password" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>restart your computer</p></li>
 <li><p>edit grub</p></li>
@@ -1901,7 +1905,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/fb863030ea20995e5e36f0fc71278531/14-Recover%2BRoot%2BPassword.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="sos-report">
-<h3>SOS Report<a class="headerlink" href="#sos-report" title="Permalink to this headline"></a></h3>
+<h3>SOS Report<a class="headerlink" href="#sos-report" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is SOS Report?</p>
 <blockquote>
@@ -1927,7 +1931,7 @@ date</p></td>
 </ul>
 </section>
 <section id="environment-variables">
-<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h3>
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What are environment variables?</p>
 <blockquote>
@@ -1980,7 +1984,7 @@ date</p></td>
 </ul>
 </section>
 <section id="special-permissions">
-<h3>Special Permissions<a class="headerlink" href="#special-permissions" title="Permalink to this headline"></a></h3>
+<h3>Special Permissions<a class="headerlink" href="#special-permissions" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>All permissions on a file or directory are referred as bits</p></li>
 </ul>
@@ -2036,9 +2040,9 @@ date</p></td>
 </section>
 </section>
 <section id="module-6-shell-scripting">
-<h2>Module 6 - Shell Scripting<a class="headerlink" href="#module-6-shell-scripting" title="Permalink to this headline"></a></h2>
+<h2>Module 6 - Shell Scripting<a class="headerlink" href="#module-6-shell-scripting" title="Permalink to this heading"></a></h2>
 <section id="linux-kernal">
-<h3>Linux Kernal<a class="headerlink" href="#linux-kernal" title="Permalink to this headline"></a></h3>
+<h3>Linux Kernal<a class="headerlink" href="#linux-kernal" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is a Kernel?</p>
 <blockquote>
@@ -2052,7 +2056,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/c247475a75699d0ecd07a6d76f317e56/1-Linux%2BKernel.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="introduction-to-shell">
-<h3>Introduction to Shell<a class="headerlink" href="#introduction-to-shell" title="Permalink to this headline"></a></h3>
+<h3>Introduction to Shell<a class="headerlink" href="#introduction-to-shell" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is a Shell?</p>
 <blockquote>
@@ -2079,7 +2083,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/7c56fe41ed31e5d413b787d187b6ade4/2-What%2Bis%2Ba%2BShell.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="types-of-shells">
-<h3>Types of Shells<a class="headerlink" href="#types-of-shells" title="Permalink to this headline"></a></h3>
+<h3>Types of Shells<a class="headerlink" href="#types-of-shells" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Gnome</p></li>
 <li><p>KDE</p></li>
@@ -2090,7 +2094,7 @@ date</p></td>
 </ul>
 </section>
 <section id="shell-scripting">
-<h3>Shell Scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline"></a></h3>
+<h3>Shell Scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is a Shell Script?</p>
 <blockquote>
@@ -2115,7 +2119,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/34bbe826e6174d39ac3bde900c74b595/3-Unix%2BShell%2BScripting.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="basic-shell-scripts">
-<h3>Basic Shell Scripts<a class="headerlink" href="#basic-shell-scripts" title="Permalink to this headline"></a></h3>
+<h3>Basic Shell Scripts<a class="headerlink" href="#basic-shell-scripts" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Output to screen using “echo”</p></li>
 <li><p>Creating tasks</p>
@@ -2132,7 +2136,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/1d35a8cfe87f1c602e300e4b7779977e/4-Basic%2BShell%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="input-output">
-<h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline"></a></h3>
+<h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Create script to take input from the user</p>
 <blockquote>
@@ -2145,7 +2149,7 @@ date</p></td>
 </ul>
 </section>
 <section id="if-then-scripts">
-<h3>if-then Scripts<a class="headerlink" href="#if-then-scripts" title="Permalink to this headline"></a></h3>
+<h3>if-then Scripts<a class="headerlink" href="#if-then-scripts" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>If then statement</p>
 <blockquote>
@@ -2159,7 +2163,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/f323d5095630e6ef0013a16f6c9d1b29/7-if-then%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="for-loop-scripts">
-<h3>For Loop Scripts<a class="headerlink" href="#for-loop-scripts" title="Permalink to this headline"></a></h3>
+<h3>For Loop Scripts<a class="headerlink" href="#for-loop-scripts" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>For loops</p>
 <blockquote>
@@ -2173,7 +2177,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/77d4946b28e26513bda509f9b6076e7a/5-for%2Bloop%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="do-while-scripts">
-<h3>do-while Scripts<a class="headerlink" href="#do-while-scripts" title="Permalink to this headline"></a></h3>
+<h3>do-while Scripts<a class="headerlink" href="#do-while-scripts" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>do while</p>
 <blockquote>
@@ -2187,7 +2191,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/f1da187703ca648fa89d25fab801b59f/6-do-while%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="case-statement-scripts">
-<h3>Case Statement Scripts<a class="headerlink" href="#case-statement-scripts" title="Permalink to this headline"></a></h3>
+<h3>Case Statement Scripts<a class="headerlink" href="#case-statement-scripts" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>case</p>
 <blockquote>
@@ -2202,7 +2206,7 @@ date</p></td>
 <p><a class="reference download internal" download="" href="../../_downloads/95eb491432bdbf1284ec8bd9d07fe319/8-case%2BScripts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="check-remote-servers-connectivity">
-<h3>Check Remote Servers Connectivity<a class="headerlink" href="#check-remote-servers-connectivity" title="Permalink to this headline"></a></h3>
+<h3>Check Remote Servers Connectivity<a class="headerlink" href="#check-remote-servers-connectivity" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 ping -c1 <span class="m">192</span>.168.1.1
@@ -2259,7 +2263,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </div>
 </section>
 <section id="aliases">
-<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline"></a></h3>
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Aliases is a very popular command that is used to cut down on lengthy and repetitive commands</p>
 <blockquote>
@@ -2278,7 +2282,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 <p><a class="reference download internal" download="" href="../../_downloads/08adaad20c84c2e6caf9a5e498f284dd/9-Aliases.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="creating-user-or-global-aliases">
-<h3>Creating User or Global Aliases<a class="headerlink" href="#creating-user-or-global-aliases" title="Permalink to this headline"></a></h3>
+<h3>Creating User or Global Aliases<a class="headerlink" href="#creating-user-or-global-aliases" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>User = Applies only to a specific user profile</p></li>
 <li><p>Global = Applies to everyone who has account on the system</p></li>
@@ -2287,7 +2291,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="shell-history">
-<h3>Shell History<a class="headerlink" href="#shell-history" title="Permalink to this headline"></a></h3>
+<h3>Shell History<a class="headerlink" href="#shell-history" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>command <cite>history</cite></p></li>
 <li><p>The file where history of your shell commands saved = /home/yourname/.bash_history</p></li>
@@ -2295,12 +2299,12 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </section>
 </section>
 <section id="module-7-networking-services-and-system-updates">
-<h2>Module 7 - Networking, Services and System Updates<a class="headerlink" href="#module-7-networking-services-and-system-updates" title="Permalink to this headline"></a></h2>
+<h2>Module 7 - Networking, Services and System Updates<a class="headerlink" href="#module-7-networking-services-and-system-updates" title="Permalink to this heading"></a></h2>
 <img alt="../../_images/Depreciated+Linux+commands+and+replacement.JPG" src="../../_images/Depreciated+Linux+commands+and+replacement.JPG" />
 <p><a class="reference download internal" download="" href="../../_downloads/6df30f288e13f1e4c2be81167a0c9730/15-Red-Hat-Enterprise-Linux-7-Storage-Administration-Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Storage</span> <span class="pre">Administration</span> <span class="pre">Guide</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/77a4c53090bc06bbcb83548ac8e94511/yum%2Bcommand%2Bcheatsheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Yum</span> <span class="pre">Cheat</span> <span class="pre">Sheet</span></code></a></p>
 <section id="internet-access-to-vm">
-<h3>Internet Access to VM<a class="headerlink" href="#internet-access-to-vm" title="Permalink to this headline"></a></h3>
+<h3>Internet Access to VM<a class="headerlink" href="#internet-access-to-vm" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Open Virtualbox Manager</p></li>
 <li><p>Select the machine you cannot get internet on in the left pane</p></li>
@@ -2311,7 +2315,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="network-components">
-<h3>Network Components<a class="headerlink" href="#network-components" title="Permalink to this headline"></a></h3>
+<h3>Network Components<a class="headerlink" href="#network-components" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP</p></li>
 <li><p>Subnet mask</p></li>
@@ -2322,7 +2326,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="network-files-and-commands">
-<h3>Network Files and Commands<a class="headerlink" href="#network-files-and-commands" title="Permalink to this headline"></a></h3>
+<h3>Network Files and Commands<a class="headerlink" href="#network-files-and-commands" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Interface Detection</p></li>
 <li><p>Assigning an IP address</p></li>
@@ -2353,7 +2357,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 <p><a class="reference download internal" download="" href="../../_downloads/c6bebc58e70acb35cfd300bc26f57b53/2-Network%2BRelated%2BUtilities.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="nic-information">
-<h3>NIC Information<a class="headerlink" href="#nic-information" title="Permalink to this headline"></a></h3>
+<h3>NIC Information<a class="headerlink" href="#nic-information" title="Permalink to this heading"></a></h3>
 <p>NIC = Network Interface Card</p>
 <p>Example: <cite>ethtool enp0s3</cite></p>
 <p>Other NICs</p>
@@ -2363,7 +2367,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="nic-bonding">
-<h3>NIC Bonding<a class="headerlink" href="#nic-bonding" title="Permalink to this headline"></a></h3>
+<h3>NIC Bonding<a class="headerlink" href="#nic-bonding" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>NIC(Network Interface Card) bonding is also known as Network bonding. It can be defined as the aggregation or combination of multiple NIC into a single bond interface.</p></li>
 <li><p>Its main purpose is to provide high availability and redundancy</p></li>
@@ -2371,7 +2375,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 <p><a class="reference download internal" download="" href="../../_downloads/add0d14883bb1207e2923316ffec0c3b/6-Creating%2BNIC%2BBonding.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="nic-bonding-procedure">
-<h3>NIC Bonding Procedure<a class="headerlink" href="#nic-bonding-procedure" title="Permalink to this headline"></a></h3>
+<h3>NIC Bonding Procedure<a class="headerlink" href="#nic-bonding-procedure" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>modprobe bonding</p></li>
 <li><p>modinfo bonding</p></li>
@@ -2382,7 +2386,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="net-network-utilities">
-<h3>Net Network Utilities<a class="headerlink" href="#net-network-utilities" title="Permalink to this headline"></a></h3>
+<h3>Net Network Utilities<a class="headerlink" href="#net-network-utilities" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Getting started with NetworkManager</p></li>
 <li><p>Network configuration methods</p>
@@ -2418,7 +2422,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="system-updates-and-repos">
-<h3>System Updates and Repos<a class="headerlink" href="#system-updates-and-repos" title="Permalink to this headline"></a></h3>
+<h3>System Updates and Repos<a class="headerlink" href="#system-updates-and-repos" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>yum (CentOS), apt-get (other Linux)</p></li>
 <li><p>rpm (Redhat Package Manager)</p></li>
@@ -2426,7 +2430,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 <p><a class="reference download internal" download="" href="../../_downloads/a05f1d5765916b84c78c42f1287c60f0/7-Linux_yum_command_cheatsheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="advanced-package-management">
-<h3>Advanced Package Management<a class="headerlink" href="#advanced-package-management" title="Permalink to this headline"></a></h3>
+<h3>Advanced Package Management<a class="headerlink" href="#advanced-package-management" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Installing packages</p></li>
 <li><p>Upgrading</p></li>
@@ -2437,7 +2441,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="download-files-or-apps">
-<h3>Download Files or Apps<a class="headerlink" href="#download-files-or-apps" title="Permalink to this headline"></a></h3>
+<h3>Download Files or Apps<a class="headerlink" href="#download-files-or-apps" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Linux = wget</p></li>
 <li><p>Example in Linux:</p>
@@ -2451,7 +2455,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="curl-and-ping-commands">
-<h3>curl and ping Commands<a class="headerlink" href="#curl-and-ping-commands" title="Permalink to this headline"></a></h3>
+<h3>curl and ping Commands<a class="headerlink" href="#curl-and-ping-commands" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Linux = curl</p></li>
 <li><p>Linux = ping</p></li>
@@ -2467,7 +2471,7 @@ ping -c1 <span class="nv">$ip</span> <span class="p">&amp;</span>&gt; /dev/null
 </ul>
 </section>
 <section id="ftp-file-transfer-protocol">
-<h3>FTP - File Transfer Protocol<a class="headerlink" href="#ftp-file-transfer-protocol" title="Permalink to this headline"></a></h3>
+<h3>FTP - File Transfer Protocol<a class="headerlink" href="#ftp-file-transfer-protocol" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The File Transfer Protocol is a standard network protocol used for the transfer of computer files between a client and server on a computer network. FTP is built on a client-server model architecture using separate control and data connections between the client and the server. (Wikipedia)</p></li>
 <li><p>Protocol = Set of rules used by computers to communicate</p></li>
@@ -2523,7 +2527,7 @@ bye.
 </div>
 </section>
 <section id="scp-secure-copy-protocol">
-<h3>SCP - Secure Copy Protocol<a class="headerlink" href="#scp-secure-copy-protocol" title="Permalink to this headline"></a></h3>
+<h3>SCP - Secure Copy Protocol<a class="headerlink" href="#scp-secure-copy-protocol" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The Secure Copy Protocol or “SCP” helps to transfer computer files securely from a local to a remote host. It is somewhat similar to the File Transfer Protocol “FTP”, but it adds security and authentication</p></li>
 <li><p>Protocol = Set of rules used by computers to communicate</p></li>
@@ -2539,7 +2543,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/78571545a07899605d156053f921098e/16-SCP%2Bexamples.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="rsync-remote-synchronization">
-<h3>rsync - Remote Synchronization<a class="headerlink" href="#rsync-remote-synchronization" title="Permalink to this headline"></a></h3>
+<h3>rsync - Remote Synchronization<a class="headerlink" href="#rsync-remote-synchronization" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>rsync is a utility for efficiently transferring and synchronizing files within the same computer or to a remote computer by comparing the modification times and sizes of files</p></li>
 <li><p>rsync is a lot faster than ftp or scp</p></li>
@@ -2595,7 +2599,7 @@ bye.
 </ul>
 </section>
 <section id="system-upgrade-patch-management">
-<h3>System Upgrade/Patch Management<a class="headerlink" href="#system-upgrade-patch-management" title="Permalink to this headline"></a></h3>
+<h3>System Upgrade/Patch Management<a class="headerlink" href="#system-upgrade-patch-management" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Two type of upgrades</p>
 <blockquote>
@@ -2609,7 +2613,7 @@ bye.
 </ul>
 </section>
 <section id="create-local-repository">
-<h3>Create Local Repository<a class="headerlink" href="#create-local-repository" title="Permalink to this headline"></a></h3>
+<h3>Create Local Repository<a class="headerlink" href="#create-local-repository" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Command: <cite>createrepo</cite></p></li>
 </ul>
@@ -2617,7 +2621,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/d6969e2b206de08ffb462e20fec6241a/13-Creating%2BLocal%2BYum%2BRepo.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="ssh-and-telnet">
-<h3>SSH and Telnet<a class="headerlink" href="#ssh-and-telnet" title="Permalink to this headline"></a></h3>
+<h3>SSH and Telnet<a class="headerlink" href="#ssh-and-telnet" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Telnet = Un-secured connection between computers</p></li>
 <li><p>SSH = Secured</p></li>
@@ -2632,7 +2636,7 @@ bye.
 </ul>
 </section>
 <section id="ssh-without-a-password">
-<h3>SSH Without a Password<a class="headerlink" href="#ssh-without-a-password" title="Permalink to this headline"></a></h3>
+<h3>SSH Without a Password<a class="headerlink" href="#ssh-without-a-password" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>SSH is a secure way to login from host A to host B</p></li>
 <li><p>Repetitive tasks require login without a password</p></li>
@@ -2640,7 +2644,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/1597f5c901379abfc01b2e8c0ec64a1f/14-SSH%2Bwithout%2Ba%2BPassword.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="dns-domain-name-system">
-<h3>DNS - Domain Name System<a class="headerlink" href="#dns-domain-name-system" title="Permalink to this headline"></a></h3>
+<h3>DNS - Domain Name System<a class="headerlink" href="#dns-domain-name-system" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Purpose?</p>
 <blockquote>
@@ -2670,7 +2674,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/232bd2109dc865b9a2c6d143aa3a84c0/3-DNS.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="download-install-and-configure-dns">
-<h3>Download, Install and Configure DNS<a class="headerlink" href="#download-install-and-configure-dns" title="Permalink to this headline"></a></h3>
+<h3>Download, Install and Configure DNS<a class="headerlink" href="#download-install-and-configure-dns" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Create a snapshot of your virtual machine</p></li>
 <li><p>Setup:</p>
@@ -2704,7 +2708,7 @@ bye.
 </ul>
 </section>
 <section id="hostname-ip-lookup">
-<h3>Hostname/IP Lookup<a class="headerlink" href="#hostname-ip-lookup" title="Permalink to this headline"></a></h3>
+<h3>Hostname/IP Lookup<a class="headerlink" href="#hostname-ip-lookup" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Commands used for DNS lookup</p>
 <blockquote>
@@ -2717,7 +2721,7 @@ bye.
 </ul>
 </section>
 <section id="ntp">
-<h3>NTP<a class="headerlink" href="#ntp" title="Permalink to this headline"></a></h3>
+<h3>NTP<a class="headerlink" href="#ntp" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Purpose? Time synchronization</p></li>
 <li><p>File = /etc/ntp.conf</p></li>
@@ -2727,7 +2731,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/5ef136f67d215be8c48aaa6fec43391b/4-NTP.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="chronyd">
-<h3>chronyd<a class="headerlink" href="#chronyd" title="Permalink to this headline"></a></h3>
+<h3>chronyd<a class="headerlink" href="#chronyd" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Purpose? = Time synchronization</p></li>
 <li><p>Package name = chronyd</p></li>
@@ -2738,7 +2742,7 @@ bye.
 </ul>
 </section>
 <section id="new-system-utility-command-timedatectl">
-<h3>New System Utility Command (timedatectl)<a class="headerlink" href="#new-system-utility-command-timedatectl" title="Permalink to this headline"></a></h3>
+<h3>New System Utility Command (timedatectl)<a class="headerlink" href="#new-system-utility-command-timedatectl" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>The timedatectl command is a new utility for RHEL/CentOS 7/8 based distributions, which comes as a part of the systemd system and service manager</p></li>
 <li><p>It is a replacement for old traditional date command</p></li>
@@ -2803,7 +2807,7 @@ bye.
 </ul>
 </section>
 <section id="sendmail">
-<h3>Sendmail<a class="headerlink" href="#sendmail" title="Permalink to this headline"></a></h3>
+<h3>Sendmail<a class="headerlink" href="#sendmail" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Purpose? Send and receive emails</p></li>
 <li><p>Files</p>
@@ -2849,7 +2853,7 @@ bye.
 </ul>
 </section>
 <section id="web-server">
-<h3>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline"></a></h3>
+<h3>Web Server<a class="headerlink" href="#web-server" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Purpose= Serve web pages</p></li>
 <li><p>Service or Package name = httpd</p></li>
@@ -2874,7 +2878,7 @@ bye.
 </ul>
 </section>
 <section id="central-logger-rsyslog">
-<h3>Central Logger (rsyslog)<a class="headerlink" href="#central-logger-rsyslog" title="Permalink to this headline"></a></h3>
+<h3>Central Logger (rsyslog)<a class="headerlink" href="#central-logger-rsyslog" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Purpose = Generate logs or collect logs from other servers</p></li>
 <li><p>Service or package name = rsyslog</p></li>
@@ -2890,7 +2894,7 @@ bye.
 </ul>
 </section>
 <section id="network-file-system">
-<h3>Network File System<a class="headerlink" href="#network-file-system" title="Permalink to this headline"></a></h3>
+<h3>Network File System<a class="headerlink" href="#network-file-system" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Purpose = Share files or directories (filesystem)</p></li>
 <li><p>Service or package name = nfs-utils</p></li>
@@ -2914,7 +2918,7 @@ bye.
 </ul>
 </section>
 <section id="linux-os-hardening">
-<h3>Linux OS Hardening<a class="headerlink" href="#linux-os-hardening" title="Permalink to this headline"></a></h3>
+<h3>Linux OS Hardening<a class="headerlink" href="#linux-os-hardening" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>User Account</p></li>
 <li><p>Remove un-wanted packages</p></li>
@@ -2932,7 +2936,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/983336861304e26963f9fe0028d7dddf/11-OS%2BHardening.pdf"><code class="xref download docutils literal notranslate"><span class="pre">OS</span> <span class="pre">Hardening</span></code></a></p>
 </section>
 <section id="openldap-installation">
-<h3>OpenLDAP Installation<a class="headerlink" href="#openldap-installation" title="Permalink to this headline"></a></h3>
+<h3>OpenLDAP Installation<a class="headerlink" href="#openldap-installation" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is OpenLDAP?</p></li>
 <li><p>OpenLDAP Service</p>
@@ -2960,7 +2964,7 @@ bye.
 </ul>
 </section>
 <section id="trace-network-traffic-traceroute">
-<h3>Trace Network Traffic (traceroute)<a class="headerlink" href="#trace-network-traffic-traceroute" title="Permalink to this headline"></a></h3>
+<h3>Trace Network Traffic (traceroute)<a class="headerlink" href="#trace-network-traffic-traceroute" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>The traceroute command is used in Linux to map the journey that a packet of information undertakes from its source to its destination. One use for traceroute is to locate when data loss occurs throughout a network, which could signify a node that’s down.</p></li>
 <li><p>Because each hop in the record reflects a new server or router between the originating PC and the intended target, reviewing the results of a traceroute scan also lets you identify slow points that may adversely affect your network traffic.</p></li>
@@ -2974,7 +2978,7 @@ bye.
 </ul>
 </section>
 <section id="ssh-keys">
-<h3>SSH Keys<a class="headerlink" href="#ssh-keys" title="Permalink to this headline"></a></h3>
+<h3>SSH Keys<a class="headerlink" href="#ssh-keys" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Two reasons to access a remote machine</p>
 <blockquote>
@@ -3009,7 +3013,7 @@ bye.
 </ul>
 </section>
 <section id="cockpit">
-<h3>Cockpit<a class="headerlink" href="#cockpit" title="Permalink to this headline"></a></h3>
+<h3>Cockpit<a class="headerlink" href="#cockpit" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Cockpit is a server administration tool sponsored by Red Hat, focused on providing a modern-looking and user-friendly interface to manage and administer servers</p></li>
 <li><p>Cockpit is the easy-to-use, integrated, glanceable, and open web-based interface for your servers</p></li>
@@ -3056,7 +3060,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/b491bcc53e74466f86228951d9a93a25/Red_Hat_Enterprise_Linux-8-Managing_systems_using_the_RHEL_8_web_console-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Managing</span> <span class="pre">systems</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">RHEL</span> <span class="pre">8</span> <span class="pre">web</span> <span class="pre">console</span></code></a></p>
 </section>
 <section id="firewall">
-<h3>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline"></a></h3>
+<h3>Firewall<a class="headerlink" href="#firewall" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is Firewall</p>
 <blockquote>
@@ -3261,7 +3265,7 @@ bye.
 </ul>
 </section>
 <section id="tune-system-performance">
-<h3>Tune System Performance<a class="headerlink" href="#tune-system-performance" title="Permalink to this headline"></a></h3>
+<h3>Tune System Performance<a class="headerlink" href="#tune-system-performance" title="Permalink to this heading"></a></h3>
 <p>Linux system comes fined tunned by default when you install, however there are a few tweaks that can be done based on system performance and application requirements</p>
 <ul>
 <li><p>Optimize system performance by selecting a tuning profile managed by the tuned daemon</p></li>
@@ -3371,7 +3375,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/3f68638e2f773aebec7c61c84a84b562/5-rpm%2Bcommand.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="containers">
-<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline"></a></h3>
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this heading"></a></h3>
 <p><strong>What is a Container?</strong></p>
 <ul class="simple">
 <li><p>The term container and the concept came from the shipping container</p></li>
@@ -3557,7 +3561,7 @@ bye.
 </ul>
 </section>
 <section id="kickstart">
-<h3>Kickstart<a class="headerlink" href="#kickstart" title="Permalink to this headline"></a></h3>
+<h3>Kickstart<a class="headerlink" href="#kickstart" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Kickstart is a method to automate the Linux installation without the need for any intervention from the user</p></li>
 <li><p>With the help of kickstart you can automate questions that are asked during the installation. e.g.</p>
@@ -3680,7 +3684,7 @@ bye.
 </ul>
 </section>
 <section id="dhcp">
-<h3>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline"></a></h3>
+<h3>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>DHCP stands for Dynamic Host Configuration Protocol</p></li>
 <li><p>In order to communicate over the network, a computer needs to have an IP address</p></li>
@@ -3738,14 +3742,14 @@ bye.
 </section>
 </section>
 <section id="module-8-disk-management-and-run-levels">
-<h2>Module 8 - Disk Management and Run Levels<a class="headerlink" href="#module-8-disk-management-and-run-levels" title="Permalink to this headline"></a></h2>
+<h2>Module 8 - Disk Management and Run Levels<a class="headerlink" href="#module-8-disk-management-and-run-levels" title="Permalink to this heading"></a></h2>
 <p><a class="reference download internal" download="" href="../../_downloads/455bbd4afe8dc5830e569651c9ede1f4/7-Overview-of-systemd-for-RHEL-7.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Overview</span> <span class="pre">of</span> <span class="pre">Systemd</span> <span class="pre">RHEL7</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/2cc238990bea10920935e05807b13eaf/10-Red_Hat_Enterprise_Linux-7-Storage_Administration_Guide-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Storage</span> <span class="pre">Admin</span> <span class="pre">Guide</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/0be0a1ad5a22777c4d9e11d06338f855/11-RedHat_Enterprise_Linux-7-System_Administrators_Guide.pdf"><code class="xref download docutils literal notranslate"><span class="pre">System</span> <span class="pre">Admin</span> <span class="pre">Guide</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/ef4abecc620c30f012588036d67dd45c/15-Red_Hat_Enterprise_Linux-8-Configuring_basic_system_settings-en-US.pdf"><code class="xref download docutils literal notranslate"><span class="pre">RHEL8</span> <span class="pre">Basic</span> <span class="pre">System</span> <span class="pre">Settings</span></code></a></p>
 <p><a class="reference download internal" download="" href="../../_downloads/cfc09d1677641eac5e42083626c8dc9a/Linux%2BBoot%2BSequence.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">Boot</span> <span class="pre">Sequence</span></code></a></p>
 <section id="system-run-level">
-<h3>System Run Level<a class="headerlink" href="#system-run-level" title="Permalink to this headline"></a></h3>
+<h3>System Run Level<a class="headerlink" href="#system-run-level" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>System Run Levels</p></li>
 </ul>
@@ -3768,7 +3772,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/26fb43c952dc159c5214c274150cbe46/1-System%2BRun%2BLevel.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="linux-boot-process">
-<h3>Linux Boot Process<a class="headerlink" href="#linux-boot-process" title="Permalink to this headline"></a></h3>
+<h3>Linux Boot Process<a class="headerlink" href="#linux-boot-process" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/linux-boot-process.png" src="../../_images/linux-boot-process.png" />
 <ul class="simple">
 <li><p>The boot sequence changes in CentOS/Redhat 7 and above</p></li>
@@ -3779,7 +3783,7 @@ bye.
 <img alt="../../_images/linux-boot-process-2.png" src="../../_images/linux-boot-process-2.png" />
 </section>
 <section id="message-of-the-day">
-<h3>Message of the Day<a class="headerlink" href="#message-of-the-day" title="Permalink to this headline"></a></h3>
+<h3>Message of the Day<a class="headerlink" href="#message-of-the-day" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>File location:</p>
 <blockquote>
@@ -3815,7 +3819,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/e50440202575a9e0ed8f5ee7a37c4182/8-Customizing-MOTD.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="disk-partition">
-<h3>Disk Partition<a class="headerlink" href="#disk-partition" title="Permalink to this headline"></a></h3>
+<h3>Disk Partition<a class="headerlink" href="#disk-partition" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Commands for disk partition</p>
 <blockquote>
@@ -3831,7 +3835,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/ce94d9bef805e4cb42bb96e9c0cc0b95/3-Mount%2BDisk%2BPartitions.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="computer-storage">
-<h3>Computer Storage<a class="headerlink" href="#computer-storage" title="Permalink to this headline"></a></h3>
+<h3>Computer Storage<a class="headerlink" href="#computer-storage" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>LocalStorage</p>
 <blockquote>
@@ -3865,7 +3869,7 @@ bye.
 </ul>
 </section>
 <section id="logical-volume-management-lvm">
-<h3>Logical Volume Management (LVM)<a class="headerlink" href="#logical-volume-management-lvm" title="Permalink to this headline"></a></h3>
+<h3>Logical Volume Management (LVM)<a class="headerlink" href="#logical-volume-management-lvm" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>LVM allows disks to be combined together</p></li>
 </ul>
@@ -3875,7 +3879,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/d2034cf58243895b88fa5490bb4f0e20/5-Extend%2BLVM.pdf"><code class="xref download docutils literal notranslate"><span class="pre">more</span> <span class="pre">notes</span></code></a></p>
 </section>
 <section id="add-extend-swap-space">
-<h3>Add/Extend Swap Space<a class="headerlink" href="#add-extend-swap-space" title="Permalink to this headline"></a></h3>
+<h3>Add/Extend Swap Space<a class="headerlink" href="#add-extend-swap-space" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is swap? – CentOS.org</p>
 <blockquote>
@@ -3906,7 +3910,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/1acb5689a20c070e4c56ffeda023fb5e/6-Add%2BSwap%2BSpace.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="advanced-storage-features">
-<h3>Advanced Storage Features<a class="headerlink" href="#advanced-storage-features" title="Permalink to this headline"></a></h3>
+<h3>Advanced Storage Features<a class="headerlink" href="#advanced-storage-features" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Red Hat 8 introduces the next generation volume management solution called Stratis</p></li>
 <li><p>It uses thin provisioning by default</p></li>
@@ -3989,7 +3993,7 @@ bye.
 </ul>
 </section>
 <section id="raid">
-<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this headline"></a></h3>
+<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>RAID (Redundant Array of Independent Disks)</p></li>
 <li><p>Type of RAID</p>
@@ -4005,7 +4009,7 @@ bye.
 <img alt="../../_images/linux-raid.png" src="../../_images/linux-raid.png" />
 </section>
 <section id="file-system-check-fsck-and-xfs-repair">
-<h3>File System Check (fsck and xfs_repair)<a class="headerlink" href="#file-system-check-fsck-and-xfs-repair" title="Permalink to this headline"></a></h3>
+<h3>File System Check (fsck and xfs_repair)<a class="headerlink" href="#file-system-check-fsck-and-xfs-repair" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Linux fsck utility is used to check and repair Linux filesystems (ext2, ext3, ext4, etc.)</p></li>
 <li><p>Linux xfs_repair utility is used to check and repair Linux filesystems for xfs filesystem type</p></li>
@@ -4032,7 +4036,7 @@ bye.
 </ul>
 </section>
 <section id="system-backup">
-<h3>System Backup<a class="headerlink" href="#system-backup" title="Permalink to this headline"></a></h3>
+<h3>System Backup<a class="headerlink" href="#system-backup" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>5 Different Types of Backups</p>
 <blockquote>
@@ -4072,7 +4076,7 @@ bye.
 </ul>
 </section>
 <section id="network-file-system-nfs">
-<h3>Network File System (NFS)<a class="headerlink" href="#network-file-system-nfs" title="Permalink to this headline"></a></h3>
+<h3>Network File System (NFS)<a class="headerlink" href="#network-file-system-nfs" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>NFS stands for Network File System, a file system developed by Sun Microsystems, Inc.</p></li>
 <li><p>It is a client/server system that allows users to access files across a network and treat them as if they resided in a local file directory</p></li>
@@ -4167,7 +4171,7 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/9b71284a06a7a728098accd550c27f2f/9-Steps-for-NFS-Configuration.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="samba">
-<h3>Samba<a class="headerlink" href="#samba" title="Permalink to this headline"></a></h3>
+<h3>Samba<a class="headerlink" href="#samba" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Samba is a Linux tool or utility that allows sharing for Linux resources such as files and printers to with other operating systems</p></li>
 <li><p>It works exactly like NFS but the difference is NFS shares within Linux or Unix like system whereas Samba shares with other OS (e.g. Windows, MAC etc.)</p></li>
@@ -4194,14 +4198,14 @@ bye.
 <p><a class="reference download internal" download="" href="../../_downloads/270c2bab435478026e93f5b716f1850c/14-Samba%2BInstallation%2Band%2BConfiguration.pdf"><code class="xref download docutils literal notranslate"><span class="pre">notes</span></code></a></p>
 </section>
 <section id="nas-device-for-nfs-or-samba">
-<h3>NAS Device for NFS or Samba<a class="headerlink" href="#nas-device-for-nfs-or-samba" title="Permalink to this headline"></a></h3>
+<h3>NAS Device for NFS or Samba<a class="headerlink" href="#nas-device-for-nfs-or-samba" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>A storage can be carved on a Linux server, and it can be shared with another Linux machine through NFS or to a Windows machine through Samba service</p></li>
 <li><p>NFS/Samba or any NAS service can be setup through a dedicated NAS device</p></li>
 </ul>
 </section>
 <section id="sata-and-sas">
-<h3>SATA and SAS<a class="headerlink" href="#sata-and-sas" title="Permalink to this headline"></a></h3>
+<h3>SATA and SAS<a class="headerlink" href="#sata-and-sas" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>SATA Stands for Serial Advanced Technology Attachment and SAS stands for Serial Attached SCSI (SCSI Stands for Small Computer System Interface, typically pronounced as “scuzzy”)</p></li>
 <li><p>Both SAS and SATA utilize serial communication. Serial communication means that the highway has both lanes</p></li>
@@ -4216,7 +4220,7 @@ bye.
 </ul>
 </section>
 <section id="difference-between-centos-rhel7-and-8">
-<h3>Difference Between CentOS/RHEL7 and 8<a class="headerlink" href="#difference-between-centos-rhel7-and-8" title="Permalink to this headline"></a></h3>
+<h3>Difference Between CentOS/RHEL7 and 8<a class="headerlink" href="#difference-between-centos-rhel7-and-8" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Red Hat Enterprise Linux 8 (RHEL 8) is now available for production use with lots of developer- friendly capabilities</p></li>
 <li><p>RHEL 8 official release by Red Hat Inc, was announced on May 7, 2019</p></li>
@@ -4276,14 +4280,14 @@ By default only YUM and DNF can be installed from the Extra repo
 </section>
 </section>
 <section id="additional-resources">
-<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline"></a></h2>
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading"></a></h2>
 <section id="change-file-creation-permission">
-<h3>Change File Creation Permission<a class="headerlink" href="#change-file-creation-permission" title="Permalink to this headline"></a></h3>
+<h3>Change File Creation Permission<a class="headerlink" href="#change-file-creation-permission" title="Permalink to this heading"></a></h3>
 <p>umask is a command to set default permission any newly created file/directory</p>
 <p>eg. <cite>umask u+rw,g+r,o-rwx</cite></p>
 </section>
 <section id="filesystem-color-definition">
-<h3>Filesystem Color Definition<a class="headerlink" href="#filesystem-color-definition" title="Permalink to this headline"></a></h3>
+<h3>Filesystem Color Definition<a class="headerlink" href="#filesystem-color-definition" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Blue = directory</p></li>
 <li><p>Green = executable or recognized data file</p></li>
@@ -4295,7 +4299,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="troubleshoot-file-issues">
-<h3>Troubleshoot File Issues<a class="headerlink" href="#troubleshoot-file-issues" title="Permalink to this headline"></a></h3>
+<h3>Troubleshoot File Issues<a class="headerlink" href="#troubleshoot-file-issues" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>File does not exist</p></li>
 <li><p>Absolute vs relative paths</p></li>
@@ -4307,7 +4311,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="cannot-cd-into-a-directory">
-<h3>Cannot CD Into a Directory<a class="headerlink" href="#cannot-cd-into-a-directory" title="Permalink to this headline"></a></h3>
+<h3>Cannot CD Into a Directory<a class="headerlink" href="#cannot-cd-into-a-directory" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Directory does not exist</p></li>
 <li><p>Absolute vs relative paths</p></li>
@@ -4318,7 +4322,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="filesystem-is-corrupted">
-<h3>Filesystem is Corrupted<a class="headerlink" href="#filesystem-is-corrupted" title="Permalink to this headline"></a></h3>
+<h3>Filesystem is Corrupted<a class="headerlink" href="#filesystem-is-corrupted" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Filesystem</p></li>
 <li><p>Types of a filesystem</p>
@@ -4354,7 +4358,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="system-is-running-slow">
-<h3>System is Running Slow<a class="headerlink" href="#system-is-running-slow" title="Permalink to this headline"></a></h3>
+<h3>System is Running Slow<a class="headerlink" href="#system-is-running-slow" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Understanding the problem</p>
 <blockquote>
@@ -4384,7 +4388,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="ip-address-assigned-but-not-reachable">
-<h3>IP Address Assigned but not Reachable<a class="headerlink" href="#ip-address-assigned-but-not-reachable" title="Permalink to this headline"></a></h3>
+<h3>IP Address Assigned but not Reachable<a class="headerlink" href="#ip-address-assigned-but-not-reachable" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Troubleshooting steps</p>
 <blockquote>
@@ -4406,7 +4410,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="remove-unnecessary-or-orphan-packages">
-<h3>Remove Unnecessary or Orphan Packages<a class="headerlink" href="#remove-unnecessary-or-orphan-packages" title="Permalink to this headline"></a></h3>
+<h3>Remove Unnecessary or Orphan Packages<a class="headerlink" href="#remove-unnecessary-or-orphan-packages" title="Permalink to this heading"></a></h3>
 <p>Keep your server lean and mean. Install only those packages you really need. IF there are unwanted packages delete them. The fewer the packages the less chance of unpached code.</p>
 <p>Guidelines:</p>
 <blockquote>
@@ -4472,7 +4476,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="selinux-security-enhanced-linux">
-<h3>SELinux (Security Enhanced Linux)<a class="headerlink" href="#selinux-security-enhanced-linux" title="Permalink to this headline"></a></h3>
+<h3>SELinux (Security Enhanced Linux)<a class="headerlink" href="#selinux-security-enhanced-linux" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>What is SELinux?</p>
 <blockquote>
@@ -4636,7 +4640,7 @@ By default only YUM and DNF can be installed from the Extra repo
 </ul>
 </section>
 <section id="types-of-security-threats">
-<h3>Types of Security Threats<a class="headerlink" href="#types-of-security-threats" title="Permalink to this headline"></a></h3>
+<h3>Types of Security Threats<a class="headerlink" href="#types-of-security-threats" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Distributed denial-of-service (DDoS) attack</p>
 <blockquote>

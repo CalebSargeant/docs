@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creating and Using Containers &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Container Images" href="container-images.html" />
+    <link rel="prev" title="General" href="general.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Docker</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating and Using Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-commands">Basic Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-container">Starting a Container</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#image-vs-container">Image vs Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#docker-container-run-publish-80-80-nginx">docker container run –publish 80:80 nginx</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens-when-we-run-a-container">What Happens When we Run a Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#container-vs-vm">Container vs VM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#containers-aren-t-mini-vms">Containers aren’t Mini-VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#whats-going-on-in-containers">Whats Going on in Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-a-shell-inside-containers">Getting a Shell inside Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-networks">Docker Networks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker-networks-defaults">Docker Networks Defaults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cli-management">CLI Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#default-security">Default Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dns">DNS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html">Swarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Docker</a> &raquo;</li>
+      <li>Creating and Using Containers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/creating-and-using-containers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creating-and-using-containers">
+<h1>Creating and Using Containers<a class="headerlink" href="#creating-and-using-containers" title="Permalink to this heading"></a></h1>
+<section id="basic-commands">
+<h2>Basic Commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>command: <cite>docker version</cite></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>verified cli can talk to engine</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>command: <cite>docker info</cite></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>most config values of engine</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>docker command line structure</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>old (still works): <cite>docker &lt;command&gt; (options)</cite></p></li>
+<li><p>new: <cite>docker &lt;command&gt; &lt;sub-command&gt; (options)</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="starting-a-container">
+<h2>Starting a Container<a class="headerlink" href="#starting-a-container" title="Permalink to this heading"></a></h2>
+<section id="image-vs-container">
+<h3>Image vs Container<a class="headerlink" href="#image-vs-container" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>An image is the application we want to run</p></li>
+<li><p>A Container is an instance of that image running as a process</p></li>
+<li><p>You can have many containers running off the same image</p></li>
+<li><p>Docker’s default image “registry” is called Docker Hub (hub.docker.com)</p></li>
+</ul>
+</section>
+<section id="docker-container-run-publish-80-80-nginx">
+<h3>docker container run –publish 80:80 nginx<a class="headerlink" href="#docker-container-run-publish-80-80-nginx" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Download image ‘nginx’ from Docker Hub</p></li>
+<li><p>Started new container from that image</p></li>
+<li><p>Opened port 80 on the host IP</p></li>
+<li><p>Routes that traffic to the container IP, port 80</p></li>
+</ol>
+</section>
+</section>
+<section id="what-happens-when-we-run-a-container">
+<h2>What Happens When we Run a Container<a class="headerlink" href="#what-happens-when-we-run-a-container" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Looks for that image locally in image cache, doesnt find anything</p></li>
+<li><p>Then looks in remote image repository (defaults to Docker Hub)</p></li>
+<li><p>Downloads the latest version (nginx:latest by default)</p></li>
+<li><p>Creates a new container based on that image and prepares start</p></li>
+<li><p>Gives it a virtual IP on a private network inside docker engine</p></li>
+<li><p>Opens up port 80 on host and forwards to port 80 in container</p></li>
+<li><p>Starts container by using the CMD in the image Dockerfile</p></li>
+</ol>
+</section>
+<section id="container-vs-vm">
+<h2>Container vs VM<a class="headerlink" href="#container-vs-vm" title="Permalink to this heading"></a></h2>
+<section id="containers-aren-t-mini-vms">
+<h3>Containers aren’t Mini-VMs<a class="headerlink" href="#containers-aren-t-mini-vms" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>THey are just processes</p></li>
+<li><p>Limited to what resources they can access</p></li>
+<li><p>Exit when process stops</p></li>
+</ul>
+</section>
+</section>
+<section id="whats-going-on-in-containers">
+<h2>Whats Going on in Containers<a class="headerlink" href="#whats-going-on-in-containers" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>docker container top</cite> - process list in on container</p></li>
+<li><p><cite>docker container inspect</cite> -details of one container config</p></li>
+<li><p><cite>docker container stats</cite> - performance stats for all containers</p></li>
+</ul>
+</section>
+<section id="getting-a-shell-inside-containers">
+<h2>Getting a Shell inside Containers<a class="headerlink" href="#getting-a-shell-inside-containers" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>docker container run -it</cite> - start new container interactively</p></li>
+<li><p><cite>docker container exec -it</cite> - run additional command in existing container</p></li>
+<li><p>Different Linux distros in containers</p></li>
+</ul>
+</section>
+<section id="docker-networks">
+<h2>Docker Networks<a class="headerlink" href="#docker-networks" title="Permalink to this heading"></a></h2>
+<section id="docker-networks-defaults">
+<h3>Docker Networks Defaults<a class="headerlink" href="#docker-networks-defaults" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Each container connected to a private virtual network “bridge”</p></li>
+<li><p>Each virtual network routes through NAT firewall on host IP</p></li>
+<li><p>All containers on a virtual network can talk to each other without -p</p></li>
+<li><p>Best practice is to create a new virtual network for each app:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>network “my_web_app” for mysql and php/apache containers</p></li>
+<li><p>network “my_api” for mongo and nodejs containers</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>“Batteries included, but removeable”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Defaults work well in many cases, but easy to swap out parts to customize it</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Make new virtual networks</p></li>
+<li><p>Attach containers to more than one virtual network (or none)</p></li>
+<li><p>SKip virtual networks and use host IP (–net=host)</p></li>
+<li><p>Use different DOcker network drivers to gain new abilities</p></li>
+</ul>
+</section>
+<section id="cli-management">
+<h3>CLI Management<a class="headerlink" href="#cli-management" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Show networks <cite>docker network ls</cite></p></li>
+<li><p>Inspect a network <cite>docker network inspect</cite></p></li>
+<li><p>Create a network <cite>docker network create –driver</cite></p></li>
+<li><p>Attach a network to container <cite>docker netowrk connect</cite></p></li>
+<li><p>Detach a network from container <cite>docker network disconnect</cite></p></li>
+</ul>
+</section>
+<section id="default-security">
+<h3>Default Security<a class="headerlink" href="#default-security" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Create your apps so frontend/backend sit on same Docker network</p></li>
+<li><p>Their inter-communication never leaves host</p></li>
+<li><p>All externally exposed ports clsoed by default</p></li>
+<li><p>You must manually expose via -p, which is better default security</p></li>
+<li><p>This gets even better with Swarm and Overlay networks</p></li>
+</ul>
+</section>
+<section id="dns">
+<h3>DNS<a class="headerlink" href="#dns" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Containers shouldnt reply on IPs for inter-communication</p></li>
+<li><p>DNS for friendly names is built-in if you use custom networks</p></li>
+<li><p>This gets way easier with Docker Compose</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="general.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="container-images.html" class="btn btn-neutral float-right" title="Container Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

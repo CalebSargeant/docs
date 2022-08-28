@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -66,8 +67,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/pentesting/index.html">Pentesting</a></li>
@@ -111,12 +114,12 @@
            <div itemprop="articleBody">
              
   <section id="ubiquiti-unifi">
-<h1>Ubiquiti UniFi<a class="headerlink" href="#ubiquiti-unifi" title="Permalink to this headline"></a></h1>
+<h1>Ubiquiti UniFi<a class="headerlink" href="#ubiquiti-unifi" title="Permalink to this heading"></a></h1>
 <p>It’s a pretty self-explanatory system, but anyway, here’s some stuff on it.</p>
 <section id="access-point">
-<h2>Access Point<a class="headerlink" href="#access-point" title="Permalink to this headline"></a></h2>
+<h2>Access Point<a class="headerlink" href="#access-point" title="Permalink to this heading"></a></h2>
 <section id="l3-adopting-ssh">
-<h3>L3 Adopting SSH<a class="headerlink" href="#l3-adopting-ssh" title="Permalink to this headline"></a></h3>
+<h3>L3 Adopting SSH<a class="headerlink" href="#l3-adopting-ssh" title="Permalink to this heading"></a></h3>
 <p>For the Ubiquity white page, please see: <a class="reference external" href="https://help.ubnt.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers">https://help.ubnt.com/hc/en-us/articles/204909754-UniFi-Device-Adoption-Methods-for-Remote-UniFi-Controllers</a></p>
 <ol class="arabic simple">
 <li><p>Make sure the AP is running the same firmware as the controller. If it is not, see this guide: <a class="reference external" href="http://community.ubnt.com/t5/UniFi-Troubleshooting/UniFi-Upgrading-firmware-image-via-SSH/ta-p/944337">Changing UniFi firmware via SSH</a>. This is not required for minor version differences.</p></li>
@@ -127,7 +130,7 @@
 </ol>
 </section>
 <section id="cisco-switchport-config">
-<h3>Cisco Switchport Config<a class="headerlink" href="#cisco-switchport-config" title="Permalink to this headline"></a></h3>
+<h3>Cisco Switchport Config<a class="headerlink" href="#cisco-switchport-config" title="Permalink to this heading"></a></h3>
 <p>Below shows UAP config for switchport, where 10 is the VLAN the AP natively lives in, 20 &amp; 30 being WLANs.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface GigabitEthernet0/5
 description UAP
@@ -140,24 +143,24 @@ switchport mode trunk
 </section>
 </section>
 <section id="controller">
-<h2>Controller<a class="headerlink" href="#controller" title="Permalink to this headline"></a></h2>
+<h2>Controller<a class="headerlink" href="#controller" title="Permalink to this heading"></a></h2>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h3>
 <p>Refer to this guide: <a class="reference external" href="https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu">https://help.ubnt.com/hc/en-us/articles/220066768-UniFi-How-to-Install-Update-via-APT-on-Debian-or-Ubuntu</a></p>
 </section>
 <section id="backups">
-<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this headline"></a></h3>
+<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this heading"></a></h3>
 <p><strong>Manual Backups</strong></p>
 <p>To manually backup the controller, go to <em>Settings &gt; Maintenance &gt; Backup</em>. Set the <em>Backup Data Retention</em> and click on <em>Download Backup</em>. Manually copy the backup to &lt;LOCATION&gt;.</p>
 <p><strong>Auto Backups</strong></p>
 <img alt="../_images/unifi-backup-1.png" src="../_images/unifi-backup-1.png" />
 </section>
 <section id="restoring">
-<h3>Restoring<a class="headerlink" href="#restoring" title="Permalink to this headline"></a></h3>
+<h3>Restoring<a class="headerlink" href="#restoring" title="Permalink to this heading"></a></h3>
 <p>To restore the controller from a file, go to <em>Settings &gt; Maintenance &gt; Restore</em>. Click on <em>Choose File</em> and select the file to restore.</p>
 </section>
 <section id="windows-credential-recovery">
-<h3>Windows Credential Recovery<a class="headerlink" href="#windows-credential-recovery" title="Permalink to this headline"></a></h3>
+<h3>Windows Credential Recovery<a class="headerlink" href="#windows-credential-recovery" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Open Ubiquiti UniFi Controller.</p></li>
 <li><p>Download mongoDB. <a class="reference external" href="https://www.mongodb.com/download-center">https://www.mongodb.com/download-center</a></p></li>

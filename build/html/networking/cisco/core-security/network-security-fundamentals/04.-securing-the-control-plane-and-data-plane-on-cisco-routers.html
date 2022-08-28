@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -140,9 +143,9 @@
            <div itemprop="articleBody">
              
   <section id="securing-the-control-plane-and-data-plane-on-cisco-routers">
-<h1>Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this headline"></a></h1>
+<h1>Securing the Control Plane and Data Plane on Cisco Routers<a class="headerlink" href="#securing-the-control-plane-and-data-plane-on-cisco-routers" title="Permalink to this heading"></a></h1>
 <section id="lab-setup">
-<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline"></a></h2>
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id1">
 <img alt="Lab topology" src="../../../../_images/securing-control-plane-and-data-plane-on-cisco-routers.png" />
 <figcaption>
@@ -193,9 +196,9 @@ Router3(config-if)#do wr
 </div>
 </section>
 <section id="securing-eigrp">
-<h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this headline"></a></h2>
+<h2>Securing EIGRP<a class="headerlink" href="#securing-eigrp" title="Permalink to this heading"></a></h2>
 <section id="securing-the-control-plane">
-<h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this headline"></a></h3>
+<h3>Securing the Control Plane<a class="headerlink" href="#securing-the-control-plane" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use MD5 hash of a passcode/key</p></li>
 <li><p>Prevents rogue router from injecting</p></li>
@@ -205,7 +208,7 @@ Router3(config-if)#do wr
 </ul>
 </section>
 <section id="other-routing-protocols">
-<h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this headline"></a></h3>
+<h3>Other Routing Protocols<a class="headerlink" href="#other-routing-protocols" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>RIP</p>
 <ul>
@@ -225,7 +228,7 @@ Router3(config-if)#do wr
 </ul>
 </section>
 <section id="configuration-steps">
-<h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this headline"></a></h3>
+<h3>Configuration Steps<a class="headerlink" href="#configuration-steps" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Configure EIGRP</p></li>
 <li><p>Create keychain</p></li>
@@ -340,7 +343,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/8 ms
 </section>
 </section>
 <section id="securing-rip">
-<h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this headline"></a></h2>
+<h2>Securing RIP<a class="headerlink" href="#securing-rip" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use the keychain</p></li>
 <li><p>Configure RIPv2</p></li>
@@ -433,7 +436,7 @@ L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 </div>
 </section>
 <section id="securing-ospf">
-<h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this headline"></a></h2>
+<h2>Securing OSPF<a class="headerlink" href="#securing-ospf" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Configure authentication without a hash</p></li>
 <li><p>Look at packet capture</p></li>
@@ -560,7 +563,7 @@ L        23.23.23.1/32 is directly connected, GigabitEthernet0/1
 </div>
 </section>
 <section id="securing-bgp">
-<h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this headline"></a></h2>
+<h2>Securing BGP<a class="headerlink" href="#securing-bgp" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Configure TTL Security command</p></li>
 <li><p>Configure BGP neighbor authentication</p></li>
@@ -609,10 +612,10 @@ Router3(config-router)#do clear ip bgp *
 </div>
 </section>
 <section id="access-control-lists">
-<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline"></a></h2>
+<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this heading"></a></h2>
 <p>All ACLs have an implicit deny statement at the bottom of the list</p>
 <section id="standard-acl">
-<h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this headline"></a></h3>
+<h3>Standard ACL<a class="headerlink" href="#standard-acl" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Matches the source IP address</p></li>
 <li><p>Permit and deny</p></li>
@@ -642,7 +645,7 @@ Router3(config-router)#do clear ip bgp *
 </div>
 </section>
 <section id="extended-acl">
-<h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this headline"></a></h3>
+<h3>Extended ACL<a class="headerlink" href="#extended-acl" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Source &amp; destination IP addresses</p></li>
 <li><p>Layer 4 protocol</p></li>
@@ -666,16 +669,16 @@ Router3(config-router)#do clear ip bgp *
 </section>
 </section>
 <section id="applying-acls-and-other-acl-types">
-<h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this headline"></a></h2>
+<h2>Applying ACLs and Other ACL Types<a class="headerlink" href="#applying-acls-and-other-acl-types" title="Permalink to this heading"></a></h2>
 <section id="acl-placement">
-<h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this headline"></a></h3>
+<h3>ACL Placement<a class="headerlink" href="#acl-placement" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Apply the ACL inbound or outbound on an interface</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(config-if)#ip</span> <span class="pre">access-group</span> <span class="pre">nameOrNumber</span> <span class="pre">{inlout}</span></code></p></li>
 </ul>
 </section>
 <section id="other-acl-usage">
-<h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this headline"></a></h3>
+<h3>Other ACL Usage<a class="headerlink" href="#other-acl-usage" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>permit host 1.1.5.25
 permit host 1.1.5.26 deny any
 </pre></div>
@@ -690,7 +693,7 @@ permit host 1.1.5.26 deny any
 </ul>
 </section>
 <section id="time-based-acl">
-<h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this headline"></a></h3>
+<h3>Time Based ACL<a class="headerlink" href="#time-based-acl" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#time-range Friday
 (config-time-range)#periodic Friday 08:00 to 16:59
 (config-time-range)#exit
@@ -702,7 +705,7 @@ permit host 1.1.5.26 deny any
 </div>
 </section>
 <section id="reflexive-acls">
-<h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this headline"></a></h3>
+<h3>Reflexive ACLs<a class="headerlink" href="#reflexive-acls" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Keep track of IP sessions</p></li>
 <li><p>Create dynamic ACEs allowing return traffic</p></li>
@@ -720,16 +723,16 @@ permit host 1.1.5.26 deny any
 </section>
 </section>
 <section id="policy-maps-nbar-urpf-tcp-intercept">
-<h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this headline"></a></h2>
+<h2>Policy Maps, NBAR, URPF &amp; TCP Intercept<a class="headerlink" href="#policy-maps-nbar-urpf-tcp-intercept" title="Permalink to this heading"></a></h2>
 <section id="policy-maps-and-class-maps">
-<h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this headline"></a></h3>
+<h3>Policy Maps and Class Maps<a class="headerlink" href="#policy-maps-and-class-maps" title="Permalink to this heading"></a></h3>
 <p><strong>Policy Maps</strong> Can apply policy such as policing bandwidth, priority,
 or drop the traffic.</p>
 <p><strong>Class Maps</strong> Matches traffic based on ACLs, VLANs, protocols, QoS
 attributes</p>
 </section>
 <section id="network-based-application-recognition">
-<h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this headline"></a></h3>
+<h3>Network Based Application Recognition<a class="headerlink" href="#network-based-application-recognition" title="Permalink to this heading"></a></h3>
 <p>NBAR:</p>
 <ul class="simple">
 <li><p>ACLs can be difficult to identify applications</p></li>
@@ -759,7 +762,7 @@ attributes</p>
 </div>
 </section>
 <section id="unicast-reverse-path-forwarding">
-<h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this headline"></a></h3>
+<h3>Unicast Reverse Path Forwarding<a class="headerlink" href="#unicast-reverse-path-forwarding" title="Permalink to this heading"></a></h3>
 <p>URPF:</p>
 <ul class="simple">
 <li><p>Helps prevent spoofed IP addresses</p></li>
@@ -772,7 +775,7 @@ attributes</p>
 </div>
 </section>
 <section id="tcp-intercept">
-<h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this headline"></a></h3>
+<h3>TCP Intercept<a class="headerlink" href="#tcp-intercept" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Intervenes and protects servers from SYN-Flood Attacks</p></li>
 <li><p>Intercept Mode</p>
@@ -800,9 +803,9 @@ attributes</p>
 </section>
 </section>
 <section id="control-plane-policing">
-<h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this headline"></a></h2>
+<h2>Control Plane Policing<a class="headerlink" href="#control-plane-policing" title="Permalink to this heading"></a></h2>
 <section id="copp">
-<h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this headline"></a></h3>
+<h3>CoPP<a class="headerlink" href="#copp" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Utilizes ACLs and policy maps</p></li>
 <li><p>Used to police any packets that are routed to the control plane</p></li>

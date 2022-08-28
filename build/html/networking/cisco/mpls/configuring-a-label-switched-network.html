@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -81,8 +82,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -128,9 +131,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-a-label-switched-network">
-<h1>Configuring a Label Switched Network<a class="headerlink" href="#configuring-a-label-switched-network" title="Permalink to this headline"></a></h1>
+<h1>Configuring a Label Switched Network<a class="headerlink" href="#configuring-a-label-switched-network" title="Permalink to this heading"></a></h1>
 <section id="lab-setup">
-<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline"></a></h2>
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this heading"></a></h2>
 <img alt="../../../_images/mpls-8.png" src="../../../_images/mpls-8.png" />
 <p><a class="reference download internal" download="" href="../../../_downloads/1bf9fd1e8c0846aeef9656ec6f7ab1e2/configure-a-label-switched-network.zip"><code class="xref download docutils literal notranslate"><span class="pre">_files/configure-a-label-switched-network.zip</span></code></a></p>
 <p><strong>SW1</strong></p>
@@ -267,7 +270,7 @@ R6(config-subif)#ip add 192.168.56.2 255.255.255.0
 </div>
 </section>
 <section id="configuring-ospf">
-<h2>Configuring OSPF<a class="headerlink" href="#configuring-ospf" title="Permalink to this headline"></a></h2>
+<h2>Configuring OSPF<a class="headerlink" href="#configuring-ospf" title="Permalink to this heading"></a></h2>
 <p><strong>R2</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#int g0/0.23
 R2(config-subif)#ip ospf network point-to-point
@@ -322,7 +325,7 @@ R5(config-router)#network 10.0.45.0 0.0.0.255 area 0
 </div>
 </section>
 <section id="configuring-mpls">
-<h2>Configuring MPLS<a class="headerlink" href="#configuring-mpls" title="Permalink to this headline"></a></h2>
+<h2>Configuring MPLS<a class="headerlink" href="#configuring-mpls" title="Permalink to this heading"></a></h2>
 <p><strong>R2</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R2(config)#mpls ip
 R2(config)#mpls ldp router-id lo1
@@ -368,7 +371,7 @@ R5(config-subif)#mpls ip
 </div>
 </section>
 <section id="verifying-mpls-forwarding">
-<h2>Verifying MPLS Forwarding<a class="headerlink" href="#verifying-mpls-forwarding" title="Permalink to this headline"></a></h2>
+<h2>Verifying MPLS Forwarding<a class="headerlink" href="#verifying-mpls-forwarding" title="Permalink to this heading"></a></h2>
 <p><strong>Show the RIB</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R4#sh ip route
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP

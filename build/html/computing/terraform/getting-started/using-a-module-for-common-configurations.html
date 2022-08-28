@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -114,9 +117,9 @@
            <div itemprop="articleBody">
              
   <section id="using-a-module-for-common-configurations">
-<h1>Using a Module for Common Configurations<a class="headerlink" href="#using-a-module-for-common-configurations" title="Permalink to this headline"></a></h1>
+<h1>Using a Module for Common Configurations<a class="headerlink" href="#using-a-module-for-common-configurations" title="Permalink to this heading"></a></h1>
 <section id="terraform-modules">
-<h2>Terraform Modules<a class="headerlink" href="#terraform-modules" title="Permalink to this headline"></a></h2>
+<h2>Terraform Modules<a class="headerlink" href="#terraform-modules" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Code reuse</p></li>
 <li><p>Remote or local source</p>
@@ -130,7 +133,7 @@
 <li><p>Multiple instances (no count)</p></li>
 </ul>
 <section id="module-components">
-<h3>Module Components<a class="headerlink" href="#module-components" title="Permalink to this headline"></a></h3>
+<h3>Module Components<a class="headerlink" href="#module-components" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Input variables</p></li>
 <li><p>Resources</p></li>
@@ -138,7 +141,7 @@
 </ul>
 </section>
 <section id="terraform-module-example">
-<h3>Terraform Module Example<a class="headerlink" href="#terraform-module-example" title="Permalink to this headline"></a></h3>
+<h3>Terraform Module Example<a class="headerlink" href="#terraform-module-example" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>variable &quot;name&quot; {}
 
 resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
@@ -165,11 +168,11 @@ resouce &quot;aws_s3_bucket_object&quot; {
 </div>
 </section>
 <section id="vpc-module">
-<h3>VPC Module<a class="headerlink" href="#vpc-module" title="Permalink to this headline"></a></h3>
+<h3>VPC Module<a class="headerlink" href="#vpc-module" title="Permalink to this heading"></a></h3>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m8/resources.tf#L84"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m8/resources.tf#L84</span></code></a></p>
 </section>
 <section id="s3-module">
-<h3>S3 Module<a class="headerlink" href="#s3-module" title="Permalink to this headline"></a></h3>
+<h3>S3 Module<a class="headerlink" href="#s3-module" title="Permalink to this heading"></a></h3>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/tree/master/m8/Modules/s3"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/tree/master/m8/Modules/s3</span></code></a></p>
 </section>
 </section>

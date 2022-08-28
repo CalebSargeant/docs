@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -89,8 +90,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -137,9 +140,9 @@
            <div itemprop="articleBody">
              
   <section id="describing-identity-management-coa-and-device-compliance">
-<h1>Describing Identity Management, CoA, and Device Compliance<a class="headerlink" href="#describing-identity-management-coa-and-device-compliance" title="Permalink to this headline"></a></h1>
+<h1>Describing Identity Management, CoA, and Device Compliance<a class="headerlink" href="#describing-identity-management-coa-and-device-compliance" title="Permalink to this heading"></a></h1>
 <section id="what-is-802-1x">
-<h2>What Is 802.1X?<a class="headerlink" href="#what-is-802-1x" title="Permalink to this headline"></a></h2>
+<h2>What Is 802.1X?<a class="headerlink" href="#what-is-802-1x" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>802.1X allows for layer 2 network access control to be centrally
 managed.</p></li>
@@ -155,7 +158,7 @@ allowed to do.</p>
 <p><img alt="image1" src="../../../../_images/describing-identity-management-coa-and-device-compliance-1.png" /></p>
 </section>
 <section id="benefits-of-802-1x-and-cisco-ise">
-<h2>Benefits of 802.1X and Cisco ISE<a class="headerlink" href="#benefits-of-802-1x-and-cisco-ise" title="Permalink to this headline"></a></h2>
+<h2>Benefits of 802.1X and Cisco ISE<a class="headerlink" href="#benefits-of-802-1x-and-cisco-ise" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Users and devices are authenticated and authorized at a central
 location</p></li>
@@ -163,7 +166,7 @@ location</p></li>
 <li><p>Can apply different settings to different devices</p></li>
 </ul>
 <section id="network-security-without-802-x">
-<h3>Network Security without 802.X<a class="headerlink" href="#network-security-without-802-x" title="Permalink to this headline"></a></h3>
+<h3>Network Security without 802.X<a class="headerlink" href="#network-security-without-802-x" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Port security and Wi-Fi passwords are not scalable</p>
 <ul>
@@ -176,7 +179,7 @@ location</p></li>
 </ul>
 </section>
 <section id="device-profiling">
-<h3>Device Profiling<a class="headerlink" href="#device-profiling" title="Permalink to this headline"></a></h3>
+<h3>Device Profiling<a class="headerlink" href="#device-profiling" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Cisco ISE is able to probe devices</p></li>
 <li><p>Determines what type of device it is</p>
@@ -190,7 +193,7 @@ decisions</p></li>
 </ul>
 </section>
 <section id="device-posturing">
-<h3>Device Posturing<a class="headerlink" href="#device-posturing" title="Permalink to this headline"></a></h3>
+<h3>Device Posturing<a class="headerlink" href="#device-posturing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>NAC agents installed on device collect information:</p></li>
 <li><p>Antivirus signatures, security patches, registry settings,
@@ -214,7 +217,7 @@ installed</p></li>
 </ul>
 </section>
 <section id="change-of-authorization-coa">
-<h3>Change of Authorization (CoA)<a class="headerlink" href="#change-of-authorization-coa" title="Permalink to this headline"></a></h3>
+<h3>Change of Authorization (CoA)<a class="headerlink" href="#change-of-authorization-coa" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Allows authorization of device to change after the initial RADIUS
 access-accept message</p></li>
@@ -222,7 +225,7 @@ access-accept message</p></li>
 </ul>
 </section>
 <section id="bring-your-own-device-byod">
-<h3>Bring Your Own Device (BYOD)<a class="headerlink" href="#bring-your-own-device-byod" title="Permalink to this headline"></a></h3>
+<h3>Bring Your Own Device (BYOD)<a class="headerlink" href="#bring-your-own-device-byod" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Allows network users to bring their personal devices to join the
 network</p></li>
@@ -235,7 +238,7 @@ network</p></li>
 </ul>
 </section>
 <section id="guest-services">
-<h3>Guest Services<a class="headerlink" href="#guest-services" title="Permalink to this headline"></a></h3>
+<h3>Guest Services<a class="headerlink" href="#guest-services" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Allows visitors to quickly gain access without the need to have a
 permanent account created</p></li>
@@ -258,12 +261,12 @@ permanent account created</p></li>
 </section>
 </section>
 <section id="different-eap-types">
-<h2>Different EAP Types<a class="headerlink" href="#different-eap-types" title="Permalink to this headline"></a></h2>
+<h2>Different EAP Types<a class="headerlink" href="#different-eap-types" title="Permalink to this heading"></a></h2>
 <p><strong>Native EAP</strong> Passes information immediately</p>
 <p><strong>Tunneled EAP</strong> Forms an outer tunnel, then uses a Native EAP method as
 the inner EAP tunnel</p>
 <section id="native-eap-types">
-<h3>Native EAP Types<a class="headerlink" href="#native-eap-types" title="Permalink to this headline"></a></h3>
+<h3>Native EAP Types<a class="headerlink" href="#native-eap-types" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>EAP-MD5</p>
 <ul>
@@ -294,7 +297,7 @@ identity store not just Active Directory.</p></li>
 protocol to work with Cisco ISE.</p>
 </section>
 <section id="two-different-eap-tunnels">
-<h3>Two Different EAP Tunnels<a class="headerlink" href="#two-different-eap-tunnels" title="Permalink to this headline"></a></h3>
+<h3>Two Different EAP Tunnels<a class="headerlink" href="#two-different-eap-tunnels" title="Permalink to this heading"></a></h3>
 <p><strong>Protected EAP (PEAP)</strong></p>
 <ul class="simple">
 <li><p>Created by Microsoft</p></li>
@@ -319,7 +322,7 @@ passed at the same time</p></li>
 </section>
 </section>
 <section id="mac-authentication-bypass-webauth">
-<h2>MAC Authentication Bypass &amp; WebAuth<a class="headerlink" href="#mac-authentication-bypass-webauth" title="Permalink to this headline"></a></h2>
+<h2>MAC Authentication Bypass &amp; WebAuth<a class="headerlink" href="#mac-authentication-bypass-webauth" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Uses MAC Address to authenticate - must be added to identity store
 using ISE</p></li>
@@ -329,7 +332,7 @@ device is 802.1x capable</p></li>
 Address in RADIUS Access-Request message</p></li>
 </ul>
 <section id="drawbacks-of-mab">
-<h3>Drawbacks of MAB<a class="headerlink" href="#drawbacks-of-mab" title="Permalink to this headline"></a></h3>
+<h3>Drawbacks of MAB<a class="headerlink" href="#drawbacks-of-mab" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Weaker posture and requires more administrative overhead</p></li>
 <li><p>Each MAC address has to be in ISE</p></li>
@@ -338,7 +341,7 @@ legitimate device</p></li>
 </ul>
 </section>
 <section id="web-authentication-webauth">
-<h3>Web Authentication (WebAuth)<a class="headerlink" href="#web-authentication-webauth" title="Permalink to this headline"></a></h3>
+<h3>Web Authentication (WebAuth)<a class="headerlink" href="#web-authentication-webauth" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Local WebAuth (LWA) and Central WebAuth (CWA)</p></li>
 <li><p>Allows user to enter username and password to provide identification</p></li>
@@ -346,7 +349,7 @@ legitimate device</p></li>
 </ul>
 </section>
 <section id="lwa-versions">
-<h3>LWA Versions<a class="headerlink" href="#lwa-versions" title="Permalink to this headline"></a></h3>
+<h3>LWA Versions<a class="headerlink" href="#lwa-versions" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -385,7 +388,7 @@ the RADIUS Access-Request message</p></td>
 </table>
 </section>
 <section id="cwa-process">
-<h3>CWA Process<a class="headerlink" href="#cwa-process" title="Permalink to this headline"></a></h3>
+<h3>CWA Process<a class="headerlink" href="#cwa-process" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Device without a supplicant connects to the network</p></li>
 <li><p>802.1X times out, authenticator generates a MAB Access-Request
@@ -404,7 +407,7 @@ final authorization</p></li>
 </section>
 </section>
 <section id="introduction-to-cisco-trustsec">
-<h2>Introduction to Cisco TrustSec<a class="headerlink" href="#introduction-to-cisco-trustsec" title="Permalink to this headline"></a></h2>
+<h2>Introduction to Cisco TrustSec<a class="headerlink" href="#introduction-to-cisco-trustsec" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Tag devices based on their business purpose</p></li>
 <li><p>All traffic from the device will include this tag</p></li>
@@ -413,7 +416,7 @@ final authorization</p></li>
 different SGTs</p></li>
 </ul>
 <section id="trustsec-benefits">
-<h3>TrustSec Benefits<a class="headerlink" href="#trustsec-benefits" title="Permalink to this headline"></a></h3>
+<h3>TrustSec Benefits<a class="headerlink" href="#trustsec-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Keeping up with ACLs can be administratively cumbersome</p>
 <ul>

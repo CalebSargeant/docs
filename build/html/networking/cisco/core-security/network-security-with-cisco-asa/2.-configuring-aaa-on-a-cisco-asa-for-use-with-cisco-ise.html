@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,9 +141,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise">
-<h1>Configuring AAA on a Cisco ASA For Use with Cisco ISE<a class="headerlink" href="#configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise" title="Permalink to this headline"></a></h1>
+<h1>Configuring AAA on a Cisco ASA For Use with Cisco ISE<a class="headerlink" href="#configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise" title="Permalink to this heading"></a></h1>
 <section id="prepping-cisco-ise-to-support-tacacs">
-<h2>Prepping Cisco ISE to Support TACACS<a class="headerlink" href="#prepping-cisco-ise-to-support-tacacs" title="Permalink to this headline"></a></h2>
+<h2>Prepping Cisco ISE to Support TACACS<a class="headerlink" href="#prepping-cisco-ise-to-support-tacacs" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id1">
 <img alt="Enable TACACS+" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-1.png" />
 <figcaption>
@@ -161,7 +164,7 @@
 </figure>
 </section>
 <section id="tacacs-profiles-and-tacacs-command-sets">
-<h2>TACACS Profiles and TACACS Command Sets<a class="headerlink" href="#tacacs-profiles-and-tacacs-command-sets" title="Permalink to this headline"></a></h2>
+<h2>TACACS Profiles and TACACS Command Sets<a class="headerlink" href="#tacacs-profiles-and-tacacs-command-sets" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id4">
 <img alt="Configure TACACS Profiles" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-5.png" />
 <figcaption>
@@ -176,7 +179,7 @@
 </figure>
 </section>
 <section id="configuring-device-admin-policy-sets">
-<h2>Configuring Device Admin Policy Sets<a class="headerlink" href="#configuring-device-admin-policy-sets" title="Permalink to this headline"></a></h2>
+<h2>Configuring Device Admin Policy Sets<a class="headerlink" href="#configuring-device-admin-policy-sets" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id6">
 <img alt="Configure Device Admin Policy Sets" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-7.png" />
 <figcaption>
@@ -185,7 +188,7 @@
 </figure>
 </section>
 <section id="configuring-aaa-on-an-asa-using-the-cli-and-asdm">
-<h2>Configuring AAA on an ASA Using the CLI and ASDM<a class="headerlink" href="#configuring-aaa-on-an-asa-using-the-cli-and-asdm" title="Permalink to this headline"></a></h2>
+<h2>Configuring AAA on an ASA Using the CLI and ASDM<a class="headerlink" href="#configuring-aaa-on-an-asa-using-the-cli-and-asdm" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-ASA(config)# aaa-server GloboISE protocol tacacs
 Globo-ASA(config-aaa-server-group)# aaa-server GloboISE (MGMT) host 172.20.1.55
 Globo-ASA(config-aaa-server-host)# key GloboISE123

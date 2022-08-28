@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -118,12 +121,12 @@
            <div itemprop="articleBody">
              
   <section id="infrastructure-as-a-code">
-<h1>Infrastructure as a Code<a class="headerlink" href="#infrastructure-as-a-code" title="Permalink to this headline"></a></h1>
+<h1>Infrastructure as a Code<a class="headerlink" href="#infrastructure-as-a-code" title="Permalink to this heading"></a></h1>
 <section id="infrastructure-as-a-code-defined">
-<h2>Infrastructure as a Code Defined<a class="headerlink" href="#infrastructure-as-a-code-defined" title="Permalink to this headline"></a></h2>
+<h2>Infrastructure as a Code Defined<a class="headerlink" href="#infrastructure-as-a-code-defined" title="Permalink to this heading"></a></h2>
 <p>Provisioning infrastructure through software to achieve consistent and predictable environments</p>
 <section id="core-concepts">
-<h3>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline"></a></h3>
+<h3>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Defined in code</p></li>
 <li><p>Stored in source control</p></li>
@@ -134,7 +137,7 @@
 </section>
 </section>
 <section id="declarative-vs-imperative">
-<h2>Declarative vs Imperative<a class="headerlink" href="#declarative-vs-imperative" title="Permalink to this headline"></a></h2>
+<h2>Declarative vs Imperative<a class="headerlink" href="#declarative-vs-imperative" title="Permalink to this heading"></a></h2>
 <p>Terraform is a declarative approach to deploying infrastructure as code</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Make me a taco
 food taco &quot;bean-taco&quot; {
@@ -146,15 +149,15 @@ food taco &quot;bean-taco&quot; {
 </div>
 </section>
 <section id="idempotence-and-consistency">
-<h2>Idempotence and Consistency<a class="headerlink" href="#idempotence-and-consistency" title="Permalink to this headline"></a></h2>
+<h2>Idempotence and Consistency<a class="headerlink" href="#idempotence-and-consistency" title="Permalink to this heading"></a></h2>
 <p>If you haven’t changed anything about your configuration and you apply it again to the same environment, nothing will change in the environment, because your defined configuration matches the reality of the infrastructure that exists.</p>
 </section>
 <section id="push-or-pull">
-<h2>Push or Pull<a class="headerlink" href="#push-or-pull" title="Permalink to this headline"></a></h2>
+<h2>Push or Pull<a class="headerlink" href="#push-or-pull" title="Permalink to this heading"></a></h2>
 <p>Terraform is a push-type model, the configuration that terraform has is getting pushed to the target environment.</p>
 </section>
 <section id="iac-benefits">
-<h2>IaC Benefits<a class="headerlink" href="#iac-benefits" title="Permalink to this headline"></a></h2>
+<h2>IaC Benefits<a class="headerlink" href="#iac-benefits" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Automated deployment</p></li>
 <li><p>Consistent environment</p></li>

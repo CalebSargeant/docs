@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -119,9 +122,9 @@
            <div itemprop="articleBody">
              
   <section id="adding-a-new-provider-to-your-configuration">
-<h1>Adding a New Provider to Your Configuration<a class="headerlink" href="#adding-a-new-provider-to-your-configuration" title="Permalink to this headline"></a></h1>
+<h1>Adding a New Provider to Your Configuration<a class="headerlink" href="#adding-a-new-provider-to-your-configuration" title="Permalink to this heading"></a></h1>
 <section id="terraform-functions">
-<h2>Terraform Functions<a class="headerlink" href="#terraform-functions" title="Permalink to this headline"></a></h2>
+<h2>Terraform Functions<a class="headerlink" href="#terraform-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Built-in to Terraform</p></li>
 <li><p>Func_name(arg1, arg2, arg3, …)</p></li>
@@ -129,7 +132,7 @@
 <li><p>Several broad categories</p></li>
 </ul>
 <section id="common-function-categories">
-<h3>Common Function Categories<a class="headerlink" href="#common-function-categories" title="Permalink to this headline"></a></h3>
+<h3>Common Function Categories<a class="headerlink" href="#common-function-categories" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Numeric</p>
 <ul>
@@ -164,7 +167,7 @@
 </ul>
 </section>
 <section id="function-examples">
-<h3>Function Examples<a class="headerlink" href="#function-examples" title="Permalink to this headline"></a></h3>
+<h3>Function Examples<a class="headerlink" href="#function-examples" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Configure networking
 variable network_info {
   default = &quot;10.1.0.0/16&quot; #type, default, description
@@ -190,12 +193,12 @@ ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 </section>
 </section>
 <section id="terraform-commands">
-<h2>Terraform Commands<a class="headerlink" href="#terraform-commands" title="Permalink to this headline"></a></h2>
+<h2>Terraform Commands<a class="headerlink" href="#terraform-commands" title="Permalink to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 <section id="terraform-providers">
-<h2>Terraform Providers<a class="headerlink" href="#terraform-providers" title="Permalink to this headline"></a></h2>
+<h2>Terraform Providers<a class="headerlink" href="#terraform-providers" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Iaas, Paas, Saas</p></li>
 <li><p>Community and HashiCorp</p></li>
@@ -204,7 +207,7 @@ ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 <li><p>Multiple instances</p></li>
 </ul>
 <section id="provider-example">
-<h3>Provider Example<a class="headerlink" href="#provider-example" title="Permalink to this headline"></a></h3>
+<h3>Provider Example<a class="headerlink" href="#provider-example" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>provider &quot;azurerm&quot; {
   subscription_id = &quot;subscription-id&quot;
   client_id = &quot;principal-used-for-access&quot;
@@ -222,11 +225,11 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </section>
 </section>
 <section id="adding-the-azurerm-provider">
-<h2>Adding the AzureRM Provider<a class="headerlink" href="#adding-the-azurerm-provider" title="Permalink to this headline"></a></h2>
+<h2>Adding the AzureRM Provider<a class="headerlink" href="#adding-the-azurerm-provider" title="Permalink to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 <section id="resource-arguments">
-<h2>Resource Arguments<a class="headerlink" href="#resource-arguments" title="Permalink to this headline"></a></h2>
+<h2>Resource Arguments<a class="headerlink" href="#resource-arguments" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>depends_on</p></li>
 <li><p>count</p></li>
@@ -234,7 +237,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 <li><p>provider</p></li>
 </ul>
 <section id="depends-on-and-count">
-<h3>Depends_on and Count<a class="headerlink" href="#depends-on-and-count" title="Permalink to this headline"></a></h3>
+<h3>Depends_on and Count<a class="headerlink" href="#depends-on-and-count" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_instance&quot; &quot;taco_servers&quot; {
   count = 2
   tags {
@@ -246,7 +249,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </div>
 </section>
 <section id="for-each">
-<h3>For_each<a class="headerlink" href="#for-each" title="Permalink to this headline"></a></h3>
+<h3>For_each<a class="headerlink" href="#for-each" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_s3_bucket&quot; &quot;taco_toppings&quot; {
   for_each = {
     food = &quot;public-read&quot;
@@ -260,7 +263,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </section>
 </section>
 <section id="using-the-count-argument">
-<h2>Using the Count Argument<a class="headerlink" href="#using-the-count-argument" title="Permalink to this headline"></a></h2>
+<h2>Using the Count Argument<a class="headerlink" href="#using-the-count-argument" title="Permalink to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 </section>

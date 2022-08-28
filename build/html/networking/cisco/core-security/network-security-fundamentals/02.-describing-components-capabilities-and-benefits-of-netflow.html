@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -140,18 +143,18 @@
            <div itemprop="articleBody">
              
   <section id="describing-components-capabilities-benefits-of-netflow">
-<h1>Describing Components, Capabilities, &amp; Benefits of NetFlow<a class="headerlink" href="#describing-components-capabilities-benefits-of-netflow" title="Permalink to this headline"></a></h1>
+<h1>Describing Components, Capabilities, &amp; Benefits of NetFlow<a class="headerlink" href="#describing-components-capabilities-benefits-of-netflow" title="Permalink to this heading"></a></h1>
 <section id="netflow-introduction">
-<h2>NetFlow Introduction<a class="headerlink" href="#netflow-introduction" title="Permalink to this headline"></a></h2>
+<h2>NetFlow Introduction<a class="headerlink" href="#netflow-introduction" title="Permalink to this heading"></a></h2>
 <section id="what-is-flow">
-<h3>What is Flow?<a class="headerlink" href="#what-is-flow" title="Permalink to this headline"></a></h3>
+<h3>What is Flow?<a class="headerlink" href="#what-is-flow" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Information about the packets that traverse a router</p></li>
 <li><p>Source and destination, ports, and the protocol being used</p></li>
 </ul>
 </section>
 <section id="netflow">
-<h3>NetFlow<a class="headerlink" href="#netflow" title="Permalink to this headline"></a></h3>
+<h3>NetFlow<a class="headerlink" href="#netflow" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Created by Cisco</p></li>
 <li><p>Netflow records stored in NetFlow cache</p></li>
@@ -172,7 +175,7 @@
 </section>
 </section>
 <section id="netflow-benefits">
-<h2>Netflow Benefits<a class="headerlink" href="#netflow-benefits" title="Permalink to this headline"></a></h2>
+<h2>Netflow Benefits<a class="headerlink" href="#netflow-benefits" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use existing hardware</p>
 <ul>
@@ -187,7 +190,7 @@
 </li>
 </ul>
 <section id="aditional-netflow-benefits">
-<h3>Aditional NetFlow Benefits<a class="headerlink" href="#aditional-netflow-benefits" title="Permalink to this headline"></a></h3>
+<h3>Aditional NetFlow Benefits<a class="headerlink" href="#aditional-netflow-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use NetFlow information to make design changes</p></li>
 <li><p>Test different changes and verify the traffic is being shaped the way
@@ -196,7 +199,7 @@ you want to</p></li>
 </ul>
 </section>
 <section id="netflow-secuirty-benefits">
-<h3>NetFlow Secuirty Benefits<a class="headerlink" href="#netflow-secuirty-benefits" title="Permalink to this headline"></a></h3>
+<h3>NetFlow Secuirty Benefits<a class="headerlink" href="#netflow-secuirty-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Quickly identify suspicious traffic</p></li>
 <li><p>Concerning Port (the type of traffic doesn’t match the services)</p></li>
@@ -207,7 +210,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="network-as-an-enforcer">
-<h3>Network as an Enforcer<a class="headerlink" href="#network-as-an-enforcer" title="Permalink to this headline"></a></h3>
+<h3>Network as an Enforcer<a class="headerlink" href="#network-as-an-enforcer" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Integrate with different Cisco tools</p></li>
 <li><p>Segment traffic</p></li>
@@ -216,9 +219,9 @@ destined to an embargoed country)</p></li>
 </section>
 </section>
 <section id="netflow-versions-flow-standards">
-<h2>NetFlow Versions &amp; Flow Standards<a class="headerlink" href="#netflow-versions-flow-standards" title="Permalink to this headline"></a></h2>
+<h2>NetFlow Versions &amp; Flow Standards<a class="headerlink" href="#netflow-versions-flow-standards" title="Permalink to this heading"></a></h2>
 <section id="netflow-versions">
-<h3>NetFlow Versions<a class="headerlink" href="#netflow-versions" title="Permalink to this headline"></a></h3>
+<h3>NetFlow Versions<a class="headerlink" href="#netflow-versions" title="Permalink to this heading"></a></h3>
 <p><strong>Netflow v1:</strong></p>
 <ul class="simple">
 <li><p>Limited to IPv4 without network masks</p></li>
@@ -238,7 +241,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="netflow-v9">
-<h3>NetFlow v9<a class="headerlink" href="#netflow-v9" title="Permalink to this headline"></a></h3>
+<h3>NetFlow v9<a class="headerlink" href="#netflow-v9" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Template is included in NetFlow packet</p></li>
 <li><p>Stealthwatch will know what info to expect</p></li>
@@ -247,7 +250,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="flexible-netflow">
-<h3>Flexible NetFlow<a class="headerlink" href="#flexible-netflow" title="Permalink to this headline"></a></h3>
+<h3>Flexible NetFlow<a class="headerlink" href="#flexible-netflow" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Different cache buckets</p></li>
 <li><p>Can have different data stored in different caches</p></li>
@@ -255,7 +258,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="ipfix">
-<h3>IPFIX<a class="headerlink" href="#ipfix" title="Permalink to this headline"></a></h3>
+<h3>IPFIX<a class="headerlink" href="#ipfix" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IETF standard based on NetFlow v9</p></li>
 <li><p>Supports templates</p></li>
@@ -263,7 +266,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="configuring-netflow">
-<h3>Configuring NetFlow<a class="headerlink" href="#configuring-netflow" title="Permalink to this headline"></a></h3>
+<h3>Configuring NetFlow<a class="headerlink" href="#configuring-netflow" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Create flow record</p></li>
 <li><p>Create flow exporter</p></li>
@@ -273,9 +276,9 @@ destined to an embargoed country)</p></li>
 </section>
 </section>
 <section id="cisco-stealthwatch">
-<h2>Cisco Stealthwatch<a class="headerlink" href="#cisco-stealthwatch" title="Permalink to this headline"></a></h2>
+<h2>Cisco Stealthwatch<a class="headerlink" href="#cisco-stealthwatch" title="Permalink to this heading"></a></h2>
 <section id="stealthwatch">
-<h3>Stealthwatch<a class="headerlink" href="#stealthwatch" title="Permalink to this headline"></a></h3>
+<h3>Stealthwatch<a class="headerlink" href="#stealthwatch" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Normalize traffic and find anomalies</p>
 <ul>
@@ -297,7 +300,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="stealthwatch-components">
-<h3>Stealthwatch Components<a class="headerlink" href="#stealthwatch-components" title="Permalink to this headline"></a></h3>
+<h3>Stealthwatch Components<a class="headerlink" href="#stealthwatch-components" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>SMC</p>
 <ul>
@@ -314,7 +317,7 @@ destined to an embargoed country)</p></li>
 </ul>
 </section>
 <section id="aditional-stealthwatch-benefits">
-<h3>Aditional Stealthwatch Benefits<a class="headerlink" href="#aditional-stealthwatch-benefits" title="Permalink to this headline"></a></h3>
+<h3>Aditional Stealthwatch Benefits<a class="headerlink" href="#aditional-stealthwatch-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Flow sensor</p>
 <ul>

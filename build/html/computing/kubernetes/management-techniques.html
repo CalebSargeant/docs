@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kubernetes Management Techniques &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Moving to Declarative YAML" href="declarative-yaml.html" />
+    <link rel="prev" title="Exposing Kubernetes Ports" href="exposing-ports.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Kubernetes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Kubernetes Management Techniques</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-expose-and-create-generators">Run, Expose, and Create Generators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generator-examples">Generator Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-future-of-kubectl-run">The Future of kubectl run</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#old-run-confusion">Old Run Confusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#imperative-vs-declaritive">Imperative vs Declaritive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kubernetes-imperative">Kubernetes Imperative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kubernetes-declarative">Kubernetes Declarative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#management-approaches">Management Approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Future of Kubernetes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Kubernetes</a> &raquo;</li>
+      <li>Kubernetes Management Techniques</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/kubernetes/management-techniques.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kubernetes-management-techniques">
+<h1>Kubernetes Management Techniques<a class="headerlink" href="#kubernetes-management-techniques" title="Permalink to this heading"></a></h1>
+<section id="run-expose-and-create-generators">
+<h2>Run, Expose, and Create Generators<a class="headerlink" href="#run-expose-and-create-generators" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>These commands use helper templates called “generators”</p></li>
+<li><p>Every resource in kubernetes has a specification or “spec”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl create deployment sample –image nginx –dry-run -o yaml</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>You can output those templates with <cite>–dry-run -o yaml</cite></p></li>
+<li><p>You can use those YAML defaults as a starting point</p></li>
+<li><p>Generators are “opinionated defaults”</p></li>
+</ul>
+<section id="generator-examples">
+<h3>Generator Examples<a class="headerlink" href="#generator-examples" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Using dry-run with yaml output we can see the generators</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl create deployment test –image nginx –dry-run -o yaml</cite></p></li>
+<li><p><cite>kubectl create job test –image nginx –dry-run -o yaml</cite></p></li>
+<li><p><cite>kubectl expose deployment/test –port 80 –dry-run -o yaml</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="the-future-of-kubectl-run">
+<h2>The Future of kubectl run<a class="headerlink" href="#the-future-of-kubectl-run" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Right now (1.12-1.15) run is in a state of flux</p></li>
+<li><p>The goal is to reduce its features to only create pods</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Right now its defaults to creating Deployments (with the warning)</p></li>
+<li><p>It has lots of generators but they are all deprecated</p></li>
+<li><p>The idea is to make it easy like <cite>docker run</cite> for one-off tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>It’s not recommended for production</p></li>
+<li><p>Use for simple dev/test or troubleshooting pods</p></li>
+</ul>
+<section id="old-run-confusion">
+<h3>Old Run Confusion<a class="headerlink" href="#old-run-confusion" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>The generators activate different Controllers based on options</p></li>
+<li><p>Using dry-run we can see which generators are used</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl run test –image nginx –dry-run</cite></p></li>
+<li><p><cite>kubectl run test –image nginx –port 80 expose –dry-run</cite></p></li>
+<li><p><cite>kubectl run test –image nginx –restart OnFailure –dry-run</cite></p></li>
+<li><p><cite>kubectl run test –image nginx –restart Never –dry-run</cite></p></li>
+<li><p><cite>kubectl run test –image nginx –schedule “*/1 * * * *” –dry-run</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="imperative-vs-declaritive">
+<h2>Imperative vs Declaritive<a class="headerlink" href="#imperative-vs-declaritive" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Imperative: Focus on <em>how</em> a program operates</p></li>
+<li><p>Declarative: Focus on <em>what</em> a program should accomplish</p></li>
+<li><p>Example: “I’d like a cup of coffee”</p></li>
+<li><p>Imperative: I boil water, scoop out 42 grams of medium-fine grounds, pour over 700 grams of water, etc.</p></li>
+<li><p>Declarative: “Barista, I’d like a cup of coffee (barista is the engine that works through the steps, including retrying to make a cup and is only finished when I have a cup)”</p></li>
+</ul>
+<section id="kubernetes-imperative">
+<h3>Kubernetes Imperative<a class="headerlink" href="#kubernetes-imperative" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Examples: <cite>kubectl run</cite>, <cite>kubectl create deployment</cite>, <cite>kubectl update</cite></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>We start with a state we know (no deployments exist)</p></li>
+<li><p>We ask kubectl run to create a deployment</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Different commands are required to change that deployment</p></li>
+<li><p>Different commands are required per object</p></li>
+<li><p>Imparitive is easier when you know the state</p></li>
+<li><p>Imparitive is easier to get started</p></li>
+<li><p>Imparative is easier for humans at the CLI</p></li>
+<li><p>Imperative is NOT easy to automate</p></li>
+</ul>
+</section>
+<section id="kubernetes-declarative">
+<h3>Kubernetes Declarative<a class="headerlink" href="#kubernetes-declarative" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Example: <cite>kubectl apple -f my-resources.yaml</cite></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>We don’t know the current state</p></li>
+<li><p>We only know what we want the end result to be (yaml contents)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Same command each time (tiny exception for delete)</p></li>
+<li><p>Resources can be all in a file, or many files (apply a whole dir)</p></li>
+<li><p>Requires understanding the YAML keys and values</p></li>
+<li><p>More work than <cite>kubectl run</cite> for just starting a pod</p></li>
+<li><p>The easiest way to automate</p></li>
+<li><p>The eventual path to GitOps hapinness</p></li>
+</ul>
+</section>
+</section>
+<section id="management-approaches">
+<h2>Management Approaches<a class="headerlink" href="#management-approaches" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Imperative commands: run, expose, scale, edit, create deployment</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Best for dev/learning/personal projects</p></li>
+<li><p>Easy to learn, hardest to manage over time</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Imperative objects: create -f file.yml, replace -f file.yml, delete…</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Good for prod of small environments, single file per command</p></li>
+<li><p>Store your changes in git-based yaml files</p></li>
+<li><p>Hard to automate</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Declarative objects: apply -f file or dir, diff</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Best for prod, easier to automate</p></li>
+<li><p>Harder to understand and predict changes</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Most important rule</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DOn’t mix the three approaches</p></li>
+<li><p>Learn the Imperative CLI for easy control of local and test setups</p></li>
+<li><p>Move to apply -f file.yml and apply -f directoryfor prod</p></li>
+<li><p>Store yaml in git, git commit each change before</p></li>
+<li><p>THis trains you later doing GitOPs (where git commits are automatically applied to clusters)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="exposing-ports.html" class="btn btn-neutral float-left" title="Exposing Kubernetes Ports" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="declarative-yaml.html" class="btn btn-neutral float-right" title="Moving to Declarative YAML" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

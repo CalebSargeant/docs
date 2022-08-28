@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -95,8 +96,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -142,7 +145,7 @@
            <div itemprop="articleBody">
              
   <section id="introduction-to-ngfw-ngips">
-<h1>Introduction to NGFW &amp; NGIPS<a class="headerlink" href="#introduction-to-ngfw-ngips" title="Permalink to this headline"></a></h1>
+<h1>Introduction to NGFW &amp; NGIPS<a class="headerlink" href="#introduction-to-ngfw-ngips" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>Cisco Next Generation Security - protection throughout the attack continuum.</p></li>
 <li><p>Advanced Malware Protection (AMP) - discover threats and enforce and harden policies.</p></li>
@@ -151,7 +154,7 @@
 <li><p>Firepower (lowercase) - FTD unified image and newer software.</p></li>
 </ul>
 <section id="cisco-firewall-history-and-legacy">
-<h2>Cisco Firewall History and Legacy<a class="headerlink" href="#cisco-firewall-history-and-legacy" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firewall History and Legacy<a class="headerlink" href="#cisco-firewall-history-and-legacy" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Cisco started with Centri Firewall.</p></li>
 <li><p>Cisco acquired PIX (Private Internet Exchange) Firewall.</p></li>
@@ -162,7 +165,7 @@
 </ul>
 </section>
 <section id="cisco-asa">
-<h2>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this headline"></a></h2>
+<h2>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Simple packet filtering (ACLs) and stateful inspection.</p></li>
 <li><p>Application inspection/awareness.</p></li>
@@ -177,7 +180,7 @@
 </ul>
 </section>
 <section id="cisco-asa-with-firepower-module">
-<h2>Cisco ASA with FirePOWER Module<a class="headerlink" href="#cisco-asa-with-firepower-module" title="Permalink to this headline"></a></h2>
+<h2>Cisco ASA with FirePOWER Module<a class="headerlink" href="#cisco-asa-with-firepower-module" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Integration of Sourcefire technology.</p></li>
 <li><p>Module can be managed via Firepower Management Center (FMC), formerly known as the FireSIGHT Management Centre.</p></li>
@@ -187,12 +190,12 @@
 </ul>
 </section>
 <section id="cisco-firepower-threat-defence-ftd">
-<h2>Cisco Firepower Threat Defence (FTD)<a class="headerlink" href="#cisco-firepower-threat-defence-ftd" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firepower Threat Defence (FTD)<a class="headerlink" href="#cisco-firepower-threat-defence-ftd" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://cisco.com/go/security">https://cisco.com/go/security</a>.</p>
 <p>FTD is unified software that includes ASA, legacy FirePOWER, and new features. FTD is deployed via Firepower 1000, 2100, 4100, 9000 series appliances that provide NGFW services.</p>
 </section>
 <section id="cisco-firepower-1000-series">
-<h2>Cisco Firepower 1000 Series<a class="headerlink" href="#cisco-firepower-1000-series" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firepower 1000 Series<a class="headerlink" href="#cisco-firepower-1000-series" title="Permalink to this heading"></a></h2>
 <p>Small business and home offices.</p>
 <ul class="simple">
 <li><p>Cisco Firepower 1010: A desktop firewall with eight 1 Gigabit Ethernet ports, and scales up to 650 Mbps of NGFW throughput.</p></li>
@@ -201,7 +204,7 @@
 </ul>
 </section>
 <section id="cisco-firepower-2100-series">
-<h2>Cisco Firepower 2100 Series<a class="headerlink" href="#cisco-firepower-2100-series" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firepower 2100 Series<a class="headerlink" href="#cisco-firepower-2100-series" title="Permalink to this heading"></a></h2>
 <p>Internet edge and data centre.</p>
 <ul class="simple">
 <li><p>Cisco Firepower 2110: A rack-mount 1 RU firewall with twelve 1 Gigabit Ethernet ports and four SFP ports. The Firepower 2110 scales up to 2 Gbps of NGFW throughput.</p></li>
@@ -211,7 +214,7 @@
 </ul>
 </section>
 <section id="cisco-firepower-4100-series">
-<h2>Cisco Firepower 4100 Series<a class="headerlink" href="#cisco-firepower-4100-series" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firepower 4100 Series<a class="headerlink" href="#cisco-firepower-4100-series" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Cisco Firepower 4110: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 35 Gbps of firewall throughput and 11 Gbps of threat inspection throughput.</p></li>
 <li><p>Cisco Firepower 4120: A rack-mount 1 RU firewall with 1, 10, or 40 Gbps interfaces scaling up to 60 Gbps of firewall throughput and 19 Gbps of threat inspection throughput.</p></li>
@@ -223,11 +226,11 @@
 </ul>
 </section>
 <section id="cisco-firepower-9300-series">
-<h2>Cisco Firepower 9300 Series<a class="headerlink" href="#cisco-firepower-9300-series" title="Permalink to this headline"></a></h2>
+<h2>Cisco Firepower 9300 Series<a class="headerlink" href="#cisco-firepower-9300-series" title="Permalink to this heading"></a></h2>
 <p>Very large enterprises or service providers. ASA, FTD, Radware DefencePro DDoS mitigation software (from 4150 up - realtime analysis to protect against DDoS).</p>
 </section>
 <section id="cisco-ftd-for-cisco-integrated-services-routers-isrs">
-<h2>Cisco FTD for Cisco Integrated Services Routers (ISRs)<a class="headerlink" href="#cisco-ftd-for-cisco-integrated-services-routers-isrs" title="Permalink to this headline"></a></h2>
+<h2>Cisco FTD for Cisco Integrated Services Routers (ISRs)<a class="headerlink" href="#cisco-ftd-for-cisco-integrated-services-routers-isrs" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>FTD can run on Cisco Unified Computing System (UCS) E-Series blades installed on ISR routers.</p></li>
 <li><p>FMC &amp; FTD are deployed as VMs.</p></li>
@@ -243,7 +246,7 @@
 </ul>
 </section>
 <section id="introduction-to-cisco-ngips">
-<h2>Introduction to Cisco NGIPS<a class="headerlink" href="#introduction-to-cisco-ngips" title="Permalink to this headline"></a></h2>
+<h2>Introduction to Cisco NGIPS<a class="headerlink" href="#introduction-to-cisco-ngips" title="Permalink to this heading"></a></h2>
 <p>Legacy IPSs depend on matching signature patterns to identify malicious activity. Characteristics of legacy IPSs:</p>
 <ul class="simple">
 <li><p>They are sometimes deployed behind a firewall when providing IPS functionality (inline). Often, an IPS is also placed in the network without a firewall in front of it.</p></li>
@@ -282,7 +285,7 @@
 </ul>
 </section>
 <section id="introduction-to-cisco-firepower-management-centre-fmc">
-<h2>Introduction to Cisco Firepower Management Centre (FMC)<a class="headerlink" href="#introduction-to-cisco-firepower-management-centre-fmc" title="Permalink to this headline"></a></h2>
+<h2>Introduction to Cisco Firepower Management Centre (FMC)<a class="headerlink" href="#introduction-to-cisco-firepower-management-centre-fmc" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>FTD devices, Firepower NGIPS devices, and ASA FirePOWER modules can be managed by FMC.</p></li>
 <li><p>When adding a device, you must provide an IP address of managed device with registration key for authentication.</p></li>
@@ -300,7 +303,7 @@
 <img alt="../../../_images/introduction-fmc-4.png" src="../../../_images/introduction-fmc-4.png" />
 </section>
 <section id="introduction-to-cisco-firepower-device-manager-fdm">
-<h2>Introduction to Cisco Firepower Device Manager (FDM)<a class="headerlink" href="#introduction-to-cisco-firepower-device-manager-fdm" title="Permalink to this headline"></a></h2>
+<h2>Introduction to Cisco Firepower Device Manager (FDM)<a class="headerlink" href="#introduction-to-cisco-firepower-device-manager-fdm" title="Permalink to this heading"></a></h2>
 <p>FDM configures small FTD deployments. Accessed via the firewall’s IP address / hostname in browser.</p>
 <p>FDM setup wizard:</p>
 <img alt="../../../_images/introduction-fdm-1.png" src="../../../_images/introduction-fdm-1.png" />
@@ -316,7 +319,7 @@
 <img alt="../../../_images/introduction-fdm-6.png" src="../../../_images/introduction-fdm-6.png" />
 </section>
 <section id="cisco-defence-orchestrator">
-<h2>Cisco Defence Orchestrator<a class="headerlink" href="#cisco-defence-orchestrator" title="Permalink to this headline"></a></h2>
+<h2>Cisco Defence Orchestrator<a class="headerlink" href="#cisco-defence-orchestrator" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>CDO allows you to manage firewalls from the cloud.</p></li>
 <li><p>You can write policies and enforce consistently across multiple ASA and FTD devices.</p></li>
@@ -334,7 +337,7 @@
 <img alt="../../../_images/introduction-cdo-4.png" src="../../../_images/introduction-cdo-4.png" />
 </section>
 <section id="ftdv-ngfwv">
-<h2>FTDv / NGFWv<a class="headerlink" href="#ftdv-ngfwv" title="Permalink to this headline"></a></h2>
+<h2>FTDv / NGFWv<a class="headerlink" href="#ftdv-ngfwv" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/aws/ftdv-aws-qsg.html">https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/aws/ftdv-aws-qsg.html</a>
 <a class="reference external" href="https://community.cisco.com/t5/network-security/aws-ftdv-vs-ngfwv/m-p/3088214#M1006029">https://community.cisco.com/t5/network-security/aws-ftdv-vs-ngfwv/m-p/3088214#M1006029</a></p>
 </section>

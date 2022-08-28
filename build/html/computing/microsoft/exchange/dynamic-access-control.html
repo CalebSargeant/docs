@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -123,11 +126,11 @@
            <div itemprop="articleBody">
              
   <section id="dynamic-access-control">
-<h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Permalink to this headline"></a></h1>
+<h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Permalink to this heading"></a></h1>
 <p>Prepare the Dynamic Access Control Deployment Based on the Security and Business Requirements
 Prepare ADDS to support Dynamic Access Control</p>
 <section id="on-the-domain-controller">
-<h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Permalink to this headline"></a></h2>
+<h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Open AD Users and Computers</p></li>
 <li><p>Make an OU named &lt;OU_name_here&gt;</p></li>
@@ -146,9 +149,9 @@ Prepare ADDS to support Dynamic Access Control</p>
 </ol>
 </section>
 <section id="configuring-user-and-device-claims">
-<h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Permalink to this headline"></a></h2>
+<h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Permalink to this heading"></a></h2>
 <section id="review-claim-types">
-<h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Permalink to this headline"></a></h3>
+<h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Permalink to this heading"></a></h3>
 <p>On the Domain Controller:</p>
 <ol class="arabic simple">
 <li><p>Go to AD Administrative Center &gt; Dynamic Access Control</p></li>
@@ -158,7 +161,7 @@ Prepare ADDS to support Dynamic Access Control</p>
 </ol>
 </section>
 <section id="configuring-resource-properties-and-file-classifications">
-<h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Permalink to this headline"></a></h3>
+<h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>In Resource Property enable Confidentiality, Department</p></li>
 <li><p>Go to Suggested Values of Department &gt; click add &gt; Value/Display name: &lt;OU_name_here&gt;</p></li>

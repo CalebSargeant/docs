@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,9 +141,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise">
-<h1>Configuring AAA on an FTD Appliance for Use with Cisco ISE<a class="headerlink" href="#configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise" title="Permalink to this headline"></a></h1>
+<h1>Configuring AAA on an FTD Appliance for Use with Cisco ISE<a class="headerlink" href="#configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise" title="Permalink to this heading"></a></h1>
 <section id="prepping-cisco-ise-to-support-radius-for-device-administration">
-<h2>Prepping Cisco ISE to Support RADIUS for Device Administration<a class="headerlink" href="#prepping-cisco-ise-to-support-radius-for-device-administration" title="Permalink to this headline"></a></h2>
+<h2>Prepping Cisco ISE to Support RADIUS for Device Administration<a class="headerlink" href="#prepping-cisco-ise-to-support-radius-for-device-administration" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id1">
 <img alt="Leverage AD security groups" src="../../../../_images/configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise-1.png" />
 <figcaption>
@@ -155,7 +158,7 @@
 </figure>
 </section>
 <section id="role-based-access-for-firepower-device-manager">
-<h2>Role-based Access for Firepower Device Manager<a class="headerlink" href="#role-based-access-for-firepower-device-manager" title="Permalink to this headline"></a></h2>
+<h2>Role-based Access for Firepower Device Manager<a class="headerlink" href="#role-based-access-for-firepower-device-manager" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>When devices use role-based access to determine privilege, RADIUS
 must be used as the AAA protocol.</p></li>
@@ -163,7 +166,7 @@ must be used as the AAA protocol.</p></li>
 since TACACS allows each command to be authorized.</p></li>
 </ul>
 <section id="role-based-access-using-fdm-gui">
-<h3>Role-based Access Using FDM GUI<a class="headerlink" href="#role-based-access-using-fdm-gui" title="Permalink to this headline"></a></h3>
+<h3>Role-based Access Using FDM GUI<a class="headerlink" href="#role-based-access-using-fdm-gui" title="Permalink to this heading"></a></h3>
 <p>Cisco AV Pairs:</p>
 <ul class="simple">
 <li><p>Read-Only (<code class="docutils literal notranslate"><span class="pre">fdm.userrole.authority.ro</span></code>)</p></li>
@@ -172,7 +175,7 @@ since TACACS allows each command to be authorized.</p></li>
 </ul>
 </section>
 <section id="role-based-access-using-fdm-cli">
-<h3>Role-based Access Using FDM CLI<a class="headerlink" href="#role-based-access-using-fdm-cli" title="Permalink to this headline"></a></h3>
+<h3>Role-based Access Using FDM CLI<a class="headerlink" href="#role-based-access-using-fdm-cli" title="Permalink to this heading"></a></h3>
 <p>Service Types:</p>
 <ul class="simple">
 <li><p>Read-Only (<code class="docutils literal notranslate"><span class="pre">Service-Type:Administrator(6)</span></code>)</p></li>
@@ -181,11 +184,11 @@ since TACACS allows each command to be authorized.</p></li>
 </section>
 </section>
 <section id="configuring-radius-authorization-profiles-for-device-administration-on-cisco-ise">
-<h2>Configuring RADIUS Authorization Profiles for Device Administration on Cisco ISE<a class="headerlink" href="#configuring-radius-authorization-profiles-for-device-administration-on-cisco-ise" title="Permalink to this headline"></a></h2>
+<h2>Configuring RADIUS Authorization Profiles for Device Administration on Cisco ISE<a class="headerlink" href="#configuring-radius-authorization-profiles-for-device-administration-on-cisco-ise" title="Permalink to this heading"></a></h2>
 <p><img alt="image1" src="../../../../_images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-4.png" /></p>
 </section>
 <section id="configuring-radius-policy-sets-for-device-administration-using-radius">
-<h2>Configuring RADIUS Policy Sets for Device Administration Using RADIUS<a class="headerlink" href="#configuring-radius-policy-sets-for-device-administration-using-radius" title="Permalink to this headline"></a></h2>
+<h2>Configuring RADIUS Policy Sets for Device Administration Using RADIUS<a class="headerlink" href="#configuring-radius-policy-sets-for-device-administration-using-radius" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id3">
 <img alt="Configure Device Admin Policy Sets" src="../../../../_images/configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise-7.png" />
 <figcaption>
@@ -194,7 +197,7 @@ since TACACS allows each command to be authorized.</p></li>
 </figure>
 </section>
 <section id="configure-firepower-to-use-ise-as-radius-server-for-device-administration">
-<h2>Configure Firepower to Use ISE as RADIUS Server for Device Administration<a class="headerlink" href="#configure-firepower-to-use-ise-as-radius-server-for-device-administration" title="Permalink to this headline"></a></h2>
+<h2>Configure Firepower to Use ISE as RADIUS Server for Device Administration<a class="headerlink" href="#configure-firepower-to-use-ise-as-radius-server-for-device-administration" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id4">
 <img alt="Authorisation Policy" src="../../../../_images/configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise-1.png" />
 <figcaption>

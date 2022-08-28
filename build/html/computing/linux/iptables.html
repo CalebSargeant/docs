@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -80,6 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -129,22 +133,22 @@
            <div itemprop="articleBody">
              
   <section id="iptables">
-<h1>IPTables<a class="headerlink" href="#iptables" title="Permalink to this headline"></a></h1>
+<h1>IPTables<a class="headerlink" href="#iptables" title="Permalink to this heading"></a></h1>
 <section id="multiple-ports">
-<h2>Multiple Ports<a class="headerlink" href="#multiple-ports" title="Permalink to this headline"></a></h2>
+<h2>Multiple Ports<a class="headerlink" href="#multiple-ports" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/353130/iptables-and-multiple-ports">https://serverfault.com/questions/353130/iptables-and-multiple-ports</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --match multiport --dports <span class="m">110</span>,143,993,995 -j ACCEPT
 </pre></div>
 </div>
 </section>
 <section id="adding-a-rule">
-<h2>Adding a Rule<a class="headerlink" href="#adding-a-rule" title="Permalink to this headline"></a></h2>
+<h2>Adding a Rule<a class="headerlink" href="#adding-a-rule" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address">https://unix.stackexchange.com/questions/145929/how-to-ensure-ssh-port-is-only-open-to-a-specific-ip-address</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp -s <span class="m">192</span>.168.0.0/24 --dport <span class="m">22</span> -j ACCEPT
 </pre></div>
 </div>
 <section id="specific-position">
-<h3>Specific Position<a class="headerlink" href="#specific-position" title="Permalink to this headline"></a></h3>
+<h3>Specific Position<a class="headerlink" href="#specific-position" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://www.osetc.com/en/linux-iptables-insert-rule-at-a-specific-position-prepend-firewall-rule.html">https://www.osetc.com/en/linux-iptables-insert-rule-at-a-specific-position-prepend-firewall-rule.html</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -I INPUT <span class="m">1</span> -i eth2 -d <span class="m">10</span>.147.88.2 -j ACCEPT
 </pre></div>
@@ -152,7 +156,7 @@
 </section>
 </section>
 <section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline"></a></h2>
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command">https://stackpointer.io/unix/linux-add-comment-to-iptables-rule/641/#:~:text=To%20add%20a%20comment%20to,rule%20in%20the%20INPUT%20chain.&amp;text=We%20can%20verify%20that%20the,running%20the%20following%20iptables%20command</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p tcp --dport <span class="m">22</span> -m comment --comment <span class="s2">&quot;allow ssh&quot;</span>
 iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
@@ -161,7 +165,7 @@ iptables -A OUTPUT -p udp --dport <span class="m">53</span> -j ACCEPT
 </div>
 </section>
 <section id="allowing-incoming-traffic-after-changing-default-policy">
-<h2>Allowing Incoming Traffic after Changing Default Policy<a class="headerlink" href="#allowing-incoming-traffic-after-changing-default-policy" title="Permalink to this headline"></a></h2>
+<h2>Allowing Incoming Traffic after Changing Default Policy<a class="headerlink" href="#allowing-incoming-traffic-after-changing-default-policy" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules">https://serverfault.com/questions/356282/cannot-ping-outside-network-with-these-ip-rules</a>
 <a class="reference external" href="https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/">https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -169,7 +173,7 @@ iptables -A OUTPUT -p udp --dport <span class="m">53</span> -j ACCEPT
 </div>
 </section>
 <section id="deleting-a-rule">
-<h2>Deleting a Rule<a class="headerlink" href="#deleting-a-rule" title="Permalink to this headline"></a></h2>
+<h2>Deleting a Rule<a class="headerlink" href="#deleting-a-rule" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables">https://stackoverflow.com/questions/10197405/how-can-i-remove-specific-rules-from-iptables</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace -A with -D</span>
 iptables -A
@@ -180,7 +184,7 @@ iptables -D
 </div>
 </section>
 <section id="dns-resolve-issues">
-<h2>DNS Resolve Issues<a class="headerlink" href="#dns-resolve-issues" title="Permalink to this headline"></a></h2>
+<h2>DNS Resolve Issues<a class="headerlink" href="#dns-resolve-issues" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/">https://www.linuxquestions.org/questions/linux-newbie-8/iptables-dns-resolve-issue-4175493915/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -p udp --sport <span class="m">53</span> -j ACCEPT
 iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
@@ -188,7 +192,7 @@ iptables -A INPUT -p udp --dport <span class="m">53</span> -j ACCEPT
 </div>
 </section>
 <section id="port-forwarding">
-<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
+<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;1&#39;</span> <span class="p">|</span> sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
 iptables -t nat -A PREROUTING -p tcp --dport <span class="m">20443</span> -j DNAT --to-destination <span class="m">10</span>.8.8.188:443
 iptables -A FORWARD -p tcp -s <span class="m">10</span>.8.8.188 —dport <span class="m">443</span> -j ACCEPT
@@ -197,7 +201,7 @@ iptables -t nat -A POSTROUTING -j MASQUERADE
 </div>
 </section>
 <section id="persistent-rules">
-<h2>Persistent Rules<a class="headerlink" href="#persistent-rules" title="Permalink to this headline"></a></h2>
+<h2>Persistent Rules<a class="headerlink" href="#persistent-rules" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule">https://www.e2enetworks.com/help/knowledge-base/how-to-open-ports-on-iptables-in-a-linux-server/#step-3-save-the-iptable-rule</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netfilter-persistent save
 netfilter-persistent reload
@@ -213,14 +217,14 @@ netfilter-persistent reload
 </div>
 </section>
 <section id="listing-rules">
-<h2>Listing Rules<a class="headerlink" href="#listing-rules" title="Permalink to this headline"></a></h2>
+<h2>Listing Rules<a class="headerlink" href="#listing-rules" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher">https://serverfault.com/questions/836497/iptables-have-both-accept-all-anywhere-anywhere-and-drop-all-anywhere-anywher</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -v -L
 </pre></div>
 </div>
 </section>
 <section id="allow-only-certain-ip-ranges">
-<h2>Allow Only Certain IP Ranges<a class="headerlink" href="#allow-only-certain-ip-ranges" title="Permalink to this headline"></a></h2>
+<h2>Allow Only Certain IP Ranges<a class="headerlink" href="#allow-only-certain-ip-ranges" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables">https://www.linode.com/community/questions/17544/how-do-i-allow-only-certain-ips-with-iptables</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A INPUT -i lo -m comment --comment <span class="s2">&quot;Allow loopback connections&quot;</span> -j ACCEPT
@@ -233,14 +237,14 @@ iptables -P FORWARD DROP
 </div>
 </section>
 <section id="logging">
-<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline"></a></h2>
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A INPUT -j LOG --log-prefix <span class="s2">&quot;Dropped INPUT Packet: &quot;</span>
 -A FORWARD -j LOG --log-prefix <span class="s2">&quot;Dropped FORWARD Packet: &quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="docker">
-<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline"></a></h2>
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/66766036/iptables-with-docker-blocking-incoming-traffic-allowing-outgoing-traffic">https://stackoverflow.com/questions/66766036/iptables-with-docker-blocking-incoming-traffic-allowing-outgoing-traffic</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/42932064/restrict-docker-exposed-port-from-only-specific-ip-adresses">https://stackoverflow.com/questions/42932064/restrict-docker-exposed-port-from-only-specific-ip-adresses</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-A DOCKER-USER -s <span class="m">172</span>.0.0.0/8 -m comment --comment <span class="s2">&quot;Allow docker to talk to itself&quot;</span> -j ACCEPT

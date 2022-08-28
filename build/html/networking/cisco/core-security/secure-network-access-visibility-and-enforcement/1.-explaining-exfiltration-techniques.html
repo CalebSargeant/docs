@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,11 +141,11 @@
            <div itemprop="articleBody">
              
   <section id="explaining-exfiltration-techniques">
-<h1>Explaining Exfiltration Techniques<a class="headerlink" href="#explaining-exfiltration-techniques" title="Permalink to this headline"></a></h1>
+<h1>Explaining Exfiltration Techniques<a class="headerlink" href="#explaining-exfiltration-techniques" title="Permalink to this heading"></a></h1>
 <section id="exfiltrating-data-using-dns-ntp-icmp-or-irc">
-<h2>Exfiltrating Data Using DNS, NTP, ICMP, or IRC<a class="headerlink" href="#exfiltrating-data-using-dns-ntp-icmp-or-irc" title="Permalink to this headline"></a></h2>
+<h2>Exfiltrating Data Using DNS, NTP, ICMP, or IRC<a class="headerlink" href="#exfiltrating-data-using-dns-ntp-icmp-or-irc" title="Permalink to this heading"></a></h2>
 <section id="dns-tunneling">
-<h3>DNS Tunneling<a class="headerlink" href="#dns-tunneling" title="Permalink to this headline"></a></h3>
+<h3>DNS Tunneling<a class="headerlink" href="#dns-tunneling" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>DNS resolves hostnames to IP addresses</p></li>
 <li><p>Usually uses port 53</p></li>
@@ -159,7 +162,7 @@ malicious DNS servers * Organizations would forward DNS requests to
 Umbrella * Malicious queries won’t be forwarded</p>
 </section>
 <section id="ntp-covert-channels">
-<h3>NTP Covert Channels<a class="headerlink" href="#ntp-covert-channels" title="Permalink to this headline"></a></h3>
+<h3>NTP Covert Channels<a class="headerlink" href="#ntp-covert-channels" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Initiation pattern known by malicious server and client</p>
 <ul>
@@ -190,7 +193,7 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </ul>
 </section>
 <section id="icmp-echo-manipulation">
-<h3>ICMP Echo Manipulation<a class="headerlink" href="#icmp-echo-manipulation" title="Permalink to this headline"></a></h3>
+<h3>ICMP Echo Manipulation<a class="headerlink" href="#icmp-echo-manipulation" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Input data into payload of ICMP echo requests</p></li>
 <li><p>Segment data over multiple echo requests</p>
@@ -207,7 +210,7 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </ul>
 </section>
 <section id="internet-relay-chat">
-<h3>Internet Relay Chat<a class="headerlink" href="#internet-relay-chat" title="Permalink to this headline"></a></h3>
+<h3>Internet Relay Chat<a class="headerlink" href="#internet-relay-chat" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Client will authenticate with malicious server</p></li>
 <li><p>Data will flow between the two parties</p></li>
@@ -217,16 +220,16 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </section>
 </section>
 <section id="exfiltrating-data-using-https-ftp-sftp-ssh-or-scp">
-<h2>Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP<a class="headerlink" href="#exfiltrating-data-using-https-ftp-sftp-ssh-or-scp" title="Permalink to this headline"></a></h2>
+<h2>Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP<a class="headerlink" href="#exfiltrating-data-using-https-ftp-sftp-ssh-or-scp" title="Permalink to this heading"></a></h2>
 <section id="https">
-<h3>HTTPs<a class="headerlink" href="#https" title="Permalink to this headline"></a></h3>
+<h3>HTTPs<a class="headerlink" href="#https" title="Permalink to this heading"></a></h3>
 <p><strong>Problems</strong> * Exfiltrate data over encrypted TLS session * Send data
 to cloud file hosting</p>
 <p><strong>Solutions</strong> * Decrypt the data and implement DLP * Use Cognitive
 Threat Analytics</p>
 </section>
 <section id="ftp-sftp-scp">
-<h3>FTP SFTP SCP<a class="headerlink" href="#ftp-sftp-scp" title="Permalink to this headline"></a></h3>
+<h3>FTP SFTP SCP<a class="headerlink" href="#ftp-sftp-scp" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Designed to transfer files</p></li>
 <li><p>SFTP and SCP are both encrypted</p></li>
@@ -242,7 +245,7 @@ Threat Analytics</p>
 </section>
 </section>
 <section id="exfiltrating-data-using-email">
-<h2>Exfiltrating Data Using Email<a class="headerlink" href="#exfiltrating-data-using-email" title="Permalink to this headline"></a></h2>
+<h2>Exfiltrating Data Using Email<a class="headerlink" href="#exfiltrating-data-using-email" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Disgruntled employee</p></li>
 <li><p>Sends emails that contain data</p></li>
@@ -254,7 +257,7 @@ Threat Analytics</p>
 </li>
 </ul>
 <section id="email-security">
-<h3>Email Security<a class="headerlink" href="#email-security" title="Permalink to this headline"></a></h3>
+<h3>Email Security<a class="headerlink" href="#email-security" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Email Security Appliance (ESA)</p></li>
 <li><p>Cisco Email Security (CES)</p></li>

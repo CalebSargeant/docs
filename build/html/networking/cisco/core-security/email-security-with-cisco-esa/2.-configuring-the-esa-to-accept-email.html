@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,16 +141,16 @@
            <div itemprop="articleBody">
              
   <section id="configuring-the-esa-to-accept-email">
-<h1>Configuring the ESA to Accept Email<a class="headerlink" href="#configuring-the-esa-to-accept-email" title="Permalink to this headline"></a></h1>
+<h1>Configuring the ESA to Accept Email<a class="headerlink" href="#configuring-the-esa-to-accept-email" title="Permalink to this heading"></a></h1>
 <section id="configuring-interfaces-to-send-and-receive-email">
-<h2>Configuring Interfaces to Send and Receive Email<a class="headerlink" href="#configuring-interfaces-to-send-and-receive-email" title="Permalink to this headline"></a></h2>
+<h2>Configuring Interfaces to Send and Receive Email<a class="headerlink" href="#configuring-interfaces-to-send-and-receive-email" title="Permalink to this heading"></a></h2>
 <p><img alt="image1" src="../../../../_images/configuring-the-esa-to-accept-email-1.png" /></p>
 <p><img alt="image2" src="../../../../_images/configuring-the-esa-to-accept-email-2.png" /></p>
 </section>
 <section id="listeners-and-host-access-tables">
-<h2>Listeners and Host Access Tables<a class="headerlink" href="#listeners-and-host-access-tables" title="Permalink to this headline"></a></h2>
+<h2>Listeners and Host Access Tables<a class="headerlink" href="#listeners-and-host-access-tables" title="Permalink to this heading"></a></h2>
 <section id="listeners">
-<h3>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline"></a></h3>
+<h3>Listeners<a class="headerlink" href="#listeners" title="Permalink to this heading"></a></h3>
 <p>Listeners listen on the specified SMTP port for SMTP traffic</p>
 <ul class="simple">
 <li><p>Public Listener</p>
@@ -181,9 +184,9 @@ as the recipient</p></li>
 </section>
 </section>
 <section id="smtp-deep-dive">
-<h2>SMTP Deep Dive<a class="headerlink" href="#smtp-deep-dive" title="Permalink to this headline"></a></h2>
+<h2>SMTP Deep Dive<a class="headerlink" href="#smtp-deep-dive" title="Permalink to this heading"></a></h2>
 <section id="smtp-3-digit-codes">
-<h3>SMTP 3-Digit Codes<a class="headerlink" href="#smtp-3-digit-codes" title="Permalink to this headline"></a></h3>
+<h3>SMTP 3-Digit Codes<a class="headerlink" href="#smtp-3-digit-codes" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>2 - Success - received, accepted and understood by the server</p></li>
 <li><p>3 - Redirection - more information is required</p></li>
@@ -192,7 +195,7 @@ as the recipient</p></li>
 </ul>
 </section>
 <section id="smtp-envelope">
-<h3>SMTP Envelope<a class="headerlink" href="#smtp-envelope" title="Permalink to this headline"></a></h3>
+<h3>SMTP Envelope<a class="headerlink" href="#smtp-envelope" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt; 220 email.carvedrock.com SMTP
 &gt;&gt; HELO email.globomantics.com
 &lt;&lt; 250 email.carvedrock.com
@@ -204,7 +207,7 @@ as the recipient</p></li>
 </div>
 </section>
 <section id="smtp-headers">
-<h3>SMTP Headers<a class="headerlink" href="#smtp-headers" title="Permalink to this headline"></a></h3>
+<h3>SMTP Headers<a class="headerlink" href="#smtp-headers" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt; DATA
 &lt;&lt; 354 go ahead
 &gt;&gt; From: kinda &lt;kinda@globomantics.com&gt;
@@ -217,7 +220,7 @@ as the recipient</p></li>
 they are not required</p>
 </section>
 <section id="smtp-body">
-<h3>SMTP Body<a class="headerlink" href="#smtp-body" title="Permalink to this headline"></a></h3>
+<h3>SMTP Body<a class="headerlink" href="#smtp-body" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Pluralsight has some of the best training
 &gt;&gt; kinda
 &lt;&lt; 250 ok
@@ -228,9 +231,9 @@ they are not required</p>
 </section>
 </section>
 <section id="mail-flow-policies">
-<h2>Mail Flow Policies<a class="headerlink" href="#mail-flow-policies" title="Permalink to this headline"></a></h2>
+<h2>Mail Flow Policies<a class="headerlink" href="#mail-flow-policies" title="Permalink to this heading"></a></h2>
 <section id="mail-flow-policy-behaviors">
-<h3>Mail Flow Policy Behaviors<a class="headerlink" href="#mail-flow-policy-behaviors" title="Permalink to this headline"></a></h3>
+<h3>Mail Flow Policy Behaviors<a class="headerlink" href="#mail-flow-policy-behaviors" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Relay - Used to forward outbound emails from Globomantics</p>
 <ul>
@@ -248,9 +251,9 @@ Recipient Access Table (RAT)</p></li>
 </section>
 </section>
 <section id="integrating-the-esa-with-ldap-and-recipient-access-table-deep-dive">
-<h2>Integrating the ESA with LDAP and Recipient Access Table Deep Dive<a class="headerlink" href="#integrating-the-esa-with-ldap-and-recipient-access-table-deep-dive" title="Permalink to this headline"></a></h2>
+<h2>Integrating the ESA with LDAP and Recipient Access Table Deep Dive<a class="headerlink" href="#integrating-the-esa-with-ldap-and-recipient-access-table-deep-dive" title="Permalink to this heading"></a></h2>
 <section id="integrating-esa-with-ldap">
-<h3>Integrating ESA with LDAP<a class="headerlink" href="#integrating-esa-with-ldap" title="Permalink to this headline"></a></h3>
+<h3>Integrating ESA with LDAP<a class="headerlink" href="#integrating-esa-with-ldap" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>ESA will block emails if the recipient doesn’t exist</p></li>
 <li><p>Once LDAP is configured, by default all recipients will be verified</p></li>

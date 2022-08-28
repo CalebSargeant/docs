@@ -125,6 +125,19 @@ PHP
   sudo a2ensite example.com.conf
   sudo systemctl reload apache2
 
+USB Audio
+---------
+
+https://www.raspberrypi-spy.co.uk/2019/06/using-a-usb-audio-device-with-the-raspberry-pi/
+
+.. code-block:: bash
+
+  nano /usr/share/alsa/alsa.conf
+    defaults.ctl.card 1
+    defaults.pcm.card 1
+  alsamixer
+  speaker-test -c2
+
 Bluetooth Speaker
 -----------------
 

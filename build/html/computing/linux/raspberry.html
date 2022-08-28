@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -63,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Raspberry Pi</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#writing-sd-card">Writing SD Card</a></li>
@@ -75,6 +79,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#php">PHP</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#usb-audio">USB Audio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bluetooth-speaker">Bluetooth Speaker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#audio-config">Audio Config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#spotify-connect">Spotify Connect</a></li>
@@ -130,10 +135,10 @@
            <div itemprop="articleBody">
              
   <section id="raspberry-pi">
-<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this headline"></a></h1>
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading"></a></h1>
 <p>All Raspberry Pi-related stuff.</p>
 <section id="writing-sd-card">
-<h2>Writing SD Card<a class="headerlink" href="#writing-sd-card" title="Permalink to this headline"></a></h2>
+<h2>Writing SD Card<a class="headerlink" href="#writing-sd-card" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">https://www.raspberrypi.org/documentation/installation/installing-images/mac.md</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List disks to find SD card disk number (diskN)</span>
 diskutil list
@@ -150,7 +155,7 @@ sudo diskutil eject /dev/rdiskN
 </div>
 </section>
 <section id="firmware-update">
-<h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this headline"></a></h2>
+<h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md">https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md</a></p>
 <p><a class="reference external" href="https://elinux.org/R-Pi_Troubleshooting#Updating_firmware">https://elinux.org/R-Pi_Troubleshooting#Updating_firmware</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rpi-update
@@ -159,7 +164,7 @@ sudo reboot
 </div>
 </section>
 <section id="parsec">
-<h2>Parsec<a class="headerlink" href="#parsec" title="Permalink to this headline"></a></h2>
+<h2>Parsec<a class="headerlink" href="#parsec" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://forums.raspberrypi.com/viewtopic.php?t=326828">https://forums.raspberrypi.com/viewtopic.php?t=326828</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure to set the resolution and graphics memory</span>
 sudo raspi-config
@@ -177,7 +182,7 @@ sudo raspi-config
 <p><a class="reference download internal" download="" href="../../_downloads/8a179a147a7f415fe31dfb62e62d8665/parsecfiles.7z"><code class="xref download docutils literal notranslate"><span class="pre">Parsec</span> <span class="pre">Files</span></code></a></p>
 </section>
 <section id="mail">
-<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this headline"></a></h2>
+<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install mailutils
 
 <span class="c1"># mail command will use exim4 by default, so change exim4 config to be on internet instead of local</span>
@@ -196,7 +201,7 @@ tail -f /var/log/exim4/mainlog
 </div>
 </section>
 <section id="swap-file-size">
-<h2>Swap File Size<a class="headerlink" href="#swap-file-size" title="Permalink to this headline"></a></h2>
+<h2>Swap File Size<a class="headerlink" href="#swap-file-size" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-swap-file/">https://pimylifeup.com/raspberry-pi-swap-file/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dphys-swapfile swapoff
 sudo nano /etc/dphys-swapfile
@@ -207,10 +212,10 @@ sudo dphys-swapfile swapon
 </div>
 </section>
 <section id="web-server">
-<h2>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline"></a></h2>
+<h2>Web Server<a class="headerlink" href="#web-server" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-apache/">https://pimylifeup.com/raspberry-pi-apache/</a></p>
 <section id="apache">
-<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this headline"></a></h3>
+<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2 -y
 sudo usermod -a -G www-data pi
 sudo chown -R -f www-data:www-data /var/www/html
@@ -219,7 +224,7 @@ nano /var/www/html/index.html
 </div>
 </section>
 <section id="php">
-<h3>PHP<a class="headerlink" href="#php" title="Permalink to this headline"></a></h3>
+<h3>PHP<a class="headerlink" href="#php" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mbstring php7.4-mysql php7.4-curl php7.4-gd php7.4-zip -y
 sudo nano /var/www/html/example.php
   &lt;?php
@@ -240,8 +245,19 @@ sudo systemctl reload apache2
 </div>
 </section>
 </section>
+<section id="usb-audio">
+<h2>USB Audio<a class="headerlink" href="#usb-audio" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://www.raspberrypi-spy.co.uk/2019/06/using-a-usb-audio-device-with-the-raspberry-pi/">https://www.raspberrypi-spy.co.uk/2019/06/using-a-usb-audio-device-with-the-raspberry-pi/</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /usr/share/alsa/alsa.conf
+  defaults.ctl.card <span class="m">1</span>
+  defaults.pcm.card <span class="m">1</span>
+alsamixer
+speaker-test -c2
+</pre></div>
+</div>
+</section>
 <section id="bluetooth-speaker">
-<h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this headline"></a></h2>
+<h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/forums/viewtopic.php?t=235519">https://www.raspberrypi.org/forums/viewtopic.php?t=235519</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name">https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name</a></p>
 <p>Work in progress… RPI3B audio still skips every once in a while, despite official power adapter.</p>
@@ -328,7 +344,7 @@ sudo reboot
 </pre></div>
 </div>
 <section id="audio-config">
-<h3>Audio Config<a class="headerlink" href="#audio-config" title="Permalink to this headline"></a></h3>
+<h3>Audio Config<a class="headerlink" href="#audio-config" title="Permalink to this heading"></a></h3>
 <p>Adjusting Volume:</p>
 <p><a class="reference external" href="https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line">https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">alsamixer</span></code></p>
@@ -337,7 +353,7 @@ sudo reboot
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> &gt; Advanced Options &gt; Audio</p>
 </section>
 <section id="spotify-connect">
-<h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Permalink to this headline"></a></h3>
+<h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-spotify/">https://pimylifeup.com/raspberry-pi-spotify/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies</span>
 sudo apt install -y apt-transport-https curl
@@ -362,7 +378,7 @@ sudo systemctl restart raspotify
 </div>
 </section>
 <section id="fixing-audio">
-<h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Permalink to this headline"></a></h3>
+<h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Permalink to this heading"></a></h3>
 <p>Attempts to fix the audio jumps:</p>
 <p><a class="reference external" href="https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network">https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network</a></p>
 <p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering">https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering</a></p>

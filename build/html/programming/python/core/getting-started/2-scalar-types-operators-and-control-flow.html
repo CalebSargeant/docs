@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -114,9 +117,9 @@
            <div itemprop="articleBody">
              
   <section id="scalar-types-operators-and-control-flow">
-<h1>Scalar Types, Operators, and Control Flow<a class="headerlink" href="#scalar-types-operators-and-control-flow" title="Permalink to this headline"></a></h1>
+<h1>Scalar Types, Operators, and Control Flow<a class="headerlink" href="#scalar-types-operators-and-control-flow" title="Permalink to this heading"></a></h1>
 <section id="scalar-types">
-<h2>Scalar Types<a class="headerlink" href="#scalar-types" title="Permalink to this headline"></a></h2>
+<h2>Scalar Types<a class="headerlink" href="#scalar-types" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>int (42)</p>
 <ul>
@@ -226,7 +229,7 @@ True
 </div>
 </section>
 <section id="relational-operators">
-<h2>Relational Operators<a class="headerlink" href="#relational-operators" title="Permalink to this headline"></a></h2>
+<h2>Relational Operators<a class="headerlink" href="#relational-operators" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 11%" />
@@ -274,11 +277,11 @@ True
 </div>
 </section>
 <section id="control-flow">
-<h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline"></a></h2>
+<h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this heading"></a></h2>
 <p><strong>Conditional statement</strong></p>
 <p>Branch execution based on the value of an expression</p>
 <section id="if-statement">
-<h3>if statement<a class="headerlink" href="#if-statement" title="Permalink to this headline"></a></h3>
+<h3>if statement<a class="headerlink" href="#if-statement" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Syntax
 &gt;&gt;&gt; if expression:
     block
@@ -304,7 +307,7 @@ Yes please!
 </div>
 </section>
 <section id="else-clause">
-<h3>Else-clause<a class="headerlink" href="#else-clause" title="Permalink to this headline"></a></h3>
+<h3>Else-clause<a class="headerlink" href="#else-clause" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; if h &gt; 50 :
 ...    print(&quot;Greater than 50&quot;)
 ... else:
@@ -330,7 +333,7 @@ Between 20 and 50
 </section>
 </section>
 <section id="while-loops">
-<h2>While-loops<a class="headerlink" href="#while-loops" title="Permalink to this headline"></a></h2>
+<h2>While-loops<a class="headerlink" href="#while-loops" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Syntax</span>
 <span class="k">while</span> <span class="n">expression</span><span class="p">:</span>
   <span class="n">block</span>
@@ -355,7 +358,7 @@ Between 20 and 50
 </pre></div>
 </div>
 <section id="break">
-<h3>Break<a class="headerlink" href="#break" title="Permalink to this headline"></a></h3>
+<h3>Break<a class="headerlink" href="#break" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Many languages support a loop ending in a predicate test</p></li>
 <li><p>C, C++, C#, and Java have do-while</p></li>

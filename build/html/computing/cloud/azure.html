@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -82,8 +83,10 @@
 <li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -128,16 +131,16 @@
            <div itemprop="articleBody">
              
   <section id="azure">
-<h1>Azure<a class="headerlink" href="#azure" title="Permalink to this headline"></a></h1>
+<h1>Azure<a class="headerlink" href="#azure" title="Permalink to this heading"></a></h1>
 <section id="sftp-server-using-storage-account">
-<h2>SFTP Server using Storage Account<a class="headerlink" href="#sftp-server-using-storage-account" title="Permalink to this headline"></a></h2>
+<h2>SFTP Server using Storage Account<a class="headerlink" href="#sftp-server-using-storage-account" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Create Storage Account</p></li>
 <li><p>Deploy template <a class="reference external" href="https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/">https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/</a></p></li>
 </ul>
 </section>
 <section id="sentinal">
-<h2>Sentinal<a class="headerlink" href="#sentinal" title="Permalink to this headline"></a></h2>
+<h2>Sentinal<a class="headerlink" href="#sentinal" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog">https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog</a></p></li>
 <li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format">https://docs.microsoft.com/en-us/azure/sentinel/connect-common-event-format</a></p>
@@ -152,9 +155,9 @@
 </ul>
 </section>
 <section id="az-cli">
-<h2>Az-CLI<a class="headerlink" href="#az-cli" title="Permalink to this headline"></a></h2>
+<h2>Az-CLI<a class="headerlink" href="#az-cli" title="Permalink to this heading"></a></h2>
 <section id="creating-tunnels">
-<h3>Creating Tunnels<a class="headerlink" href="#creating-tunnels" title="Permalink to this headline"></a></h3>
+<h3>Creating Tunnels<a class="headerlink" href="#creating-tunnels" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a Gatway Subnet for VNET</span>
 az network vnet subnet create -g <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> --vnet-name <span class="s2">&quot;</span><span class="nv">$VNET</span><span class="s2">&quot;</span> -n <span class="s2">&quot;GatewaySubnet&quot;</span> --address-prefix <span class="s2">&quot;10.</span><span class="nv">$SUBNUM</span><span class="s2">.207.224/27&quot;</span>
 
@@ -179,7 +182,7 @@ az network vpn-connection create -g <span class="s2">&quot;</span><span class="n
 </div>
 </section>
 <section id="tunnel-config-on-asa">
-<h3>Tunnel Config on ASA<a class="headerlink" href="#tunnel-config-on-asa" title="Permalink to this headline"></a></h3>
+<h3>Tunnel Config on ASA<a class="headerlink" href="#tunnel-config-on-asa" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ASA_PEER</span><span class="o">=</span><span class="k">$(</span>az network public-ip show -g <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> -n <span class="s2">&quot;</span><span class="nv">$VGW_PIP</span><span class="s2">&quot;</span> --query ipAddress -o tsv<span class="k">)</span>
 <span class="nv">ASA_PEER_NAME</span><span class="o">=</span><span class="s2">&quot;CORP-AZURE-</span><span class="nv">$REGION_PREFIX</span><span class="s2">-</span><span class="nv">$SUBNUM</span><span class="s2">&quot;</span>
 <span class="nv">ASA_REMOTE_SUBNET</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$VNET_PREFIX</span><span class="s2">&quot;</span> <span class="p">|</span> grep -o <span class="s1">&#39;[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}&#39;</span><span class="k">)</span>
@@ -280,13 +283,13 @@ az network vpn-connection create -g <span class="s2">&quot;</span><span class="n
 </div>
 </section>
 <section id="public-ip">
-<h3>Public IP<a class="headerlink" href="#public-ip" title="Permalink to this headline"></a></h3>
+<h3>Public IP<a class="headerlink" href="#public-ip" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;code&gt;AZ_PEER_PIP1<span class="o">=</span><span class="k">$(</span>az network public-ip show -g <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> -n <span class="s2">&quot;</span><span class="nv">$VGW_PIP</span><span class="s2">&quot;</span> --query ipAddress -o tsv<span class="k">)</span>
 </pre></div>
 </div>
 </section>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nothing needs to be defined to use function (no, you don&#39;t have to define Nothing= :))</span>
 network-lb-create<span class="o">()</span> <span class="o">{</span>
   az network lb create --resource-group <span class="s2">&quot;</span><span class="nv">$RSG</span><span class="s2">&quot;</span> --name <span class="s2">&quot;</span><span class="nv">$LB_NAME</span><span class="s2">&quot;</span> --frontend-ip-name <span class="s2">&quot;</span><span class="nv">$LB_FE_POOL_NAME</span><span class="s2">&quot;</span> <span class="se">\</span>
@@ -372,7 +375,7 @@ vm-copy-ssh-key<span class="o">()</span> <span class="o">{</span>
 </div>
 </section>
 <section id="resize-disk">
-<h3>Resize Disk<a class="headerlink" href="#resize-disk" title="Permalink to this headline"></a></h3>
+<h3>Resize Disk<a class="headerlink" href="#resize-disk" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks">https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a list of disks in RSG</span>
 az disk list -g RSG --query <span class="s1">&#39;[*].{Name:name,Gb:diskSizeGb,Tier:accountType}&#39;</span> --output table
@@ -396,9 +399,9 @@ az vm start -g RSG -n SERVERNAME
 </section>
 </section>
 <section id="azure-powershell">
-<h2>Azure Powershell<a class="headerlink" href="#azure-powershell" title="Permalink to this headline"></a></h2>
+<h2>Azure Powershell<a class="headerlink" href="#azure-powershell" title="Permalink to this heading"></a></h2>
 <section id="modifying-ipsec-policies">
-<h3>Modifying IPSec Policies<a class="headerlink" href="#modifying-ipsec-policies" title="Permalink to this headline"></a></h3>
+<h3>Modifying IPSec Policies<a class="headerlink" href="#modifying-ipsec-policies" title="Permalink to this heading"></a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Maximum strength:</span>
 
 <span class="nv">$POLICY</span> <span class="p">=</span> <span class="nb">New-AzIpsecPolicy</span> <span class="n">-IkeEncryption</span> <span class="n">AES256</span> <span class="n">-IkeIntegrity</span> <span class="n">SHA384</span> <span class="n">-DhGroup</span> <span class="n">DHGroup24</span> <span class="n">-IpsecEncryption</span> <span class="n">GCMAES256</span> <span class="n">-IpsecIntegrity</span> <span class="n">GCMAES256</span> <span class="n">-PfsGroup</span> <span class="n">PFS24</span> <span class="n">-SALifeTimeSeconds</span> <span class="n">14400</span> <span class="n">-SADataSizeKilobytes</span> <span class="n">102400000</span>
@@ -412,7 +415,7 @@ az vm start -g RSG -n SERVERNAME
 </div>
 </section>
 <section id="deploy-aadds">
-<h3>Deploy AADDS<a class="headerlink" href="#deploy-aadds" title="Permalink to this headline"></a></h3>
+<h3>Deploy AADDS<a class="headerlink" href="#deploy-aadds" title="Permalink to this heading"></a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Change the following values to match your deployment.</span>
 <span class="nv">$AaddsAdminUserUpn</span> <span class="p">=</span> <span class="s2">&quot;admin@contoso.onmicrosoft.com&quot;</span>
 <span class="nv">$ResourceGroupName</span> <span class="p">=</span> <span class="s2">&quot;myResourceGroup&quot;</span>
@@ -485,9 +488,9 @@ az vm start -g RSG -n SERVERNAME
 </section>
 </section>
 <section id="connection-troubleshooting">
-<h2>Connection Troubleshooting<a class="headerlink" href="#connection-troubleshooting" title="Permalink to this headline"></a></h2>
+<h2>Connection Troubleshooting<a class="headerlink" href="#connection-troubleshooting" title="Permalink to this heading"></a></h2>
 <section id="gui">
-<h3>GUI<a class="headerlink" href="#gui" title="Permalink to this headline"></a></h3>
+<h3>GUI<a class="headerlink" href="#gui" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-portal">https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-portal</a></p>
 <p><strong>Create a Storage Account</strong></p>
 <img alt="../../_images/azure-connection-troubleshooting-1.png" src="../../_images/azure-connection-troubleshooting-1.png" />
@@ -504,7 +507,7 @@ az vm start -g RSG -n SERVERNAME
 <img alt="../../_images/azure-connection-troubleshooting-1.png" src="../../_images/azure-connection-troubleshooting-1.png" />
 </section>
 <section id="cli">
-<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this headline"></a></h3>
+<h3>CLI<a class="headerlink" href="#cli" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-powershell">https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-manage-powershell</a></p>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/network/watcher/packet-capture?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/network/watcher/packet-capture?view=azure-cli-latest</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az network watcher packet-capture create -g MyResourceGroup -n MyPacketCaptureName --vm MyVm <span class="se">\</span>

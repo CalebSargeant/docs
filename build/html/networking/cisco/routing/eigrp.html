@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -86,8 +87,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -133,11 +136,11 @@
            <div itemprop="articleBody">
              
   <section id="eigrp">
-<h1>EIGRP<a class="headerlink" href="#eigrp" title="Permalink to this headline"></a></h1>
+<h1>EIGRP<a class="headerlink" href="#eigrp" title="Permalink to this heading"></a></h1>
 <section id="concepts-and-planning">
-<h2>Concepts and Planning<a class="headerlink" href="#concepts-and-planning" title="Permalink to this headline"></a></h2>
+<h2>Concepts and Planning<a class="headerlink" href="#concepts-and-planning" title="Permalink to this heading"></a></h2>
 <section id="why-you-would-choose-to-use-eigrp">
-<h3>Why You Would Choose to Use EIGRP<a class="headerlink" href="#why-you-would-choose-to-use-eigrp" title="Permalink to this headline"></a></h3>
+<h3>Why You Would Choose to Use EIGRP<a class="headerlink" href="#why-you-would-choose-to-use-eigrp" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Backup routes (Fast convergence / DUAL)</p></li>
 <li><p>Simple configuration</p></li>
@@ -147,7 +150,7 @@
 </ol>
 </section>
 <section id="eigrp-tables-and-terminology">
-<h3>EIGRP Tables and Terminology<a class="headerlink" href="#eigrp-tables-and-terminology" title="Permalink to this headline"></a></h3>
+<h3>EIGRP Tables and Terminology<a class="headerlink" href="#eigrp-tables-and-terminology" title="Permalink to this heading"></a></h3>
 <p><strong>A router running EIGRP maintains three tables:</strong></p>
 <ul class="simple">
 <li><p>Neighbour table</p></li>
@@ -177,7 +180,7 @@
 </div>
 </section>
 <section id="eigrp-neighbour-relationships">
-<h3>EIGRP Neighbour Relationships<a class="headerlink" href="#eigrp-neighbour-relationships" title="Permalink to this headline"></a></h3>
+<h3>EIGRP Neighbour Relationships<a class="headerlink" href="#eigrp-neighbour-relationships" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Hello:</strong> forms relationship</p></li>
 <li><p><strong>Update:</strong> sends updates</p></li>
@@ -188,7 +191,7 @@
 </ul>
 </section>
 <section id="eigrp-metric-calculation">
-<h3>EIGRP Metric Calculation<a class="headerlink" href="#eigrp-metric-calculation" title="Permalink to this headline"></a></h3>
+<h3>EIGRP Metric Calculation<a class="headerlink" href="#eigrp-metric-calculation" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Bandwidth (K1)</p></li>
 <li><p>Delay (K3)</p></li>
@@ -207,7 +210,7 @@
 </section>
 </section>
 <section id="basic-configuration">
-<h2>Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this headline"></a></h2>
+<h2>Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permalink to this heading"></a></h2>
 <p><a class="reference download internal" download="" href="../../../_downloads/a675c91d5c041e59820a9db714f0ebad/eigrp-basic-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/eigrp-basic-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/eigrp-basic-configuration.png"><img alt="EIGRP Basic Configuration" class="align-center" src="../../../_images/eigrp-basic-configuration.png" style="width: 611px; height: 328px;" /></a>
 <p><strong>BB Router</strong></p>
@@ -280,9 +283,9 @@ R3#wr
 </div>
 </section>
 <section id="advanced-configuration">
-<h2>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this headline"></a></h2>
+<h2>Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this heading"></a></h2>
 <section id="frame-relay-pvc-design">
-<h3>Frame Relay PVC Design<a class="headerlink" href="#frame-relay-pvc-design" title="Permalink to this headline"></a></h3>
+<h3>Frame Relay PVC Design<a class="headerlink" href="#frame-relay-pvc-design" title="Permalink to this heading"></a></h3>
 <a class="reference internal image-reference" href="../../../_images/eigrp-frame-relay-pvc-design.png"><img alt="EIGRP Frame Relay PVC Design" class="align-center" src="../../../_images/eigrp-frame-relay-pvc-design.png" style="width: 791px; height: 551px;" /></a>
 <ul class="simple">
 <li><p>Hub-and-Spoke</p>
@@ -308,7 +311,7 @@ R3#wr
 </ul>
 </section>
 <section id="how-eigrp-handles-nbma-non-broadcast-multi-access">
-<h3>How EIGRP Handles NBMA (Non Broadcast Multi-Access)<a class="headerlink" href="#how-eigrp-handles-nbma-non-broadcast-multi-access" title="Permalink to this headline"></a></h3>
+<h3>How EIGRP Handles NBMA (Non Broadcast Multi-Access)<a class="headerlink" href="#how-eigrp-handles-nbma-non-broadcast-multi-access" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>EIGRP uses “Pseudo-Broadcasts” or manual neighbours (emulated broadcast)</p></li>
 <li><p>Split Horizon can be an issue (“I will not tell somebody what they told me”)</p>
@@ -320,27 +323,27 @@ R3#wr
 </ul>
 </section>
 <section id="configuration-example">
-<h3>Configuration Example<a class="headerlink" href="#configuration-example" title="Permalink to this headline"></a></h3>
+<h3>Configuration Example<a class="headerlink" href="#configuration-example" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/1d14b83afd18223b05d49cbec80d2e96/eigrp-advanced-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/eigrp-advanced-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/eigrp-advanced-configuration.png"><img alt="EIGRP Advanced Configuration" class="align-center" src="../../../_images/eigrp-advanced-configuration.png" style="width: 666px; height: 228px;" /></a>
 </section>
 </section>
 <section id="best-practices-and-design">
-<h2>Best Practices and Design<a class="headerlink" href="#best-practices-and-design" title="Permalink to this headline"></a></h2>
+<h2>Best Practices and Design<a class="headerlink" href="#best-practices-and-design" title="Permalink to this heading"></a></h2>
 <section id="debugging-eigrp-packets">
-<h3>Debugging EIGRP packets<a class="headerlink" href="#debugging-eigrp-packets" title="Permalink to this headline"></a></h3>
+<h3>Debugging EIGRP packets<a class="headerlink" href="#debugging-eigrp-packets" title="Permalink to this heading"></a></h3>
 <p>Show communication of EIGRP packets:</p>
 <p><code class="docutils literal notranslate"><span class="pre">debug</span> <span class="pre">eigrp</span> <span class="pre">packets</span></code></p>
 </section>
 <section id="query-swarm-resolutions">
-<h3>Query Swarm Resolutions<a class="headerlink" href="#query-swarm-resolutions" title="Permalink to this headline"></a></h3>
+<h3>Query Swarm Resolutions<a class="headerlink" href="#query-swarm-resolutions" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Summary routes</p></li>
 <li><p>Stub configuration</p></li>
 </ol>
 </section>
 <section id="configuring-stubs">
-<h3>Configuring Stubs<a class="headerlink" href="#configuring-stubs" title="Permalink to this headline"></a></h3>
+<h3>Configuring Stubs<a class="headerlink" href="#configuring-stubs" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#router eigrp1
 R1(config-router)#eigrp stub
      connected and summary by default, which is recommended (used 99% of time)

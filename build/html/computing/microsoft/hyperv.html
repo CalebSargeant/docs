@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -123,22 +126,22 @@
            <div itemprop="articleBody">
              
   <section id="hyper-v">
-<h1>Hyper-V<a class="headerlink" href="#hyper-v" title="Permalink to this headline"></a></h1>
+<h1>Hyper-V<a class="headerlink" href="#hyper-v" title="Permalink to this heading"></a></h1>
 <section id="folder-locations">
-<h2>Folder Locations<a class="headerlink" href="#folder-locations" title="Permalink to this headline"></a></h2>
+<h2>Folder Locations<a class="headerlink" href="#folder-locations" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Configuration</span> <span class="n">files</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">ProgramData</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">Hyper-V</span>
 <span class="n">Virtual</span> <span class="n">Hard</span> <span class="n">Disk</span> <span class="p">(</span><span class="n">VHD</span><span class="p">)</span> <span class="n">Files</span><span class="p">:</span> <span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">Public</span><span class="p">\</span><span class="n">Documents</span><span class="p">\</span><span class="n">Hyper-V</span><span class="p">\</span><span class="n">Virtual</span> <span class="n">Hard</span> <span class="n">Disks</span>
 </pre></div>
 </div>
 </section>
 <section id="creating-a-snapshot">
-<h2>Creating a Snapshot<a class="headerlink" href="#creating-a-snapshot" title="Permalink to this headline"></a></h2>
+<h2>Creating a Snapshot<a class="headerlink" href="#creating-a-snapshot" title="Permalink to this heading"></a></h2>
 <p>A very duh thing to add, but anyway:</p>
 <p>Go to <em>Hyper-V Manager</em>, right click on the VM, click on <em>Checkpoint</em>.</p>
 <img alt="../../_images/hyperv-checkpoint-1.png" src="../../_images/hyperv-checkpoint-1.png" />
 </section>
 <section id="replication">
-<h2>Replication<a class="headerlink" href="#replication" title="Permalink to this headline"></a></h2>
+<h2>Replication<a class="headerlink" href="#replication" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># On the Primary</span>
 <span class="nb">New-SelfSignedCertificate</span> <span class="n">-DnsName</span> <span class="s2">&quot;HV01&quot;</span> <span class="n">-CertStoreLocation</span> <span class="s2">&quot;cert:\LocalMachine\My&quot;</span> <span class="n">-TestRoot</span>
 <span class="nb">New-SelfSignedCertificate</span> <span class="n">-DnsName</span> <span class="s2">&quot;HV02&quot;</span> <span class="n">-CertStoreLocation</span> <span class="s2">&quot;cert:\LocalMachine\My&quot;</span> <span class="n">-TestRoot</span>
@@ -152,9 +155,9 @@
 </div>
 </section>
 <section id="vm-failover">
-<h2>VM Failover<a class="headerlink" href="#vm-failover" title="Permalink to this headline"></a></h2>
+<h2>VM Failover<a class="headerlink" href="#vm-failover" title="Permalink to this heading"></a></h2>
 <section id="certificate-installation">
-<h3>Certificate Installation<a class="headerlink" href="#certificate-installation" title="Permalink to this headline"></a></h3>
+<h3>Certificate Installation<a class="headerlink" href="#certificate-installation" title="Permalink to this heading"></a></h3>
 <p>This should already be in place, however, if you are receiving errors, you can set up the connection between the hypervisors again. In the below code, we are creating certificates for HYPERVISOR-02 and HYPERVISOR-01, so that we can enable replication between the two. The below certificates are computer-based certificates.</p>
 <p>Generating the Root Certificate</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">New-SelfSignedCertificate</span> <span class="n">-Type</span> <span class="s2">&quot;Custom&quot;</span> <span class="n">-KeyExportPolicy</span> <span class="s2">&quot;Exportable&quot;</span> <span class="n">-Subject</span> <span class="s2">&quot;CN=HYPERVISOR-01_to_HYPERVISOR-02-Replication&quot;</span> <span class="n">-CertStoreLocation</span> <span class="s2">&quot;Cert:\LocalMachine\My&quot;</span> <span class="n">-KeySpec</span> <span class="s2">&quot;Signature&quot;</span> <span class="n">-KeyUsage</span> <span class="s2">&quot;CertSign&quot;</span> <span class="n">-NotAfter</span> <span class="p">(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">AddYears</span><span class="p">(</span><span class="n">10</span><span class="p">)</span>
@@ -176,7 +179,7 @@
 </div>
 </section>
 <section id="enabling-replication">
-<h3>Enabling Replication<a class="headerlink" href="#enabling-replication" title="Permalink to this headline"></a></h3>
+<h3>Enabling Replication<a class="headerlink" href="#enabling-replication" title="Permalink to this heading"></a></h3>
 <p id="id1">Right click on the Virtual Machine and click on <em>Enable Replication…</em></p>
 <img alt="../../_images/hyperv-replication-1.png" src="../../_images/hyperv-replication-1.png" />
 <p>Specify the Replica Server</p>
@@ -187,7 +190,7 @@
 <img alt="../../_images/hyperv-replication-4.png" src="../../_images/hyperv-replication-4.png" />
 </section>
 <section id="failing-over">
-<h3>Failing Over<a class="headerlink" href="#failing-over" title="Permalink to this headline"></a></h3>
+<h3>Failing Over<a class="headerlink" href="#failing-over" title="Permalink to this heading"></a></h3>
 <p>There are two types of Failovers, as described below.</p>
 <p><strong>Planned Failover</strong></p>
 <p>A Planned Failover is when the <em>Primary Virtual Machine</em> is still online and active, and you would like to make the other hypervisor the host for the virtual machine, or you would like to test that the failover would work.</p>

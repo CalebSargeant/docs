@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -83,8 +84,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -130,18 +133,18 @@
            <div itemprop="articleBody">
              
   <section id="bgp">
-<h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this headline"></a></h1>
+<h1>BGP<a class="headerlink" href="#bgp" title="Permalink to this heading"></a></h1>
 <section id="bgp-concepts-and-configuration">
-<h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this headline"></a></h2>
+<h2>BGP Concepts and Configuration<a class="headerlink" href="#bgp-concepts-and-configuration" title="Permalink to this heading"></a></h2>
 <section id="bgp-routing-algorithms">
-<h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this headline"></a></h3>
+<h3>BGP Routing Algorithms<a class="headerlink" href="#bgp-routing-algorithms" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>BGP is technically a distance vector, but most call it a “Path Vector” protocol.</p></li>
 <li><p>Without tuning, BGP behaves just like RIP!</p></li>
 </ul>
 </section>
 <section id="bgp-packets-and-tables">
-<h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this headline"></a></h3>
+<h3>BGP Packets and Tables<a class="headerlink" href="#bgp-packets-and-tables" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Packets</p>
 <ul>
@@ -161,11 +164,11 @@
 </ul>
 </section>
 <section id="understanding-ibgp-vs-ebgp">
-<h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this headline"></a></h3>
+<h3>Understanding IBGP vs EBGP<a class="headerlink" href="#understanding-ibgp-vs-ebgp" title="Permalink to this heading"></a></h3>
 <a class="reference internal image-reference" href="../../../_images/bgp-understanding-ibgp-vs-ebgp.png"><img alt="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" class="align-center" src="../../../_images/bgp-understanding-ibgp-vs-ebgp.png" style="width: 663px; height: 424px;" /></a>
 </section>
 <section id="bgp-neighbour-configuration">
-<h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this headline"></a></h3>
+<h3>BGP Neighbour Configuration<a class="headerlink" href="#bgp-neighbour-configuration" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Two ways to get networks in BGP:</p>
 <ul>
@@ -176,18 +179,18 @@
 </ul>
 </section>
 <section id="bgp-synchronisation">
-<h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this headline"></a></h3>
+<h3>BGP Synchronisation<a class="headerlink" href="#bgp-synchronisation" title="Permalink to this heading"></a></h3>
 <p>Do not use or advertise a route via IBGP until the same route has been learned from the internal routing protocol.</p>
 </section>
 <section id="bgp-next-hop-processing">
-<h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this headline"></a></h3>
+<h3>BGP Next-Hop Processing<a class="headerlink" href="#bgp-next-hop-processing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>For EBGP peers: change next hop address on advertised routes</p></li>
 <li><p>For IBGP peers: do not change next hop address on advertised routes</p></li>
 </ul>
 </section>
 <section id="bgp-configuration">
-<h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this headline"></a></h3>
+<h3>BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/296be02849132d38a2692f584c4de6a1/bgp-configuration.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration.zip</span></code></a></p>
 <a class="reference internal image-reference" href="../../../_images/bgp-configuration.png"><img alt="../../../_images/bgp-configuration.png" class="align-center" src="../../../_images/bgp-configuration.png" style="width: 553px; height: 337px;" /></a>
 <p><strong>Router R1</strong></p>
@@ -305,9 +308,9 @@ R5(config-router)#redist con route-map FILTER
 </section>
 </section>
 <section id="bgp-tuning-attributes">
-<h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this headline"></a></h2>
+<h2>BGP Tuning Attributes<a class="headerlink" href="#bgp-tuning-attributes" title="Permalink to this heading"></a></h2>
 <section id="what-are-bgp-attributes">
-<h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this headline"></a></h3>
+<h3>What are BGP Attributes<a class="headerlink" href="#what-are-bgp-attributes" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The BGP metric is not simple</p></li>
 <li><p>Attributes are ways that you can ‘tag’ incoming or outgoing BGP routes</p></li>
@@ -317,7 +320,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </section>
 <section id="understanding-the-bgp-attribute-lineup">
-<h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this headline"></a></h3>
+<h3>Understanding the BGP Attribute Lineup<a class="headerlink" href="#understanding-the-bgp-attribute-lineup" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Well-Known Attributes</p>
 <ul>
@@ -337,7 +340,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </section>
 <section id="how-bgp-finds-the-best-path">
-<h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this headline"></a></h3>
+<h3>How BGP Finds the Best Path<a class="headerlink" href="#how-bgp-finds-the-best-path" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Ignore routes with an inaccessible next hop address</p></li>
 <li><p>Prefer the path with the highest WEIGHT (CISCO proprietary)</p></li>
@@ -356,7 +359,7 @@ R5(config-router)#redist con route-map FILTER
 </ol>
 </section>
 <section id="tuning-bgp-attributes">
-<h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this headline"></a></h3>
+<h3>Tuning BGP Attributes<a class="headerlink" href="#tuning-bgp-attributes" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Weight (<code class="docutils literal notranslate"><span class="pre">neighbor</span> <span class="pre">x.x.x.x</span> <span class="pre">weight</span> <span class="pre">500</span></code>)</p></li>
 <li><p>AS-Path</p></li>
@@ -367,7 +370,7 @@ R5(config-router)#redist con route-map FILTER
 </ul>
 </section>
 <section id="configuring-bgp-and-tuning">
-<h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this headline"></a></h3>
+<h3>Configuring BGP and Tuning<a class="headerlink" href="#configuring-bgp-and-tuning" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/e2c2cb8e61fd5fbbba293cc448d75478/bgp-configuration-and-tuning.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/bgp-configuration-and-tuning.zip</span></code></a></p>
 <p><strong>Router R1</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1#conf t

@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -143,13 +146,13 @@
            <div itemprop="articleBody">
              
   <section id="general">
-<h1>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h1>
+<h1>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h1>
 <section id="find-what-is-using-file">
-<h2>Find What is Using File<a class="headerlink" href="#find-what-is-using-file" title="Permalink to this headline"></a></h2>
+<h2>Find What is Using File<a class="headerlink" href="#find-what-is-using-file" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://superuser.com/questions/117902/find-out-which-process-is-locking-a-file-or-folder-in-windows/643312#643312">https://superuser.com/questions/117902/find-out-which-process-is-locking-a-file-or-folder-in-windows/643312#643312</a></p>
 </section>
 <section id="mapping-drive-cli">
-<h2>Mapping Drive CLI<a class="headerlink" href="#mapping-drive-cli" title="Permalink to this headline"></a></h2>
+<h2>Mapping Drive CLI<a class="headerlink" href="#mapping-drive-cli" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Create Mapped drive</span>
 <span class="n">net</span> <span class="n">use</span> <span class="n">z</span><span class="p">:</span> <span class="p">\\</span><span class="n">server</span><span class="p">\</span><span class="n">share</span> <span class="p">/</span><span class="n">user</span><span class="p">:</span><span class="n">administrator</span> <span class="n">mysecurepassword</span> <span class="p">/</span><span class="n">persistent</span><span class="p">:</span><span class="n">Yes</span>
 
@@ -159,7 +162,7 @@
 </div>
 </section>
 <section id="changing-network-type">
-<h2>Changing Network Type<a class="headerlink" href="#changing-network-type" title="Permalink to this headline"></a></h2>
+<h2>Changing Network Type<a class="headerlink" href="#changing-network-type" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="http://woshub.com/how-to-change-a-network-type-from-public-to-private-in-windows/">http://woshub.com/how-to-change-a-network-type-from-public-to-private-in-windows/</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Get-NetConnectionProfile</span>
 <span class="nb">Set-NetConnectionProfile</span> <span class="n">-InterfaceIndex</span> <span class="n">8</span> <span class="n">-NetworkCategory</span> <span class="n">Private</span>
@@ -168,7 +171,7 @@
 </div>
 </section>
 <section id="zip-cli">
-<h2>7-zip CLI<a class="headerlink" href="#zip-cli" title="Permalink to this headline"></a></h2>
+<h2>7-zip CLI<a class="headerlink" href="#zip-cli" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.dotnetperls.com/7-zip-examples">https://www.dotnetperls.com/7-zip-examples</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># a means archive, mx9 means best compression</span>
 <span class="n">7zip</span><span class="p">.</span><span class="n">exe</span> <span class="n">a</span> <span class="n">-t7z</span> <span class="n">-mx9</span> <span class="n">z</span><span class="p">:\</span><span class="n">dest-compressed</span><span class="o">-file</span><span class="p">.</span><span class="n">7z</span> <span class="n">z</span><span class="p">:\</span><span class="n">source-folder</span>
@@ -176,39 +179,39 @@
 </div>
 </section>
 <section id="dc-authenticated-with">
-<h2>DC Authenticated With<a class="headerlink" href="#dc-authenticated-with" title="Permalink to this headline"></a></h2>
+<h2>DC Authenticated With<a class="headerlink" href="#dc-authenticated-with" title="Permalink to this heading"></a></h2>
 <p>Check which DC authenticated with: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">%logonserver%</span></code></p>
 </section>
 <section id="check-the-size-of-a-folder-from-cli">
-<h2>Check the Size of a Folder from CLI<a class="headerlink" href="#check-the-size-of-a-folder-from-cli" title="Permalink to this headline"></a></h2>
+<h2>Check the Size of a Folder from CLI<a class="headerlink" href="#check-the-size-of-a-folder-from-cli" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line">https://superuser.com/questions/837016/how-can-i-check-the-size-of-a-folder-from-the-windows-command-line</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">dir </span><span class="p">/</span><span class="n">a</span><span class="p">/</span><span class="n">s</span>
 </pre></div>
 </div>
 </section>
 <section id="download-firefox-from-cli">
-<h2>Download Firefox from CLI<a class="headerlink" href="#download-firefox-from-cli" title="Permalink to this headline"></a></h2>
+<h2>Download Firefox from CLI<a class="headerlink" href="#download-firefox-from-cli" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># In PowerShell:</span>
 <span class="nb">wget </span><span class="n">-O</span> <span class="n">FirefoxSetup</span><span class="p">.</span><span class="n">exe</span> <span class="s2">&quot;https://download.mozilla.org/?product=firefox-latest&amp;os=win64&amp;lang=en-US&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="operations-masters">
-<h2>Operations Masters<a class="headerlink" href="#operations-masters" title="Permalink to this headline"></a></h2>
+<h2>Operations Masters<a class="headerlink" href="#operations-masters" title="Permalink to this heading"></a></h2>
 <section id="forest">
-<h3>Forest<a class="headerlink" href="#forest" title="Permalink to this headline"></a></h3>
+<h3>Forest<a class="headerlink" href="#forest" title="Permalink to this heading"></a></h3>
 <p>Domain Naming
 Schema</p>
 </section>
 <section id="domain">
-<h3>Domain<a class="headerlink" href="#domain" title="Permalink to this headline"></a></h3>
+<h3>Domain<a class="headerlink" href="#domain" title="Permalink to this heading"></a></h3>
 <p>Relative Identifier (RID)
 Infrastructure
 PDC Emulater</p>
 </section>
 </section>
 <section id="powershell">
-<h2>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline"></a></h2>
+<h2>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this heading"></a></h2>
 <p>Set-ExecutionPolicy Unrestricted
 Will allow unsigned powershell scripts to run.
 Set-ExecutionPolicy Restricted
@@ -217,7 +220,7 @@ Set-ExecutionPolicy RemoteSigned
 Will allow only remotely signed powershell scripts to run.</p>
 </section>
 <section id="rename-domain-controller">
-<h2>Rename Domain Controller<a class="headerlink" href="#rename-domain-controller" title="Permalink to this headline"></a></h2>
+<h2>Rename Domain Controller<a class="headerlink" href="#rename-domain-controller" title="Permalink to this heading"></a></h2>
 <div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>netdom computername <span class="p">&lt;</span>CurrentComputerName<span class="p">&gt;</span> /add:<span class="p">&lt;</span>NewComputerName&gt;
 netdom computername <span class="p">&lt;</span>CurrentComputerName<span class="p">&gt;</span> /makeprimary:<span class="p">&lt;</span>NewComputerName&gt;
 REBOOT
@@ -226,9 +229,9 @@ netdom computername <span class="p">&lt;</span>NewComputerName<span class="p">&g
 </div>
 </section>
 <section id="lacp">
-<h2>LACP<a class="headerlink" href="#lacp" title="Permalink to this headline"></a></h2>
+<h2>LACP<a class="headerlink" href="#lacp" title="Permalink to this heading"></a></h2>
 <section id="windows-side">
-<h3>Windows’ Side<a class="headerlink" href="#windows-side" title="Permalink to this headline"></a></h3>
+<h3>Windows’ Side<a class="headerlink" href="#windows-side" title="Permalink to this heading"></a></h3>
 <p><em>Server Manager</em> &gt; click on Link next to NIC teaming option or run <code class="docutils literal notranslate"><span class="pre">lbfoadmin.exe</span></code></p>
 <img alt="../../_images/lacp-windows-server-1.png" src="../../_images/lacp-windows-server-1.png" />
 <p>Select the adapters, add to team</p>
@@ -237,7 +240,7 @@ netdom computername <span class="p">&lt;</span>NewComputerName<span class="p">&g
 <img alt="../../_images/lacp-windows-server-3.png" src="../../_images/lacp-windows-server-3.png" />
 </section>
 <section id="cisco-s-side">
-<h3>Cisco’s Side<a class="headerlink" href="#cisco-s-side" title="Permalink to this headline"></a></h3>
+<h3>Cisco’s Side<a class="headerlink" href="#cisco-s-side" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int r g0/1 - 2
 channel-group 1 mode active
 channel-protocol lacp
@@ -251,7 +254,7 @@ switchport trunk allowed vlan &lt;all_vlans_to_allow&gt;
 </section>
 </section>
 <section id="standard-installation">
-<h2>Standard Installation<a class="headerlink" href="#standard-installation" title="Permalink to this headline"></a></h2>
+<h2>Standard Installation<a class="headerlink" href="#standard-installation" title="Permalink to this heading"></a></h2>
 <p>Ensure that the following has been configured on your physical server:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#raid">RAID</a></p></li>
@@ -261,20 +264,20 @@ switchport trunk allowed vlan &lt;all_vlans_to_allow&gt;
 <li><p><a class="reference internal" href="#updates">Updates</a></p></li>
 </ol>
 <section id="raid">
-<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this headline"></a></h3>
+<h3>RAID<a class="headerlink" href="#raid" title="Permalink to this heading"></a></h3>
 <p>Hardware Raid - BIOS
 Software Raid - diskmgmt.msc</p>
 </section>
 <section id="partitioning">
-<h3>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this headline"></a></h3>
+<h3>Partitioning<a class="headerlink" href="#partitioning" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">diskmgmt.msc</span></code> &gt; right click on C: &gt; Shrink Volume…</p>
 </section>
 <section id="shadow-copies">
-<h3>Shadow Copies<a class="headerlink" href="#shadow-copies" title="Permalink to this headline"></a></h3>
+<h3>Shadow Copies<a class="headerlink" href="#shadow-copies" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sysdm.cpl</span></code> &gt; System Protection &gt; click on drive</p>
 </section>
 <section id="backups">
-<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this headline"></a></h3>
+<h3>Backups<a class="headerlink" href="#backups" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ntbackup</span></code> after setting up Windows Backup</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -282,12 +285,12 @@ Software Raid - diskmgmt.msc</p>
 </div>
 </section>
 <section id="updates">
-<h3>Updates<a class="headerlink" href="#updates" title="Permalink to this headline"></a></h3>
+<h3>Updates<a class="headerlink" href="#updates" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wuapp.exe</span></code> &gt; install updates</p>
 </section>
 </section>
 <section id="disable-windows-server-updates">
-<h2>Disable Windows Server Updates<a class="headerlink" href="#disable-windows-server-updates" title="Permalink to this headline"></a></h2>
+<h2>Disable Windows Server Updates<a class="headerlink" href="#disable-windows-server-updates" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.netzen.co.uk/2019/07/17/disable-windows-server-updates-active-hours/">https://www.netzen.co.uk/2019/07/17/disable-windows-server-updates-active-hours/</a></p>
 <ol class="arabic simple">
 <li><p>Open Windows Powershell by right click &gt; run as administrator</p></li>
@@ -298,7 +301,7 @@ Software Raid - diskmgmt.msc</p>
 </ol>
 </section>
 <section id="fixing-windows-corruption">
-<h2>Fixing Windows Corruption<a class="headerlink" href="#fixing-windows-corruption" title="Permalink to this headline"></a></h2>
+<h2>Fixing Windows Corruption<a class="headerlink" href="#fixing-windows-corruption" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://answers.microsoft.com/en-us/windows/forum/all/exception-processing-message-0xc0000005-parameters/71c3eb40-7aab-4340-b2b0-9ef73961665d">https://answers.microsoft.com/en-us/windows/forum/all/exception-processing-message-0xc0000005-parameters/71c3eb40-7aab-4340-b2b0-9ef73961665d</a></p>
 <ul class="simple">
 <li><p>DISM.exe /Online /Cleanup-image /Scanhealth</p></li>

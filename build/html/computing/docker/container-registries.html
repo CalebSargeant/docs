@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Container Registries &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kubernetes" href="../kubernetes/index.html" />
+    <link rel="prev" title="Swarm" href="swarm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Docker</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html">Swarm</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Container Registries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-registry">Docker Registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#private-registry">Private Registry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#registry-and-proper-tls">Registry and Proper TLS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-registry-with-swarm">Using Registry with Swarm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Docker</a> &raquo;</li>
+      <li>Container Registries</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/container-registries.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="container-registries">
+<h1>Container Registries<a class="headerlink" href="#container-registries" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p>An image registry needs to be part of your container plan</p></li>
+<li><p>More Docker Hub details including auto-build</p></li>
+<li><p>How Docker Store (store.docker.com) is different than Hub</p></li>
+<li><p>How Docker Cloud (cloud.docker.com) is different than Hub</p></li>
+<li><p>Use new Swarms feature in CLoud to connect to Mac/Win Swarm</p></li>
+<li><p>Install and use Docker Registry as private image store</p></li>
+<li><p>3rd party registry options</p></li>
+</ul>
+<section id="docker-registry">
+<h2>Docker Registry<a class="headerlink" href="#docker-registry" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>A private image registry for your network</p></li>
+<li><p>Part of the docker/distribution GitHub repo</p></li>
+<li><p>The de facto in private container registries</p></li>
+<li><p>Not as full featured as Hub or others, no web UI, basic auth only</p></li>
+<li><p>At its core: a web API and storage system written in Go</p></li>
+<li><p>Storage supports local, S3/Azure/Alibaba/Google Cloud and OpenStack Swift</p></li>
+<li><p>Secure your Registry with TLS</p></li>
+<li><p>Storage cleanup via Garbage Collection</p></li>
+<li><p>Enable Hub caching via “–registry-mirror”</p></li>
+</ul>
+</section>
+<section id="private-registry">
+<h2>Private Registry<a class="headerlink" href="#private-registry" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Run the registry image on defalt port 5000</p></li>
+<li><p>Re-tag an existing image and push it to your new registry</p></li>
+<li><p>Remove that image from local cache and pull it from new registry</p></li>
+<li><p>Re-create registry using bind mount and see how it stores data</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker container run -d -p <span class="m">5000</span>:5000 --name registry registry
+docker pull hello-world
+docker run hello-world
+docker tag hello-world <span class="m">127</span>.0.0.1:5000/hello-world
+docker push <span class="m">127</span>.0.0.1:5000/hello-world
+docker container rm hello-world
+docker image remove hello-world
+docker pull <span class="m">127</span>.0.0.1:5000/hello-world
+docker container <span class="nb">kill</span> registry
+docker container rm registry
+docker container run -d -p <span class="m">5000</span>:5000 --name registry -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/registry-data:/var/lib/registry registry
+docker push <span class="m">127</span>.0.0.1:5000/hello-world
+ls /registry-data
+</pre></div>
+</div>
+<section id="registry-and-proper-tls">
+<h3>Registry and Proper TLS<a class="headerlink" href="#registry-and-proper-tls" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Secure by default: docker wont talk to registry without HTTPS</p></li>
+<li><p>Except localhost</p></li>
+<li><p>For remote self-signed TLS, enable “insecure-registry” in engine</p></li>
+</ul>
+</section>
+</section>
+<section id="using-registry-with-swarm">
+<h2>Using Registry with Swarm<a class="headerlink" href="#using-registry-with-swarm" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Works the same way as localhost</p></li>
+<li><p>Because of Routing Mesh, all nodes can see 127.0.0.1:5000</p></li>
+<li><p>Remember to decide how to store images (volume driver)</p></li>
+<li><p>Note: all nodes must be able to access images</p></li>
+<li><p>ProTip: use hosted SaaS registry if possible</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="swarm.html" class="btn btn-neutral float-left" title="Swarm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../kubernetes/index.html" class="btn btn-neutral float-right" title="Kubernetes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

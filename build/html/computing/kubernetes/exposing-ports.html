@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exposing Kubernetes Ports &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kubernetes Management Techniques" href="management-techniques.html" />
+    <link rel="prev" title="Kubernetes Install" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Kubernetes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exposing Kubernetes Ports</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#service-types">Service Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exposing-containers">Exposing Containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-service-types">Basic Service Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-service-types">More Service Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-clusterip-service">Creating a ClusterIP Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inspecting-clusterip-service">Inspecting ClusterIP Service</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-nodeport-and-loadbalancer-service">Creating a NodePort and LoadBalancer Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-nodeport-service">Create a NodePort Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-loadbalancer-service">Add a LoadBalancer Service</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kubernetes-services-dns">Kubernetes Services DNS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Future of Kubernetes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Kubernetes</a> &raquo;</li>
+      <li>Exposing Kubernetes Ports</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/kubernetes/exposing-ports.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="exposing-kubernetes-ports">
+<h1>Exposing Kubernetes Ports<a class="headerlink" href="#exposing-kubernetes-ports" title="Permalink to this heading"></a></h1>
+<section id="service-types">
+<h2>Service Types<a class="headerlink" href="#service-types" title="Permalink to this heading"></a></h2>
+<section id="exposing-containers">
+<h3>Exposing Containers<a class="headerlink" href="#exposing-containers" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p><cite>kubectl expose</cite> creates a <strong>service</strong> for existing pods</p></li>
+<li><p>A <strong>service</strong> is a stable address for pod(s)</p></li>
+<li><p>If we want to connect to pod(s), we need a <strong>service</strong></p></li>
+<li><p>CoreDNS allows us to resolve <strong>services</strong> by name</p></li>
+<li><p>There are different types of <strong>services</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ClusterIP</p></li>
+<li><p>NodePort</p></li>
+<li><p>LoadBalancer</p></li>
+<li><p>ExternalName</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="basic-service-types">
+<h3>Basic Service Types<a class="headerlink" href="#basic-service-types" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>ClusterIP (default)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Single, internal virtual IP allocated</p></li>
+<li><p>Only reachable from within the cluster (nodes and podes)</p></li>
+<li><p>Pods can reach service on apps port number</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>NodePort</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>High port allocated on each node</p></li>
+<li><p>Port is open on every node’s IP</p></li>
+<li><p>Anyone can connect (if they can reach the node)</p></li>
+<li><p>Other pods need to be updated to this port</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>These services are always available in Kubernetes</p></li>
+</ul>
+</section>
+<section id="more-service-types">
+<h3>More Service Types<a class="headerlink" href="#more-service-types" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>LoadBalancer</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Controls a LB endpoint external to the cluster</p></li>
+<li><p>Only available when infra provider gives ou a LB (AWS ELB, etc)</p></li>
+<li><p>Creates NodePort+ClusterIP services, tells LB to send to NodePort</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ExternalName</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adds CNAME DNS record to CoreDNS only</p></li>
+<li><p>Not used for Pods, but for giving pods a DNS name to use for something outside Kubernetes</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="creating-a-clusterip-service">
+<h2>Creating a ClusterIP Service<a class="headerlink" href="#creating-a-clusterip-service" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Open two shell windos so we can watch this</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl get pods -w</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>In second window, lets start a simple http server using sample code</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl create deployment httpenv –image=bretfisher/httpenv</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Scale it to 5 replicas</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl scale deployment/httpenv –replicas=5</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Lets create a ClusterIP service (default)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl expose deployment/httpenv –port 8888</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="inspecting-clusterip-service">
+<h3>Inspecting ClusterIP Service<a class="headerlink" href="#inspecting-clusterip-service" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Look up what IP was allocated</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl get service</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Remember this IP is cluster internal only, how do we curl it?</p></li>
+<li><p>If you’re on DOcker Desktop (Host OS is not container OS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl run –generator=run-pod/v1 tmp-shell –rm -it –image bretfisher/netshoot – bash</cite></p></li>
+<li><p><cite>curl httpenv:8888</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If you’re on Linux host</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>curl [ip of service]:8888</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="creating-a-nodeport-and-loadbalancer-service">
+<h2>Creating a NodePort and LoadBalancer Service<a class="headerlink" href="#creating-a-nodeport-and-loadbalancer-service" title="Permalink to this heading"></a></h2>
+<section id="create-a-nodeport-service">
+<h3>Create a NodePort Service<a class="headerlink" href="#create-a-nodeport-service" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Lets expose a NodePort so we can access it via the host IP (including localhost)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubetcl expose deployment/httpenv –port 8888 -name httpenv-np –type NodePort</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Did you know that a NodePort service also creates a ClusterIP?</p></li>
+<li><p>These three services are additive, each one creates the ones above it:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ClusterIP</p></li>
+<li><p>NodePort</p></li>
+<li><p>LoadBalancer</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="add-a-loadbalancer-service">
+<h3>Add a LoadBalancer Service<a class="headerlink" href="#add-a-loadbalancer-service" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>If you’re on Docker Desktop, it provides a built-in LoadBalancer that publishes the –port on localhost</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl expose deployment/httpenv –port 8888 –name httpenv-lb –type LoadBalancer</cite></p></li>
+<li><p><cite>curl localhost:8888</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If you’re on kubeadm, minikube, or microk8s</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>No built-in LB</p></li>
+<li><p>You can still run the command, it’ll just stay at “pending” (but its NodePort works)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="kubernetes-services-dns">
+<h2>Kubernetes Services DNS<a class="headerlink" href="#kubernetes-services-dns" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Starting with 1.11, internal DNS is provided by CoreDNS</p></li>
+<li><p>Like Swarm, this is DNS-Based Service Discovery</p></li>
+<li><p>So far we’ve been using hostnames to access services</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>curl &lt;hostname&gt;</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>But that only works for Services in the same Namespace</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl get namespaces</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Services also have a FQDN</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>curl &lt;hostname&gt;.&lt;namespace&gt;.svc.cluster.local</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Kubernetes Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="management-techniques.html" class="btn btn-neutral float-right" title="Kubernetes Management Techniques" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

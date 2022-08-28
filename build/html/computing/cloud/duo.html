@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -95,8 +96,10 @@
 <li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -141,19 +144,19 @@
            <div itemprop="articleBody">
              
   <section id="duo">
-<h1>Duo<a class="headerlink" href="#duo" title="Permalink to this headline"></a></h1>
+<h1>Duo<a class="headerlink" href="#duo" title="Permalink to this heading"></a></h1>
 <p>Stuff about Duo &amp; administration thereof</p>
 <section id="cisco-anyconnect-vpn">
-<h2>Cisco AnyConnect VPN<a class="headerlink" href="#cisco-anyconnect-vpn" title="Permalink to this headline"></a></h2>
+<h2>Cisco AnyConnect VPN<a class="headerlink" href="#cisco-anyconnect-vpn" title="Permalink to this heading"></a></h2>
 <section id="duo-admin-panel">
-<span id="id1"></span><h3>Duo Admin Panel<a class="headerlink" href="#duo-admin-panel" title="Permalink to this headline"></a></h3>
+<span id="id1"></span><h3>Duo Admin Panel<a class="headerlink" href="#duo-admin-panel" title="Permalink to this heading"></a></h3>
 <p>Go to <em>Applications &gt; Protect an Application</em> &gt; search for cisco radius &gt; <em>Protect this Application</em></p>
 <img alt="../../_images/duo-8.png" src="../../_images/duo-8.png" />
 <p>Take note of the below. There are way more options that can be configured including but not limited to, logs, voice greetings, policies, etc.</p>
 <img alt="../../_images/duo-9.png" src="../../_images/duo-9.png" />
 </section>
 <section id="duo-authentication-proxy">
-<h3>Duo Authentication Proxy<a class="headerlink" href="#duo-authentication-proxy" title="Permalink to this headline"></a></h3>
+<h3>Duo Authentication Proxy<a class="headerlink" href="#duo-authentication-proxy" title="Permalink to this heading"></a></h3>
 <p>See :<a class="reference internal" href="#id3"><span class="std std-ref">Directory Sync</span></a> for expected output</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit the Duo config file</span>
 sudo nano /opt/duoauthproxy/conf/authproxy.cfg
@@ -174,7 +177,7 @@ sudo /opt/duoauthproxy/bin/authproxy_connectivity_tool
 </div>
 </section>
 <section id="cisco-asa-configuration">
-<h3>Cisco ASA Configuration<a class="headerlink" href="#cisco-asa-configuration" title="Permalink to this headline"></a></h3>
+<h3>Cisco ASA Configuration<a class="headerlink" href="#cisco-asa-configuration" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Create the aaa-server
 aaa-server CORP_DUO protocol radius
 aaa-server CORP_DUO (inside) host server.corp.example.com
@@ -203,7 +206,7 @@ tunnel-group DUO_TUNNEL_GROUP webvpn-attributes
 </section>
 </section>
 <section id="cisco-management-access">
-<h2>Cisco Management Access<a class="headerlink" href="#cisco-management-access" title="Permalink to this headline"></a></h2>
+<h2>Cisco Management Access<a class="headerlink" href="#cisco-management-access" title="Permalink to this heading"></a></h2>
 <p>We added independent Application to DUO cloud service to be able to independently manage groups allowed to access the group of devices.</p>
 <img alt="../../_images/duo-3.png" src="../../_images/duo-3.png" />
 <p>The group is:</p>
@@ -212,7 +215,7 @@ tunnel-group DUO_TUNNEL_GROUP webvpn-attributes
 <img alt="../../_images/duo-6.png" src="../../_images/duo-6.png" />
 <img alt="../../_images/duo-7.png" src="../../_images/duo-7.png" />
 <section id="id2">
-<h3>DUO Authentication Proxy<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<h3>DUO Authentication Proxy<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>We needed a second instance of RADIUS proxy on the duo instances built for AnyConnect MFA.</p>
 <p>This was achieved by adding a section to the configuration of each DUO instance.</p>
 <p>We needed to specify different radius port, for example port=18120, to avoid mixing with DUO MFA for AnyConnect.</p>
@@ -234,7 +237,7 @@ tunnel-group DUO_TUNNEL_GROUP webvpn-attributes
 <p>Reload of the service should show no errors:</p>
 </section>
 <section id="cisco-asa">
-<h3>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this headline"></a></h3>
+<h3>Cisco ASA<a class="headerlink" href="#cisco-asa" title="Permalink to this heading"></a></h3>
 <p>The configuration on each firewall has to point on the local duo proxy servers first, then as a fallback should be listed the remote proxy servers.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aaa-server CORP_DUO_NET protocol radius
 
@@ -260,7 +263,7 @@ aaa authentication ssh console CORP_DUO_NET LOCAL
 </div>
 </section>
 <section id="cisco-ios">
-<h3>Cisco IOS<a class="headerlink" href="#cisco-ios" title="Permalink to this headline"></a></h3>
+<h3>Cisco IOS<a class="headerlink" href="#cisco-ios" title="Permalink to this heading"></a></h3>
 <p>The configuration on each switch has to point on the local duo proxy servers first, then as a fallback should be listed the remote proxy servers. Also DNS had to be fixed to make sure the switch can find the instances by name.</p>
 <p>Importantly, the Duoauthproxy DNS to IP resolution is only performed at the configuration time and saved, as each Duoauthproxy is saved to the configuration as an IP address.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Enable DNS lookups
@@ -290,9 +293,9 @@ enable secret 5 REDACTED
 </section>
 </section>
 <section id="logging-syslog">
-<h2>Logging &amp; Syslog<a class="headerlink" href="#logging-syslog" title="Permalink to this headline"></a></h2>
+<h2>Logging &amp; Syslog<a class="headerlink" href="#logging-syslog" title="Permalink to this heading"></a></h2>
 <section id="duoauthproxy-syslog-config">
-<h3>DuoAuthProxy Syslog Config<a class="headerlink" href="#duoauthproxy-syslog-config" title="Permalink to this headline"></a></h3>
+<h3>DuoAuthProxy Syslog Config<a class="headerlink" href="#duoauthproxy-syslog-config" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/rsyslog.conf
     *.*     @server1.corp.example.com:12202<span class="p">;</span>RSYSLOG_SyslogProtocol23Format
     *.*     @server2.corp.example.com:12202<span class="p">;</span>RSYSLOG_SyslogProtocol23Format
@@ -302,7 +305,7 @@ service rsyslog restart
 </div>
 </section>
 <section id="logging-server-config">
-<h3>Logging Server Config<a class="headerlink" href="#logging-server-config" title="Permalink to this headline"></a></h3>
+<h3>Logging Server Config<a class="headerlink" href="#logging-server-config" title="Permalink to this heading"></a></h3>
 <p>I’m using Graylog in this example</p>
 <p>Navigate to <em>System &gt; Inputs</em></p>
 <img alt="../../_images/duo-10.png" src="../../_images/duo-10.png" />
@@ -316,9 +319,9 @@ service rsyslog restart
 </section>
 </section>
 <section id="directory-sync">
-<h2>Directory Sync<a class="headerlink" href="#directory-sync" title="Permalink to this headline"></a></h2>
+<h2>Directory Sync<a class="headerlink" href="#directory-sync" title="Permalink to this heading"></a></h2>
 <section id="add-email-addresses-attributes-to-ad">
-<span id="id3"></span><h3>Add Email Addresses Attributes to AD<a class="headerlink" href="#add-email-addresses-attributes-to-ad" title="Permalink to this headline"></a></h3>
+<span id="id3"></span><h3>Add Email Addresses Attributes to AD<a class="headerlink" href="#add-email-addresses-attributes-to-ad" title="Permalink to this heading"></a></h3>
 <p>The E-mail address field in AD needs to be filled out so that, when we do a Directory Sync with Duo, the email address will be populated in Duo for sending out enrolment links.</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
 
@@ -341,7 +344,7 @@ service rsyslog restart
 <img alt="../../_images/duo-2.png" src="../../_images/duo-2.png" />
 </section>
 <section id="in-the-duo-admin-panel">
-<h3>In the Duo Admin Panel<a class="headerlink" href="#in-the-duo-admin-panel" title="Permalink to this headline"></a></h3>
+<h3>In the Duo Admin Panel<a class="headerlink" href="#in-the-duo-admin-panel" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://duo.com/docs/adsync#add-the-directory">https://duo.com/docs/adsync#add-the-directory</a></p>
 <p>Go to <em>Users &gt; Directory Sync &gt; New Directory</em></p>
 <img alt="../../_images/duo-23.png" src="../../_images/duo-23.png" />
@@ -354,7 +357,7 @@ service rsyslog restart
 <p>We will now take a break from the <em>Duo Admin Panel</em> and configure the <em>Duo Authentication Proxy</em> and come back to this page. Ensure that you click on <em>Save Directory</em></p>
 </section>
 <section id="on-the-duo-authentication-proxy">
-<h3>On the Duo Authentication Proxy<a class="headerlink" href="#on-the-duo-authentication-proxy" title="Permalink to this headline"></a></h3>
+<h3>On the Duo Authentication Proxy<a class="headerlink" href="#on-the-duo-authentication-proxy" title="Permalink to this heading"></a></h3>
 <p>As per <a class="reference external" href="https://duo.com/docs/adsync#duo-authentication-proxy">https://duo.com/docs/adsync#duo-authentication-proxy</a> and <a class="reference external" href="https://duo.com/docs/authproxy-reference">https://duo.com/docs/authproxy-reference</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update and upgrade</span>
 sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get upgrade -y
@@ -467,7 +470,7 @@ The results have also been logged <span class="k">in</span> /opt/duoauthproxy/lo
 </div>
 </section>
 <section id="back-on-the-duo-admin-panel">
-<h3>Back on the Duo Admin Panel<a class="headerlink" href="#back-on-the-duo-admin-panel" title="Permalink to this headline"></a></h3>
+<h3>Back on the Duo Admin Panel<a class="headerlink" href="#back-on-the-duo-admin-panel" title="Permalink to this heading"></a></h3>
 <p>Click on <em>Save Directory</em> again. Select the groups that you would like to sync. For this demo I just selected Role-Infrastructure. Click on Save Groups.</p>
 <img alt="../../_images/duo-27.png" src="../../_images/duo-27.png" />
 <p>You can now sync the users that are part of the AD group, or sync specific users in the group(s).</p>
@@ -475,9 +478,9 @@ The results have also been logged <span class="k">in</span> /opt/duoauthproxy/lo
 </section>
 </section>
 <section id="unix-ssh">
-<h2>Unix SSH<a class="headerlink" href="#unix-ssh" title="Permalink to this headline"></a></h2>
+<h2>Unix SSH<a class="headerlink" href="#unix-ssh" title="Permalink to this heading"></a></h2>
 <section id="installation-configuration">
-<h3>Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permalink to this headline"></a></h3>
+<h3>Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permalink to this heading"></a></h3>
 <p>I recommend the <em>duo-unix</em> apt package gets installed via the official Duo repository, instead of building and installing the package from a download link. Therefore, as per <a class="reference external" href="https://duo.com/docs/duounix#linux-distribution-packages">https://duo.com/docs/duounix#linux-distribution-packages</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the source.list</span>
 sudo nano /etc/apt/sources.list.d/duosecurity.list
@@ -496,7 +499,7 @@ sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get install du
 </ol>
 </section>
 <section id="duo-pam-module">
-<h3>Duo PAM Module<a class="headerlink" href="#duo-pam-module" title="Permalink to this headline"></a></h3>
+<h3>Duo PAM Module<a class="headerlink" href="#duo-pam-module" title="Permalink to this heading"></a></h3>
 <p id="id4">Duo PAM is the first thing that has to be configured. We specify the Duo API hostname, etc. in this configuration.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/duo/pam_duo.conf
   <span class="o">[</span>duo<span class="o">]</span>
@@ -519,7 +522,7 @@ sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get install du
 </div>
 </section>
 <section id="public-key-or-sssd-authentication">
-<h3>Public Key or SSSD Authentication<a class="headerlink" href="#public-key-or-sssd-authentication" title="Permalink to this headline"></a></h3>
+<h3>Public Key or SSSD Authentication<a class="headerlink" href="#public-key-or-sssd-authentication" title="Permalink to this heading"></a></h3>
 <p id="id5">An example of the below configuration, as well as installing &amp; configuring SSSD, joining the domain, and configuring sudoers can be found <a class="reference external" href="https://docs.calebsargeant.com/en/latest/computing/linux/general.html#ldap-authentication">here</a>.</p>
 <p><strong>SSH Config</strong></p>
 <p>Add or modify the below parameters to the <code class="docutils literal notranslate"><span class="pre">sshd_config</span></code> file.</p>
@@ -556,7 +559,7 @@ sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get install du
 </div>
 </section>
 <section id="public-key-authentication">
-<h3>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this headline"></a></h3>
+<h3>Public Key Authentication<a class="headerlink" href="#public-key-authentication" title="Permalink to this heading"></a></h3>
 <p id="id6"><strong>SSH Config</strong></p>
 <p>Add or modify the below parameters to the sshd_config file.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/ssh/sshd_config
@@ -594,7 +597,7 @@ service sshd restart
 </div>
 </section>
 <section id="password-authentication">
-<h3>Password Authentication<a class="headerlink" href="#password-authentication" title="Permalink to this headline"></a></h3>
+<h3>Password Authentication<a class="headerlink" href="#password-authentication" title="Permalink to this heading"></a></h3>
 <p id="id7"><strong>SSH Config</strong></p>
 <p>Although the defaults work, add or modify the below parameters to the <code class="docutils literal notranslate"><span class="pre">sshd_config</span></code> file.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /etc/ssh/sshd_config
@@ -634,7 +637,7 @@ service sshd restart
 </section>
 </section>
 <section id="rdp">
-<h2>RDP<a class="headerlink" href="#rdp" title="Permalink to this headline"></a></h2>
+<h2>RDP<a class="headerlink" href="#rdp" title="Permalink to this heading"></a></h2>
 <p>As per <a class="reference external" href="https://duo.com/docs/rdp">https://duo.com/docs/rdp</a></p>
 <p>Download and install the Duo application for Windows: <a class="reference external" href="https://dl.duosecurity.com/duo-win-login-latest.exe">https://dl.duosecurity.com/duo-win-login-latest.exe</a></p>
 <p>Click Next</p>

@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -82,8 +83,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -129,9 +132,9 @@
            <div itemprop="articleBody">
              
   <section id="mpls-fundamentals">
-<h1>MPLS Fundamentals<a class="headerlink" href="#mpls-fundamentals" title="Permalink to this headline"></a></h1>
+<h1>MPLS Fundamentals<a class="headerlink" href="#mpls-fundamentals" title="Permalink to this heading"></a></h1>
 <section id="mpls-data-plane">
-<h2>MPLS Data Plane<a class="headerlink" href="#mpls-data-plane" title="Permalink to this headline"></a></h2>
+<h2>MPLS Data Plane<a class="headerlink" href="#mpls-data-plane" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>LSR uses the <strong>FIB</strong> to forward <strong>unlabeled IP packets</strong></p></li>
 <li><p>LSR uses the <strong>LFIB</strong> to forward <strong>labeled packets</strong></p></li>
@@ -140,7 +143,7 @@
 <img alt="../../../_images/mpls-3.png" src="../../../_images/mpls-3.png" />
 </section>
 <section id="key-router-databases">
-<h2>Key Router Databases<a class="headerlink" href="#key-router-databases" title="Permalink to this headline"></a></h2>
+<h2>Key Router Databases<a class="headerlink" href="#key-router-databases" title="Permalink to this heading"></a></h2>
 <img alt="../../../_images/mpls-4.png" src="../../../_images/mpls-4.png" />
 <ul class="simple">
 <li><p>RIB (Routing Information Base) - <code class="docutils literal notranslate"><span class="pre">sh</span> <span class="pre">ip</span> <span class="pre">route</span></code> - Routing table, static, connected, etc.</p></li>
@@ -150,7 +153,7 @@
 </ul>
 </section>
 <section id="mpls-control-plan">
-<h2>MPLS Control Plan<a class="headerlink" href="#mpls-control-plan" title="Permalink to this headline"></a></h2>
+<h2>MPLS Control Plan<a class="headerlink" href="#mpls-control-plan" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Step 1 - Every LSR generates a local label for every connected, static and IGP prefix</p></li>
 <li><p>Step 2 - Exchange prefix / label bindings with all LDP neighbors</p></li>
@@ -160,13 +163,13 @@
 </ul>
 </section>
 <section id="label-distribution-protocol-ldp">
-<h2>Label Distribution Protocol (LDP)<a class="headerlink" href="#label-distribution-protocol-ldp" title="Permalink to this headline"></a></h2>
+<h2>Label Distribution Protocol (LDP)<a class="headerlink" href="#label-distribution-protocol-ldp" title="Permalink to this heading"></a></h2>
 <section id="ldp-label-exchange">
-<h3>LDP Label Exchange<a class="headerlink" href="#ldp-label-exchange" title="Permalink to this headline"></a></h3>
+<h3>LDP Label Exchange<a class="headerlink" href="#ldp-label-exchange" title="Permalink to this heading"></a></h3>
 <img alt="../../../_images/mpls-5.png" src="../../../_images/mpls-5.png" />
 </section>
 <section id="ldp-mechanics">
-<h3>LDP Mechanics<a class="headerlink" href="#ldp-mechanics" title="Permalink to this headline"></a></h3>
+<h3>LDP Mechanics<a class="headerlink" href="#ldp-mechanics" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>LDP <strong>hello messages</strong> are <strong>multicast</strong> to <strong>224.0.0.2</strong> to discover LDP neighbors</p>
 <ul>
@@ -185,7 +188,7 @@
 </ul>
 </section>
 <section id="penultimate-hop-popping">
-<h3>Penultimate Hop Popping<a class="headerlink" href="#penultimate-hop-popping" title="Permalink to this headline"></a></h3>
+<h3>Penultimate Hop Popping<a class="headerlink" href="#penultimate-hop-popping" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>LSR advertises a <strong>special label</strong> called <strong>implicit null</strong> (label value 3) for any prefixes that it needs to forward packets for using only (outside MPLS)</p></li>
 <li><p>The <strong>implicit null</strong> label tells the upstream neighbor to <strong>pop</strong> the outer most label before sending the packet as an efficiency mechanism</p></li>
@@ -194,9 +197,9 @@
 </section>
 </section>
 <section id="mpls-ping-and-traceroute">
-<h2>MPLS Ping and Traceroute<a class="headerlink" href="#mpls-ping-and-traceroute" title="Permalink to this headline"></a></h2>
+<h2>MPLS Ping and Traceroute<a class="headerlink" href="#mpls-ping-and-traceroute" title="Permalink to this heading"></a></h2>
 <section id="mpls-ping">
-<h3>MPLS Ping<a class="headerlink" href="#mpls-ping" title="Permalink to this headline"></a></h3>
+<h3>MPLS Ping<a class="headerlink" href="#mpls-ping" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Classic ping works fine in MPLS environments but has some challenges</p>
 <ul>
@@ -226,7 +229,7 @@
 </ul>
 </section>
 <section id="mpls-classic-traceroute">
-<h3>MPLS Classic Traceroute<a class="headerlink" href="#mpls-classic-traceroute" title="Permalink to this headline"></a></h3>
+<h3>MPLS Classic Traceroute<a class="headerlink" href="#mpls-classic-traceroute" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Traditional traceroute in an MPLS environment works differently than you might imagine</p></li>
 <li><p>It suffers from the same problems as ping and is not efficient</p></li>

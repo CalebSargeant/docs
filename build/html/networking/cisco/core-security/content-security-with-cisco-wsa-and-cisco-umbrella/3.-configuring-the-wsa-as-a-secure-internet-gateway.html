@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -91,8 +92,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -139,9 +142,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-the-wsa-as-a-secure-internet-gateway">
-<h1>Configuring the WSA as a Secure Internet Gateway<a class="headerlink" href="#configuring-the-wsa-as-a-secure-internet-gateway" title="Permalink to this headline"></a></h1>
+<h1>Configuring the WSA as a Secure Internet Gateway<a class="headerlink" href="#configuring-the-wsa-as-a-secure-internet-gateway" title="Permalink to this heading"></a></h1>
 <section id="modifying-the-global-access-policy">
-<h2>Modifying the Global Access Policy<a class="headerlink" href="#modifying-the-global-access-policy" title="Permalink to this headline"></a></h2>
+<h2>Modifying the Global Access Policy<a class="headerlink" href="#modifying-the-global-access-policy" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Restrict URL categories</p></li>
 <li><p>Restrict Google Maps application</p></li>
@@ -151,7 +154,7 @@
 <p><img alt="image1" src="../../../../_images/configuring-the-wsa-as-a-secure-internet-gateway-1.png" /></p>
 </section>
 <section id="creating-an-exemption-access-policy">
-<h2>Creating an Exemption Access Policy<a class="headerlink" href="#creating-an-exemption-access-policy" title="Permalink to this headline"></a></h2>
+<h2>Creating an Exemption Access Policy<a class="headerlink" href="#creating-an-exemption-access-policy" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Look at new identification profiles</p></li>
 <li><p>Create exemption policy for IT admins</p></li>
@@ -160,11 +163,11 @@
 <p><img alt="image3" src="../../../../_images/configuring-the-wsa-as-a-secure-internet-gateway-3.png" /></p>
 </section>
 <section id="testing-the-wsas-access-policies">
-<h2>Testing the WSA’s Access Policies<a class="headerlink" href="#testing-the-wsas-access-policies" title="Permalink to this headline"></a></h2>
+<h2>Testing the WSA’s Access Policies<a class="headerlink" href="#testing-the-wsas-access-policies" title="Permalink to this heading"></a></h2>
 <p><img alt="image4" src="../../../../_images/configuring-the-wsa-as-a-secure-internet-gateway-4.png" /></p>
 </section>
 <section id="decryption-policy-overview">
-<h2>Decryption Policy Overview<a class="headerlink" href="#decryption-policy-overview" title="Permalink to this headline"></a></h2>
+<h2>Decryption Policy Overview<a class="headerlink" href="#decryption-policy-overview" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Client initiates TLS session with site</p></li>
 <li><p>WSA initiates TLS session with site on client’s behalf</p></li>
@@ -172,7 +175,7 @@
 <li><p>WSA sends signed copy of site’s certificate</p></li>
 </ul>
 <section id="configuring-certificates-on-the-wsa">
-<h3>Configuring Certificates on the WSA<a class="headerlink" href="#configuring-certificates-on-the-wsa" title="Permalink to this headline"></a></h3>
+<h3>Configuring Certificates on the WSA<a class="headerlink" href="#configuring-certificates-on-the-wsa" title="Permalink to this heading"></a></h3>
 <p><strong>Self-Signed Certificates</strong></p>
 <ul class="simple">
 <li><p>Certificates will need to be added to every endpoint</p></li>
@@ -186,7 +189,7 @@
 </section>
 </section>
 <section id="installing-certificates-on-the-wsa">
-<h2>Installing Certificates on the WSA<a class="headerlink" href="#installing-certificates-on-the-wsa" title="Permalink to this headline"></a></h2>
+<h2>Installing Certificates on the WSA<a class="headerlink" href="#installing-certificates-on-the-wsa" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Install root certificate on WSA</p></li>
 <li><p>Create CSR and obtain cert</p></li>
@@ -195,7 +198,7 @@
 <p><img alt="image5" src="../../../../_images/configuring-the-wsa-as-a-secure-internet-gateway-5.png" /></p>
 </section>
 <section id="configuring-decryption-policies-and-verifying">
-<h2>Configuring Decryption Policies and Verifying<a class="headerlink" href="#configuring-decryption-policies-and-verifying" title="Permalink to this headline"></a></h2>
+<h2>Configuring Decryption Policies and Verifying<a class="headerlink" href="#configuring-decryption-policies-and-verifying" title="Permalink to this heading"></a></h2>
 <p><img alt="image6" src="../../../../_images/configuring-the-wsa-as-a-secure-internet-gateway-6.png" /></p>
 </section>
 </section>

@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -66,8 +67,10 @@
 <li class="toctree-l2"><a class="reference internal" href="openstack.html">Openstack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -112,9 +115,9 @@
            <div itemprop="articleBody">
              
   <section id="digicert">
-<h1>DigiCert<a class="headerlink" href="#digicert" title="Permalink to this headline"></a></h1>
+<h1>DigiCert<a class="headerlink" href="#digicert" title="Permalink to this heading"></a></h1>
 <section id="enabling-ip-restrictions">
-<h2>Enabling IP Restrictions<a class="headerlink" href="#enabling-ip-restrictions" title="Permalink to this headline"></a></h2>
+<h2>Enabling IP Restrictions<a class="headerlink" href="#enabling-ip-restrictions" title="Permalink to this heading"></a></h2>
 <p>IP Restrictions are enabled in the DigiCert control panel under <em>Settings &gt; IP Restrictions</em>. We cannot define the IP Addresses to restrict to until we have enabled this option.</p>
 <img alt="../../_images/digicert-1.png" src="../../_images/digicert-1.png" />
 <p>Once the option is enabled, we are able to add IP Addresses to restrict.</p>
@@ -123,7 +126,7 @@
 <img alt="../../_images/digicert-3.png" src="../../_images/digicert-3.png" />
 <img alt="../../_images/digicert-4.png" src="../../_images/digicert-4.png" />
 <section id="giving-access-to-digicert-via-split-tunnel">
-<h3>Giving Access to DigiCert via Split-Tunnel<a class="headerlink" href="#giving-access-to-digicert-via-split-tunnel" title="Permalink to this headline"></a></h3>
+<h3>Giving Access to DigiCert via Split-Tunnel<a class="headerlink" href="#giving-access-to-digicert-via-split-tunnel" title="Permalink to this heading"></a></h3>
 <p>By default, we will be able to access the DigiCert control panel when working from the office. We need to add DigiCert’s IP Addresses to our outside interface split-tunnel configuration so that we can access the DigiCert control panel when VPNing from outside the office. DigiCert uses static IP Addresses which are unlikely to change; however, if they do, we will not be able to access the DigiCert control panel through VPN until we update the split-tunnel configuration.</p>
 <p>Change on ASA Example</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>access-list OUTSIDE_SPLIT_ACL standard permit host 45.60.121.229

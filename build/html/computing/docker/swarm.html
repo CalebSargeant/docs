@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swarm &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Container Registries" href="container-registries.html" />
+    <link rel="prev" title="Docker Compose" href="compose.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Docker</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Docker Compose</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Swarm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#containers-everywhere-new-problems">Containers Everywhere = New Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swarm-mode-built-in-orchestration">Swarm Mode: Built-In Orchestration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swarm-services">Swarm Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overlay-multi-host-networking">Overlay Multi-Host Networking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#routing-mesh">Routing Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swarm-stacks">Swarm Stacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#swarm-secrets">Swarm Secrets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#secrets-storage">Secrets Storage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secrets-with-services">Secrets with Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#secrets-with-stacks">Secrets with Stacks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#swarm-lifecycle">Swarm Lifecycle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#full-app-lifecycle-with-compose">Full App Lifecycle with Compose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#service-updates">Service Updates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#swarm-update-examples">Swarm Update Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swarm-updates-in-stack-files">Swarm Updates in Stack FIles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#healthchecks">Healthchecks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#healthcheck-docker-run-example">Healthcheck DOcker Run Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#healthcheck-dockerfile-examples">Healthcheck Dockerfile Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#healthcheck-in-nginx-dockerfile">Healthcheck in Nginx Dockerfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#healthcheck-in-php-nginx-dockerfile">Healthcheck in PHP Nginx Dockerfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#healthcheck-in-postgres-dockerfile">Healthcheck in postgres Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Docker</a> &raquo;</li>
+      <li>Swarm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/swarm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="swarm">
+<h1>Swarm<a class="headerlink" href="#swarm" title="Permalink to this heading"></a></h1>
+<section id="containers-everywhere-new-problems">
+<h2>Containers Everywhere = New Problems<a class="headerlink" href="#containers-everywhere-new-problems" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>How do we automate container lifecycle?</p></li>
+<li><p>How can we easily scale out/in/up/down?</p></li>
+<li><p>How can we ensure our containers are recreated if they fail?</p></li>
+<li><p>How can we replace containers without downtime (blue/green deploy)?</p></li>
+<li><p>How can we control/track where containers get started?</p></li>
+<li><p>How can we create cross-node virtual networks?</p></li>
+<li><p>How can we ensure only trusted servers run our containers?</p></li>
+<li><p>How can we store secrets, keys, passwords and get them to the right container (and only that container)?</p></li>
+</ul>
+</section>
+<section id="swarm-mode-built-in-orchestration">
+<h2>Swarm Mode: Built-In Orchestration<a class="headerlink" href="#swarm-mode-built-in-orchestration" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Swarm Mode is a clustering solution built inside Docker</p></li>
+<li><p>Not related to Swarm “classic” for pre-1.12 versions</p></li>
+<li><p>Added in 1.12 (Summer 2016) via SwarmKit toolkit</p></li>
+<li><p>Enhanced in 1.13 (Jan 2017) via Stacks and Secrets</p></li>
+<li><p>Not enabled by default, new commands once enabled</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>docker swarm</p></li>
+<li><p>docker node</p></li>
+<li><p>docker service</p></li>
+<li><p>docker stack</p></li>
+<li><p>docker secret</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../_images/swarm-diagram.png" src="../../_images/swarm-diagram.png" />
+<img alt="../../_images/swarm-diagram2.png" src="../../_images/swarm-diagram2.png" />
+<img alt="../../_images/swarm-diagram3.png" src="../../_images/swarm-diagram3.png" />
+</section>
+<section id="swarm-services">
+<h2>Swarm Services<a class="headerlink" href="#swarm-services" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p><cite>docker swarm init</cite></p></li>
+<li><p>Lots of PKI and security automation</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Root Signing Certificate create for our Swarm</p></li>
+<li><p>Certificate is issued for first Manager node</p></li>
+<li><p>Join tokens are created</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Raft database created to store root CA, configs and secrets</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Encrypted by default on disk (1.13+)</p></li>
+<li><p>No need for another key/value system to hold orchestration/secrets</p></li>
+<li><p>Replicates logs amongst Managers via mutual TLS in “contrl plane”</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="overlay-multi-host-networking">
+<h2>Overlay Multi-Host Networking<a class="headerlink" href="#overlay-multi-host-networking" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Just choose <cite>–driver overlay</cite> when creating network</p></li>
+<li><p>FOr container-to-container traffic inside a single Swarm</p></li>
+<li><p>Optional IPSec (AES) encryption on netowrk creation</p></li>
+<li><p>Each service can be connected to multiple networks</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>(e.g. fornt-end, back-end)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><cite>docker network create –driver overlay mydrupal</cite></p></li>
+<li><p><cite>docker service create –name psql –network mydrupal -e POSTGRES_PASSWORD=mypass postgres</cite></p></li>
+<li><p><cite>docker service create –name dripal –network mydrupal -p 80:80 drupal</cite></p></li>
+</ul>
+</section>
+<section id="routing-mesh">
+<h2>Routing Mesh<a class="headerlink" href="#routing-mesh" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Routes ingress (incoming) packets for a Service to proper Task</p></li>
+<li><p>Spans all nodes in Swarm</p></li>
+<li><p>Uses IPVS from Linux Kernal</p></li>
+<li><p>Load balances Swarm Services accross their Tasks</p></li>
+<li><p>Two ways this works</p></li>
+<li><p>COntainer-to-container in a Overlay netrwokr (uses VIP)</p></li>
+<li><p>External traffic incoming to published ports (all nodes listen)</p></li>
+</ul>
+<img alt="../../_images/swarm-routing-mesh.png" src="../../_images/swarm-routing-mesh.png" />
+<img alt="../../_images/swarm-routing-mesh2.png" src="../../_images/swarm-routing-mesh2.png" />
+<ul class="simple">
+<li><p><cite>docker service create –name elasticsearch –replicas 3 -p 9200:9200 elasticsearch:2</cite></p></li>
+<li><p>This is a stateless load balancer</p></li>
+<li><p>This LB is at OSI layer 3 (TCP) not layer 4 (DNS)</p></li>
+<li><p>Both limitations can be overcome with:</p></li>
+<li><p>Nginx or HAProxy LB proxy or:</p></li>
+<li><p>Docker enterprise Edition which comes with built-in L4 web proxy</p></li>
+</ul>
+</section>
+<section id="swarm-stacks">
+<h2>Swarm Stacks<a class="headerlink" href="#swarm-stacks" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>In 1.13 Docker adds a new layer of abstraction to Swarm called Stacks</p></li>
+<li><p>Stacks accept Compose files as their declarative definition for services, networks, and volumes</p></li>
+<li><p>We use <cite>docker stack deploy</cite> rather than docker service create</p></li>
+<li><p>Stack manages all those objects for us, including overlay network per stack. Adds stack name to start of their name</p></li>
+<li><p>New <cite>deploy:</cite> key in Compose file. Cant do <cite>build:</cite></p></li>
+<li><p>Compose now ignores <cite>deploy:</cite>, Swarm ignores <cite>build:</cite></p></li>
+<li><p><cite>docker-compose</cite> cli not needed on Swarm server</p></li>
+</ul>
+<img alt="../../_images/swarm-stack.png" src="../../_images/swarm-stack.png" />
+<ul class="simple">
+<li><p><cite>docker stack deploy -c example-voting-app-stack.yml voteapp</cite></p></li>
+<li><p><cite>docker stack serices voteapp</cite></p></li>
+<li><p><cite>docker stack ps voteapp</cite></p></li>
+</ul>
+</section>
+<section id="swarm-secrets">
+<h2>Swarm Secrets<a class="headerlink" href="#swarm-secrets" title="Permalink to this heading"></a></h2>
+<section id="secrets-storage">
+<h3>Secrets Storage<a class="headerlink" href="#secrets-storage" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Easiest “Secure” solution for storing secrets in Swarm</p></li>
+<li><p>What is a Secret?</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Usernames and passwords</p></li>
+<li><p>TLS certificates and keys</p></li>
+<li><p>SSH keys</p></li>
+<li><p>Any data you would prefer not being on front page of news</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Supports generic strings or binary content up to 500Kb in size</p></li>
+<li><p>Doesnt require apps to be rewritten</p></li>
+<li><p>As of Docker 1.13.0 Swarm Raft DB is encrypted on disk</p></li>
+<li><p>Only stored on disk on Manager nodes</p></li>
+<li><p>Default is Managers and Workers “control plan” is TLS + Mutual Auth</p></li>
+<li><p>Secrets are firt stored in Swarm, then assigned to a Service(s)</p></li>
+<li><p>Only containers in assigned Service(s) can see them</p></li>
+<li><p>They look like files in container but are actuallin in-memory fs</p></li>
+<li><p><cite>/run/secrets/secret_name</cite> or <cite>/run/secrets/secret_alias</cite></p></li>
+<li><p>Local docker-compose can use file-based secrets, but not secure</p></li>
+</ul>
+</section>
+<section id="secrets-with-services">
+<h3>Secrets with Services<a class="headerlink" href="#secrets-with-services" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><cite>docker secret create psql_user psql_user.txt</cite></p></li>
+<li><p><cite>echo “myDBPassword” | docker secret create psql_pass -</cite></p></li>
+<li><p><cite>docker secret ls</cite></p></li>
+<li><p><cite>docker secret inspect psql_user</cite></p></li>
+<li><p><cite>docker service create –name psql –secret psql_user –secret psql_pass -e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass -e POSTGRES_USER_FILE=/run/secrets/psql_user postgres</cite></p></li>
+<li><p><cite>docker service update –secret-rm</cite></p></li>
+</ul>
+</section>
+<section id="secrets-with-stacks">
+<h3>Secrets with Stacks<a class="headerlink" href="#secrets-with-stacks" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><cite>docker service create –name search –replicas 3 -p 9200:9200 elasticsearch:2</cite></p></li>
+<li><p><cite>docker stack deploy -c docker-compoes.yml mydb</cite></p></li>
+</ul>
+</section>
+</section>
+<section id="swarm-lifecycle">
+<h2>Swarm Lifecycle<a class="headerlink" href="#swarm-lifecycle" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>docker-compose exec psql cat /run/secrets/psql_user</cite></p></li>
+</ul>
+<section id="full-app-lifecycle-with-compose">
+<h3>Full App Lifecycle with Compose<a class="headerlink" href="#full-app-lifecycle-with-compose" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Single set of Compose files for:</p></li>
+<li><p>Local <cite>docker-compose up</cite> development environemnt</p></li>
+<li><p>Remote <cite>docker-compose up</cite> CI environment</p></li>
+<li><p>Remote <cite>docker stack deploy</cite> production environment</p></li>
+<li><p>Note: <cite>docker-compose -f a.yml -f b.yml config</cite> mostly works</p></li>
+<li><p>Note: Compose <cite>extends:</cite> doesnt work yet in Stacks</p></li>
+</ul>
+</section>
+</section>
+<section id="service-updates">
+<h2>Service Updates<a class="headerlink" href="#service-updates" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Provides rolling replacement of tasks/containers in a service</p></li>
+<li><p>Limits downtime (be careful with “prevents” downtime)</p></li>
+<li><p>Will replace containers for most changes</p></li>
+<li><p>Has many, many cli options to control the update</p></li>
+<li><p>Create options will usally change, adding -add or -rm to them</p></li>
+<li><p>Also has scale &amp; rollback subcommand for quicker access</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>docker service scale web=4</cite> and <cite>docker service rollback web</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>A stack deploy, when pre-existing, will issue service updates</p></li>
+</ul>
+<section id="swarm-update-examples">
+<h3>Swarm Update Examples<a class="headerlink" href="#swarm-update-examples" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Just update the image used to a newer version</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>docker service update –image myapp:1.2.1 &lt;servicename&gt;</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Adding an environment variable and remove a port</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>docker service update –env-add NODE_ENV=production –publish-rm 8080</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Change number of replicas of two services</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>docker service scale web=8 api=6</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="swarm-updates-in-stack-files">
+<h3>Swarm Updates in Stack FIles<a class="headerlink" href="#swarm-updates-in-stack-files" title="Permalink to this heading"></a></h3>
+<p>Same command, just edit the YAML file, then</p>
+<p><cite>docker stack deploy -c file.yml &lt;stackname&gt;</cite></p>
+</section>
+</section>
+<section id="healthchecks">
+<h2>Healthchecks<a class="headerlink" href="#healthchecks" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p><cite>HEALTHCHECK</cite> was added in 1.12</p></li>
+<li><p>Supported in Dckerfile, Compose YAML, docker run, and Swarm Services</p></li>
+<li><p>Docker engine will <cite>exec</cite>’s the command in the container</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>e.g curl localhost</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>it expects <cite>exit 0</cite> (OK) or <cite>exit 1</cite> (Error)</p></li>
+<li><p>Three container states: starting, healthy, unhealthy</p></li>
+<li><p>Much better than “is binary still running?”</p></li>
+<li><p>Not an external monitoring replacement</p></li>
+<li><p>Healthcheck status shows up in <cite>docker container ls</cite></p></li>
+<li><p>Check last 5 healthchecks with <cite>docker container inspect</cite></p></li>
+<li><p>Docker run does nothing with healthchecks</p></li>
+<li><p>Services will replace takss if they fail healthcheck</p></li>
+<li><p>Service updates wait for them before continuing</p></li>
+</ul>
+<section id="healthcheck-docker-run-example">
+<h3>Healthcheck DOcker Run Example<a class="headerlink" href="#healthcheck-docker-run-example" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run <span class="se">\</span>
+--health-cmd<span class="o">=</span><span class="s2">&quot;curl -f localhost:9200/_cluster/health || False&quot;</span> <span class="se">\</span>
+--health-interval<span class="o">=</span>5s <span class="se">\</span>
+--health-retries<span class="o">=</span><span class="m">3</span> <span class="se">\</span>
+--health-timeout<span class="o">=</span>2s <span class="se">\</span>
+--health-start-period<span class="o">=</span>15s <span class="se">\</span>
+elasticsearch:2
+</pre></div>
+</div>
+</section>
+<section id="healthcheck-dockerfile-examples">
+<h3>Healthcheck Dockerfile Examples<a class="headerlink" href="#healthcheck-dockerfile-examples" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Options for healthcheck command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>–interval=DURATION (default: 30s)</cite></p></li>
+<li><p><cite>–timeout=DURATION (default: 30s)</cite></p></li>
+<li><p><cite>–start-period=DURATION (default: 0s) (17.09+)</cite></p></li>
+<li><p><cite>–retries=N (default:3)</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Basic command using default options</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>HEALTHCHECK curl -f http://localhost/ || false</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Custom options with the command</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>HEALTHCHECK –timeout=2s –interval=3s –retries=3 CMD curl -f http://localhost/ || exit 1</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="healthcheck-in-nginx-dockerfile">
+<h3>Healthcheck in Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-nginx-dockerfile" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Static website running in Nginx, just test default URL</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM nginx:1.13
+HEALTHCHECK --interval<span class="o">=</span>30s --timeout<span class="o">=</span>3s <span class="se">\</span>
+CMD curl -f http://localhost/ <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="healthcheck-in-php-nginx-dockerfile">
+<h3>Healthcheck in PHP Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-php-nginx-dockerfile" title="Permalink to this heading"></a></h3>
+<p>PHP-FPM running behind Nginx, test the Nginx and FPM status URLs</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM your-nginx-php-fpm-combo-image
+
+<span class="c1"># dont do this if php-fpm is another container</span>
+<span class="c1"># must enable php-fpm ping/status in pool.ini</span>
+<span class="c1"># must forward /ping and /status urls from ngix to php-fpom</span>
+
+HEALTHCHECK --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\</span>
+CMD curl -f http://localhost/ping <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="healthcheck-in-postgres-dockerfile">
+<h3>Healthcheck in postgres Dockerfile<a class="headerlink" href="#healthcheck-in-postgres-dockerfile" title="Permalink to this heading"></a></h3>
+<p>Use a PostgtreSQL utility to test for ready state</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM postgres
+
+<span class="c1"># Specify real user with -U to prevent errors in log</span>
+
+HEALTHCHECK --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\</span>
+CMD pg_isready -U postgres <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="compose.html" class="btn btn-neutral float-left" title="Docker Compose" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="container-registries.html" class="btn btn-neutral float-right" title="Container Registries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

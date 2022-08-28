@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -116,9 +119,9 @@
            <div itemprop="articleBody">
              
   <section id="updating-your-configuration-with-more-resources">
-<h1>Updating Your Configuration with More Resources<a class="headerlink" href="#updating-your-configuration-with-more-resources" title="Permalink to this headline"></a></h1>
+<h1>Updating Your Configuration with More Resources<a class="headerlink" href="#updating-your-configuration-with-more-resources" title="Permalink to this heading"></a></h1>
 <section id="terraform-state">
-<h2>Terraform State<a class="headerlink" href="#terraform-state" title="Permalink to this headline"></a></h2>
+<h2>Terraform State<a class="headerlink" href="#terraform-state" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>JSON format (Do not touch!)</p></li>
 <li><p>Resource mappings and metadata</p></li>
@@ -132,7 +135,7 @@
 <li><p>Workspaces</p></li>
 </ul>
 <section id="state-file">
-<h3>State File<a class="headerlink" href="#state-file" title="Permalink to this headline"></a></h3>
+<h3>State File<a class="headerlink" href="#state-file" title="Permalink to this heading"></a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;terraform_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.12.5&quot;</span><span class="p">,</span><span class="w"></span>
@@ -150,9 +153,9 @@
 </section>
 </section>
 <section id="terraform-plan">
-<h2>Terraform Plan<a class="headerlink" href="#terraform-plan" title="Permalink to this headline"></a></h2>
+<h2>Terraform Plan<a class="headerlink" href="#terraform-plan" title="Permalink to this heading"></a></h2>
 <section id="terraform-planning">
-<h3>Terraform Planning<a class="headerlink" href="#terraform-planning" title="Permalink to this headline"></a></h3>
+<h3>Terraform Planning<a class="headerlink" href="#terraform-planning" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Inspect state</p></li>
 <li><p>Dependency graph</p></li>
@@ -163,7 +166,7 @@
 </section>
 </section>
 <section id="adding-a-vpc">
-<h2>Adding a VPC<a class="headerlink" href="#adding-a-vpc" title="Permalink to this headline"></a></h2>
+<h2>Adding a VPC<a class="headerlink" href="#adding-a-vpc" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_vpc&quot; &quot;vpc&quot; {}
 resource &quot;aws_internet_gateway&quot; &quot;igw&quot; {}
 resource &quot;aws_subnet&quot; &quot;subnet&quot; {}
@@ -172,7 +175,7 @@ resource &quot;aws_route_table_association&quot; &quot;rta-subnet1&quot; {}
 </pre></div>
 </div>
 <section id="deploying-a-vpc">
-<h3>Deploying a VPC<a class="headerlink" href="#deploying-a-vpc" title="Permalink to this headline"></a></h3>
+<h3>Deploying a VPC<a class="headerlink" href="#deploying-a-vpc" title="Permalink to this heading"></a></h3>
 <p>The below also includes an ELB and different availability zone for blue and red team deployment</p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/modulefour-update.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/modulefour-update.tf</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/m4_commands.txt"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m4/m4_commands.txt</span></code></a></p>

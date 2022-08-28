@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -122,7 +125,7 @@
            <div itemprop="articleBody">
              
   <section id="unattended-installations">
-<h1>Unattended Installations<a class="headerlink" href="#unattended-installations" title="Permalink to this headline"></a></h1>
+<h1>Unattended Installations<a class="headerlink" href="#unattended-installations" title="Permalink to this heading"></a></h1>
 <p>Brief Instructions on how to create a Windows unattended disk that allow you to:</p>
 <ul class="simple">
 <li><p>Put in the disk</p></li>
@@ -135,7 +138,7 @@
 cannot make a disk for 32-bit. You can however use something like Oracle VM Virtualbox and install Windows 32-bit
 virtually.</p>
 <section id="windows-7-10">
-<h2>Windows 7 - 10<a class="headerlink" href="#windows-7-10" title="Permalink to this headline"></a></h2>
+<h2>Windows 7 - 10<a class="headerlink" href="#windows-7-10" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Install <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=5753">WAIK:</a> (Remember to use the WAIK relevant to your OS version)</p></li>
 <li><p>Copy Windows onto the local harddrive</p></li>
@@ -166,7 +169,7 @@ virtually.</p>
 </ol>
 </div></blockquote>
 <section id="server-2012">
-<h3>Server 2012<a class="headerlink" href="#server-2012" title="Permalink to this headline"></a></h3>
+<h3>Server 2012<a class="headerlink" href="#server-2012" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/unattended-server2012-1.png" src="../../_images/unattended-server2012-1.png" />
 <img alt="../../_images/unattended-server2012-2.png" src="../../_images/unattended-server2012-2.png" />
 <img alt="../../_images/unattended-server2012-3.png" src="../../_images/unattended-server2012-3.png" />
@@ -199,7 +202,7 @@ virtually.</p>
 <img alt="../../_images/unattended-server2012-30.png" src="../../_images/unattended-server2012-30.png" />
 </section>
 <section id="server-2008-r2">
-<h3>Server 2008 R2<a class="headerlink" href="#server-2008-r2" title="Permalink to this headline"></a></h3>
+<h3>Server 2008 R2<a class="headerlink" href="#server-2008-r2" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/unattended-server2008r2-1.png" src="../../_images/unattended-server2008r2-1.png" />
 <img alt="../../_images/unattended-server2008r2-2.png" src="../../_images/unattended-server2008r2-2.png" />
 <img alt="../../_images/unattended-server2008r2-3.png" src="../../_images/unattended-server2008r2-3.png" />
@@ -230,7 +233,7 @@ virtually.</p>
 <img alt="../../_images/unattended-server2008r2-28.png" src="../../_images/unattended-server2008r2-28.png" />
 </section>
 <section id="windows-7-64-bit">
-<h3>Windows 7 64-bit<a class="headerlink" href="#windows-7-64-bit" title="Permalink to this headline"></a></h3>
+<h3>Windows 7 64-bit<a class="headerlink" href="#windows-7-64-bit" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/unattended-windows7x64-1.png" src="../../_images/unattended-windows7x64-1.png" />
 <img alt="../../_images/unattended-windows7x64-2.png" src="../../_images/unattended-windows7x64-2.png" />
 <img alt="../../_images/unattended-windows7x64-3.png" src="../../_images/unattended-windows7x64-3.png" />
@@ -266,7 +269,7 @@ virtually.</p>
 <img alt="../../_images/unattended-windows7x64-33.png" src="../../_images/unattended-windows7x64-33.png" />
 </section>
 <section id="windows-7-32-bit">
-<h3>Windows 7 32-bit<a class="headerlink" href="#windows-7-32-bit" title="Permalink to this headline"></a></h3>
+<h3>Windows 7 32-bit<a class="headerlink" href="#windows-7-32-bit" title="Permalink to this heading"></a></h3>
 <img alt="../../_images/unattended-windows7x86-1.png" src="../../_images/unattended-windows7x86-1.png" />
 <img alt="../../_images/unattended-windows7x86-2.png" src="../../_images/unattended-windows7x86-2.png" />
 <img alt="../../_images/unattended-windows7x86-3.png" src="../../_images/unattended-windows7x86-3.png" />
@@ -300,7 +303,7 @@ virtually.</p>
 </section>
 </section>
 <section id="windows-xp">
-<h2>Windows XP<a class="headerlink" href="#windows-xp" title="Permalink to this headline"></a></h2>
+<h2>Windows XP<a class="headerlink" href="#windows-xp" title="Permalink to this heading"></a></h2>
 <p>Instructions:</p>
 <ol class="arabic simple">
 <li><p>Download and install nLite</p></li>

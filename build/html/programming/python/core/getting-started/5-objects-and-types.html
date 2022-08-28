@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -114,11 +117,11 @@
            <div itemprop="articleBody">
              
   <section id="objects-and-types">
-<h1>Objects and Types<a class="headerlink" href="#objects-and-types" title="Permalink to this headline"></a></h1>
+<h1>Objects and Types<a class="headerlink" href="#objects-and-types" title="Permalink to this heading"></a></h1>
 <section id="passing-arguments-and-returning-values">
-<h2>Passing Arguments and Returning Values<a class="headerlink" href="#passing-arguments-and-returning-values" title="Permalink to this headline"></a></h2>
+<h2>Passing Arguments and Returning Values<a class="headerlink" href="#passing-arguments-and-returning-values" title="Permalink to this heading"></a></h2>
 <section id="argument-passing">
-<h3>Argument Passing<a class="headerlink" href="#argument-passing" title="Permalink to this headline"></a></h3>
+<h3>Argument Passing<a class="headerlink" href="#argument-passing" title="Permalink to this heading"></a></h3>
 <p>When we pass an object reference to a function, we’re essentially assigning from an actual argument reference, in this case <code class="docutils literal notranslate"><span class="pre">m</span></code> to the formal argument reference, in this case <code class="docutils literal notranslate"><span class="pre">k</span></code>. Assignment causes the reference being assigned to being referred <strong>to</strong> the same object as the reference being assigned <strong>from</strong>, which is what’s going on here:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; m = [9, 15, 24]
 &gt;&gt;&gt; def modify(k):
@@ -134,7 +137,7 @@ k = [9, 15, 24, 39]
 <p>If you want a function to modify the copy of an object, it’s the responsibility of the function to do the copying.</p>
 </section>
 <section id="replacing-argument-value">
-<h3>Replacing Argument Value<a class="headerlink" href="#replacing-argument-value" title="Permalink to this headline"></a></h3>
+<h3>Replacing Argument Value<a class="headerlink" href="#replacing-argument-value" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">f</span></code> still refers to the unmodified list, this time the function didn’t modify the object it passed in.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f = [14, 23, 37]
 &gt;&gt;&gt; def replace(g):
@@ -150,7 +153,7 @@ g = [17, 28, 45]
 <p>The object reference named <code class="docutils literal notranslate"><span class="pre">f</span></code> was assigned to the formal argument named <code class="docutils literal notranslate"><span class="pre">g</span></code>, so <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">f</span></code> did refer the the same object, just as in previous example. However in the first line in the function we reassigned the reference <code class="docutils literal notranslate"><span class="pre">g</span></code> to point to a newly constructed list. So within the function, the reference to the original list was overwritten, although the orignal list was still pointed to by the <code class="docutils literal notranslate"><span class="pre">f</span></code> reference outside the function.</p>
 </section>
 <section id="mutable-arguments">
-<h3>Mutable Arguments<a class="headerlink" href="#mutable-arguments" title="Permalink to this headline"></a></h3>
+<h3>Mutable Arguments<a class="headerlink" href="#mutable-arguments" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def replace_contents(g):
 ...     g[0] = 17
 ...     g[1] = 28
@@ -180,9 +183,9 @@ True
 </section>
 </section>
 <section id="function-arguments">
-<h2>Function Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline"></a></h2>
+<h2>Function Arguments<a class="headerlink" href="#function-arguments" title="Permalink to this heading"></a></h2>
 <section id="default-argument-values">
-<h3>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this headline"></a></h3>
+<h3>Default Argument Values<a class="headerlink" href="#default-argument-values" title="Permalink to this heading"></a></h3>
 <p>Arguments with default values must come after those without default values.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def banner (message, border=&#39;-&#39;):
 ...     line = border * len(message)
@@ -210,7 +213,7 @@ Hello from Earth, we come in peace!
 </div>
 </section>
 <section id="when-are-default-values-evaluated">
-<h3>When Are Default Values Evaluated?<a class="headerlink" href="#when-are-default-values-evaluated" title="Permalink to this headline"></a></h3>
+<h3>When Are Default Values Evaluated?<a class="headerlink" href="#when-are-default-values-evaluated" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import time
 &gt;&gt;&gt; time.ctime()
 &#39;Fri Feb 12 20:26:02 2021&#39;
@@ -233,7 +236,7 @@ Fri Feb 12 20:26:35 2021
 </ul>
 </section>
 <section id="mutable-default-values">
-<h3>Mutable Default Values<a class="headerlink" href="#mutable-default-values" title="Permalink to this headline"></a></h3>
+<h3>Mutable Default Values<a class="headerlink" href="#mutable-default-values" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=[]):
 ...     menu.append(&quot;spam&quot;)
 ...     return menu
@@ -258,7 +261,7 @@ Fri Feb 12 20:26:35 2021
 </ul>
 </section>
 <section id="immutable-default-values">
-<h3>Immutable Default Values<a class="headerlink" href="#immutable-default-values" title="Permalink to this headline"></a></h3>
+<h3>Immutable Default Values<a class="headerlink" href="#immutable-default-values" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add_spam(menu=None):
 ...     if menu is None:
 ...         menu = []
@@ -276,7 +279,7 @@ Fri Feb 12 20:26:35 2021
 </section>
 </section>
 <section id="python-s-type-system">
-<h2>Python’s Type System<a class="headerlink" href="#python-s-type-system" title="Permalink to this headline"></a></h2>
+<h2>Python’s Type System<a class="headerlink" href="#python-s-type-system" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def add(a, b):
 ...     return a+b
 ...
@@ -298,14 +301,14 @@ TypeError: can only concatenate str (not &quot;int&quot;) to str
 <p>Python will not generally perform implicit conversions between types.</p>
 </section>
 <section id="scopes">
-<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this headline"></a></h2>
+<h2>Scopes<a class="headerlink" href="#scopes" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Type declarations are unnecessary in Python.</p></li>
 <li><p>Names can be rebound as necessary to objects of any type.</p></li>
 <li><p>Name resolution to objects is managed by scopes and scoping rules.</p></li>
 </ul>
 <section id="scopes-in-python">
-<h3>Scopes in Python<a class="headerlink" href="#scopes-in-python" title="Permalink to this headline"></a></h3>
+<h3>Scopes in Python<a class="headerlink" href="#scopes-in-python" title="Permalink to this heading"></a></h3>
 <p>(LEGB)</p>
 <ul class="simple">
 <li><p><strong>L</strong> ocal - Inside the current function</p></li>
@@ -316,7 +319,7 @@ TypeError: can only concatenate str (not &quot;int&quot;) to str
 <p>Scopes in python don’t correspond source code blocks</p>
 </section>
 <section id="rebinding-global-names">
-<h3>Rebinding Global Names<a class="headerlink" href="#rebinding-global-names" title="Permalink to this headline"></a></h3>
+<h3>Rebinding Global Names<a class="headerlink" href="#rebinding-global-names" title="Permalink to this heading"></a></h3>
 </section>
 </section>
 </section>

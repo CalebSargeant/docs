@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -114,9 +117,9 @@
            <div itemprop="articleBody">
              
   <section id="introducing-strings-collections-and-iteration">
-<h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Permalink to this headline"></a></h1>
+<h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Permalink to this heading"></a></h1>
 <section id="string">
-<h2>String<a class="headerlink" href="#string" title="Permalink to this headline"></a></h2>
+<h2>String<a class="headerlink" href="#string" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>str</p>
 <ul>
@@ -135,13 +138,13 @@
 </div>
 </section>
 <section id="string-literals">
-<h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline"></a></h2>
+<h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this heading"></a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;first&quot;</span> <span class="s2">&quot;second&quot;</span>
 <span class="go">&#39;firstsecond&#39;</span>
 </pre></div>
 </div>
 <section id="strings-with-newlines">
-<h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Permalink to this headline"></a></h3>
+<h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Multiline strings</p>
 <ul>
@@ -264,7 +267,7 @@ A \ in a string
 </table>
 </section>
 <section id="string-features">
-<h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this headline"></a></h3>
+<h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; path = r&#39;C:\Users\Merlin\Documents\Spells&#39;
 &gt;&gt;&gt; path
 &#39;C: \\Users\\Merlin\\Documents\\Spells&#39;
@@ -284,7 +287,7 @@ C:\Users\Merlin\Documents\Spells
 </section>
 </section>
 <section id="bytes">
-<h2>Bytes<a class="headerlink" href="#bytes" title="Permalink to this headline"></a></h2>
+<h2>Bytes<a class="headerlink" href="#bytes" title="Permalink to this heading"></a></h2>
 <p>docs.python.org/3/library/codecs.html#standard-encodings</p>
 <ul class="simple">
 <li><p>bytes</p>
@@ -308,7 +311,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="list">
-<h2>List<a class="headerlink" href="#list" title="Permalink to this headline"></a></h2>
+<h2>List<a class="headerlink" href="#list" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>list</p>
 <ul>
@@ -345,7 +348,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="dict">
-<h2>Dict<a class="headerlink" href="#dict" title="Permalink to this headline"></a></h2>
+<h2>Dict<a class="headerlink" href="#dict" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>dict</p>
 <ul>
@@ -368,7 +371,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="for-loop">
-<h2>For-loop<a class="headerlink" href="#for-loop" title="Permalink to this headline"></a></h2>
+<h2>For-loop<a class="headerlink" href="#for-loop" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>for-loop</p>
 <ul>
@@ -400,7 +403,7 @@ teal 32896
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline"></a></h2>
+<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from urllib.request import urlopen
 &gt;&gt;&gt; story = urlopen(&#39;http://sixty-north.com/c/t.txt&#39;)
 &gt;&gt;&gt;
@@ -416,7 +419,7 @@ teal 32896
 </pre></div>
 </div>
 <section id="recall-bytes">
-<h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Permalink to this headline"></a></h3>
+<h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Bytes literals prefixed with lowercase ‘b’</p></li>
 <li><p>HTTP data is provided as bytes</p></li>

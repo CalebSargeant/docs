@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -79,6 +82,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -128,9 +132,9 @@
            <div itemprop="articleBody">
              
   <section id="nagios">
-<h1>Nagios<a class="headerlink" href="#nagios" title="Permalink to this headline"></a></h1>
+<h1>Nagios<a class="headerlink" href="#nagios" title="Permalink to this heading"></a></h1>
 <section id="installing-nrpe">
-<h2>Installing NRPE<a class="headerlink" href="#installing-nrpe" title="Permalink to this headline"></a></h2>
+<h2>Installing NRPE<a class="headerlink" href="#installing-nrpe" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://support.nagios.com/kb/article/nrpe-how-to-install-nrpe-8.html">https://support.nagios.com/kb/article/nrpe-how-to-install-nrpe-8.html</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
 wget http://assets.nagios.com/downloads/nagiosxi/agents/linux-nrpe-agent.tar.gz
@@ -141,7 +145,7 @@ tar xzf linux-nrpe-agent.tar.gz
 </div>
 </section>
 <section id="uninstalling-nrpe">
-<h2>Uninstalling NRPE<a class="headerlink" href="#uninstalling-nrpe" title="Permalink to this headline"></a></h2>
+<h2>Uninstalling NRPE<a class="headerlink" href="#uninstalling-nrpe" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://support.nagios.com/kb/article/nrpe-how-to-uninstall-nrpe-741.html#Ubuntu">https://support.nagios.com/kb/article/nrpe-how-to-uninstall-nrpe-741.html#Ubuntu</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove XINETD daemon</span>
 sudo rm -f /etc/xinetd.d/nrpe
@@ -161,7 +165,7 @@ sudo rm -f /usr/local/nagios/libexec/*nrpe*
 </div>
 </section>
 <section id="install-nagios-core">
-<h2>Install Nagios Core<a class="headerlink" href="#install-nagios-core" title="Permalink to this headline"></a></h2>
+<h2>Install Nagios Core<a class="headerlink" href="#install-nagios-core" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://linuxhint.com/install_nagios_ubuntu/">https://linuxhint.com/install_nagios_ubuntu/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install prerequisites</span>
 sudo apt install -y build-essential apache2 php openssl perl make php-gd libgd-dev libapache2-mod-php libperl-dev libssl-dev daemon wget apache2-utils unzip
@@ -208,7 +212,7 @@ sudo systemctl start nagios
 </div>
 </section>
 <section id="uninstall-nagios">
-<h2>Uninstall Nagios<a class="headerlink" href="#uninstall-nagios" title="Permalink to this headline"></a></h2>
+<h2>Uninstall Nagios<a class="headerlink" href="#uninstall-nagios" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/584518/uninstall-nagios-that-has-been-manually-installed-through-source">https://serverfault.com/questions/584518/uninstall-nagios-that-has-been-manually-installed-through-source</a></p>
 <p><a class="reference external" href="https://support.nagios.com/forum/viewtopic.php?t=34007">https://support.nagios.com/forum/viewtopic.php?t=34007</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Stop the Nagios daemon
@@ -222,9 +226,9 @@ delete everything
 </div>
 </section>
 <section id="errors">
-<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline"></a></h2>
+<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this heading"></a></h2>
 <section id="no-output-on-stdout-stderr">
-<h3>(No output on stdout) stderr:<a class="headerlink" href="#no-output-on-stdout-stderr" title="Permalink to this headline"></a></h3>
+<h3>(No output on stdout) stderr:<a class="headerlink" href="#no-output-on-stdout-stderr" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://askubuntu.com/questions/817827/no-output-on-stdout-stderr-execvp-usr-local-nagios-libexec-check-ping-in-ub">https://askubuntu.com/questions/817827/no-output-on-stdout-stderr-execvp-usr-local-nagios-libexec-check-ping-in-ub</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install nagios-plugins
 </pre></div>
@@ -232,9 +236,9 @@ delete everything
 </section>
 </section>
 <section id="adding-linux-hosts">
-<h2>Adding Linux Hosts<a class="headerlink" href="#adding-linux-hosts" title="Permalink to this headline"></a></h2>
+<h2>Adding Linux Hosts<a class="headerlink" href="#adding-linux-hosts" title="Permalink to this heading"></a></h2>
 <section id="on-the-nagios-box">
-<h3>On the Nagios Box<a class="headerlink" href="#on-the-nagios-box" title="Permalink to this headline"></a></h3>
+<h3>On the Nagios Box<a class="headerlink" href="#on-the-nagios-box" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the host in config (see below example config file)</span>
 nano /etc/nagios3/conf.d/server.fqdn.com.cfg
 
@@ -351,7 +355,7 @@ define service <span class="o">{</span>
 <img alt="../../_images/nagios-1.png" src="../../_images/nagios-1.png" />
 </section>
 <section id="on-the-host-to-monitor">
-<h3>On the host to monitor<a class="headerlink" href="#on-the-host-to-monitor" title="Permalink to this headline"></a></h3>
+<h3>On the host to monitor<a class="headerlink" href="#on-the-host-to-monitor" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># See if Nagios is already installed</span>
 dpkg -l <span class="p">|</span> grep nagios
 
@@ -544,7 +548,7 @@ command<span class="o">[</span>check_mysql<span class="o">]=</span>/usr/lib/nagi
 </div>
 </section>
 <section id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline"></a></h3>
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### On the Nagios Box</span>
 <span class="c1"># Check the log, grepping a part of the server name you what to see a log for</span>
 tail -f /var/log/nagios3/nagios.log <span class="p">|</span> grep netflow

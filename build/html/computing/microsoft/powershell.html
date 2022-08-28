@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
@@ -121,9 +124,9 @@
            <div itemprop="articleBody">
              
   <section id="powershell">
-<h1>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this headline"></a></h1>
+<h1>PowerShell<a class="headerlink" href="#powershell" title="Permalink to this heading"></a></h1>
 <section id="for-loop">
-<h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this headline"></a></h2>
+<h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach?view=powershell-7.2</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$letterArray</span> <span class="p">=</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span>
 <span class="k">foreach</span> <span class="p">(</span><span class="nv">$letter</span> <span class="k">in</span> <span class="nv">$letterArray</span><span class="p">)</span>
@@ -134,28 +137,28 @@
 </div>
 </section>
 <section id="removing-files">
-<h2>Removing Files<a class="headerlink" href="#removing-files" title="Permalink to this headline"></a></h2>
+<h2>Removing Files<a class="headerlink" href="#removing-files" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Remove-Item</span> <span class="n">C</span><span class="p">:\</span><span class="n">Test</span><span class="p">\*.*</span>
 </pre></div>
 </div>
 </section>
 <section id="renaming-files">
-<h2>Renaming Files<a class="headerlink" href="#renaming-files" title="Permalink to this headline"></a></h2>
+<h2>Renaming Files<a class="headerlink" href="#renaming-files" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Rename-Item</span> <span class="n">-Path</span> <span class="s2">&quot;c:\logfiles\daily_file.txt&quot;</span> <span class="n">-NewName</span> <span class="s2">&quot;monday_file.txt&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="get-date">
-<h2>Get Date<a class="headerlink" href="#get-date" title="Permalink to this headline"></a></h2>
+<h2>Get Date<a class="headerlink" href="#get-date" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.2">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.2</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$date</span> <span class="p">=</span> <span class="nb">get-date</span> <span class="n">-format</span> <span class="n">yyyymmdd</span>
 </pre></div>
 </div>
 </section>
 <section id="send-email">
-<h2>Send Email<a class="headerlink" href="#send-email" title="Permalink to this headline"></a></h2>
+<h2>Send Email<a class="headerlink" href="#send-email" title="Permalink to this heading"></a></h2>
 <p>Save the PSCredential in a file:</p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/40029235/save-pscredential-in-the-file">https://stackoverflow.com/questions/40029235/save-pscredential-in-the-file</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$credential</span> <span class="p">=</span> <span class="nb">Get-Credential</span>
@@ -181,7 +184,7 @@
 </div>
 </section>
 <section id="random">
-<h2>Random<a class="headerlink" href="#random" title="Permalink to this headline"></a></h2>
+<h2>Random<a class="headerlink" href="#random" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># If error?</span>
 <span class="k">if</span> <span class="p">(</span><span class="nv">$error</span><span class="p">.</span><span class="n">count</span> <span class="o">-ne</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="nb">Write-Host</span> <span class="n">-ForegroundColor</span> <span class="n">Red</span> <span class="s2">&quot;Uh-oh! $MyVar.&quot;</span>
@@ -197,7 +200,7 @@
 </div>
 </section>
 <section id="multipart-form-data">
-<h2>Multipart/form-data<a class="headerlink" href="#multipart-form-data" title="Permalink to this headline"></a></h2>
+<h2>Multipart/form-data<a class="headerlink" href="#multipart-form-data" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html">https://get-powershellblog.blogspot.com/2017/09/multipartform-data-support-for-invoke.html</a></p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Initiate multipartContent</span>
 <span class="nv">$multipartContent</span> <span class="p">=</span> <span class="no">[System.Net.Http.MultipartFormDataContent]</span><span class="p">::</span><span class="n">new</span><span class="p">()</span>
