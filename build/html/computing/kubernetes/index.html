@@ -19,7 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Kubernetes" href="general.html" />
+    <link rel="next" title="Certified Kubernetes Administrator (CKA)" href="cka.html" />
     <link rel="prev" title="Container Registries" href="../docker/container-registries.html" /> 
 </head>
 
@@ -55,6 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cka.html">Certified Kubernetes Administrator (CKA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
@@ -111,6 +112,66 @@
 <h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="cka.html">Certified Kubernetes Administrator (CKA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#core-concepts">Core Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#downloads">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#practice-labs">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#scheduling">Scheduling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id1">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id2">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#logging-monitoring">Logging &amp; Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id3">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id4">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#application-lifecycle-management">Application Lifecycle Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id5">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id6">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#cluster-maintenance">Cluster Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id7">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id8">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id9">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id10">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#storage">Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id11">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id12">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#networking">Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id13">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id14">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#design-and-install-a-kubernetes-cluster">Design and Install a Kubernetes Cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id15">Downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#install-kubernetes-the-kubeadm-way">Install Kubernetes the kubeadm Way</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id16">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id17">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id18">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#other-topics">Other Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id19">Practice Labs</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="general.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Kubernetes Install</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="install.html#architecture-terminology">Architecture Terminology</a></li>
@@ -205,7 +266,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../docker/container-registries.html" class="btn btn-neutral float-left" title="Container Registries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="general.html" class="btn btn-neutral float-right" title="Kubernetes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cka.html" class="btn btn-neutral float-right" title="Certified Kubernetes Administrator (CKA)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
