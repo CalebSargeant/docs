@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,11 +141,11 @@
            <div itemprop="articleBody">
              
   <section id="configuring-management-protocols-on-a-cisco-ios-device">
-<h1>Configuring Management Protocols on a Cisco IOS Device<a class="headerlink" href="#configuring-management-protocols-on-a-cisco-ios-device" title="Permalink to this headline"></a></h1>
+<h1>Configuring Management Protocols on a Cisco IOS Device<a class="headerlink" href="#configuring-management-protocols-on-a-cisco-ios-device" title="Permalink to this heading"></a></h1>
 <section id="configuring-snmpv3-users-on-a-cisco-router-or-switch">
-<h2>Configuring SNMPv3 Users on a Cisco Router or Switch<a class="headerlink" href="#configuring-snmpv3-users-on-a-cisco-router-or-switch" title="Permalink to this headline"></a></h2>
+<h2>Configuring SNMPv3 Users on a Cisco Router or Switch<a class="headerlink" href="#configuring-snmpv3-users-on-a-cisco-router-or-switch" title="Permalink to this heading"></a></h2>
 <section id="snmpv3">
-<h3>SNMPv3<a class="headerlink" href="#snmpv3" title="Permalink to this headline"></a></h3>
+<h3>SNMPv3<a class="headerlink" href="#snmpv3" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>SNMP Users</p></li>
 <li><p>Defines credentials and algorithms</p></li>
@@ -186,7 +189,7 @@ Globo-HQ(config)#snmp-server user SNMP-Write Write-EVERYTHING v3 auth sha Globo1
 </section>
 </section>
 <section id="configuring-ntp-authentication">
-<h2>Configuring NTP Authentication<a class="headerlink" href="#configuring-ntp-authentication" title="Permalink to this headline"></a></h2>
+<h2>Configuring NTP Authentication<a class="headerlink" href="#configuring-ntp-authentication" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ(config)#ntp server vrf Mgmt-intf 172.20.1.51
 Globo-HQ(config)#ntp authentication-key 1 md5 Globo123
 Globo-HQ(config)#ntp trusted-key 1
@@ -197,7 +200,7 @@ Globo-HQ(config)#do show ntp associations detail
 </div>
 </section>
 <section id="securing-cdp-on-a-cisco-router-or-switch">
-<h2>Securing CDP on a Cisco Router or Switch<a class="headerlink" href="#securing-cdp-on-a-cisco-router-or-switch" title="Permalink to this headline"></a></h2>
+<h2>Securing CDP on a Cisco Router or Switch<a class="headerlink" href="#securing-cdp-on-a-cisco-router-or-switch" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core#show cdp neigh
 Globo-Core#show cdp neigh gi 0/1 detail
 Globo-HQ(config)#no cdp run
@@ -244,14 +247,14 @@ Total cdp entries displayed 1
 </div>
 </section>
 <section id="using-scp-to-transfer-files">
-<h2>Using SCP to Transfer Files<a class="headerlink" href="#using-scp-to-transfer-files" title="Permalink to this headline"></a></h2>
+<h2>Using SCP to Transfer Files<a class="headerlink" href="#using-scp-to-transfer-files" title="Permalink to this heading"></a></h2>
 <p>Globo-HQ(config)#ip ssh source-interface gig 0/1 Globo-HQ(config)#exit
 Globo-HQ#dir Globo-HQ#copy startup-config scp: Address or name of remote
 host []? 172.20.1.15 Destination username [caleb]? Destination filename
 [globo-hq-confg]? Writing globo-hq-confg Password:</p>
 </section>
 <section id="configuring-dhcp-and-dns-on-an-ios-device">
-<h2>Configuring DHCP and DNS on an IOS Device<a class="headerlink" href="#configuring-dhcp-and-dns-on-an-ios-device" title="Permalink to this headline"></a></h2>
+<h2>Configuring DHCP and DNS on an IOS Device<a class="headerlink" href="#configuring-dhcp-and-dns-on-an-ios-device" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-Core(config)#int vlan 172
 Globo-Core(config-if)#ip add 172.20.1.189 255.255.255.0
 Globo-Core(config-if)#no shut

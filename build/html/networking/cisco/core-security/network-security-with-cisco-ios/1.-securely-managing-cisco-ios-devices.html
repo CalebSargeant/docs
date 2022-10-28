@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,11 +141,11 @@
            <div itemprop="articleBody">
              
   <section id="securely-managing-cisco-ios-devices">
-<h1>Securely Managing Cisco IOS Devices<a class="headerlink" href="#securely-managing-cisco-ios-devices" title="Permalink to this headline"></a></h1>
+<h1>Securely Managing Cisco IOS Devices<a class="headerlink" href="#securely-managing-cisco-ios-devices" title="Permalink to this heading"></a></h1>
 <section id="out-of-band-management">
-<h2>Out of Band Management<a class="headerlink" href="#out-of-band-management" title="Permalink to this headline"></a></h2>
+<h2>Out of Band Management<a class="headerlink" href="#out-of-band-management" title="Permalink to this heading"></a></h2>
 <section id="out-of-band-management-networks">
-<h3>Out of Band Management Networks<a class="headerlink" href="#out-of-band-management-networks" title="Permalink to this headline"></a></h3>
+<h3>Out of Band Management Networks<a class="headerlink" href="#out-of-band-management-networks" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Network dedicated for the management of network devices</p></li>
 <li><p>Access in/out of network restricted by ACLas</p>
@@ -156,7 +159,7 @@
 </section>
 </section>
 <section id="management-interfaces">
-<h2>Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permalink to this headline"></a></h2>
+<h2>Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Dedicated management interface</p></li>
 <li><p>Logically divides router</p></li>
@@ -179,7 +182,7 @@ Globo-HQ#show ip route vrf Mgmt-intf
 </div>
 </section>
 <section id="configuring-ssh-on-an-ios-device">
-<h2>Configuring SSH on an IOS Device<a class="headerlink" href="#configuring-ssh-on-an-ios-device" title="Permalink to this headline"></a></h2>
+<h2>Configuring SSH on an IOS Device<a class="headerlink" href="#configuring-ssh-on-an-ios-device" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globo-HQ#conf t
 Globo-HQ(config)#ip domain-name globomantics.com
 Globo-HQ(config)#crypto key generate rsa modulus 2048 label HQ-SSH
@@ -202,9 +205,9 @@ Globo-HQ(config)#aaa new-model
 </div>
 </section>
 <section id="configuring-a-management-acl">
-<h2>Configuring a Management ACL<a class="headerlink" href="#configuring-a-management-acl" title="Permalink to this headline"></a></h2>
+<h2>Configuring a Management ACL<a class="headerlink" href="#configuring-a-management-acl" title="Permalink to this heading"></a></h2>
 <section id="sample-management-acl-inbound-traffic">
-<h3>Sample Management ACL Inbound Traffic<a class="headerlink" href="#sample-management-acl-inbound-traffic" title="Permalink to this headline"></a></h3>
+<h3>Sample Management ACL Inbound Traffic<a class="headerlink" href="#sample-management-acl-inbound-traffic" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended Management-ACL-In
 permit tcp host 172.20.1.15 host 172.20.1.57 eq 22
 permit udp host 172.20.1.55 host 172.20.1.57 eq 1812
@@ -217,7 +220,7 @@ permit udp host 172.20.1.40 host 172.20.1.57 eq 123
 </div>
 </section>
 <section id="sample-management-acl-logging">
-<h3>Sample Management ACL - Logging<a class="headerlink" href="#sample-management-acl-logging" title="Permalink to this headline"></a></h3>
+<h3>Sample Management ACL - Logging<a class="headerlink" href="#sample-management-acl-logging" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended Management-ACL-In
 permit tcp host 172.20.1.15 host 172.20.1.57 eq 22
 permit udp host 172.20.1.55 host 172.20.1.57 eq 1812
@@ -227,14 +230,14 @@ permit ip 172.20.1.0 0.0.0.255 host 172.20.1.57 log
 </div>
 </section>
 <section id="management-plane-protection">
-<h3>Management Plane Protection<a class="headerlink" href="#management-plane-protection" title="Permalink to this headline"></a></h3>
+<h3>Management Plane Protection<a class="headerlink" href="#management-plane-protection" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(config)#control-plane host
 (config-cp-host)#management-interface gi 0/1 allow ssh snmp
 </pre></div>
 </div>
 </section>
 <section id="add-lines-to-in-band-acls-denying-ssh-to-the-device">
-<h3>Add Lines to In Band ACLs denying SSH to the Device<a class="headerlink" href="#add-lines-to-in-band-acls-denying-ssh-to-the-device" title="Permalink to this headline"></a></h3>
+<h3>Add Lines to In Band ACLs denying SSH to the Device<a class="headerlink" href="#add-lines-to-in-band-acls-denying-ssh-to-the-device" title="Permalink to this heading"></a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ip access-list extended INBAND-ACL-TEMPLATE
 deny tcp any host 172.20.1.57 eq 22
 deny tcp any host 192.168.1.15 eq 22

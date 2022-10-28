@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,9 +141,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-the-default-incoming-mail-policy">
-<h1>Configuring the Default Incoming Mail Policy<a class="headerlink" href="#configuring-the-default-incoming-mail-policy" title="Permalink to this headline"></a></h1>
+<h1>Configuring the Default Incoming Mail Policy<a class="headerlink" href="#configuring-the-default-incoming-mail-policy" title="Permalink to this heading"></a></h1>
 <section id="anti-spam-policy">
-<h2>Anti-Spam Policy<a class="headerlink" href="#anti-spam-policy" title="Permalink to this headline"></a></h2>
+<h2>Anti-Spam Policy<a class="headerlink" href="#anti-spam-policy" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Most spam doesn’t make it past HAT</p></li>
 <li><p>Legit email could be black listed</p>
@@ -156,7 +159,7 @@
 </li>
 </ul>
 <section id="cisco-ironport-anti-spam">
-<h3>Cisco IronPort Anti-Spam<a class="headerlink" href="#cisco-ironport-anti-spam" title="Permalink to this headline"></a></h3>
+<h3>Cisco IronPort Anti-Spam<a class="headerlink" href="#cisco-ironport-anti-spam" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Detects spam and other email attacks</p></li>
 <li><p>100,000 attributes</p></li>
@@ -164,7 +167,7 @@
 </ul>
 </section>
 <section id="cisco-intelligent-multi-scan">
-<h3>Cisco Intelligent Multi-Scan<a class="headerlink" href="#cisco-intelligent-multi-scan" title="Permalink to this headline"></a></h3>
+<h3>Cisco Intelligent Multi-Scan<a class="headerlink" href="#cisco-intelligent-multi-scan" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Third party anti-spam tools scan the email</p></li>
 <li><p>Cisco IronPort Anti-Spam then scans the email itself, and makes the
@@ -173,7 +176,7 @@ final determination</p></li>
 <p><img alt="image1" src="../../../../_images/configuring-the-default-incoming-mail-policy-1.png" /></p>
 </section>
 <section id="graymail-filter">
-<h3>Graymail Filter<a class="headerlink" href="#graymail-filter" title="Permalink to this headline"></a></h3>
+<h3>Graymail Filter<a class="headerlink" href="#graymail-filter" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Graymail is mail from companies that users have interacted with in
 the past</p></li>
@@ -196,7 +199,7 @@ the past</p></li>
 </section>
 </section>
 <section id="anti-virus-policy">
-<h2>Anti-Virus Policy<a class="headerlink" href="#anti-virus-policy" title="Permalink to this headline"></a></h2>
+<h2>Anti-Virus Policy<a class="headerlink" href="#anti-virus-policy" title="Permalink to this heading"></a></h2>
 <p><img alt="image2" src="../../../../_images/configuring-the-default-incoming-mail-policy-2.png" /></p>
 <ul class="simple">
 <li><p>SenderBase filters out most viruses</p></li>
@@ -227,21 +230,21 @@ the past</p></li>
 </ul>
 </section>
 <section id="advanced-malware-protection-policy">
-<h2>Advanced Malware Protection Policy<a class="headerlink" href="#advanced-malware-protection-policy" title="Permalink to this headline"></a></h2>
+<h2>Advanced Malware Protection Policy<a class="headerlink" href="#advanced-malware-protection-policy" title="Permalink to this heading"></a></h2>
 <p>AMP will alert you after the fact if the file’s disposition changes so
 you can take action</p>
 <p><img alt="image3" src="../../../../_images/configuring-the-default-incoming-mail-policy-3.png" /></p>
 <p><img alt="image4" src="../../../../_images/configuring-the-default-incoming-mail-policy-4.png" /></p>
 </section>
 <section id="content-filter-policy">
-<h2>Content Filter Policy<a class="headerlink" href="#content-filter-policy" title="Permalink to this headline"></a></h2>
+<h2>Content Filter Policy<a class="headerlink" href="#content-filter-policy" title="Permalink to this heading"></a></h2>
 <p><img alt="image5" src="../../../../_images/configuring-the-default-incoming-mail-policy-5.png" /></p>
 <p>You can choose to define who the content filter applies to in the filter
 itself, or by creating multiple policies and only applying the filter
 that applies.</p>
 </section>
 <section id="outbreak-control-filters">
-<h2>Outbreak Control Filters<a class="headerlink" href="#outbreak-control-filters" title="Permalink to this headline"></a></h2>
+<h2>Outbreak Control Filters<a class="headerlink" href="#outbreak-control-filters" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Outbreaks spread new attacks quickly</p>
 <ul>
@@ -256,7 +259,7 @@ that applies.</p>
 <li><p>ESA’s default is to stop any file that is rated as a 3 or higher.</p></li>
 </ul>
 <section id="outbreak-control-policy">
-<h3>Outbreak Control Policy<a class="headerlink" href="#outbreak-control-policy" title="Permalink to this headline"></a></h3>
+<h3>Outbreak Control Policy<a class="headerlink" href="#outbreak-control-policy" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>AMP detects threats in a different way</p>
 <ul>
@@ -274,7 +277,7 @@ that applies.</p>
 </section>
 </section>
 <section id="creating-an-additional-policy">
-<h2>Creating an Additional Policy<a class="headerlink" href="#creating-an-additional-policy" title="Permalink to this headline"></a></h2>
+<h2>Creating an Additional Policy<a class="headerlink" href="#creating-an-additional-policy" title="Permalink to this heading"></a></h2>
 <p><img alt="image7" src="../../../../_images/configuring-the-default-incoming-mail-policy-7.png" /></p>
 </section>
 </section>

@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -51,8 +52,10 @@
 <li class="toctree-l1"><a class="reference internal" href="computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computing/pentesting/index.html">Pentesting</a></li>
@@ -96,10 +99,10 @@
            <div itemprop="articleBody">
              
   <section id="welcome-to-caleb-sargeant-s-documentation">
-<h1>Welcome to Caleb Sargeant’s documentation!<a class="headerlink" href="#welcome-to-caleb-sargeant-s-documentation" title="Permalink to this headline"></a></h1>
+<h1>Welcome to Caleb Sargeant’s documentation!<a class="headerlink" href="#welcome-to-caleb-sargeant-s-documentation" title="Permalink to this heading"></a></h1>
 <p>A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.</p>
 <section id="about">
-<h2>About<a class="headerlink" href="#about" title="Permalink to this headline"></a></h2>
+<h2>About<a class="headerlink" href="#about" title="Permalink to this heading"></a></h2>
 <p>I’ve been working in the IT Industry since 2012 and have a passion for network security &amp; open-source solutions. I work well in a team and independently, am tenaciously dedicated, determined, devoted and solve problems.</p>
 <ul class="simple">
 <li><p>Website: <a href="https://www.calebsargeant.com" target="_blank">www.calebsargeant.com</a></p></li>
@@ -111,7 +114,7 @@
 <img alt="_images/profile-pic.jpg" src="_images/profile-pic.jpg" />
 </section>
 <section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline"></a></h2>
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
 <ul>
@@ -202,12 +205,31 @@
 <li class="toctree-l2"><a class="reference internal" href="computing/cloud/openstack.html">Openstack</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="computing/containerisation/index.html">Containerisation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="computing/containerisation/docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="computing/containerisation/kubernetes.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing/docker/index.html">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/swarm.html">Swarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/docker/container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computing/kubernetes/index.html">Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/cka.html">Certified Kubernetes Administrator (CKA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/install.html">Kubernetes Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/exposing-ports.html">Exposing Kubernetes Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/management-techniques.html">Kubernetes Management Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/kubernetes/next-steps.html">Future of Kubernetes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computing/elk-stack/index.html">ELK Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="computing/elk-stack/getting-started.html">Getting Started</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="computing/jenkins/index.html">Jenkins</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="computing/jenkins/getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/jenkins/plugins/index.html">Plugins</a></li>
@@ -221,6 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/linux/openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/linux/storage.html">Storage</a></li>
@@ -231,6 +254,8 @@
 <li class="toctree-l1"><a class="reference internal" href="computing/pentesting/index.html">Pentesting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="computing/pentesting/network-hacking.html">Network Hacking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="computing/pentesting/website-hacking.html">Website Hacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/pentesting/gaining-access.html">Gaining Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computing/pentesting/post-exploitation.html">Post Exploitation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computing/terraform/index.html">Terraform</a><ul>
@@ -318,7 +343,7 @@
 </section>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>

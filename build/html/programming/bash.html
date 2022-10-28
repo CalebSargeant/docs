@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/pentesting/index.html">Pentesting</a></li>
@@ -139,7 +142,7 @@
            <div itemprop="articleBody">
              
   <section id="bash">
-<h1>Bash<a class="headerlink" href="#bash" title="Permalink to this headline"></a></h1>
+<h1>Bash<a class="headerlink" href="#bash" title="Permalink to this heading"></a></h1>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano filename.sh
   <span class="c1">#!/bin/bash</span>
   myscriptcontent
@@ -147,7 +150,7 @@ chmod u+x filename.sh
 </pre></div>
 </div>
 <section id="associative-arrays">
-<h2>Associative Arrays<a class="headerlink" href="#associative-arrays" title="Permalink to this headline"></a></h2>
+<h2>Associative Arrays<a class="headerlink" href="#associative-arrays" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://clubmate.fi/associative-arrays-in-bash/">https://clubmate.fi/associative-arrays-in-bash/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span> -A <span class="nv">names</span><span class="o">=(</span>
 <span class="o">[</span>caleb<span class="o">]=</span>sargeant
@@ -164,7 +167,7 @@ chmod u+x filename.sh
 </div>
 </section>
 <section id="getopt">
-<h2>Getopt<a class="headerlink" href="#getopt" title="Permalink to this headline"></a></h2>
+<h2>Getopt<a class="headerlink" href="#getopt" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute getopt for arguments to be passed to script, identified by &quot;$@&quot;</span>
 <span class="nv">PARSED_OPTIONS</span><span class="o">=</span><span class="k">$(</span>getopt -n <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span> -o hfi: --long <span class="s2">&quot;help,file,input:&quot;</span> -- <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
 
@@ -205,7 +208,7 @@ chmod u+x filename.sh
 </div>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage<span class="o">()</span> <span class="o">{</span>
 <span class="nb">printf</span> <span class="s2">&quot;Usage: &quot;</span><span class="nv">$0</span><span class="s2">&quot; &lt;region&gt; \n</span>
 <span class="s2">        Regions available:</span>
@@ -231,7 +234,7 @@ chmod u+x filename.sh
 </div>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="o">()</span> <span class="o">{</span>
   <span class="nb">echo</span> <span class="nv">$@</span>
 <span class="o">}</span>
@@ -241,7 +244,7 @@ chmod u+x filename.sh
 </div>
 </section>
 <section id="sed">
-<h2>sed<a class="headerlink" href="#sed" title="Permalink to this headline"></a></h2>
+<h2>sed<a class="headerlink" href="#sed" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removes all comments including those with tabs and spaces</span>
 sed -e <span class="s1">&#39;/^[ \t\n]*#/d&#39;</span>
 
@@ -254,14 +257,14 @@ sed -i -e 1d
 </div>
 </section>
 <section id="awk">
-<h2>awk<a class="headerlink" href="#awk" title="Permalink to this headline"></a></h2>
+<h2>awk<a class="headerlink" href="#awk" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the first column using &quot;,&quot; as separator</span>
 awk -F <span class="s2">&quot;,&quot;</span> <span class="s1">&#39;{print $1}&#39;</span>
 </pre></div>
 </div>
 </section>
 <section id="date">
-<h2>date<a class="headerlink" href="#date" title="Permalink to this headline"></a></h2>
+<h2>date<a class="headerlink" href="#date" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.tutorialkart.com/bash-shell-scripting/bash-date-format-options-examples/">https://www.tutorialkart.com/bash-shell-scripting/bash-date-format-options-examples/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># yyyymmdd</span>
 date +%Y%m%d
@@ -269,13 +272,13 @@ date +%Y%m%d
 </div>
 </section>
 <section id="cut">
-<h2>cut<a class="headerlink" href="#cut" title="Permalink to this headline"></a></h2>
+<h2>cut<a class="headerlink" href="#cut" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove the filename extension (eg. &quot;.exe&quot;)</span>
 <span class="nv">name</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$filename</span><span class="s2">&quot;</span> <span class="p">|</span> cut -f <span class="m">1</span> -d <span class="s1">&#39;.&#39;</span><span class="k">)</span>
 </pre></div>
 </div>
 <section id="remove-first-character">
-<h3>Remove First Character<a class="headerlink" href="#remove-first-character" title="Permalink to this headline"></a></h3>
+<h3>Remove First Character<a class="headerlink" href="#remove-first-character" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/6594085/remove-first-character-of-a-string-in-bash">https://stackoverflow.com/questions/6594085/remove-first-character-of-a-string-in-bash</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cut -c2-
 </pre></div>
@@ -283,7 +286,7 @@ date +%Y%m%d
 </section>
 </section>
 <section id="prompt-for-input">
-<h2>Prompt for Input<a class="headerlink" href="#prompt-for-input" title="Permalink to this headline"></a></h2>
+<h2>Prompt for Input<a class="headerlink" href="#prompt-for-input" title="Permalink to this heading"></a></h2>
 <p>Using <code class="docutils literal notranslate"><span class="pre">read</span></code></p>
 <ul class="simple">
 <li><p>Simple &amp; common</p></li>
@@ -315,7 +318,7 @@ date +%Y%m%d
 </div>
 </section>
 <section id="output-formatting">
-<h2>Output Formatting<a class="headerlink" href="#output-formatting" title="Permalink to this headline"></a></h2>
+<h2>Output Formatting<a class="headerlink" href="#output-formatting" title="Permalink to this heading"></a></h2>
 <p>Source for more formatting options: <a class="reference external" href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">http://misc.flogisoft.com/bash/tip_colors_and_formatting</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">&quot;\e[1mbold\e[0m&quot;</span>
 <span class="nb">echo</span> -e <span class="s2">&quot;\e[3mitalic\e[0m&quot;</span>
@@ -326,7 +329,7 @@ date +%Y%m%d
 </div>
 </section>
 <section id="while-true-loop">
-<h2>While True Loop<a class="headerlink" href="#while-true-loop" title="Permalink to this headline"></a></h2>
+<h2>While True Loop<a class="headerlink" href="#while-true-loop" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/193352/is-using-while-true-to-keep-a-script-alive-a-good-idea">https://unix.stackexchange.com/questions/193352/is-using-while-true-to-keep-a-script-alive-a-good-idea</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="nb">true</span>
 <span class="k">do</span>
@@ -337,7 +340,7 @@ date +%Y%m%d
 </div>
 </section>
 <section id="for-loops">
-<h2>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline"></a></h2>
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading"></a></h2>
 <p>Loop through directory names
 <a class="reference external" href="https://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash">https://unix.stackexchange.com/questions/86722/how-do-i-loop-through-only-directories-in-bash</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> d <span class="k">in</span> */ <span class="p">;</span> <span class="k">do</span>
@@ -354,10 +357,10 @@ date +%Y%m%d
 </div>
 </section>
 <section id="arithmetic">
-<h2>Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this headline"></a></h2>
+<h2>Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this heading"></a></h2>
 <p>Bash is limited to integer math</p>
 <section id="sum">
-<h3>Sum<a class="headerlink" href="#sum" title="Permalink to this headline"></a></h3>
+<h3>Sum<a class="headerlink" href="#sum" title="Permalink to this heading"></a></h3>
 <p><strong>Adding all numbers from output</strong></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line">https://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>awk <span class="s1">&#39;{sum+=$0} END{print sum}&#39;</span>
@@ -365,7 +368,7 @@ date +%Y%m%d
 </div>
 </section>
 <section id="divide">
-<h3>Divide<a class="headerlink" href="#divide" title="Permalink to this headline"></a></h3>
+<h3>Divide<a class="headerlink" href="#divide" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1088098/how-do-i-divide-in-the-linux-console">https://stackoverflow.com/questions/1088098/how-do-i-divide-in-the-linux-console</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">x</span><span class="o">=</span><span class="m">10</span>
 <span class="nv">y</span><span class="o">=</span><span class="m">5</span>
@@ -377,7 +380,7 @@ $ <span class="nb">echo</span> <span class="k">$((</span> <span class="nv">$x</s
 </div>
 </section>
 <section id="scientific-notation-rounding">
-<h3>Scientific Notation &amp; Rounding<a class="headerlink" href="#scientific-notation-rounding" title="Permalink to this headline"></a></h3>
+<h3>Scientific Notation &amp; Rounding<a class="headerlink" href="#scientific-notation-rounding" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/8356698/how-to-remove-decimal-from-a-variable">https://stackoverflow.com/questions/8356698/how-to-remove-decimal-from-a-variable</a>
 <a class="reference external" href="https://unix.stackexchange.com/questions/104332/remove-scientific-notation-bash-script">https://unix.stackexchange.com/questions/104332/remove-scientific-notation-bash-script</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Round &amp; remove scientific notation (0f is the number of decimals)</span>
@@ -391,7 +394,7 @@ $ <span class="nb">printf</span> %.0f <span class="m">1</span>.89
 </div>
 </section>
 <section id="incrementing">
-<h3>Incrementing<a class="headerlink" href="#incrementing" title="Permalink to this headline"></a></h3>
+<h3>Incrementing<a class="headerlink" href="#incrementing" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="k">$((</span><span class="nv">n</span><span class="o">=</span>n+1<span class="k">))</span>
 <span class="m">1</span>
 $ <span class="nb">echo</span> <span class="k">$((</span><span class="nv">n</span><span class="o">=</span>n+1<span class="k">))</span>
@@ -401,32 +404,32 @@ $ <span class="nb">echo</span> <span class="k">$((</span><span class="nv">n</spa
 </section>
 </section>
 <section id="wc">
-<h2>wc<a class="headerlink" href="#wc" title="Permalink to this headline"></a></h2>
+<h2>wc<a class="headerlink" href="#wc" title="Permalink to this heading"></a></h2>
 <section id="number-of-lines">
-<h3>Number of Lines<a class="headerlink" href="#number-of-lines" title="Permalink to this headline"></a></h3>
+<h3>Number of Lines<a class="headerlink" href="#number-of-lines" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-l</span> <span class="pre">myfile.txt</span></code></p>
 </section>
 <section id="number-of-words">
-<h3>Number of Words<a class="headerlink" href="#number-of-words" title="Permalink to this headline"></a></h3>
+<h3>Number of Words<a class="headerlink" href="#number-of-words" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-w</span> <span class="pre">myfile.txt</span></code></p>
 </section>
 <section id="number-of-characters">
-<h3>Number of Characters<a class="headerlink" href="#number-of-characters" title="Permalink to this headline"></a></h3>
+<h3>Number of Characters<a class="headerlink" href="#number-of-characters" title="Permalink to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">wc</span> <span class="pre">-m</span> <span class="pre">myfile.txt</span></code></p>
 </section>
 <section id="count-number-of-lines-of-output">
-<h3>Count Number of Lines of Output<a class="headerlink" href="#count-number-of-lines-of-output" title="Permalink to this headline"></a></h3>
+<h3>Count Number of Lines of Output<a class="headerlink" href="#count-number-of-lines-of-output" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/72819/count-number-of-lines-of-output-from-previous-program">https://unix.stackexchange.com/questions/72819/count-number-of-lines-of-output-from-previous-program</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">`command</span> <span class="pre">|</span> <span class="pre">tee</span> <span class="pre">&gt;(wc</span> <span class="pre">-l)`</span></code></p>
 </section>
 </section>
 <section id="jq">
-<h2>jq<a class="headerlink" href="#jq" title="Permalink to this headline"></a></h2>
+<h2>jq<a class="headerlink" href="#jq" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/52732473/how-to-pass-bash-variable-as-a-key-to-jq">https://stackoverflow.com/questions/52732473/how-to-pass-bash-variable-as-a-key-to-jq</a></p>
 <p>Querying using a bash variable: <code class="docutils literal notranslate"><span class="pre">jq</span> <span class="pre">&quot;.$bash_var&quot;</span></code></p>
 </section>
 <section id="ls">
-<h2>ls<a class="headerlink" href="#ls" title="Permalink to this headline"></a></h2>
+<h2>ls<a class="headerlink" href="#ls" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash">https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls">https://stackoverflow.com/questions/5168071/list-sub-directories-with-ls</a></p>
 <p>List Directories: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-d</span> <span class="pre">*/</span></code></p>
@@ -434,13 +437,13 @@ $ <span class="nb">echo</span> <span class="k">$((</span><span class="nv">n</spa
 <p>Loop through sorted output: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.png</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-V</span></code></p>
 </section>
 <section id="tr">
-<h2>tr<a class="headerlink" href="#tr" title="Permalink to this headline"></a></h2>
+<h2>tr<a class="headerlink" href="#tr" title="Permalink to this heading"></a></h2>
 <p>Remove whitespace</p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable">https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">tr</span> <span class="pre">-d</span> <span class="pre">'[:space:]')</span></code></p>
 </section>
 <section id="pwd">
-<h2>pwd<a class="headerlink" href="#pwd" title="Permalink to this headline"></a></h2>
+<h2>pwd<a class="headerlink" href="#pwd" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/1371261/get-current-directory-name-without-full-path-in-a-bash-script">https://stackoverflow.com/questions/1371261/get-current-directory-name-without-full-path-in-a-bash-script</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current working directory as variable in bash</span>
 $ <span class="nv">result</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="p">##*/</span><span class="si">}</span>
@@ -461,18 +464,18 @@ caleb.sargeant
 </div>
 </section>
 <section id="cat">
-<h2>cat<a class="headerlink" href="#cat" title="Permalink to this headline"></a></h2>
+<h2>cat<a class="headerlink" href="#cat" title="Permalink to this heading"></a></h2>
 <p>Be careful with quotation with <code class="docutils literal notranslate"><span class="pre">cat</span></code>: <a class="reference external" href="https://stackoverflow.com/questions/12636170/bash-script-error-with-cat-and-if">https://stackoverflow.com/questions/12636170/bash-script-error-with-cat-and-if</a></p>
 </section>
 <section id="id1">
-<h2>tr<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<h2>tr<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> __ <span class="p">|</span> tr _ -
 --
 </pre></div>
 </div>
 </section>
 <section id="if">
-<h2>if<a class="headerlink" href="#if" title="Permalink to this headline"></a></h2>
+<h2>if<a class="headerlink" href="#if" title="Permalink to this heading"></a></h2>
 <p>Check if a file type exists in directory
 <a class="reference external" href="https://stackoverflow.com/questions/3856747/check-whether-a-certain-file-type-extension-exists-in-directory">https://stackoverflow.com/questions/3856747/check-whether-a-certain-file-type-extension-exists-in-directory</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">count</span><span class="o">=</span><span class="k">$(</span>ls -1 *.json <span class="m">2</span>&gt;/dev/null <span class="p">|</span> wc -l<span class="k">)</span>
@@ -490,15 +493,15 @@ caleb.sargeant
 </div>
 </section>
 <section id="remove-first-line">
-<h2>Remove First Line<a class="headerlink" href="#remove-first-line" title="Permalink to this headline"></a></h2>
+<h2>Remove First Line<a class="headerlink" href="#remove-first-line" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://superuser.com/questions/284258/remove-first-line-in-bash">https://superuser.com/questions/284258/remove-first-line-in-bash</a></p>
 </section>
 <section id="search-for-text-in-files">
-<h2>Search for Text in Files<a class="headerlink" href="#search-for-text-in-files" title="Permalink to this headline"></a></h2>
+<h2>Search for Text in Files<a class="headerlink" href="#search-for-text-in-files" title="Permalink to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-rnw</span> <span class="pre">'/etc/'</span> <span class="pre">-e</span> <span class="pre">'NULL'</span></code></p>
 </section>
 <section id="extract-text-before-character">
-<h2>Extract Text Before Character<a class="headerlink" href="#extract-text-before-character" title="Permalink to this headline"></a></h2>
+<h2>Extract Text Before Character<a class="headerlink" href="#extract-text-before-character" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://stackoverflow.com/questions/20348097/bash-extract-string-before-a-colon">https://stackoverflow.com/questions/20348097/bash-extract-string-before-a-colon</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace colon with whatever:</span>
 cut -d: -f1
@@ -510,7 +513,7 @@ sed <span class="s1">&#39;s/:.*//&#39;</span>
 </div>
 </section>
 <section id="history">
-<h2>History<a class="headerlink" href="#history" title="Permalink to this headline"></a></h2>
+<h2>History<a class="headerlink" href="#history" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://unix.stackexchange.com/questions/212872/how-to-get-last-n-commands-from-history">https://unix.stackexchange.com/questions/212872/how-to-get-last-n-commands-from-history</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Where n is the number of lines you want to &quot;tail&quot;:</span>
 <span class="nb">history</span> n

@@ -216,6 +216,22 @@ Emergency Mode Bad Fstab
 
   # Put SD card / HDD back into original machine
 
+Swap
+----
+
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-20-04
+
+.. code-block:: bash
+
+  sudo swapon --show
+  free -h
+  df -h
+  sudo fallocate -l 1G /swapfile
+  sudo chmod 600 /swapfile
+  sudo mkswap /swapfile
+  sudo swapon /swapfile
+  echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
 SSH Config
 ----------
 
@@ -612,6 +628,12 @@ https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multip
 
   tar --exclude='./folder' --exclude='./upload/folder2' \
     -zcvf /backup/filename.tgz .
+
+https://unix.stackexchange.com/questions/481993/tar-directory-and-exclude-multiple-subdirectories
+
+.. code-block:: bash
+
+  tar -czvf /location/my.tar.gz --exclude='/dir1' --exclude='/dir2' /dir/to/tar
 
 PDF to CSV
 ----------

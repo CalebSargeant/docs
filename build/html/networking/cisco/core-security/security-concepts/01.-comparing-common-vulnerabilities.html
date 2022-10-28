@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,25 +141,25 @@
            <div itemprop="articleBody">
              
   <section id="comparing-common-vulnerabilities">
-<h1>Comparing Common Vulnerabilities<a class="headerlink" href="#comparing-common-vulnerabilities" title="Permalink to this headline"></a></h1>
+<h1>Comparing Common Vulnerabilities<a class="headerlink" href="#comparing-common-vulnerabilities" title="Permalink to this heading"></a></h1>
 <section id="software-bugs-buffer-overflow">
-<h2>Software Bugs &amp; Buffer Overflow<a class="headerlink" href="#software-bugs-buffer-overflow" title="Permalink to this headline"></a></h2>
+<h2>Software Bugs &amp; Buffer Overflow<a class="headerlink" href="#software-bugs-buffer-overflow" title="Permalink to this heading"></a></h2>
 <p>An attacker can write over data and can also obtain unauthorised data.</p>
 <section id="software-bug">
-<h3>Software Bug<a class="headerlink" href="#software-bug" title="Permalink to this headline"></a></h3>
+<h3>Software Bug<a class="headerlink" href="#software-bug" title="Permalink to this heading"></a></h3>
 <p>Flaw in computer program that causes the program to behave in a way that
 was not intended.</p>
 </section>
 <section id="buffer-overflow">
-<h3>Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="Permalink to this headline"></a></h3>
+<h3>Buffer Overflow<a class="headerlink" href="#buffer-overflow" title="Permalink to this heading"></a></h3>
 <p>A Buffer is a reservation of memory for a specific size. An Overflow is
 when the size of data is greater than the reservation.</p>
 </section>
 </section>
 <section id="weak-passwords-hard-coded-passwords">
-<h2>Weak Passwords &amp; Hard Coded Passwords<a class="headerlink" href="#weak-passwords-hard-coded-passwords" title="Permalink to this headline"></a></h2>
+<h2>Weak Passwords &amp; Hard Coded Passwords<a class="headerlink" href="#weak-passwords-hard-coded-passwords" title="Permalink to this heading"></a></h2>
 <section id="strong-passwords">
-<h3>Strong Passwords<a class="headerlink" href="#strong-passwords" title="Permalink to this headline"></a></h3>
+<h3>Strong Passwords<a class="headerlink" href="#strong-passwords" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Complex and long</p></li>
 <li><p>12 to 16 character minimum</p></li>
@@ -171,7 +174,7 @@ much security</p></li>
 </ul>
 </section>
 <section id="hard-coded-passwords">
-<h3>Hard Coded Passwords<a class="headerlink" href="#hard-coded-passwords" title="Permalink to this headline"></a></h3>
+<h3>Hard Coded Passwords<a class="headerlink" href="#hard-coded-passwords" title="Permalink to this heading"></a></h3>
 <p>Passwords embedded in software code. Once attacker knows the password,
 they can compromise any system that uses the program.</p>
 <p><strong>Mitigations:</strong></p>
@@ -185,9 +188,9 @@ they can compromise any system that uses the program.</p>
 </section>
 </section>
 <section id="missing-encryption">
-<h2>Missing Encryption<a class="headerlink" href="#missing-encryption" title="Permalink to this headline"></a></h2>
+<h2>Missing Encryption<a class="headerlink" href="#missing-encryption" title="Permalink to this heading"></a></h2>
 <section id="encryption">
-<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline"></a></h3>
+<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Provides confidentiality and integrity</p></li>
 <li><p>VPNs are used for data in transit</p></li>
@@ -202,7 +205,7 @@ they can compromise any system that uses the program.</p>
 </section>
 </section>
 <section id="path-traversal">
-<h2>Path Traversal<a class="headerlink" href="#path-traversal" title="Permalink to this headline"></a></h2>
+<h2>Path Traversal<a class="headerlink" href="#path-traversal" title="Permalink to this heading"></a></h2>
 <p>Allows attacker to navigate outside of original directory
 (www.test.com/../../etc/password.file). Attacker can use error messages
 to figure out the structure.</p>
@@ -219,7 +222,7 @@ to figure out the structure.</p>
 </ul>
 </section>
 <section id="sql-injection">
-<h2>SQL Injection<a class="headerlink" href="#sql-injection" title="Permalink to this headline"></a></h2>
+<h2>SQL Injection<a class="headerlink" href="#sql-injection" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use a tool to inject malicious code into legitimate code.</p></li>
 <li><p>Easy to discover - Internet search can provide a lot of info</p></li>
@@ -245,9 +248,9 @@ sensitive corporate info.</p></li>
 </ul>
 </section>
 <section id="cross-site-scripting-cross-site-forgery-request">
-<h2>Cross Site Scripting &amp; Cross Site Forgery Request<a class="headerlink" href="#cross-site-scripting-cross-site-forgery-request" title="Permalink to this headline"></a></h2>
+<h2>Cross Site Scripting &amp; Cross Site Forgery Request<a class="headerlink" href="#cross-site-scripting-cross-site-forgery-request" title="Permalink to this heading"></a></h2>
 <section id="cross-site-scripting">
-<h3>Cross Site Scripting<a class="headerlink" href="#cross-site-scripting" title="Permalink to this headline"></a></h3>
+<h3>Cross Site Scripting<a class="headerlink" href="#cross-site-scripting" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Inject malicious code in order to control behavior of the site</p></li>
 <li><p>Embed the code in a link</p>
@@ -270,7 +273,7 @@ sensitive corporate info.</p></li>
 </ul>
 </section>
 <section id="cross-site-forgery-request">
-<h3>Cross Site Forgery Request<a class="headerlink" href="#cross-site-forgery-request" title="Permalink to this headline"></a></h3>
+<h3>Cross Site Forgery Request<a class="headerlink" href="#cross-site-forgery-request" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Takes advantage of legitimate Cross Site Requests</p>
 <ul>

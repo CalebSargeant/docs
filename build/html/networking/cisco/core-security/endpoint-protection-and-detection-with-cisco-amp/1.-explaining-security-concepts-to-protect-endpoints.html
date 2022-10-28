@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -90,8 +91,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,11 +141,11 @@
            <div itemprop="articleBody">
              
   <section id="explaining-security-concepts-to-protect-endpoints">
-<h1>Explaining Security Concepts to Protect Endpoints<a class="headerlink" href="#explaining-security-concepts-to-protect-endpoints" title="Permalink to this headline"></a></h1>
+<h1>Explaining Security Concepts to Protect Endpoints<a class="headerlink" href="#explaining-security-concepts-to-protect-endpoints" title="Permalink to this heading"></a></h1>
 <section id="antivirus-dynamic-file-analysis">
-<h2>Antivirus &amp; Dynamic File Analysis<a class="headerlink" href="#antivirus-dynamic-file-analysis" title="Permalink to this headline"></a></h2>
+<h2>Antivirus &amp; Dynamic File Analysis<a class="headerlink" href="#antivirus-dynamic-file-analysis" title="Permalink to this heading"></a></h2>
 <section id="why-endpoints-need-protected">
-<h3>Why Endpoints Need Protected<a class="headerlink" href="#why-endpoints-need-protected" title="Permalink to this headline"></a></h3>
+<h3>Why Endpoints Need Protected<a class="headerlink" href="#why-endpoints-need-protected" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Defense in-depth</p></li>
 <li><p>Endpoints contain sensitive information</p>
@@ -153,14 +156,14 @@
 </ul>
 </section>
 <section id="computer-viruses">
-<h3>Computer Viruses<a class="headerlink" href="#computer-viruses" title="Permalink to this headline"></a></h3>
+<h3>Computer Viruses<a class="headerlink" href="#computer-viruses" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Attach themselves to otherwise benign files or programs</p></li>
 <li><p>Lay dormant until file or program is executed</p></li>
 </ul>
 </section>
 <section id="antivirus">
-<h3>Antivirus<a class="headerlink" href="#antivirus" title="Permalink to this headline"></a></h3>
+<h3>Antivirus<a class="headerlink" href="#antivirus" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Create signatures to identify viruses</p>
 <ul>
@@ -174,20 +177,20 @@ to be created</p></li>
 </ul>
 </section>
 <section id="heuristics">
-<h3>Heuristics<a class="headerlink" href="#heuristics" title="Permalink to this headline"></a></h3>
+<h3>Heuristics<a class="headerlink" href="#heuristics" title="Permalink to this heading"></a></h3>
 <p>Looks at the behavior of the software rather than a predefined
 signature.</p>
 </section>
 <section id="machine-learning">
-<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline"></a></h3>
+<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading"></a></h3>
 <p>Dynamically creates algorithms and finds patterns based on large sets of
 both malicious files and benign files.</p>
 </section>
 </section>
 <section id="cisco-amp-for-endpoints-overview">
-<h2>Cisco AMP for Endpoints Overview<a class="headerlink" href="#cisco-amp-for-endpoints-overview" title="Permalink to this headline"></a></h2>
+<h2>Cisco AMP for Endpoints Overview<a class="headerlink" href="#cisco-amp-for-endpoints-overview" title="Permalink to this heading"></a></h2>
 <section id="cisco-amp-cloud">
-<h3>Cisco AMP Cloud<a class="headerlink" href="#cisco-amp-cloud" title="Permalink to this headline"></a></h3>
+<h3>Cisco AMP Cloud<a class="headerlink" href="#cisco-amp-cloud" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Heavy lifting is done in the cloud and not on the endpoint</p></li>
 <li><p>Quickly integrate to other security products</p></li>
@@ -195,27 +198,27 @@ both malicious files and benign files.</p>
 </ul>
 </section>
 <section id="cisco-amps-engines">
-<h3>Cisco AMP’s Engines<a class="headerlink" href="#cisco-amps-engines" title="Permalink to this headline"></a></h3>
+<h3>Cisco AMP’s Engines<a class="headerlink" href="#cisco-amps-engines" title="Permalink to this heading"></a></h3>
 <p>Uses a file’s SHA-256 hash to quickly determine if it has been seen and
 if it is malicious</p>
 <section id="ethos">
-<h4>Ethos<a class="headerlink" href="#ethos" title="Permalink to this headline"></a></h4>
+<h4>Ethos<a class="headerlink" href="#ethos" title="Permalink to this heading"></a></h4>
 <p>Looks at the different artifacts of the file, rather than the entire
 file itself</p>
 </section>
 <section id="spero">
-<h4>Spero<a class="headerlink" href="#spero" title="Permalink to this headline"></a></h4>
+<h4>Spero<a class="headerlink" href="#spero" title="Permalink to this heading"></a></h4>
 <p>Uses machine learning in order to find patterns to determine malicious
 files from benign files</p>
 </section>
 <section id="tetra">
-<h4>TETRA<a class="headerlink" href="#tetra" title="Permalink to this headline"></a></h4>
+<h4>TETRA<a class="headerlink" href="#tetra" title="Permalink to this heading"></a></h4>
 <p>Provides antimalware capabilities when the device is not connected to
 the cloud</p>
 </section>
 </section>
 <section id="additional-cisco-amp-benefits">
-<h3>Additional Cisco AMP Benefits<a class="headerlink" href="#additional-cisco-amp-benefits" title="Permalink to this headline"></a></h3>
+<h3>Additional Cisco AMP Benefits<a class="headerlink" href="#additional-cisco-amp-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Evaluate indicators of compromise (IOCs)</p>
 <ul>
@@ -236,7 +239,7 @@ the cloud</p>
 </ul>
 </section>
 <section id="cisco-amp-flow">
-<h3>Cisco AMP Flow<a class="headerlink" href="#cisco-amp-flow" title="Permalink to this headline"></a></h3>
+<h3>Cisco AMP Flow<a class="headerlink" href="#cisco-amp-flow" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Hash of file is used to determine if it has been seen</p></li>
 <li><p>If it has been seen, previous verdict is used</p></li>
@@ -246,19 +249,19 @@ the cloud</p>
 </section>
 </section>
 <section id="retrospective-security">
-<h2>Retrospective Security<a class="headerlink" href="#retrospective-security" title="Permalink to this headline"></a></h2>
+<h2>Retrospective Security<a class="headerlink" href="#retrospective-security" title="Permalink to this heading"></a></h2>
 <p>Go back in time and see which endpoints the malicious file has touched.</p>
 <section id="device-trajectory">
-<h3>Device Trajectory<a class="headerlink" href="#device-trajectory" title="Permalink to this headline"></a></h3>
+<h3>Device Trajectory<a class="headerlink" href="#device-trajectory" title="Permalink to this heading"></a></h3>
 <p>Determine every interaction between the malicious file and other files
 on the endpoint.</p>
 <p>AMP can dynamically create rules based on the events that occurred.</p>
 </section>
 </section>
 <section id="endpoint-protection-platform-endpoint-detection-and-response">
-<h2>Endpoint Protection Platform &amp; Endpoint Detection and Response<a class="headerlink" href="#endpoint-protection-platform-endpoint-detection-and-response" title="Permalink to this headline"></a></h2>
+<h2>Endpoint Protection Platform &amp; Endpoint Detection and Response<a class="headerlink" href="#endpoint-protection-platform-endpoint-detection-and-response" title="Permalink to this heading"></a></h2>
 <section id="epp-vs-edr">
-<h3>EPP vs EDR<a class="headerlink" href="#epp-vs-edr" title="Permalink to this headline"></a></h3>
+<h3>EPP vs EDR<a class="headerlink" href="#epp-vs-edr" title="Permalink to this heading"></a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 48%" />
@@ -288,9 +291,9 @@ on the endpoint.</p>
 </section>
 </section>
 <section id="justifying-endpoint-patching">
-<h2>Justifying Endpoint Patching<a class="headerlink" href="#justifying-endpoint-patching" title="Permalink to this headline"></a></h2>
+<h2>Justifying Endpoint Patching<a class="headerlink" href="#justifying-endpoint-patching" title="Permalink to this heading"></a></h2>
 <section id="keeping-endpoints-up-to-date">
-<h3>Keeping Endpoints up to Date<a class="headerlink" href="#keeping-endpoints-up-to-date" title="Permalink to this headline"></a></h3>
+<h3>Keeping Endpoints up to Date<a class="headerlink" href="#keeping-endpoints-up-to-date" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Exploit vulnerabilities in system code or software code</p></li>
 <li><p>Flaw allowed malicious actors to spoof digital certificate</p></li>

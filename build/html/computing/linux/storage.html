@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -63,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Storage</a><ul>
@@ -130,9 +134,9 @@
            <div itemprop="articleBody">
              
   <section id="storage">
-<h1>Storage<a class="headerlink" href="#storage" title="Permalink to this headline"></a></h1>
+<h1>Storage<a class="headerlink" href="#storage" title="Permalink to this heading"></a></h1>
 <section id="resizing-disk">
-<h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this headline"></a></h2>
+<h2>Resizing Disk<a class="headerlink" href="#resizing-disk" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># df -h</span>
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        <span class="m">7</span>.6G     <span class="m">0</span>  <span class="m">7</span>.6G   <span class="m">0</span>% /dev
@@ -173,7 +177,7 @@ tmpfs           <span class="m">1</span>.6G     <span class="m">0</span>  <span 
 </div>
 </section>
 <section id="file-system-check-loop">
-<h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this headline"></a></h2>
+<h2>File System Check Loop<a class="headerlink" href="#file-system-check-loop" title="Permalink to this heading"></a></h2>
 <p>You start up CentOS and it wants to do a File System check. You do the check, reboot and it happens again.
 Try the following:</p>
 <ol class="arabic simple">
@@ -190,7 +194,7 @@ vi /etc/fstab
 </div>
 </section>
 <section id="formatting-usb-flash-drive">
-<h2>Formatting USB Flash Drive<a class="headerlink" href="#formatting-usb-flash-drive" title="Permalink to this headline"></a></h2>
+<h2>Formatting USB Flash Drive<a class="headerlink" href="#formatting-usb-flash-drive" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>vFAT (FAT32): <code class="docutils literal notranslate"><span class="pre">mkfs.vfat</span></code></p></li>
 <li><p>NTFS: <code class="docutils literal notranslate"><span class="pre">mkfs.ntfs</span></code></p></li>
@@ -208,7 +212,7 @@ mount -t ext4 /dev/sdx1 /mnt/CALEB
 </div>
 </section>
 <section id="repairing-grub">
-<h2>Repairing Grub<a class="headerlink" href="#repairing-grub" title="Permalink to this headline"></a></h2>
+<h2>Repairing Grub<a class="headerlink" href="#repairing-grub" title="Permalink to this heading"></a></h2>
 <p>You boot up Linux machine (CentOS) and only “grub _” displays on the screen. You can try:</p>
 <ol class="arabic simple">
 <li><p>Boot from Linux live CD/USB</p></li>
@@ -223,7 +227,7 @@ reboot
 </div>
 </section>
 <section id="mount">
-<h2>Mount<a class="headerlink" href="#mount" title="Permalink to this headline"></a></h2>
+<h2>Mount<a class="headerlink" href="#mount" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install cifs-utils</span>
 apt-get install cifs-utils
 
@@ -235,7 +239,7 @@ mount -a
 </div>
 </section>
 <section id="mount-usb-flash-disk">
-<h2>Mount USB Flash Disk<a class="headerlink" href="#mount-usb-flash-disk" title="Permalink to this headline"></a></h2>
+<h2>Mount USB Flash Disk<a class="headerlink" href="#mount-usb-flash-disk" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create folder for mounting</span>
 mkdir -p /media/USB
 
@@ -253,14 +257,14 @@ umount /media/USB
 </div>
 </section>
 <section id="iostat">
-<h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this headline"></a></h2>
+<h2>iostat<a class="headerlink" href="#iostat" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install sysstat
 iostat -d <span class="m">2</span> /dev/sda
 </pre></div>
 </div>
 </section>
 <section id="drbd">
-<h2>DRBD<a class="headerlink" href="#drbd" title="Permalink to this headline"></a></h2>
+<h2>DRBD<a class="headerlink" href="#drbd" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### CONFIGURATION</span>
 <span class="c1"># After deploying DRBD through Ansible:</span>
 <span class="c1"># Initialize the metadata</span>
@@ -301,7 +305,7 @@ sudo docker restart deluge
 </div>
 </section>
 <section id="zfs">
-<h2>ZFS<a class="headerlink" href="#zfs" title="Permalink to this headline"></a></h2>
+<h2>ZFS<a class="headerlink" href="#zfs" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install ZFS</span>
 sudo apt install zfsutils-linux
 
@@ -320,7 +324,7 @@ sudo zfs create -V 3486gb tank/vol
 </div>
 </section>
 <section id="glusterfs">
-<h2>GlusterFS<a class="headerlink" href="#glusterfs" title="Permalink to this headline"></a></h2>
+<h2>GlusterFS<a class="headerlink" href="#glusterfs" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install GlusterFS</span>
 apt install glusterfs-server -y
 
@@ -336,7 +340,7 @@ gluster volume start gv0
 </div>
 </section>
 <section id="badblocks">
-<h2>Badblocks<a class="headerlink" href="#badblocks" title="Permalink to this headline"></a></h2>
+<h2>Badblocks<a class="headerlink" href="#badblocks" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>You can use a Linux boot CD to repair a Windows NTFS disk fault.</p></li>
 <li><p>If no filesystems are specified on the command line, and the <code class="docutils literal notranslate"><span class="pre">-A</span></code> option is not specified, <code class="docutils literal notranslate"><span class="pre">fsck</span></code> will default to checking filesystems in the <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> serial.</p></li>
@@ -348,7 +352,7 @@ gluster volume start gv0
 <li><p>To see a nice overall view of system health: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">smartctl</span> <span class="pre">-a</span> <span class="pre">/dev/sda</span></code></p></li>
 </ul>
 <section id="linux-harddrive">
-<h3>Linux Harddrive<a class="headerlink" href="#linux-harddrive" title="Permalink to this headline"></a></h3>
+<h3>Linux Harddrive<a class="headerlink" href="#linux-harddrive" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Put a CentOS disk into the DVD-Rom</p></li>
 <li><p>Start Rescue Mode</p></li>
@@ -365,7 +369,7 @@ e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/sdax
 </div>
 </section>
 <section id="windows-harddrive">
-<h3>Windows Harddrive<a class="headerlink" href="#windows-harddrive" title="Permalink to this headline"></a></h3>
+<h3>Windows Harddrive<a class="headerlink" href="#windows-harddrive" title="Permalink to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is not a good idea!</p>
@@ -390,7 +394,7 @@ e2fsck -t ext3 -l &lt;file_name_here&gt; /dev/hdbx
 </section>
 </section>
 <section id="mdadm">
-<h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this headline"></a></h2>
+<h2>MDADM<a class="headerlink" href="#mdadm" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add entry to fstab to automount</span>
 nano /etc/fstab
   /dev/md0        /media/data     ext4 defaults <span class="m">0</span> <span class="m">0</span>

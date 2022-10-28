@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="General" href="general.html" />
+    <link rel="prev" title="Openstack" href="../cloud/openstack.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html">Container Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html">Docker Compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html">Swarm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html">Container Registries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/docker/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html#backup">Backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#docker-swarm">Docker Swarm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="creating-and-using-containers.html">Creating and Using Containers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#basic-commands">Basic Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#starting-a-container">Starting a Container</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#image-vs-container">Image vs Container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#docker-container-run-publish-80-80-nginx">docker container run –publish 80:80 nginx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#what-happens-when-we-run-a-container">What Happens When we Run a Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#container-vs-vm">Container vs VM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#containers-aren-t-mini-vms">Containers aren’t Mini-VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#whats-going-on-in-containers">Whats Going on in Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#getting-a-shell-inside-containers">Getting a Shell inside Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-using-containers.html#docker-networks">Docker Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#docker-networks-defaults">Docker Networks Defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#cli-management">CLI Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#default-security">Default Security</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-and-using-containers.html#dns">DNS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container-images.html">Container Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html#what-s-an-image">What’s an Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-images.html#image-and-their-layers">Image and Their Layers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container-lifetime.html">Container Lifetime &amp; Persistent Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html#data-volumes">Data Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-lifetime.html#bind-mounting">Bind Mounting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compose.html">Docker Compose</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="compose.html#docker-compose-yml">docker-compose.yml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html#docker-compose-cli">docker-compose CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compose.html#use-compose-to-build">Use Compose to Build</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swarm.html">Swarm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#containers-everywhere-new-problems">Containers Everywhere = New Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#swarm-mode-built-in-orchestration">Swarm Mode: Built-In Orchestration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#swarm-services">Swarm Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#overlay-multi-host-networking">Overlay Multi-Host Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#routing-mesh">Routing Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#swarm-stacks">Swarm Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#swarm-secrets">Swarm Secrets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#secrets-storage">Secrets Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#secrets-with-services">Secrets with Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#secrets-with-stacks">Secrets with Stacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#swarm-lifecycle">Swarm Lifecycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#full-app-lifecycle-with-compose">Full App Lifecycle with Compose</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#service-updates">Service Updates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#swarm-update-examples">Swarm Update Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#swarm-updates-in-stack-files">Swarm Updates in Stack FIles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="swarm.html#healthchecks">Healthchecks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#healthcheck-docker-run-example">Healthcheck DOcker Run Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#healthcheck-dockerfile-examples">Healthcheck Dockerfile Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#healthcheck-in-nginx-dockerfile">Healthcheck in Nginx Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#healthcheck-in-php-nginx-dockerfile">Healthcheck in PHP Nginx Dockerfile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="swarm.html#healthcheck-in-postgres-dockerfile">Healthcheck in postgres Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="container-registries.html">Container Registries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html#docker-registry">Docker Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html#private-registry">Private Registry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="container-registries.html#registry-and-proper-tls">Registry and Proper TLS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="container-registries.html#using-registry-with-swarm">Using Registry with Swarm</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../cloud/openstack.html" class="btn btn-neutral float-left" title="Openstack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="general.html" class="btn btn-neutral float-right" title="General" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

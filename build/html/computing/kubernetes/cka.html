@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certified Kubernetes Administrator (CKA) &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kubernetes" href="general.html" />
+    <link rel="prev" title="Kubernetes" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Kubernetes</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Certified Kubernetes Administrator (CKA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-concepts">Core Concepts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#downloads">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#practice-labs">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling">Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#logging-monitoring">Logging &amp; Monitoring</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#application-lifecycle-management">Application Lifecycle Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cluster-maintenance">Cluster Maintenance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#security">Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#storage">Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#networking">Networking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#design-and-install-a-kubernetes-cluster">Design and Install a Kubernetes Cluster</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#install-kubernetes-the-kubeadm-way">Install Kubernetes the kubeadm Way</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Downloads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-topics">Other Topics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Practice Labs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Future of Kubernetes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Kubernetes</a> &raquo;</li>
+      <li>Certified Kubernetes Administrator (CKA)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/kubernetes/cka.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="certified-kubernetes-administrator-cka">
+<h1>Certified Kubernetes Administrator (CKA)<a class="headerlink" href="#certified-kubernetes-administrator-cka" title="Permalink to this heading"></a></h1>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this heading"></a></h2>
+<section id="downloads">
+<h3>Downloads<a class="headerlink" href="#downloads" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/8d613372eeb5ef42bf2fbc8889e2a155/Kubernetes%2B-CKA-%2B0100%2B-%2BCore%2BConcepts.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Core</span> <span class="pre">Concepts</span> <span class="pre">1</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/c888170129de18e04facc5c3bd1ccd6b/Core%2Bconcepts%2B-2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Core</span> <span class="pre">Concepts</span> <span class="pre">2</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/01440115642011bddb30965424c673d3/kubernetes-services-updated.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Services</span></code></a></p>
+</section>
+<section id="practice-labs">
+<h3>Practice Labs<a class="headerlink" href="#practice-labs" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-pods-2/">https://uklabs.kodekloud.com/topic/practice-test-pods-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-replicasets-2/">https://uklabs.kodekloud.com/topic/practice-test-replicasets-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-tests-deployments-2/">https://uklabs.kodekloud.com/topic/practice-tests-deployments-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-namespaces-2/">https://uklabs.kodekloud.com/topic/practice-test-namespaces-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-imperative-commands-3/">https://uklabs.kodekloud.com/topic/practice-test-imperative-commands-3/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="scheduling">
+<h2>Scheduling<a class="headerlink" href="#scheduling" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>Downloads<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/a3789284e962d98968fe34cecd467561/Kubernetes%2B-CKA-%2B0200%2B-%2BScheduling.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Scheduling</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/02f07c9f221f8429feda2d583674c34d/Networking.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Networking</span></code></a></p>
+<p><a class="reference download internal" download="" href="../../_downloads/e39e4401fefcd6b7825b9cdc9b50c64f/Udemy%2BKubernetes%2Btaints-tolerations.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Taints</span> <span class="pre">&amp;</span> <span class="pre">Tolerants</span></code></a></p>
+</section>
+<section id="id2">
+<h3>Practice Labs<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-manual-scheduling-2/">https://uklabs.kodekloud.com/topic/practice-test-manual-scheduling-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-labels-and-selectors-2/">https://uklabs.kodekloud.com/topic/practice-test-labels-and-selectors-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-taints-and-tolerations-2/">https://uklabs.kodekloud.com/topic/practice-test-taints-and-tolerations-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-node-affinity-3/">https://uklabs.kodekloud.com/topic/practice-test-node-affinity-3/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-resource-limits-2/">https://uklabs.kodekloud.com/topic/practice-test-resource-limits-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-daemonsets-2/">https://uklabs.kodekloud.com/topic/practice-test-daemonsets-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-static-pods-2/">https://uklabs.kodekloud.com/topic/practice-test-static-pods-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-multiple-schedulers-2/">https://uklabs.kodekloud.com/topic/practice-test-multiple-schedulers-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="logging-monitoring">
+<h2>Logging &amp; Monitoring<a class="headerlink" href="#logging-monitoring" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3>Downloads<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/5d7caa82637d81b6a9cc6791241225c7/Kubernetes%2B-CKA-%2B0300%2B-%2BLogging-Monitoring.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Logging</span> <span class="pre">&amp;</span> <span class="pre">Monitoring</span></code></a></p>
+</section>
+<section id="id4">
+<h3>Practice Labs<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-monitor-cluster-components-2/">https://uklabs.kodekloud.com/topic/practice-test-monitor-cluster-components-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-managing-application-logs-2/">https://uklabs.kodekloud.com/topic/practice-test-managing-application-logs-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="application-lifecycle-management">
+<h2>Application Lifecycle Management<a class="headerlink" href="#application-lifecycle-management" title="Permalink to this heading"></a></h2>
+<section id="id5">
+<h3>Downloads<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/ecf4dc318a3d3d0d3186aebbd55b27e1/Kubernetes%2B-CKA-%2B0400%2B-%2BApplication%2BLifecycle%2BManagement.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Application</span> <span class="pre">Lifecycle</span> <span class="pre">Management</span></code></a></p>
+</section>
+<section id="id6">
+<h3>Practice Labs<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-rolling-updates-and-rollbacks-2/">https://uklabs.kodekloud.com/topic/practice-test-rolling-updates-and-rollbacks-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-commands-and-arguments-2/">https://uklabs.kodekloud.com/topic/practice-test-commands-and-arguments-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-env-variables-2/">https://uklabs.kodekloud.com/topic/practice-test-env-variables-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-secrets-2/">https://uklabs.kodekloud.com/topic/practice-test-secrets-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-multi-container-pods-2/">https://uklabs.kodekloud.com/topic/practice-test-multi-container-pods-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-init-containers-2/">https://uklabs.kodekloud.com/topic/practice-test-init-containers-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="cluster-maintenance">
+<h2>Cluster Maintenance<a class="headerlink" href="#cluster-maintenance" title="Permalink to this heading"></a></h2>
+<section id="id7">
+<h3>Downloads<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/977d766f1056af5383d5211744f9672a/Kubernetes-CKA-0500-Cluster%2BMaintenance-v1.2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Cluster</span> <span class="pre">Maintenance</span></code></a></p>
+</section>
+<section id="id8">
+<h3>Practice Labs<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-os-upgrades-2/">https://uklabs.kodekloud.com/topic/practice-test-os-upgrades-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cluster-upgrade-process-2/">https://uklabs.kodekloud.com/topic/practice-test-cluster-upgrade-process-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-backup-and-restore-methods-2/">https://uklabs.kodekloud.com/topic/practice-test-backup-and-restore-methods-2/</a></p></li>
+<li><p><a class="reference external" href="https://kodekloud.com/topic/practice-test-backup-and-restore-methods-2-3/">https://kodekloud.com/topic/practice-test-backup-and-restore-methods-2-3/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this heading"></a></h2>
+<section id="id9">
+<h3>Downloads<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/1e6b5e5a6d98736214543ae0592719bb/Kubernetes%2B-CKA-%2B0600%2B-%2BSecurity.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Security</span></code></a></p>
+</section>
+<section id="id10">
+<h3>Practice Labs<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-view-certificate-details-2/">https://uklabs.kodekloud.com/topic/practice-test-view-certificate-details-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-certificates-api-2/">https://uklabs.kodekloud.com/topic/practice-test-certificates-api-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-kubeconfig-2/">https://uklabs.kodekloud.com/topic/practice-test-kubeconfig-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-role-based-access-controls-2/">https://uklabs.kodekloud.com/topic/practice-test-role-based-access-controls-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cluster-roles-2/">https://uklabs.kodekloud.com/topic/practice-test-cluster-roles-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-service-accounts-2/">https://uklabs.kodekloud.com/topic/practice-test-service-accounts-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-image-security-2/">https://uklabs.kodekloud.com/topic/practice-test-image-security-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-security-contexts-2/">https://uklabs.kodekloud.com/topic/practice-test-security-contexts-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-network-policies-2/">https://uklabs.kodekloud.com/topic/practice-test-network-policies-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this heading"></a></h2>
+<section id="id11">
+<h3>Downloads<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/ca086aa56bdc96adb14f32ae76f165f6/Kubernetes%2B-CKA-%2B0700%2B-%2BStorage.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Storage</span></code></a></p>
+</section>
+<section id="id12">
+<h3>Practice Labs<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-persistent-volume-claims-2/">https://uklabs.kodekloud.com/topic/practice-test-persistent-volume-claims-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-storage-class-3/">https://uklabs.kodekloud.com/topic/practice-test-storage-class-3/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="networking">
+<h2>Networking<a class="headerlink" href="#networking" title="Permalink to this heading"></a></h2>
+<section id="id13">
+<h3>Downloads<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/e54948242c6e6a33e66daee6d7855da4/Kubernetes%2B-CKA-%2B0800%2B-%2BNetworking-v1.2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Networking</span></code></a>
+<a class="reference download internal" download="" href="../../_downloads/8106e5b7fc8618a437c6ac1e2170c6a2/Ingress.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Ingress</span></code></a></p>
+</section>
+<section id="id14">
+<h3>Practice Labs<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-explore-environment-2/">https://uklabs.kodekloud.com/topic/practice-test-explore-environment-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cni-weave-2/">https://uklabs.kodekloud.com/topic/practice-test-cni-weave-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-deploy-network-solution-2/">https://uklabs.kodekloud.com/topic/practice-test-deploy-network-solution-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-networking-weave-2/">https://uklabs.kodekloud.com/topic/practice-test-networking-weave-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-service-networking-2/">https://uklabs.kodekloud.com/topic/practice-test-service-networking-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-coredns-in-kubernetes-2/">https://uklabs.kodekloud.com/topic/practice-test-coredns-in-kubernetes-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cka-ingress-networking-1-2/">https://uklabs.kodekloud.com/topic/practice-test-cka-ingress-networking-1-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cka-ingress-networking-2-2/">https://uklabs.kodekloud.com/topic/practice-test-cka-ingress-networking-2-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="design-and-install-a-kubernetes-cluster">
+<h2>Design and Install a Kubernetes Cluster<a class="headerlink" href="#design-and-install-a-kubernetes-cluster" title="Permalink to this heading"></a></h2>
+<section id="id15">
+<h3>Downloads<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/61c286868f23577c2031597601042d1e/Kubernetes%2B-CKA-%2B0900%2B-%2BInstall-v1.4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Design</span> <span class="pre">and</span> <span class="pre">Install</span></code></a></p>
+</section>
+</section>
+<section id="install-kubernetes-the-kubeadm-way">
+<h2>Install Kubernetes the kubeadm Way<a class="headerlink" href="#install-kubernetes-the-kubeadm-way" title="Permalink to this heading"></a></h2>
+<section id="id16">
+<h3>Practice Labs<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-cluster-installation-using-kubeadm/">https://uklabs.kodekloud.com/topic/practice-test-cluster-installation-using-kubeadm/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<section id="id17">
+<h3>Downloads<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<p><a class="reference download internal" download="" href="../../_downloads/735f628b356b13f255bf1c8dd7edf22d/Kubernetes-CKA-1000-Troubleshooting.pdf"><code class="xref download docutils literal notranslate"><span class="pre">Troubleshooting</span></code></a></p>
+</section>
+<section id="id18">
+<h3>Practice Labs<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-application-failure-2/">https://uklabs.kodekloud.com/topic/practice-test-application-failure-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-control-plane-failure-2/">https://uklabs.kodekloud.com/topic/practice-test-control-plane-failure-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-worker-node-failure-2/">https://uklabs.kodekloud.com/topic/practice-test-worker-node-failure-2/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-troubleshoot-network-2/">https://uklabs.kodekloud.com/topic/practice-test-troubleshoot-network-2/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="other-topics">
+<h2>Other Topics<a class="headerlink" href="#other-topics" title="Permalink to this heading"></a></h2>
+<section id="id19">
+<h3>Practice Labs<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-json-path/">https://uklabs.kodekloud.com/topic/practice-json-path/</a></p></li>
+<li><p><a class="reference external" href="https://uklabs.kodekloud.com/topic/practice-test-advanced-kubectl-commands-2/">https://uklabs.kodekloud.com/topic/practice-test-advanced-kubectl-commands-2/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Kubernetes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="general.html" class="btn btn-neutral float-right" title="Kubernetes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

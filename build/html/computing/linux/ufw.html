@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Linux</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="databases.html">Databases</a></li>
@@ -63,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring.html">Monitoring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nagios.html">Nagios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openvpn.html">OpenVPN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prometheus.html">Prometheus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raspberry.html">Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
@@ -117,9 +121,9 @@
            <div itemprop="articleBody">
              
   <section id="ufw">
-<h1>UFW<a class="headerlink" href="#ufw" title="Permalink to this headline"></a></h1>
+<h1>UFW<a class="headerlink" href="#ufw" title="Permalink to this heading"></a></h1>
 <section id="port-forwarding">
-<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this headline"></a></h2>
+<h2>Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.cyberciti.biz/faq/how-to-configure-ufw-to-forward-port-80443-to-internal-server-hosted-on-lan/">https://www.cyberciti.biz/faq/how-to-configure-ufw-to-forward-port-80443-to-internal-server-hosted-on-lan/</a></p>
 <p><a class="reference external" href="https://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward">https://serverfault.com/questions/238563/can-i-use-ufw-to-setup-a-port-forward</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A PREROUTING -i eth0 -p tcp -d <span class="o">{</span>PUBLIC_IP<span class="o">}</span> --dport <span class="m">443</span> -j DNAT --to <span class="o">{</span>INTERNAL_IP<span class="o">}</span>:443
@@ -138,7 +142,7 @@ vi /etc/ufw/before.rules
 </div>
 </section>
 <section id="disable-ufw">
-<h2>Disable UFW<a class="headerlink" href="#disable-ufw" title="Permalink to this headline"></a></h2>
+<h2>Disable UFW<a class="headerlink" href="#disable-ufw" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://askubuntu.com/questions/275998/can-i-uninstall-ufw-completely">https://askubuntu.com/questions/275998/can-i-uninstall-ufw-completely</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ufw disable
 apt-get remove ufw
@@ -147,7 +151,7 @@ apt-get purge ufw
 </div>
 </section>
 <section id="status">
-<h2>Status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h2>
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/516838/where-are-the-logs-for-ufw-located-on-ubuntu-server">https://serverfault.com/questions/516838/where-are-the-logs-for-ufw-located-on-ubuntu-server</a></p>
 <p><a class="reference external" href="https://fedingo.com/how-to-check-ufw-log-status/">https://fedingo.com/how-to-check-ufw-log-status/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ufw status verbose

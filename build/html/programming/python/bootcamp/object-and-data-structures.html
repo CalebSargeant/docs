@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -123,9 +126,9 @@
            <div itemprop="articleBody">
              
   <section id="object-and-data-structures">
-<h1>Object and Data Structures<a class="headerlink" href="#object-and-data-structures" title="Permalink to this headline"></a></h1>
+<h1>Object and Data Structures<a class="headerlink" href="#object-and-data-structures" title="Permalink to this heading"></a></h1>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -194,9 +197,9 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 </table>
 </section>
 <section id="numbers">
-<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline"></a></h2>
+<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this heading"></a></h2>
 <section id="basic-math">
-<h3>Basic math<a class="headerlink" href="#basic-math" title="Permalink to this headline"></a></h3>
+<h3>Basic math<a class="headerlink" href="#basic-math" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Addition</span>
 <span class="mi">2</span><span class="o">+</span><span class="mi">1</span>
 
@@ -214,7 +217,7 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 </pre></div>
 </div>
 <section id="modulo-or-mod-operator">
-<h4>Modulo or “Mod” Operator<a class="headerlink" href="#modulo-or-mod-operator" title="Permalink to this headline"></a></h4>
+<h4>Modulo or “Mod” Operator<a class="headerlink" href="#modulo-or-mod-operator" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Mod</span>
 <span class="c1"># Give the remainder of 7/4</span>
 <span class="mi">7</span> <span class="o">%</span> <span class="mi">4</span>
@@ -228,7 +231,7 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 </div>
 </section>
 <section id="bodmas">
-<h4>BODMAS<a class="headerlink" href="#bodmas" title="Permalink to this headline"></a></h4>
+<h4>BODMAS<a class="headerlink" href="#bodmas" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Result of 105</span>
 <span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span>
 
@@ -240,9 +243,9 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 </section>
 </section>
 <section id="variable-assignment">
-<h2>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline"></a></h2>
+<h2>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this heading"></a></h2>
 <section id="rules-for-variable-names">
-<h3>Rules for Variable Names<a class="headerlink" href="#rules-for-variable-names" title="Permalink to this headline"></a></h3>
+<h3>Rules for Variable Names<a class="headerlink" href="#rules-for-variable-names" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Names can’t start with a number</p></li>
 <li><p>There can be no spaces in the name, use <code class="docutils literal notranslate"><span class="pre">_</span></code>instead.</p></li>
@@ -253,7 +256,7 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 </ul>
 </section>
 <section id="dynamic-typing">
-<h3>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this headline"></a></h3>
+<h3>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Python uses <strong>Dynamic Typing</strong></p></li>
 <li><p>You can reassign variables to different data types</p></li>
@@ -261,7 +264,7 @@ or <code class="docutils literal notranslate"><span class="pre">False</span></co
 different than other languages that are <strong>“Statically-Typed”</strong></p></li>
 </ul>
 <section id="example-of-dynamic-typing-in-python">
-<h4><strong>Example of Dynamic Typing in Python</strong><a class="headerlink" href="#example-of-dynamic-typing-in-python" title="Permalink to this headline"></a></h4>
+<h4><strong>Example of Dynamic Typing in Python</strong><a class="headerlink" href="#example-of-dynamic-typing-in-python" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assigning a var a different data type (eg) from number to list works in Python,</span>
 <span class="c1"># but not in other languages, as described above</span>
 <span class="n">my_cats</span> <span class="o">=</span> <span class="mi">2</span>
@@ -270,7 +273,7 @@ different than other languages that are <strong>“Statically-Typed”</strong><
 </div>
 </section>
 <section id="example-of-static-typing-in-c">
-<h4>Example of Static Typing in C++<a class="headerlink" href="#example-of-static-typing-in-c" title="Permalink to this headline"></a></h4>
+<h4>Example of Static Typing in C++<a class="headerlink" href="#example-of-static-typing-in-c" title="Permalink to this heading"></a></h4>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">my_dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="n">my_dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sammy&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//results in error - no longer integer</span>
 </pre></div>
@@ -278,7 +281,7 @@ different than other languages that are <strong>“Statically-Typed”</strong><
 </section>
 </section>
 <section id="pros-cons-of-dynamic-typing">
-<h3>Pros &amp; Cons of Dynamic Typing<a class="headerlink" href="#pros-cons-of-dynamic-typing" title="Permalink to this headline"></a></h3>
+<h3>Pros &amp; Cons of Dynamic Typing<a class="headerlink" href="#pros-cons-of-dynamic-typing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Pros of Dynamic Typing:</p>
 <ul>
@@ -295,7 +298,7 @@ different than other languages that are <strong>“Statically-Typed”</strong><
 </ul>
 </section>
 <section id="assigning-variables">
-<h3>Assigning Variables<a class="headerlink" href="#assigning-variables" title="Permalink to this headline"></a></h3>
+<h3>Assigning Variables<a class="headerlink" href="#assigning-variables" title="Permalink to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># assign a as 5</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 
@@ -325,7 +328,7 @@ different than other languages that are <strong>“Statically-Typed”</strong><
 </pre></div>
 </div>
 <section id="example-of-variable-assignment">
-<h4>Example of variable assignment<a class="headerlink" href="#example-of-variable-assignment" title="Permalink to this headline"></a></h4>
+<h4>Example of variable assignment<a class="headerlink" href="#example-of-variable-assignment" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do some math to find your taxes</span>
 <span class="n">my_income</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -339,9 +342,9 @@ different than other languages that are <strong>“Statically-Typed”</strong><
 </section>
 </section>
 <section id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline"></a></h2>
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading"></a></h2>
 <section id="basics">
-<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h3>
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this heading"></a></h3>
 <p>Strings are sequences of characters, using the syntax of either single
 quotes or double quotes:</p>
 <ul class="simple">
@@ -373,7 +376,7 @@ indicate positions of what you wish to grab.</p>
 <li><p><strong>step</strong> is the size of the “jump” you take</p></li>
 </ul>
 <section id="examples-of-strings">
-<h4>Examples of strings<a class="headerlink" href="#examples-of-strings" title="Permalink to this headline"></a></h4>
+<h4>Examples of strings<a class="headerlink" href="#examples-of-strings" title="Permalink to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># output some strings y&#39;all</span>
 <span class="s1">&#39;hello&#39;</span>
 <span class="s2">&quot;world&quot;</span>
@@ -404,7 +407,7 @@ indicate positions of what you wish to grab.</p>
 </section>
 </section>
 <section id="indexing-and-slicing">
-<h2>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this headline"></a></h2>
+<h2>Indexing and Slicing<a class="headerlink" href="#indexing-and-slicing" title="Permalink to this heading"></a></h2>
 <p>Example of Indexing</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the h from hello</span>
 <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
@@ -442,7 +445,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="string-properties-and-methods">
-<h2>String Properties and Methods<a class="headerlink" href="#string-properties-and-methods" title="Permalink to this headline"></a></h2>
+<h2>String Properties and Methods<a class="headerlink" href="#string-properties-and-methods" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># String Concatenattion</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sam&quot;</span>
 <span class="n">last_letters</span> <span class="o">=</span> <span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -465,7 +468,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="print-formatting-with-strings">
-<h2>Print Formatting with Strings<a class="headerlink" href="#print-formatting-with-strings" title="Permalink to this headline"></a></h2>
+<h2>Print Formatting with Strings<a class="headerlink" href="#print-formatting-with-strings" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Often you will want to “inject a variable into your string for printing. For example:</p>
 <ul class="simple">
@@ -504,7 +507,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="lists">
-<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline"></a></h2>
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Lists are ordered sequences that can hold a variety of object types</p></li>
 <li><p>They use [] brackets and commas to separate objects in the list.</p>
@@ -536,7 +539,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="dictionaries">
-<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline"></a></h2>
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Dictionaries are unordered mappings for sorting objects. Previously we saw how lists store objects in an ordered sequence, dictionaries use a key-value pairing instead.</p></li>
 <li><p>This key-value pair allows users to quickly grab objects without needing to know an index location.</p></li>
@@ -590,7 +593,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="tuples">
-<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline"></a></h2>
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Tuples are very similar to lists. However they have one key difference - immutability.</p></li>
 <li><p>Once an element is inside a tuple, it cannot be reassigned</p></li>
@@ -605,7 +608,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="sets-and-booleans">
-<h2>Sets and Booleans<a class="headerlink" href="#sets-and-booleans" title="Permalink to this headline"></a></h2>
+<h2>Sets and Booleans<a class="headerlink" href="#sets-and-booleans" title="Permalink to this heading"></a></h2>
 <p>Sets</p>
 <ul class="simple">
 <li><p><strong>Sets</strong> are unordered collections of <strong>unique</strong> elements</p></li>
@@ -641,7 +644,7 @@ indicate positions of what you wish to grab.</p>
 </div>
 </section>
 <section id="files">
-<h2>Files<a class="headerlink" href="#files" title="Permalink to this headline"></a></h2>
+<h2>Files<a class="headerlink" href="#files" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opening a file</span>
 <span class="n">myfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">)</span>
 <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>

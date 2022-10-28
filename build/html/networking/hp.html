@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -59,8 +60,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/pentesting/index.html">Pentesting</a></li>
@@ -104,20 +107,20 @@
            <div itemprop="articleBody">
              
   <section id="hp-procurve">
-<h1>HP Procurve<a class="headerlink" href="#hp-procurve" title="Permalink to this headline"></a></h1>
+<h1>HP Procurve<a class="headerlink" href="#hp-procurve" title="Permalink to this heading"></a></h1>
 <section id="checking-health">
-<h2>Checking Health<a class="headerlink" href="#checking-health" title="Permalink to this headline"></a></h2>
+<h2>Checking Health<a class="headerlink" href="#checking-health" title="Permalink to this heading"></a></h2>
 <p>Uptime: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">ver</span></code>
 Memory: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">health</span></code>
 CPU: <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">system</span> <span class="pre">processes</span> <span class="pre">brief</span></code></p>
 </section>
 <section id="backing-up-configs">
-<h2>Backing up Configs<a class="headerlink" href="#backing-up-configs" title="Permalink to this headline"></a></h2>
+<h2>Backing up Configs<a class="headerlink" href="#backing-up-configs" title="Permalink to this heading"></a></h2>
 <p>Start the TFTP Server.</p>
 <p>Run the command <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">running-config</span> <span class="pre">tftp</span> <span class="pre">10.10.0.81</span> <span class="pre">SWITCH-NAME</span></code></p>
 </section>
 <section id="upgrading">
-<h2>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this headline"></a></h2>
+<h2>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Go to <a class="reference external" href="https://h10145.www1.hpe.com/support/SupportLookUp.aspx">HP Support Lookup:</a></p></li>
 <li><p>Find the Model Number of the switch by looking at the front-left side of the switch.</p></li>
@@ -174,7 +177,7 @@ show flash
 </div>
 </section>
 <section id="stp-configuration">
-<h2>STP Configuration<a class="headerlink" href="#stp-configuration" title="Permalink to this headline"></a></h2>
+<h2>STP Configuration<a class="headerlink" href="#stp-configuration" title="Permalink to this heading"></a></h2>
 <p>Configuring the Root Bridge:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Procurve 4204vl-1# configure
 Procurve 4204vl-1(config)# spanning-tree
@@ -190,7 +193,7 @@ Procurve 4204vl-2(config)# write memory
 </div>
 </section>
 <section id="trunking">
-<h2>Trunking<a class="headerlink" href="#trunking" title="Permalink to this headline"></a></h2>
+<h2>Trunking<a class="headerlink" href="#trunking" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>To show trunks:
 Sh trunk
 

@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -91,8 +92,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,9 +141,9 @@
            <div itemprop="articleBody">
              
   <section id="implementing-access-control">
-<h1>Implementing Access Control<a class="headerlink" href="#implementing-access-control" title="Permalink to this headline"></a></h1>
+<h1>Implementing Access Control<a class="headerlink" href="#implementing-access-control" title="Permalink to this heading"></a></h1>
 <section id="acls-in-cisco-asa">
-<h2>ACLs in Cisco ASA<a class="headerlink" href="#acls-in-cisco-asa" title="Permalink to this headline"></a></h2>
+<h2>ACLs in Cisco ASA<a class="headerlink" href="#acls-in-cisco-asa" title="Permalink to this heading"></a></h2>
 <p>An ACL is a collection of security rules or policies that allows or denies packets after looking at the packet headers and other attributes. Each permit or deny statement in the ACL is referred to as an access control entry (ACE). These ACEs classify packets by inspecting Layer 2 through Layer 7 headers for a number of parameters, including the following:</p>
 <ul class="simple">
 <li><p>Layer 2 protocol information such as EtherTypes</p></li>
@@ -250,7 +253,7 @@ asa(config)# access-group outside_in in interface outside
 </div>
 </section>
 <section id="cisco-asa-application-inspection">
-<h2>Cisco ASA Application Inspection<a class="headerlink" href="#cisco-asa-application-inspection" title="Permalink to this headline"></a></h2>
+<h2>Cisco ASA Application Inspection<a class="headerlink" href="#cisco-asa-application-inspection" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Stateful inspection keeps info about each connection traversing ASA &amp; examines packet header and contents of packet in application layer.</p></li>
 <li><p>Applications and protocols and secondary channels on dynamically assigned ports that embedded IP Address information in the data payload of the packet require inspection, which allows for NAT to work and update any other fields or checksums.</p></li>
@@ -284,7 +287,7 @@ asa(config)# service-policy tftppolicy global
 </div>
 </section>
 <section id="to-the-box-traffic-filtering-in-cisco-asa">
-<h2>To-the-Box Traffic Filtering in Cisco ASA<a class="headerlink" href="#to-the-box-traffic-filtering-in-cisco-asa" title="Permalink to this headline"></a></h2>
+<h2>To-the-Box Traffic Filtering in Cisco ASA<a class="headerlink" href="#to-the-box-traffic-filtering-in-cisco-asa" title="Permalink to this heading"></a></h2>
 <p>Management access rules apply to traffic that terminate on the ASA. Guidelines:</p>
 <ul class="simple">
 <li><p>Traffic filtering requires you to configure an ACL and then apply the ACL to the appropriate interface, using the <code class="docutils literal notranslate"><span class="pre">control-plane</span></code> keyword at the end, which tells the ASA to block the specified traffic destined for the ASA.</p></li>
@@ -300,7 +303,7 @@ asa(config)# access-group outside_access_in_1 in interface outside control-plane
 </div>
 </section>
 <section id="object-grouping-and-other-acl-features">
-<h2>Object Grouping and Other ACL Features<a class="headerlink" href="#object-grouping-and-other-acl-features" title="Permalink to this headline"></a></h2>
+<h2>Object Grouping and Other ACL Features<a class="headerlink" href="#object-grouping-and-other-acl-features" title="Permalink to this heading"></a></h2>
 <p>Advanced packet-filtering features:</p>
 <ul class="simple">
 <li><p>Object grouping</p>
@@ -326,7 +329,7 @@ asa(config)# access-group outside_access_in_1 in interface outside control-plane
 </ul>
 </section>
 <section id="standard-acls">
-<h2>Standard ACLs<a class="headerlink" href="#standard-acls" title="Permalink to this headline"></a></h2>
+<h2>Standard ACLs<a class="headerlink" href="#standard-acls" title="Permalink to this heading"></a></h2>
 <ul>
 <li><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>asa(config)# access-list Dest-Net standard permit host 192.168.88.10
 asa(config)# access-list Dest-Net standard permit 192.168.20.0 255.255.255.0
@@ -340,7 +343,7 @@ asa(config-route-map)# match ip address Dest_Net
 </ul>
 </section>
 <section id="time-based-acls">
-<h2>Time-Based ACLs<a class="headerlink" href="#time-based-acls" title="Permalink to this headline"></a></h2>
+<h2>Time-Based ACLs<a class="headerlink" href="#time-based-acls" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Prevent access based on the preconfigured time intervals.</p></li>
 <li><p>NTP config is recommended.</p></li>
@@ -355,7 +358,7 @@ asa(config-route-map)# match ip address Dest_Net
 </ul>
 </section>
 <section id="icmp-filtering-in-cisco-asa">
-<h2>ICMP Filtering in Cisco ASA<a class="headerlink" href="#icmp-filtering-in-cisco-asa" title="Permalink to this headline"></a></h2>
+<h2>ICMP Filtering in Cisco ASA<a class="headerlink" href="#icmp-filtering-in-cisco-asa" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Interface ACLs can block all ICMP traffic.</p></li>
 <li><p>Allowed by default.</p></li>
@@ -370,7 +373,7 @@ asa(config)# icmp permit any outside
 </div>
 </section>
 <section id="network-address-translation-in-cisco-asa">
-<h2>Network Address Translation in Cisco ASA<a class="headerlink" href="#network-address-translation-in-cisco-asa" title="Permalink to this headline"></a></h2>
+<h2>Network Address Translation in Cisco ASA<a class="headerlink" href="#network-address-translation-in-cisco-asa" title="Permalink to this heading"></a></h2>
 <p>Hide internal addressing from outside by showing different IP address spaces.</p>
 <p>Deployment examples:</p>
 <ul class="simple">
@@ -392,10 +395,10 @@ asa(config)# icmp permit any outside
 </ul>
 </section>
 <section id="cisco-asa-auto-nat">
-<h2>Cisco ASA Auto NAT<a class="headerlink" href="#cisco-asa-auto-nat" title="Permalink to this headline"></a></h2>
+<h2>Cisco ASA Auto NAT<a class="headerlink" href="#cisco-asa-auto-nat" title="Permalink to this heading"></a></h2>
 </section>
 <section id="access-control-policies-in-cisco-ftd">
-<h2>Access Control Policies in Cisco FTD<a class="headerlink" href="#access-control-policies-in-cisco-ftd" title="Permalink to this headline"></a></h2>
+<h2>Access Control Policies in Cisco FTD<a class="headerlink" href="#access-control-policies-in-cisco-ftd" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -80,8 +81,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -127,9 +130,9 @@
            <div itemprop="articleBody">
              
   <section id="introduction-to-mpls">
-<h1>Introduction to MPLS<a class="headerlink" href="#introduction-to-mpls" title="Permalink to this headline"></a></h1>
+<h1>Introduction to MPLS<a class="headerlink" href="#introduction-to-mpls" title="Permalink to this heading"></a></h1>
 <section id="what-is-mpls">
-<h2>What is MPLS?<a class="headerlink" href="#what-is-mpls" title="Permalink to this headline"></a></h2>
+<h2>What is MPLS?<a class="headerlink" href="#what-is-mpls" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Multi-Protocol Label Switching is a new paradigm in the way routers make forwarding decisions.</p></li>
 <li><p>Multiprotocol: MPLS is capable of <strong>transporting many L2 and L3 protocols</strong></p></li>
@@ -138,7 +141,7 @@
 </ul>
 </section>
 <section id="why-mpls">
-<h2>Why MPLS?<a class="headerlink" href="#why-mpls" title="Permalink to this headline"></a></h2>
+<h2>Why MPLS?<a class="headerlink" href="#why-mpls" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Unified network infrastructure</p></li>
 <li><p>ATM concepts integrated into an IP world</p></li>
@@ -149,9 +152,9 @@
 </ul>
 </section>
 <section id="mpls-key-terms">
-<h2>MPLS Key Terms<a class="headerlink" href="#mpls-key-terms" title="Permalink to this headline"></a></h2>
+<h2>MPLS Key Terms<a class="headerlink" href="#mpls-key-terms" title="Permalink to this heading"></a></h2>
 <section id="mpls-labels">
-<h3>MPLS Labels<a class="headerlink" href="#mpls-labels" title="Permalink to this headline"></a></h3>
+<h3>MPLS Labels<a class="headerlink" href="#mpls-labels" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>MPLS is often described as a <strong>shim</strong> or <strong>layer 2.5 protocol</strong></p></li>
 <li><p>An MPLS packet contains a label stack, consisting of one or more MPLS labels</p></li>
@@ -169,7 +172,7 @@
 - The <strong>pop</strong> operation means that the top label is removed</p>
 </section>
 <section id="label-switched-routers">
-<h3>Label Switched Routers<a class="headerlink" href="#label-switched-routers" title="Permalink to this headline"></a></h3>
+<h3>Label Switched Routers<a class="headerlink" href="#label-switched-routers" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>A <strong>label switched router</strong> (LSR) is a router running MPLS</p></li>
 <li><p>LSR can be an <strong>ingress</strong> edge, <strong>intermediate</strong> or <strong>egress</strong> edge LSR</p></li>
@@ -178,7 +181,7 @@
 <img alt="../../../_images/mpls-2.png" src="../../../_images/mpls-2.png" />
 </section>
 <section id="forwarding-equivalency-class-fec">
-<h3>Forwarding Equivalency Class (FEC)<a class="headerlink" href="#forwarding-equivalency-class-fec" title="Permalink to this headline"></a></h3>
+<h3>Forwarding Equivalency Class (FEC)<a class="headerlink" href="#forwarding-equivalency-class-fec" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Group of packets that are forwarded the same way through the MPLS network</p></li>
 <li><p>Every packet in the same FEC enters the MPLS network with the same label</p></li>

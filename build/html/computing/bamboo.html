@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -56,8 +57,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pentesting/index.html">Pentesting</a></li>
@@ -101,9 +104,9 @@
            <div itemprop="articleBody">
              
   <section id="bamboo">
-<h1>Bamboo<a class="headerlink" href="#bamboo" title="Permalink to this headline"></a></h1>
+<h1>Bamboo<a class="headerlink" href="#bamboo" title="Permalink to this heading"></a></h1>
 <section id="setting-up-an-instance">
-<h2>Setting up an Instance<a class="headerlink" href="#setting-up-an-instance" title="Permalink to this headline"></a></h2>
+<h2>Setting up an Instance<a class="headerlink" href="#setting-up-an-instance" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-8.0.1.tar.gz
 root@bamboo:~# tar -xvf atlassian-bamboo-8.0.1.tar.gz
 root@bamboo:~# <span class="nb">cd</span> atlassian-bamboo-8.0.1/
@@ -123,7 +126,7 @@ postgres@bamboo:~$ psql
 </div>
 </section>
 <section id="installing-the-remote-agent">
-<h2>Installing the Remote Agent<a class="headerlink" href="#installing-the-remote-agent" title="Permalink to this headline"></a></h2>
+<h2>Installing the Remote Agent<a class="headerlink" href="#installing-the-remote-agent" title="Permalink to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget http://localhost:8085/agentServer/agentInstaller/atlassian-bamboo-agent-installer-8.0.1.jar
 root@bamboo:~# java -jar atlassian-bamboo-agent-installer-8.0.1.jar http://localhost:8085/agentServer/
 </pre></div>

@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -140,9 +143,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-dmvpn">
-<h1>Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Permalink to this headline"></a></h1>
+<h1>Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Permalink to this heading"></a></h1>
 <section id="configuring-dmvpn-on-the-hub-router">
-<h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Permalink to this headline"></a></h2>
+<h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Configure interface tunnel 100 on HQ router</p></li>
 <li><p>Configure spokes</p></li>
@@ -163,7 +166,7 @@ Globomantics-HQ(config-if)#tunnel key 7178
 </div>
 </section>
 <section id="configuring-dmvpn-on-the-spoke-routers">
-<h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Permalink to this headline"></a></h2>
+<h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-0MA(config)#int tun 100
 Globmantics-0MA(config-if)#ip add 192.168.100.2 255.255.255.0
 Globmantics-OMA(config-if)#tunnel mode gre multipoint
@@ -181,7 +184,7 @@ Globmantics-OMA(config-if)#ip nhrp map multicast 1.1.1.1
 </div>
 </section>
 <section id="configuring-dynamic-routing">
-<h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Permalink to this headline"></a></h2>
+<h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Look at NHRP &amp; DMVPN statistics</p></li>
 </ul>
@@ -220,7 +223,7 @@ Globomantics-HQ(config-if)#no ip split-horizon eigrp 100
 </div>
 </section>
 <section id="verifying-dmvpn">
-<h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Permalink to this headline"></a></h2>
+<h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-OMA#traceroute 172.18.3.1 source lo1
 Type escape sequence to abort.
 Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
@@ -268,9 +271,9 @@ Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
 </div>
 </section>
 <section id="ipsec-config-intro-and-smart-defaults">
-<h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Permalink to this headline"></a></h2>
+<h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Permalink to this heading"></a></h2>
 <section id="configuring-ikev2-on-cisco-ios">
-<h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Permalink to this headline"></a></h3>
+<h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Configure IKE_SA Tunnel</p>
 <ul>
@@ -316,7 +319,7 @@ and IPsec profile</p></li>
 </section>
 </section>
 <section id="securing-dmvpn-with-ipsec">
-<h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Permalink to this headline"></a></h2>
+<h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Permalink to this heading"></a></h2>
 <p><strong>HQ Router config</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-Main#conf t
 Globomantics-Main(config)#crypto ikev2 keyring DMVPN-Keys
@@ -433,7 +436,7 @@ tunnel protection ipsec profile DMVPN-IPsec
 </div>
 </section>
 <section id="verifying-and-troubleshooting-ipsec">
-<h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Permalink to this headline"></a></h2>
+<h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#show crypto ikev2 sa
 Globomantics-HQ#show crypto ikev2 sa detail
 Globomantics-HQ#show crypto ipsec sa

@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -91,8 +92,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -139,18 +142,18 @@
            <div itemprop="articleBody">
              
   <section id="deploying-the-web-security-appliance">
-<h1>Deploying the Web Security Appliance<a class="headerlink" href="#deploying-the-web-security-appliance" title="Permalink to this headline"></a></h1>
+<h1>Deploying the Web Security Appliance<a class="headerlink" href="#deploying-the-web-security-appliance" title="Permalink to this heading"></a></h1>
 <section id="different-deployment-modes-for-the-wsa">
-<h2>Different Deployment Modes for the WSA<a class="headerlink" href="#different-deployment-modes-for-the-wsa" title="Permalink to this headline"></a></h2>
+<h2>Different Deployment Modes for the WSA<a class="headerlink" href="#different-deployment-modes-for-the-wsa" title="Permalink to this heading"></a></h2>
 <section id="explicit-forward-mode">
-<h3>Explicit Forward Mode<a class="headerlink" href="#explicit-forward-mode" title="Permalink to this headline"></a></h3>
+<h3>Explicit Forward Mode<a class="headerlink" href="#explicit-forward-mode" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Endpoint explicitly configured to use WSA</p></li>
 <li><p>Can use PAC file to configure machine</p></li>
 </ul>
 </section>
 <section id="transparent-mode">
-<h3>Transparent Mode<a class="headerlink" href="#transparent-mode" title="Permalink to this headline"></a></h3>
+<h3>Transparent Mode<a class="headerlink" href="#transparent-mode" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>WCCP configured</p></li>
 <li><p>Policy Based Routing or a L4-7 device can also be used to redirect
@@ -159,7 +162,7 @@ traffic</p></li>
 </section>
 </section>
 <section id="licensing-and-initial-setup-of-the-wsa">
-<h2>Licensing and Initial Setup of the WSA<a class="headerlink" href="#licensing-and-initial-setup-of-the-wsa" title="Permalink to this headline"></a></h2>
+<h2>Licensing and Initial Setup of the WSA<a class="headerlink" href="#licensing-and-initial-setup-of-the-wsa" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>interfaceconfig
 setgateway
 commit
@@ -167,20 +170,20 @@ commit
 </div>
 </section>
 <section id="finishing-the-setup-using-the-gui">
-<h2>Finishing the Setup Using the GUI<a class="headerlink" href="#finishing-the-setup-using-the-gui" title="Permalink to this headline"></a></h2>
+<h2>Finishing the Setup Using the GUI<a class="headerlink" href="#finishing-the-setup-using-the-gui" title="Permalink to this heading"></a></h2>
 <p><img alt="image1" src="../../../../_images/deploying-the-web-security-appliance-1.png" /></p>
 <p><img alt="image2" src="../../../../_images/deploying-the-web-security-appliance-2.png" /></p>
 <p><img alt="image3" src="../../../../_images/deploying-the-web-security-appliance-3.png" /></p>
 <p><img alt="image4" src="../../../../_images/deploying-the-web-security-appliance-4.png" /></p>
 </section>
 <section id="integrating-the-wsa-with-active-directory">
-<h2>Integrating the WSA with Active Directory<a class="headerlink" href="#integrating-the-wsa-with-active-directory" title="Permalink to this headline"></a></h2>
+<h2>Integrating the WSA with Active Directory<a class="headerlink" href="#integrating-the-wsa-with-active-directory" title="Permalink to this heading"></a></h2>
 <p><img alt="image5" src="../../../../_images/deploying-the-web-security-appliance-5.png" /></p>
 </section>
 <section id="configuring-identification-profiles">
-<h2>Configuring Identification Profiles<a class="headerlink" href="#configuring-identification-profiles" title="Permalink to this headline"></a></h2>
+<h2>Configuring Identification Profiles<a class="headerlink" href="#configuring-identification-profiles" title="Permalink to this heading"></a></h2>
 <section id="identification-profiles">
-<h3>Identification Profiles<a class="headerlink" href="#identification-profiles" title="Permalink to this headline"></a></h3>
+<h3>Identification Profiles<a class="headerlink" href="#identification-profiles" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>WSA imposes policies based off of various criteria</p></li>
 <li><p>Policies can use user/group information, subnet, and proxy ports</p></li>

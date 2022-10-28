@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -88,8 +89,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -135,16 +138,16 @@
            <div itemprop="articleBody">
              
   <section id="stp">
-<h1>STP<a class="headerlink" href="#stp" title="Permalink to this headline"></a></h1>
+<h1>STP<a class="headerlink" href="#stp" title="Permalink to this heading"></a></h1>
 <section id="stp-foundation-per-vlan-spanning-tree-concepts">
-<h2>STP - Foundation per-VLAN Spanning Tree Concepts<a class="headerlink" href="#stp-foundation-per-vlan-spanning-tree-concepts" title="Permalink to this headline"></a></h2>
+<h2>STP - Foundation per-VLAN Spanning Tree Concepts<a class="headerlink" href="#stp-foundation-per-vlan-spanning-tree-concepts" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Switches forward broadcast packets out all ports by design</p></li>
 <li><p>Redundant connections are necessary in business networks</p></li>
 <li><p>The place of spanning tree: drop trees on redundant links (until they are needed)</p></li>
 </ul>
 <section id="the-facts-about-spanning-tree">
-<h3>The Facts About Spanning Tree<a class="headerlink" href="#the-facts-about-spanning-tree" title="Permalink to this headline"></a></h3>
+<h3>The Facts About Spanning Tree<a class="headerlink" href="#the-facts-about-spanning-tree" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Original STP (802.1D) was created to prevent loops</p></li>
 <li><p>Switches send “probes” into the network called Bridge Protocol Data Units (BPDUs) to discover loops</p></li>
@@ -153,7 +156,7 @@
 </ul>
 </section>
 <section id="understanding-bpdus-and-elections">
-<h3>Understanding BPDUs and Elections<a class="headerlink" href="#understanding-bpdus-and-elections" title="Permalink to this headline"></a></h3>
+<h3>Understanding BPDUs and Elections<a class="headerlink" href="#understanding-bpdus-and-elections" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>BPDUs are sent once every two seconds</p>
 <ul>
@@ -171,7 +174,7 @@
 </ul>
 </section>
 <section id="how-stp-finds-the-best-path">
-<h3>How STP Finds the Best Path<a class="headerlink" href="#how-stp-finds-the-best-path" title="Permalink to this headline"></a></h3>
+<h3>How STP Finds the Best Path<a class="headerlink" href="#how-stp-finds-the-best-path" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Elect the root</p></li>
 <li><p>Switches find lowest cost path to port</p></li>
@@ -220,14 +223,14 @@
 </table>
 </section>
 <section id="initial-enhancements-per-vlan-spanning-tree">
-<h3>Initial Enhancements: Per VLAN Spanning Tree<a class="headerlink" href="#initial-enhancements-per-vlan-spanning-tree" title="Permalink to this headline"></a></h3>
+<h3>Initial Enhancements: Per VLAN Spanning Tree<a class="headerlink" href="#initial-enhancements-per-vlan-spanning-tree" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>One root bridge elected for each VLAN</p></li>
 <li><p>Helps load-balance more effectively.</p></li>
 </ul>
 </section>
 <section id="the-spanning-tree-command">
-<h3>The Spanning-Tree Command<a class="headerlink" href="#the-spanning-tree-command" title="Permalink to this headline"></a></h3>
+<h3>The Spanning-Tree Command<a class="headerlink" href="#the-spanning-tree-command" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)#spanning-tree vlan x root primary
 Switch(config)#spanning-tree vlan x root secondary
 Switch(config)#spanning-tree vlan x priority &lt;number&gt;
@@ -235,7 +238,7 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </div>
 </section>
 <section id="problems-with-spanning-tree">
-<h3>Problems with Spanning-Tree<a class="headerlink" href="#problems-with-spanning-tree" title="Permalink to this headline"></a></h3>
+<h3>Problems with Spanning-Tree<a class="headerlink" href="#problems-with-spanning-tree" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Listening</p>
 <ul>
@@ -263,9 +266,9 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </section>
 </section>
 <section id="rapid-spanning-tree-concepts-and-configuration">
-<h2>Rapid Spanning Tree Concepts and Configuration<a class="headerlink" href="#rapid-spanning-tree-concepts-and-configuration" title="Permalink to this headline"></a></h2>
+<h2>Rapid Spanning Tree Concepts and Configuration<a class="headerlink" href="#rapid-spanning-tree-concepts-and-configuration" title="Permalink to this heading"></a></h2>
 <section id="problems-and-solutions">
-<h3>Problems and Solutions<a class="headerlink" href="#problems-and-solutions" title="Permalink to this headline"></a></h3>
+<h3>Problems and Solutions<a class="headerlink" href="#problems-and-solutions" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Problems with PCs: Modern PCs can boot faster than 30sec</p></li>
 <li><p>Solution: Portfast (<code class="docutils literal notranslate"><span class="pre">spanning-tree</span> <span class="pre">portfast</span></code>)</p></li>
@@ -281,7 +284,7 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </ul>
 </section>
 <section id="rapid-stp-port-states">
-<h3>Rapid STP Port States<a class="headerlink" href="#rapid-stp-port-states" title="Permalink to this headline"></a></h3>
+<h3>Rapid STP Port States<a class="headerlink" href="#rapid-stp-port-states" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Discarding</p></li>
 <li><p>Learning</p></li>
@@ -289,7 +292,7 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </ul>
 </section>
 <section id="rapid-stp-port-roles">
-<h3>Rapid STP Port Roles<a class="headerlink" href="#rapid-stp-port-roles" title="Permalink to this headline"></a></h3>
+<h3>Rapid STP Port Roles<a class="headerlink" href="#rapid-stp-port-roles" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Root Port</p></li>
 <li><p>Designated Port</p></li>
@@ -298,7 +301,7 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </ul>
 </section>
 <section id="why-rstp-is-better">
-<h3>Why RSTP is Better<a class="headerlink" href="#why-rstp-is-better" title="Permalink to this headline"></a></h3>
+<h3>Why RSTP is Better<a class="headerlink" href="#why-rstp-is-better" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Because it doesnt forget ports</p></li>
 <li><p>Because of the proactive nature, many “safety timers” of STP are eliminated</p></li>
@@ -307,7 +310,7 @@ Switch(config)#spanning-tree vlan x priority &lt;number&gt;
 </ol>
 </section>
 <section id="configuring-rstp">
-<h3>Configuring RSTP<a class="headerlink" href="#configuring-rstp" title="Permalink to this headline"></a></h3>
+<h3>Configuring RSTP<a class="headerlink" href="#configuring-rstp" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>spanning-tree mode rapid-pvst
 int g0/0
 spanning-tree portfast

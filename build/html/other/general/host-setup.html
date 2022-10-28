@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/pentesting/index.html">Pentesting</a></li>
@@ -127,20 +130,20 @@
            <div itemprop="articleBody">
              
   <section id="host-setup">
-<h1>Host Setup<a class="headerlink" href="#host-setup" title="Permalink to this headline"></a></h1>
+<h1>Host Setup<a class="headerlink" href="#host-setup" title="Permalink to this heading"></a></h1>
 <p>Developer tools in Chrome:</p>
 <ul class="simple">
 <li><p><strong>Network</strong> tab shows all api calls for webpage</p></li>
 <li><p><strong>Console</strong> shows error messages</p></li>
 </ul>
 <section id="mac">
-<h2>Mac<a class="headerlink" href="#mac" title="Permalink to this headline"></a></h2>
+<h2>Mac<a class="headerlink" href="#mac" title="Permalink to this heading"></a></h2>
 <section id="m1-mac-vm">
-<h3>M1 Mac VM<a class="headerlink" href="#m1-mac-vm" title="Permalink to this headline"></a></h3>
+<h3>M1 Mac VM<a class="headerlink" href="#m1-mac-vm" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://forums.macrumors.com/threads/success-virtualize-windows-10-for-arm-on-m1-with-alexander-grafs-qemu-hypervisor-patch.2272354/">https://forums.macrumors.com/threads/success-virtualize-windows-10-for-arm-on-m1-with-alexander-grafs-qemu-hypervisor-patch.2272354/</a></p>
 </section>
 <section id="wake-on-lan-client">
-<h3>Wake on LAN Client<a class="headerlink" href="#wake-on-lan-client" title="Permalink to this headline"></a></h3>
+<h3>Wake on LAN Client<a class="headerlink" href="#wake-on-lan-client" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://apple.stackexchange.com/questions/95246/wake-other-computers-from-mac-osx">https://apple.stackexchange.com/questions/95246/wake-other-computers-from-mac-osx</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install wakeonlan
 wakeonlan -i <span class="m">192</span>.168.1.255 -p <span class="m">1234</span> <span class="m">01</span>:02:03:04:05:06
@@ -148,7 +151,7 @@ wakeonlan -i <span class="m">192</span>.168.1.255 -p <span class="m">1234</span>
 </div>
 </section>
 <section id="list-of-stuff">
-<h3>List of Stuff<a class="headerlink" href="#list-of-stuff" title="Permalink to this headline"></a></h3>
+<h3>List of Stuff<a class="headerlink" href="#list-of-stuff" title="Permalink to this heading"></a></h3>
 <p>List of stuff to install on a (new) Mac:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## New Mac Setup</span>
 <span class="c1"># Install Homebrew (https://brew.sh/)</span>
@@ -255,7 +258,7 @@ Install-Module -Name VMware.PowerCLI -Scope CurrentUser
 </div>
 </section>
 <section id="updating-bash">
-<h3>Updating Bash<a class="headerlink" href="#updating-bash" title="Permalink to this headline"></a></h3>
+<h3>Updating Bash<a class="headerlink" href="#updating-bash" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx</span>
 brew install bash
 sudo bash -c <span class="s1">&#39;echo /usr/local/bin/bash &gt;&gt; /etc/shells&#39;</span>
@@ -267,9 +270,9 @@ chsh -s /usr/local/bin/bash
 </section>
 </section>
 <section id="windows">
-<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline"></a></h2>
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h2>
 <section id="powershell-v6">
-<h3>PowerShell v6<a class="headerlink" href="#powershell-v6" title="Permalink to this headline"></a></h3>
+<h3>PowerShell v6<a class="headerlink" href="#powershell-v6" title="Permalink to this heading"></a></h3>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c">#$version = &quot;6.2.3&quot;</span>
 <span class="c">#$url = &quot;https://github.com/PowerShell/PowerShell/releases/download/v$version/PowerShell-$version-win-x64.msi&quot;</span>
 <span class="c">#$dest = &quot;$ENV:UserProfile\Downloads\PowerShell-6.2.3-win-x64.msi&quot;</span>
@@ -280,7 +283,7 @@ chsh -s /usr/local/bin/bash
 </div>
 </section>
 <section id="wsl">
-<h3>WSL<a class="headerlink" href="#wsl" title="Permalink to this headline"></a></h3>
+<h3>WSL<a class="headerlink" href="#wsl" title="Permalink to this heading"></a></h3>
 <p>Windows Subsystem for Linux</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Run Powershell as Administrator, run command, reboot</span>
 <span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Windows-Subsystem-Linux</span>
@@ -308,16 +311,16 @@ ansible-playbook -i ./hosts.yml playbookname.yml
 </section>
 </section>
 <section id="git">
-<h2>Git<a class="headerlink" href="#git" title="Permalink to this headline"></a></h2>
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h2>
 <section id="undo-last-commit">
-<h3>Undo Last Commit<a class="headerlink" href="#undo-last-commit" title="Permalink to this headline"></a></h3>
+<h3>Undo Last Commit<a class="headerlink" href="#undo-last-commit" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://devconnected.com/how-to-undo-last-git-commit/#:~:text=The%20easiest%20way%20to%20undo,removed%20from%20your%20Git%20history">https://devconnected.com/how-to-undo-last-git-commit/#:~:text=The%20easiest%20way%20to%20undo,removed%20from%20your%20Git%20history</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git reset --soft HEAD~1
 </pre></div>
 </div>
 </section>
 <section id="configuration">
-<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h3>
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano ~/repos/reponame/.git/config
 
 <span class="o">[</span>core<span class="o">]</span>
@@ -330,14 +333,14 @@ ansible-playbook -i ./hosts.yml playbookname.yml
 </div>
 </section>
 <section id="cloning">
-<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this headline"></a></h3>
+<h3>Cloning<a class="headerlink" href="#cloning" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username">https://stackoverflow.com/questions/41714882/git-how-to-clone-with-ssh-key-username</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@provider.com:userName/projectName.git --config core.sshCommand<span class="o">=</span><span class="s2">&quot;ssh -i ~/.ssh/github&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="storing-credentials">
-<h3>Storing Credentials<a class="headerlink" href="#storing-credentials" title="Permalink to this headline"></a></h3>
+<h3>Storing Credentials<a class="headerlink" href="#storing-credentials" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git</span>
 git config --global credential.helper store
 git pull

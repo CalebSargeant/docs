@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future of Kubernetes &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DNS" href="../dns.html" />
+    <link rel="prev" title="Moving to Declarative YAML" href="declarative-yaml.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Kubernetes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Future of Kubernetes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#storage">Storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volumes">Volumes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ingress-controller">Ingress Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-resources">Custom Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crd-s-and-the-operator-pattern">CRD’s and The Operator Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#higher-deployment-abstractions">Higher Deployment Abstractions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#templating-yaml">Templating YAML</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kubernetes-dashboard">Kubernetes Dashboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespaces-and-context">Namespaces and Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Future of Kubernetes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#related-projects">Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Kubernetes</a> &raquo;</li>
+      <li>Future of Kubernetes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/kubernetes/next-steps.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="future-of-kubernetes">
+<h1>Future of Kubernetes<a class="headerlink" href="#future-of-kubernetes" title="Permalink to this heading"></a></h1>
+<section id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Storage and stateful workloads are harder in all sytems</p></li>
+<li><p>Containers make it both harder and easier than before</p></li>
+<li><p><strong>StatefulSets</strong> is a new resource type, making Pods more sticky</p></li>
+<li><p>Avoid stateful workloads for fist few deployments until you’re good at the basics</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use db-as-a-service whenever you can</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="volumes">
+<h2>Volumes<a class="headerlink" href="#volumes" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Creating and connecting Volumes: 2 types</p></li>
+<li><p><strong>Volumes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tied to lifecycle of a pod</p></li>
+<li><p>All containers in a single Pod can share them</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>PersistentVolumes</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Created at the cluster level, outlives a Pod</p></li>
+<li><p>Seperates storage config from Pod using it</p></li>
+<li><p>Multiple Pods can share them</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>CSI plugins are the new way to connect to storage</p></li>
+</ul>
+</section>
+<section id="ingress-controller">
+<h2>Ingress Controller<a class="headerlink" href="#ingress-controller" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>None of our Service types work at OSI Layer 7 (HTTP)</p></li>
+<li><p>How do we route outside connections based on hostname or URL?</p></li>
+<li><p>Incress Controllers (optional) do this with 3rd proxy parties</p></li>
+<li><p>Nginx is popular, Traefik, HAProxy, F5, Envoy, Istio, etc.</p></li>
+<li><p>Implementation is specific to Controller chosen</p></li>
+</ul>
+</section>
+<section id="custom-resources">
+<h2>Custom Resources<a class="headerlink" href="#custom-resources" title="Permalink to this heading"></a></h2>
+<section id="crd-s-and-the-operator-pattern">
+<h3>CRD’s and The Operator Pattern<a class="headerlink" href="#crd-s-and-the-operator-pattern" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>YOu can add 3rd party Resources and Controllers</p></li>
+<li><p>THis extends Kubernetes API and CLI</p></li>
+<li><p>A pattern is starting to emerge of using these together</p></li>
+<li><p>Operator: automate deployment and management of complex apps</p></li>
+<li><p>e.g. Databases, monitoring tools, backups, and custom ingresses</p></li>
+</ul>
+</section>
+</section>
+<section id="higher-deployment-abstractions">
+<h2>Higher Deployment Abstractions<a class="headerlink" href="#higher-deployment-abstractions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>All our <cite>kubectl</cite> commands just talk to the Kubernets API</p></li>
+<li><p>Kubernetes has limited built-in templating, versioning, tracking, and management of your apps</p></li>
+<li><p>There are now over 60 3rd party tools to do that , but many are defunct</p></li>
+<li><p><strong>Helm</strong> is the most popular</p></li>
+<li><p>“Compose on Kubernetes” comes with Docker Desktop</p></li>
+<li><p>Remember these are optional, and your distro may havbe a preference</p></li>
+<li><p>Most distros support <strong>Helm</strong></p></li>
+</ul>
+<section id="templating-yaml">
+<h3>Templating YAML<a class="headerlink" href="#templating-yaml" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Many of the deployment tools have templating options</p></li>
+<li><p>You’ll need a solution as the number of environments/apps grow</p></li>
+<li><p><strong>Helm</strong> was the first “winner” in this space, but can be complex</p></li>
+<li><p>Official <strong>Kustomize</strong> feature works out-of-the-box (as of 1.14)</p></li>
+<li><p><cite>docker app</cite> and compose-on-kubernetes are Docker’s way</p></li>
+</ul>
+</section>
+</section>
+<section id="kubernetes-dashboard">
+<h2>Kubernetes Dashboard<a class="headerlink" href="#kubernetes-dashboard" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Default GUI for “upstream” Kubernetes</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>github.com/Kubernetes/dashboard</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Some distributions have their own GUI (Rancher, Docker Ent, OpenShift)</p></li>
+<li><p>Clouds dont have it by default</p></li>
+<li><p>Let’s you view resources and upload YAML</p></li>
+<li><p>Safety first!</p></li>
+</ul>
+</section>
+<section id="namespaces-and-context">
+<h2>Namespaces and Context<a class="headerlink" href="#namespaces-and-context" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>Namespaces limit scope, aka “virtual clusters”</p></li>
+<li><p>Not related to Docker/Linux namespaces</p></li>
+<li><p>Won’t need them in small clusters</p></li>
+<li><p>There are some built-in, to hide system stuff from <cite>kubectl</cite> “users”</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>kubectl get namespaces</cite></p></li>
+<li><p><cite>kubectl get all –all-namespaces</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Context changes <cite>kubectl</cite> cluster and namespace</p></li>
+<li><p>See ~/.kube/config file</p></li>
+<li><p><cite>kubectl config get-contexts</cite></p></li>
+<li><p><cite>kubectl config set*</cite></p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>Future of Kubernetes<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>More focus on stability and security</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1.14, 1.15, largely dull releases (good thing)</p></li>
+<li><p>Recent security audit has created backlog</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Clearing away deprecated features like kubectl run generators</p></li>
+<li><p>Improving features like server-side dry-run</p></li>
+<li><p>More and improved Operators</p></li>
+<li><p>Helm 3.0 (easier deployment, chart repos, libs)</p></li>
+<li><p>More declarative-style features</p></li>
+<li><p>Better Windows Server support</p></li>
+<li><p>More edge cases, kubeadm HA clusters</p></li>
+</ul>
+<section id="related-projects">
+<h3>Related Projects<a class="headerlink" href="#related-projects" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Kubernetes has become “differencing and scheduling engin backbone” for so many new projects</p></li>
+<li><p>Knative - Serverless workloads on Kubernetes</p></li>
+<li><p>k3s - mini, simple Kubernetes</p></li>
+<li><p>k3OS - Minimal Linux OS for k3s</p></li>
+<li><p>Service Mesh - New layer in distributed app traffic for better control, security and monitoring</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="declarative-yaml.html" class="btn btn-neutral float-left" title="Moving to Declarative YAML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dns.html" class="btn btn-neutral float-right" title="DNS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

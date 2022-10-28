@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -91,8 +92,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -138,11 +141,11 @@
            <div itemprop="articleBody">
              
   <section id="general">
-<h1>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h1>
+<h1>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h1>
 <section id="aaa">
-<h2>AAA<a class="headerlink" href="#aaa" title="Permalink to this headline"></a></h2>
+<h2>AAA<a class="headerlink" href="#aaa" title="Permalink to this heading"></a></h2>
 <section id="radius">
-<h3>RADIUS<a class="headerlink" href="#radius" title="Permalink to this headline"></a></h3>
+<h3>RADIUS<a class="headerlink" href="#radius" title="Permalink to this heading"></a></h3>
 <p>You cannot use LDAP on a Cisco switch (at least not this one):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SW(config)#aaa authentication login default group ?
 WORD     Server-group name
@@ -182,13 +185,13 @@ User successfully authenticated
 </section>
 </section>
 <section id="health">
-<h2>Health<a class="headerlink" href="#health" title="Permalink to this headline"></a></h2>
+<h2>Health<a class="headerlink" href="#health" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>CPU: <code class="docutils literal notranslate"><span class="pre">Sh</span> <span class="pre">proc</span> <span class="pre">cpu</span> <span class="pre">sorted</span> <span class="pre">|</span> <span class="pre">ex</span> <span class="pre">0.00</span></code></p></li>
 </ul>
 </section>
 <section id="factory-default-settings">
-<h2>Factory Default Settings<a class="headerlink" href="#factory-default-settings" title="Permalink to this headline"></a></h2>
+<h2>Factory Default Settings<a class="headerlink" href="#factory-default-settings" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Hold down the mode button</p></li>
 <li><p>Plug in console cable</p></li>
@@ -203,7 +206,7 @@ boot
 </div>
 </section>
 <section id="ios-upgrade">
-<h2>IOS Upgrade<a class="headerlink" href="#ios-upgrade" title="Permalink to this headline"></a></h2>
+<h2>IOS Upgrade<a class="headerlink" href="#ios-upgrade" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Setup a TFTP server</p></li>
 <li><p>Commands:</p></li>
@@ -227,7 +230,7 @@ reload
 </div>
 </section>
 <section id="isolating-guest-network">
-<h2>Isolating Guest Network<a class="headerlink" href="#isolating-guest-network" title="Permalink to this headline"></a></h2>
+<h2>Isolating Guest Network<a class="headerlink" href="#isolating-guest-network" title="Permalink to this heading"></a></h2>
 <p>The below configuration is applied on the Core Switch(es) in to block the guest network (VLAN100) from accessing the rest of the networks.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip access-list extended VLAN100
   permit udp any eq bootpc host 10.10.10.10 eq bootps

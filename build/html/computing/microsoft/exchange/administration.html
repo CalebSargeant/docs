@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pentesting/index.html">Pentesting</a></li>
@@ -128,16 +131,16 @@
            <div itemprop="articleBody">
              
   <section id="administration">
-<h1>Administration<a class="headerlink" href="#administration" title="Permalink to this headline"></a></h1>
+<h1>Administration<a class="headerlink" href="#administration" title="Permalink to this heading"></a></h1>
 <section id="add-email-address-to-user">
-<h2>Add Email Address to User<a class="headerlink" href="#add-email-address-to-user" title="Permalink to this headline"></a></h2>
+<h2>Add Email Address to User<a class="headerlink" href="#add-email-address-to-user" title="Permalink to this heading"></a></h2>
 <p>Gives a secondary email address to the user</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">set-mailbox</span> <span class="n">user</span> <span class="n">-emailaddresses</span> <span class="p">@{</span><span class="n">add</span><span class="p">=</span><span class="s1">&#39;email@example.com&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="calendar-permissions">
-<h2>Calendar Permissions<a class="headerlink" href="#calendar-permissions" title="Permalink to this headline"></a></h2>
+<h2>Calendar Permissions<a class="headerlink" href="#calendar-permissions" title="Permalink to this heading"></a></h2>
 <p>Gives Tracey read only access to Brittany, Lood, Brenda, Janelle, and Hilary’s calendars. Tracey can ask to put an appointment on their calendar, but cannot create or edit without the owner’s consent.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>set-mailboxfolderpermission -identity brittany:\calendar -user tracey -accessrights reviewer
 set-mailboxfolderpermission -identity lood:\calendar -user tracey -accessrights reviewer
@@ -147,7 +150,7 @@ set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessright
 </pre></div>
 </div>
 <section id="exhange-access-rights">
-<h3>Exhange Access Rights<a class="headerlink" href="#exhange-access-rights" title="Permalink to this headline"></a></h3>
+<h3>Exhange Access Rights<a class="headerlink" href="#exhange-access-rights" title="Permalink to this heading"></a></h3>
 <p>Sourced from <a class="reference external" href="http://umanitoba.ca/computing/ist/email/exchange/exchangecalendarroles.html">http://umanitoba.ca/computing/ist/email/exchange/exchangecalendarroles.html</a></p>
 <p>Exchange offers you the ability to give others varying levels of access rights. The following levels of rights are available, and are explained in terms of calendar rights:</p>
 <ul class="simple">
@@ -165,13 +168,13 @@ set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessright
 </section>
 </section>
 <section id="create-a-service-account">
-<h2>Create a Service Account<a class="headerlink" href="#create-a-service-account" title="Permalink to this headline"></a></h2>
+<h2>Create a Service Account<a class="headerlink" href="#create-a-service-account" title="Permalink to this heading"></a></h2>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">New-Mailbox</span> <span class="n">-Name</span> <span class="s1">&#39;B2B&#39;</span> <span class="n">-Alias</span> <span class="s1">&#39;B2B&#39;</span> <span class="n">-OrganizationalUnit</span> <span class="s1">&#39;example.com/User Accounts/Newlands/IT Service Accounts&#39;</span> <span class="n">-UserPrincipalName</span> <span class="s1">&#39;accountname@example.com&#39;</span> <span class="n">-SamAccountName</span> <span class="s1">&#39;accountname&#39;</span> <span class="n">-FirstName</span> <span class="s1">&#39;accountname&#39;</span> <span class="n">-Initials</span> <span class="s1">&#39;&#39;</span> <span class="n">-LastName</span> <span class="s1">&#39;&#39;</span> <span class="n">-Password</span> <span class="s1">&#39;System.Security.SecureString&#39;</span> <span class="n">-ResetPasswordOnNextLogon</span> <span class="nv">$false</span> <span class="n">-Database</span> <span class="s1">&#39;Example - Services Mailbox&#39;</span>
 </pre></div>
 </div>
 </section>
 <section id="delete-a-mailbox">
-<h2>Delete a Mailbox<a class="headerlink" href="#delete-a-mailbox" title="Permalink to this headline"></a></h2>
+<h2>Delete a Mailbox<a class="headerlink" href="#delete-a-mailbox" title="Permalink to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This will delete both the AD user and the exchange mailbox!</p>
@@ -181,21 +184,21 @@ set-mailboxfolderpermission -identity hilary:\calendar -user tracey -accessright
 </div>
 </section>
 <section id="mailbox-access-permission">
-<h2>Mailbox Access Permission<a class="headerlink" href="#mailbox-access-permission" title="Permalink to this headline"></a></h2>
+<h2>Mailbox Access Permission<a class="headerlink" href="#mailbox-access-permission" title="Permalink to this heading"></a></h2>
 <p>Removes Caleb’s access to Bob’s mailbox:</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">remove-mailboxpermission</span> <span class="n">-identity</span> <span class="n">bob</span> <span class="n">-user</span> <span class="n">caleb</span> <span class="n">-accessrights</span> <span class="n">fullaccess</span>
 </pre></div>
 </div>
 </section>
 <section id="send-as-permission">
-<h2>Send As Permission<a class="headerlink" href="#send-as-permission" title="Permalink to this headline"></a></h2>
+<h2>Send As Permission<a class="headerlink" href="#send-as-permission" title="Permalink to this heading"></a></h2>
 <p>Gives Priscilla access to Send As clientservicecentre</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Add-ADPermission</span> <span class="n">-Identity</span> <span class="n">clientservicecentre</span> <span class="n">-User</span> <span class="s2">&quot;priscilla&#39; -ExtendedRights &#39;Send-as&#39;</span>
 </pre></div>
 </div>
 </section>
 <section id="out-of-office">
-<h2>Out of Office<a class="headerlink" href="#out-of-office" title="Permalink to this headline"></a></h2>
+<h2>Out of Office<a class="headerlink" href="#out-of-office" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Set-MailboxAutoReplyConfiguration caleb@example.com –AutoReplyState Enabled –ExternalMessage “EXTERNAL MESSAGE HERE” –InternalMessage “INTERNAL MESSAGE HERE&quot;
 </pre></div>
 </div>

@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -99,8 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../computing/pentesting/index.html">Pentesting</a></li>
@@ -145,33 +148,33 @@
            <div itemprop="articleBody">
              
   <section id="ise">
-<h1>ISE<a class="headerlink" href="#ise" title="Permalink to this headline"></a></h1>
+<h1>ISE<a class="headerlink" href="#ise" title="Permalink to this heading"></a></h1>
 <p>Identity Services Engine (ISE)</p>
 <section id="adding-radius-clients">
-<h2>Adding RADIUS Clients<a class="headerlink" href="#adding-radius-clients" title="Permalink to this headline"></a></h2>
+<h2>Adding RADIUS Clients<a class="headerlink" href="#adding-radius-clients" title="Permalink to this heading"></a></h2>
 <section id="creating-locations">
-<h3>Creating Locations<a class="headerlink" href="#creating-locations" title="Permalink to this headline"></a></h3>
+<h3>Creating Locations<a class="headerlink" href="#creating-locations" title="Permalink to this heading"></a></h3>
 <p>Go to <em>Administration &gt; Network Device Groups</em></p>
 <img alt="../../_images/ise-radius-1.png" src="../../_images/ise-radius-1.png" />
 <p>Add a group, for example:</p>
 <img alt="../../_images/ise-radius-2.png" src="../../_images/ise-radius-2.png" />
 </section>
 <section id="adding-devices-to-ise">
-<h3>Adding Devices to ISE<a class="headerlink" href="#adding-devices-to-ise" title="Permalink to this headline"></a></h3>
+<h3>Adding Devices to ISE<a class="headerlink" href="#adding-devices-to-ise" title="Permalink to this heading"></a></h3>
 <p>Go to <em>Administration &gt; Network Devices</em></p>
 <img alt="../../_images/ise-radius-3.png" src="../../_images/ise-radius-3.png" />
 <p>Fill in all the details</p>
 <img alt="../../_images/ise-radius-4.png" src="../../_images/ise-radius-4.png" />
 </section>
 <section id="authenticator-configuration">
-<h3>Authenticator Configuration<a class="headerlink" href="#authenticator-configuration" title="Permalink to this headline"></a></h3>
+<h3>Authenticator Configuration<a class="headerlink" href="#authenticator-configuration" title="Permalink to this heading"></a></h3>
 <p>See <a class="reference external" href="https://docs.calebsargeant.com/en/latest/networking/cisco/switching/aaa.html#RADIUS">https://docs.calebsargeant.com/en/latest/networking/cisco/switching/aaa.html#RADIUS</a></p>
 </section>
 </section>
 <section id="ise-and-ad">
-<h2>ISE and AD<a class="headerlink" href="#ise-and-ad" title="Permalink to this headline"></a></h2>
+<h2>ISE and AD<a class="headerlink" href="#ise-and-ad" title="Permalink to this heading"></a></h2>
 <section id="joining-ise-to-ad">
-<h3>Joining ISE to AD<a class="headerlink" href="#joining-ise-to-ad" title="Permalink to this headline"></a></h3>
+<h3>Joining ISE to AD<a class="headerlink" href="#joining-ise-to-ad" title="Permalink to this heading"></a></h3>
 <p>Go to <em>Administration &gt; External Identity Sources</em></p>
 <img alt="../../_images/ise-ad-1.png" src="../../_images/ise-ad-1.png" />
 <p>Click on <em>Active Directory</em> and click on <em>Add</em></p>
@@ -186,7 +189,7 @@
 <img alt="../../_images/ise-ad-6.png" src="../../_images/ise-ad-6.png" />
 </section>
 <section id="identity-sources">
-<h3>Identity Sources<a class="headerlink" href="#identity-sources" title="Permalink to this headline"></a></h3>
+<h3>Identity Sources<a class="headerlink" href="#identity-sources" title="Permalink to this heading"></a></h3>
 <p>Go to <em>Administration &gt;  Identity Source Sequences</em></p>
 <img alt="../../_images/ise-ad-7.png" src="../../_images/ise-ad-7.png" />
 <p>Click <em>Add</em></p>
@@ -196,9 +199,9 @@
 </section>
 </section>
 <section id="wired-dot1x-switch-config">
-<h2>Wired Dot1x Switch Config<a class="headerlink" href="#wired-dot1x-switch-config" title="Permalink to this headline"></a></h2>
+<h2>Wired Dot1x Switch Config<a class="headerlink" href="#wired-dot1x-switch-config" title="Permalink to this heading"></a></h2>
 <section id="global-config">
-<h3>Global Config<a class="headerlink" href="#global-config" title="Permalink to this headline"></a></h3>
+<h3>Global Config<a class="headerlink" href="#global-config" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># use the radius server for dot1x authentication
 aaa authentication dot1x default group radius
 
@@ -217,7 +220,7 @@ dot1x system-auth-control
 </div>
 </section>
 <section id="switchport-config">
-<h3>Switchport Config<a class="headerlink" href="#switchport-config" title="Permalink to this headline"></a></h3>
+<h3>Switchport Config<a class="headerlink" href="#switchport-config" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int g0/xx
 switchport host
 
@@ -245,7 +248,7 @@ authentication port-control auto
 </div>
 </section>
 <section id="verification">
-<h3>Verification<a class="headerlink" href="#verification" title="Permalink to this headline"></a></h3>
+<h3>Verification<a class="headerlink" href="#verification" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CT-SW-99#sh dot1x all
 Sysauthcontrol             Disabled
 Dot1x Protocol Version            3
@@ -276,7 +279,7 @@ debug radius authentication
 </section>
 </section>
 <section id="ise-ca-certificates">
-<h2>ISE CA Certificates<a class="headerlink" href="#ise-ca-certificates" title="Permalink to this headline"></a></h2>
+<h2>ISE CA Certificates<a class="headerlink" href="#ise-ca-certificates" title="Permalink to this heading"></a></h2>
 <p>Due to installing a PKI integrated into AD, ISE will automatically receive a certificate from AD, upon joining the domain. If this does not happen, add the ROOT CA Certificate by going to <em>Administration &gt; System &gt; Certificates &gt; Trusted Certificates</em> and click on <em>Import</em></p>
 <img alt="../../_images/ise-cert-1.png" src="../../_images/ise-cert-1.png" />
 <p>Choose the <em>Certificate File</em> downloaded from the Root CA, give it a <em>Friendly Name</em>, smash the Trust checkboxes and click on <em>Submit</em>.</p>
@@ -286,9 +289,9 @@ debug radius authentication
 <img alt="../../_images/ise-cert-4.png" src="../../_images/ise-cert-4.png" />
 </section>
 <section id="x-mab-mac-address-bypass">
-<h2>802.1x MAB (Mac Address Bypass)<a class="headerlink" href="#x-mab-mac-address-bypass" title="Permalink to this headline"></a></h2>
+<h2>802.1x MAB (Mac Address Bypass)<a class="headerlink" href="#x-mab-mac-address-bypass" title="Permalink to this heading"></a></h2>
 <section id="switch-config">
-<h3>Switch Config<a class="headerlink" href="#switch-config" title="Permalink to this headline"></a></h3>
+<h3>Switch Config<a class="headerlink" href="#switch-config" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CT-SW-99#conf t
 
 # send over the MAC Address of the device being authenticated by switch (authenticator) to ISE (authentication server) - required for MAB
@@ -303,7 +306,7 @@ CT-SW-99(config-if)#authentication order mab dot1x
 </div>
 </section>
 <section id="ise-config">
-<h3>ISE Config<a class="headerlink" href="#ise-config" title="Permalink to this headline"></a></h3>
+<h3>ISE Config<a class="headerlink" href="#ise-config" title="Permalink to this heading"></a></h3>
 <p><strong>Checking Authentication Logs</strong></p>
 <p>To check the authentication logs go to <em>Operations &gt; RADIUS &gt; Live Logs</em></p>
 <img alt="../../_images/ise-mab-1.png" src="../../_images/ise-mab-1.png" />
@@ -315,9 +318,9 @@ CT-SW-99(config-if)#authentication order mab dot1x
 </section>
 </section>
 <section id="posture-assessment">
-<h2>Posture Assessment<a class="headerlink" href="#posture-assessment" title="Permalink to this headline"></a></h2>
+<h2>Posture Assessment<a class="headerlink" href="#posture-assessment" title="Permalink to this heading"></a></h2>
 <section id="nac-provisioning">
-<h3>NAC Provisioning<a class="headerlink" href="#nac-provisioning" title="Permalink to this headline"></a></h3>
+<h3>NAC Provisioning<a class="headerlink" href="#nac-provisioning" title="Permalink to this heading"></a></h3>
 <p>Download the latest updates for ISE to check devices via NAC</p>
 <img alt="../../_images/ise-posture-1.png" src="../../_images/ise-posture-1.png" />
 <p>Download the latest NAC Agents from Cisco to ISE</p>

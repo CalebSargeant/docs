@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kubernetes &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Certified Kubernetes Administrator (CKA)" href="cka.html" />
+    <link rel="prev" title="Container Registries" href="../docker/container-registries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Networking</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/cisco/index.html">Cisco</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/mikrotik.html">Mikrotik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/fortigate.html">FortiGate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/hp.html">HP Procurve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/juniper.html">Juniper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/ubiquiti-unifi.html">Ubiquiti UniFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../networking/netdevops-toolchest.html">NetDevOps Tool Chest</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Computing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ansible/index.html">Ansible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bamboo.html">Bamboo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cka.html">Certified Kubernetes Administrator (CKA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Future of Kubernetes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elk-stack/index.html">ELK Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jenkins/index.html">Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/index.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pentesting/index.html">Pentesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terraform/index.html">Terraform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../microsoft/index.html">Microsoft</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Programming</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/bash.html">Bash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../programming/python/index.html">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../other/api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other/iperf.html">iPerf3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Caleb Sargeant's Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Kubernetes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/computing/kubernetes/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kubernetes">
+<h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cka.html">Certified Kubernetes Administrator (CKA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#core-concepts">Core Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#downloads">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#practice-labs">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#scheduling">Scheduling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id1">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id2">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#logging-monitoring">Logging &amp; Monitoring</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id3">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id4">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#application-lifecycle-management">Application Lifecycle Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id5">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id6">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#cluster-maintenance">Cluster Maintenance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id7">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id8">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id9">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id10">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#storage">Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id11">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id12">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#networking">Networking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id13">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id14">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#design-and-install-a-kubernetes-cluster">Design and Install a Kubernetes Cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id15">Downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#install-kubernetes-the-kubeadm-way">Install Kubernetes the kubeadm Way</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id16">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id17">Downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id18">Practice Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html#other-topics">Other Topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cka.html#id19">Practice Labs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">Kubernetes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Kubernetes Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#architecture-terminology">Architecture Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-kubernetes">Installing Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#container-abstractions">Container Abstractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#kubectl-command-styles">Kubectl Command Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#our-first-pod">Our First Pod</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#creating-pods-with-kubectl">Creating Pods with kubectl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#pods-replicaset-deployment">Pods -&gt; ReplicaSet -&gt; Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#cleanup">Cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#scaling-replicasets">Scaling ReplicaSets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#inspecting-deployments">Inspecting Deployments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html#service-types">Service Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#exposing-containers">Exposing Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#basic-service-types">Basic Service Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#more-service-types">More Service Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html#creating-a-clusterip-service">Creating a ClusterIP Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#inspecting-clusterip-service">Inspecting ClusterIP Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html#creating-a-nodeport-and-loadbalancer-service">Creating a NodePort and LoadBalancer Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#create-a-nodeport-service">Create a NodePort Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exposing-ports.html#add-a-loadbalancer-service">Add a LoadBalancer Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exposing-ports.html#kubernetes-services-dns">Kubernetes Services DNS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html#run-expose-and-create-generators">Run, Expose, and Create Generators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-techniques.html#generator-examples">Generator Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html#the-future-of-kubectl-run">The Future of kubectl run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-techniques.html#old-run-confusion">Old Run Confusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html#imperative-vs-declaritive">Imperative vs Declaritive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="management-techniques.html#kubernetes-imperative">Kubernetes Imperative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="management-techniques.html#kubernetes-declarative">Kubernetes Declarative</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="management-techniques.html#management-approaches">Management Approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="declarative-yaml.html">Moving to Declarative YAML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#kubectl-apply">kubectl apply</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="declarative-yaml.html#using-kubectl-apply">Using kubectl apply</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#kubernetes-configuration-yaml">Kubernetes Configuration YAML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#building-your-yaml-files">Building your YAML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#buildng-your-yaml-spec">Buildng your YAML Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#dry-runs-and-diffs">Dry Runs and Diffs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#labels-and-annotations">Labels and Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative-yaml.html#label-selectors">Label Selectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="next-steps.html">Future of Kubernetes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#storage">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#volumes">Volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#ingress-controller">Ingress Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#custom-resources">Custom Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="next-steps.html#crd-s-and-the-operator-pattern">CRD’s and The Operator Pattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#higher-deployment-abstractions">Higher Deployment Abstractions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="next-steps.html#templating-yaml">Templating YAML</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#kubernetes-dashboard">Kubernetes Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#namespaces-and-context">Namespaces and Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html#id1">Future of Kubernetes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="next-steps.html#related-projects">Related Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../docker/container-registries.html" class="btn btn-neutral float-left" title="Container Registries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cka.html" class="btn btn-neutral float-right" title="Certified Kubernetes Administrator (CKA)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Caleb Sargeant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

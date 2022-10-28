@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -84,8 +85,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -131,11 +134,11 @@
            <div itemprop="articleBody">
              
   <section id="ipv6-routing">
-<h1>IPv6 Routing<a class="headerlink" href="#ipv6-routing" title="Permalink to this headline"></a></h1>
+<h1>IPv6 Routing<a class="headerlink" href="#ipv6-routing" title="Permalink to this heading"></a></h1>
 <section id="understanding-and-implementing-ipv6-addressing">
-<h2>Understanding and Implementing IPv6 Addressing<a class="headerlink" href="#understanding-and-implementing-ipv6-addressing" title="Permalink to this headline"></a></h2>
+<h2>Understanding and Implementing IPv6 Addressing<a class="headerlink" href="#understanding-and-implementing-ipv6-addressing" title="Permalink to this heading"></a></h2>
 <section id="rationale-for-ipv6">
-<h3>Rationale for IPv6<a class="headerlink" href="#rationale-for-ipv6" title="Permalink to this headline"></a></h3>
+<h3>Rationale for IPv6<a class="headerlink" href="#rationale-for-ipv6" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Yes there IS an IP Address shortage!</p>
 <ul>
@@ -155,7 +158,7 @@
 </ul>
 </section>
 <section id="ipv6-addressing">
-<h3>IPv6 Addressing<a class="headerlink" href="#ipv6-addressing" title="Permalink to this headline"></a></h3>
+<h3>IPv6 Addressing<a class="headerlink" href="#ipv6-addressing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Address size moved from 32-bit (IPv4) to 128-bit (IPv6)</p></li>
 <li><p>Provides 340,282,366,920,138,463,463,374,607,431,770,000,000 addresses</p></li>
@@ -165,11 +168,11 @@
 </ul>
 </section>
 <section id="simplified-ipv6-headers">
-<h3>Simplified IPv6 Headers<a class="headerlink" href="#simplified-ipv6-headers" title="Permalink to this headline"></a></h3>
+<h3>Simplified IPv6 Headers<a class="headerlink" href="#simplified-ipv6-headers" title="Permalink to this heading"></a></h3>
 <img alt="../../../_images/ipv6-routing-1.png" src="../../../_images/ipv6-routing-1.png" />
 </section>
 <section id="types-of-communication-and-addresses">
-<h3>Types of Communication and Addresses<a class="headerlink" href="#types-of-communication-and-addresses" title="Permalink to this headline"></a></h3>
+<h3>Types of Communication and Addresses<a class="headerlink" href="#types-of-communication-and-addresses" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Unicast: one-to-one</p></li>
 <li><p>Multicast: one-to-many</p></li>
@@ -181,7 +184,7 @@
 <img alt="../../../_images/ipv6-routing-2.png" src="../../../_images/ipv6-routing-2.png" />
 </section>
 <section id="link-local-addresses">
-<h3>Link Local Addresses<a class="headerlink" href="#link-local-addresses" title="Permalink to this headline"></a></h3>
+<h3>Link Local Addresses<a class="headerlink" href="#link-local-addresses" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Assigned automatically as an IPv6 host comes online</p></li>
 <li><p>Similar to the 169.254.x.x addresses of IPv4</p></li>
@@ -190,7 +193,7 @@
 </ul>
 </section>
 <section id="global-addresses">
-<h3>Global Addresses<a class="headerlink" href="#global-addresses" title="Permalink to this headline"></a></h3>
+<h3>Global Addresses<a class="headerlink" href="#global-addresses" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Have their high-level 3 bits set to <code class="docutils literal notranslate"><span class="pre">0001</span></code> (<code class="docutils literal notranslate"><span class="pre">2000::/3</span></code>)</p></li>
 <li><p>Global routing prefix is 48 bits or less</p></li>
@@ -200,9 +203,9 @@
 </section>
 </section>
 <section id="implementing-ipv6-routing-and-routing-protocols">
-<h2>Implementing IPv6 Routing and Routing Protocols<a class="headerlink" href="#implementing-ipv6-routing-and-routing-protocols" title="Permalink to this headline"></a></h2>
+<h2>Implementing IPv6 Routing and Routing Protocols<a class="headerlink" href="#implementing-ipv6-routing-and-routing-protocols" title="Permalink to this heading"></a></h2>
 <section id="configuring-ipv6-addressing">
-<h3>Configuring IPv6 Addressing<a class="headerlink" href="#configuring-ipv6-addressing" title="Permalink to this headline"></a></h3>
+<h3>Configuring IPv6 Addressing<a class="headerlink" href="#configuring-ipv6-addressing" title="Permalink to this heading"></a></h3>
 <img alt="../../../_images/ipv6-routing-3.png" src="../../../_images/ipv6-routing-3.png" />
 <p><a class="reference download internal" download="" href="../../../_downloads/158054c27372e1eaa0e2b977535d5b26/ipv6-routing.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing.zip</span></code></a></p>
 <ul class="simple">
@@ -301,7 +304,7 @@ Feb 23 06:20:04.264: ICMPv6-ND: (GigabitEthernet0/1,FE80::EFA:CFF:FED7:B400) REA
 </div>
 </section>
 <section id="ipv6-static-routes">
-<h3>IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permalink to this headline"></a></h3>
+<h3>IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/1499018240d594a04f2d88c6c5655552/ipv6-routing-static.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-static.zip</span></code></a></p>
 <p><strong>R1</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
@@ -333,7 +336,7 @@ Tracing the route to 2001:11AA::2
 </div>
 </section>
 <section id="ipv6-rip">
-<h3>IPv6 RIP<a class="headerlink" href="#ipv6-rip" title="Permalink to this headline"></a></h3>
+<h3>IPv6 RIP<a class="headerlink" href="#ipv6-rip" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/108604edfc1ea0f434a286e42c0a36f6/ipv6-routing-rip.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-rip.zip</span></code></a></p>
 <p><strong>R1</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
@@ -405,7 +408,7 @@ R4(config-rtr)#?
 </div>
 </section>
 <section id="ospfv3">
-<h3>OSPFv3<a class="headerlink" href="#ospfv3" title="Permalink to this headline"></a></h3>
+<h3>OSPFv3<a class="headerlink" href="#ospfv3" title="Permalink to this heading"></a></h3>
 <p><a class="reference download internal" download="" href="../../../_downloads/23cdd9199f0116302cb539c2801a36b7/ipv6-routing-ospfv3.zip"><code class="xref download docutils literal notranslate"><span class="pre">_docs/ipv6-routing-ospfv3.zip</span></code></a></p>
 <p><strong>R1</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)#ipv6 unicast-routing
@@ -467,9 +470,9 @@ L   FF00::/8 [0/0]
 </section>
 </section>
 <section id="transitioning-to-ipv6">
-<h2>Transitioning to IPv6<a class="headerlink" href="#transitioning-to-ipv6" title="Permalink to this headline"></a></h2>
+<h2>Transitioning to IPv6<a class="headerlink" href="#transitioning-to-ipv6" title="Permalink to this heading"></a></h2>
 <section id="the-migration-to-ipv6">
-<h3>The Migration to IPv6<a class="headerlink" href="#the-migration-to-ipv6" title="Permalink to this headline"></a></h3>
+<h3>The Migration to IPv6<a class="headerlink" href="#the-migration-to-ipv6" title="Permalink to this heading"></a></h3>
 <p>Technology exists to provide a smooth, non-pressured transition:</p>
 <ul class="simple">
 <li><p>Dual-stack routers</p></li>

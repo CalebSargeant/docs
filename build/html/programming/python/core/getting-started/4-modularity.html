@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -52,8 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -114,18 +117,18 @@
            <div itemprop="articleBody">
              
   <section id="modularity">
-<h1>Modularity<a class="headerlink" href="#modularity" title="Permalink to this headline"></a></h1>
+<h1>Modularity<a class="headerlink" href="#modularity" title="Permalink to this heading"></a></h1>
 <section id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline"></a></h2>
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
 <p><code class="file docutils literal notranslate"><span class="pre">_docs/words.py</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">words</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <section id="defining-functions">
-<h3>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline"></a></h3>
+<h3>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; def square(x):
 ...     return x * x
 ...
@@ -164,7 +167,7 @@ True
 </section>
 </section>
 <section id="name">
-<h2>name<a class="headerlink" href="#name" title="Permalink to this headline"></a></h2>
+<h2>name<a class="headerlink" href="#name" title="Permalink to this heading"></a></h2>
 <p><code class="code docutils literal notranslate"><span class="pre">__name__</span></code></p>
 <ul class="simple">
 <li><p>Specially named variable allowing us to detect whether a module is run as a script or imported into another module.</p></li>
@@ -176,13 +179,13 @@ True
 </div>
 </section>
 <section id="the-python-execution-model">
-<h2>The Python Execution Model<a class="headerlink" href="#the-python-execution-model" title="Permalink to this headline"></a></h2>
+<h2>The Python Execution Model<a class="headerlink" href="#the-python-execution-model" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">def</span></code> is a statement</p></li>
 <li><p>Top-level functions are defined when a module is imported or run</p></li>
 </ul>
 <section id="module-script-or-program">
-<h3>Module Script or Program<a class="headerlink" href="#module-script-or-program" title="Permalink to this headline"></a></h3>
+<h3>Module Script or Program<a class="headerlink" href="#module-script-or-program" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Python module - Convenient import with API</p></li>
 <li><p>Python script - Convenient execution from the command line (scripts should be importable)</p></li>
@@ -191,7 +194,7 @@ True
 </section>
 </section>
 <section id="command-line-arguments">
-<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline"></a></h2>
+<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this heading"></a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 
@@ -219,7 +222,7 @@ True
 </div>
 </section>
 <section id="docstrings">
-<h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline"></a></h2>
+<h2>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Literal strings which document functions, modules, and classes.</p></li>
 <li><p>They must be the first statement in the blocks for these constructs.</p></li>
@@ -317,7 +320,7 @@ FUNCTIONS
 </div>
 </section>
 <section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline"></a></h2>
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Code is ideally clear enough without ancillary explanation</p></li>
 <li><p>Sometimes you need to explain why your code is written as it is</p></li>
@@ -329,14 +332,14 @@ FUNCTIONS
 </div>
 </section>
 <section id="shebang">
-<h2>Shebang<a class="headerlink" href="#shebang" title="Permalink to this headline"></a></h2>
+<h2>Shebang<a class="headerlink" href="#shebang" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Special Comment</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python3</span></code></p></li>
 </ul>
 <section id="pylauncher">
-<h3>Pylauncher<a class="headerlink" href="#pylauncher" title="Permalink to this headline"></a></h3>
+<h3>Pylauncher<a class="headerlink" href="#pylauncher" title="Permalink to this heading"></a></h3>
 <p>On Windows</p>
 <ol class="arabic simple">
 <li><p>Associated with <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files</p></li>

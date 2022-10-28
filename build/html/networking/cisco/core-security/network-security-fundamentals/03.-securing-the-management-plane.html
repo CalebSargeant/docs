@@ -14,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -140,11 +143,11 @@
            <div itemprop="articleBody">
              
   <section id="securing-the-management-plane">
-<h1>Securing the Management Plane<a class="headerlink" href="#securing-the-management-plane" title="Permalink to this headline"></a></h1>
+<h1>Securing the Management Plane<a class="headerlink" href="#securing-the-management-plane" title="Permalink to this heading"></a></h1>
 <section id="secure-planes">
-<h2>Secure Planes<a class="headerlink" href="#secure-planes" title="Permalink to this headline"></a></h2>
+<h2>Secure Planes<a class="headerlink" href="#secure-planes" title="Permalink to this heading"></a></h2>
 <section id="physical-security">
-<h3>Physical Security<a class="headerlink" href="#physical-security" title="Permalink to this headline"></a></h3>
+<h3>Physical Security<a class="headerlink" href="#physical-security" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>One of the most important things to consider</p></li>
 <li><p>Configurations to secure device be undone if anyone has access to
@@ -158,14 +161,14 @@ device</p></li>
 </ul>
 </section>
 <section id="network-device-planes">
-<h3>Network Device Planes<a class="headerlink" href="#network-device-planes" title="Permalink to this headline"></a></h3>
+<h3>Network Device Planes<a class="headerlink" href="#network-device-planes" title="Permalink to this heading"></a></h3>
 <p><img alt="image1" src="../../../../_images/device-planes.png" /></p>
 </section>
 </section>
 <section id="telnet-http-ssh-and-https">
-<h2>Telnet, HTTP, SSH, and HTTPs<a class="headerlink" href="#telnet-http-ssh-and-https" title="Permalink to this headline"></a></h2>
+<h2>Telnet, HTTP, SSH, and HTTPs<a class="headerlink" href="#telnet-http-ssh-and-https" title="Permalink to this heading"></a></h2>
 <section id="how-do-you-manage-a-device">
-<h3>How Do You Manage a Device?<a class="headerlink" href="#how-do-you-manage-a-device" title="Permalink to this headline"></a></h3>
+<h3>How Do You Manage a Device?<a class="headerlink" href="#how-do-you-manage-a-device" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Console</p></li>
 <li><p>Telnet</p></li>
@@ -175,10 +178,10 @@ device</p></li>
 </section>
 </section>
 <section id="aaa">
-<h2>AAA<a class="headerlink" href="#aaa" title="Permalink to this headline"></a></h2>
+<h2>AAA<a class="headerlink" href="#aaa" title="Permalink to this heading"></a></h2>
 <p>TACACS+ &amp; RADIUS are used for AAA</p>
 <section id="managing-administrators">
-<h3>Managing Administrators<a class="headerlink" href="#managing-administrators" title="Permalink to this headline"></a></h3>
+<h3>Managing Administrators<a class="headerlink" href="#managing-administrators" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Create users, passwords, and permissions on each device</p>
 <ul class="simple">
@@ -191,7 +194,7 @@ device</p></li>
 </ul>
 </section>
 <section id="aaa-process">
-<h3>AAA Process<a class="headerlink" href="#aaa-process" title="Permalink to this headline"></a></h3>
+<h3>AAA Process<a class="headerlink" href="#aaa-process" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Provide security guard with identification (Guard authenticates you)</p></li>
 <li><p>Verify that the proper forms and approvals have been met (Guard
@@ -201,9 +204,9 @@ authorizes you)</p></li>
 </section>
 </section>
 <section id="radius-tacacs">
-<h2>RADIUS &amp; TACACS+<a class="headerlink" href="#radius-tacacs" title="Permalink to this headline"></a></h2>
+<h2>RADIUS &amp; TACACS+<a class="headerlink" href="#radius-tacacs" title="Permalink to this heading"></a></h2>
 <section id="radius">
-<h3>RADIUS<a class="headerlink" href="#radius" title="Permalink to this headline"></a></h3>
+<h3>RADIUS<a class="headerlink" href="#radius" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Remote Authentication Dial-in User Service</p></li>
 <li><p>Users would dial office modem</p></li>
@@ -228,7 +231,7 @@ authorizes you)</p></li>
 </ul>
 </section>
 <section id="tacacs">
-<h3>TACACS+<a class="headerlink" href="#tacacs" title="Permalink to this headline"></a></h3>
+<h3>TACACS+<a class="headerlink" href="#tacacs" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Terminal Access Controller Access Control System</p></li>
 <li><p>Does not include authorization in authentication request</p></li>
@@ -263,7 +266,7 @@ authorizes you)</p></li>
 </ul>
 </section>
 <section id="when-do-you-use-tacacs">
-<h3>When Do You Use TACACS+?<a class="headerlink" href="#when-do-you-use-tacacs" title="Permalink to this headline"></a></h3>
+<h3>When Do You Use TACACS+?<a class="headerlink" href="#when-do-you-use-tacacs" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use to authorize IT employees</p>
 <ul>
@@ -276,7 +279,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="when-do-you-use-radius">
-<h3>When Do You Use RADIUS?<a class="headerlink" href="#when-do-you-use-radius" title="Permalink to this headline"></a></h3>
+<h3>When Do You Use RADIUS?<a class="headerlink" href="#when-do-you-use-radius" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>User access to the network</p></li>
 <li><p>802.1X</p></li>
@@ -286,9 +289,9 @@ authorized</p></li>
 </section>
 </section>
 <section id="snmp">
-<h2>SNMP<a class="headerlink" href="#snmp" title="Permalink to this headline"></a></h2>
+<h2>SNMP<a class="headerlink" href="#snmp" title="Permalink to this heading"></a></h2>
 <section id="snmp-benefits">
-<h3>SNMP Benefits<a class="headerlink" href="#snmp-benefits" title="Permalink to this headline"></a></h3>
+<h3>SNMP Benefits<a class="headerlink" href="#snmp-benefits" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Audit trail</p></li>
 <li><p>Immediately alerted of issues</p></li>
@@ -297,7 +300,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="snmpv1-snmpv2c">
-<h3>SNMPv1 &amp; SNMPv2c<a class="headerlink" href="#snmpv1-snmpv2c" title="Permalink to this headline"></a></h3>
+<h3>SNMPv1 &amp; SNMPv2c<a class="headerlink" href="#snmpv1-snmpv2c" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Community strings</p>
 <ul>
@@ -313,7 +316,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="snmpv3-configuration">
-<h3>SNMPv3 Configuration<a class="headerlink" href="#snmpv3-configuration" title="Permalink to this headline"></a></h3>
+<h3>SNMPv3 Configuration<a class="headerlink" href="#snmpv3-configuration" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>noAuthnoPriv</p>
 <ul>
@@ -336,9 +339,9 @@ authorized</p></li>
 </section>
 </section>
 <section id="additional-protocol-security">
-<h2>Additional Protocol Security<a class="headerlink" href="#additional-protocol-security" title="Permalink to this headline"></a></h2>
+<h2>Additional Protocol Security<a class="headerlink" href="#additional-protocol-security" title="Permalink to this heading"></a></h2>
 <section id="securely-transferring-files">
-<h3>Securely Transferring Files<a class="headerlink" href="#securely-transferring-files" title="Permalink to this headline"></a></h3>
+<h3>Securely Transferring Files<a class="headerlink" href="#securely-transferring-files" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Secure File Transfer Protocol (SFTP)</p>
 <ul>
@@ -356,7 +359,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="syslog">
-<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this headline"></a></h3>
+<h3>Syslog<a class="headerlink" href="#syslog" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Logs created for events</p></li>
 <li><p>SIEM correlates logs and finds anomalies</p></li>
@@ -366,7 +369,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="network-time-protocol">
-<h3>Network Time Protocol<a class="headerlink" href="#network-time-protocol" title="Permalink to this headline"></a></h3>
+<h3>Network Time Protocol<a class="headerlink" href="#network-time-protocol" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Proper time allows logs and SNMP messages to be correlated</p></li>
 <li><p>Some industries require precision time in orter to function</p></li>
@@ -376,7 +379,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="dns">
-<h3>DNS<a class="headerlink" href="#dns" title="Permalink to this headline"></a></h3>
+<h3>DNS<a class="headerlink" href="#dns" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Registrar hijacking</p>
 <ul>
@@ -392,7 +395,7 @@ authorized</p></li>
 </ul>
 </section>
 <section id="cisco-discovery-protocol">
-<h3>Cisco Discovery Protocol<a class="headerlink" href="#cisco-discovery-protocol" title="Permalink to this headline"></a></h3>
+<h3>Cisco Discovery Protocol<a class="headerlink" href="#cisco-discovery-protocol" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Learn which devices are connected</p></li>
 <li><p>IP Address, device model, VLANs, etc.</p></li>
@@ -406,7 +409,7 @@ authorized</p></li>
 </section>
 </section>
 <section id="management-plane-acls">
-<h2>Management Plane ACLs<a class="headerlink" href="#management-plane-acls" title="Permalink to this headline"></a></h2>
+<h2>Management Plane ACLs<a class="headerlink" href="#management-plane-acls" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Controls which IPs and protocols access management plane</p></li>
 <li><p>Permit and deny traffic based on srs/dst IPs and ports</p></li>

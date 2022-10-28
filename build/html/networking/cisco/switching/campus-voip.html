@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -92,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../computing/pentesting/index.html">Pentesting</a></li>
@@ -139,9 +142,9 @@
            <div itemprop="articleBody">
              
   <section id="campus-voip">
-<h1>Campus VoIP<a class="headerlink" href="#campus-voip" title="Permalink to this headline"></a></h1>
+<h1>Campus VoIP<a class="headerlink" href="#campus-voip" title="Permalink to this heading"></a></h1>
 <section id="why-an-organization-would-use-ipt">
-<h2>Why an Organization Would use IPT<a class="headerlink" href="#why-an-organization-would-use-ipt" title="Permalink to this headline"></a></h2>
+<h2>Why an Organization Would use IPT<a class="headerlink" href="#why-an-organization-would-use-ipt" title="Permalink to this heading"></a></h2>
 <p>Trackable Cost Savings:</p>
 <ul class="simple">
 <li><p>Moves, Adds, and changes (Macs)</p></li>
@@ -151,7 +154,7 @@
 </ul>
 </section>
 <section id="phase-one-ip-telephony-migration">
-<h2>Phase One IP Telephony Migration<a class="headerlink" href="#phase-one-ip-telephony-migration" title="Permalink to this headline"></a></h2>
+<h2>Phase One IP Telephony Migration<a class="headerlink" href="#phase-one-ip-telephony-migration" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Keep the PBX system and digital phones</p></li>
 <li><p>Calls routed over WAN rather than PSTN</p>
@@ -163,7 +166,7 @@
 </ul>
 </section>
 <section id="phase-two-ip-telephony-migration">
-<h2>Phase Two IP Telephony Migration<a class="headerlink" href="#phase-two-ip-telephony-migration" title="Permalink to this headline"></a></h2>
+<h2>Phase Two IP Telephony Migration<a class="headerlink" href="#phase-two-ip-telephony-migration" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Voice and Data network have become one</p></li>
 <li><p>PBX and Digital phones for sale on E-Bay</p></li>
@@ -172,7 +175,7 @@
 </ul>
 </section>
 <section id="campus-issues-to-power-when-deploying-voip">
-<h2>Campus Issues to Power when Deploying VOIP<a class="headerlink" href="#campus-issues-to-power-when-deploying-voip" title="Permalink to this headline"></a></h2>
+<h2>Campus Issues to Power when Deploying VOIP<a class="headerlink" href="#campus-issues-to-power-when-deploying-voip" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Inline Power</p></li>
 <li><p>Dual VLANs</p></li>
@@ -180,7 +183,7 @@
 </ul>
 </section>
 <section id="understanding-and-configuring-dual-vlans">
-<h2>Understanding and Configuring Dual VLANs<a class="headerlink" href="#understanding-and-configuring-dual-vlans" title="Permalink to this headline"></a></h2>
+<h2>Understanding and Configuring Dual VLANs<a class="headerlink" href="#understanding-and-configuring-dual-vlans" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switchport mode access
 switchport access vlan 200
 switchport voice vlan 100
@@ -188,7 +191,7 @@ switchport voice vlan 100
 </div>
 </section>
 <section id="understanding-and-configuring-qos">
-<h2>Understanding and Configuring QoS<a class="headerlink" href="#understanding-and-configuring-qos" title="Permalink to this headline"></a></h2>
+<h2>Understanding and Configuring QoS<a class="headerlink" href="#understanding-and-configuring-qos" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Two QoS markings:</p>
 <ul>

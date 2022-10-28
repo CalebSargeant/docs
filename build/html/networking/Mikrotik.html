@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -128,8 +129,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../computing/ansible/index.html">Ansible</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/bamboo.html">Bamboo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/cloud/index.html">Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../computing/containerisation/index.html">Containerisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/docker/index.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/kubernetes/index.html">Kubernetes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/dns.html">DNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../computing/elk-stack/index.html">ELK Stack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/jenkins/index.html">Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/linux/index.html">Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../computing/pentesting/index.html">Pentesting</a></li>
@@ -173,11 +176,11 @@
            <div itemprop="articleBody">
              
   <section id="mikrotik">
-<h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Permalink to this headline"></a></h1>
+<h1>Mikrotik<a class="headerlink" href="#mikrotik" title="Permalink to this heading"></a></h1>
 <section id="first-time-setup">
-<h2>First Time Setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline"></a></h2>
+<h2>First Time Setup<a class="headerlink" href="#first-time-setup" title="Permalink to this heading"></a></h2>
 <section id="securing-the-router">
-<h3>Securing the Router<a class="headerlink" href="#securing-the-router" title="Permalink to this headline"></a></h3>
+<h3>Securing the Router<a class="headerlink" href="#securing-the-router" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Disable wireless if not using it</p></li>
 <li><p>IP &gt; Services (disable telnet and stuff, only allow certain addresses)</p></li>
@@ -192,14 +195,14 @@
 <img alt="../_images/mikrotik-securing-1.png" src="../_images/mikrotik-securing-1.png" />
 </section>
 <section id="configuring-the-bridge">
-<h3>Configuring the Bridge<a class="headerlink" href="#configuring-the-bridge" title="Permalink to this headline"></a></h3>
+<h3>Configuring the Bridge<a class="headerlink" href="#configuring-the-bridge" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP &gt; Addresses (giving the bridge an address that will be used as gateway)</p></li>
 </ul>
 <img alt="../_images/mikrotik-bridge-1.png" src="../_images/mikrotik-bridge-1.png" />
 </section>
 <section id="configuring-the-outside-interface">
-<h3>Configuring the Outside Interface<a class="headerlink" href="#configuring-the-outside-interface" title="Permalink to this headline"></a></h3>
+<h3>Configuring the Outside Interface<a class="headerlink" href="#configuring-the-outside-interface" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Disable ether1 in Bridge</p></li>
 <li><p>IP &gt; DHCP Client</p></li>
@@ -207,7 +210,7 @@
 <img alt="../_images/mikrotik-dhcp-client-1.png" src="../_images/mikrotik-dhcp-client-1.png" />
 </section>
 <section id="configuring-dhcp-server-for-clients">
-<h3>Configuring DHCP Server for Clients<a class="headerlink" href="#configuring-dhcp-server-for-clients" title="Permalink to this headline"></a></h3>
+<h3>Configuring DHCP Server for Clients<a class="headerlink" href="#configuring-dhcp-server-for-clients" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP &gt; DHCP Server &gt; DHCP Setup</p></li>
 <li><p>DHCP Server Interface: bridgeLocal</p></li>
@@ -217,7 +220,7 @@
 </ul>
 </section>
 <section id="configure-nat">
-<h3>Configure NAT<a class="headerlink" href="#configure-nat" title="Permalink to this headline"></a></h3>
+<h3>Configure NAT<a class="headerlink" href="#configure-nat" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP &gt; Firewall &gt; NAT</p></li>
 <li><p>Chain: srcnat</p></li>
@@ -225,24 +228,24 @@
 </ul>
 </section>
 <section id="deny-catch-all-firewall-rules">
-<h3>Deny Catch all Firewall Rules<a class="headerlink" href="#deny-catch-all-firewall-rules" title="Permalink to this headline"></a></h3>
+<h3>Deny Catch all Firewall Rules<a class="headerlink" href="#deny-catch-all-firewall-rules" title="Permalink to this heading"></a></h3>
 <img alt="../_images/mikrotik-firewall-1.png" src="../_images/mikrotik-firewall-1.png" />
 </section>
 <section id="upgrading-the-router">
-<h3>Upgrading the Router<a class="headerlink" href="#upgrading-the-router" title="Permalink to this headline"></a></h3>
+<h3>Upgrading the Router<a class="headerlink" href="#upgrading-the-router" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>System &gt; Packages &gt; Check For Updates &gt; Download&amp;install</p></li>
 </ul>
 </section>
 <section id="upgrading-the-firmware">
-<h3>Upgrading the Firmware<a class="headerlink" href="#upgrading-the-firmware" title="Permalink to this headline"></a></h3>
+<h3>Upgrading the Firmware<a class="headerlink" href="#upgrading-the-firmware" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>System &gt; RouterBOARD &gt; Upgrade</p></li>
 <li><p>System &gt; Reboot</p></li>
 </ul>
 </section>
 <section id="setting-the-identity">
-<h3>Setting the Identity<a class="headerlink" href="#setting-the-identity" title="Permalink to this headline"></a></h3>
+<h3>Setting the Identity<a class="headerlink" href="#setting-the-identity" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>System &gt; Identity</p></li>
 </ul>
@@ -252,7 +255,7 @@
 </section>
 </section>
 <section id="users-groups-ssh-keys">
-<h2>Users &amp; Groups &amp; SSH Keys<a class="headerlink" href="#users-groups-ssh-keys" title="Permalink to this headline"></a></h2>
+<h2>Users &amp; Groups &amp; SSH Keys<a class="headerlink" href="#users-groups-ssh-keys" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>System &gt; Users (here you can admin all your users nad groups, give read only access, etc.)</p></li>
 <li><p>For SSH keys upload your private key file that you generated</p></li>
@@ -264,7 +267,7 @@ ip ssh print
 </div>
 </section>
 <section id="https-access-to-router">
-<h2>HTTPS Access to Router<a class="headerlink" href="#https-access-to-router" title="Permalink to this headline"></a></h2>
+<h2>HTTPS Access to Router<a class="headerlink" href="#https-access-to-router" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>System &gt; Certificates</p></li>
 <li><p>Country: ZA</p></li>
@@ -276,7 +279,7 @@ ip ssh print
 </ul>
 </section>
 <section id="backup-and-restore">
-<h2>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this headline"></a></h2>
+<h2>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Files &gt; Backup</p></li>
 </ul>
@@ -297,14 +300,14 @@ ip ssh print
 </div>
 </section>
 <section id="resetting-router">
-<h2>Resetting Router<a class="headerlink" href="#resetting-router" title="Permalink to this headline"></a></h2>
+<h2>Resetting Router<a class="headerlink" href="#resetting-router" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Press the reset button until the light stops flashing by unplugging the power, holding the button and powering on</p></li>
 <li><p>System &gt; Reset Configuration</p></li>
 </ul>
 </section>
 <section id="netinstall">
-<h2>Netinstall<a class="headerlink" href="#netinstall" title="Permalink to this headline"></a></h2>
+<h2>Netinstall<a class="headerlink" href="#netinstall" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Only works on ether1</p></li>
 <li><p>Formats the drive, keeps license key and RouterBOOT settings</p></li>
@@ -313,14 +316,14 @@ ip ssh print
 </ul>
 </section>
 <section id="licensing">
-<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this headline"></a></h2>
+<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>System &gt; License</p></li>
 <li><p><a class="reference external" href="https://wiki.mikrotik.com/wiki/Manual:License">https://wiki.mikrotik.com/wiki/Manual:License</a></p></li>
 </ul>
 </section>
 <section id="dhcp">
-<h2>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this headline"></a></h2>
+<h2>DHCP<a class="headerlink" href="#dhcp" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Discover: broadcast takes place over network</p></li>
 <li><p>Offer: the server offers the client a lease</p></li>
@@ -330,7 +333,7 @@ ip ssh print
 <p>IP &gt; DHCP Server &gt; DHCP Setup</p>
 </section>
 <section id="arp">
-<h2>ARP<a class="headerlink" href="#arp" title="Permalink to this headline"></a></h2>
+<h2>ARP<a class="headerlink" href="#arp" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>ARP Request: gets broadcast to find out who the ip address of the mac address is of the ip address</p></li>
 <li><p>Server puts the clients mac address and ip address in its arp table and replies to client</p></li>
@@ -339,13 +342,13 @@ ip ssh print
 <p>IP &gt; ARP</p>
 </section>
 <section id="bridging">
-<h2>Bridging<a class="headerlink" href="#bridging" title="Permalink to this headline"></a></h2>
+<h2>Bridging<a class="headerlink" href="#bridging" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ports in a bridge behave as a switch at layer 2</p></li>
 </ul>
 <p>Bridge</p>
 <section id="station-mode">
-<h3>Station Mode<a class="headerlink" href="#station-mode" title="Permalink to this headline"></a></h3>
+<h3>Station Mode<a class="headerlink" href="#station-mode" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Interfaces &gt; wlan1 &gt; mode: station bridge</p></li>
 <li><p>Scan and select the WLAN you want to connect to</p></li>
@@ -354,7 +357,7 @@ ip ssh print
 </section>
 </section>
 <section id="routing">
-<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this headline"></a></h2>
+<h2>Routing<a class="headerlink" href="#routing" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Exterior Gateway Protocol (EGP):</p>
 <blockquote>
@@ -378,9 +381,9 @@ ip ssh print
 <p>IP &gt; Routes</p>
 </section>
 <section id="tunneling-vpn">
-<h2>Tunneling / VPN<a class="headerlink" href="#tunneling-vpn" title="Permalink to this headline"></a></h2>
+<h2>Tunneling / VPN<a class="headerlink" href="#tunneling-vpn" title="Permalink to this heading"></a></h2>
 <section id="what-is-vpn">
-<h3>What is VPN?<a class="headerlink" href="#what-is-vpn" title="Permalink to this headline"></a></h3>
+<h3>What is VPN?<a class="headerlink" href="#what-is-vpn" title="Permalink to this heading"></a></h3>
 <p><strong>Private WAN:</strong></p>
 <ul class="simple">
 <li><p>Secure</p></li>
@@ -397,7 +400,7 @@ ip ssh print
 </ul>
 </section>
 <section id="ikev2-ipsec">
-<h3>IKEv2 IPSec<a class="headerlink" href="#ikev2-ipsec" title="Permalink to this headline"></a></h3>
+<h3>IKEv2 IPSec<a class="headerlink" href="#ikev2-ipsec" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>All configuration is done under IP &gt; IPsec</p>
 <blockquote>
@@ -435,7 +438,7 @@ ip ssh print
 <img alt="../_images/mikrotik-ikev2-ipsec-8.png" src="../_images/mikrotik-ikev2-ipsec-8.png" />
 </section>
 <section id="pptp">
-<h3>PPTP<a class="headerlink" href="#pptp" title="Permalink to this headline"></a></h3>
+<h3>PPTP<a class="headerlink" href="#pptp" title="Permalink to this heading"></a></h3>
 <p><strong>What is PPTP:</strong></p>
 <ul class="simple">
 <li><p>PPTP means Point-to-Point Tunneling Protocol</p></li>
@@ -486,7 +489,7 @@ ip ssh print
 </ul>
 </section>
 <section id="l2tp-site-to-site">
-<h3>L2TP Site-to-Site<a class="headerlink" href="#l2tp-site-to-site" title="Permalink to this headline"></a></h3>
+<h3>L2TP Site-to-Site<a class="headerlink" href="#l2tp-site-to-site" title="Permalink to this heading"></a></h3>
 <p><strong>On your main router:</strong></p>
 <ul>
 <li><p>Create the PPP Profile</p>
@@ -587,7 +590,7 @@ ip ssh print
 <img alt="../_images/mikrotik-l2tp-l2l-9.png" src="../_images/mikrotik-l2tp-l2l-9.png" />
 </section>
 <section id="l2tp-client-to-site">
-<h3>L2TP Client-to-Site<a class="headerlink" href="#l2tp-client-to-site" title="Permalink to this headline"></a></h3>
+<h3>L2TP Client-to-Site<a class="headerlink" href="#l2tp-client-to-site" title="Permalink to this heading"></a></h3>
 <p><strong>Pool</strong></p>
 <ul class="simple">
 <li><p>IP &gt; Pools &gt; create IP pool</p></li>
@@ -624,13 +627,13 @@ ip ssh print
 <img alt="../_images/mikrotik-l2tp-c2s-7.png" src="../_images/mikrotik-l2tp-c2s-7.png" />
 </section>
 <section id="gre-ipsec">
-<h3>GRE IPSec<a class="headerlink" href="#gre-ipsec" title="Permalink to this headline"></a></h3>
+<h3>GRE IPSec<a class="headerlink" href="#gre-ipsec" title="Permalink to this heading"></a></h3>
 <img alt="../_images/mikrotik-gre-1.png" src="../_images/mikrotik-gre-1.png" />
 <img alt="../_images/mikrotik-gre-2.png" src="../_images/mikrotik-gre-2.png" />
 <img alt="../_images/mikrotik-gre-3.png" src="../_images/mikrotik-gre-3.png" />
 </section>
 <section id="sstp">
-<h3>SSTP<a class="headerlink" href="#sstp" title="Permalink to this headline"></a></h3>
+<h3>SSTP<a class="headerlink" href="#sstp" title="Permalink to this heading"></a></h3>
 <p><strong>What is SSTP:</strong></p>
 <ul class="simple">
 <li><p>SSTP means Secure Socket Tunneling Protocol</p></li>
@@ -769,7 +772,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="pppoe">
-<h3>PPPoE<a class="headerlink" href="#pppoe" title="Permalink to this headline"></a></h3>
+<h3>PPPoE<a class="headerlink" href="#pppoe" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Point-to-point over Ethernet is a layer 2 protocol</p></li>
 <li><p>It is often used by ISPs to control access to their networks</p></li>
@@ -784,7 +787,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="l2tp-ports-and-protocols">
-<h3>L2TP Ports and Protocols<a class="headerlink" href="#l2tp-ports-and-protocols" title="Permalink to this headline"></a></h3>
+<h3>L2TP Ports and Protocols<a class="headerlink" href="#l2tp-ports-and-protocols" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p">https://serverfault.com/questions/451381/which-ports-for-ipsec-lt2p</a></p>
 <ul class="simple">
 <li><p>Protocol: UDP, port 500 (for IKE, to manage encryption keys)</p></li>
@@ -795,9 +798,9 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </section>
 </section>
 <section id="firewall">
-<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline"></a></h2>
+<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this heading"></a></h2>
 <section id="basics">
-<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h3>
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Stop unauthorized access</p></li>
 <li><p>Block unwanted ports</p></li>
@@ -838,11 +841,11 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="layer-3-chains">
-<h3>Layer 3 Chains<a class="headerlink" href="#layer-3-chains" title="Permalink to this headline"></a></h3>
+<h3>Layer 3 Chains<a class="headerlink" href="#layer-3-chains" title="Permalink to this heading"></a></h3>
 <img alt="../_images/mikrotik-l3-chains.png" src="../_images/mikrotik-l3-chains.png" />
 </section>
 <section id="connection-states">
-<h3>Connection States<a class="headerlink" href="#connection-states" title="Permalink to this headline"></a></h3>
+<h3>Connection States<a class="headerlink" href="#connection-states" title="Permalink to this heading"></a></h3>
 <img alt="../_images/mikrotik-connection-states.png" src="../_images/mikrotik-connection-states.png" />
 <ul class="simple">
 <li><p><strong>New:</strong> The 1st packet observed by the firewall will be new. The firewall will check the packet and if allow then the next packet going to the other direction of that stream will create an established connection</p></li>
@@ -852,7 +855,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="rules">
-<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this headline"></a></h3>
+<h3>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP &gt; Firewall &gt; +</p></li>
 <li><p>Forward rule &gt; Established, Related, accept</p></li>
@@ -866,7 +869,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="redirect-dns-to-router-s-dns">
-<h3>Redirect DNS to Router’s DNS<a class="headerlink" href="#redirect-dns-to-router-s-dns" title="Permalink to this headline"></a></h3>
+<h3>Redirect DNS to Router’s DNS<a class="headerlink" href="#redirect-dns-to-router-s-dns" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>IP &gt; DNS &gt; Allow Remote Requests</p></li>
 <li><p>IP &gt; Firewall &gt; dstnat &gt; protocol tcp&amp;udp 53 &gt; action redrirect 53</p></li>
@@ -874,7 +877,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="destination-nat">
-<h3>Destination NAT<a class="headerlink" href="#destination-nat" title="Permalink to this headline"></a></h3>
+<h3>Destination NAT<a class="headerlink" href="#destination-nat" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>IP &gt; Firewall</p>
 <blockquote>
@@ -891,7 +894,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="fasttrack">
-<h3>FastTrack<a class="headerlink" href="#fasttrack" title="Permalink to this headline"></a></h3>
+<h3>FastTrack<a class="headerlink" href="#fasttrack" title="Permalink to this heading"></a></h3>
 <p>FastTracked packets bypass firewall, connection traffic, simple queues, queue tree with parent=global, ip traffic-flow (restriction removed in 6.33), IP accounting, IPSec, hotspot, universal client, VRF assignment, so it is up to admin to make sure FastTrack doesnt interfere with other config</p>
 <ul>
 <li><p>Queues &gt; 1M / 1M (on all IPs - so all PCs connected get only 1Mbps)</p></li>
@@ -918,9 +921,9 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </section>
 </section>
 <section id="qos">
-<h2>QoS<a class="headerlink" href="#qos" title="Permalink to this headline"></a></h2>
+<h2>QoS<a class="headerlink" href="#qos" title="Permalink to this heading"></a></h2>
 <section id="simple-queue">
-<h3>Simple Queue<a class="headerlink" href="#simple-queue" title="Permalink to this headline"></a></h3>
+<h3>Simple Queue<a class="headerlink" href="#simple-queue" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Simple queues limit bandwidth to:</p>
 <blockquote>
@@ -947,7 +950,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="burst">
-<h3>Burst<a class="headerlink" href="#burst" title="Permalink to this headline"></a></h3>
+<h3>Burst<a class="headerlink" href="#burst" title="Permalink to this heading"></a></h3>
 <ul>
 <li><p>Burst is important to give extra bandwidth limited time</p></li>
 <li><p>Burst Limit = 512K</p></li>
@@ -979,7 +982,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 <p>Bandwidth limit divided by time. On the first second you’ll get 500Kbps extra, etc. until the Burst Limit is reached. Then the speed will go back to normal.</p>
 </section>
 <section id="per-connection-queue-pcq">
-<h3>Per Connection Queue (PCQ)<a class="headerlink" href="#per-connection-queue-pcq" title="Permalink to this headline"></a></h3>
+<h3>Per Connection Queue (PCQ)<a class="headerlink" href="#per-connection-queue-pcq" title="Permalink to this heading"></a></h3>
 <img alt="../_images/mikrotik-pcq-1.png" src="../_images/mikrotik-pcq-1.png" />
 <img alt="../_images/mikrotik-pcq-2.png" src="../_images/mikrotik-pcq-2.png" />
 <ul>
@@ -1010,21 +1013,21 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </section>
 </section>
 <section id="tools">
-<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline"></a></h2>
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this heading"></a></h2>
 <section id="ping">
-<h3>Ping<a class="headerlink" href="#ping" title="Permalink to this headline"></a></h3>
+<h3>Ping<a class="headerlink" href="#ping" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tools &gt; Ping</p></li>
 </ul>
 </section>
 <section id="traceroute">
-<h3>Traceroute<a class="headerlink" href="#traceroute" title="Permalink to this headline"></a></h3>
+<h3>Traceroute<a class="headerlink" href="#traceroute" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tools &gt; Traceroute</p></li>
 </ul>
 </section>
 <section id="profile">
-<h3>Profile<a class="headerlink" href="#profile" title="Permalink to this headline"></a></h3>
+<h3>Profile<a class="headerlink" href="#profile" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tools &gt; Profile</p></li>
 </ul>
@@ -1034,13 +1037,13 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </section>
 </section>
 <section id="emails">
-<h2>Emails<a class="headerlink" href="#emails" title="Permalink to this headline"></a></h2>
+<h2>Emails<a class="headerlink" href="#emails" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Tools &gt; Email</p></li>
 </ul>
 </section>
 <section id="netwatch">
-<h2>Netwatch<a class="headerlink" href="#netwatch" title="Permalink to this headline"></a></h2>
+<h2>Netwatch<a class="headerlink" href="#netwatch" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>Tools &gt; Netwatch &gt; +</p>
 <blockquote>
@@ -1053,15 +1056,15 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="monitoring">
-<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline"></a></h2>
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this heading"></a></h2>
 <section id="torch">
-<h3>Torch<a class="headerlink" href="#torch" title="Permalink to this headline"></a></h3>
+<h3>Torch<a class="headerlink" href="#torch" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tools &gt; Torch</p></li>
 </ul>
 </section>
 <section id="graphing">
-<h3>Graphing<a class="headerlink" href="#graphing" title="Permalink to this headline"></a></h3>
+<h3>Graphing<a class="headerlink" href="#graphing" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tools &gt; Graphing &gt; Interface rules</p></li>
 <li><p>Tools &gt; Graphing &gt; Resource rules</p></li>
@@ -1069,7 +1072,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="the-dude">
-<h3>The Dude<a class="headerlink" href="#the-dude" title="Permalink to this headline"></a></h3>
+<h3>The Dude<a class="headerlink" href="#the-dude" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Dude &gt; Settings</p></li>
 <li><p>Install the dude on your PC</p></li>
@@ -1078,9 +1081,9 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </section>
 </section>
 <section id="wireless">
-<h2>Wireless<a class="headerlink" href="#wireless" title="Permalink to this headline"></a></h2>
+<h2>Wireless<a class="headerlink" href="#wireless" title="Permalink to this heading"></a></h2>
 <section id="terminology">
-<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h3>
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h3>
 <p><strong>What is wireless?</strong></p>
 <ul class="simple">
 <li><p>RouterOS supports various radio modules that allow comminication over the air (2.4GHz and 5GHz)</p></li>
@@ -1109,7 +1112,7 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="setup">
-<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline"></a></h3>
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Wireless &gt; Security Profiles &gt; +</p></li>
 <li><p>Wireless &gt; WiFi Interface &gt; enable and configure, select the Security Profile</p></li>
@@ -1118,14 +1121,14 @@ certificate export-certificate client export-passphrase<span class="o">=</span><
 </ul>
 </section>
 <section id="station">
-<h3>Station<a class="headerlink" href="#station" title="Permalink to this headline"></a></h3>
+<h3>Station<a class="headerlink" href="#station" title="Permalink to this heading"></a></h3>
 <p>Make the router a client (nobody connected to that router can get internet)</p>
 <ul class="simple">
 <li><p>Wireless &gt; mode station</p></li>
 </ul>
 </section>
 <section id="mac-filtering">
-<h3>Mac Filtering<a class="headerlink" href="#mac-filtering" title="Permalink to this headline"></a></h3>
+<h3>Mac Filtering<a class="headerlink" href="#mac-filtering" title="Permalink to this heading"></a></h3>
 <p>Default Authenticate allows clients to authenticate. Turning it off you must use Wireless &gt; Access list to allow certain clients to access your wifi.</p>
 <p>Default forward disabled prevents wifi clients from communicating to each other in the wifi.</p>
 </section>
