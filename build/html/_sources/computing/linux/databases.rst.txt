@@ -142,6 +142,8 @@ Size of DB
   FROM information_schema.tables
   GROUP BY table_schema;
 
+  select table_schema "DB Name", round(sum(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" From information_schema.tables group by table_schema; 
+
 Resetting Root Password
 ^^^^^^^^^^^^^^^^^^^^^^^
 

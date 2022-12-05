@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -159,9 +160,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Linux</a> &raquo;</li>
-      <li>Databases</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
+      <li class="breadcrumb-item active">Databases</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/computing/linux/databases.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -291,6 +292,8 @@ use database<span class="p">;</span>
         ROUND<span class="o">(</span>SUM<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span>
 FROM information_schema.tables
 GROUP BY table_schema<span class="p">;</span>
+
+<span class="k">select</span> table_schema <span class="s2">&quot;DB Name&quot;</span>, round<span class="o">(</span>sum<span class="o">(</span>data_length + index_length<span class="o">)</span> / <span class="m">1024</span> / <span class="m">1024</span>, <span class="m">1</span><span class="o">)</span> <span class="s2">&quot;DB Size in MB&quot;</span> From information_schema.tables group by table_schema<span class="p">;</span>
 </pre></div>
 </div>
 </section>

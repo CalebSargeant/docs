@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kubernetes &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
+  <title>General &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,11 +16,12 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Kubernetes Install" href="install.html" />
-    <link rel="prev" title="Kubernetes" href="index.html" /> 
+    <link rel="prev" title="Certified Kubernetes Administrator (CKA)" href="cka.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,7 +56,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docker/index.html">Docker</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Kubernetes</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cka.html">Certified Kubernetes Administrator (CKA)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html">Kubernetes Install</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exposing-ports.html">Exposing Kubernetes Ports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="management-techniques.html">Kubernetes Management Techniques</a></li>
@@ -96,9 +98,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Kubernetes</a> &raquo;</li>
-      <li>Kubernetes</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Kubernetes</a></li>
+      <li class="breadcrumb-item active">General</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/computing/kubernetes/general.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -108,8 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="kubernetes">
-<h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this heading"></a></h1>
+  <section id="general">
+<h1>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h1>
 <p>A Kubernetes deployment is a tier/micro-service of an application. The deployment isn’t a container. A Kubernetes pod is an atomic unit of work and everything it takes to run a deployment. It could be one or more containers per pod.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View Kubernetes deployments</span>
 kubectl get deployments
@@ -136,7 +138,7 @@ kubectl -n nodename annotate pod podname example.com/endpoint-group<span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Kubernetes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cka.html" class="btn btn-neutral float-left" title="Certified Kubernetes Administrator (CKA)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="install.html" class="btn btn-neutral float-right" title="Kubernetes Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
