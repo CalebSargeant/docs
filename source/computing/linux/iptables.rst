@@ -79,9 +79,11 @@ Port Forwarding
 .. code-block:: bash
 
   echo '1' | sudo tee /proc/sys/net/ipv4/conf/eth0/forwarding
-  iptables -t nat -A PREROUTING -p tcp --dport 20443 -j DNAT --to-destination 10.8.8.188:443
-  iptables -A FORWARD -p tcp -s 10.8.8.188 —dport 443 -j ACCEPT
-  iptables -t nat -A POSTROUTING -j MASQUERADE
+  iptables -t nat -A PREROUTING -p tcp -m tcp --dport 3333 -j DNAT --to-destination 10.0.0.4:3333
+  iptables -A FORWARD -p tcp -s 10.3.0.4 —dport 3333 -j ACCEPT
+  iptables -t nat -A POSTROUTING -o eth0 -p tcp -m tcp --dport 3333 -j MASQUERADE
+  
+
 
 Persistent Rules
 ----------------

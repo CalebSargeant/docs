@@ -426,11 +426,37 @@ TCPDump
 
 https://danielmiessler.com/study/tcpdump/
 
+https://serverfault.com/questions/1025292/how-to-specify-both-ip-address-and-port-in-tcpdump
+
 Get all https traffic:
 
 .. code-block:: bash
 
   tcpdump -nnSX port 443
+
+Get just port 443
+
+.. code-block:: bash
+
+  tcpdump port 443
+
+Get from specific source:
+
+.. code-block:: bash
+
+  tcpdump src 10.3.0.4
+
+Dump from an interface:
+
+.. code-block:: bash
+
+  tcpdump -i eth0
+
+Putting it all together:
+
+.. code-block:: bash
+
+  tcpdump -i enp1s9 dst 192.168.6.1 and src 192.168.6.2 and src port 80
 
 Find
 ----
@@ -1403,3 +1429,42 @@ https://askubuntu.com/questions/152593/command-line-to-list-dns-servers-used-by-
 
   nmcli device show <interfacename> | grep IP4.DNS
   systemd-resolve --status
+
+Install WireGuard VPN Client
+----------------------------
+
+https://serverspace.io/support/help/how-to-install-wireguard-vpn-client-on-ubuntu-linux/
+
+.. code-block:: bash
+
+  sudo apt-get install wireguard
+  cd /etc/wireguard
+  wg genkey | tee private.key | wg pubkey > public.key
+  sudo nano /etc/wireguard/wg0.conf
+    [Interface]
+    PrivateKey = <contents-of-client-privatekey>
+    Address = 10.0.0.1/24
+    PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+    PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+    ListenPort = 51820
+
+    [Peer]
+    PublicKey = <contents-of-server-publickey>
+    AllowedIPs = 10.0.0.2/32
+
+  sudo wg-quick up wg0
+  sudo wg show
+
+Install Docker on Amazon Linux 2
+--------------------------------
+
+https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
+
+.. code-block:: bash
+
+  yum install docker
+  usermod -a -G docker ec2-user
+  newgrp docker
+  yum install python3-pip
+  pip3 install docker-compose
+  systemctl enable docker.service
