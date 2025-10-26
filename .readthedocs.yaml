@@ -1,5 +1,8 @@
 version: 2
 
+mkdocs:
+  configuration: mkdocs.yml
+
 python:
   install:
-  - requirements: rtd_requirements.txt
+    - requirements: rtd_requirements.txt
