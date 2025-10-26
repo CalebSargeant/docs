@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nagios &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -120,7 +123,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">Nagios</li>
       <li class="wy-breadcrumbs-aside">
@@ -133,221 +136,221 @@
            <div itemprop="articleBody">
              
   <section id="nagios">
-<h1>Nagios<a class="headerlink" href="#nagios" title="Permalink to this heading"></a></h1>
+<h1>Nagios<a class="headerlink" href="#nagios" title="Link to this heading"></a></h1>
 <section id="installing-nrpe">
-<h2>Installing NRPE<a class="headerlink" href="#installing-nrpe" title="Permalink to this heading"></a></h2>
+<h2>Installing NRPE<a class="headerlink" href="#installing-nrpe" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://support.nagios.com/kb/article/nrpe-how-to-install-nrpe-8.html">https://support.nagios.com/kb/article/nrpe-how-to-install-nrpe-8.html</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /tmp
-wget http://assets.nagios.com/downloads/nagiosxi/agents/linux-nrpe-agent.tar.gz
-tar xzf linux-nrpe-agent.tar.gz
-<span class="nb">cd</span> linux-nrpe-agent
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>http://assets.nagios.com/downloads/nagiosxi/agents/linux-nrpe-agent.tar.gz
+tar<span class="w"> </span>xzf<span class="w"> </span>linux-nrpe-agent.tar.gz
+<span class="nb">cd</span><span class="w"> </span>linux-nrpe-agent
 ./fullinstall
 </pre></div>
 </div>
 </section>
 <section id="uninstalling-nrpe">
-<h2>Uninstalling NRPE<a class="headerlink" href="#uninstalling-nrpe" title="Permalink to this heading"></a></h2>
+<h2>Uninstalling NRPE<a class="headerlink" href="#uninstalling-nrpe" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://support.nagios.com/kb/article/nrpe-how-to-uninstall-nrpe-741.html#Ubuntu">https://support.nagios.com/kb/article/nrpe-how-to-uninstall-nrpe-741.html#Ubuntu</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove XINETD daemon</span>
-sudo rm -f /etc/xinetd.d/nrpe
-sudo systemctl restart xinetd
+sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/etc/xinetd.d/nrpe
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>xinetd
 
 <span class="c1"># Stop and remove dedicated daemon</span>
-sudo systemctl stop nrpe.service
-sudo systemctl disable nrpe.service
-sudo rm -f /lib/systemd/system/nrpe.service
-sudo systemctl daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nrpe.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>nrpe.service
+sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/lib/systemd/system/nrpe.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 
 <span class="c1"># Delete NRPE Files</span>
-sudo rm -f /usr/local/nagios/bin/nrpe*
-sudo rm -f /usr/local/nagios/etc/nrpe*
-sudo rm -f /usr/local/nagios/libexec/*nrpe*
+sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/usr/local/nagios/bin/nrpe*
+sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/usr/local/nagios/etc/nrpe*
+sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/usr/local/nagios/libexec/*nrpe*
 </pre></div>
 </div>
 </section>
 <section id="install-nagios-core">
-<h2>Install Nagios Core<a class="headerlink" href="#install-nagios-core" title="Permalink to this heading"></a></h2>
+<h2>Install Nagios Core<a class="headerlink" href="#install-nagios-core" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://linuxhint.com/install_nagios_ubuntu/">https://linuxhint.com/install_nagios_ubuntu/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install prerequisites</span>
-sudo apt install -y build-essential apache2 php openssl perl make php-gd libgd-dev libapache2-mod-php libperl-dev libssl-dev daemon wget apache2-utils unzip
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>build-essential<span class="w"> </span>apache2<span class="w"> </span>php<span class="w"> </span>openssl<span class="w"> </span>perl<span class="w"> </span>make<span class="w"> </span>php-gd<span class="w"> </span>libgd-dev<span class="w"> </span>libapache2-mod-php<span class="w"> </span>libperl-dev<span class="w"> </span>libssl-dev<span class="w"> </span>daemon<span class="w"> </span>wget<span class="w"> </span>apache2-utils<span class="w"> </span>unzip
 
 <span class="c1"># User account</span>
-sudo useradd nagios
-sudo groupadd nagios
-sudo usermod -a -G nagios nagios
-sudo usermod -a -G nagios www-data
+sudo<span class="w"> </span>useradd<span class="w"> </span>nagios
+sudo<span class="w"> </span>groupadd<span class="w"> </span>nagios
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>nagios<span class="w"> </span>nagios
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>nagios<span class="w"> </span>www-data
 
 <span class="c1"># Download Nagios</span>
-<span class="nb">cd</span> /tmp
-wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.5.tar.gz
-tar -zxvf /tmp/nagios-4.4.5.tar.gz
-<span class="nb">cd</span> /tmp/nagios-4.4.5/
+<span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.5.tar.gz
+tar<span class="w"> </span>-zxvf<span class="w"> </span>/tmp/nagios-4.4.5.tar.gz
+<span class="nb">cd</span><span class="w"> </span>/tmp/nagios-4.4.5/
 
 <span class="c1"># Compile Nagios</span>
-sudo ./configure --with-nagios-group<span class="o">=</span>nagios --with-command-group<span class="o">=</span>nagios --with-httpd_conf<span class="o">=</span>/etc/apache2/sites-enabled/
-sudo make all
-sudo make install
-sudo make install-init
-sudo make install-config
-sudo make install-commandmode
-sudo make install-webconf
-<span class="nb">cd</span> /tmp/nagios-4.4.5$ sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users
-sudo a2enmod cgi
-sudo systemctl restart apache2
+sudo<span class="w"> </span>./configure<span class="w"> </span>--with-nagios-group<span class="o">=</span>nagios<span class="w"> </span>--with-command-group<span class="o">=</span>nagios<span class="w"> </span>--with-httpd_conf<span class="o">=</span>/etc/apache2/sites-enabled/
+sudo<span class="w"> </span>make<span class="w"> </span>all
+sudo<span class="w"> </span>make<span class="w"> </span>install
+sudo<span class="w"> </span>make<span class="w"> </span>install-init
+sudo<span class="w"> </span>make<span class="w"> </span>install-config
+sudo<span class="w"> </span>make<span class="w"> </span>install-commandmode
+sudo<span class="w"> </span>make<span class="w"> </span>install-webconf
+<span class="nb">cd</span><span class="w"> </span>/tmp/nagios-4.4.5$<span class="w"> </span>sudo<span class="w"> </span>htpasswd<span class="w"> </span>-c<span class="w"> </span>/usr/local/nagios/etc/htpasswd.users
+sudo<span class="w"> </span>a2enmod<span class="w"> </span>cgi
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
 
 <span class="c1"># Nagios Plugins</span>
-<span class="nb">cd</span> /tmp
-wget https://nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz
-tar -zxvf /tmp/nagios-plugins-2.3.3.tar.gz
-<span class="nb">cd</span> /tmp/nagios-plugins-2.3.3/
-sudo ./configure --with-nagios-user<span class="o">=</span>nagios --with-nagios-group<span class="o">=</span>nagios
-sudo make
-sudo make install
+<span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz
+tar<span class="w"> </span>-zxvf<span class="w"> </span>/tmp/nagios-plugins-2.3.3.tar.gz
+<span class="nb">cd</span><span class="w"> </span>/tmp/nagios-plugins-2.3.3/
+sudo<span class="w"> </span>./configure<span class="w"> </span>--with-nagios-user<span class="o">=</span>nagios<span class="w"> </span>--with-nagios-group<span class="o">=</span>nagios
+sudo<span class="w"> </span>make
+sudo<span class="w"> </span>make<span class="w"> </span>install
 
 <span class="c1"># Using Nagios</span>
-sudo /usr/local/nagios/bin/nagios -v
-<span class="nb">cd</span> /usr/local/nagios/etc/nagios.cfg
-sudo systemctl <span class="nb">enable</span> nagios
-sudo systemctl start nagios
+sudo<span class="w"> </span>/usr/local/nagios/bin/nagios<span class="w"> </span>-v
+<span class="nb">cd</span><span class="w"> </span>/usr/local/nagios/etc/nagios.cfg
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nagios
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nagios
 </pre></div>
 </div>
 </section>
 <section id="uninstall-nagios">
-<h2>Uninstall Nagios<a class="headerlink" href="#uninstall-nagios" title="Permalink to this heading"></a></h2>
+<h2>Uninstall Nagios<a class="headerlink" href="#uninstall-nagios" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://serverfault.com/questions/584518/uninstall-nagios-that-has-been-manually-installed-through-source">https://serverfault.com/questions/584518/uninstall-nagios-that-has-been-manually-installed-through-source</a></p>
 <p><a class="reference external" href="https://support.nagios.com/forum/viewtopic.php?t=34007">https://support.nagios.com/forum/viewtopic.php?t=34007</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Stop the Nagios daemon
-Remove the web conf, <span class="k">if</span> you installed it
-Remove the user and group that you added <span class="k">for</span> Nagios
-Remove the init script
-Remove /usr/local/nagios directory
-find / -iname <span class="s1">&#39;*nagios*&#39;</span>
-delete everything
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Stop<span class="w"> </span>the<span class="w"> </span>Nagios<span class="w"> </span>daemon
+Remove<span class="w"> </span>the<span class="w"> </span>web<span class="w"> </span>conf,<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>installed<span class="w"> </span>it
+Remove<span class="w"> </span>the<span class="w"> </span>user<span class="w"> </span>and<span class="w"> </span>group<span class="w"> </span>that<span class="w"> </span>you<span class="w"> </span>added<span class="w"> </span><span class="k">for</span><span class="w"> </span>Nagios
+Remove<span class="w"> </span>the<span class="w"> </span>init<span class="w"> </span>script
+Remove<span class="w"> </span>/usr/local/nagios<span class="w"> </span>directory
+find<span class="w"> </span>/<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;*nagios*&#39;</span>
+delete<span class="w"> </span>everything
 </pre></div>
 </div>
 </section>
 <section id="errors">
-<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this heading"></a></h2>
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading"></a></h2>
 <section id="no-output-on-stdout-stderr">
-<h3>(No output on stdout) stderr:<a class="headerlink" href="#no-output-on-stdout-stderr" title="Permalink to this heading"></a></h3>
+<h3>(No output on stdout) stderr:<a class="headerlink" href="#no-output-on-stdout-stderr" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://askubuntu.com/questions/817827/no-output-on-stdout-stderr-execvp-usr-local-nagios-libexec-check-ping-in-ub">https://askubuntu.com/questions/817827/no-output-on-stdout-stderr-execvp-usr-local-nagios-libexec-check-ping-in-ub</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install nagios-plugins
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nagios-plugins
 </pre></div>
 </div>
 </section>
 </section>
 <section id="adding-linux-hosts">
-<h2>Adding Linux Hosts<a class="headerlink" href="#adding-linux-hosts" title="Permalink to this heading"></a></h2>
+<h2>Adding Linux Hosts<a class="headerlink" href="#adding-linux-hosts" title="Link to this heading"></a></h2>
 <section id="on-the-nagios-box">
-<h3>On the Nagios Box<a class="headerlink" href="#on-the-nagios-box" title="Permalink to this heading"></a></h3>
+<h3>On the Nagios Box<a class="headerlink" href="#on-the-nagios-box" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the host in config (see below example config file)</span>
-nano /etc/nagios3/conf.d/server.fqdn.com.cfg
+nano<span class="w"> </span>/etc/nagios3/conf.d/server.fqdn.com.cfg
 
 <span class="c1"># ALWAYS verify Nagios config before reloading service, ensure that there are no errors (warnings are okay)</span>
-<span class="nb">cd</span> /etc/nagios3/
-nagios3 -v nagios.cfg
+<span class="nb">cd</span><span class="w"> </span>/etc/nagios3/
+nagios3<span class="w"> </span>-v<span class="w"> </span>nagios.cfg
 
 <span class="c1"># If no errors, you should be safe to reload nagios service (DO NOT restart service)</span>
-/etc/init.d/nagios3 reload
+/etc/init.d/nagios3<span class="w"> </span>reload
 </pre></div>
 </div>
 <p><strong>Example config file</strong> (the last service is a custom service check example):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define host <span class="o">{</span>
-    address                        server.example.com
-    <span class="nb">alias</span>                          server.example.com
-    check_command                  check_ping!100.0,20%!500.0,60%
-    host_name                      server.example.com
-    hostgroups                     ubuntu_hosts
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    use                            generic-host
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>define<span class="w"> </span>host<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>address<span class="w">                        </span>server.example.com
+<span class="w">    </span><span class="nb">alias</span><span class="w">                          </span>server.example.com
+<span class="w">    </span>check_command<span class="w">                  </span>check_ping!100.0,20%!500.0,60%
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>hostgroups<span class="w">                     </span>ubuntu_hosts
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>use<span class="w">                            </span>generic-host
 <span class="o">}</span>
-define hostextinfo <span class="o">{</span>
-    host_name                      server.example.com
-    icon_image                     base/ubuntu.png
-    icon_image_alt                 Ubuntu
-    statusmap_image                base/ubuntu.gd2
+define<span class="w"> </span>hostextinfo<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>icon_image<span class="w">                     </span>base/ubuntu.png
+<span class="w">    </span>icon_image_alt<span class="w">                 </span>Ubuntu
+<span class="w">    </span>statusmap_image<span class="w">                </span>base/ubuntu.gd2
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_load
-    display_name                   CPU Load
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            CPU Load
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_load
+<span class="w">    </span>display_name<span class="w">                   </span>CPU<span class="w"> </span>Load
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>CPU<span class="w"> </span>Load
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_mem
-    display_name                   Memory
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Memory
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_mem
+<span class="w">    </span>display_name<span class="w">                   </span>Memory
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Memory
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_vda1
-    display_name                   Disk Status
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Disk vda1 Status
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_vda1
+<span class="w">    </span>display_name<span class="w">                   </span>Disk<span class="w"> </span>Status
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Disk<span class="w"> </span>vda1<span class="w"> </span>Status
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_tcp!22
-    display_name                   SSH/sftp Port <span class="m">22</span>
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            SSH/sftp Port <span class="m">22</span>
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_tcp!22
+<span class="w">    </span>display_name<span class="w">                   </span>SSH/sftp<span class="w"> </span>Port<span class="w"> </span><span class="m">22</span>
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>SSH/sftp<span class="w"> </span>Port<span class="w"> </span><span class="m">22</span>
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_total_procs
-    display_name                   Total Procs
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Total Procs
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_total_procs
+<span class="w">    </span>display_name<span class="w">                   </span>Total<span class="w"> </span>Procs
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Total<span class="w"> </span>Procs
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_users
-    display_name                   User Check
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Users Check
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_users
+<span class="w">    </span>display_name<span class="w">                   </span>User<span class="w"> </span>Check
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Users<span class="w"> </span>Check
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_zombie_procs
-    display_name                   Zombie Procs
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Zombie Procs
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_zombie_procs
+<span class="w">    </span>display_name<span class="w">                   </span>Zombie<span class="w"> </span>Procs
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Zombie<span class="w"> </span>Procs
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_OpManager
-    display_name                   Netflow Service
-    host_name                      server.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            Netflow Service Status
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_OpManager
+<span class="w">    </span>display_name<span class="w">                   </span>Netflow<span class="w"> </span>Service
+<span class="w">    </span>host_name<span class="w">                      </span>server.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>Netflow<span class="w"> </span>Service<span class="w"> </span>Status
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
-define service <span class="o">{</span>
-    check_command                  check_nrpe!check_mysql
-    display_name                   MySQL Status
-    host_name                      nagiosserver.example.com
-    max_check_attempts             <span class="m">3</span>
-    notification_period            24x7
-    service_description            MySQL Status
-    use                            generic-service
+define<span class="w"> </span>service<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>check_command<span class="w">                  </span>check_nrpe!check_mysql
+<span class="w">    </span>display_name<span class="w">                   </span>MySQL<span class="w"> </span>Status
+<span class="w">    </span>host_name<span class="w">                      </span>nagiosserver.example.com
+<span class="w">    </span>max_check_attempts<span class="w">             </span><span class="m">3</span>
+<span class="w">    </span>notification_period<span class="w">            </span>24x7
+<span class="w">    </span>service_description<span class="w">            </span>MySQL<span class="w"> </span>Status
+<span class="w">    </span>use<span class="w">                            </span>generic-service
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -356,28 +359,28 @@ define service <span class="o">{</span>
 <img alt="../../_images/nagios-1.png" src="../../_images/nagios-1.png" />
 </section>
 <section id="on-the-host-to-monitor">
-<h3>On the host to monitor<a class="headerlink" href="#on-the-host-to-monitor" title="Permalink to this heading"></a></h3>
+<h3>On the host to monitor<a class="headerlink" href="#on-the-host-to-monitor" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># See if Nagios is already installed</span>
-dpkg -l <span class="p">|</span> grep nagios
+dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nagios
 
 <span class="c1"># Install Nagios</span>
-apt-get install nagios-nrpe-server nagios-plugins-basic
+apt-get<span class="w"> </span>install<span class="w"> </span>nagios-nrpe-server<span class="w"> </span>nagios-plugins-basic
 
 <span class="c1"># Add your custom checks (see below custom_nrpe.cfg file)</span>
-nano /etc/nagios/nrpe.d/custom_nrpe.cfg
+nano<span class="w"> </span>/etc/nagios/nrpe.d/custom_nrpe.cfg
 
 <span class="c1"># Create the check_mem plugin, as it&#39;s a custom, standard check (see below check_mem file)</span>
-nano /usr/lib/nagios/plugins/check_mem
+nano<span class="w"> </span>/usr/lib/nagios/plugins/check_mem
 
 <span class="c1"># Make the file executable</span>
-chmod +x /usr/lib/nagios/plugins/check_mem
+chmod<span class="w"> </span>+x<span class="w"> </span>/usr/lib/nagios/plugins/check_mem
 
 <span class="c1"># Add x.x.x.x (servername) to the allowed hosts (you will get &quot;CHECK_NRPE: Error - Could not complete SSL handshake.&quot; in Nagios GUI if you don&#39;t add this line)</span>
-nano /etc/nagios/nrpe.cfg
-    <span class="nv">allowed_hosts</span><span class="o">=</span><span class="m">127</span>.0.0.1,x.x.x.x
+nano<span class="w"> </span>/etc/nagios/nrpe.cfg
+<span class="w">    </span><span class="nv">allowed_hosts</span><span class="o">=</span><span class="m">127</span>.0.0.1,x.x.x.x
 
 <span class="c1"># Restart the nagios-nrpe-server for it to recognise the change</span>
-/etc/init.d/nagios-nrpe-server restart
+/etc/init.d/nagios-nrpe-server<span class="w"> </span>restart
 </pre></div>
 </div>
 <p><strong>File custom_nrpe.cfg</strong></p>
@@ -389,51 +392,51 @@ nano /etc/nagios/nrpe.cfg
 <span class="c1">##########################################################</span>
 <span class="c1">#</span>
 <span class="c1"># Generic Checks - For all nodes</span>
-command<span class="o">[</span>check_zombie_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -w <span class="m">5</span> -c <span class="m">10</span> -s Z
-command<span class="o">[</span>check_total_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -w <span class="m">600</span> -c <span class="m">800</span>
-command<span class="o">[</span>check_vda1<span class="o">]=</span>/usr/lib/nagios/plugins/check_disk -w <span class="m">10</span>% -c <span class="m">5</span>% -x tmpfs -x udev -x /snap/*
-command<span class="o">[</span>check_disk_inode<span class="o">]=</span>/usr/lib/nagios/plugins/check_disk_inodes -w <span class="m">80</span> -c <span class="m">90</span> -p /
-command<span class="o">[</span>check_running_proc<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs <span class="nv">$ARG1</span>$
-command<span class="o">[</span>check_puppet_agent<span class="o">]=</span>sudo /usr/lib/nagios/plugins/check_puppet_agent
-command<span class="o">[</span>check_open_deleted_files<span class="o">]=</span>sudo /usr/lib/nagios/plugins/check_open_deleted_files -w <span class="m">15000000000</span> -c <span class="m">20000000000</span>
-command<span class="o">[</span>check_kernel<span class="o">]=</span>sudo /usr/lib/nagios/plugins/check_kernel
-command<span class="o">[</span>check_users<span class="o">]=</span>/usr/lib/nagios/plugins/check_users -w <span class="m">10</span> -c <span class="m">20</span>
+command<span class="o">[</span>check_zombie_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-w<span class="w"> </span><span class="m">5</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>-s<span class="w"> </span>Z
+command<span class="o">[</span>check_total_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-w<span class="w"> </span><span class="m">600</span><span class="w"> </span>-c<span class="w"> </span><span class="m">800</span>
+command<span class="o">[</span>check_vda1<span class="o">]=</span>/usr/lib/nagios/plugins/check_disk<span class="w"> </span>-w<span class="w"> </span><span class="m">10</span>%<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span>%<span class="w"> </span>-x<span class="w"> </span>tmpfs<span class="w"> </span>-x<span class="w"> </span>udev<span class="w"> </span>-x<span class="w"> </span>/snap/*
+command<span class="o">[</span>check_disk_inode<span class="o">]=</span>/usr/lib/nagios/plugins/check_disk_inodes<span class="w"> </span>-w<span class="w"> </span><span class="m">80</span><span class="w"> </span>-c<span class="w"> </span><span class="m">90</span><span class="w"> </span>-p<span class="w"> </span>/
+command<span class="o">[</span>check_running_proc<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span><span class="nv">$ARG1</span>$
+command<span class="o">[</span>check_puppet_agent<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib/nagios/plugins/check_puppet_agent
+command<span class="o">[</span>check_open_deleted_files<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib/nagios/plugins/check_open_deleted_files<span class="w"> </span>-w<span class="w"> </span><span class="m">15000000000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">20000000000</span>
+command<span class="o">[</span>check_kernel<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib/nagios/plugins/check_kernel
+command<span class="o">[</span>check_users<span class="o">]=</span>/usr/lib/nagios/plugins/check_users<span class="w"> </span>-w<span class="w"> </span><span class="m">10</span><span class="w"> </span>-c<span class="w"> </span><span class="m">20</span>
 command<span class="o">[</span>check_sssd_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_sssd_status
 command<span class="o">[</span>check_java_version<span class="o">]=</span>/usr/lib/nagios/plugins/check_java_version
 
 <span class="c1"># Check Load - Defined per node type</span>
 <span class="c1">##command[check_load]=/usr/lib/nagios/plugins/check_load -w 15.0,10,5 -c 30,25,20</span>
 <span class="c1">#</span>
-command<span class="o">[</span>check_load<span class="o">]=</span>/usr/lib/nagios/plugins/check_load -r -w <span class="m">2</span>.5,2,1.5 -c <span class="m">4</span>,3.5,3
+command<span class="o">[</span>check_load<span class="o">]=</span>/usr/lib/nagios/plugins/check_load<span class="w"> </span>-r<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span>.5,2,1.5<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span>,3.5,3
 
 
 
 <span class="c1"># Check Load - Defined per node type</span>
-command<span class="o">[</span>check_mem<span class="o">]=</span>/usr/lib/nagios/plugins/check_mem -w <span class="m">85</span> -c <span class="m">95</span>
+command<span class="o">[</span>check_mem<span class="o">]=</span>/usr/lib/nagios/plugins/check_mem<span class="w"> </span>-w<span class="w"> </span><span class="m">85</span><span class="w"> </span>-c<span class="w"> </span><span class="m">95</span>
 
 <span class="c1"># KONG Checks</span>
 command<span class="o">[</span>check_kong<span class="o">]=</span>/usr/lib/nagios/plugins/check_kong
 
 <span class="c1"># ntpd Checks</span>
-command<span class="o">[</span>check_ntpd<span class="o">]=</span>/usr/lib/nagios/plugins/check_ntpd --peer_warning <span class="m">1</span> --peer_critical <span class="m">0</span>
+command<span class="o">[</span>check_ntpd<span class="o">]=</span>/usr/lib/nagios/plugins/check_ntpd<span class="w"> </span>--peer_warning<span class="w"> </span><span class="m">1</span><span class="w"> </span>--peer_critical<span class="w"> </span><span class="m">0</span>
 
 
 
 <span class="c1"># TOMCAT Checks</span>
 <span class="c1">#command[check_tomcat]=/usr/lib/nagios/plugins/check_tomcat -H localhost -p 8080 -w 10%,50 -c 5%,10 -l nagios -a i1I605LzIG7V</span>
-command<span class="o">[</span>check_tomcat<span class="o">]=</span>/usr/lib/nagios/plugins/check_tomcat <span class="m">10</span> <span class="m">80</span> <span class="m">10</span> admin Masehare
+command<span class="o">[</span>check_tomcat<span class="o">]=</span>/usr/lib/nagios/plugins/check_tomcat<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>admin<span class="w"> </span>Masehare
 
 <span class="c1"># Percona/MySQL Checks</span>
-command<span class="o">[</span>check_percona_cluster_size<span class="o">]=</span>sudo /usr/lib64/nagios/plugins/pmp-check-mysql-status -x wsrep_cluster_size -C <span class="s1">&#39;&lt;=&#39;</span> -w <span class="m">2</span> -c <span class="m">1</span>
-command<span class="o">[</span>check_percona_primary_cluster<span class="o">]=</span>sudo /usr/lib64/nagios/plugins/pmp-check-mysql-status -x wsrep_cluster_status -C <span class="o">==</span> -T str -c non-Primary
-command<span class="o">[</span>check_percona_local_node_sync<span class="o">]=</span>sudo /usr/lib64/nagios/plugins/pmp-check-mysql-status -x wsrep_local_state_comment -C <span class="s1">&#39;!=&#39;</span> -T str -w Synced
-command<span class="o">[</span>check_percona_flow_control<span class="o">]=</span>sudo /usr/lib64/nagios/plugins/pmp-check-mysql-status -x wsrep_flow_control_paused -w <span class="m">0</span>.1 -c <span class="m">0</span>.9
-command<span class="o">[</span>check_mysql_status<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status <span class="nv">$ARG1</span>$
+command<span class="o">[</span>check_percona_cluster_size<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>wsrep_cluster_size<span class="w"> </span>-C<span class="w"> </span><span class="s1">&#39;&lt;=&#39;</span><span class="w"> </span>-w<span class="w"> </span><span class="m">2</span><span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>
+command<span class="o">[</span>check_percona_primary_cluster<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>wsrep_cluster_status<span class="w"> </span>-C<span class="w"> </span><span class="o">==</span><span class="w"> </span>-T<span class="w"> </span>str<span class="w"> </span>-c<span class="w"> </span>non-Primary
+command<span class="o">[</span>check_percona_local_node_sync<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>wsrep_local_state_comment<span class="w"> </span>-C<span class="w"> </span><span class="s1">&#39;!=&#39;</span><span class="w"> </span>-T<span class="w"> </span>str<span class="w"> </span>-w<span class="w"> </span>Synced
+command<span class="o">[</span>check_percona_flow_control<span class="o">]=</span>sudo<span class="w"> </span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>wsrep_flow_control_paused<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>-c<span class="w"> </span><span class="m">0</span>.9
+command<span class="o">[</span>check_mysql_status<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span><span class="nv">$ARG1</span>$
 command<span class="o">[</span>check_mysql_processlist<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-processlist
-command<span class="o">[</span>check_mysql_innodb<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-innodb -C <span class="nv">$ARG1</span>$
-command<span class="o">[</span>check_mysql_status_uptime<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status x Uptime -C <span class="s1">&#39;&lt;&#39;</span> -w <span class="nv">$ARG1</span>$ -c <span class="nv">$ARG2</span>$
-command<span class="o">[</span>check_mysql_status_connx<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status -x Threads_connected -o / -y max_connections -T pct -w <span class="nv">$ARG1</span>$ -c <span class="nv">$ARG2</span>$
-command<span class="o">[</span>check_mysql_status_threadrun<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status -x Threads_running -w <span class="nv">$ARG1</span>$ -c <span class="nv">$ARG2</span>$
+command<span class="o">[</span>check_mysql_innodb<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-innodb<span class="w"> </span>-C<span class="w"> </span><span class="nv">$ARG1</span>$
+command<span class="o">[</span>check_mysql_status_uptime<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>x<span class="w"> </span>Uptime<span class="w"> </span>-C<span class="w"> </span><span class="s1">&#39;&lt;&#39;</span><span class="w"> </span>-w<span class="w"> </span><span class="nv">$ARG1</span>$<span class="w"> </span>-c<span class="w"> </span><span class="nv">$ARG2</span>$
+command<span class="o">[</span>check_mysql_status_connx<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>Threads_connected<span class="w"> </span>-o<span class="w"> </span>/<span class="w"> </span>-y<span class="w"> </span>max_connections<span class="w"> </span>-T<span class="w"> </span>pct<span class="w"> </span>-w<span class="w"> </span><span class="nv">$ARG1</span>$<span class="w"> </span>-c<span class="w"> </span><span class="nv">$ARG2</span>$
+command<span class="o">[</span>check_mysql_status_threadrun<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-status<span class="w"> </span>-x<span class="w"> </span>Threads_running<span class="w"> </span>-w<span class="w"> </span><span class="nv">$ARG1</span>$<span class="w"> </span>-c<span class="w"> </span><span class="nv">$ARG2</span>$
 command<span class="o">[</span>check_mysql_slave_running<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-replication-running
 command<span class="o">[</span>check_mysql_slave_delay<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mysql-replication-delay
 
@@ -446,133 +449,133 @@ command<span class="o">[</span>check_port_3306_on_all_memsql_nodes<span class="o
 <span class="c1"># MemSQL Checks - mem_master</span>
 
 <span class="c1"># NGINX Checks</span>
-command<span class="o">[</span>check_nginx_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_nginx_status -H localhost -P <span class="m">9396</span> -w <span class="m">10000</span> -c <span class="m">20000</span>
-command<span class="o">[</span>check_nginx_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs --argument-array<span class="o">=</span><span class="s2">&quot;/usr/sbin/nginx -g daemon on; master_process on&quot;</span> -w <span class="m">1</span>:1 -c <span class="m">1</span>:1
+command<span class="o">[</span>check_nginx_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_nginx_status<span class="w"> </span>-H<span class="w"> </span>localhost<span class="w"> </span>-P<span class="w"> </span><span class="m">9396</span><span class="w"> </span>-w<span class="w"> </span><span class="m">10000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">20000</span>
+command<span class="o">[</span>check_nginx_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>--argument-array<span class="o">=</span><span class="s2">&quot;/usr/sbin/nginx -g daemon on; master_process on&quot;</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span>:1<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:1
 
 <span class="c1"># Rabbit MQ Checks</span>
-command<span class="o">[</span>check_rabbit_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n aliveness-test -q status
-command<span class="o">[</span>check_rabbit_msg_ready<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q messages_ready -c <span class="m">2000</span> -w <span class="m">10000</span>
-command<span class="o">[</span>check_rabbit_msg_unack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q messages_unacknowledged -w <span class="m">0</span> -c <span class="m">10</span>
-command<span class="o">[</span>check_rabbit_publish<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q publish_details
-command<span class="o">[</span>check_rabbit_msg_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q ack_details
-command<span class="o">[</span>check_rabbit_deliver_get<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q deliver_get_details
-command<span class="o">[</span>check_rabbit_msg_redeliver<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q redeliver_details -w <span class="m">40</span> -c <span class="m">80</span>
-command<span class="o">[</span>check_rabbit_msg_deliver<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q deliver_details
-command<span class="o">[</span>check_rabbit_deliver_no_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q deliver_no_ack_details
-command<span class="o">[</span>check_rabbit_get_no_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n overview -q get_no_ack_details
-command<span class="o">[</span>check_rabbit_memory<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat -n nodes -q memory
+command<span class="o">[</span>check_rabbit_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>aliveness-test<span class="w"> </span>-q<span class="w"> </span>status
+command<span class="o">[</span>check_rabbit_msg_ready<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>messages_ready<span class="w"> </span>-c<span class="w"> </span><span class="m">2000</span><span class="w"> </span>-w<span class="w"> </span><span class="m">10000</span>
+command<span class="o">[</span>check_rabbit_msg_unack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>messages_unacknowledged<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span>
+command<span class="o">[</span>check_rabbit_publish<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>publish_details
+command<span class="o">[</span>check_rabbit_msg_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>ack_details
+command<span class="o">[</span>check_rabbit_deliver_get<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>deliver_get_details
+command<span class="o">[</span>check_rabbit_msg_redeliver<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>redeliver_details<span class="w"> </span>-w<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">80</span>
+command<span class="o">[</span>check_rabbit_msg_deliver<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>deliver_details
+command<span class="o">[</span>check_rabbit_deliver_no_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>deliver_no_ack_details
+command<span class="o">[</span>check_rabbit_get_no_ack<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>overview<span class="w"> </span>-q<span class="w"> </span>get_no_ack_details
+command<span class="o">[</span>check_rabbit_memory<span class="o">]=</span>/usr/lib/nagios/plugins/check_rabbit_stat<span class="w"> </span>-n<span class="w"> </span>nodes<span class="w"> </span>-q<span class="w"> </span>memory
 
 <span class="c1"># NODEJS Checks</span>
-command<span class="o">[</span>check_node_pm2_status<span class="o">]=</span>/usr/bin/sudo -i -u serviceuser check_node_pm2 -A -S -R --rwarn <span class="m">5</span> --rcrit <span class="m">10</span>
+command<span class="o">[</span>check_node_pm2_status<span class="o">]=</span>/usr/bin/sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>serviceuser<span class="w"> </span>check_node_pm2<span class="w"> </span>-A<span class="w"> </span>-S<span class="w"> </span>-R<span class="w"> </span>--rwarn<span class="w"> </span><span class="m">5</span><span class="w"> </span>--rcrit<span class="w"> </span><span class="m">10</span>
 
 <span class="c1"># Dockerswarm checks</span>
-command<span class="o">[</span>check_docker_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs --argument-array<span class="o">=</span>/var/run/docker/containerd/containerd.toml -w <span class="m">1</span>:1 -c <span class="m">1</span>:1
+command<span class="o">[</span>check_docker_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>--argument-array<span class="o">=</span>/var/run/docker/containerd/containerd.toml<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span>:1<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:1
 
 
 <span class="c1">#</span>
 <span class="c1"># Wordpress</span>
-command<span class="o">[</span>check_glusterfs<span class="o">]=</span>/usr/lib/nagios/plugins/check_glusterfs -v wordpress_files -n <span class="m">2</span>
-command<span class="o">[</span>check_php5fpm_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_phpfpm_status -o linux -s php5-fpm
-command<span class="o">[</span>check_php71fpm_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_phpfpm_status -o linux -s php7.1-fpm
+command<span class="o">[</span>check_glusterfs<span class="o">]=</span>/usr/lib/nagios/plugins/check_glusterfs<span class="w"> </span>-v<span class="w"> </span>wordpress_files<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span>
+command<span class="o">[</span>check_php5fpm_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_phpfpm_status<span class="w"> </span>-o<span class="w"> </span>linux<span class="w"> </span>-s<span class="w"> </span>php5-fpm
+command<span class="o">[</span>check_php71fpm_status<span class="o">]=</span>/usr/lib/nagios/plugins/check_phpfpm_status<span class="w"> </span>-o<span class="w"> </span>linux<span class="w"> </span>-s<span class="w"> </span>php7.1-fpm
 command<span class="o">[</span>check_wpress_version<span class="o">]=</span>/usr/lib/nagios/plugins/check_wp_version
 
 <span class="c1"># Glusterfs Checks</span>
-command<span class="o">[</span>check_gluster_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs --argument-array<span class="o">=</span><span class="s2">&quot;/usr/sbin/glusterd -p /var/run/glusterd.pid&quot;</span> -w <span class="m">1</span>:1 -c <span class="m">1</span>:1
+command<span class="o">[</span>check_gluster_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>--argument-array<span class="o">=</span><span class="s2">&quot;/usr/sbin/glusterd -p /var/run/glusterd.pid&quot;</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span>:1<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:1
 command<span class="o">[</span>check_glusterfs_health<span class="o">]=</span>/usr/lib/nagios/plugins/check_glusterfs_health
 
 <span class="c1"># Gitlab Checks</span>
-command<span class="o">[</span>check_gitlab_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs --argument-array<span class="o">=</span>/etc/gitlab-runner/config.toml -c <span class="m">1</span>:1
+command<span class="o">[</span>check_gitlab_procs<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>--argument-array<span class="o">=</span>/etc/gitlab-runner/config.toml<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:1
 
 <span class="c1"># ClusterControl Checks</span>
 command<span class="o">[</span>check_cluster_control<span class="o">]=</span>/usr/lib/nagios/plugins/check_cluster_control
 
 <span class="c1"># MongoDB</span>
-command<span class="o">[</span>check_mongo_connections<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_connections
-command<span class="o">[</span>check_mongo_election<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_election
-command<span class="o">[</span>check_mongo_repl_lag<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_repl_lag
-command<span class="o">[</span>check_mongo_flushing<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_flushing
-command<span class="o">[</span>check_mongo_total_indexes<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_total_indexes
-command<span class="o">[</span>check_mongo_balance<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_balance
-command<span class="o">[</span>check_mongo_queues<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_queues
-command<span class="o">[</span>check_mongo_cannary_test<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_cannary_test
-command<span class="o">[</span>check_mongo_have_primary<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_have_primary
-command<span class="o">[</span>check_mongo_connect<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_connect
-command<span class="o">[</span>check_mongo_oplog<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py -A check_oplog
+command<span class="o">[</span>check_mongo_connections<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_connections
+command<span class="o">[</span>check_mongo_election<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_election
+command<span class="o">[</span>check_mongo_repl_lag<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_repl_lag
+command<span class="o">[</span>check_mongo_flushing<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_flushing
+command<span class="o">[</span>check_mongo_total_indexes<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_total_indexes
+command<span class="o">[</span>check_mongo_balance<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_balance
+command<span class="o">[</span>check_mongo_queues<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_queues
+command<span class="o">[</span>check_mongo_cannary_test<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_cannary_test
+command<span class="o">[</span>check_mongo_have_primary<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_have_primary
+command<span class="o">[</span>check_mongo_connect<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_connect
+command<span class="o">[</span>check_mongo_oplog<span class="o">]=</span>/usr/lib64/nagios/plugins/pmp-check-mongo.py<span class="w"> </span>-A<span class="w"> </span>check_oplog
 
 <span class="c1">## Elasticsearch</span>
-command<span class="o">[</span>check_elasticsearch<span class="o">]=</span>/usr/lib/nagios/plugins/check_elasticsearch.sh -H localhost -u elastic -p tusfDtzYSEtb
+command<span class="o">[</span>check_elasticsearch<span class="o">]=</span>/usr/lib/nagios/plugins/check_elasticsearch.sh<span class="w"> </span>-H<span class="w"> </span>localhost<span class="w"> </span>-u<span class="w"> </span>elastic<span class="w"> </span>-p<span class="w"> </span>tusfDtzYSEtb
 
 <span class="c1">## ZFS</span>
 command<span class="o">[</span>check_zfs_pool_health<span class="o">]=</span>/usr/lib/nagios/plugins/check_zfs_pool_health
 
 <span class="c1">## Netflow</span>
-command<span class="o">[</span>check_OpManager<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -a OpManager
+command<span class="o">[</span>check_OpManager<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-a<span class="w"> </span>OpManager
 
 <span class="c1">## Zabbix</span>
-command<span class="o">[</span>check_zabbix_server<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -c <span class="m">1</span>: -w <span class="m">3</span>: -C zabbix_server
-command<span class="o">[</span>check_zabbix_agent<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -c <span class="m">1</span>: -w <span class="m">3</span>: -C zabbix_agentd
-command<span class="o">[</span>check_mysql<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs -a mysql
+command<span class="o">[</span>check_zabbix_server<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>-w<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>-C<span class="w"> </span>zabbix_server
+command<span class="o">[</span>check_zabbix_agent<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>-w<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>-C<span class="w"> </span>zabbix_agentd
+command<span class="o">[</span>check_mysql<span class="o">]=</span>/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-a<span class="w"> </span>mysql
 </pre></div>
 </div>
 <p><strong>File check_mem</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;-w&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span> -gt <span class="s2">&quot;0&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;-c&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$4</span><span class="s2">&quot;</span> -gt <span class="s2">&quot;0&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-            <span class="nv">FreeM</span><span class="o">=</span><span class="sb">`</span>free -m<span class="sb">`</span>
-        <span class="nv">memTotal_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span> <span class="p">|</span>grep Mem <span class="p">|</span>awk <span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
-        <span class="nv">memUsed_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span> <span class="p">|</span>grep Mem <span class="p">|</span>awk <span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
-        <span class="nv">memFree_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span> <span class="p">|</span>grep Mem <span class="p">|</span>awk <span class="s1">&#39;{print $4}&#39;</span><span class="sb">`</span>
-        <span class="nv">memBuffer_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span> <span class="p">|</span>grep Mem <span class="p">|</span>awk <span class="s1">&#39;{print $6}&#39;</span><span class="sb">`</span>
-        <span class="nv">memCache_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span> <span class="p">|</span>grep Mem <span class="p">|</span>awk <span class="s1">&#39;{print $7}&#39;</span><span class="sb">`</span>
-        <span class="nv">memUsed_m</span><span class="o">=</span><span class="k">$((</span><span class="nv">$memUsed_m</span> <span class="o">-</span> <span class="nv">$memCache_m</span><span class="k">))</span>
-        <span class="nv">memUsedPrc</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="k">$((</span><span class="o">(</span><span class="nv">$memUsed_m</span><span class="o">*</span><span class="m">100</span><span class="o">)/</span><span class="nv">$memTotal_m</span><span class="k">))</span><span class="o">||</span>cut -d. -f1<span class="sb">`</span>
-        <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$memUsedPrc</span><span class="s2">&quot;</span> -ge <span class="s2">&quot;</span><span class="nv">$4</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-                <span class="nb">echo</span> <span class="s2">&quot;Memory: CRITICAL Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used!|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
-                <span class="nb">exit</span> <span class="m">2</span>
-        <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$memUsedPrc</span><span class="s2">&quot;</span> -ge <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-                <span class="nb">echo</span> <span class="s2">&quot;Memory: WARNING Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used!|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
-                <span class="nb">exit</span> <span class="m">1</span>
-        <span class="k">else</span>
-                <span class="nb">echo</span> <span class="s2">&quot;Memory: OK Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
-                <span class="nb">exit</span> <span class="m">0</span>
-        <span class="k">fi</span>
-<span class="k">else</span>    <span class="c1"># If inputs are not as expected, print help.</span>
-        <span class="nv">sName</span><span class="o">=</span><span class="s2">&quot;`echo </span><span class="nv">$0</span><span class="s2">|awk -F &#39;/&#39; &#39;{print </span><span class="nv">$NF</span><span class="s2">}&#39;`&quot;</span>
-        <span class="nb">echo</span> -e <span class="s2">&quot;\n\n\t\t### </span><span class="nv">$sName</span><span class="s2"> Version 2.0###\n&quot;</span>
-        <span class="nb">echo</span> -e <span class="s2">&quot;# Usage:\t</span><span class="nv">$sName</span><span class="s2"> -w &lt;warnlevel&gt; -c &lt;critlevel&gt;&quot;</span>
-        <span class="nb">echo</span> -e <span class="s2">&quot;\t\t= warnlevel and critlevel is percentage value without %\n&quot;</span>
-        <span class="nb">echo</span> <span class="s2">&quot;# EXAMPLE:\t/usr/lib64/nagios/plugins/</span><span class="nv">$sName</span><span class="s2"> -w 80 -c 90&quot;</span>
-        <span class="nb">echo</span> -e <span class="s2">&quot;\nCopyright (C) 2012 Lukasz Gogolin (lukasz.gogolin@gmail.com), improved by Nestor 2015\n\n&quot;</span>
-        <span class="nb">exit</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;-w&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$3</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$4</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nv">FreeM</span><span class="o">=</span><span class="sb">`</span>free<span class="w"> </span>-m<span class="sb">`</span>
+<span class="w">        </span><span class="nv">memTotal_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>Mem<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="sb">`</span>
+<span class="w">        </span><span class="nv">memUsed_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>Mem<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="sb">`</span>
+<span class="w">        </span><span class="nv">memFree_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>Mem<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="sb">`</span>
+<span class="w">        </span><span class="nv">memBuffer_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>Mem<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $6}&#39;</span><span class="sb">`</span>
+<span class="w">        </span><span class="nv">memCache_m</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$FreeM</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span>grep<span class="w"> </span>Mem<span class="w"> </span><span class="p">|</span>awk<span class="w"> </span><span class="s1">&#39;{print $7}&#39;</span><span class="sb">`</span>
+<span class="w">        </span><span class="nv">memUsed_m</span><span class="o">=</span><span class="k">$((</span><span class="nv">$memUsed_m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$memCache_m</span><span class="k">))</span>
+<span class="w">        </span><span class="nv">memUsedPrc</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="o">(</span><span class="nv">$memUsed_m</span><span class="o">*</span><span class="m">100</span><span class="o">)/</span><span class="nv">$memTotal_m</span><span class="k">))</span><span class="o">||</span>cut<span class="w"> </span>-d.<span class="w"> </span>-f1<span class="sb">`</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$memUsedPrc</span><span class="s2">&quot;</span><span class="w"> </span>-ge<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$4</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Memory: CRITICAL Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used!|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
+<span class="w">                </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+<span class="w">        </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$memUsedPrc</span><span class="s2">&quot;</span><span class="w"> </span>-ge<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Memory: WARNING Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used!|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
+<span class="w">                </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Memory: OK Total: </span><span class="nv">$memTotal_m</span><span class="s2"> MB - Used: </span><span class="nv">$memUsed_m</span><span class="s2"> MB - </span><span class="nv">$memUsedPrc</span><span class="s2">% used|TOTAL=</span><span class="nv">$memTotal_m</span><span class="s2">;;;; USED=</span><span class="nv">$memUsed_m</span><span class="s2">;;;; CACHE=</span><span class="nv">$memCache_m</span><span class="s2">;;;; BUFFER=</span><span class="nv">$memBuffer_m</span><span class="s2">;;;;&quot;</span>
+<span class="w">                </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="k">else</span><span class="w">    </span><span class="c1"># If inputs are not as expected, print help.</span>
+<span class="w">        </span><span class="nv">sName</span><span class="o">=</span><span class="s2">&quot;`echo </span><span class="nv">$0</span><span class="s2">|awk -F &#39;/&#39; &#39;{print </span><span class="nv">$NF</span><span class="s2">}&#39;`&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n\n\t\t### </span><span class="nv">$sName</span><span class="s2"> Version 2.0###\n&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;# Usage:\t</span><span class="nv">$sName</span><span class="s2"> -w &lt;warnlevel&gt; -c &lt;critlevel&gt;&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\t\t= warnlevel and critlevel is percentage value without %\n&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;# EXAMPLE:\t/usr/lib64/nagios/plugins/</span><span class="nv">$sName</span><span class="s2"> -w 80 -c 90&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\nCopyright (C) 2012 Lukasz Gogolin (lukasz.gogolin@gmail.com), improved by Nestor 2015\n\n&quot;</span>
+<span class="w">        </span><span class="nb">exit</span>
 <span class="k">fi</span>
 </pre></div>
 </div>
 </section>
 <section id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h3>
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">### On the Nagios Box</span>
 <span class="c1"># Check the log, grepping a part of the server name you what to see a log for</span>
-tail -f /var/log/nagios3/nagios.log <span class="p">|</span> grep netflow
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nagios3/nagios.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>netflow
 
 <span class="c1">### On the Host to Monitor</span>
 <span class="c1">## Test to see if you can run the checks (these are found in /etc/nagios/nrpe.d/custom_nrpe.cfg)</span>
 <span class="c1"># CPU Load</span>
-/usr/lib/nagios/plugins/check_load -r -w <span class="m">2</span>.5,2,1.5 -c <span class="m">4</span>,3.5,3
+/usr/lib/nagios/plugins/check_load<span class="w"> </span>-r<span class="w"> </span>-w<span class="w"> </span><span class="m">2</span>.5,2,1.5<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span>,3.5,3
 
 <span class="c1"># Disk vda1 Status</span>
-/usr/lib/nagios/plugins/check_disk -w <span class="m">10</span>% -c <span class="m">5</span>% -x tmpfs -x udev -x /snap/*
+/usr/lib/nagios/plugins/check_disk<span class="w"> </span>-w<span class="w"> </span><span class="m">10</span>%<span class="w"> </span>-c<span class="w"> </span><span class="m">5</span>%<span class="w"> </span>-x<span class="w"> </span>tmpfs<span class="w"> </span>-x<span class="w"> </span>udev<span class="w"> </span>-x<span class="w"> </span>/snap/*
 
 <span class="c1"># Memory</span>
-/usr/lib/nagios/plugins/check_mem -w <span class="m">85</span> -c <span class="m">95</span>
+/usr/lib/nagios/plugins/check_mem<span class="w"> </span>-w<span class="w"> </span><span class="m">85</span><span class="w"> </span>-c<span class="w"> </span><span class="m">95</span>
 
 <span class="c1"># Total Procs</span>
-/usr/lib/nagios/plugins/check_procs -w <span class="m">600</span> -c <span class="m">800</span>
+/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-w<span class="w"> </span><span class="m">600</span><span class="w"> </span>-c<span class="w"> </span><span class="m">800</span>
 
 <span class="c1"># Users Check</span>
-/usr/lib/nagios/plugins/check_users -w <span class="m">10</span> -c <span class="m">20</span>
+/usr/lib/nagios/plugins/check_users<span class="w"> </span>-w<span class="w"> </span><span class="m">10</span><span class="w"> </span>-c<span class="w"> </span><span class="m">20</span>
 
 <span class="c1"># Zombie Procs</span>
-/usr/lib/nagios/plugins/check_procs -w <span class="m">5</span> -c <span class="m">10</span> -s Z
+/usr/lib/nagios/plugins/check_procs<span class="w"> </span>-w<span class="w"> </span><span class="m">5</span><span class="w"> </span>-c<span class="w"> </span><span class="m">10</span><span class="w"> </span>-s<span class="w"> </span>Z
 </pre></div>
 </div>
 </section>

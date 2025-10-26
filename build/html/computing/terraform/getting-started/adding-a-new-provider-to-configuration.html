@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adding a New Provider to Your Configuration &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -109,7 +112,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Terraform</a></li>
           <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Adding a New Provider to Your Configuration</li>
@@ -123,9 +126,9 @@
            <div itemprop="articleBody">
              
   <section id="adding-a-new-provider-to-your-configuration">
-<h1>Adding a New Provider to Your Configuration<a class="headerlink" href="#adding-a-new-provider-to-your-configuration" title="Permalink to this heading"></a></h1>
+<h1>Adding a New Provider to Your Configuration<a class="headerlink" href="#adding-a-new-provider-to-your-configuration" title="Link to this heading"></a></h1>
 <section id="terraform-functions">
-<h2>Terraform Functions<a class="headerlink" href="#terraform-functions" title="Permalink to this heading"></a></h2>
+<h2>Terraform Functions<a class="headerlink" href="#terraform-functions" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Built-in to Terraform</p></li>
 <li><p>Func_name(arg1, arg2, arg3, …)</p></li>
@@ -133,7 +136,7 @@
 <li><p>Several broad categories</p></li>
 </ul>
 <section id="common-function-categories">
-<h3>Common Function Categories<a class="headerlink" href="#common-function-categories" title="Permalink to this heading"></a></h3>
+<h3>Common Function Categories<a class="headerlink" href="#common-function-categories" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Numeric</p>
 <ul>
@@ -168,7 +171,7 @@
 </ul>
 </section>
 <section id="function-examples">
-<h3>Function Examples<a class="headerlink" href="#function-examples" title="Permalink to this heading"></a></h3>
+<h3>Function Examples<a class="headerlink" href="#function-examples" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Configure networking
 variable network_info {
   default = &quot;10.1.0.0/16&quot; #type, default, description
@@ -194,12 +197,12 @@ ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 </section>
 </section>
 <section id="terraform-commands">
-<h2>Terraform Commands<a class="headerlink" href="#terraform-commands" title="Permalink to this heading"></a></h2>
+<h2>Terraform Commands<a class="headerlink" href="#terraform-commands" title="Link to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/m6_commands.txt</span></code></a></p>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 <section id="terraform-providers">
-<h2>Terraform Providers<a class="headerlink" href="#terraform-providers" title="Permalink to this heading"></a></h2>
+<h2>Terraform Providers<a class="headerlink" href="#terraform-providers" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Iaas, Paas, Saas</p></li>
 <li><p>Community and HashiCorp</p></li>
@@ -208,7 +211,7 @@ ami = lookup(var.amis, &quot;us-east-1&quot;, &quot;error&quot;)
 <li><p>Multiple instances</p></li>
 </ul>
 <section id="provider-example">
-<h3>Provider Example<a class="headerlink" href="#provider-example" title="Permalink to this heading"></a></h3>
+<h3>Provider Example<a class="headerlink" href="#provider-example" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>provider &quot;azurerm&quot; {
   subscription_id = &quot;subscription-id&quot;
   client_id = &quot;principal-used-for-access&quot;
@@ -226,11 +229,11 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </section>
 </section>
 <section id="adding-the-azurerm-provider">
-<h2>Adding the AzureRM Provider<a class="headerlink" href="#adding-the-azurerm-provider" title="Permalink to this heading"></a></h2>
+<h2>Adding the AzureRM Provider<a class="headerlink" href="#adding-the-azurerm-provider" title="Link to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 <section id="resource-arguments">
-<h2>Resource Arguments<a class="headerlink" href="#resource-arguments" title="Permalink to this heading"></a></h2>
+<h2>Resource Arguments<a class="headerlink" href="#resource-arguments" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>depends_on</p></li>
 <li><p>count</p></li>
@@ -238,7 +241,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 <li><p>provider</p></li>
 </ul>
 <section id="depends-on-and-count">
-<h3>Depends_on and Count<a class="headerlink" href="#depends-on-and-count" title="Permalink to this heading"></a></h3>
+<h3>Depends_on and Count<a class="headerlink" href="#depends-on-and-count" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_instance&quot; &quot;taco_servers&quot; {
   count = 2
   tags {
@@ -250,7 +253,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </div>
 </section>
 <section id="for-each">
-<h3>For_each<a class="headerlink" href="#for-each" title="Permalink to this heading"></a></h3>
+<h3>For_each<a class="headerlink" href="#for-each" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>resource &quot;aws_s3_bucket&quot; &quot;taco_toppings&quot; {
   for_each = {
     food = &quot;public-read&quot;
@@ -264,7 +267,7 @@ resource &quot;azurerm_resource_group&quot; &quot;azure_tacos&quot; {
 </section>
 </section>
 <section id="using-the-count-argument">
-<h2>Using the Count Argument<a class="headerlink" href="#using-the-count-argument" title="Permalink to this heading"></a></h2>
+<h2>Using the Count Argument<a class="headerlink" href="#using-the-count-argument" title="Link to this heading"></a></h2>
 <p><a class="reference download external" download="" href="https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf"><code class="xref download docutils literal notranslate"><span class="pre">https://github.com/CalebSargeant/Getting-Started-Terraform/blob/master/m6/modulesix.tf</span></code></a></p>
 </section>
 </section>

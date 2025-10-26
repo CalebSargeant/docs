@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Container Registries &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -106,7 +109,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Docker</a></li>
       <li class="breadcrumb-item active">Container Registries</li>
       <li class="wy-breadcrumbs-aside">
@@ -119,7 +122,7 @@
            <div itemprop="articleBody">
              
   <section id="container-registries">
-<h1>Container Registries<a class="headerlink" href="#container-registries" title="Permalink to this heading"></a></h1>
+<h1>Container Registries<a class="headerlink" href="#container-registries" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>An image registry needs to be part of your container plan</p></li>
 <li><p>More Docker Hub details including auto-build</p></li>
@@ -130,7 +133,7 @@
 <li><p>3rd party registry options</p></li>
 </ul>
 <section id="docker-registry">
-<h2>Docker Registry<a class="headerlink" href="#docker-registry" title="Permalink to this heading"></a></h2>
+<h2>Docker Registry<a class="headerlink" href="#docker-registry" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>A private image registry for your network</p></li>
 <li><p>Part of the docker/distribution GitHub repo</p></li>
@@ -144,30 +147,30 @@
 </ul>
 </section>
 <section id="private-registry">
-<h2>Private Registry<a class="headerlink" href="#private-registry" title="Permalink to this heading"></a></h2>
+<h2>Private Registry<a class="headerlink" href="#private-registry" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Run the registry image on defalt port 5000</p></li>
 <li><p>Re-tag an existing image and push it to your new registry</p></li>
 <li><p>Remove that image from local cache and pull it from new registry</p></li>
 <li><p>Re-create registry using bind mount and see how it stores data</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker container run -d -p <span class="m">5000</span>:5000 --name registry registry
-docker pull hello-world
-docker run hello-world
-docker tag hello-world <span class="m">127</span>.0.0.1:5000/hello-world
-docker push <span class="m">127</span>.0.0.1:5000/hello-world
-docker container rm hello-world
-docker image remove hello-world
-docker pull <span class="m">127</span>.0.0.1:5000/hello-world
-docker container <span class="nb">kill</span> registry
-docker container rm registry
-docker container run -d -p <span class="m">5000</span>:5000 --name registry -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/registry-data:/var/lib/registry registry
-docker push <span class="m">127</span>.0.0.1:5000/hello-world
-ls /registry-data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>--name<span class="w"> </span>registry<span class="w"> </span>registry
+docker<span class="w"> </span>pull<span class="w"> </span>hello-world
+docker<span class="w"> </span>run<span class="w"> </span>hello-world
+docker<span class="w"> </span>tag<span class="w"> </span>hello-world<span class="w"> </span><span class="m">127</span>.0.0.1:5000/hello-world
+docker<span class="w"> </span>push<span class="w"> </span><span class="m">127</span>.0.0.1:5000/hello-world
+docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>hello-world
+docker<span class="w"> </span>image<span class="w"> </span>remove<span class="w"> </span>hello-world
+docker<span class="w"> </span>pull<span class="w"> </span><span class="m">127</span>.0.0.1:5000/hello-world
+docker<span class="w"> </span>container<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>registry
+docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>registry
+docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>--name<span class="w"> </span>registry<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/registry-data:/var/lib/registry<span class="w"> </span>registry
+docker<span class="w"> </span>push<span class="w"> </span><span class="m">127</span>.0.0.1:5000/hello-world
+ls<span class="w"> </span>/registry-data
 </pre></div>
 </div>
 <section id="registry-and-proper-tls">
-<h3>Registry and Proper TLS<a class="headerlink" href="#registry-and-proper-tls" title="Permalink to this heading"></a></h3>
+<h3>Registry and Proper TLS<a class="headerlink" href="#registry-and-proper-tls" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Secure by default: docker wont talk to registry without HTTPS</p></li>
 <li><p>Except localhost</p></li>
@@ -176,7 +179,7 @@ ls /registry-data
 </section>
 </section>
 <section id="using-registry-with-swarm">
-<h2>Using Registry with Swarm<a class="headerlink" href="#using-registry-with-swarm" title="Permalink to this heading"></a></h2>
+<h2>Using Registry with Swarm<a class="headerlink" href="#using-registry-with-swarm" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Works the same way as localhost</p></li>
 <li><p>Because of Routing Mesh, all nodes can see 127.0.0.1:5000</p></li>

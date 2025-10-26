@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infrastructure as a Code &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -108,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Terraform</a></li>
           <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Infrastructure as a Code</li>
@@ -122,12 +125,12 @@
            <div itemprop="articleBody">
              
   <section id="infrastructure-as-a-code">
-<h1>Infrastructure as a Code<a class="headerlink" href="#infrastructure-as-a-code" title="Permalink to this heading"></a></h1>
+<h1>Infrastructure as a Code<a class="headerlink" href="#infrastructure-as-a-code" title="Link to this heading"></a></h1>
 <section id="infrastructure-as-a-code-defined">
-<h2>Infrastructure as a Code Defined<a class="headerlink" href="#infrastructure-as-a-code-defined" title="Permalink to this heading"></a></h2>
+<h2>Infrastructure as a Code Defined<a class="headerlink" href="#infrastructure-as-a-code-defined" title="Link to this heading"></a></h2>
 <p>Provisioning infrastructure through software to achieve consistent and predictable environments</p>
 <section id="core-concepts">
-<h3>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this heading"></a></h3>
+<h3>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Defined in code</p></li>
 <li><p>Stored in source control</p></li>
@@ -138,7 +141,7 @@
 </section>
 </section>
 <section id="declarative-vs-imperative">
-<h2>Declarative vs Imperative<a class="headerlink" href="#declarative-vs-imperative" title="Permalink to this heading"></a></h2>
+<h2>Declarative vs Imperative<a class="headerlink" href="#declarative-vs-imperative" title="Link to this heading"></a></h2>
 <p>Terraform is a declarative approach to deploying infrastructure as code</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Make me a taco
 food taco &quot;bean-taco&quot; {
@@ -150,15 +153,15 @@ food taco &quot;bean-taco&quot; {
 </div>
 </section>
 <section id="idempotence-and-consistency">
-<h2>Idempotence and Consistency<a class="headerlink" href="#idempotence-and-consistency" title="Permalink to this heading"></a></h2>
+<h2>Idempotence and Consistency<a class="headerlink" href="#idempotence-and-consistency" title="Link to this heading"></a></h2>
 <p>If you haven’t changed anything about your configuration and you apply it again to the same environment, nothing will change in the environment, because your defined configuration matches the reality of the infrastructure that exists.</p>
 </section>
 <section id="push-or-pull">
-<h2>Push or Pull<a class="headerlink" href="#push-or-pull" title="Permalink to this heading"></a></h2>
+<h2>Push or Pull<a class="headerlink" href="#push-or-pull" title="Link to this heading"></a></h2>
 <p>Terraform is a push-type model, the configuration that terraform has is getting pushed to the target environment.</p>
 </section>
 <section id="iac-benefits">
-<h2>IaC Benefits<a class="headerlink" href="#iac-benefits" title="Permalink to this heading"></a></h2>
+<h2>IaC Benefits<a class="headerlink" href="#iac-benefits" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Automated deployment</p></li>
 <li><p>Consistent environment</p></li>

@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introducing Strings, Collections, and Iteration &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -103,7 +106,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Python</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Core</a></li>
           <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
@@ -118,9 +121,9 @@
            <div itemprop="articleBody">
              
   <section id="introducing-strings-collections-and-iteration">
-<h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Permalink to this heading"></a></h1>
+<h1>Introducing Strings, Collections, and Iteration<a class="headerlink" href="#introducing-strings-collections-and-iteration" title="Link to this heading"></a></h1>
 <section id="string">
-<h2>String<a class="headerlink" href="#string" title="Permalink to this heading"></a></h2>
+<h2>String<a class="headerlink" href="#string" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>str</p>
 <ul>
@@ -139,13 +142,13 @@
 </div>
 </section>
 <section id="string-literals">
-<h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this heading"></a></h2>
+<h2>String Literals<a class="headerlink" href="#string-literals" title="Link to this heading"></a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;first&quot;</span> <span class="s2">&quot;second&quot;</span>
 <span class="go">&#39;firstsecond&#39;</span>
 </pre></div>
 </div>
 <section id="strings-with-newlines">
-<h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Permalink to this heading"></a></h3>
+<h3>Strings with Newlines<a class="headerlink" href="#strings-with-newlines" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Multiline strings</p>
 <ul>
@@ -194,10 +197,6 @@ A \ in a string
 <p><strong>All Escape Sequences</strong></p>
 <p>docs.python.org/3/reference/lexical_analysis.html#strings</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Sequence</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -246,10 +245,6 @@ A \ in a string
 </tbody>
 </table>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head" colspan="2"><p>Only recognized in string literals</p></th>
 </tr>
@@ -268,7 +263,7 @@ A \ in a string
 </table>
 </section>
 <section id="string-features">
-<h3>String Features<a class="headerlink" href="#string-features" title="Permalink to this heading"></a></h3>
+<h3>String Features<a class="headerlink" href="#string-features" title="Link to this heading"></a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; path = r&#39;C:\Users\Merlin\Documents\Spells&#39;
 &gt;&gt;&gt; path
 &#39;C: \\Users\\Merlin\\Documents\\Spells&#39;
@@ -288,7 +283,7 @@ C:\Users\Merlin\Documents\Spells
 </section>
 </section>
 <section id="bytes">
-<h2>Bytes<a class="headerlink" href="#bytes" title="Permalink to this heading"></a></h2>
+<h2>Bytes<a class="headerlink" href="#bytes" title="Link to this heading"></a></h2>
 <p>docs.python.org/3/library/codecs.html#standard-encodings</p>
 <ul class="simple">
 <li><p>bytes</p>
@@ -312,7 +307,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="list">
-<h2>List<a class="headerlink" href="#list" title="Permalink to this heading"></a></h2>
+<h2>List<a class="headerlink" href="#list" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>list</p>
 <ul>
@@ -349,7 +344,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="dict">
-<h2>Dict<a class="headerlink" href="#dict" title="Permalink to this heading"></a></h2>
+<h2>Dict<a class="headerlink" href="#dict" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>dict</p>
 <ul>
@@ -372,7 +367,7 @@ b&#39;data&#39;
 </div>
 </section>
 <section id="for-loop">
-<h2>For-loop<a class="headerlink" href="#for-loop" title="Permalink to this heading"></a></h2>
+<h2>For-loop<a class="headerlink" href="#for-loop" title="Link to this heading"></a></h2>
 <ul>
 <li><p>for-loop</p>
 <ul>
@@ -404,7 +399,7 @@ teal 32896
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading"></a></h2>
+<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from urllib.request import urlopen
 &gt;&gt;&gt; story = urlopen(&#39;http://sixty-north.com/c/t.txt&#39;)
 &gt;&gt;&gt;
@@ -420,7 +415,7 @@ teal 32896
 </pre></div>
 </div>
 <section id="recall-bytes">
-<h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Permalink to this heading"></a></h3>
+<h3>Recall Bytes<a class="headerlink" href="#recall-bytes" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Bytes literals prefixed with lowercase ‘b’</p></li>
 <li><p>HTTP data is provided as bytes</p></li>

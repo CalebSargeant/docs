@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swarm &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -129,7 +132,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Docker</a></li>
       <li class="breadcrumb-item active">Swarm</li>
       <li class="wy-breadcrumbs-aside">
@@ -142,9 +145,9 @@
            <div itemprop="articleBody">
              
   <section id="swarm">
-<h1>Swarm<a class="headerlink" href="#swarm" title="Permalink to this heading"></a></h1>
+<h1>Swarm<a class="headerlink" href="#swarm" title="Link to this heading"></a></h1>
 <section id="containers-everywhere-new-problems">
-<h2>Containers Everywhere = New Problems<a class="headerlink" href="#containers-everywhere-new-problems" title="Permalink to this heading"></a></h2>
+<h2>Containers Everywhere = New Problems<a class="headerlink" href="#containers-everywhere-new-problems" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>How do we automate container lifecycle?</p></li>
 <li><p>How can we easily scale out/in/up/down?</p></li>
@@ -157,7 +160,7 @@
 </ul>
 </section>
 <section id="swarm-mode-built-in-orchestration">
-<h2>Swarm Mode: Built-In Orchestration<a class="headerlink" href="#swarm-mode-built-in-orchestration" title="Permalink to this heading"></a></h2>
+<h2>Swarm Mode: Built-In Orchestration<a class="headerlink" href="#swarm-mode-built-in-orchestration" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Swarm Mode is a clustering solution built inside Docker</p></li>
 <li><p>Not related to Swarm “classic” for pre-1.12 versions</p></li>
@@ -180,7 +183,7 @@
 <img alt="../../_images/swarm-diagram3.png" src="../../_images/swarm-diagram3.png" />
 </section>
 <section id="swarm-services">
-<h2>Swarm Services<a class="headerlink" href="#swarm-services" title="Permalink to this heading"></a></h2>
+<h2>Swarm Services<a class="headerlink" href="#swarm-services" title="Link to this heading"></a></h2>
 <ul>
 <li><p><cite>docker swarm init</cite></p></li>
 <li><p>Lots of PKI and security automation</p>
@@ -204,7 +207,7 @@
 </ul>
 </section>
 <section id="overlay-multi-host-networking">
-<h2>Overlay Multi-Host Networking<a class="headerlink" href="#overlay-multi-host-networking" title="Permalink to this heading"></a></h2>
+<h2>Overlay Multi-Host Networking<a class="headerlink" href="#overlay-multi-host-networking" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Just choose <cite>–driver overlay</cite> when creating network</p></li>
 <li><p>FOr container-to-container traffic inside a single Swarm</p></li>
@@ -222,7 +225,7 @@
 </ul>
 </section>
 <section id="routing-mesh">
-<h2>Routing Mesh<a class="headerlink" href="#routing-mesh" title="Permalink to this heading"></a></h2>
+<h2>Routing Mesh<a class="headerlink" href="#routing-mesh" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Routes ingress (incoming) packets for a Service to proper Task</p></li>
 <li><p>Spans all nodes in Swarm</p></li>
@@ -244,7 +247,7 @@
 </ul>
 </section>
 <section id="swarm-stacks">
-<h2>Swarm Stacks<a class="headerlink" href="#swarm-stacks" title="Permalink to this heading"></a></h2>
+<h2>Swarm Stacks<a class="headerlink" href="#swarm-stacks" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>In 1.13 Docker adds a new layer of abstraction to Swarm called Stacks</p></li>
 <li><p>Stacks accept Compose files as their declarative definition for services, networks, and volumes</p></li>
@@ -262,9 +265,9 @@
 </ul>
 </section>
 <section id="swarm-secrets">
-<h2>Swarm Secrets<a class="headerlink" href="#swarm-secrets" title="Permalink to this heading"></a></h2>
+<h2>Swarm Secrets<a class="headerlink" href="#swarm-secrets" title="Link to this heading"></a></h2>
 <section id="secrets-storage">
-<h3>Secrets Storage<a class="headerlink" href="#secrets-storage" title="Permalink to this heading"></a></h3>
+<h3>Secrets Storage<a class="headerlink" href="#secrets-storage" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Easiest “Secure” solution for storing secrets in Swarm</p></li>
 <li><p>What is a Secret?</p>
@@ -290,7 +293,7 @@
 </ul>
 </section>
 <section id="secrets-with-services">
-<h3>Secrets with Services<a class="headerlink" href="#secrets-with-services" title="Permalink to this heading"></a></h3>
+<h3>Secrets with Services<a class="headerlink" href="#secrets-with-services" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>docker secret create psql_user psql_user.txt</cite></p></li>
 <li><p><cite>echo “myDBPassword” | docker secret create psql_pass -</cite></p></li>
@@ -301,7 +304,7 @@
 </ul>
 </section>
 <section id="secrets-with-stacks">
-<h3>Secrets with Stacks<a class="headerlink" href="#secrets-with-stacks" title="Permalink to this heading"></a></h3>
+<h3>Secrets with Stacks<a class="headerlink" href="#secrets-with-stacks" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><cite>docker service create –name search –replicas 3 -p 9200:9200 elasticsearch:2</cite></p></li>
 <li><p><cite>docker stack deploy -c docker-compoes.yml mydb</cite></p></li>
@@ -309,12 +312,12 @@
 </section>
 </section>
 <section id="swarm-lifecycle">
-<h2>Swarm Lifecycle<a class="headerlink" href="#swarm-lifecycle" title="Permalink to this heading"></a></h2>
+<h2>Swarm Lifecycle<a class="headerlink" href="#swarm-lifecycle" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><cite>docker-compose exec psql cat /run/secrets/psql_user</cite></p></li>
 </ul>
 <section id="full-app-lifecycle-with-compose">
-<h3>Full App Lifecycle with Compose<a class="headerlink" href="#full-app-lifecycle-with-compose" title="Permalink to this heading"></a></h3>
+<h3>Full App Lifecycle with Compose<a class="headerlink" href="#full-app-lifecycle-with-compose" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Single set of Compose files for:</p></li>
 <li><p>Local <cite>docker-compose up</cite> development environemnt</p></li>
@@ -326,7 +329,7 @@
 </section>
 </section>
 <section id="service-updates">
-<h2>Service Updates<a class="headerlink" href="#service-updates" title="Permalink to this heading"></a></h2>
+<h2>Service Updates<a class="headerlink" href="#service-updates" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Provides rolling replacement of tasks/containers in a service</p></li>
 <li><p>Limits downtime (be careful with “prevents” downtime)</p></li>
@@ -343,7 +346,7 @@
 <li><p>A stack deploy, when pre-existing, will issue service updates</p></li>
 </ul>
 <section id="swarm-update-examples">
-<h3>Swarm Update Examples<a class="headerlink" href="#swarm-update-examples" title="Permalink to this heading"></a></h3>
+<h3>Swarm Update Examples<a class="headerlink" href="#swarm-update-examples" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Just update the image used to a newer version</p>
 <blockquote>
@@ -373,13 +376,13 @@
 </div></blockquote>
 </section>
 <section id="swarm-updates-in-stack-files">
-<h3>Swarm Updates in Stack FIles<a class="headerlink" href="#swarm-updates-in-stack-files" title="Permalink to this heading"></a></h3>
+<h3>Swarm Updates in Stack FIles<a class="headerlink" href="#swarm-updates-in-stack-files" title="Link to this heading"></a></h3>
 <p>Same command, just edit the YAML file, then</p>
 <p><cite>docker stack deploy -c file.yml &lt;stackname&gt;</cite></p>
 </section>
 </section>
 <section id="healthchecks">
-<h2>Healthchecks<a class="headerlink" href="#healthchecks" title="Permalink to this heading"></a></h2>
+<h2>Healthchecks<a class="headerlink" href="#healthchecks" title="Link to this heading"></a></h2>
 <ul>
 <li><p><cite>HEALTHCHECK</cite> was added in 1.12</p></li>
 <li><p>Supported in Dckerfile, Compose YAML, docker run, and Swarm Services</p></li>
@@ -401,19 +404,19 @@
 <li><p>Service updates wait for them before continuing</p></li>
 </ul>
 <section id="healthcheck-docker-run-example">
-<h3>Healthcheck DOcker Run Example<a class="headerlink" href="#healthcheck-docker-run-example" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run <span class="se">\</span>
---health-cmd<span class="o">=</span><span class="s2">&quot;curl -f localhost:9200/_cluster/health || False&quot;</span> <span class="se">\</span>
---health-interval<span class="o">=</span>5s <span class="se">\</span>
---health-retries<span class="o">=</span><span class="m">3</span> <span class="se">\</span>
---health-timeout<span class="o">=</span>2s <span class="se">\</span>
---health-start-period<span class="o">=</span>15s <span class="se">\</span>
+<h3>Healthcheck DOcker Run Example<a class="headerlink" href="#healthcheck-docker-run-example" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+--health-cmd<span class="o">=</span><span class="s2">&quot;curl -f localhost:9200/_cluster/health || False&quot;</span><span class="w"> </span><span class="se">\</span>
+--health-interval<span class="o">=</span>5s<span class="w"> </span><span class="se">\</span>
+--health-retries<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+--health-timeout<span class="o">=</span>2s<span class="w"> </span><span class="se">\</span>
+--health-start-period<span class="o">=</span>15s<span class="w"> </span><span class="se">\</span>
 elasticsearch:2
 </pre></div>
 </div>
 </section>
 <section id="healthcheck-dockerfile-examples">
-<h3>Healthcheck Dockerfile Examples<a class="headerlink" href="#healthcheck-dockerfile-examples" title="Permalink to this heading"></a></h3>
+<h3>Healthcheck Dockerfile Examples<a class="headerlink" href="#healthcheck-dockerfile-examples" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Options for healthcheck command</p>
 <blockquote>
@@ -442,39 +445,39 @@ elasticsearch:2
 </ul>
 </section>
 <section id="healthcheck-in-nginx-dockerfile">
-<h3>Healthcheck in Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-nginx-dockerfile" title="Permalink to this heading"></a></h3>
+<h3>Healthcheck in Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-nginx-dockerfile" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Static website running in Nginx, just test default URL</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM nginx:1.13
-HEALTHCHECK --interval<span class="o">=</span>30s --timeout<span class="o">=</span>3s <span class="se">\</span>
-CMD curl -f http://localhost/ <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM<span class="w"> </span>nginx:1.13
+HEALTHCHECK<span class="w"> </span>--interval<span class="o">=</span>30s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w"> </span><span class="se">\</span>
+CMD<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>http://localhost/<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </section>
 <section id="healthcheck-in-php-nginx-dockerfile">
-<h3>Healthcheck in PHP Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-php-nginx-dockerfile" title="Permalink to this heading"></a></h3>
+<h3>Healthcheck in PHP Nginx Dockerfile<a class="headerlink" href="#healthcheck-in-php-nginx-dockerfile" title="Link to this heading"></a></h3>
 <p>PHP-FPM running behind Nginx, test the Nginx and FPM status URLs</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM your-nginx-php-fpm-combo-image
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM<span class="w"> </span>your-nginx-php-fpm-combo-image
 
 <span class="c1"># dont do this if php-fpm is another container</span>
 <span class="c1"># must enable php-fpm ping/status in pool.ini</span>
 <span class="c1"># must forward /ping and /status urls from ngix to php-fpom</span>
 
-HEALTHCHECK --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\</span>
-CMD curl -f http://localhost/ping <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+HEALTHCHECK<span class="w"> </span>--interval<span class="o">=</span>5s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w"> </span><span class="se">\</span>
+CMD<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>http://localhost/ping<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </section>
 <section id="healthcheck-in-postgres-dockerfile">
-<h3>Healthcheck in postgres Dockerfile<a class="headerlink" href="#healthcheck-in-postgres-dockerfile" title="Permalink to this heading"></a></h3>
+<h3>Healthcheck in postgres Dockerfile<a class="headerlink" href="#healthcheck-in-postgres-dockerfile" title="Link to this heading"></a></h3>
 <p>Use a PostgtreSQL utility to test for ready state</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM postgres
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>FROM<span class="w"> </span>postgres
 
 <span class="c1"># Specify real user with -U to prevent errors in log</span>
 
-HEALTHCHECK --interval<span class="o">=</span>5s --timeout<span class="o">=</span>3s <span class="se">\</span>
-CMD pg_isready -U postgres <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+HEALTHCHECK<span class="w"> </span>--interval<span class="o">=</span>5s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w"> </span><span class="se">\</span>
+CMD<span class="w"> </span>pg_isready<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </section>

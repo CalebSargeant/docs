@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Networking &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -118,7 +121,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">Networking</li>
       <li class="wy-breadcrumbs-aside">
@@ -131,174 +134,174 @@
            <div itemprop="articleBody">
              
   <section id="networking">
-<h1>Networking<a class="headerlink" href="#networking" title="Permalink to this heading"></a></h1>
+<h1>Networking<a class="headerlink" href="#networking" title="Link to this heading"></a></h1>
 <section id="iptables">
-<h2>IPTables<a class="headerlink" href="#iptables" title="Permalink to this heading"></a></h2>
+<h2>IPTables<a class="headerlink" href="#iptables" title="Link to this heading"></a></h2>
 </section>
 <section id="creating-deleting-rules">
-<h2>Creating &amp; Deleting Rules<a class="headerlink" href="#creating-deleting-rules" title="Permalink to this heading"></a></h2>
+<h2>Creating &amp; Deleting Rules<a class="headerlink" href="#creating-deleting-rules" title="Link to this heading"></a></h2>
 <p><strong>Create</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT -i eth0 -p tcp --dport <span class="m">80</span> -j ACCEPT
-iptables -A INPUT -i eth0 -p tcp --dport <span class="m">443</span> -j ACCEPT
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 </pre></div>
 </div>
 <p><strong>Delete</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables -D INPUT -i eth0 -p tcp --dport <span class="m">80</span> -j ACCEPT
-iptables -D INPUT -i eth0 -p tcp --dport <span class="m">443</span> -j ACCEPT
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iptables<span class="w"> </span>-D<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-D<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 </pre></div>
 </div>
 </section>
 <section id="list-delete-rules">
-<h2>List &amp; Delete Rules<a class="headerlink" href="#list-delete-rules" title="Permalink to this heading"></a></h2>
+<h2>List &amp; Delete Rules<a class="headerlink" href="#list-delete-rules" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List the rules</span>
-iptables -L INPUT --line-numbers
+iptables<span class="w"> </span>-L<span class="w"> </span>INPUT<span class="w"> </span>--line-numbers
 
 <span class="c1"># Delete rule 2 for example</span>
-iptables -D INPUT <span class="m">2</span>
+iptables<span class="w"> </span>-D<span class="w"> </span>INPUT<span class="w"> </span><span class="m">2</span>
 
 <span class="c1"># Specify a table</span>
-iptables -t nat -D PREROUTING <span class="m">1</span>
+iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-D<span class="w"> </span>PREROUTING<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 </section>
 <section id="lacp">
-<h2>LACP<a class="headerlink" href="#lacp" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update -y <span class="o">&amp;&amp;</span> sudo apt-get upgrade -y
-sudo service networking stop
-sudo nano /etc/network/interfaces
+<h2>LACP<a class="headerlink" href="#lacp" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>service<span class="w"> </span>networking<span class="w"> </span>stop
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/network/interfaces
 
 <span class="c1">#/etc/network/interfaces</span>
-auto lo
-iface lo inet loopback
+auto<span class="w"> </span>lo
+iface<span class="w"> </span>lo<span class="w"> </span>inet<span class="w"> </span>loopback
 
-iface eno1 inet manual
-bond-master bond0
+iface<span class="w"> </span>eno1<span class="w"> </span>inet<span class="w"> </span>manual
+bond-master<span class="w"> </span>bond0
 
-iface eno2 inet manual
-bond-master bond0
+iface<span class="w"> </span>eno2<span class="w"> </span>inet<span class="w"> </span>manual
+bond-master<span class="w"> </span>bond0
 
-auto bond0
-iface bond0 inet manual
-bond-mode <span class="m">4</span>
-bond-miimon <span class="m">100</span>
-bond-lacp rate <span class="m">1</span>
-bond-slaves none
+auto<span class="w"> </span>bond0
+iface<span class="w"> </span>bond0<span class="w"> </span>inet<span class="w"> </span>manual
+bond-mode<span class="w"> </span><span class="m">4</span>
+bond-miimon<span class="w"> </span><span class="m">100</span>
+bond-lacp<span class="w"> </span>rate<span class="w"> </span><span class="m">1</span>
+bond-slaves<span class="w"> </span>none
 
-auto br0
-iface br0 inet static
-address <span class="m">10</span>.0.0.253
-gateway <span class="m">10</span>.0.0.1
-netmask <span class="m">255</span>.255.255.0
-bridge-ports bond0
-bridge-stp off
-bridge-fd <span class="m">0</span>
-bridge-maxwait <span class="m">0</span>
+auto<span class="w"> </span>br0
+iface<span class="w"> </span>br0<span class="w"> </span>inet<span class="w"> </span>static
+address<span class="w"> </span><span class="m">10</span>.0.0.253
+gateway<span class="w"> </span><span class="m">10</span>.0.0.1
+netmask<span class="w"> </span><span class="m">255</span>.255.255.0
+bridge-ports<span class="w"> </span>bond0
+bridge-stp<span class="w"> </span>off
+bridge-fd<span class="w"> </span><span class="m">0</span>
+bridge-maxwait<span class="w"> </span><span class="m">0</span>
 <span class="c1">#</span>
 
-sudo service networking start
+sudo<span class="w"> </span>service<span class="w"> </span>networking<span class="w"> </span>start
 </pre></div>
 </div>
 </section>
 <section id="netcat">
-<h2>Netcat<a class="headerlink" href="#netcat" title="Permalink to this heading"></a></h2>
+<h2>Netcat<a class="headerlink" href="#netcat" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check RADIUS UDP 1812 Port Status</span>
-nc -vnzu <span class="m">10</span>.11.12.13 <span class="m">1812</span>
+nc<span class="w"> </span>-vnzu<span class="w"> </span><span class="m">10</span>.11.12.13<span class="w"> </span><span class="m">1812</span>
 </pre></div>
 </div>
 </section>
 <section id="dig">
-<h2>Dig<a class="headerlink" href="#dig" title="Permalink to this heading"></a></h2>
+<h2>Dig<a class="headerlink" href="#dig" title="Link to this heading"></a></h2>
 <p>A &amp; CNAME: <code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;dnsserver.example.com</span> <span class="pre">+short</span> <span class="pre">domain.com</span></code>
 NS: <code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;dnsserver.example.com</span> <span class="pre">+short</span> <span class="pre">NS</span> <span class="pre">domain.com</span></code>
 MX: <code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;dnsserver.example.com</span> <span class="pre">+short</span> <span class="pre">MX</span> <span class="pre">domain.com</span></code>
 PTR: <code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">&#64;dnsserver.example.com</span> <span class="pre">+short</span> <span class="pre">-x</span> <span class="pre">10.11.12.13</span></code></p>
 <section id="public-ip">
-<h3>Public IP<a class="headerlink" href="#public-ip" title="Permalink to this heading"></a></h3>
+<h3>Public IP<a class="headerlink" href="#public-ip" title="Link to this heading"></a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">208.67.222.222</span></code> instead of resolver1 if no DNS.
 <code class="docutils literal notranslate"><span class="pre">dig</span> <span class="pre">+short</span> <span class="pre">myip.opendns.com</span> <span class="pre">&#64;resolver1.opendns.com</span></code></p>
 </section>
 </section>
 <section id="change-hostname">
-<h2>Change Hostname<a class="headerlink" href="#change-hostname" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo hostnamectl set-hostname &lt;newhostname&gt;
-sudo nano /etc/hosts
+<h2>Change Hostname<a class="headerlink" href="#change-hostname" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>&lt;newhostname&gt;
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/hosts
 </pre></div>
 </div>
 </section>
 <section id="netplan">
-<h2>Netplan<a class="headerlink" href="#netplan" title="Permalink to this heading"></a></h2>
+<h2>Netplan<a class="headerlink" href="#netplan" title="Link to this heading"></a></h2>
 <p>Static vs dynamic IP Address configuration.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/netplan</span></code></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># DYNAMIC (defaults)</span><span class="w"></span>
-<span class="nt">network</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ethernets</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">eth0</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">            </span><span class="nt">match</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xx:xx:xx:xx:xx:xx</span><span class="w"></span>
-<span class="w">            </span><span class="nt">set-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eth0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># DYNAMIC (defaults)</span>
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">    </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">            </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xx:xx:xx:xx:xx:xx</span>
+<span class="w">            </span><span class="nt">set-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eth0</span>
 
-<span class="c1"># STATIC</span><span class="w"></span>
-<span class="nt">network</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ethernets</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">eth0</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">addresses</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.3/24</span><span class="w"></span>
-<span class="w">            </span><span class="nt">gateway4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span><span class="w"></span>
-<span class="w">            </span><span class="nt">nameservers</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="nt">addresses</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span><span class="w"></span>
-<span class="w">                </span><span class="nt">search</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span><span class="w"></span>
-<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<span class="c1"># STATIC</span>
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.3/24</span>
+<span class="w">            </span><span class="nt">gateway4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span>
+<span class="w">            </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.1</span>
+<span class="w">                </span><span class="nt">search</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 </pre></div>
 </div>
 </section>
 <section id="ubuntu-16-change-ip-hostname">
-<h2>Ubuntu 16 - Change IP &amp; Hostname<a class="headerlink" href="#ubuntu-16-change-ip-hostname" title="Permalink to this heading"></a></h2>
+<h2>Ubuntu 16 - Change IP &amp; Hostname<a class="headerlink" href="#ubuntu-16-change-ip-hostname" title="Link to this heading"></a></h2>
 <p><strong>Static IP</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
-vi ifcfg-eth0
-  <span class="nv">DEVICE</span><span class="o">=</span>eth0
-  <span class="nv">BOOTPROTO</span><span class="o">=</span>none
-  <span class="nv">ONBOOT</span><span class="o">=</span>yes
-  <span class="nv">NETMASK</span><span class="o">=</span>xxx.xxx.xxx.xxx
-  <span class="nv">IPADDR</span><span class="o">=</span>xxx.xxx.xxx.xxx
-  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
-vi /etc/sysconfig/network
-  <span class="nv">NETWORKING</span><span class="o">=</span>yes
-  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
-  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
-  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/etc/sysconfig/network-scripts/
+vi<span class="w"> </span>ifcfg-eth0
+<span class="w">  </span><span class="nv">DEVICE</span><span class="o">=</span>eth0
+<span class="w">  </span><span class="nv">BOOTPROTO</span><span class="o">=</span>none
+<span class="w">  </span><span class="nv">ONBOOT</span><span class="o">=</span>yes
+<span class="w">  </span><span class="nv">NETMASK</span><span class="o">=</span>xxx.xxx.xxx.xxx
+<span class="w">  </span><span class="nv">IPADDR</span><span class="o">=</span>xxx.xxx.xxx.xxx
+<span class="w">  </span><span class="nv">TYPE</span><span class="o">=</span>Ethernet
+vi<span class="w"> </span>/etc/sysconfig/network
+<span class="w">  </span><span class="nv">NETWORKING</span><span class="o">=</span>yes
+<span class="w">  </span><span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+<span class="w">  </span><span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+<span class="w">  </span><span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
 
-/etc/init.d/network restart
+/etc/init.d/network<span class="w"> </span>restart
 </pre></div>
 </div>
 <p><strong>Dynamic IP</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">dhclient</span> <span class="pre">ethx</span></code> or:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /etc/sysconfig/network-scripts/
-vi ifcfg-eth0
-  <span class="nv">DEVICE</span><span class="o">=</span>eth0
-  <span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
-  <span class="nv">ONBOOT</span><span class="o">=</span>yes
-  <span class="nv">TYPE</span><span class="o">=</span>Ethernet
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/etc/sysconfig/network-scripts/
+vi<span class="w"> </span>ifcfg-eth0
+<span class="w">  </span><span class="nv">DEVICE</span><span class="o">=</span>eth0
+<span class="w">  </span><span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
+<span class="w">  </span><span class="nv">ONBOOT</span><span class="o">=</span>yes
+<span class="w">  </span><span class="nv">TYPE</span><span class="o">=</span>Ethernet
 
-vi /etc/sysconfig/network
-  <span class="nv">NETWORKING</span><span class="o">=</span>yes
-  <span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
-  <span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
-  <span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
+vi<span class="w"> </span>/etc/sysconfig/network
+<span class="w">  </span><span class="nv">NETWORKING</span><span class="o">=</span>yes
+<span class="w">  </span><span class="nv">NETWORKING_IPV6</span><span class="o">=</span>no
+<span class="w">  </span><span class="nv">HOSTNAME</span><span class="o">=</span>hostname.domainname.co.za
+<span class="w">  </span><span class="nv">GATEWAY</span><span class="o">=</span>xxx.xxx.xxx.xxx
 
-/etc/init.d/network restart
+/etc/init.d/network<span class="w"> </span>restart
 </pre></div>
 </div>
 <p><strong>Hostname Change</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname --fqd
-vi /etc/sysconfig/network
-  <span class="nv">HOSTNAME</span><span class="o">=</span>&lt;new_hostname&gt;
-vi /etc/hosts
-  &lt;ipaddr_of_server&gt; &lt;new_hostname.domain&gt; &lt;hostname&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname<span class="w"> </span>--fqd
+vi<span class="w"> </span>/etc/sysconfig/network
+<span class="w">  </span><span class="nv">HOSTNAME</span><span class="o">=</span>&lt;new_hostname&gt;
+vi<span class="w"> </span>/etc/hosts
+<span class="w">  </span>&lt;ipaddr_of_server&gt;<span class="w"> </span>&lt;new_hostname.domain&gt;<span class="w"> </span>&lt;hostname&gt;
 reboot
 </pre></div>
 </div>

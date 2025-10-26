@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KVM &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -104,7 +107,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">KVM</li>
       <li class="wy-breadcrumbs-aside">
@@ -117,107 +120,107 @@
            <div itemprop="articleBody">
              
   <section id="kvm">
-<h1>KVM<a class="headerlink" href="#kvm" title="Permalink to this heading"></a></h1>
+<h1>KVM<a class="headerlink" href="#kvm" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://wiki.debian.org/KVM">https://wiki.debian.org/KVM</a></p>
 <p><a class="reference external" href="https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli">https://linuxconfig.org/how-to-create-and-manage-kvm-virtual-machines-from-cli</a></p>
 <p><a class="reference external" href="https://forums.linuxmint.com/viewtopic.php?t=227510">https://forums.linuxmint.com/viewtopic.php?t=227510</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies, virtmanager, etc.</span>
-apt-get install --no-install-recommends qemu-system libvirt-clients libvirt-daemon-system virtinst qemu-utils libosinfo-bin
+apt-get<span class="w"> </span>install<span class="w"> </span>--no-install-recommends<span class="w"> </span>qemu-system<span class="w"> </span>libvirt-clients<span class="w"> </span>libvirt-daemon-system<span class="w"> </span>virtinst<span class="w"> </span>qemu-utils<span class="w"> </span>libosinfo-bin
 
 <span class="c1"># To get a list of IDs for --os-variant:</span>
-osinfo-query os
+osinfo-query<span class="w"> </span>os
 
 <span class="c1"># Install the VM</span>
-virt-install --name<span class="o">=</span>windows10 --vcpus<span class="o">=</span><span class="m">2</span> --memory<span class="o">=</span><span class="m">4096</span> --cdrom<span class="o">=</span>/media/data/share/Software/ISO/Win10_2004_English_x64.iso --disk <span class="nv">size</span><span class="o">=</span><span class="m">32</span> --os-variant<span class="o">=</span>win10
+virt-install<span class="w"> </span>--name<span class="o">=</span>windows10<span class="w"> </span>--vcpus<span class="o">=</span><span class="m">2</span><span class="w"> </span>--memory<span class="o">=</span><span class="m">4096</span><span class="w"> </span>--cdrom<span class="o">=</span>/media/data/share/Software/ISO/Win10_2004_English_x64.iso<span class="w"> </span>--disk<span class="w"> </span><span class="nv">size</span><span class="o">=</span><span class="m">32</span><span class="w"> </span>--os-variant<span class="o">=</span>win10
 </pre></div>
 </div>
 <p><a class="reference external" href="https://levelup.gitconnected.com/how-to-setup-bridge-networking-with-kvm-on-ubuntu-20-04-9c560b3e3991">https://levelup.gitconnected.com/how-to-setup-bridge-networking-with-kvm-on-ubuntu-20-04-9c560b3e3991</a></p>
 <p><a class="reference external" href="https://johnsiu.com/blog/macos-kvm-remote-connect/#install-virt-manager-and-virt-viewer">https://johnsiu.com/blog/macos-kvm-remote-connect/#install-virt-manager-and-virt-viewer</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create default.xml to define network settings. We want bridged mode to ensure VM gets its own IP.</span>
-nano ~/default.xml
-  &lt;network&gt;
-    &lt;name&gt;default&lt;/name&gt;
-    &lt;uuid&gt;c9f4a06b-1ddb-4057-8eda-858955e205c8&lt;/uuid&gt;
-    &lt;forward <span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;bridge&quot;</span>/&gt;
-    &lt;bridge <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>/&gt;
-  &lt;/network&gt;
+nano<span class="w"> </span>~/default.xml
+<span class="w">  </span>&lt;network&gt;
+<span class="w">    </span>&lt;name&gt;default&lt;/name&gt;
+<span class="w">    </span>&lt;uuid&gt;c9f4a06b-1ddb-4057-8eda-858955e205c8&lt;/uuid&gt;
+<span class="w">    </span>&lt;forward<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;bridge&quot;</span>/&gt;
+<span class="w">    </span>&lt;bridge<span class="w"> </span><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;br0&quot;</span>/&gt;
+<span class="w">  </span>&lt;/network&gt;
 
 <span class="c1"># Example netplan config BEFORE</span>
-cat <span class="m">00</span>-installer-config.yaml
-  network:
-    ethernets:
-      enp4s0:
-        addresses:
-        - <span class="m">192</span>.168.32.32/24
-        gateway4: <span class="m">192</span>.168.32.1
-        nameservers:
-          addresses:
-          - <span class="m">1</span>.1.1.1
-          - <span class="m">1</span>.0.0.1
-          search:
-          - mydomain.com
-    version: <span class="m">2</span>
+cat<span class="w"> </span><span class="m">00</span>-installer-config.yaml
+<span class="w">  </span>network:
+<span class="w">    </span>ethernets:
+<span class="w">      </span>enp4s0:
+<span class="w">        </span>addresses:
+<span class="w">        </span>-<span class="w"> </span><span class="m">192</span>.168.32.32/24
+<span class="w">        </span>gateway4:<span class="w"> </span><span class="m">192</span>.168.32.1
+<span class="w">        </span>nameservers:
+<span class="w">          </span>addresses:
+<span class="w">          </span>-<span class="w"> </span><span class="m">1</span>.1.1.1
+<span class="w">          </span>-<span class="w"> </span><span class="m">1</span>.0.0.1
+<span class="w">          </span>search:
+<span class="w">          </span>-<span class="w"> </span>mydomain.com
+<span class="w">    </span>version:<span class="w"> </span><span class="m">2</span>
 
-  <span class="c1"># Example netplan config AFTER</span>
-  cat /etc/netplan/00-installer-config.yaml
-    network:
-      ethernets:
-        enp4s0:
-          dhcp4: <span class="nb">false</span>
-          dhcp6: <span class="nb">false</span>
-      bridges:
-        br0:
-          interfaces: <span class="o">[</span> enp4s0 <span class="o">]</span>
-          addresses:
-          - <span class="m">192</span>.168.32.32/24
-          gateway4: <span class="m">192</span>.168.32.1
-          nameservers:
-            addresses:
-            - <span class="m">1</span>.1.1.1
-            - <span class="m">1</span>.0.0.1
-          parameters:
-            stp: <span class="nb">true</span>
-            forward-delay: <span class="m">4</span>
-          dhcp4: no
-          dhcp6: no
-      version: <span class="m">2</span>
+<span class="w">  </span><span class="c1"># Example netplan config AFTER</span>
+<span class="w">  </span>cat<span class="w"> </span>/etc/netplan/00-installer-config.yaml
+<span class="w">    </span>network:
+<span class="w">      </span>ethernets:
+<span class="w">        </span>enp4s0:
+<span class="w">          </span>dhcp4:<span class="w"> </span><span class="nb">false</span>
+<span class="w">          </span>dhcp6:<span class="w"> </span><span class="nb">false</span>
+<span class="w">      </span>bridges:
+<span class="w">        </span>br0:
+<span class="w">          </span>interfaces:<span class="w"> </span><span class="o">[</span><span class="w"> </span>enp4s0<span class="w"> </span><span class="o">]</span>
+<span class="w">          </span>addresses:
+<span class="w">          </span>-<span class="w"> </span><span class="m">192</span>.168.32.32/24
+<span class="w">          </span>gateway4:<span class="w"> </span><span class="m">192</span>.168.32.1
+<span class="w">          </span>nameservers:
+<span class="w">            </span>addresses:
+<span class="w">            </span>-<span class="w"> </span><span class="m">1</span>.1.1.1
+<span class="w">            </span>-<span class="w"> </span><span class="m">1</span>.0.0.1
+<span class="w">          </span>parameters:
+<span class="w">            </span>stp:<span class="w"> </span><span class="nb">true</span>
+<span class="w">            </span>forward-delay:<span class="w"> </span><span class="m">4</span>
+<span class="w">          </span>dhcp4:<span class="w"> </span>no
+<span class="w">          </span>dhcp6:<span class="w"> </span>no
+<span class="w">      </span>version:<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 <p>Okay then a couple of things:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify windows10 domain settings to change to vnc &amp; port</span>
-virsh edit windows10
-  &lt;graphics <span class="nv">type</span><span class="o">=</span><span class="s1">&#39;vnc&#39;</span> <span class="nv">port</span><span class="o">=</span><span class="s1">&#39;5950&#39;</span> <span class="nv">autoport</span><span class="o">=</span><span class="s1">&#39;no&#39;</span> <span class="nv">listen</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>&gt;
-    &lt;listen <span class="nv">type</span><span class="o">=</span><span class="s1">&#39;address&#39;</span> <span class="nv">address</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>/&gt;
-  &lt;/graphics&gt;
-  <span class="c1"># Boot device must be changed to cdrom:</span>
-  &lt;os&gt;
-    &lt;<span class="nb">type</span> <span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span> <span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
-    &lt;boot <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;cdrom&#39;</span>/&gt;
-  &lt;/os&gt;
+virsh<span class="w"> </span>edit<span class="w"> </span>windows10
+<span class="w">  </span>&lt;graphics<span class="w"> </span><span class="nv">type</span><span class="o">=</span><span class="s1">&#39;vnc&#39;</span><span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="s1">&#39;5950&#39;</span><span class="w"> </span><span class="nv">autoport</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="w"> </span><span class="nv">listen</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>&gt;
+<span class="w">    </span>&lt;listen<span class="w"> </span><span class="nv">type</span><span class="o">=</span><span class="s1">&#39;address&#39;</span><span class="w"> </span><span class="nv">address</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span>/&gt;
+<span class="w">  </span>&lt;/graphics&gt;
+<span class="w">  </span><span class="c1"># Boot device must be changed to cdrom:</span>
+<span class="w">  </span>&lt;os&gt;
+<span class="w">    </span>&lt;<span class="nb">type</span><span class="w"> </span><span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span><span class="w"> </span><span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
+<span class="w">    </span>&lt;boot<span class="w"> </span><span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;cdrom&#39;</span>/&gt;
+<span class="w">  </span>&lt;/os&gt;
 
 <span class="c1"># Then destroy (stop) VM and start again (reboot wont apply setting change)</span>
-virsh destroy windows10
-virsh start windows10
+virsh<span class="w"> </span>destroy<span class="w"> </span>windows10
+virsh<span class="w"> </span>start<span class="w"> </span>windows10
 
 <span class="c1"># Then INSTALL Windows</span>
 
 <span class="c1"># then:</span>
-virsh edit windows10
-  change back to hd
-  &lt;os&gt;
-    &lt;<span class="nb">type</span> <span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span> <span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
-    &lt;boot <span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;hd&#39;</span>/&gt;
-  &lt;/os&gt;
+virsh<span class="w"> </span>edit<span class="w"> </span>windows10
+<span class="w">  </span>change<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>hd
+<span class="w">  </span>&lt;os&gt;
+<span class="w">    </span>&lt;<span class="nb">type</span><span class="w"> </span><span class="nv">arch</span><span class="o">=</span><span class="s1">&#39;x86_64&#39;</span><span class="w"> </span><span class="nv">machine</span><span class="o">=</span><span class="s1">&#39;pc-q35-4.2&#39;</span>&gt;hvm&lt;/type&gt;
+<span class="w">    </span>&lt;boot<span class="w"> </span><span class="nv">dev</span><span class="o">=</span><span class="s1">&#39;hd&#39;</span>/&gt;
+<span class="w">  </span>&lt;/os&gt;
 
 <span class="c1"># Then destroy (stop) VM and start again (reboot wont apply setting change)</span>
-virsh destroy windows10
-virsh start windows10
+virsh<span class="w"> </span>destroy<span class="w"> </span>windows10
+virsh<span class="w"> </span>start<span class="w"> </span>windows10
 
 <span class="c1"># Output of this needs to show 0.0.0.0:5950 (nice hat) to show that its listening on all interfaces</span>
-netstat -tulpn <span class="p">|</span> grep <span class="m">59</span>
-  tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">0</span>.0.0.0:5950            <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">26523</span>/qemu-system-x
-  <span class="c1">#redacted</span>
+netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">59</span>
+<span class="w">  </span>tcp<span class="w">        </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>.0.0.0:5950<span class="w">            </span><span class="m">0</span>.0.0.0:*<span class="w">               </span>LISTEN<span class="w">      </span><span class="m">26523</span>/qemu-system-x
+<span class="w">  </span><span class="c1">#redacted</span>
 
 <span class="c1">#but it will actually ask you to boot from cd-dvd so not to actually worry about changing it - it will make it a few seconds faster to boot though, so change it after install complete</span>
 </pre></div>
@@ -225,8 +228,8 @@ netstat -tulpn <span class="p">|</span> grep <span class="m">59</span>
 </div></blockquote>
 <p>You may need to add a rule through iptables, or just disable it (NO DONT - BAD IDEA!!!) <a class="reference external" href="https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu">https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu</a></p>
 <p>Autostart settings:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virsh autostart windows10
-virsh autostart windows10 --disable
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virsh<span class="w"> </span>autostart<span class="w"> </span>windows10
+virsh<span class="w"> </span>autostart<span class="w"> </span>windows10<span class="w"> </span>--disable
 </pre></div>
 </div>
 <p>Location of images:</p>

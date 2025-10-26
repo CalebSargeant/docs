@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explaining Exfiltration Techniques &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -127,7 +130,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Cisco</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Core Security</a></li>
           <li class="breadcrumb-item"><a href="index.html">Secure Network Access, Visibility, and Enforcement</a></li>
@@ -142,11 +145,11 @@
            <div itemprop="articleBody">
              
   <section id="explaining-exfiltration-techniques">
-<h1>Explaining Exfiltration Techniques<a class="headerlink" href="#explaining-exfiltration-techniques" title="Permalink to this heading"></a></h1>
+<h1>Explaining Exfiltration Techniques<a class="headerlink" href="#explaining-exfiltration-techniques" title="Link to this heading"></a></h1>
 <section id="exfiltrating-data-using-dns-ntp-icmp-or-irc">
-<h2>Exfiltrating Data Using DNS, NTP, ICMP, or IRC<a class="headerlink" href="#exfiltrating-data-using-dns-ntp-icmp-or-irc" title="Permalink to this heading"></a></h2>
+<h2>Exfiltrating Data Using DNS, NTP, ICMP, or IRC<a class="headerlink" href="#exfiltrating-data-using-dns-ntp-icmp-or-irc" title="Link to this heading"></a></h2>
 <section id="dns-tunneling">
-<h3>DNS Tunneling<a class="headerlink" href="#dns-tunneling" title="Permalink to this heading"></a></h3>
+<h3>DNS Tunneling<a class="headerlink" href="#dns-tunneling" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>DNS resolves hostnames to IP addresses</p></li>
 <li><p>Usually uses port 53</p></li>
@@ -163,7 +166,7 @@ malicious DNS servers * Organizations would forward DNS requests to
 Umbrella * Malicious queries won’t be forwarded</p>
 </section>
 <section id="ntp-covert-channels">
-<h3>NTP Covert Channels<a class="headerlink" href="#ntp-covert-channels" title="Permalink to this heading"></a></h3>
+<h3>NTP Covert Channels<a class="headerlink" href="#ntp-covert-channels" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Initiation pattern known by malicious server and client</p>
 <ul>
@@ -194,7 +197,7 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </ul>
 </section>
 <section id="icmp-echo-manipulation">
-<h3>ICMP Echo Manipulation<a class="headerlink" href="#icmp-echo-manipulation" title="Permalink to this heading"></a></h3>
+<h3>ICMP Echo Manipulation<a class="headerlink" href="#icmp-echo-manipulation" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Input data into payload of ICMP echo requests</p></li>
 <li><p>Segment data over multiple echo requests</p>
@@ -211,7 +214,7 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </ul>
 </section>
 <section id="internet-relay-chat">
-<h3>Internet Relay Chat<a class="headerlink" href="#internet-relay-chat" title="Permalink to this heading"></a></h3>
+<h3>Internet Relay Chat<a class="headerlink" href="#internet-relay-chat" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Client will authenticate with malicious server</p></li>
 <li><p>Data will flow between the two parties</p></li>
@@ -221,16 +224,16 @@ Umbrella * Malicious queries won’t be forwarded</p>
 </section>
 </section>
 <section id="exfiltrating-data-using-https-ftp-sftp-ssh-or-scp">
-<h2>Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP<a class="headerlink" href="#exfiltrating-data-using-https-ftp-sftp-ssh-or-scp" title="Permalink to this heading"></a></h2>
+<h2>Exfiltrating Data Using HTTPS, FTP, SFTP, SSH, or SCP<a class="headerlink" href="#exfiltrating-data-using-https-ftp-sftp-ssh-or-scp" title="Link to this heading"></a></h2>
 <section id="https">
-<h3>HTTPs<a class="headerlink" href="#https" title="Permalink to this heading"></a></h3>
+<h3>HTTPs<a class="headerlink" href="#https" title="Link to this heading"></a></h3>
 <p><strong>Problems</strong> * Exfiltrate data over encrypted TLS session * Send data
 to cloud file hosting</p>
 <p><strong>Solutions</strong> * Decrypt the data and implement DLP * Use Cognitive
 Threat Analytics</p>
 </section>
 <section id="ftp-sftp-scp">
-<h3>FTP SFTP SCP<a class="headerlink" href="#ftp-sftp-scp" title="Permalink to this heading"></a></h3>
+<h3>FTP SFTP SCP<a class="headerlink" href="#ftp-sftp-scp" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Designed to transfer files</p></li>
 <li><p>SFTP and SCP are both encrypted</p></li>
@@ -246,7 +249,7 @@ Threat Analytics</p>
 </section>
 </section>
 <section id="exfiltrating-data-using-email">
-<h2>Exfiltrating Data Using Email<a class="headerlink" href="#exfiltrating-data-using-email" title="Permalink to this heading"></a></h2>
+<h2>Exfiltrating Data Using Email<a class="headerlink" href="#exfiltrating-data-using-email" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Disgruntled employee</p></li>
 <li><p>Sends emails that contain data</p></li>
@@ -258,7 +261,7 @@ Threat Analytics</p>
 </li>
 </ul>
 <section id="email-security">
-<h3>Email Security<a class="headerlink" href="#email-security" title="Permalink to this heading"></a></h3>
+<h3>Email Security<a class="headerlink" href="#email-security" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Email Security Appliance (ESA)</p></li>
 <li><p>Cisco Email Security (CES)</p></li>

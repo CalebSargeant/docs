@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Future of Kubernetes &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -117,7 +120,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Kubernetes</a></li>
       <li class="breadcrumb-item active">Future of Kubernetes</li>
       <li class="wy-breadcrumbs-aside">
@@ -130,9 +133,9 @@
            <div itemprop="articleBody">
              
   <section id="future-of-kubernetes">
-<h1>Future of Kubernetes<a class="headerlink" href="#future-of-kubernetes" title="Permalink to this heading"></a></h1>
+<h1>Future of Kubernetes<a class="headerlink" href="#future-of-kubernetes" title="Link to this heading"></a></h1>
 <section id="storage">
-<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this heading"></a></h2>
+<h2>Storage<a class="headerlink" href="#storage" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Storage and stateful workloads are harder in all sytems</p></li>
 <li><p>Containers make it both harder and easier than before</p></li>
@@ -147,7 +150,7 @@
 </ul>
 </section>
 <section id="volumes">
-<h2>Volumes<a class="headerlink" href="#volumes" title="Permalink to this heading"></a></h2>
+<h2>Volumes<a class="headerlink" href="#volumes" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Creating and connecting Volumes: 2 types</p></li>
 <li><p><strong>Volumes</strong></p>
@@ -171,7 +174,7 @@
 </ul>
 </section>
 <section id="ingress-controller">
-<h2>Ingress Controller<a class="headerlink" href="#ingress-controller" title="Permalink to this heading"></a></h2>
+<h2>Ingress Controller<a class="headerlink" href="#ingress-controller" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>None of our Service types work at OSI Layer 7 (HTTP)</p></li>
 <li><p>How do we route outside connections based on hostname or URL?</p></li>
@@ -181,9 +184,9 @@
 </ul>
 </section>
 <section id="custom-resources">
-<h2>Custom Resources<a class="headerlink" href="#custom-resources" title="Permalink to this heading"></a></h2>
+<h2>Custom Resources<a class="headerlink" href="#custom-resources" title="Link to this heading"></a></h2>
 <section id="crd-s-and-the-operator-pattern">
-<h3>CRD’s and The Operator Pattern<a class="headerlink" href="#crd-s-and-the-operator-pattern" title="Permalink to this heading"></a></h3>
+<h3>CRD’s and The Operator Pattern<a class="headerlink" href="#crd-s-and-the-operator-pattern" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>YOu can add 3rd party Resources and Controllers</p></li>
 <li><p>THis extends Kubernetes API and CLI</p></li>
@@ -194,7 +197,7 @@
 </section>
 </section>
 <section id="higher-deployment-abstractions">
-<h2>Higher Deployment Abstractions<a class="headerlink" href="#higher-deployment-abstractions" title="Permalink to this heading"></a></h2>
+<h2>Higher Deployment Abstractions<a class="headerlink" href="#higher-deployment-abstractions" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>All our <cite>kubectl</cite> commands just talk to the Kubernets API</p></li>
 <li><p>Kubernetes has limited built-in templating, versioning, tracking, and management of your apps</p></li>
@@ -205,7 +208,7 @@
 <li><p>Most distros support <strong>Helm</strong></p></li>
 </ul>
 <section id="templating-yaml">
-<h3>Templating YAML<a class="headerlink" href="#templating-yaml" title="Permalink to this heading"></a></h3>
+<h3>Templating YAML<a class="headerlink" href="#templating-yaml" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Many of the deployment tools have templating options</p></li>
 <li><p>You’ll need a solution as the number of environments/apps grow</p></li>
@@ -216,7 +219,7 @@
 </section>
 </section>
 <section id="kubernetes-dashboard">
-<h2>Kubernetes Dashboard<a class="headerlink" href="#kubernetes-dashboard" title="Permalink to this heading"></a></h2>
+<h2>Kubernetes Dashboard<a class="headerlink" href="#kubernetes-dashboard" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Default GUI for “upstream” Kubernetes</p>
 <blockquote>
@@ -232,7 +235,7 @@
 </ul>
 </section>
 <section id="namespaces-and-context">
-<h2>Namespaces and Context<a class="headerlink" href="#namespaces-and-context" title="Permalink to this heading"></a></h2>
+<h2>Namespaces and Context<a class="headerlink" href="#namespaces-and-context" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Namespaces limit scope, aka “virtual clusters”</p></li>
 <li><p>Not related to Docker/Linux namespaces</p></li>
@@ -252,7 +255,7 @@
 </ul>
 </section>
 <section id="id1">
-<h2>Future of Kubernetes<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Future of Kubernetes<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <ul>
 <li><p>More focus on stability and security</p>
 <blockquote>
@@ -271,7 +274,7 @@
 <li><p>More edge cases, kubeadm HA clusters</p></li>
 </ul>
 <section id="related-projects">
-<h3>Related Projects<a class="headerlink" href="#related-projects" title="Permalink to this heading"></a></h3>
+<h3>Related Projects<a class="headerlink" href="#related-projects" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Kubernetes has become “differencing and scheduling engin backbone” for so many new projects</p></li>
 <li><p>Knative - Serverless workloads on Kubernetes</p></li>

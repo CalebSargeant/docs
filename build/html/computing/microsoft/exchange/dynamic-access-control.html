@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Access Control &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -113,7 +116,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Microsoft</a></li>
           <li class="breadcrumb-item"><a href="index.html">Exchange</a></li>
       <li class="breadcrumb-item active">Dynamic Access Control</li>
@@ -127,11 +130,11 @@
            <div itemprop="articleBody">
              
   <section id="dynamic-access-control">
-<h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Permalink to this heading"></a></h1>
+<h1>Dynamic Access Control<a class="headerlink" href="#dynamic-access-control" title="Link to this heading"></a></h1>
 <p>Prepare the Dynamic Access Control Deployment Based on the Security and Business Requirements
 Prepare ADDS to support Dynamic Access Control</p>
 <section id="on-the-domain-controller">
-<h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Permalink to this heading"></a></h2>
+<h2>On the Domain Controller:<a class="headerlink" href="#on-the-domain-controller" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Open AD Users and Computers</p></li>
 <li><p>Make an OU named &lt;OU_name_here&gt;</p></li>
@@ -150,9 +153,9 @@ Prepare ADDS to support Dynamic Access Control</p>
 </ol>
 </section>
 <section id="configuring-user-and-device-claims">
-<h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Permalink to this heading"></a></h2>
+<h2>Configuring User and Device Claims<a class="headerlink" href="#configuring-user-and-device-claims" title="Link to this heading"></a></h2>
 <section id="review-claim-types">
-<h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Permalink to this heading"></a></h3>
+<h3>Review Claim Types:<a class="headerlink" href="#review-claim-types" title="Link to this heading"></a></h3>
 <p>On the Domain Controller:</p>
 <ol class="arabic simple">
 <li><p>Go to AD Administrative Center &gt; Dynamic Access Control</p></li>
@@ -162,7 +165,7 @@ Prepare ADDS to support Dynamic Access Control</p>
 </ol>
 </section>
 <section id="configuring-resource-properties-and-file-classifications">
-<h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Permalink to this heading"></a></h3>
+<h3>Configuring Resource Properties and File Classifications<a class="headerlink" href="#configuring-resource-properties-and-file-classifications" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>In Resource Property enable Confidentiality, Department</p></li>
 <li><p>Go to Suggested Values of Department &gt; click add &gt; Value/Display name: &lt;OU_name_here&gt;</p></li>

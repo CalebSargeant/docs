@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Colocating Jobs and Source Code with Jenkinsfile &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -99,7 +102,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Jenkins</a></li>
           <li class="breadcrumb-item"><a href="index.html">Getting Started</a></li>
       <li class="breadcrumb-item active">Colocating Jobs and Source Code with Jenkinsfile</li>
@@ -113,38 +116,38 @@
            <div itemprop="articleBody">
              
   <section id="colocating-jobs-and-source-code-with-jenkinsfile">
-<h1>Colocating Jobs and Source Code with Jenkinsfile<a class="headerlink" href="#colocating-jobs-and-source-code-with-jenkinsfile" title="Permalink to this heading"></a></h1>
+<h1>Colocating Jobs and Source Code with Jenkinsfile<a class="headerlink" href="#colocating-jobs-and-source-code-with-jenkinsfile" title="Link to this heading"></a></h1>
 <p>View the <a class="reference external" href="https://www.jenkins.io/doc/book/pipeline/syntax/#agent">Pipeline Syntax documentation online:</a></p>
 <p>Download example pipeline: <a class="reference download internal" download="" href="../../../_downloads/7ecc54afa705b5e156e29d0248716fe4/pipeline.groovy"><code class="xref download docutils literal notranslate"><span class="pre">_docs/pipeline.groovy</span></code></a></p>
 <figure class="align-default" id="id1">
 <img alt="../../../_images/jenkins-25.png" src="../../../_images/jenkins-25.png" />
 <figcaption>
-<p><span class="caption-text">Adding a trigger to the pipeline</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Adding a trigger to the pipeline</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id2">
 <img alt="../../../_images/jenkins-26.png" src="../../../_images/jenkins-26.png" />
 <figcaption>
-<p><span class="caption-text">Configuring Email server for Jenkins</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Configuring Email server for Jenkins</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id3">
 <img alt="../../../_images/jenkins-27.png" src="../../../_images/jenkins-27.png" />
 <figcaption>
-<p><span class="caption-text">Post Declarative Directive generator for regression, fixed, and changed</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Post Declarative Directive generator for regression, fixed, and changed</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>View the <a class="reference external" href="https://www.jenkins.io/doc/book/pipeline/getting-started/#global-variable-reference">Global Variable Reference</a></p>
 <figure class="align-default" id="id4">
 <img alt="../../../_images/jenkins-28.png" src="../../../_images/jenkins-28.png" />
 <figcaption>
-<p><span class="caption-text">Generating email pipeline syntax</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Generating email pipeline syntax</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id5">
 <img alt="../../../_images/jenkins-29.png" src="../../../_images/jenkins-29.png" />
 <figcaption>
-<p><span class="caption-text">pipeline from single repo - scm</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text">pipeline from single repo - scm</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <div class="admonition note">

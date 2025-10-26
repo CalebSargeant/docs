@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring DMVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -129,7 +132,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Cisco</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Core Security</a></li>
           <li class="breadcrumb-item"><a href="index.html">Describing and Configuring VPNs</a></li>
@@ -144,9 +147,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-dmvpn">
-<h1>Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Permalink to this heading"></a></h1>
+<h1>Configuring DMVPN<a class="headerlink" href="#configuring-dmvpn" title="Link to this heading"></a></h1>
 <section id="configuring-dmvpn-on-the-hub-router">
-<h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Permalink to this heading"></a></h2>
+<h2>Configuring DMVPN on the Hub Router<a class="headerlink" href="#configuring-dmvpn-on-the-hub-router" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Configure interface tunnel 100 on HQ router</p></li>
 <li><p>Configure spokes</p></li>
@@ -167,7 +170,7 @@ Globomantics-HQ(config-if)#tunnel key 7178
 </div>
 </section>
 <section id="configuring-dmvpn-on-the-spoke-routers">
-<h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Permalink to this heading"></a></h2>
+<h2>Configuring DMVPN on the Spoke Routers<a class="headerlink" href="#configuring-dmvpn-on-the-spoke-routers" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-0MA(config)#int tun 100
 Globmantics-0MA(config-if)#ip add 192.168.100.2 255.255.255.0
 Globmantics-OMA(config-if)#tunnel mode gre multipoint
@@ -185,7 +188,7 @@ Globmantics-OMA(config-if)#ip nhrp map multicast 1.1.1.1
 </div>
 </section>
 <section id="configuring-dynamic-routing">
-<h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Permalink to this heading"></a></h2>
+<h2>Configuring Dynamic Routing<a class="headerlink" href="#configuring-dynamic-routing" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Look at NHRP &amp; DMVPN statistics</p></li>
 </ul>
@@ -224,7 +227,7 @@ Globomantics-HQ(config-if)#no ip split-horizon eigrp 100
 </div>
 </section>
 <section id="verifying-dmvpn">
-<h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Permalink to this heading"></a></h2>
+<h2>Verifying DMVPN<a class="headerlink" href="#verifying-dmvpn" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globmantics-OMA#traceroute 172.18.3.1 source lo1
 Type escape sequence to abort.
 Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
@@ -272,9 +275,9 @@ Tracing the route to 172.18.3.1 VRF info: (vrf in name/id, vrf out name/id)
 </div>
 </section>
 <section id="ipsec-config-intro-and-smart-defaults">
-<h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Permalink to this heading"></a></h2>
+<h2>IPsec Config Intro and Smart Defaults<a class="headerlink" href="#ipsec-config-intro-and-smart-defaults" title="Link to this heading"></a></h2>
 <section id="configuring-ikev2-on-cisco-ios">
-<h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Permalink to this heading"></a></h3>
+<h3>Configuring IKEv2 on Cisco IOS<a class="headerlink" href="#configuring-ikev2-on-cisco-ios" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Configure IKE_SA Tunnel</p>
 <ul>
@@ -320,7 +323,7 @@ and IPsec profile</p></li>
 </section>
 </section>
 <section id="securing-dmvpn-with-ipsec">
-<h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Permalink to this heading"></a></h2>
+<h2>Securing DMVPN with IPsec<a class="headerlink" href="#securing-dmvpn-with-ipsec" title="Link to this heading"></a></h2>
 <p><strong>HQ Router config</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-Main#conf t
 Globomantics-Main(config)#crypto ikev2 keyring DMVPN-Keys
@@ -437,7 +440,7 @@ tunnel protection ipsec profile DMVPN-IPsec
 </div>
 </section>
 <section id="verifying-and-troubleshooting-ipsec">
-<h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Permalink to this heading"></a></h2>
+<h2>Verifying and Troubleshooting IPsec<a class="headerlink" href="#verifying-and-troubleshooting-ipsec" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ#show crypto ikev2 sa
 Globomantics-HQ#show crypto ikev2 sa detail
 Globomantics-HQ#show crypto ipsec sa

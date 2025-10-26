@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nexus &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -116,7 +119,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Cisco</a></li>
       <li class="breadcrumb-item active">Nexus</li>
       <li class="wy-breadcrumbs-aside">
@@ -129,14 +132,14 @@
            <div itemprop="articleBody">
              
   <section id="nexus">
-<h1>Nexus<a class="headerlink" href="#nexus" title="Permalink to this heading"></a></h1>
+<h1>Nexus<a class="headerlink" href="#nexus" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>IOSxe <a class="reference external" href="https://en.wikipedia.org/wiki/Cisco_IOS_XE">https://en.wikipedia.org/wiki/Cisco_IOS_XE</a> (e.g. 3850) for campus.</p></li>
 <li><p>NXOS <a class="reference external" href="https://en.wikipedia.org/wiki/Cisco_NX-OS">https://en.wikipedia.org/wiki/Cisco_NX-OS</a> (3000 &amp; 9000) for datacentre.</p></li>
 <li><p>IOS XR <a class="reference external" href="https://en.wikipedia.org/wiki/Cisco_IOS_XR">https://en.wikipedia.org/wiki/Cisco_IOS_XR</a> (e.g. ASR9000, Network Converging System (NCS)).</p></li>
 </ul>
 <section id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h2>
+<h2>API<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>NX-API is CLI with a set of APIs that allow you to send CLI commands over http. It includes json-rpc, xml, and json message formats. This is not a RESTAPI, it’s a different method.</p></li>
 <li><p>NX-API REST (3000s, 9000s, &amp; newer only) is not designed as a CLI based API. It’s designed as a true REST API that targets specific objects (such as an interface or vlan).</p></li>
@@ -156,7 +159,7 @@ feature interface-vlan
 </pre></div>
 </div>
 <section id="json-rpc">
-<h3>JSON-RPC<a class="headerlink" href="#json-rpc" title="Permalink to this heading"></a></h3>
+<h3>JSON-RPC<a class="headerlink" href="#json-rpc" title="Link to this heading"></a></h3>
 <p>The command <code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">vlan</span> <span class="pre">brief</span></code> would appear as the below <em>API Request</em>. The <em>API Response</em> we get back is in JSON format with a body and table key, which we can process in our JQ code. JSONRPC is a generic way of communicating with the device and has less features. Use XML or JSON (below) instead.</p>
 <ul class="simple">
 <li><p><strong>jsonrpc</strong> is a standard (or type of) API messaging format, which is a way to send RPC messages from a client to a device. Remote Procedure Calls (RPC) is a programming term for a system to ask a remote system to do something (procedure) and give me the result of the data.</p></li>
@@ -164,22 +167,22 @@ feature interface-vlan
 <li><p><strong>params</strong> contains the command we want to send to the device. Jsonrpc specification requires one to input the <strong>version</strong> and in this case it is version 1.</p></li>
 <li><p><strong>id</strong> is how the RPCs are linked back and forth.</p></li>
 </ul>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;show vlan brief&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;show vlan brief&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="xml-json">
-<h3>XML &amp; JSON<a class="headerlink" href="#xml-json" title="Permalink to this heading"></a></h3>
+<h3>XML &amp; JSON<a class="headerlink" href="#xml-json" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>ins_api</strong> Cisco proprietary API. Designed to allow CLI commands through API, with error messaging, etc.</p></li>
 <li><p><strong>type</strong> is <em>cli_show</em>. You also get <em>cli_show_ascii</em> (already written code to parse), <em>cli_conf</em> (sending configuration commands, automatic <cite>conf t</cite> mode) and <em>bash</em>.</p></li>
@@ -187,32 +190,32 @@ feature interface-vlan
 <p><strong>XML:</strong></p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 <span class="nt">&lt;ins_api&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;type&gt;</span>cli_show<span class="nt">&lt;/type&gt;</span>
-  <span class="nt">&lt;chunk&gt;</span>0<span class="nt">&lt;/chunk&gt;</span>
-  <span class="nt">&lt;sid&gt;</span>sid<span class="nt">&lt;/sid&gt;</span>
-  <span class="nt">&lt;input&gt;</span>show vlan brief<span class="nt">&lt;/input&gt;</span>
-  <span class="nt">&lt;output_format&gt;</span>xml<span class="nt">&lt;/output_format&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type&gt;</span>cli_show<span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;chunk&gt;</span>0<span class="nt">&lt;/chunk&gt;</span>
+<span class="w">  </span><span class="nt">&lt;sid&gt;</span>sid<span class="nt">&lt;/sid&gt;</span>
+<span class="w">  </span><span class="nt">&lt;input&gt;</span>show<span class="w"> </span>vlan<span class="w"> </span>brief<span class="nt">&lt;/input&gt;</span>
+<span class="w">  </span><span class="nt">&lt;output_format&gt;</span>xml<span class="nt">&lt;/output_format&gt;</span>
 <span class="nt">&lt;/ins_api&gt;</span>
 </pre></div>
 </div>
 <p><strong>JSON:</strong></p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;ins_api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli_show&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;chunk&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;show vlan brief&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;output_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ins_api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli_show&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;chunk&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;show vlan brief&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;output_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="visore">
-<h2>Visore<a class="headerlink" href="#visore" title="Permalink to this heading"></a></h2>
+<h2>Visore<a class="headerlink" href="#visore" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Accessed via <strong>https://&lt;APIC or Switch IP Address&gt;/visore.html</strong>, visore is a REST API browser tool. It is built to mimic the ACI model.</p></li>
 <li><p>Similar to any RESTAPI, objects are targeted with a unique name. With NXAPI it’s the DN (Distinguished Name).</p></li>
@@ -220,34 +223,34 @@ feature interface-vlan
 </ul>
 <p>Equivalent in Postman, running a GET <strong>https://{{host}}/api/node/mo/sys/bd/bd-[vlan-3001].json</strong> will output the device’s VLAN (3001) drilling-down the tree from <em>sys</em> to <em>bd</em>.</p>
 <p>In Postman, running a PUT <strong>https://{{host}}/api/node/mo/sys/bd/bd-[vlan-3001].json</strong> with the below body will update the name of VLAN 3001.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;L2BD&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Update_VLAN&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;L2BD&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Update_VLAN&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="bash">
-<h2>Bash<a class="headerlink" href="#bash" title="Permalink to this heading"></a></h2>
+<h2>Bash<a class="headerlink" href="#bash" title="Link to this heading"></a></h2>
 <p>Bash on Nexus is the actual linux system that hosts NX-OS, whereas guestshell is a native, isolated container that cannot affect the host. You can also run docker containers (alpine, etc.) on Nexus to be able to run edge-processing applications and systems.
 A good use case of running a docker container on the edge switch is to have it do a health check when config is changed and roll back the config if certain health check fails. This is useful for when your management system cannot access the switch due to said change.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbx-n9kv# run bash
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbx-n9kv#<span class="w"> </span>run<span class="w"> </span>bash
 bash-4.3$
 
 <span class="c1"># show all interfaces</span>
-bash-4.3$ ip link
+bash-4.3$<span class="w"> </span>ip<span class="w"> </span>link
 
 <span class="c1"># show ip addresses</span>
-bash-4.3$ ip addr show dev Vlan101
+bash-4.3$<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>dev<span class="w"> </span>Vlan101
 
 <span class="c1"># go into root</span>
-bash-4.3$ sudo su -
+bash-4.3$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-
 
 <span class="c1"># run a docker container</span>
-root@sbx-n9kv#docker run alpine
+root@sbx-n9kv#docker<span class="w"> </span>run<span class="w"> </span>alpine
 </pre></div>
 </div>
 </section>

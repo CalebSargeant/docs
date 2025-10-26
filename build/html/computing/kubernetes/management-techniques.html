@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kubernetes Management Techniques &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,7 +117,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Kubernetes</a></li>
       <li class="breadcrumb-item active">Kubernetes Management Techniques</li>
       <li class="wy-breadcrumbs-aside">
@@ -127,9 +130,9 @@
            <div itemprop="articleBody">
              
   <section id="kubernetes-management-techniques">
-<h1>Kubernetes Management Techniques<a class="headerlink" href="#kubernetes-management-techniques" title="Permalink to this heading"></a></h1>
+<h1>Kubernetes Management Techniques<a class="headerlink" href="#kubernetes-management-techniques" title="Link to this heading"></a></h1>
 <section id="run-expose-and-create-generators">
-<h2>Run, Expose, and Create Generators<a class="headerlink" href="#run-expose-and-create-generators" title="Permalink to this heading"></a></h2>
+<h2>Run, Expose, and Create Generators<a class="headerlink" href="#run-expose-and-create-generators" title="Link to this heading"></a></h2>
 <ul>
 <li><p>These commands use helper templates called “generators”</p></li>
 <li><p>Every resource in kubernetes has a specification or “spec”</p>
@@ -144,7 +147,7 @@
 <li><p>Generators are “opinionated defaults”</p></li>
 </ul>
 <section id="generator-examples">
-<h3>Generator Examples<a class="headerlink" href="#generator-examples" title="Permalink to this heading"></a></h3>
+<h3>Generator Examples<a class="headerlink" href="#generator-examples" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Using dry-run with yaml output we can see the generators</p>
 <blockquote>
@@ -159,7 +162,7 @@
 </section>
 </section>
 <section id="the-future-of-kubectl-run">
-<h2>The Future of kubectl run<a class="headerlink" href="#the-future-of-kubectl-run" title="Permalink to this heading"></a></h2>
+<h2>The Future of kubectl run<a class="headerlink" href="#the-future-of-kubectl-run" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Right now (1.12-1.15) run is in a state of flux</p></li>
 <li><p>The goal is to reduce its features to only create pods</p>
@@ -175,7 +178,7 @@
 <li><p>Use for simple dev/test or troubleshooting pods</p></li>
 </ul>
 <section id="old-run-confusion">
-<h3>Old Run Confusion<a class="headerlink" href="#old-run-confusion" title="Permalink to this heading"></a></h3>
+<h3>Old Run Confusion<a class="headerlink" href="#old-run-confusion" title="Link to this heading"></a></h3>
 <ul>
 <li><p>The generators activate different Controllers based on options</p></li>
 <li><p>Using dry-run we can see which generators are used</p>
@@ -193,7 +196,7 @@
 </section>
 </section>
 <section id="imperative-vs-declaritive">
-<h2>Imperative vs Declaritive<a class="headerlink" href="#imperative-vs-declaritive" title="Permalink to this heading"></a></h2>
+<h2>Imperative vs Declaritive<a class="headerlink" href="#imperative-vs-declaritive" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Imperative: Focus on <em>how</em> a program operates</p></li>
 <li><p>Declarative: Focus on <em>what</em> a program should accomplish</p></li>
@@ -202,7 +205,7 @@
 <li><p>Declarative: “Barista, I’d like a cup of coffee (barista is the engine that works through the steps, including retrying to make a cup and is only finished when I have a cup)”</p></li>
 </ul>
 <section id="kubernetes-imperative">
-<h3>Kubernetes Imperative<a class="headerlink" href="#kubernetes-imperative" title="Permalink to this heading"></a></h3>
+<h3>Kubernetes Imperative<a class="headerlink" href="#kubernetes-imperative" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Examples: <cite>kubectl run</cite>, <cite>kubectl create deployment</cite>, <cite>kubectl update</cite></p>
 <blockquote>
@@ -221,7 +224,7 @@
 </ul>
 </section>
 <section id="kubernetes-declarative">
-<h3>Kubernetes Declarative<a class="headerlink" href="#kubernetes-declarative" title="Permalink to this heading"></a></h3>
+<h3>Kubernetes Declarative<a class="headerlink" href="#kubernetes-declarative" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Example: <cite>kubectl apple -f my-resources.yaml</cite></p>
 <blockquote>
@@ -241,7 +244,7 @@
 </section>
 </section>
 <section id="management-approaches">
-<h2>Management Approaches<a class="headerlink" href="#management-approaches" title="Permalink to this heading"></a></h2>
+<h2>Management Approaches<a class="headerlink" href="#management-approaches" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Imperative commands: run, expose, scale, edit, create deployment</p>
 <blockquote>

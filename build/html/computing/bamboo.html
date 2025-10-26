@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bamboo &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -93,7 +96,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Bamboo</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/computing/bamboo.rst.txt" rel="nofollow"> View page source</a>
@@ -105,21 +108,21 @@
            <div itemprop="articleBody">
              
   <section id="bamboo">
-<h1>Bamboo<a class="headerlink" href="#bamboo" title="Permalink to this heading"></a></h1>
+<h1>Bamboo<a class="headerlink" href="#bamboo" title="Link to this heading"></a></h1>
 <section id="setting-up-an-instance">
-<h2>Setting up an Instance<a class="headerlink" href="#setting-up-an-instance" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-8.0.1.tar.gz
-root@bamboo:~# tar -xvf atlassian-bamboo-8.0.1.tar.gz
-root@bamboo:~# <span class="nb">cd</span> atlassian-bamboo-8.0.1/
-root@bamboo:~/atlassian-bamboo-8.0.1# mkdir /var/bamboo/
-root@bamboo:~/atlassian-bamboo-8.0.1# mkdir /var/bamboo/bamboo-home
-root@bamboo:~/atlassian-bamboo-8.0.1# nano atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
-root@bamboo:~/atlassian-bamboo-8.0.1# sudo apt install default-jre
-root@bamboo:~/atlassian-bamboo-8.0.1# java -version
-root@bamboo:~/atlassian-bamboo-8.0.1# ./bin/start-bamboo.sh
-root@bamboo:~/atlassian-bamboo-8.0.1# sudo apt install postgresql postgresql-contrib
-root@bamboo:~/atlassian-bamboo-8.0.1# sudo -i -u postgres
-postgres@bamboo:~$ psql
+<h2>Setting up an Instance<a class="headerlink" href="#setting-up-an-instance" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~#<span class="w"> </span>wget<span class="w"> </span>https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-8.0.1.tar.gz
+root@bamboo:~#<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>atlassian-bamboo-8.0.1.tar.gz
+root@bamboo:~#<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>atlassian-bamboo-8.0.1/
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>mkdir<span class="w"> </span>/var/bamboo/
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>mkdir<span class="w"> </span>/var/bamboo/bamboo-home
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>nano<span class="w"> </span>atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>default-jre
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>java<span class="w"> </span>-version
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>./bin/start-bamboo.sh
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postgresql<span class="w"> </span>postgresql-contrib
+root@bamboo:~/atlassian-bamboo-8.0.1#<span class="w"> </span>sudo<span class="w"> </span>-i<span class="w"> </span>-u<span class="w"> </span>postgres
+postgres@bamboo:~$<span class="w"> </span>psql
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># create user caleb with encrypted password &#39;mypassword&#39;;</span>
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># create database bamboo;</span>
 <span class="nv">postgres</span><span class="o">=</span><span class="c1"># grant all privileges on database bamboo to caleb;</span>
@@ -127,9 +130,9 @@ postgres@bamboo:~$ psql
 </div>
 </section>
 <section id="installing-the-remote-agent">
-<h2>Installing the Remote Agent<a class="headerlink" href="#installing-the-remote-agent" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~# wget http://localhost:8085/agentServer/agentInstaller/atlassian-bamboo-agent-installer-8.0.1.jar
-root@bamboo:~# java -jar atlassian-bamboo-agent-installer-8.0.1.jar http://localhost:8085/agentServer/
+<h2>Installing the Remote Agent<a class="headerlink" href="#installing-the-remote-agent" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@bamboo:~#<span class="w"> </span>wget<span class="w"> </span>http://localhost:8085/agentServer/agentInstaller/atlassian-bamboo-agent-installer-8.0.1.jar
+root@bamboo:~#<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>atlassian-bamboo-agent-installer-8.0.1.jar<span class="w"> </span>http://localhost:8085/agentServer/
 </pre></div>
 </div>
 </section>

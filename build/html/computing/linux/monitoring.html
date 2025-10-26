@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Monitoring &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,7 +117,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">Monitoring</li>
       <li class="wy-breadcrumbs-aside">
@@ -127,24 +130,29 @@
            <div itemprop="articleBody">
              
   <section id="monitoring">
-<h1>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this heading"></a></h1>
+<h1>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading"></a></h1>
 <section id="zabbix">
-<h2>Zabbix<a class="headerlink" href="#zabbix" title="Permalink to this heading"></a></h2>
+<h2>Zabbix<a class="headerlink" href="#zabbix" title="Link to this heading"></a></h2>
 <section id="slack-alerting">
-<h3>Slack Alerting<a class="headerlink" href="#slack-alerting" title="Permalink to this heading"></a></h3>
+<h3>Slack Alerting<a class="headerlink" href="#slack-alerting" title="Link to this heading"></a></h3>
 <p><strong>Configuring Slack</strong></p>
 <p>Go to <a class="reference external" href="https://api.slack.com/apps">https://api.slack.com/apps</a>. Create a new app called “Zabbix”.</p>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-2.png"><img alt="../../_images/zabbix-slack-2.png" class="align-center" src="../../_images/zabbix-slack-2.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-2.png"><img alt="../../_images/zabbix-slack-2.png" class="align-center" src="../../_images/zabbix-slack-2.png" style="width: 663px; height: 424px;" />
+</a>
 <p>Create an <em>Incoming Webhook</em>.</p>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-3.png"><img alt="../../_images/zabbix-slack-3.png" class="align-center" src="../../_images/zabbix-slack-3.png" style="width: 663px; height: 424px;" /></a>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-4.png"><img alt="../../_images/zabbix-slack-4.png" class="align-center" src="../../_images/zabbix-slack-4.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-3.png"><img alt="../../_images/zabbix-slack-3.png" class="align-center" src="../../_images/zabbix-slack-3.png" style="width: 663px; height: 424px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-4.png"><img alt="../../_images/zabbix-slack-4.png" class="align-center" src="../../_images/zabbix-slack-4.png" style="width: 663px; height: 424px;" />
+</a>
 <p>Copy the curl request to <code class="docutils literal notranslate"><span class="pre">/usr/lib/zabbix/alertscripts/slackalerts.sh</span></code>.</p>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-5.png"><img alt="../../_images/zabbix-slack-5.png" class="align-center" src="../../_images/zabbix-slack-5.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-5.png"><img alt="../../_images/zabbix-slack-5.png" class="align-center" src="../../_images/zabbix-slack-5.png" style="width: 663px; height: 424px;" />
+</a>
 <p>Change <code class="docutils literal notranslate"><span class="pre">'{&quot;text&quot;:&quot;Hello,</span> <span class="pre">World!&quot;}'</span></code> to <code class="docutils literal notranslate"><span class="pre">'{&quot;text&quot;:&quot;'&quot;$1&quot;'&quot;}'</span></code>.</p>
 <p>Test your configuration on Zabbix with <code class="docutils literal notranslate"><span class="pre">/usr/lib/zabbix/alertscripts/slackalerts.sh</span> <span class="pre">test</span></code>.</p>
 <p><strong>Configuring Zabbix</strong></p>
 <p>Create the <em>Media Type</em> in Zabbix.</p>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-1.png"><img alt="../../_images/zabbix-slack-1.png" class="align-center" src="../../_images/zabbix-slack-1.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-1.png"><img alt="../../_images/zabbix-slack-1.png" class="align-center" src="../../_images/zabbix-slack-1.png" style="width: 663px; height: 424px;" />
+</a>
 <p>Create an <em>Action</em> and an <em>Operation</em> in <em>Operations</em>, <em>Recovery operations</em>, and <em>Update operations</em>.</p>
 <p>Nice <em>Default subjects</em> to use:
 Create <code class="docutils literal notranslate"><span class="pre">{ZABBIX.SERVER}</span></code> in <strong>Administration</strong> &gt; <strong>General</strong> &gt; <strong>Macros</strong></p>
@@ -153,22 +161,25 @@ Create <code class="docutils literal notranslate"><span class="pre">{ZABBIX.SERV
 <li><p><code class="docutils literal notranslate"><span class="pre">[{ZABBIX.SERVER}]</span> <span class="pre">-</span> <span class="pre">[{HOST.HOST}]</span> <span class="pre">Resolved:</span> <span class="pre">{EVENT.NAME}</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">[{ZABBIX.SERVER}]</span> <span class="pre">-</span> <span class="pre">[{HOST.HOST}]</span> <span class="pre">Updated</span> <span class="pre">problem:</span> <span class="pre">{EVENT.NAME}</span> <span class="pre">-</span> <span class="pre">{USER.FULLNAME}</span></code></p></li>
 </ul>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-6.png"><img alt="../../_images/zabbix-slack-6.png" class="align-center" src="../../_images/zabbix-slack-6.png" style="width: 663px; height: 424px;" /></a>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-7.png"><img alt="../../_images/zabbix-slack-7.png" class="align-center" src="../../_images/zabbix-slack-7.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-6.png"><img alt="../../_images/zabbix-slack-6.png" class="align-center" src="../../_images/zabbix-slack-6.png" style="width: 663px; height: 424px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-7.png"><img alt="../../_images/zabbix-slack-7.png" class="align-center" src="../../_images/zabbix-slack-7.png" style="width: 663px; height: 424px;" />
+</a>
 <p>Add the <em>Media</em> to the Administrator.</p>
-<a class="reference internal image-reference" href="../../_images/zabbix-slack-8.png"><img alt="../../_images/zabbix-slack-8.png" class="align-center" src="../../_images/zabbix-slack-8.png" style="width: 663px; height: 424px;" /></a>
+<a class="reference internal image-reference" href="../../_images/zabbix-slack-8.png"><img alt="../../_images/zabbix-slack-8.png" class="align-center" src="../../_images/zabbix-slack-8.png" style="width: 663px; height: 424px;" />
+</a>
 </section>
 </section>
 <section id="nagios">
-<h2>Nagios<a class="headerlink" href="#nagios" title="Permalink to this heading"></a></h2>
+<h2>Nagios<a class="headerlink" href="#nagios" title="Link to this heading"></a></h2>
 <section id="install-nagios-client-on-ubuntu">
-<h3>Install Nagios Client on Ubuntu<a class="headerlink" href="#install-nagios-client-on-ubuntu" title="Permalink to this heading"></a></h3>
+<h3>Install Nagios Client on Ubuntu<a class="headerlink" href="#install-nagios-client-on-ubuntu" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://tecadmin.net/how-to-install-nrpe-on-ubuntu-20-04/">https://tecadmin.net/how-to-install-nrpe-on-ubuntu-20-04/</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt update
-apt install nagios-nrpe-server nagios-plugins
-nano /etc/nagios/nrpe.cfg
-  <span class="nv">allowed_hosts</span><span class="o">=</span><span class="m">127</span>.0.0.1, <span class="m">192</span>.168.1.100
-systemctl restart nagios-nrpe-server
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt<span class="w"> </span>update
+apt<span class="w"> </span>install<span class="w"> </span>nagios-nrpe-server<span class="w"> </span>nagios-plugins
+nano<span class="w"> </span>/etc/nagios/nrpe.cfg
+<span class="w">  </span><span class="nv">allowed_hosts</span><span class="o">=</span><span class="m">127</span>.0.0.1,<span class="w"> </span><span class="m">192</span>.168.1.100
+systemctl<span class="w"> </span>restart<span class="w"> </span>nagios-nrpe-server
 </pre></div>
 </div>
 </section>

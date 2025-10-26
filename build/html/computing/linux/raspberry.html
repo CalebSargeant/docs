@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raspberry Pi &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -123,7 +126,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">Raspberry Pi</li>
       <li class="wy-breadcrumbs-aside">
@@ -136,39 +139,39 @@
            <div itemprop="articleBody">
              
   <section id="raspberry-pi">
-<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Permalink to this heading"></a></h1>
+<h1>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Link to this heading"></a></h1>
 <p>All Raspberry Pi-related stuff.</p>
 <section id="writing-sd-card">
-<h2>Writing SD Card<a class="headerlink" href="#writing-sd-card" title="Permalink to this heading"></a></h2>
+<h2>Writing SD Card<a class="headerlink" href="#writing-sd-card" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">https://www.raspberrypi.org/documentation/installation/installing-images/mac.md</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List disks to find SD card disk number (diskN)</span>
-diskutil list
+diskutil<span class="w"> </span>list
 
 <span class="c1"># Unmount the disk</span>
-diskutil unmountDisk /dev/diskN
+diskutil<span class="w"> </span>unmountDisk<span class="w"> </span>/dev/diskN
 
 <span class="c1"># Write the image to SD card. Check the progress by pressing Ctrl+T.</span>
-sudo dd <span class="nv">bs</span><span class="o">=</span>1m <span class="k">if</span><span class="o">=</span>/Users/caleb/Downloads/raspberry.img <span class="nv">of</span><span class="o">=</span>/dev/rdiskN<span class="p">;</span> sync
+sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1m<span class="w"> </span><span class="k">if</span><span class="o">=</span>/Users/caleb/Downloads/raspberry.img<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/rdiskN<span class="p">;</span><span class="w"> </span>sync
 
 <span class="c1"># Eject the disk afterwards</span>
-sudo diskutil eject /dev/rdiskN
+sudo<span class="w"> </span>diskutil<span class="w"> </span>eject<span class="w"> </span>/dev/rdiskN
 </pre></div>
 </div>
 </section>
 <section id="firmware-update">
-<h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Permalink to this heading"></a></h2>
+<h2>Firmware Update<a class="headerlink" href="#firmware-update" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md">https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md</a></p>
 <p><a class="reference external" href="https://elinux.org/R-Pi_Troubleshooting#Updating_firmware">https://elinux.org/R-Pi_Troubleshooting#Updating_firmware</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rpi-update
-sudo reboot
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rpi-update
+sudo<span class="w"> </span>reboot
 </pre></div>
 </div>
 </section>
 <section id="parsec">
-<h2>Parsec<a class="headerlink" href="#parsec" title="Permalink to this heading"></a></h2>
+<h2>Parsec<a class="headerlink" href="#parsec" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://forums.raspberrypi.com/viewtopic.php?t=326828">https://forums.raspberrypi.com/viewtopic.php?t=326828</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure to set the resolution and graphics memory</span>
-sudo raspi-config
+sudo<span class="w"> </span>raspi-config
 <span class="c1"># advanced options</span>
 <span class="c1"># GL Driver</span>
 <span class="c1"># Disable</span>
@@ -183,169 +186,169 @@ sudo raspi-config
 <p><a class="reference download internal" download="" href="../../_downloads/8a179a147a7f415fe31dfb62e62d8665/parsecfiles.7z"><code class="xref download docutils literal notranslate"><span class="pre">Parsec</span> <span class="pre">Files</span></code></a></p>
 </section>
 <section id="mail">
-<h2>Mail<a class="headerlink" href="#mail" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install mailutils
+<h2>Mail<a class="headerlink" href="#mail" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt<span class="w"> </span>install<span class="w"> </span>mailutils
 
 <span class="c1"># mail command will use exim4 by default, so change exim4 config to be on internet instead of local</span>
-nano /etc/exim4/update-exim4.conf.conf
-  <span class="nv">dc_eximconfig_configtype</span><span class="o">=</span><span class="s1">&#39;internet&#39;</span>
+nano<span class="w"> </span>/etc/exim4/update-exim4.conf.conf
+<span class="w">  </span><span class="nv">dc_eximconfig_configtype</span><span class="o">=</span><span class="s1">&#39;internet&#39;</span>
 
 <span class="c1"># restart exim4</span>
-systemctl restart exim4
+systemctl<span class="w"> </span>restart<span class="w"> </span>exim4
 
 <span class="c1"># Check the log of sending maik</span>
-tail -f /var/log/exim4/mainlog
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/exim4/mainlog
 
 <span class="c1"># Sending a mail</span>
-<span class="nb">echo</span> <span class="s2">&quot;my body&quot;</span> <span class="p">|</span> mail -s <span class="s2">&quot;mysubject&quot;</span> contact@calebsargeant.com
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;my body&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>mail<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;mysubject&quot;</span><span class="w"> </span>contact@calebsargeant.com
 </pre></div>
 </div>
 </section>
 <section id="swap-file-size">
-<h2>Swap File Size<a class="headerlink" href="#swap-file-size" title="Permalink to this heading"></a></h2>
+<h2>Swap File Size<a class="headerlink" href="#swap-file-size" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-swap-file/">https://pimylifeup.com/raspberry-pi-swap-file/</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dphys-swapfile swapoff
-sudo nano /etc/dphys-swapfile
-  <span class="nv">CONF_SWAPSIZE</span><span class="o">=</span><span class="m">1024</span>
-sudo dphys-swapfile setup
-sudo dphys-swapfile swapon
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>swapoff
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/dphys-swapfile
+<span class="w">  </span><span class="nv">CONF_SWAPSIZE</span><span class="o">=</span><span class="m">1024</span>
+sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>setup
+sudo<span class="w"> </span>dphys-swapfile<span class="w"> </span>swapon
 </pre></div>
 </div>
 </section>
 <section id="web-server">
-<h2>Web Server<a class="headerlink" href="#web-server" title="Permalink to this heading"></a></h2>
+<h2>Web Server<a class="headerlink" href="#web-server" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-apache/">https://pimylifeup.com/raspberry-pi-apache/</a></p>
 <section id="apache">
-<h3>Apache<a class="headerlink" href="#apache" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install apache2 -y
-sudo usermod -a -G www-data pi
-sudo chown -R -f www-data:www-data /var/www/html
-nano /var/www/html/index.html
+<h3>Apache<a class="headerlink" href="#apache" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>-y
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>www-data<span class="w"> </span>pi
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>-f<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html
+nano<span class="w"> </span>/var/www/html/index.html
 </pre></div>
 </div>
 </section>
 <section id="php">
-<h3>PHP<a class="headerlink" href="#php" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mbstring php7.4-mysql php7.4-curl php7.4-gd php7.4-zip -y
-sudo nano /var/www/html/example.php
-  &lt;?php
-  <span class="nb">echo</span> <span class="s2">&quot;Today&#39;s date is &quot;</span>.date<span class="o">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="o">)</span><span class="p">;</span>
-sudo nano /etc/apache2/sites-available/example.com.conf
-  &lt;VirtualHost *:80&gt;
-    ServerName example.com
-    ServerAlias www.example.com
-    DocumentRoot /var/www/example.com/public_html
-    ErrorLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_error.log
-    CustomLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_access.log combined
-  &lt;/VirtualHost&gt;
-sudo mkdir -p /var/www/example.com/public_html
-sudo chown -R www-data:www-data /var/www/example.com/public_html
-sudo a2ensite example.com.conf
-sudo systemctl reload apache2
+<h3>PHP<a class="headerlink" href="#php" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php7.4<span class="w"> </span>libapache2-mod-php7.4<span class="w"> </span>php7.4-mbstring<span class="w"> </span>php7.4-mysql<span class="w"> </span>php7.4-curl<span class="w"> </span>php7.4-gd<span class="w"> </span>php7.4-zip<span class="w"> </span>-y
+sudo<span class="w"> </span>nano<span class="w"> </span>/var/www/html/example.php
+<span class="w">  </span>&lt;?php
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Today&#39;s date is &quot;</span>.date<span class="o">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="o">)</span><span class="p">;</span>
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/example.com.conf
+<span class="w">  </span>&lt;VirtualHost<span class="w"> </span>*:80&gt;
+<span class="w">    </span>ServerName<span class="w"> </span>example.com
+<span class="w">    </span>ServerAlias<span class="w"> </span>www.example.com
+<span class="w">    </span>DocumentRoot<span class="w"> </span>/var/www/example.com/public_html
+<span class="w">    </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_error.log
+<span class="w">    </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/example.com_access.log<span class="w"> </span>combined
+<span class="w">  </span>&lt;/VirtualHost&gt;
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/example.com/public_html
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/example.com/public_html
+sudo<span class="w"> </span>a2ensite<span class="w"> </span>example.com.conf
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
 </pre></div>
 </div>
 </section>
 </section>
 <section id="usb-audio">
-<h2>USB Audio<a class="headerlink" href="#usb-audio" title="Permalink to this heading"></a></h2>
+<h2>USB Audio<a class="headerlink" href="#usb-audio" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi-spy.co.uk/2019/06/using-a-usb-audio-device-with-the-raspberry-pi/">https://www.raspberrypi-spy.co.uk/2019/06/using-a-usb-audio-device-with-the-raspberry-pi/</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano /usr/share/alsa/alsa.conf
-  defaults.ctl.card <span class="m">1</span>
-  defaults.pcm.card <span class="m">1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano<span class="w"> </span>/usr/share/alsa/alsa.conf
+<span class="w">  </span>defaults.ctl.card<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>defaults.pcm.card<span class="w"> </span><span class="m">1</span>
 alsamixer
-speaker-test -c2
+speaker-test<span class="w"> </span>-c2
 </pre></div>
 </div>
 </section>
 <section id="bluetooth-speaker">
-<h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Permalink to this heading"></a></h2>
+<h2>Bluetooth Speaker<a class="headerlink" href="#bluetooth-speaker" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://www.raspberrypi.org/forums/viewtopic.php?t=235519">https://www.raspberrypi.org/forums/viewtopic.php?t=235519</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name">https://stackoverflow.com/questions/26299053/changing-raspberry-pi-bluetooth-device-name</a></p>
 <p>Work in progress… RPI3B audio still skips every once in a while, despite official power adapter.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install bluetooth &amp; pulseaudio &amp; bluez-tools (for autopairing/trusting)</span>
-sudo apt-get install pulseaudio pulseaudio-module-bluetooth bluez-tools
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>pulseaudio<span class="w"> </span>pulseaudio-module-bluetooth<span class="w"> </span>bluez-tools
 
 <span class="c1"># Fix audio before you even get problems https://askubuntu.com/questions/707171/how-can-i-fix-choppy-audio (still getting audio jumps over bluetooth)</span>
 /etc/pulse/default.pa
-  load-module module-udev-detect
-  load-module module-udev-detect <span class="nv">tsched</span><span class="o">=</span><span class="m">0</span>
-  pulseaudio -k
+<span class="w">  </span>load-module<span class="w"> </span>module-udev-detect
+<span class="w">  </span>load-module<span class="w"> </span>module-udev-detect<span class="w"> </span><span class="nv">tsched</span><span class="o">=</span><span class="m">0</span>
+<span class="w">  </span>pulseaudio<span class="w"> </span>-k
 
 <span class="c1"># Add user to bluetooth group &amp; reboot</span>
-sudo usermod -a -G bluetooth pi
+sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>bluetooth<span class="w"> </span>pi
 
 <span class="c1"># Make pi discoverable as an A2DP Sink</span>
-sudo nano /etc/bluetooth/main.conf
-  ...
-  <span class="nv">Class</span> <span class="o">=</span> 0x41C
-  ...
-  <span class="nv">DiscoverableTimeout</span> <span class="o">=</span> <span class="m">0</span>
-  ...
-sudo systemctl restart bluetooth
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/bluetooth/main.conf
+<span class="w">  </span>...
+<span class="w">  </span><span class="nv">Class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>0x41C
+<span class="w">  </span>...
+<span class="w">  </span><span class="nv">DiscoverableTimeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span>...
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>bluetooth
 
 <span class="c1"># Run &amp; config bluetoothctl (can also be used to troubleshoot connections - just run bluetoothctl and connect device)</span>
 bluetoothctl
-  power on
-  discoverable on
-  pairable on
-  agent on
-  default-agent
-  system-alias <span class="s1">&#39;Your New BT Alias&#39;</span>
-  quit
+<span class="w">  </span>power<span class="w"> </span>on
+<span class="w">  </span>discoverable<span class="w"> </span>on
+<span class="w">  </span>pairable<span class="w"> </span>on
+<span class="w">  </span>agent<span class="w"> </span>on
+<span class="w">  </span>default-agent
+<span class="w">  </span>system-alias<span class="w"> </span><span class="s1">&#39;Your New BT Alias&#39;</span>
+<span class="w">  </span>quit
 
 <span class="c1"># Start &amp; enable pulseaudio (as pi user)</span>
-pulesaudio --start
-sudo systemctl status bluetooth
-systemctl --user <span class="nb">enable</span> pulseaudio
+pulesaudio<span class="w"> </span>--start
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bluetooth
+systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>pulseaudio
 
 <span class="c1"># Enable autologin as pi user</span>
-sudo raspi-config
-  <span class="m">3</span> Boot Options
-  B1 Desktop / CLI
-  B2 Console Autologin
-sudo reboot now
+sudo<span class="w"> </span>raspi-config
+<span class="w">  </span><span class="m">3</span><span class="w"> </span>Boot<span class="w"> </span>Options
+<span class="w">  </span>B1<span class="w"> </span>Desktop<span class="w"> </span>/<span class="w"> </span>CLI
+<span class="w">  </span>B2<span class="w"> </span>Console<span class="w"> </span>Autologin
+sudo<span class="w"> </span>reboot<span class="w"> </span>now
 
 <span class="c1"># Configure bluez-tools</span>
-sudo nano /etc/systemd/system/bt-agent.service
-  <span class="o">[</span>Unit<span class="o">]</span>
-  <span class="nv">Description</span><span class="o">=</span>Bluetooth Auth Agent <span class="nv">After</span><span class="o">=</span>bluetooth.service <span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
-  <span class="o">[</span>Service<span class="o">]</span>
-  <span class="nv">Type</span><span class="o">=</span>simple
-  <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent -c NoInputNoOutput
-  <span class="o">[</span>Install<span class="o">]</span> <span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/bt-agent.service
+<span class="w">  </span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="w">  </span><span class="nv">Description</span><span class="o">=</span>Bluetooth<span class="w"> </span>Auth<span class="w"> </span>Agent<span class="w"> </span><span class="nv">After</span><span class="o">=</span>bluetooth.service<span class="w"> </span><span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
+<span class="w">  </span><span class="o">[</span>Service<span class="o">]</span>
+<span class="w">  </span><span class="nv">Type</span><span class="o">=</span>simple
+<span class="w">  </span><span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent<span class="w"> </span>-c<span class="w"> </span>NoInputNoOutput
+<span class="w">  </span><span class="o">[</span>Install<span class="o">]</span><span class="w"> </span><span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
 
 <span class="c1"># Start &amp; Enable bt-agent</span>
-sudo systemctl <span class="nb">enable</span> bt-agent
-sudo systemctl start bt-agent
-sudo systemctl status bt-agent
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bt-agent
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>bt-agent
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bt-agent
 
 <span class="c1"># OPTIONAL: Adding a PIN</span>
-sudo nano /etc/bluetooth/pin.conf
-  * <span class="m">123456</span>
-sudo chmod <span class="m">600</span> /etc/bluetooth/pin.conf
-sudo nano /etc/systemd/system/bt-agent.service
-  <span class="o">[</span>Unit<span class="o">]</span>
-  <span class="nv">Description</span><span class="o">=</span>Bluetooth Auth Agent <span class="nv">After</span><span class="o">=</span>bluetooth.service <span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/bluetooth/pin.conf
+<span class="w">  </span>*<span class="w"> </span><span class="m">123456</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/bluetooth/pin.conf
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/bt-agent.service
+<span class="w">  </span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="w">  </span><span class="nv">Description</span><span class="o">=</span>Bluetooth<span class="w"> </span>Auth<span class="w"> </span>Agent<span class="w"> </span><span class="nv">After</span><span class="o">=</span>bluetooth.service<span class="w"> </span><span class="nv">PartOf</span><span class="o">=</span>bluetooth.service
 
-  <span class="o">[</span>Service<span class="o">]</span>
-  <span class="nv">Type</span><span class="o">=</span>simple
-  <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent -c NoInputNoOutput -p /etc/bluetooth/pin.conf <span class="nv">ExecStartPost</span><span class="o">=</span>/bin/sleep <span class="m">1</span>
-  <span class="nv">ExecStartPost</span><span class="o">=</span>/bin/hciconfig hci0 sspmode <span class="m">0</span>
+<span class="w">  </span><span class="o">[</span>Service<span class="o">]</span>
+<span class="w">  </span><span class="nv">Type</span><span class="o">=</span>simple
+<span class="w">  </span><span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/bt-agent<span class="w"> </span>-c<span class="w"> </span>NoInputNoOutput<span class="w"> </span>-p<span class="w"> </span>/etc/bluetooth/pin.conf<span class="w"> </span><span class="nv">ExecStartPost</span><span class="o">=</span>/bin/sleep<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="nv">ExecStartPost</span><span class="o">=</span>/bin/hciconfig<span class="w"> </span>hci0<span class="w"> </span>sspmode<span class="w"> </span><span class="m">0</span>
 
-  <span class="o">[</span>Install<span class="o">]</span> <span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
-sudo systemctl daemon-reload
-sudo systemctl restart bt-agent
-sudo systemctl status bt-agent
+<span class="w">  </span><span class="o">[</span>Install<span class="o">]</span><span class="w"> </span><span class="nv">WantedBy</span><span class="o">=</span>bluetooth.target
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>bt-agent
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bt-agent
 
 <span class="c1"># OPTIONAL: Use USB bluetooth dongle (disable onboard)</span>
-sudo nano /etc/modprobe.d/blacklist-bluetooth.conf
-  blacklist btbcm
-  blacklist hci_uart
-sudo reboot
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/modprobe.d/blacklist-bluetooth.conf
+<span class="w">  </span>blacklist<span class="w"> </span>btbcm
+<span class="w">  </span>blacklist<span class="w"> </span>hci_uart
+sudo<span class="w"> </span>reboot
 </pre></div>
 </div>
 <section id="audio-config">
-<h3>Audio Config<a class="headerlink" href="#audio-config" title="Permalink to this heading"></a></h3>
+<h3>Audio Config<a class="headerlink" href="#audio-config" title="Link to this heading"></a></h3>
 <p>Adjusting Volume:</p>
 <p><a class="reference external" href="https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line">https://my.esecuredata.com/index.php?/knowledgebase/article/6/adjust-the-volume-of-a-raspberry-pi-using-the-command-line</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">alsamixer</span></code></p>
@@ -354,32 +357,32 @@ sudo reboot
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> &gt; Advanced Options &gt; Audio</p>
 </section>
 <section id="spotify-connect">
-<h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Permalink to this heading"></a></h3>
+<h3>Spotify Connect<a class="headerlink" href="#spotify-connect" title="Link to this heading"></a></h3>
 <p><a class="reference external" href="https://pimylifeup.com/raspberry-pi-spotify/">https://pimylifeup.com/raspberry-pi-spotify/</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install dependancies</span>
-sudo apt install -y apt-transport-https curl
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>apt-transport-https<span class="w"> </span>curl
 
 <span class="c1"># Add raspotify GPG key &amp; repo</span>
-curl -sSL https://dtcooper.github.io/raspotify/key.asc <span class="p">|</span> sudo apt-key add -v -
-<span class="nb">echo</span> <span class="s1">&#39;deb https://dtcooper.github.io/raspotify raspotify main&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/raspotify.list
+curl<span class="w"> </span>-sSL<span class="w"> </span>https://dtcooper.github.io/raspotify/key.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-v<span class="w"> </span>-
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;deb https://dtcooper.github.io/raspotify raspotify main&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/raspotify.list
 
 <span class="c1"># Install raspotify</span>
-sudo apt update
-sudo apt install raspotify
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>raspotify
 
 <span class="c1"># Changing name of device - leave &quot;OPTIONS&quot; alone if you don&#39;t want to tie to internet account and have it work over just the LAN (same L2 broadcast domain)</span>
-sudo nano /etc/default/raspotify
-  <span class="nv">DEVICE_NAME</span><span class="o">=</span><span class="s2">&quot;raspotify&quot;</span>
-  <span class="nv">BITRATE</span><span class="o">=</span><span class="s2">&quot;160&quot;</span>
-  <span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--username &lt;USERNAME&gt; --password &lt;PASSWORD&gt;&quot;</span>
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/raspotify
+<span class="w">  </span><span class="nv">DEVICE_NAME</span><span class="o">=</span><span class="s2">&quot;raspotify&quot;</span>
+<span class="w">  </span><span class="nv">BITRATE</span><span class="o">=</span><span class="s2">&quot;160&quot;</span>
+<span class="w">  </span><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;--username &lt;USERNAME&gt; --password &lt;PASSWORD&gt;&quot;</span>
 
 <span class="c1"># Restart raspotify after making changes</span>
-sudo systemctl restart raspotify
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>raspotify
 </pre></div>
 </div>
 </section>
 <section id="fixing-audio">
-<h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Permalink to this heading"></a></h3>
+<h3>Fixing Audio<a class="headerlink" href="#fixing-audio" title="Link to this heading"></a></h3>
 <p>Attempts to fix the audio jumps:</p>
 <p><a class="reference external" href="https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network">https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#Sound_stuttering_when_streaming_over_network</a></p>
 <p><a class="reference external" href="https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering">https://raspberrypi.stackexchange.com/questions/9795/pulseaudio-sink-stuttering</a></p>

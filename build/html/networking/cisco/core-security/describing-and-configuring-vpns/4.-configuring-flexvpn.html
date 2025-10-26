@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuring FlexVPN &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/sphinx_highlight.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -129,7 +132,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Cisco</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Core Security</a></li>
           <li class="breadcrumb-item"><a href="index.html">Describing and Configuring VPNs</a></li>
@@ -144,9 +147,9 @@
            <div itemprop="articleBody">
              
   <section id="configuring-flexvpn">
-<h1>Configuring FlexVPN<a class="headerlink" href="#configuring-flexvpn" title="Permalink to this heading"></a></h1>
+<h1>Configuring FlexVPN<a class="headerlink" href="#configuring-flexvpn" title="Link to this heading"></a></h1>
 <section id="ikev2-authorization-policies">
-<h2>IKEv2 Authorization Policies<a class="headerlink" href="#ikev2-authorization-policies" title="Permalink to this heading"></a></h2>
+<h2>IKEv2 Authorization Policies<a class="headerlink" href="#ikev2-authorization-policies" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Configurations sent during VPN setup</p></li>
 <li><p>FlexVPN can take full advantage of Authorization Policies</p></li>
@@ -192,9 +195,9 @@ Globomantics-0MA(config-ikev2-profile)#faaa authorization group cert list FlexAu
 </div>
 </section>
 <section id="creating-a-dynamic-vti">
-<h2>Creating a Dynamic VTI<a class="headerlink" href="#creating-a-dynamic-vti" title="Permalink to this heading"></a></h2>
+<h2>Creating a Dynamic VTI<a class="headerlink" href="#creating-a-dynamic-vti" title="Link to this heading"></a></h2>
 <section id="dynamic-vtis">
-<h3>Dynamic VTIs<a class="headerlink" href="#dynamic-vtis" title="Permalink to this heading"></a></h3>
+<h3>Dynamic VTIs<a class="headerlink" href="#dynamic-vtis" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Allow VPN interfaces to be automatically created</p>
 <ul>
@@ -219,7 +222,7 @@ Globomantics-HQ(config-ikev2-profile)#exit
 </section>
 </section>
 <section id="enrolling-in-globomantics-pki">
-<h2>Enrolling in Globomantics’ PKI<a class="headerlink" href="#enrolling-in-globomantics-pki" title="Permalink to this heading"></a></h2>
+<h2>Enrolling in Globomantics’ PKI<a class="headerlink" href="#enrolling-in-globomantics-pki" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Still need to configure authentication</p></li>
 <li><p>Digital certificates are more secure</p></li>
@@ -259,7 +262,7 @@ Globomantics-HQ(config)#do show crypto pki certificates
 </div>
 </section>
 <section id="using-digital-certificates-for-authentication">
-<h2>Using Digital Certificates for Authentication<a class="headerlink" href="#using-digital-certificates-for-authentication" title="Permalink to this heading"></a></h2>
+<h2>Using Digital Certificates for Authentication<a class="headerlink" href="#using-digital-certificates-for-authentication" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Globomantics-HQ(config)#crypto pki certificate map FlexCerts 1
 Globomantics-HQ(ca-certificate-map)#issuer-name co globomantics
 Globomantics-HQ(ca-certificate-map)#exit
@@ -277,9 +280,9 @@ Globomantics-HQ(Config-ikev2-profile)#exit
 </div>
 </section>
 <section id="configuring-a-flexvpn-client">
-<h2>Configuring a FlexVPN Client<a class="headerlink" href="#configuring-a-flexvpn-client" title="Permalink to this heading"></a></h2>
+<h2>Configuring a FlexVPN Client<a class="headerlink" href="#configuring-a-flexvpn-client" title="Link to this heading"></a></h2>
 <section id="flexvpn-clients">
-<h3>FlexVPN Clients<a class="headerlink" href="#flexvpn-clients" title="Permalink to this heading"></a></h3>
+<h3>FlexVPN Clients<a class="headerlink" href="#flexvpn-clients" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Previously configured static tunnels</p></li>
 <li><p>Configure spokes to act as FlexVPN client</p>

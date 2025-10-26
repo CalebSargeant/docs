@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating and Using Containers &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -120,7 +123,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Docker</a></li>
       <li class="breadcrumb-item active">Creating and Using Containers</li>
       <li class="wy-breadcrumbs-aside">
@@ -133,9 +136,9 @@
            <div itemprop="articleBody">
              
   <section id="creating-and-using-containers">
-<h1>Creating and Using Containers<a class="headerlink" href="#creating-and-using-containers" title="Permalink to this heading"></a></h1>
+<h1>Creating and Using Containers<a class="headerlink" href="#creating-and-using-containers" title="Link to this heading"></a></h1>
 <section id="basic-commands">
-<h2>Basic Commands<a class="headerlink" href="#basic-commands" title="Permalink to this heading"></a></h2>
+<h2>Basic Commands<a class="headerlink" href="#basic-commands" title="Link to this heading"></a></h2>
 <ul>
 <li><p>command: <cite>docker version</cite></p>
 <blockquote>
@@ -162,9 +165,9 @@
 </ul>
 </section>
 <section id="starting-a-container">
-<h2>Starting a Container<a class="headerlink" href="#starting-a-container" title="Permalink to this heading"></a></h2>
+<h2>Starting a Container<a class="headerlink" href="#starting-a-container" title="Link to this heading"></a></h2>
 <section id="image-vs-container">
-<h3>Image vs Container<a class="headerlink" href="#image-vs-container" title="Permalink to this heading"></a></h3>
+<h3>Image vs Container<a class="headerlink" href="#image-vs-container" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>An image is the application we want to run</p></li>
 <li><p>A Container is an instance of that image running as a process</p></li>
@@ -173,7 +176,7 @@
 </ul>
 </section>
 <section id="docker-container-run-publish-80-80-nginx">
-<h3>docker container run –publish 80:80 nginx<a class="headerlink" href="#docker-container-run-publish-80-80-nginx" title="Permalink to this heading"></a></h3>
+<h3>docker container run –publish 80:80 nginx<a class="headerlink" href="#docker-container-run-publish-80-80-nginx" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Download image ‘nginx’ from Docker Hub</p></li>
 <li><p>Started new container from that image</p></li>
@@ -183,7 +186,7 @@
 </section>
 </section>
 <section id="what-happens-when-we-run-a-container">
-<h2>What Happens When we Run a Container<a class="headerlink" href="#what-happens-when-we-run-a-container" title="Permalink to this heading"></a></h2>
+<h2>What Happens When we Run a Container<a class="headerlink" href="#what-happens-when-we-run-a-container" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Looks for that image locally in image cache, doesnt find anything</p></li>
 <li><p>Then looks in remote image repository (defaults to Docker Hub)</p></li>
@@ -195,9 +198,9 @@
 </ol>
 </section>
 <section id="container-vs-vm">
-<h2>Container vs VM<a class="headerlink" href="#container-vs-vm" title="Permalink to this heading"></a></h2>
+<h2>Container vs VM<a class="headerlink" href="#container-vs-vm" title="Link to this heading"></a></h2>
 <section id="containers-aren-t-mini-vms">
-<h3>Containers aren’t Mini-VMs<a class="headerlink" href="#containers-aren-t-mini-vms" title="Permalink to this heading"></a></h3>
+<h3>Containers aren’t Mini-VMs<a class="headerlink" href="#containers-aren-t-mini-vms" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>THey are just processes</p></li>
 <li><p>Limited to what resources they can access</p></li>
@@ -206,7 +209,7 @@
 </section>
 </section>
 <section id="whats-going-on-in-containers">
-<h2>Whats Going on in Containers<a class="headerlink" href="#whats-going-on-in-containers" title="Permalink to this heading"></a></h2>
+<h2>Whats Going on in Containers<a class="headerlink" href="#whats-going-on-in-containers" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><cite>docker container top</cite> - process list in on container</p></li>
 <li><p><cite>docker container inspect</cite> -details of one container config</p></li>
@@ -214,7 +217,7 @@
 </ul>
 </section>
 <section id="getting-a-shell-inside-containers">
-<h2>Getting a Shell inside Containers<a class="headerlink" href="#getting-a-shell-inside-containers" title="Permalink to this heading"></a></h2>
+<h2>Getting a Shell inside Containers<a class="headerlink" href="#getting-a-shell-inside-containers" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><cite>docker container run -it</cite> - start new container interactively</p></li>
 <li><p><cite>docker container exec -it</cite> - run additional command in existing container</p></li>
@@ -222,9 +225,9 @@
 </ul>
 </section>
 <section id="docker-networks">
-<h2>Docker Networks<a class="headerlink" href="#docker-networks" title="Permalink to this heading"></a></h2>
+<h2>Docker Networks<a class="headerlink" href="#docker-networks" title="Link to this heading"></a></h2>
 <section id="docker-networks-defaults">
-<h3>Docker Networks Defaults<a class="headerlink" href="#docker-networks-defaults" title="Permalink to this heading"></a></h3>
+<h3>Docker Networks Defaults<a class="headerlink" href="#docker-networks-defaults" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Each container connected to a private virtual network “bridge”</p></li>
 <li><p>Each virtual network routes through NAT firewall on host IP</p></li>
@@ -251,7 +254,7 @@
 </ul>
 </section>
 <section id="cli-management">
-<h3>CLI Management<a class="headerlink" href="#cli-management" title="Permalink to this heading"></a></h3>
+<h3>CLI Management<a class="headerlink" href="#cli-management" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Show networks <cite>docker network ls</cite></p></li>
 <li><p>Inspect a network <cite>docker network inspect</cite></p></li>
@@ -261,7 +264,7 @@
 </ul>
 </section>
 <section id="default-security">
-<h3>Default Security<a class="headerlink" href="#default-security" title="Permalink to this heading"></a></h3>
+<h3>Default Security<a class="headerlink" href="#default-security" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Create your apps so frontend/backend sit on same Docker network</p></li>
 <li><p>Their inter-communication never leaves host</p></li>
@@ -271,7 +274,7 @@
 </ul>
 </section>
 <section id="dns">
-<h3>DNS<a class="headerlink" href="#dns" title="Permalink to this heading"></a></h3>
+<h3>DNS<a class="headerlink" href="#dns" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Containers shouldnt reply on IPs for inter-communication</p></li>
 <li><p>DNS for friendly names is built-in if you use custom networks</p></li>

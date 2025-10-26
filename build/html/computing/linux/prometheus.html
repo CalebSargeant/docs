@@ -1,22 +1,21 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prometheus &mdash; Caleb Sargeant&#39;s Docs 1.0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,11 +28,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Caleb Sargeant's Docs
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Caleb Sargeant's Docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -108,7 +111,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Linux</a></li>
       <li class="breadcrumb-item active">Prometheus</li>
       <li class="wy-breadcrumbs-aside">
@@ -121,72 +124,72 @@
            <div itemprop="articleBody">
              
   <section id="prometheus">
-<h1>Prometheus<a class="headerlink" href="#prometheus" title="Permalink to this heading"></a></h1>
+<h1>Prometheus<a class="headerlink" href="#prometheus" title="Link to this heading"></a></h1>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.howtoforge.com/how-to-install-prometheus-on-ubuntu-20-04/</span>
 <span class="c1"># https://linuxhint.com/install_prometheus_ubuntu/</span>
 
 <span class="c1"># Create Prometheus System User</span>
-sudo useradd --no-create-home --shell /bin/false prometheus
-sudo useradd --no-create-home --shell /bin/false node_exporter
+sudo<span class="w"> </span>useradd<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/bin/false<span class="w"> </span>prometheus
+sudo<span class="w"> </span>useradd<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/bin/false<span class="w"> </span>node_exporter
 
 <span class="c1"># Create Prometheus Directories</span>
-sudo mkdir /etc/prometheus
-sudo mkdir /var/lib/prometheus
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/prometheus
+sudo<span class="w"> </span>mkdir<span class="w"> </span>/var/lib/prometheus
 
 <span class="c1"># Downloading and Installing Prometheus</span>
 <span class="c1"># https://prometheus.io/download</span>
-wget &lt;latest-url-here&gt;
-tar -xvf prometheus-2.28.1.linux-amd64.tar.gz
-sudo cp prometheus-2.28.1.linux-amd64/prometheus /usr/local/bin/
-sudo cp prometheus-2.28.1.linux-amd64/promtool /usr/local/bin/
-sudo chown prometheus:prometheus /usr/local/bin/prometheus
-sudo chown prometheus:prometheus /usr/local/bin/promtool
-sudo cp -r prometheus-2.28.1.linux-amd64/consoles /etc/prometheus
-sudo cp -r prometheus-2.28.1.linux-amd64/console_libraries /etc/prometheus
-sudo chown -R prometheus:prometheus /etc/prometheus/consoles
-sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
+wget<span class="w"> </span>&lt;latest-url-here&gt;
+tar<span class="w"> </span>-xvf<span class="w"> </span>prometheus-2.28.1.linux-amd64.tar.gz
+sudo<span class="w"> </span>cp<span class="w"> </span>prometheus-2.28.1.linux-amd64/prometheus<span class="w"> </span>/usr/local/bin/
+sudo<span class="w"> </span>cp<span class="w"> </span>prometheus-2.28.1.linux-amd64/promtool<span class="w"> </span>/usr/local/bin/
+sudo<span class="w"> </span>chown<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/usr/local/bin/prometheus
+sudo<span class="w"> </span>chown<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/usr/local/bin/promtool
+sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>prometheus-2.28.1.linux-amd64/consoles<span class="w"> </span>/etc/prometheus
+sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>prometheus-2.28.1.linux-amd64/console_libraries<span class="w"> </span>/etc/prometheus
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/etc/prometheus/consoles
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>prometheus:prometheus<span class="w"> </span>/etc/prometheus/console_libraries
 
 <span class="c1"># Create Prometheus Configuration File</span>
-sudo nano /etc/prometheus/prometheus.yml
-    global:
-     scrape_interval: 15s
-    scrape_configs:
-     - job_name: <span class="s1">&#39;prometheus&#39;</span>
-     scrape_interval: 5s
-     static_configs:
-     - targets: <span class="o">[</span><span class="s1">&#39;localhost:9090&#39;</span><span class="o">]</span>
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/prometheus/prometheus.yml
+<span class="w">    </span>global:
+<span class="w">     </span>scrape_interval:<span class="w"> </span>15s
+<span class="w">    </span>scrape_configs:
+<span class="w">     </span>-<span class="w"> </span>job_name:<span class="w"> </span><span class="s1">&#39;prometheus&#39;</span>
+<span class="w">     </span>scrape_interval:<span class="w"> </span>5s
+<span class="w">     </span>static_configs:
+<span class="w">     </span>-<span class="w"> </span>targets:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;localhost:9090&#39;</span><span class="o">]</span>
 
 <span class="c1"># Create Prometheus Service</span>
-sudo nano /etc/systemd/system/prometheus.service
-    <span class="o">[</span>Unit<span class="o">]</span>
-    <span class="nv">Description</span><span class="o">=</span>Prometheus
-    <span class="nv">Wants</span><span class="o">=</span>network-online.target
-    <span class="nv">After</span><span class="o">=</span>network-online.target
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/prometheus.service
+<span class="w">    </span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="w">    </span><span class="nv">Description</span><span class="o">=</span>Prometheus
+<span class="w">    </span><span class="nv">Wants</span><span class="o">=</span>network-online.target
+<span class="w">    </span><span class="nv">After</span><span class="o">=</span>network-online.target
 
-    <span class="o">[</span>Service<span class="o">]</span>
-    <span class="nv">User</span><span class="o">=</span>prome
-    <span class="nv">Group</span><span class="o">=</span>prome
-    <span class="nv">Type</span><span class="o">=</span>simple
-    <span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/prometheus <span class="se">\</span>
-        --config.file /etc/prometheus/prometheus.yml <span class="se">\</span>
-        --storage.tsdb.path /var/lib/prometheus/ <span class="se">\</span>
-        --web.console.templates<span class="o">=</span>/etc/prometheus/consoles <span class="se">\</span>
-        --web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
+<span class="w">    </span><span class="o">[</span>Service<span class="o">]</span>
+<span class="w">    </span><span class="nv">User</span><span class="o">=</span>prome
+<span class="w">    </span><span class="nv">Group</span><span class="o">=</span>prome
+<span class="w">    </span><span class="nv">Type</span><span class="o">=</span>simple
+<span class="w">    </span><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/bin/prometheus<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--config.file<span class="w"> </span>/etc/prometheus/prometheus.yml<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--storage.tsdb.path<span class="w"> </span>/var/lib/prometheus/<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--web.console.templates<span class="o">=</span>/etc/prometheus/consoles<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--web.console.libraries<span class="o">=</span>/etc/prometheus/console_libraries
 
-    <span class="o">[</span>Install<span class="o">]</span>
-    <span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
-sudo systemctl daemon-reload
-sudo systemctl <span class="nb">enable</span> prometheus
-sudo systemctl status prometheus
+<span class="w">    </span><span class="o">[</span>Install<span class="o">]</span>
+<span class="w">    </span><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>prometheus
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>prometheus
 </pre></div>
 </div>
 </section>
 <section id="check-if-config-is-valid">
-<h2>Check if Config is Valid<a class="headerlink" href="#check-if-config-is-valid" title="Permalink to this heading"></a></h2>
+<h2>Check if Config is Valid<a class="headerlink" href="#check-if-config-is-valid" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://www.robustperception.io/how-to-check-your-prometheus-yml-is-valid">https://www.robustperception.io/how-to-check-your-prometheus-yml-is-valid</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./promtool check config prometheus.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./promtool<span class="w"> </span>check<span class="w"> </span>config<span class="w"> </span>prometheus.yml
 </pre></div>
 </div>
 </section>
