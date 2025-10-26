@@ -1,2 +1,0 @@
-Advanced Malware Protection (AMP)
-=================================

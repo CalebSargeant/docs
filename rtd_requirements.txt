@@ -1,2 +1,2 @@
-sphinx>=4.4.0,<5
-docutils==0.16
+mkdocs>=1.6.0
+mkdocs-material>=9.6.0

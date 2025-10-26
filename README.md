@@ -22,3 +22,28 @@
 # Docs
 
 A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.
+
+## Documentation Format
+
+This documentation is built using [MkDocs](https://www.mkdocs.org/) with the [Material theme](https://squidfunk.github.io/mkdocs-material/). All documentation is written in Markdown format.
+
+### Building the Documentation
+
+To build the documentation locally:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Build the site
+mkdocs build
+
+# Serve locally for development
+mkdocs serve
+```
+
+The built site will be in the `site/` directory and will be automatically deployed to GitHub Pages when changes are pushed to the main branch.
+
+### Previous Format
+
+This documentation was previously built using Sphinx with reStructuredText (RST) files. As of 2025, it has been fully migrated to MkDocs with Markdown files (0% RST, 100% Markdown).

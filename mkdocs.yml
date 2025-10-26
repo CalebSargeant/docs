@@ -1,0 +1,99 @@
+site_name: "Caleb Sargeant's Docs"
+site_description: "A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc."
+site_author: "Caleb Sargeant"
+site_url: "https://calebsargeant.github.io/docs"
+
+# Repository
+repo_name: "CalebSargeant/docs"
+repo_url: "https://github.com/CalebSargeant/docs"
+
+# Copyright
+copyright: "Copyright &copy; 2021 - 2025 Caleb Sargeant"
+
+# Configuration
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+
+# Documentation directory
+docs_dir: source
+
+# Navigation
+nav:
+  - Home: index.md
+  - Networking:
+    - Cisco: networking/cisco/index.md
+    - Mikrotik: networking/mikrotik.md
+    - FortiGate: networking/fortigate.md
+    - HP Procurve: networking/hp.md
+    - Juniper: networking/juniper.md
+    - Ubiquiti UniFi: networking/ubiquiti-unifi.md
+    - NetDevOps Tool Chest: networking/netdevops-toolchest.md
+  - Computing:
+    - Ansible: computing/ansible/index.md
+    - Bamboo: computing/bamboo.md
+    - Cloud: computing/cloud/index.md
+    - Docker: computing/docker/index.md
+    - Kubernetes: computing/kubernetes/index.md
+    - DNS: computing/dns.md
+    - ELK Stack: computing/elk-stack/index.md
+    - Jenkins: computing/jenkins/index.md
+    - Linux: computing/linux/index.md
+    - Pentesting: computing/pentesting/index.md
+    - Terraform: computing/terraform/index.md
+    - Microsoft: computing/microsoft/index.md
+  - Programming:
+    - Bash: programming/bash.md
+    - Python: programming/python/index.md
+  - Other:
+    - API: other/api/index.md
+    - General: other/general/index.md
+    - iPerf3: other/iperf.md
