@@ -10,3 +10,10 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# The search corpus tremvok writes beside the build (index/docs.json). Published to R2
+# by the deploy; a committed copy could only disagree with docs/.
+.docs-index/
+
+# Wrangler's local state and dry-run output.
+.wrangler/

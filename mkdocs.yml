@@ -1,8 +1,10 @@
-# calebsargeant.com/docs — MkDocs Material.
+# docs.calebsargeant.com: MkDocs Material.
 #
-# Replaces the Sphinx + Read the Docs build that served this corpus until now. The
+# Replaces the Sphinx + Read the Docs build that served this corpus until 2026. The
 # pages are Markdown under docs/, the theme is Material, and the site is published by
-# MagmaMoose/tremvok's `github-pages` target (see .github/workflows/docs.yml).
+# MagmaMoose/tremvok's `cloudflare-docs` target as an assets-only Cloudflare Worker
+# (see .github/workflows/docs.yml and wrangler.toml). The same deploy writes llms.txt,
+# llms-full.txt and the search corpus mcp.calebsargeant.com reads.
 #
 # This repo deliberately does NOT `INHERIT: mkdocs.base.yml`. That base belongs to the
 # MagmaMoose fleet and pins site_url to docs.magmamoose.com/<repo>/, which is not where
@@ -14,11 +16,11 @@ site_name: Caleb Sargeant's Docs
 site_description: Technical how-to guides, runbooks and study notes on networking, cloud, Linux and automation.
 site_author: Caleb Sargeant
 
-# Canonical address, and the base for <link rel="canonical"> and the sitemap. Points at
-# the GitHub Pages address the deploy actually serves. If the custom domain is attached
-# later (Settings -> Pages -> Custom domain), change this line in the same commit, or
-# every page advertises a canonical URL that is not the one serving it.
-site_url: https://calebsargeant.github.io/docs/
+# Canonical address, and the base for <link rel="canonical">, the sitemap, the Open Graph
+# URLs (hooks/seo.py) and every citation in the search corpus: tremvok builds the corpus
+# URLs from this line, so a wrong value here is a wrong link in every answer an agent
+# gives. It must be the address the Worker route in wrangler.toml serves.
+site_url: https://docs.calebsargeant.com/
 
 repo_url: https://github.com/CalebSargeant/docs
 repo_name: CalebSargeant/docs
@@ -29,6 +31,8 @@ copyright: Caleb Sargeant
 theme:
   name: material
   language: en
+  # overrides/main.html adds the Open Graph tags and JSON-LD that hooks/seo.py computes.
+  custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
   # The house faces from calebsargeant.com: Space Grotesk for display, JetBrains Mono
@@ -81,6 +85,12 @@ extra_javascript:
 plugins:
   - search
 
+# Per-page meta descriptions, Open Graph and JSON-LD, and a security.txt whose Expires
+# moves forward with every deploy. A hook rather than a plugin: nothing to install, and
+# nothing extra in docs/requirements.txt. The file says why each one exists.
+hooks:
+  - hooks/seo.py
+
 markdown_extensions:
   - abbr
   - admonition
@@ -122,7 +132,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-# Kept in the repository, kept out of the published site.
+# Kept in the repository, kept out of the published site. `/conf.py` is the Sphinx
+# configuration from before the move to MkDocs: nothing reads it, and it had been
+# published as https://docs.calebsargeant.com/conf.py.
 #
 # The lab archives, course PDFs and GNS3 projects behind the old `:download:` role come
 # to about 700 MB and include single files of 84 MB. Cloudflare Workers refuses a static
@@ -136,11 +148,12 @@ exclude_docs: |
   *.drawio
   .DS_Store
   requirements.txt
+  /conf.py
 
 extra:
   social:
     - icon: fontawesome/solid/globe
-      link: https://www.calebsargeant.com
+      link: https://calebsargeant.com/
       name: calebsargeant.com
     - icon: fontawesome/brands/github
       link: https://github.com/CalebSargeant
