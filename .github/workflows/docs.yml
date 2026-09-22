@@ -71,7 +71,7 @@ jobs:
           cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           # The id wrangler.toml pins. Not a credential: it is in every dashboard URL.
           cloudflare-account-id: 6e26afa31c37dee1dc82ad2f214f9b3c
-          cloudflare-wrangler-version: '4.127.1'
+          cloudflare-wrangler-version: '4.135.0'
           # The corpus. index/docs.json is written from the repository's own visibility,
           # which tremvok reads from GitHub and treats as private unless it is `public`.
           cloudflare-docs-index-bucket: calebsargeant-docs-index
