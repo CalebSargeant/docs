@@ -19,11 +19,12 @@
 # checks and generates the corpus without deploying or uploading. The strict build is the
 # check, and a preview can never overwrite the shared corpus with an unmerged branch.
 #
-# ONE SECRET, CLOUDFLARE_API_TOKEN: an account token for the Magma Moose account with
-# Workers Scripts: Edit, Workers Routes: Edit on calebsargeant.com, and Workers R2 Storage:
-# Edit (for the corpus). The token CalebSargeant/website deploys with, if it has the R2
-# permission, is the right one. Without it the deploy fails loudly on master; pull requests
-# (Dependabot's included) need no secret at all.
+# ONE SECRET, CLOUDFLARE_API_TOKEN: an account token for the Magma Moose account (where the
+# calebsargeant.com zone lives) with Workers Scripts: Edit, Workers Routes: Edit on
+# calebsargeant.com, and Workers R2 Storage: Edit for the corpus. Cloudflare's "Edit
+# Cloudflare Workers" template carries all three, so the token CalebSargeant/website deploys
+# with is the right one. Without it the deploy fails loudly on master and GitHub Pages keeps
+# serving; pull requests (Dependabot's included) need no secret at all.
 name: Docs
 
 on:
