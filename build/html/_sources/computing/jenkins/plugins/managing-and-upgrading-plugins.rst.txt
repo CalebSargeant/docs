@@ -1,2 +1,0 @@
-Managing and Upgrading Plugins
-==============================
