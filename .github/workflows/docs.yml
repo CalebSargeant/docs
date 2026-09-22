@@ -1,31 +1,29 @@
-# Build the MkDocs site and publish it to GitHub Pages.
+# Build the MkDocs site and publish it to docs.calebsargeant.com on Cloudflare Workers.
 #
-# The build is MagmaMoose/tremvok's `github-pages` target: it installs the pinned
-# toolchain from docs/requirements.txt, runs the repo-shape checks, and builds with
-# `--strict`, so a broken internal link or a nav entry naming a missing page fails here
-# rather than publishing a site with holes in it.
+# MagmaMoose/tremvok's `cloudflare-docs` target does all of it, in this order:
 #
-# TWO JOBS, and the split is not a preference. `actions/deploy-pages` requires
-# `pages: write` and the `github-pages` environment, and a composite action can declare
-# neither, so tremvok builds and stages the artifact and the job below publishes it.
-# The environment name is fixed: GitHub creates `github-pages` when Pages' source is set
-# to "GitHub Actions", and deploy-pages expects exactly that name.
+#   1. installs the pinned toolchain from docs/requirements.txt and builds with `--strict`,
+#      so a broken internal link or a nav entry naming a missing page fails here rather
+#      than publishing a site with holes in it;
+#   2. writes llms.txt and llms-full.txt into the built site, and the search corpus
+#      (index/docs.json) beside it, in one pass over the markdown just rendered;
+#   3. deploys ./site as the assets-only Worker described in wrangler.toml;
+#   4. only after the deploy succeeded, publishes index/docs.json to the R2 bucket that
+#      mcp.calebsargeant.com reads, so an agent never cites a page that failed to deploy.
 #
-# A PULL REQUEST PUBLISHES NOTHING. Pages has one site and no preview destination, so
-# publishing to it is publishing. tremvok resolves a pull request to `mode: preview`,
-# which builds and checks without staging an artifact. The strict build is the check.
+# This is how the MagmaMoose fleet's docs reach mcp.magmamoose.com, and why this repo left
+# `target: github-pages`: Pages can host the site but not publish the corpus, and it cannot
+# set a single response header, so it could never carry the CSP and HSTS in docs/_headers.
 #
-# BEFORE THE FIRST RUN, SET Settings -> Pages -> Source = "GitHub Actions". Once, by
-# hand, and there is no way around it. `actions/configure-pages` takes an `enablement`
-# input that looks like it would do this for you, and it cannot: creating a Pages site
-# is `PUT /repos/{owner}/{repo}/pages`, which needs administration rights that the
-# Actions GITHUB_TOKEN cannot be granted. Asking for it anyway gets
+# A PULL REQUEST PUBLISHES NOTHING: tremvok resolves it to `mode: preview`, which builds,
+# checks and generates the corpus without deploying or uploading. The strict build is the
+# check, and a preview can never overwrite the shared corpus with an unmerged branch.
 #
-#   Create Pages site failed. Error: Resource not accessible by integration
-#
-# even with `pages: write` on the job, which this workflow tried and reverted. Until
-# that setting is flipped, tremvok's own read of the Pages site 404s and the build
-# fails with "Get Pages site failed".
+# ONE SECRET, CLOUDFLARE_API_TOKEN: an account token for the Magma Moose account with
+# Workers Scripts: Edit, Workers Routes: Edit on calebsargeant.com, and Workers R2 Storage:
+# Edit (for the corpus). The token CalebSargeant/website deploys with, if it has the R2
+# permission, is the right one. Without it the deploy fails loudly on master; pull requests
+# (Dependabot's included) need no secret at all.
 name: Docs
 
 on:
@@ -33,13 +31,19 @@ on:
     branches: [master]
     paths:
       - 'docs/**'
+      - 'overrides/**'
+      - 'hooks/**'
       - 'mkdocs.yml'
+      - 'wrangler.toml'
       - 'README.md'
       - '.github/workflows/docs.yml'
   pull_request:
     paths:
       - 'docs/**'
+      - 'overrides/**'
+      - 'hooks/**'
       - 'mkdocs.yml'
+      - 'wrangler.toml'
       - 'README.md'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
@@ -47,40 +51,33 @@ on:
 permissions:
   contents: read
 
-# Serialised rather than cancelled: a half-finished Pages deploy is worse than a slow
-# one, and `cancel-in-progress` on the publishing job is how you get one.
+# Serialised rather than cancelled: a half-finished deploy is worse than a slow one.
 concurrency:
   group: docs
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build
+  publish:
+    name: Build and publish
     runs-on: ubuntu-latest
     steps:
-      # Pinned to a commit rather than the floating @v2. A tag is a mutable pointer:
-      # whoever can write the repository can move it, so pinning to one means running
-      # whatever it names at the time the workflow runs. SonarCloud's security rating
-      # gates on this (githubactions:S7637), and it is how tremvok and diatreme pin
-      # their own third-party actions. The trade is that patches no longer arrive on
-      # their own — bump the SHA and the comment together, or let Dependabot's
-      # github-actions ecosystem do it.
-      - uses: MagmaMoose/tremvok@1eedaa0def44caead577c1bda94f2c6a3f67428c # v2.7.0
+      # Pinned to a commit, with the tag in the comment; Dependabot moves both together.
+      # v2.8.0 carries tremvok#48: credentials are required only where something publishes,
+      # so a pull request without secrets builds and passes instead of failing on a token.
+      - uses: MagmaMoose/tremvok@8535951b78fc65d9b6adf243029fd8a63e076bdd # v2.8.0
         with:
-          target: github-pages
+          target: cloudflare-docs
           pages-strict: true
-
-  deploy:
-    name: Publish
-    needs: build
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # The id wrangler.toml pins. Not a credential: it is in every dashboard URL.
+          cloudflare-account-id: 6e26afa31c37dee1dc82ad2f214f9b3c
+          cloudflare-wrangler-version: '4.127.1'
+          # The corpus. index/docs.json is written from the repository's own visibility,
+          # which tremvok reads from GitHub and treats as private unless it is `public`.
+          cloudflare-docs-index-bucket: calebsargeant-docs-index
+          # This repository is a corpus, not a house tool: it declares no capabilities.
+          cloudflare-docs-capability-file: ''
+          # No `cloudflare-docs-host`: that input describes a site mounted at
+          # <host>/<repo>/ behind the MagmaMoose docs router, and would make every citation
+          # https://docs.calebsargeant.com/docs/... Left empty, the corpus is cited from
+          # `site_url` in mkdocs.yml, which is the address this Worker actually serves.

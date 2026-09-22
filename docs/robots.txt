@@ -1,0 +1,19 @@
+# Crawler policy for docs.calebsargeant.com.
+#
+# Technical notes written to be found. Being read, indexed and quoted, by search engines
+# and by AI assistants alike, is the point, so everything is allowed. The same stance as
+# calebsargeant.com.
+#
+# Content-Signal (contentsignals.org) states how automated systems may use the pages:
+#   search=yes    index them and link to them
+#   ai-input=yes  read them to answer a question (retrieval, grounding)
+#   ai-train=yes  train on them; these are study notes on public technology
+#
+# For agents: /llms.txt lists every page and /llms-full.txt carries all of them as one
+# markdown file (both written by the build). https://mcp.calebsargeant.com/ is a public MCP
+# server that searches these pages and calebsargeant.com without any scraping.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: https://docs.calebsargeant.com/sitemap.xml
