@@ -70,7 +70,14 @@ jobs:
       # This is the only reason the build job carries `pages: write`. Publishing still
       # happens in the deploy job below, which is separate because a composite action
       # cannot declare the `github-pages` environment that `deploy-pages` requires.
+      #
+      # Gated to the deploy path. tremvok only calls `configure-pages` when it is
+      # actually staging an artifact, which is never on a pull request, so that is the
+      # only path where the site has to exist — and a pull request has no business
+      # changing a repository setting. It follows that the pull-request check cannot
+      # exercise this step; the run on master is what proves it.
       - name: Enable Pages if it is not already
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
         with:
           enablement: true
