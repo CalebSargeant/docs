@@ -47,7 +47,41 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # To CREATE the Pages site, not to publish to it. See the step below.
+      pages: write
     steps:
+      # Turn Pages on if it has never been turned on.
+      #
+      # tremvok runs `actions/configure-pages` itself, but with no inputs, so it can
+      # only READ an existing Pages site. On a repository where Pages was never
+      # enabled that read 404s and takes the whole build with it:
+      #
+      #   Get Pages site failed. Please verify that the repository has Pages enabled
+      #   and configured to build using GitHub Actions
+      #
+      # which is what the first deploy of this migration did. `enablement: true`
+      # creates the site with `build_type: workflow` instead, so the prerequisite is
+      # provisioned by the workflow that needs it rather than being a setting someone
+      # has to remember to click. It is idempotent: once Pages exists this is a no-op,
+      # and tremvok's own read then succeeds.
+      #
+      # This is the only reason the build job carries `pages: write`. Publishing still
+      # happens in the deploy job below, which is separate because a composite action
+      # cannot declare the `github-pages` environment that `deploy-pages` requires.
+      #
+      # Gated to the deploy path. tremvok only calls `configure-pages` when it is
+      # actually staging an artifact, which is never on a pull request, so that is the
+      # only path where the site has to exist — and a pull request has no business
+      # changing a repository setting. It follows that the pull-request check cannot
+      # exercise this step; the run on master is what proves it.
+      - name: Enable Pages if it is not already
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+        with:
+          enablement: true
+
       # Pinned to a commit rather than the floating @v2. A tag is a mutable pointer:
       # whoever can write the repository can move it, so pinning to one means running
       # whatever it names at the time the workflow runs. SonarCloud's security rating
