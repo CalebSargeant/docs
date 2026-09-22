@@ -298,6 +298,18 @@ body {
   margin-bottom: 0.4rem;
 }
 
+/* The portrait on the landing page. It is the same 800x800 headshot the website
+   uses, and at full measure it would be a square the width of the column, so it
+   is sized here rather than being scaled in the file: one image, two sites. The
+   `.portrait` class comes from attr_list on the image in docs/index.md. */
+.md-typeset img.portrait {
+  width: 220px;
+  max-width: 55%;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
 .md-typeset figcaption {
   color: var(--cs-fg-mute);
   font-size: 0.72rem;

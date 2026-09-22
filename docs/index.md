@@ -39,7 +39,7 @@ open-source tooling.
 - GitHub: [github.com/CalebSargeant](https://github.com/CalebSargeant)
 - LinkedIn: [linkedin.com/in/calebsargeant](https://www.linkedin.com/in/calebsargeant)
 
-![Caleb Sargeant](_images/profile-pic.jpg)
+![Caleb Sargeant](_images/profile-pic.jpg){ .portrait }
 
 ## A note on the lab files
 
