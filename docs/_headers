@@ -33,6 +33,14 @@
   Permissions-Policy: accelerometer=(), autoplay=(), browsing-topics=(), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), interest-cohort=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://unpkg.com; img-src 'self' data: https://raw.githubusercontent.com; connect-src 'self' https://api.github.com; worker-src 'self' blob:; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
+# Text files say they are UTF-8. Without a charset, Workers static assets send a bare
+# `text/plain`, and clients that follow the HTTP default (Python's requests, for one)
+# decode it as Latin-1, so every curly quote and ellipsis in llms.txt and llms-full.txt
+# arrives as mojibake. Covers robots.txt and security.txt too; RFC 9116 asks for the
+# charset on the latter. The same rule calebsargeant.com uses.
+/*.txt
+  Content-Type: text/plain; charset=utf-8
+
 # Material's own bundles are content-hashed, but docs/assets/ (theme.css, mathjax.js) is
 # not, so a day rather than a year: long enough to matter, short enough that a style
 # change reaches a returning reader tomorrow.
