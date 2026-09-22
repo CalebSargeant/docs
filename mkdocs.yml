@@ -1,0 +1,445 @@
+# calebsargeant.com/docs — MkDocs Material.
+#
+# Replaces the Sphinx + Read the Docs build that served this corpus until now. The
+# pages are Markdown under docs/, the theme is Material, and the site is published by
+# MagmaMoose/tremvok's `github-pages` target (see .github/workflows/docs.yml).
+#
+# This repo deliberately does NOT `INHERIT: mkdocs.base.yml`. That base belongs to the
+# MagmaMoose fleet and pins site_url to docs.magmamoose.com/<repo>/, which is not where
+# these pages live. Owning the whole file here means `markdown_extensions` and `plugins`
+# below are the complete list rather than a partial override — MkDocs REPLACES lists
+# instead of merging them, so a half-list under INHERIT silently drops the rest.
+
+site_name: Caleb Sargeant's Docs
+site_description: Technical how-to guides, runbooks and study notes on networking, cloud, Linux and automation.
+site_author: Caleb Sargeant
+
+# Canonical address, and the base for <link rel="canonical"> and the sitemap. Points at
+# the GitHub Pages address the deploy actually serves. If the custom domain is attached
+# later (Settings -> Pages -> Custom domain), change this line in the same commit, or
+# every page advertises a canonical URL that is not the one serving it.
+site_url: https://calebsargeant.github.io/docs/
+
+repo_url: https://github.com/CalebSargeant/docs
+repo_name: CalebSargeant/docs
+edit_uri: edit/master/docs/
+
+copyright: Caleb Sargeant
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+  # The house faces from calebsargeant.com: Space Grotesk for display, JetBrains Mono
+  # for code. docs/assets/theme.css carries the rest of that design system across.
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
+  palette:
+    # Dark first, because the site this borrows from declares `color-scheme: dark`
+    # and the reader should not be flashed a white page on the way to it.
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    # A section's own index.rst became its index.md; this makes that page the section
+    # landing page rather than a stray first child.
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+
+extra_css:
+  - assets/theme.css
+
+# The corpus carries five `.. math::` blocks; arithmatex renders them and MathJax is
+# what it hands them to.
+extra_javascript:
+  - assets/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - mdx_truly_sane_lists
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  # Material's own icon set, which is what `:material-lan:` on the landing page
+  # resolves through. Without it that text renders literally.
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  # custom_fences is what turns a ```mermaid block into a diagram. Without it
+  # superfences renders the diagram source as a code listing: no error, no warning.
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Kept in the repository, kept out of the published site.
+#
+# The lab archives, course PDFs and GNS3 projects behind the old `:download:` role come
+# to about 700 MB and include single files of 84 MB. Cloudflare Workers refuses a static
+# asset over 25 MiB and GitHub Pages caps a published site at 1 GB, so shipping them
+# would fail the deploy outright. They still live in git, and every download link now
+# points at raw.githubusercontent.com, so nothing is lost but the bytes on the CDN.
+exclude_docs: |
+  **/_docs/
+  **/_files/
+  *.gns3project
+  *.drawio
+  .DS_Store
+  requirements.txt
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://www.calebsargeant.com
+      name: calebsargeant.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/CalebSargeant
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/calebsargeant
+      name: LinkedIn
+
+nav:
+  - Home: index.md
+  - Networking:
+    - Cisco:
+      - networking/cisco/index.md
+      - Core Security:
+        - networking/cisco/core-security/index.md
+        - Security Concepts:
+          - networking/cisco/core-security/security-concepts/index.md
+          - Comparing Common Vulnerabilities: networking/cisco/core-security/security-concepts/01.-comparing-common-vulnerabilities.md
+          - Explaining Common Threats & Protecting Humans from Attacks: networking/cisco/core-security/security-concepts/02.-explaining-common-threats-and-protecting-humans-from-attacks.md
+          - Describing Security Intelligence: networking/cisco/core-security/security-concepts/03.-describing-security-intelligence.md
+          - Explaining and Interpreting APIs: networking/cisco/core-security/security-concepts/04.-explaining-and-interpreting-apis.md
+        - Network Security Fundamentals:
+          - networking/cisco/core-security/network-security-fundamentals/index.md
+          - Comparing Networking Security Solutions & Deployment Models: networking/cisco/core-security/network-security-fundamentals/01.-comparing-networking-security-solutions-and-deployment-models.md
+          - Describing Components, Capabilities, & Benefits of NetFlow: networking/cisco/core-security/network-security-fundamentals/02.-describing-components-capabilities-and-benefits-of-netflow.md
+          - Securing the Management Plane: networking/cisco/core-security/network-security-fundamentals/03.-securing-the-management-plane.md
+          - Securing the Control Plane and Data Plane on Cisco Routers: networking/cisco/core-security/network-security-fundamentals/04.-securing-the-control-plane-and-data-plane-on-cisco-routers.md
+          - Securing the Control Plane and Data Plane on Cisco Switches: networking/cisco/core-security/network-security-fundamentals/05.-securing-the-control-plane-and-data-plane-on-cisco-switches.md
+          - Configuring Wireless LAN Controller Device Hardening Methods: networking/cisco/core-security/network-security-fundamentals/06.-configuring-wireless-lan-controller-device-hardening-methods.md
+        - Fundamentals from the Book:
+          - networking/cisco/core-security/fundamentals-from-the-book/index.md
+          - Introduction to Cybersecurity: networking/cisco/core-security/fundamentals-from-the-book/introduction.md
+          - Defining Threats, Vulnerabilities, & Exploits: networking/cisco/core-security/fundamentals-from-the-book/definitions.md
+          - Common Software and Hardware Vulnerabilities: networking/cisco/core-security/fundamentals-from-the-book/vulnerabilities.md
+          - CIA: networking/cisco/core-security/fundamentals-from-the-book/cia.md
+          - Cloud Security Threats: networking/cisco/core-security/fundamentals-from-the-book/cloud.md
+          - IoT Security Threats: networking/cisco/core-security/fundamentals-from-the-book/iot.md
+          - Digital Forensics and Incident Response: networking/cisco/core-security/fundamentals-from-the-book/forensics.md
+        - Network Security with Cisco IOS:
+          - networking/cisco/core-security/network-security-with-cisco-ios/index.md
+          - Securely Managing Cisco IOS Devices: networking/cisco/core-security/network-security-with-cisco-ios/1.-securely-managing-cisco-ios-devices.md
+          - Configuring AAA on Cisco IOS Device for Use with Cisco ISE: networking/cisco/core-security/network-security-with-cisco-ios/2.-configuring-aaa-on-cisco-ios-device-for-use-with-cisco-ise.md
+          - Configuring Management Protocols on a Cisco IOS Device: networking/cisco/core-security/network-security-with-cisco-ios/3.-configuring-management-protocols-on-a-cisco-ios-device.md
+          - Managing Cisco IOS Devices with Cisco Prime Infrastructure: networking/cisco/core-security/network-security-with-cisco-ios/4.-managing-cisco-ios-devices-with-cisco-prime-infrastructure.md
+        - Network Security with Cisco ASA:
+          - networking/cisco/core-security/network-security-with-cisco-asa/index.md
+          - Securely Managing Cisco ASA Devices: networking/cisco/core-security/network-security-with-cisco-asa/1.-securely-managing-cisco-asa-devices.md
+          - Configuring AAA on a Cisco ASA For Use with Cisco ISE: networking/cisco/core-security/network-security-with-cisco-asa/2.-configuring-aaa-on-a-cisco-asa-for-use-with-cisco-ise.md
+          - Configuring Management Protocols on a Cisco ASA: networking/cisco/core-security/network-security-with-cisco-asa/3.-configuring-management-protocols-on-a-cisco-asa.md
+          - Managing Cisco ASAs with Cisco Security Manager: networking/cisco/core-security/network-security-with-cisco-asa/4.-managing-cisco-asas-with-cisco-security-manager.md
+        - Network Security with Cisco Firepower:
+          - networking/cisco/core-security/network-security-with-cisco-firepower/index.md
+          - Securely Managing Cisco Firepower Devices: networking/cisco/core-security/network-security-with-cisco-firepower/1.-securely-managing-cisco-firepower-devices.md
+          - Configuring AAA on an FTD Appliance for Use with Cisco ISE: networking/cisco/core-security/network-security-with-cisco-firepower/2.-configuring-aaa-on-an-ftd-appliance-for-use-with-cisco-ise.md
+          - Configuring Management Protocols on a Cisco Firepower: networking/cisco/core-security/network-security-with-cisco-firepower/3.-configuring-management-protocols-on-a-cisco-firepower.md
+          - Managing Multiple Firepowers with Cisco Firepower Management Center: networking/cisco/core-security/network-security-with-cisco-firepower/4.-managing-multiple-firepowers-with-cisco-firepower-management-center.md
+        - Describing and Configuring VPNs:
+          - networking/cisco/core-security/describing-and-configuring-vpns/index.md
+          - Comparing Cryptography Components: networking/cisco/core-security/describing-and-configuring-vpns/1.-comparing-cryptography-components.md
+          - Comparing Cisco VPN Types: networking/cisco/core-security/describing-and-configuring-vpns/2.-comparing-cisco-vpn-types.md
+          - Configuring DMVPN: networking/cisco/core-security/describing-and-configuring-vpns/3.-configuring-dmvpn.md
+          - Configuring FlexVPN: networking/cisco/core-security/describing-and-configuring-vpns/4.-configuring-flexvpn.md
+          - Configuring Cisco AnyConnect on the ASA: networking/cisco/core-security/describing-and-configuring-vpns/5.-configuring-cisco-anyconnect-on-the-asa.md
+          - Configuring Cisco AnyConnect on the FTD: networking/cisco/core-security/describing-and-configuring-vpns/6.-configuring-cisco-anyconnect-on-the-ftd.md
+        - Secure Network Access, Visibility, and Enforcement:
+          - networking/cisco/core-security/secure-network-access-visibility-and-enforcement/index.md
+          - Explaining Exfiltration Techniques: networking/cisco/core-security/secure-network-access-visibility-and-enforcement/1.-explaining-exfiltration-techniques.md
+          - Describing the Benefits of Network Telemetry: networking/cisco/core-security/secure-network-access-visibility-and-enforcement/2.-describing-the-benefits-of-network-telemetry.md
+          - Benefitting from Additional Cisco Security Products: networking/cisco/core-security/secure-network-access-visibility-and-enforcement/3.-benefitting-from-additional-cisco-security-products.md
+          - Implementing Cisco Application Visibility and Control (AVC): networking/cisco/core-security/secure-network-access-visibility-and-enforcement/4.-implementing-cisco-application-visibility-and-control-avc.md
+        - Secure Network Access Using Cisco ISE:
+          - networking/cisco/core-security/secure-network-access-using-cisco-ise/index.md
+          - Describing Identity Management, CoA, and Device Compliance: networking/cisco/core-security/secure-network-access-using-cisco-ise/1.-describing-identity-management-coa-and-device-compliance.md
+          - Configuring Cisco ISE for 802.1X: networking/cisco/core-security/secure-network-access-using-cisco-ise/2.-configuring-cisco-ise-for-802.1x.md
+          - Configuring Cisco IOS for 802.1X and MAB: networking/cisco/core-security/secure-network-access-using-cisco-ise/3.-configuring-cisco-ios-for-802.1x-and-mab.md
+        - Endpoint Protection and Detection with Cisco AMP:
+          - networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/index.md
+          - Explaining Security Concepts to Protect Endpoints: networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/1.-explaining-security-concepts-to-protect-endpoints.md
+          - Assessing Endpoint Posture and Managing Device Inventory: networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/2.-assessing-endpoint-posture-and-managing-device-inventory.md
+          - Using Multi-Factor Authentication: networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/3.-using-multi-factor-authentication.md
+          - Configuring Malware Protection and Outbreak Controls: networking/cisco/core-security/endpoint-protection-and-detection-with-cisco-amp/4.-configuring-malware-protection-and-outbreak-controls.md
+        - Content Security with Cisco WSA & Cisco Umbrella:
+          - networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/index.md
+          - Comparing WSA and Cisco Umbrella: networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/1.-comparing-wsa-and-cisco-umbrella.md
+          - Deploying the Web Security Appliance: networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/2.-deploying-the-web-security-appliance.md
+          - Configuring the WSA as a Secure Internet Gateway: networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/3.-configuring-the-wsa-as-a-secure-internet-gateway.md
+          - Configuring Traffic Redirection on the WSA: networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/4.-configuring-traffic-redirection-on-the-wsa.md
+          - Deploying Cisco Umbrella: networking/cisco/core-security/content-security-with-cisco-wsa-and-cisco-umbrella/5.-deploying-cisco-umbrella.md
+        - Email Security with Cisco ESA:
+          - networking/cisco/core-security/email-security-with-cisco-esa/index.md
+          - Deploying the ESA and Placing It in the Email Path: networking/cisco/core-security/email-security-with-cisco-esa/1.-deploying-the-esa-and-placing-it-in-the-email-path.md
+          - Configuring the ESA to Accept Email: networking/cisco/core-security/email-security-with-cisco-esa/2.-configuring-the-esa-to-accept-email.md
+          - Configuring the Default Incoming Mail Policy: networking/cisco/core-security/email-security-with-cisco-esa/3.-configuring-the-default-incoming-mail-policy.md
+          - Configuring the Default Outgoing Mail Policy and Verifying: networking/cisco/core-security/email-security-with-cisco-esa/4.-configuring-the-default-outgoing-mail-policy-and-verifying.md
+      - Routing:
+        - networking/cisco/routing/index.md
+        - Network Design and Documentation: networking/cisco/routing/design-and-documentation.md
+        - EIGRP: networking/cisco/routing/eigrp.md
+        - OSPF: networking/cisco/routing/ospf.md
+        - Redistribution: networking/cisco/routing/redistribution.md
+        - BGP: networking/cisco/routing/bgp.md
+        - Path Control: networking/cisco/routing/path-control.md
+        - IPv6 Routing: networking/cisco/routing/ipv6-routing.md
+      - Switching:
+        - networking/cisco/switching/index.md
+        - Core Concepts and Design: networking/cisco/switching/core-concepts-and-design.md
+        - VLANs: networking/cisco/switching/vlans.md
+        - STP: networking/cisco/switching/stp.md
+        - Etherchannel: networking/cisco/switching/etherchannel.md
+        - L3 Switching: networking/cisco/switching/l3-switching.md
+        - HSRP, VRRP, and GLBP: networking/cisco/switching/redundancy-in-the-campus.md
+        - Campus Security: networking/cisco/switching/campus-security.md
+        - Campus VoIP: networking/cisco/switching/campus-voip.md
+        - Wireless LAN: networking/cisco/switching/wireless-lan.md
+        - The Switch's Domain: networking/cisco/switching/the-switches-domain.md
+        - Monitoring: networking/cisco/switching/monitoring.md
+        - General: networking/cisco/switching/general.md
+      - MPLS:
+        - networking/cisco/mpls/index.md
+        - Introduction to MPLS: networking/cisco/mpls/introduction-to-mpls.md
+        - MPLS Fundamentals: networking/cisco/mpls/mpls-fundamentals.md
+        - Configuring a Label Switched Network: networking/cisco/mpls/configuring-a-label-switched-network.md
+      - NGFW & NGIPS:
+        - networking/cisco/ngfw-ngips/index.md
+        - Introduction to NGFW & NGIPS: networking/cisco/ngfw-ngips/introduction.md
+        - Networking with Firewall Capabilities: networking/cisco/ngfw-ngips/networking-with-firewall-capabilities.md
+        - High Availability and Clustering: networking/cisco/ngfw-ngips/ha-clustering.md
+        - Implementing Access Control: networking/cisco/ngfw-ngips/access-control.md
+        - FirePOWER Intrusion Policies: networking/cisco/ngfw-ngips/firepower-ips.md
+        - Advanced Malware Protection (AMP): networking/cisco/ngfw-ngips/amp.md
+        - Security Intelligence, Security Updates, and Keeping Firepower Software Up to Date: networking/cisco/ngfw-ngips/security-intelligence.md
+      - DevNet Day:
+        - networking/cisco/devnetday/index.md
+        - Year 2020: networking/cisco/devnetday/2020.md
+      - ACI: networking/cisco/aci.md
+      - ASA: networking/cisco/asa.md
+      - ASAv: networking/cisco/asav.md
+      - DNA: networking/cisco/dna.md
+      - General: networking/cisco/general.md
+      - Genie: networking/cisco/genie.md
+      - ISE: networking/cisco/ise.md
+      - Nexus: networking/cisco/nexus.md
+      - NSO: networking/cisco/nso.md
+      - VIRL: networking/cisco/virl.md
+    - Mikrotik: networking/mikrotik.md
+    - FortiGate: networking/fortigate.md
+    - HP Procurve: networking/hp.md
+    - Juniper: networking/juniper.md
+    - Ubiquiti UniFi: networking/ubiquiti-unifi.md
+    - NetDevOps Tool Chest: networking/netdevops-toolchest.md
+  - Computing:
+    - Ansible:
+      - computing/ansible/index.md
+      - Module Examples: computing/ansible/module-examples.md
+    - Bamboo: computing/bamboo.md
+    - Cloud:
+      - computing/cloud/index.md
+      - AWS: computing/cloud/aws.md
+      - Azure: computing/cloud/azure.md
+      - Cloudflare: computing/cloud/cloudflare.md
+      - DigiCert: computing/cloud/digicert.md
+      - Duo: computing/cloud/duo.md
+      - Openstack: computing/cloud/openstack.md
+    - Docker:
+      - computing/docker/index.md
+      - General: computing/docker/general.md
+      - Creating and Using Containers: computing/docker/creating-and-using-containers.md
+      - Container Images: computing/docker/container-images.md
+      - Container Lifetime & Persistent Data: computing/docker/container-lifetime.md
+      - Docker Compose: computing/docker/compose.md
+      - Swarm: computing/docker/swarm.md
+      - Container Registries: computing/docker/container-registries.md
+    - Kubernetes:
+      - computing/kubernetes/index.md
+      - Certified Kubernetes Administrator (CKA): computing/kubernetes/cka.md
+      - General: computing/kubernetes/general.md
+      - Kubernetes Install: computing/kubernetes/install.md
+      - Exposing Kubernetes Ports: computing/kubernetes/exposing-ports.md
+      - Kubernetes Management Techniques: computing/kubernetes/management-techniques.md
+      - Moving to Declarative YAML: computing/kubernetes/declarative-yaml.md
+      - Future of Kubernetes: computing/kubernetes/next-steps.md
+    - DNS: computing/dns.md
+    - ELK Stack:
+      - computing/elk-stack/index.md
+      - Getting Started: computing/elk-stack/getting-started.md
+    - Jenkins:
+      - computing/jenkins/index.md
+      - Getting Started:
+        - computing/jenkins/getting-started/index.md
+        - Setting up Jenkins: computing/jenkins/getting-started/setting-up-jenkins.md
+        - Building Applications with Freestyle Jobs: computing/jenkins/getting-started/building-applications-with-freestyle-jobs.md
+        - Automating Jobs Configured with Code: computing/jenkins/getting-started/automating-jobs-configured-with-code.md
+        - Colocating Jobs and Source Code with Jenkinsfile: computing/jenkins/getting-started/colocating-jobs-and-source-code-with-jenkinsfile.md
+      - Plugins:
+        - computing/jenkins/plugins/index.md
+        - Understanding Jenkins and the Plugin Model: computing/jenkins/plugins/understanding-jenkins-and-the-plugin-model.md
+        - Installing and Using Plugins: computing/jenkins/plugins/installing-and-using-plugins.md
+        - Writing Custom Plugins: computing/jenkins/plugins/writing-custom-plugins.md
+        - Managing and Upgrading Plugins: computing/jenkins/plugins/managing-and-upgrading-plugins.md
+    - Linux:
+      - computing/linux/index.md
+      - Databases: computing/linux/databases.md
+      - General: computing/linux/general.md
+      - IPTables: computing/linux/iptables.md
+      - KVM: computing/linux/kvm.md
+      - Monitoring: computing/linux/monitoring.md
+      - Nagios: computing/linux/nagios.md
+      - Networking: computing/linux/networking.md
+      - OpenVPN: computing/linux/openvpn.md
+      - Prometheus: computing/linux/prometheus.md
+      - Raspberry Pi: computing/linux/raspberry.md
+      - Storage: computing/linux/storage.md
+      - Training: computing/linux/training.md
+      - UFW: computing/linux/ufw.md
+    - Pentesting:
+      - computing/pentesting/index.md
+      - Network Hacking: computing/pentesting/network-hacking.md
+      - Website Hacking: computing/pentesting/website-hacking.md
+      - Gaining Access: computing/pentesting/gaining-access.md
+      - Post Exploitation: computing/pentesting/post-exploitation.md
+    - Terraform:
+      - computing/terraform/index.md
+      - Getting Started:
+        - computing/terraform/getting-started/index.md
+        - Infrastructure as a Code: computing/terraform/getting-started/infrastructure-as-a-code.md
+        - Deploying Your First Terraform Configuration: computing/terraform/getting-started/first-terraform-configuration.md
+        - Updating Your Configuration with More Resources: computing/terraform/getting-started/updating-configuration-with-more-resources.md
+        - Configuring a Resource After Creation: computing/terraform/getting-started/configuring-a-resource-after-creation.md
+        - Adding a New Provider to Your Configuration: computing/terraform/getting-started/adding-a-new-provider-to-configuration.md
+        - Using Functions and Variables: computing/terraform/getting-started/using-functions-and-variables.md
+        - Using a Module for Common Configurations: computing/terraform/getting-started/using-a-module-for-common-configurations.md
+    - Microsoft:
+      - computing/microsoft/index.md
+      - Backups: computing/microsoft/backups.md
+      - General: computing/microsoft/general.md
+      - Group Policy: computing/microsoft/group-policy.md
+      - Hyper-V: computing/microsoft/hyperv.md
+      - PowerShell: computing/microsoft/powershell.md
+      - Robocopy: computing/microsoft/robocopy.md
+      - Sendkeys: computing/microsoft/sendkeys.md
+      - Unattended Installations: computing/microsoft/unattended.md
+      - Exchange:
+        - computing/microsoft/exchange/index.md
+        - Administration: computing/microsoft/exchange/administration.md
+        - Compliance Management: computing/microsoft/exchange/compliance-management.md
+        - Configuration: computing/microsoft/exchange/configuration.md
+        - Dynamic Access Control: computing/microsoft/exchange/dynamic-access-control.md
+      - Server:
+        - computing/microsoft/server/index.md
+        - Configuration: computing/microsoft/server/configuration.md
+        - Terminal Services: computing/microsoft/server/terminal-services.md
+      - SharePoint:
+        - computing/microsoft/sharepoint/index.md
+        - Configuration: computing/microsoft/sharepoint/configuration.md
+      - SQL Server:
+        - computing/microsoft/sql-server/index.md
+        - Configuration: computing/microsoft/sql-server/configuration.md
+  - Programming:
+    - Bash: programming/bash.md
+    - Python:
+      - programming/python/index.md
+      - Core:
+        - programming/python/core/index.md
+        - Getting Started:
+          - programming/python/core/getting-started/index.md
+          - Scalar Types, Operators, and Control Flow: programming/python/core/getting-started/2-scalar-types-operators-and-control-flow.md
+          - Introducing Strings, Collections, and Iteration: programming/python/core/getting-started/3-introducing-strings-collections-and-iteration.md
+          - Modularity: programming/python/core/getting-started/4-modularity.md
+          - Objects and Types: programming/python/core/getting-started/5-objects-and-types.md
+      - Bootcamp:
+        - programming/python/bootcamp/index.md
+        - Comparison Operators: programming/python/bootcamp/comparison-operators.md
+        - Object and Data Structures: programming/python/bootcamp/object-and-data-structures.md
+        - Statements: programming/python/bootcamp/statements.md
+      - Other:
+        - programming/python/other/index.md
+        - Arguments: programming/python/other/args.md
+        - Errors: programming/python/other/errors.md
+        - Functions: programming/python/other/functions.md
+        - JSON: programming/python/other/json.md
+        - Objects: programming/python/other/objects.md
+        - Print & Open: programming/python/other/print-open.md
+        - Randomness: programming/python/other/randomness.md
+        - Requests: programming/python/other/requests.md
+        - Strings: programming/python/other/strings.md
+        - Virtualenv: programming/python/other/virtualenv.md
+  - Other:
+    - API:
+      - other/api/index.md
+      - NETCONF: other/api/netconf.md
+      - Postman: other/api/postman.md
+      - RESTCONF: other/api/restconf.md
+      - YANG: other/api/yang.md
+    - General:
+      - other/general/index.md
+      - Documentation: other/general/documentation.md
+      - Download Videos: other/general/download-videos.md
+      - Host Setup: other/general/host-setup.md
+      - Printing: other/general/printing.md
+      - Reading: other/general/reading.md
+      - Hardware Troubleshooting: other/general/troubleshooting-hardware.md
+    - iPerf3: other/iperf.md

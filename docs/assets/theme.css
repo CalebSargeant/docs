@@ -1,0 +1,360 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   theme.css — the calebsargeant.com design language, applied to MkDocs Material.
+
+   The token names, values and intent come from the site stylesheet in
+   CalebSargeant/website (assets/site.css, specified by docs/design-system.md
+   there). This file does not invent colours: it restates that palette and then
+   maps it onto the CSS custom properties Material actually reads.
+
+   Two layers, in this order:
+     1. the house tokens, per colour scheme
+     2. the Material variables those tokens drive
+
+   Material is told `primary: custom` and `accent: custom` in mkdocs.yml, which
+   is what makes it read --md-primary-fg-color / --md-accent-fg-color from here
+   rather than shipping one of its stock palettes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ── 1. House tokens ─────────────────────────────────────────────────────── */
+
+:root {
+  /* type */
+  --cs-font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --cs-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --cs-tracking-display: -0.035em;
+  --cs-tracking-kicker: 0.24em;
+
+  /* geometry */
+  --cs-radius-card: 20px;
+  --cs-radius-panel: 14px;
+  --cs-radius-btn: 11px;
+  --cs-radius-chip: 7px;
+
+  /* motion — theme independent, so it needs no second definition below */
+  --cs-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --cs-dur: 220ms;
+}
+
+/* Dark is the default scheme, matching the site's `color-scheme: dark`. */
+[data-md-color-scheme="slate"] {
+  --cs-ink: #080B10;
+  --cs-ink-2: #0D131B;
+  --cs-ink-3: #121A24;
+  --cs-line: rgba(255, 255, 255, 0.075);
+  --cs-line-2: rgba(255, 255, 255, 0.14);
+
+  --cs-fg: #EAF2F8;
+  --cs-fg-dim: #9FB3C4;
+  --cs-fg-mute: #748A9F;
+
+  --cs-sig: #38E1FF;
+  --cs-sig-2: #4C6FFF;
+  --cs-sig-ink: #7FEAFF;
+  --cs-sig-wash: rgba(56, 225, 255, 0.08);
+
+  --cs-live: #4ADE80;
+  --cs-warn: #FBBF24;
+  --cs-crit: #F87171;
+
+  color-scheme: dark;
+}
+
+/* The light scheme redefines the listed names and nothing else. A colour that
+   existed only here would be undefined in dark, which is why the block above
+   carries every base definition. */
+[data-md-color-scheme="default"] {
+  --cs-ink: #F7FAFC;
+  --cs-ink-2: #FFFFFF;
+  --cs-ink-3: #EEF3F8;
+  --cs-line: rgba(8, 11, 16, 0.10);
+  --cs-line-2: rgba(8, 11, 16, 0.18);
+
+  --cs-fg: #0B1219;
+  --cs-fg-dim: #44586B;
+  --cs-fg-mute: #596E82;
+
+  --cs-sig: #0891B2;
+  --cs-sig-2: #3B4FE0;
+  --cs-sig-ink: #0E7490;
+  --cs-sig-wash: rgba(8, 145, 178, 0.07);
+
+  --cs-live: #15803D;
+  --cs-warn: #B45309;
+  --cs-crit: #B91C1C;
+
+  color-scheme: light;
+}
+
+
+/* ── 2. Material's variables, driven from those tokens ───────────────────── */
+
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--cs-ink-2);
+  --md-primary-fg-color--light: var(--cs-ink-3);
+  --md-primary-fg-color--dark: var(--cs-ink);
+  --md-primary-bg-color: var(--cs-fg);
+  --md-primary-bg-color--light: var(--cs-fg-dim);
+
+  --md-accent-fg-color: var(--cs-sig);
+  --md-accent-fg-color--transparent: var(--cs-sig-wash);
+  --md-accent-bg-color: var(--cs-ink);
+
+  --md-default-bg-color: var(--cs-ink);
+  --md-default-fg-color: var(--cs-fg);
+  --md-default-fg-color--light: var(--cs-fg-dim);
+  --md-default-fg-color--lighter: var(--cs-fg-mute);
+  --md-default-fg-color--lightest: var(--cs-line-2);
+
+  --md-typeset-color: var(--cs-fg);
+  --md-typeset-a-color: var(--cs-sig);
+  --md-typeset-mark-color: var(--cs-sig-wash);
+
+  --md-code-bg-color: var(--cs-ink-2);
+  --md-code-fg-color: var(--cs-fg);
+  --md-code-hl-comment-color: var(--cs-fg-mute);
+  --md-code-hl-string-color: var(--cs-live);
+  --md-code-hl-number-color: var(--cs-warn);
+  --md-code-hl-keyword-color: var(--cs-sig-ink);
+  --md-code-hl-function-color: var(--cs-sig-2);
+
+  --md-footer-bg-color: var(--cs-ink-2);
+  --md-footer-bg-color--dark: var(--cs-ink);
+  --md-footer-fg-color: var(--cs-fg);
+  --md-footer-fg-color--light: var(--cs-fg-dim);
+  --md-footer-fg-color--lighter: var(--cs-fg-mute);
+}
+
+
+/* ── 3. Shell ────────────────────────────────────────────────────────────── */
+
+body {
+  background: var(--cs-ink);
+}
+
+.md-header {
+  background: var(--cs-ink-2);
+  border-bottom: 1px solid var(--cs-line);
+  box-shadow: none;
+}
+
+.md-tabs {
+  background: var(--cs-ink-2);
+  border-bottom: 1px solid var(--cs-line);
+}
+
+/* The wordmark gets the display face and the site's tight display tracking. */
+.md-header__title,
+.md-ellipsis {
+  font-family: var(--cs-font-display);
+  letter-spacing: var(--cs-tracking-display);
+  font-weight: 600;
+}
+
+.md-search__form {
+  border-radius: var(--cs-radius-btn);
+  background: var(--cs-ink-3);
+  border: 1px solid var(--cs-line);
+}
+
+.md-search__form:hover {
+  background: var(--cs-ink-3);
+  border-color: var(--cs-line-2);
+}
+
+.md-search__input::placeholder {
+  color: var(--cs-fg-mute);
+}
+
+
+/* ── 4. Typography ───────────────────────────────────────────────────────── */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: var(--cs-font-display);
+  letter-spacing: var(--cs-tracking-display);
+  color: var(--cs-fg);
+  font-weight: 600;
+}
+
+.md-typeset h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+
+/* A hairline under each H2 does the sectioning that Material otherwise leaves to
+   whitespace alone. These pages run long, so the rule earns its place. */
+.md-typeset h2 {
+  border-bottom: 1px solid var(--cs-line);
+  padding-bottom: 0.3em;
+  margin-top: 2.2em;
+}
+
+/* An H2 straight after the page title needs the rule but not the gap: there is
+   nothing above it to be separated from. */
+.md-typeset h1 + h2 {
+  margin-top: 1em;
+}
+
+.md-typeset a {
+  color: var(--cs-sig);
+  text-decoration-color: color-mix(in srgb, var(--cs-sig) 40%, transparent);
+  text-underline-offset: 0.18em;
+  transition: color var(--cs-dur) var(--cs-ease);
+}
+
+.md-typeset a:hover {
+  color: var(--cs-sig-ink);
+}
+
+
+/* ── 5. Code ─────────────────────────────────────────────────────────────── */
+
+.md-typeset code,
+.md-typeset pre > code,
+.md-typeset kbd {
+  font-family: var(--cs-font-mono);
+  font-feature-settings: "liga" 0;
+}
+
+/* Inline code reads as a chip, which is what distinguishes the 450-odd command
+   fragments in this corpus from the prose around them. */
+.md-typeset :not(pre) > code {
+  background: var(--cs-sig-wash);
+  color: var(--cs-sig-ink);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-radius-chip);
+  padding: 0.12em 0.38em;
+  font-size: 0.85em;
+}
+
+.md-typeset pre > code {
+  border-radius: var(--cs-radius-panel);
+  border: 1px solid var(--cs-line);
+}
+
+.md-typeset .highlight > pre {
+  border-radius: var(--cs-radius-panel);
+}
+
+
+/* ── 6. Blocks ───────────────────────────────────────────────────────────── */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: var(--cs-radius-panel);
+  border: 1px solid var(--cs-line);
+  border-left-width: 3px;
+  background: var(--cs-ink-2);
+  box-shadow: none;
+  font-size: 0.75rem;
+}
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-left-color: var(--cs-sig);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-left-color: var(--cs-warn);
+}
+
+.md-typeset table:not([class]) {
+  border-radius: var(--cs-radius-panel);
+  border: 1px solid var(--cs-line);
+  background: var(--cs-ink-2);
+  font-size: 0.72rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--cs-ink-3);
+  color: var(--cs-fg);
+  font-family: var(--cs-font-display);
+  letter-spacing: 0.01em;
+}
+
+.md-typeset blockquote {
+  border-left: 3px solid var(--cs-sig);
+  color: var(--cs-fg-dim);
+}
+
+/* This corpus is 1,300 screenshots and diagrams. Sphinx sized them in fixed
+   pixels; those options were dropped in the migration, so the rule that keeps
+   them inside the measure lives here instead. */
+.md-typeset img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--cs-radius-panel);
+  border: 1px solid var(--cs-line);
+  background: var(--cs-ink-2);
+}
+
+.md-typeset figure img {
+  margin-bottom: 0.4rem;
+}
+
+.md-typeset figcaption {
+  color: var(--cs-fg-mute);
+  font-size: 0.72rem;
+}
+
+
+/* ── 7. Navigation ───────────────────────────────────────────────────────── */
+
+.md-nav {
+  font-size: 0.7rem;
+}
+
+.md-nav__title {
+  font-family: var(--cs-font-display);
+  letter-spacing: var(--cs-tracking-kicker);
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  color: var(--cs-fg-mute);
+}
+
+.md-nav__link--active,
+.md-nav__link:focus,
+.md-nav__link:hover {
+  color: var(--cs-sig);
+}
+
+.md-sidebar--secondary .md-nav__link--active {
+  font-weight: 600;
+}
+
+.md-typeset .md-button {
+  border-radius: var(--cs-radius-btn);
+  border-color: var(--cs-sig);
+  color: var(--cs-sig);
+}
+
+.md-typeset .md-button:hover {
+  background: var(--cs-sig);
+  color: var(--cs-ink);
+  border-color: var(--cs-sig);
+}
+
+.md-footer-meta {
+  background: var(--cs-ink);
+  border-top: 1px solid var(--cs-line);
+}
+
+
+/* ── 8. Reduced motion ───────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

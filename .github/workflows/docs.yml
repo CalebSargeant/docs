@@ -1,0 +1,69 @@
+# Build the MkDocs site and publish it to GitHub Pages.
+#
+# The build is MagmaMoose/tremvok's `github-pages` target: it installs the pinned
+# toolchain from docs/requirements.txt, runs the repo-shape checks, and builds with
+# `--strict`, so a broken internal link or a nav entry naming a missing page fails here
+# rather than publishing a site with holes in it.
+#
+# TWO JOBS, and the split is not a preference. `actions/deploy-pages` requires
+# `pages: write` and the `github-pages` environment, and a composite action can declare
+# neither, so tremvok builds and stages the artifact and the job below publishes it.
+# The environment name is fixed: GitHub creates `github-pages` when Pages' source is set
+# to "GitHub Actions", and deploy-pages expects exactly that name.
+#
+# A PULL REQUEST PUBLISHES NOTHING. Pages has one site and no preview destination, so
+# publishing to it is publishing. tremvok resolves a pull request to `mode: preview`,
+# which builds and checks without staging an artifact. The strict build is the check.
+#
+# Before the first run: Settings -> Pages -> Source = "GitHub Actions". Once.
+name: Docs
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'README.md'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'README.md'
+      - '.github/workflows/docs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Serialised rather than cancelled: a half-finished Pages deploy is worse than a slow
+# one, and `cancel-in-progress` on the publishing job is how you get one.
+concurrency:
+  group: docs
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MagmaMoose/tremvok@v2
+        with:
+          target: github-pages
+          pages-strict: true
+
+  deploy:
+    name: Publish
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

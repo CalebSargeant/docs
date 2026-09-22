@@ -1,24 +1,40 @@
-<!-- Quality & Security Overview -->
-[![CodeQL](https://github.com/CalebSargeant/docs/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/CalebSargeant/docs/actions/workflows/github-code-scanning/codeql)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=alert_status&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=security_rating&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Known Vulnerabilities](https://snyk.io/test/github/MagmaMoose/pentesting/badge.svg)](https://snyk.io/test/github/MagmaMoose/pentesting)
+# Caleb Sargeant's Docs
 
-<!-- Code Quality & Maintainability -->
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=sqale_rating&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=reliability_rating&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=sqale_index&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
+Technical how-to guides, runbooks and study notes: networking, cloud, Linux,
+containers and the automation around them. Published with MkDocs Material at
+**<https://calebsargeant.github.io/docs/>**.
 
-<!-- Code Metrics -->
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=coverage&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=bugs&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=vulnerabilities&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=code_smells&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
+[![Docs](https://github.com/CalebSargeant/docs/actions/workflows/docs.yml/badge.svg)](https://github.com/CalebSargeant/docs/actions/workflows/docs.yml)
+[![Release](https://github.com/CalebSargeant/docs/actions/workflows/release.yml/badge.svg)](https://github.com/CalebSargeant/docs/actions/workflows/release.yml)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=alert_status&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
 
-<!-- Project Stats -->
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=ncloc&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=CalebSargeant_docs&metric=duplicated_lines_density&token=ebfb6b12c8469925ada2be9a1af34b9679e55d40)](https://sonarcloud.io/summary/new_code?id=CalebSargeant_docs)
+## Writing
 
-# Docs
+Pages are Markdown under `docs/`, one directory per topic. The nav is explicit
+in `mkdocs.yml`: a new page has to be added there or it will not appear, which
+is deliberate — this corpus is large enough that an automatic nav is unreadable.
 
-A place for all of my technical how-to guides, documentation, study notes, random notes and things I jot down, etc.
+Images sit in `_images/` beside the page using them. Large downloads (lab
+archives, GNS3 projects, course PDFs) live in `_docs/`, are excluded from the
+built site and are linked from `raw.githubusercontent.com`: together they
+exceed what a static host will serve.
+
+## Building
+
+```bash
+pip install -r docs/requirements.txt
+mkdocs serve            # preview on http://127.0.0.1:8000
+mkdocs build --strict   # as CI runs it; a broken link fails the build
+```
+
+## Shipping
+
+`.github/workflows/docs.yml` builds with
+[tremvok](https://github.com/MagmaMoose/tremvok) (`target: github-pages`) and
+publishes to GitHub Pages; `.github/workflows/release.yml` tags and releases
+with [diatreme](https://github.com/MagmaMoose/diatreme). A pull request builds
+and checks without publishing, because Pages has no preview destination.
+
+## Licence
+
+GPL-3.0. See [LICENSE](LICENSE).

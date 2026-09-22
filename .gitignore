@@ -1,1 +1,12 @@
 .DS_Store
+
+# `mkdocs build` output. Rebuilt by CI on every deploy, so a committed copy could
+# only ever disagree with docs/. The previous Sphinx setup committed its `build/`
+# directory and accumulated 755 MB of stale HTML doing exactly that.
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

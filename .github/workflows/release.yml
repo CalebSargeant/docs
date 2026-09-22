@@ -1,0 +1,55 @@
+# Version and release the docs corpus with MagmaMoose/diatreme.
+#
+# Every merge to master cuts a tag and a GitHub Release, so a published page can always
+# be traced back to a version rather than to "whatever master was that day".
+#
+# THREE INPUTS ARE DELIBERATE, not boilerplate:
+#
+#   versioning-tool: gitversion
+#     `auto` resolves the backend from repository markers — pyproject.toml, package.json,
+#     a *.csproj. A documentation repository has none of them, and autodetection treats
+#     "no markers at all" as an error rather than a default. GitVersion is the one backend
+#     that derives a version from git history alone, which is all there is here. It runs
+#     on its built-in defaults; no GitVersion.yml is needed, and diatreme checks out at
+#     fetch-depth 0 with tags, which is what GitVersion needs to see.
+#
+#   auth-mode: github-token
+#     The default, `public-app`, exchanges an OIDC token for a Diatreme GitHub App
+#     installation token through the hosted broker. That buys cross-repository rights
+#     this workflow has no use for: it tags and releases inside its own repository, which
+#     the workflow's own GITHUB_TOKEN can do with `contents: write`. Fewer moving parts,
+#     one less prerequisite, and no broker in the path of a docs release.
+#
+#   environments: ["prod"]
+#     The default profile is ["dev","staging","prod"], and with `deployment-model: tbd`
+#     the run must name an environment that is in the list. Docs promote nowhere; there
+#     is one destination. The last entry is always production, so a single-entry list
+#     means every release is a stable semver rather than a prerelease.
+name: Release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Never cut two releases at once: a release mints tags, and a second push queues behind
+# the first rather than cancelling it half way through.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Version and release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MagmaMoose/diatreme@v2
+        with:
+          mode: release
+          versioning-tool: gitversion
+          auth-mode: github-token
+          environment: prod
+          environments: '["prod"]'
