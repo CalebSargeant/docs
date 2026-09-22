@@ -1,0 +1,13 @@
+# The docs build, pinned. `target: github-pages` finds this at the default
+# `pages-requirements` path and installs it with pip.
+#
+# Pinned rather than floating because the thing that renders the published site
+# should not change underneath a commit that did not ask it to.
+mkdocs==1.6.1
+mkdocs-material==9.5.49
+pymdown-extensions==10.12
+# Python-Markdown requires FOUR spaces to nest a list; CommonMark (and pandoc, which
+# produced these pages) uses two. Without this the nested bullets throughout the
+# corpus render as one flat list — no warning, just wrong. It teaches Python-Markdown
+# the two-space rule, so the Markdown in the repo and the published page agree.
+mdx-truly-sane-lists==1.3
