@@ -46,7 +46,14 @@ jobs:
     name: Version and release
     runs-on: ubuntu-latest
     steps:
-      - uses: MagmaMoose/diatreme@v2
+      # Pinned to a commit rather than the floating @v2. A tag is a mutable pointer:
+      # whoever can write the repository can move it, so pinning to one means running
+      # whatever it names at the time the workflow runs. SonarCloud's security rating
+      # gates on this (githubactions:S7637), and it is how tremvok and diatreme pin
+      # their own third-party actions. The trade is that patches no longer arrive on
+      # their own — bump the SHA and the comment together, or let Dependabot's
+      # github-actions ecosystem do it.
+      - uses: MagmaMoose/diatreme@9c38b80a4abac3bbe0194a92a4ffc6c284bd8e82 # v2.14.2
         with:
           mode: release
           versioning-tool: gitversion
