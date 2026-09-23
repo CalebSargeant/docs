@@ -335,6 +335,13 @@ nav:
       - Kubernetes Management Techniques: computing/kubernetes/management-techniques.md
       - Moving to Declarative YAML: computing/kubernetes/declarative-yaml.md
       - Future of Kubernetes: computing/kubernetes/next-steps.md
+      - AKS in a Hub-and-Spoke Landing Zone:
+        - computing/kubernetes/aks-landing-zone/index.md
+        - Networking: computing/kubernetes/aks-landing-zone/networking.md
+        - VNet Peering: computing/kubernetes/aks-landing-zone/vnet-peering.md
+        - Terraform Reference: computing/kubernetes/aks-landing-zone/terraform.md
+        - Service Exposure: computing/kubernetes/aks-landing-zone/service-exposure.md
+        - Decommissioning: computing/kubernetes/aks-landing-zone/decommissioning.md
     - DNS: computing/dns.md
     - ELK Stack:
       - computing/elk-stack/index.md
