@@ -1,0 +1,8 @@
+{#- Material's logo partial with a real alt text. Its own says "logo", which is what a
+    screen reader announces and what an image search indexes for Caleb's face. -#}
+{% if config.theme.logo %}
+  <img src="{{ config.theme.logo | url }}" alt="{{ config.site_author }}">
+{% else %}
+  {% set icon = config.theme.icon.logo or "material/library" %}
+  {% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}

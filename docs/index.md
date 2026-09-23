@@ -1,3 +1,9 @@
+---
+# The <title> of the home page, which Material otherwise sets to the bare site name.
+# Search results show it as the link text, so it says what is here.
+title: Networking, cloud and Linux notes
+---
+
 # Caleb Sargeant's Docs
 
 Technical how-to guides, runbooks, study notes and the things worth writing down

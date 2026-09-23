@@ -17,9 +17,11 @@ to install: MkDocs imports this file and calls the functions below by name.
     Material emits neither without its social plugin, which needs Cairo and Pillow in CI
     to render a card per page. The graph names the Person node calebsargeant.com already
     publishes (by ``@id``), so a crawler attaches these pages to the entity it knows
-    instead of inventing a second Caleb Sargeant. Built here with ``json.dumps`` rather
-    than in Jinja, because hand-assembled JSON in a template is one stray quote in a page
-    title away from a graph no crawler can parse.
+    instead of inventing a second Caleb Sargeant. Every page but the home page also gets a
+    BreadcrumbList, which is what lets a result show its section path instead of a bare
+    URL. Built here with ``json.dumps`` rather than in Jinja, because hand-assembled JSON
+    in a template is one stray quote in a page title away from a graph no crawler can
+    parse.
 
 ``on_post_build``
     Writes ``/.well-known/security.txt`` (RFC 9116) with an ``Expires`` computed at
@@ -55,7 +57,13 @@ PERSON = {
     "@id": "https://calebsargeant.com/#person",
     "name": "Caleb Sargeant",
     "url": "https://calebsargeant.com/",
-    "sameAs": ["https://github.com/CalebSargeant", "https://www.linkedin.com/in/calebsargeant/"],
+    "image": "https://calebsargeant.com/assets/img/caleb.jpg",
+    "sameAs": [
+        "https://github.com/CalebSargeant",
+        "https://www.linkedin.com/in/calebsargeant/",
+        "https://www.credly.com/users/calebsargeant/badges",
+        "https://www.udemy.com/user/caleb-sargeant/",
+    ],
 }
 
 #: The 1200x630 card calebsargeant.com renders for itself. The same person and the same
@@ -161,6 +169,29 @@ def on_page_markdown(markdown, page, config, files):  # noqa: ARG001 - MkDocs' h
     return markdown
 
 
+def breadcrumbs(page, site_url: str, site_name: str) -> dict:
+    """The page's place in the nav as a BreadcrumbList, which search results show as its path.
+
+    Home, then every ancestor section that has a landing page, then the page itself. A
+    section without an index.md has no URL to point at, and Google wants an ``item`` on every
+    crumb but the last, so such a section is left out rather than named without a link.
+    """
+    crumbs = [(site_name, site_url)]
+    for section in reversed(page.ancestors):
+        index = next((c for c in section.children if getattr(c, "is_index", False)), None)
+        if index is not None and index is not page:
+            crumbs.append((section.title, index.canonical_url))
+    crumbs.append((page.title, page.canonical_url))
+    return {
+        "@type": "BreadcrumbList",
+        "@id": f"{page.canonical_url}#breadcrumb",
+        "itemListElement": [
+            {"@type": "ListItem", "position": n, "name": name, "item": url}
+            for n, (name, url) in enumerate(crumbs, start=1)
+        ],
+    }
+
+
 def on_page_context(context, page, config, nav):  # noqa: ARG001 - MkDocs' hook signature
     site_url = config.get("site_url") or ""
     url = page.canonical_url or site_url
@@ -196,7 +227,9 @@ def on_page_context(context, page, config, nav):  # noqa: ARG001 - MkDocs' hook 
         }
         if trail:
             article["articleSection"] = " / ".join(trail)
-        graph.append(article)
+        crumbs = breadcrumbs(page, site_url, config["site_name"])
+        article["breadcrumb"] = {"@id": crumbs["@id"]}
+        graph += [article, crumbs]
     context["seo"] = {
         "type": "website" if page.is_homepage else "article",
         "title": title,
