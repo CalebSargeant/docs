@@ -30,3 +30,22 @@
   <script type="application/ld+json">{{ seo.jsonld }}</script>
   {% endif %}
 {% endblock %}
+
+{#- Nievah, Magma Moose's assistant, answering questions about Caleb from his CV and
+    these notes (ai.md explains her). The element and docs/assets/nievah/ are
+    vendored from MagmaMoose/nievah, the same files calebsargeant.com carries; copy
+    them from that repo's assets/nievah/ when it updates them. Her backend,
+    chat.magmamoose.com, recognises this origin, and docs/_headers names it in
+    connect-src. Outside Material's instant-navigation containers, so the chat
+    survives moving between pages. It makes no request until someone sends a
+    message and writes nothing to the device. -#}
+{% block scripts %}
+  {{ super() }}
+  <nievah-chat api="https://chat.magmamoose.com" contact="contact@calebsargeant.com"
+               contact-label="email Caleb" placeholder="Ask about Caleb…"
+               intro="Hi, I'm Nievah, the AI assistant from Magma Moose, the studio Caleb co-founded. Ask me about his experience and skills, or whether he fits your role."
+               suggestions="What has Caleb done with Kubernetes?|Which certifications does Caleb hold?|Is Caleb a good fit for a network engineering role?"
+               avatar-src="{{ 'assets/nievah/nievah-avatar-88.png' | url }}"
+               avatar-srcset="{{ 'assets/nievah/nievah-avatar-44.png' | url }} 44w, {{ 'assets/nievah/nievah-avatar-88.png' | url }} 88w, {{ 'assets/nievah/nievah-avatar-132.png' | url }} 132w"></nievah-chat>
+  <script type="module" src="{{ 'assets/nievah/nievah-chat.js' | url }}"></script>
+{% endblock %}

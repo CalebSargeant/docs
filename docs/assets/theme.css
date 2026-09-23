@@ -377,3 +377,11 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ── Nievah ──────────────────────────────────────────────────────────────── */
+
+/* The chat widget (overrides/main.html) reads --font-sans through its shadow
+   root and falls back to a face this site does not load, so it gets the text
+   face Material already has. */
+nievah-chat { --font-sans: var(--md-text-font-family); }

@@ -35,6 +35,16 @@ publishes `llms.txt`, `llms-full.txt` and the corpus that
 [mcp.calebsargeant.com](https://mcp.calebsargeant.com/) searches. Pull requests
 build without publishing. `release.yml` tags with [diatreme](https://github.com/MagmaMoose/diatreme).
 
+## Asking an AI
+
+[`docs/ai.md`](docs/ai.md) explains how to point Claude, Claude Code, Codex or
+ChatGPT at mcp.calebsargeant.com. Every page also carries Nievah, Magma Moose's
+chat assistant, added in `overrides/main.html`. Her script and avatars under
+`docs/assets/nievah/` are vendored copies of the ones calebsargeant.com carries
+(`make widget` there refreshes them); copy them across when that repo updates
+them. Her backend, chat.magmamoose.com, knows this origin, and `docs/_headers`
+allows it in `connect-src`.
+
 ## Licence
 
 GPL-3.0. See [LICENSE](LICENSE).
