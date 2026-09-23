@@ -411,6 +411,65 @@ nav:
       - SQL Server:
         - computing/microsoft/sql-server/index.md
         - Configuration: computing/microsoft/sql-server/configuration.md
+  - Platform:
+    - platform/index.md
+    - Architecture: platform/architecture.md
+    - Setup: platform/setup.md
+    - Onboarding & Access: platform/onboarding.md
+    - Reference:
+      - platform/reference/index.md
+      - The Edge Capture Platform: platform/reference/capture-platform.md
+      - Environments: platform/reference/environments.md
+      - AWS Accounts & Access: platform/reference/aws-accounts.md
+      - Terraform:
+        - Terragrunt Foundation: platform/reference/terraform-overview.md
+        - State & Backends: platform/reference/terraform-state.md
+        - AWS Network & Edge: platform/reference/terraform-aws-network-edge.md
+        - AWS Platform & Data: platform/reference/terraform-aws-platform-data.md
+        - Azure: platform/reference/terraform-azure.md
+        - Drift Register: platform/reference/terraform-drift.md
+      - Network Addressing (IPAM): platform/reference/network-addressing.md
+      - Kubernetes:
+        - GitOps with Flux: platform/reference/gitops-flux.md
+        - Applications: platform/reference/kubernetes-apps.md
+        - Utility Workloads: platform/reference/kubernetes-utils.md
+        - Controllers & Configs: platform/reference/kubernetes-controllers.md
+        - Observability: platform/reference/kubernetes-observability.md
+        - Data Services: platform/reference/kubernetes-data-services.md
+        - Security & AppSec Services: platform/reference/kubernetes-security-services.md
+      - DNS & Certificates: platform/reference/dns-and-certificates.md
+      - Ansible: platform/reference/ansible.md
+      - CI/CD & Tooling: platform/reference/cicd-and-tooling.md
+      - Releases & Promotion: platform/reference/releases-and-promotion.md
+      - Alerting & On-Call: platform/reference/alerting-and-on-call.md
+      - Incident Response: platform/reference/incident-response.md
+      - Rollback Procedures: platform/reference/rollback.md
+      - Secrets (SOPS + Age): platform/reference/secrets-sops.md
+      - Secret Stores & Key Custody: platform/reference/secret-stores.md
+      - Backup & Disaster Recovery: platform/reference/backup-and-restore.md
+      - Tagging & Cost Conventions: platform/reference/tagging-and-cost.md
+      - Legacy & Orphans: platform/reference/legacy-and-orphans.md
+    - Handover:
+      - platform/handover/index.md
+      - CI/CD & Notifications: platform/handover/cicd-and-notifications.md
+      - Client VPN: platform/handover/client-vpn.md
+      - Offboarding & Revocation: platform/handover/offboarding.md
+    - Utilities:
+      - platform/utils/index.md
+      - Prometheus Exporters: platform/utils/exporters.md
+      - Router Fleet Tooling: platform/utils/router-fleet.md
+      - Camera & Capture Utilities: platform/utils/camera-capture.md
+      - Storage & Data Ops: platform/utils/storage-data.md
+      - Cluster Housekeeping: platform/utils/cluster-housekeeping.md
+    - Runbooks:
+      - platform/runbooks/index.md
+      - Flux Bootstrap: platform/runbooks/flux-bootstrap.md
+      - SOPS Decryption: platform/runbooks/sops-decryption.md
+      - EKS Node Disk Cleanup: platform/runbooks/eks-node-disk-cleanup.md
+      - RDS Snapshot Export: platform/runbooks/rds-snapshot-export.md
+      - MikroTik IPsec: platform/runbooks/vpn-mikrotik-ipsec.md
+      - GitHub App Setup: platform/runbooks/github-app-setup.md
+      - Camera Site Allow-List: platform/runbooks/camera-site-allow-list.md
   - Programming:
     - Bash: programming/bash.md
     - Python:
