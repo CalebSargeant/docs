@@ -7,6 +7,11 @@
 
 {% block extrahead %}
   {{ super() }}
+  {#- Beside the 32px favicon Material links from theme.favicon: a 192px icon for Google,
+      which shows one next to each result and asks for more than 48px, and the touch icon
+      iOS uses for a bookmark. Outside the `seo` guard, so the 404 page has them too. #}
+  <link rel="icon" href="{{ 'assets/images/portrait-192.png' | url }}" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="{{ 'assets/images/apple-touch-icon.png' | url }}">
   {% if seo %}
   <meta property="og:type" content="{{ seo.type }}">
   <meta property="og:site_name" content="{{ config.site_name | e }}">

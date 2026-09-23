@@ -35,6 +35,14 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
+  # The portrait, face-cropped, as the tab icon and the header logo: the same icons
+  # calebsargeant.com uses, so both sites read as one person. Copied from that repo's
+  # assets/ (favicon-32.png, icon-192.png, apple-touch-icon.png and favicon.ico), where
+  # scripts/render_images.py generates them. Re-copy them if the photo ever changes.
+  # overrides/main.html links the 192px and touch icons; docs/favicon.ico answers the
+  # /favicon.ico request browsers and crawlers make without reading any HTML.
+  favicon: assets/images/portrait-32.png
+  logo: assets/images/portrait-192.png
   # The house faces from calebsargeant.com: Space Grotesk for display, JetBrains Mono
   # for code. docs/assets/theme.css carries the rest of that design system across.
   font:

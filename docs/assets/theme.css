@@ -144,6 +144,13 @@ body {
   border-bottom: 1px solid var(--cs-line);
 }
 
+/* The logo is a portrait, not a glyph: at Material's 1.2rem a face is a smudge, and
+   1.6rem still sits inside the 2.4rem header. */
+.md-header__button.md-logo img {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
 /* The wordmark gets the display face and the site's tight display tracking. */
 .md-header__title,
 .md-ellipsis {
