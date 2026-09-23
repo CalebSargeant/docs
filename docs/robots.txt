@@ -16,4 +16,8 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
+# The AI Catalog, for agent registries that read robots.txt for it (the Agentmap line from
+# the Agentic Resource Discovery draft). Crawlers that do not know the directive ignore it.
+Agentmap: https://docs.calebsargeant.com/.well-known/ai-catalog.json
+
 Sitemap: https://docs.calebsargeant.com/sitemap.xml
