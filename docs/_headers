@@ -77,6 +77,13 @@
   Content-Type: application/ai-catalog+json
   Access-Control-Allow-Origin: *
 
+# AGENT SKILLS. tremvok's agent-readiness step writes an Agent Skills index and one SKILL.md
+# into the built site. A client verifies the SKILL.md against the digest in the index, and the
+# discovery RFC asks for CORS where that client may be a browser. SKILL.md is served as
+# markdown by the /*.md rule above, and index.json as JSON without a rule.
+/.well-known/agent-skills/*
+  Access-Control-Allow-Origin: *
+
 # Material's own bundles are content-hashed, but docs/assets/ (theme.css, mathjax.js) is
 # not, so a day rather than a year: long enough to matter, short enough that a style
 # change reaches a returning reader tomorrow.

@@ -169,6 +169,12 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/calebsargeant
       name: LinkedIn
+  # Read by tremvok's agent-readiness step (the release after v2.10.2, see docs.yml). The
+  # site's skill names this MCP server beside llms.txt and the markdown copies, and auth.md
+  # points at the server's own OAuth metadata for its access rather than restating it. The
+  # same server hooks/seo.py's AI and API catalogs name. MkDocs itself ignores the block.
+  agents:
+    mcp: https://mcp.calebsargeant.com/
 
 nav:
   - Home: index.md
