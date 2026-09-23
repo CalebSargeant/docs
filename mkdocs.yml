@@ -172,6 +172,7 @@ extra:
 
 nav:
   - Home: index.md
+  - Ask an AI: ai.md
   - Networking:
     - Cisco:
       - networking/cisco/index.md

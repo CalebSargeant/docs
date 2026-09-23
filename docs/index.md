@@ -58,6 +58,9 @@ Everything here is also published for AI assistants to read without scraping:
   server that searches these pages and [calebsargeant.com](https://calebsargeant.com/)
   together. No sign-in:
   `claude mcp add --transport http calebsargeant https://mcp.calebsargeant.com/`
+- [Ask an AI](ai.md) has the steps for Claude, Claude Code, Codex and ChatGPT, and
+  some questions worth asking. Or ask Nievah, the assistant at the bottom right of
+  every page.
 
 ## A note on the lab files
 
