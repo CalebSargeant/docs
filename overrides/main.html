@@ -13,6 +13,7 @@
   <link rel="icon" href="{{ 'assets/images/portrait-192.png' | url }}" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="{{ 'assets/images/apple-touch-icon.png' | url }}">
   {% if seo %}
+  <link rel="alternate" type="text/markdown" href="{{ seo.twin | e }}">
   <meta property="og:type" content="{{ seo.type }}">
   <meta property="og:site_name" content="{{ config.site_name | e }}">
   <meta property="og:locale" content="en_GB">

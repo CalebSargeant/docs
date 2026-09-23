@@ -23,6 +23,14 @@ to install: MkDocs imports this file and calls the functions below by name.
     in a template is one stray quote in a page title away from a graph no crawler can
     parse.
 
+``on_post_page``
+    Writes each page's markdown beside its HTML as ``<page>/index.md``, the "same URL
+    with .md" copy llmstxt.org asks for. A Transform Rule on the zone serves it for a
+    request that asks for ``Accept: text/markdown``, and docs/_headers links the pair
+    both ways (canonical on the copy, alternate on the page), the same arrangement as
+    calebsargeant.com. It is the page's source, not a conversion of the HTML: these
+    pages were written as markdown, so that is the cleanest version there is.
+
 ``on_post_build``
     Writes ``/.well-known/security.txt`` (RFC 9116) with an ``Expires`` computed at
     build time. calebsargeant.com keeps its copy by hand and says so, because an expired
@@ -30,7 +38,9 @@ to install: MkDocs imports this file and calls the functions below by name.
     deploy on every change to ``docs/``, Dependabot's monthly bumps included. It is
     written straight into the built site rather than kept under ``docs/``, because
     MkDocs excludes dot-directories from ``docs_dir`` by default and a generated file
-    has no business in the source tree.
+    has no business in the source tree. The two agent-discovery catalogs are written the
+    same way and for the same reason: an AI Catalog and an RFC 9727 API catalog, both
+    pointing at the MCP server that searches these pages.
 """
 
 from __future__ import annotations
@@ -65,6 +75,11 @@ PERSON = {
         "https://www.udemy.com/user/caleb-sargeant/",
     ],
 }
+
+#: The MCP server that searches these pages, and its Server Card (SEP-2127), which lives
+#: with the server at the location the extension reserves.
+MCP_ENDPOINT = "https://mcp.calebsargeant.com/"
+MCP_CARD = f"{MCP_ENDPOINT}server-card"
 
 #: The 1200x630 card calebsargeant.com renders for itself. The same person and the same
 #: design, so borrowing it is truer than a generic card per page.
@@ -235,6 +250,7 @@ def on_page_context(context, page, config, nav):  # noqa: ARG001 - MkDocs' hook 
         "title": title,
         "description": html.escape(description, quote=True),
         "url": url,
+        "twin": f"{url}index.md",
         "image": OG_IMAGE,
         # `<` escaped so no page title can close the script element early.
         "jsonld": json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False).replace(
@@ -242,6 +258,75 @@ def on_page_context(context, page, config, nav):  # noqa: ARG001 - MkDocs' hook 
         ),
     }
     return context
+
+
+def twin_text(markdown: str, url: str) -> str:
+    """The page's markdown with one line saying where it is published, under its H1."""
+    note = f"> Markdown source of <{url}>."
+    first, _, rest = markdown.lstrip("\n").partition("\n")
+    if first.startswith("# "):
+        return f"{first}\n\n{note}\n{rest}"
+    return f"{note}\n\n{markdown}"
+
+
+def on_post_page(output, page, config):
+    # Directory URLs only: every page here is one, and a copy of a page rendered to a
+    # flat foo.html would need a different URL rule than the zone's Transform Rule has.
+    if page.file.dest_uri.endswith("index.html") and page.markdown:
+        target = Path(config["site_dir"]) / page.file.dest_uri[: -len("index.html")] / "index.md"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(twin_text(page.markdown, page.canonical_url), encoding="utf-8")
+    return output
+
+
+def ai_catalog() -> dict:
+    """An AI Catalog (github.com/Agent-Card/ai-catalog) listing the MCP server's card.
+
+    The same entry calebsargeant.com and mcp.calebsargeant.com publish: one server,
+    whichever of the three domains an agent starts from.
+    """
+    return {
+        "specVersion": "1.0",
+        "host": {
+            "displayName": "Caleb Sargeant",
+            "identifier": "calebsargeant.com",
+            "documentationUrl": "https://docs.calebsargeant.com/llms.txt",
+            "logoUrl": "https://calebsargeant.com/assets/icon-192.png",
+        },
+        "entries": [
+            {
+                "identifier": "urn:air:calebsargeant.com:mcp:calebsargeant",
+                "displayName": "Caleb Sargeant",
+                "type": "application/mcp-server-card+json",
+                "url": MCP_CARD,
+                "description": "Public, read-only MCP server over Caleb Sargeant's CV, website and technical docs.",
+                "tags": ["networking", "cisco", "security", "cloud", "linux", "kubernetes", "documentation"],
+                "representativeQueries": [
+                    "How do I secure the management plane on a Cisco router?",
+                    "Find notes on installing Kubernetes",
+                    "What does Caleb Sargeant's documentation say about Terraform?",
+                    "Show me a runbook for configuring a FortiGate VPN",
+                ],
+            }
+        ],
+    }
+
+
+def api_catalog(site_url: str) -> dict:
+    """RFC 9727: the MCP server as the API, its card as the machine-readable description."""
+    return {
+        "linkset": [
+            {
+                "anchor": f"{site_url}/.well-known/api-catalog",
+                "item": [{"href": MCP_ENDPOINT, "title": "calebsargeant: a public, read-only MCP server over these pages"}],
+            },
+            {
+                "anchor": MCP_ENDPOINT,
+                "service-desc": [{"href": MCP_CARD, "type": "application/mcp-server-card+json"}],
+                "service-doc": [{"href": MCP_ENDPOINT, "type": "text/html"}],
+            },
+        ]
+    }
 
 
 def security_expiry(now: datetime) -> datetime:
@@ -267,6 +352,10 @@ def on_post_build(config):
             "",
         ]
     )
-    target = Path(config["site_dir"]) / ".well-known" / "security.txt"
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(body, encoding="utf-8")
+    wellknown = Path(config["site_dir"]) / ".well-known"
+    wellknown.mkdir(parents=True, exist_ok=True)
+    (wellknown / "security.txt").write_text(body, encoding="utf-8")
+    # Media types and CORS for these two come from docs/_headers; api-catalog has no
+    # extension to take one from.
+    (wellknown / "ai-catalog.json").write_text(json.dumps(ai_catalog(), indent=2) + "\n", encoding="utf-8")
+    (wellknown / "api-catalog").write_text(json.dumps(api_catalog(site_url), indent=2) + "\n", encoding="utf-8")

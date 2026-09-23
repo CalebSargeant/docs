@@ -1,0 +1,7 @@
+# Redirects for docs.calebsargeant.com, applied by the Workers asset server. MkDocs copies
+# this file to the site root, as it does _headers.
+#
+# The MCP server's card lives with the server, at <endpoint>/server-card (the location the
+# Server Card extension, SEP-2127, reserves), and /.well-known/ai-catalog.json points there.
+# This is for clients and scanners still probing the per-domain path from the first draft.
+/.well-known/mcp/server-card.json https://mcp.calebsargeant.com/server-card 302
