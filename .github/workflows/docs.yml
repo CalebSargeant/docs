@@ -79,7 +79,7 @@ jobs:
       # index, WebMCP tools on every page and an auth.md, written into the site by a step
       # after this build. `extra.agents` in mkdocs.yml and the agent-skills rule in
       # docs/_headers are for it, and inert until the pin moves.
-      - uses: MagmaMoose/tremvok@0063b5cfba963da846779a7b1ea0e0a81295a91f # v2.10.2
+      - uses: MagmaMoose/tremvok@7dc94052596ca246712499cb88eec68ba6bf054b # v2.12.0
         with:
           target: cloudflare-docs
           pages-strict: true

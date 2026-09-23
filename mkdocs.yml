@@ -159,6 +159,12 @@ exclude_docs: |
   /conf.py
 
 extra:
+  # Read by tremvok's agent-ready step (v2.12.0 and later), which writes the site's Agent
+  # Skills index and skill, loads WebMCP tools on every page and writes /auth.md. The MCP
+  # server is the one setting worth giving it: the skill then sends an agent to the server
+  # that searches these pages and calebsargeant.com, instead of having it scrape.
+  agents:
+    mcp: https://mcp.calebsargeant.com/
   social:
     - icon: fontawesome/solid/globe
       link: https://calebsargeant.com/
