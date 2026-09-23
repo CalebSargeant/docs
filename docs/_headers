@@ -41,6 +41,42 @@
 /*.txt
   Content-Type: text/plain; charset=utf-8
 
+# MARKDOWN COPIES. hooks/seo.py writes every page's markdown to <page>/index.md, and a
+# Transform Rule on the zone serves it for a request with `Accept: text/markdown`. The
+# copy names its page as canonical, so search engines index the page and not the copy;
+# the page names its copy as an alternate, for an agent that reads headers first; and
+# Vary: Accept, because the same URL now answers two ways. :splat is what the `*` matched.
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/index.md
+  Link: <https://docs.calebsargeant.com/>; rel="canonical"
+
+/*/index.md
+  Link: <https://docs.calebsargeant.com/:splat/>; rel="canonical"
+
+/*/
+  Link: </:splat/index.md>; rel="alternate"; type="text/markdown"
+  Vary: Accept
+
+# The home page also points at llms.txt and the two catalogs below.
+/
+  Link: </index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain", </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json", </.well-known/api-catalog>; rel="api-catalog"
+  Vary: Accept
+
+# AGENT DISCOVERY. An AI Catalog and an RFC 9727 API catalog, written by hooks/seo.py,
+# both pointing at the MCP server that searches these pages. Public, read-only metadata,
+# so any origin may read them. api-catalog has no extension, so without its rule it would
+# go out as application/octet-stream; RFC 9727 also wants it to name itself in a Link.
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+  Link: </.well-known/api-catalog>; rel="api-catalog"
+  Access-Control-Allow-Origin: *
+
+/.well-known/ai-catalog.json
+  Content-Type: application/ai-catalog+json
+  Access-Control-Allow-Origin: *
+
 # Material's own bundles are content-hashed, but docs/assets/ (theme.css, mathjax.js) is
 # not, so a day rather than a year: long enough to matter, short enough that a style
 # change reaches a returning reader tomorrow.
