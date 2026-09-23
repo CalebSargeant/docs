@@ -5,10 +5,14 @@
 #   1. installs the pinned toolchain from docs/requirements.txt and builds with `--strict`,
 #      so a broken internal link or a nav entry naming a missing page fails here rather
 #      than publishing a site with holes in it;
-#   2. writes llms.txt and llms-full.txt into the built site, and the search corpus
+#   2. gives each page its own metadata and markdown copy, except that hooks/seo.py has
+#      already done both during the build, so this step finds them and adds nothing;
+#   3. writes llms.txt and llms-full.txt into the built site, and the search corpus
 #      (index/docs.json) beside it, in one pass over the markdown just rendered;
-#   3. deploys ./site as the assets-only Worker described in wrangler.toml;
-#   4. only after the deploy succeeded, publishes index/docs.json to the R2 bucket that
+#   4. from the release after v2.10.2 (see the pin below): an Agent Skills index, WebMCP
+#      tools on every page and an auth.md, written into the built site;
+#   5. deploys ./site as the assets-only Worker described in wrangler.toml;
+#   6. only after the deploy succeeded, publishes index/docs.json to the R2 bucket that
 #      mcp.calebsargeant.com reads, so an agent never cites a page that failed to deploy.
 #
 # This is how the MagmaMoose fleet's docs reach mcp.magmamoose.com, and why this repo left
@@ -63,9 +67,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Pinned to a commit, with the tag in the comment; Dependabot moves both together.
-      # v2.8.0 carries tremvok#48: credentials are required only where something publishes,
+      # v2.8.0 brought tremvok#48: credentials are required only where something publishes,
       # so a pull request without secrets builds and passes instead of failing on a token.
-      - uses: MagmaMoose/tremvok@8535951b78fc65d9b6adf243029fd8a63e076bdd # v2.8.0
+      # v2.10.2 adds #49, which indexes only the pages the build emitted (the excluded
+      # other/general/_docs/README.md stops being cited at a URL that 404s), and #52's
+      # page-metadata step. That step finds hooks/seo.py's descriptions, Open Graph, JSON-LD
+      # and markdown copies on every page and leaves them alone, and llms.txt now links the
+      # copies.
+      #
+      # WAITING FOR THE NEXT RELEASE. The one after v2.10.2 carries tremvok#56: an Agent Skills
+      # index, WebMCP tools on every page and an auth.md, written into the site by a step
+      # after this build. `extra.agents` in mkdocs.yml and the agent-skills rule in
+      # docs/_headers are for it, and inert until the pin moves.
+      - uses: MagmaMoose/tremvok@0063b5cfba963da846779a7b1ea0e0a81295a91f # v2.10.2
         with:
           target: cloudflare-docs
           pages-strict: true
